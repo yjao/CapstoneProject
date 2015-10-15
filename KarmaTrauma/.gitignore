@@ -3,9 +3,9 @@
 /*/
 
 # Inverse ignore some stuff
-!/Assets/
-!/ProjectSettings/
-!.gitignore
+\!/Assets/
+\!/ProjectSettings/
+\!.gitignore
 
 # OS Stuff
 .DS_Store

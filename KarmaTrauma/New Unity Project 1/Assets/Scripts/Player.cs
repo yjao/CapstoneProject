@@ -4,6 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
     public float speed;
+    GameObject saveMachine = GameObject.AddComponent<SaveData>();
 
     // Use this for initialization
     void Start()
@@ -28,6 +29,15 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(-speed, 0, 0);
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            SaveLoad.Save(); ;
+        }
+        if (Input.GetKey(KeyCode.L))
+        {
+            SaveLoad.Load(); ;
         }
     }
 }

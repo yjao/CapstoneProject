@@ -44,11 +44,6 @@ public class Player : MonoBehaviour
             transform.Translate(-speed, 0, 0);
             animator.SetInteger(animationState, left);
         }
-        else if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.Translate(0, speed, 0);
-            animator.SetInteger(animationState, up);
-        }
         else
         {
             animator.SetInteger(animationState, idle);

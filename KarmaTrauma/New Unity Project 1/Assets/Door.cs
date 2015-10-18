@@ -6,9 +6,8 @@ public class Door : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "character")
+        if (col.gameObject.tag == "Player")
         {
-            Debug.Log("yes");
             Application.LoadLevel("Chelsey'sRoom");
         }
     }

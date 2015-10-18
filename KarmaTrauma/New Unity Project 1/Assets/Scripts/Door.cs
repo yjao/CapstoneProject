@@ -8,7 +8,7 @@ public class Door : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            Application.LoadLevel("Chelsey'sRoom");
+            Application.LoadLevel("WorldMap");
         }
     }
 }

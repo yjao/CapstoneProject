@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
     public float speed;
-    GameObject saveMachine = GameObject.AddComponent<SaveData>();
+    //GameObject saveMachine = GameObject.AddComponent<SaveData>();
 
     // Use this for initialization
     void Start()

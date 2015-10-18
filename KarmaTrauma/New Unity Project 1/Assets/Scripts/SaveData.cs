@@ -10,7 +10,7 @@ using System.Reflection;
 
 // === This is the info container class ===
 [Serializable()]
-public class SaveData : ISerializable
+public class SaveData : MonoBehaviour
 {
 
     // === Values ===

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManager : MonoBehaviour
+public class GameManager
 {
 	public GameObject DialogueContainer;
 	public enum MODE
@@ -9,23 +9,16 @@ public class GameManager : MonoBehaviour
 		NONE, PLAYING, DIALOGUE, MENU, CUTSCENE
 	};
 	public MODE GameMode = MODE.NONE;
-
-
-	// Use this for initialization
-	void Start ()
+	
+	public enum AREA
 	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}
+		NONE, HOUSE, APARTMENT, POLICE, MALL, PARK, HOSPITAL, SCHOOL
+	};
+	public AREA CurrentArea = AREA.HOUSE;
 
 	public void DBox(string name, string message)
 	{
 		GameMode = MODE.DIALOGUE;
-		Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
+		//Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
 	}
 }

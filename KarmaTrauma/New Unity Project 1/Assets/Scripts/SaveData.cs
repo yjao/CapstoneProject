@@ -10,11 +10,7 @@ using System.Reflection;
 
 // === This is the info container class ===
 [Serializable()]
-public class SaveData : MonoBehaviour
-{
-    SaveData1 savedata;
-}
-public class SaveData1: ISerializable
+public class SaveData : ISerializable
 {
 
     // === Values ===
@@ -25,11 +21,11 @@ public class SaveData1: ISerializable
     // === /Values ===
 
     // The default constructor. Included for when we call it during Save() and Load()
-    public SaveData1() { }
+    public SaveData() { }
 
     // This constructor is called automatically by the parent class, ISerializable
     // We get to custom-implement the serialization process here
-    public SaveData1(SerializationInfo info, StreamingContext ctxt)
+    public SaveData(SerializationInfo info, StreamingContext ctxt)
     {
         // Get the values from info and assign them to the appropriate properties. Make sure to cast each variable.
         // Do this for each var defined in the Values section above
@@ -62,7 +58,7 @@ public class SaveLoad
     }
     public static void Save(string filePath)
     {
-        SaveData1 data = new SaveData1();
+        SaveData data = new SaveData();
 
         Stream stream = File.Create(filePath);
         BinaryFormatter bformatter = new BinaryFormatter();
@@ -75,11 +71,11 @@ public class SaveLoad
     public static void Load() { Load(currentFilePath); }   // Overloaded
     public static void Load(string filePath)
     {
-        SaveData1 data = new SaveData1();
+        SaveData data = new SaveData();
         Stream stream = File.Open(filePath, FileMode.Open);
         BinaryFormatter bformatter = new BinaryFormatter();
         bformatter.Binder = new VersionDeserializationBinder();
-        data = (SaveData1)bformatter.Deserialize(stream);
+        data = (SaveData)bformatter.Deserialize(stream);
         stream.Close();
 
         // Now use "data" to access your Values

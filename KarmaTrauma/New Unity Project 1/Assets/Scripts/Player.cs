@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = Quaternion.identity;
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(0, speed, 0);

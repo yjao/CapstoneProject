@@ -1,19 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Stairs : MonoBehaviour
-{
+public class Stairs : MonoBehaviour {
 
-    // Use this for initialization
-    void Start()
+    public float char_positionx;
+    public float char_positiony;
+
+    void OnTriggerEnter2D(Collider2D col)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update() {
-	    if(Input.GetKeyDown(KeyCode.Space))
-            Application.LoadLevel("Chelsey'sRoom");
-        
+        if (col.gameObject.tag == "Player")
+        {
+            col.transform.position = new Vector2(char_positionx, char_positiony);
+        }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManager
+public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+	public static GameManager Instance;
 	public GameObject DialogueContainer;
 	public enum MODE
 	{
@@ -17,24 +17,28 @@ public class GameManager
 	};
 	public AREA CurrentArea = AREA.HOUSE;
 
-    private GameManager()
+    void Awake()
     {
 		// default to playing mode for now
 		GameMode = MODE.PLAYING;
-    }
 
-    public static GameManager GetInstance()
-    {
-        if (instance == null)
-            instance = new GameManager();
-        
-        return instance;
+		if ((Instance != null) && (Instance != this))
+			Destroy(gameObject);
+		else
+			Instance = this;
+		
+		DontDestroyOnLoad(this);
     }
 
 	public void DBox(string name, string message)
 	{
+		GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
+		dialog.GetComponent<Textbox>().DrawBox(name, message);
+	}
+
+	public void EnterDialogue()
+	{
 		GameMode = MODE.DIALOGUE;
-		//Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
 	}
 
     public void ExitDialogue()

@@ -7,16 +7,20 @@ public class Textbox : MonoBehaviour
     private GameManager gameManager;
     void Start()
     {
-        gameManager = GameManager.GetInstance();
+		gameManager = GameManager.Instance;
+		gameManager.EnterDialogue();
     }
+
+	void OnDestroy()
+	{
+		gameManager.ExitDialogue();
+	}
 	
-	// Update is called once per frame
 	void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject.Destroy(gameObject);
-            gameManager.ExitDialogue();
         }
     }
 

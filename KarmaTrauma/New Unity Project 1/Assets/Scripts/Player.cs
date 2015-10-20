@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		gameManager = GameManager.GetInstance();
+		gameManager = GameManager.Instance;
         animator = GetComponent<Animator>();
     }
 

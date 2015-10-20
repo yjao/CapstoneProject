@@ -29,8 +29,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.identity;
-
-		if (gameManager.GameMode != GameManager.MODE.PLAYING)
+        if (gameManager.GameMode != GameManager.MODE.PLAYING)
 			return;
 
         if (Input.GetKey(KeyCode.UpArrow))

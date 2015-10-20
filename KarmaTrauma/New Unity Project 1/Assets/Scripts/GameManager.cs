@@ -19,6 +19,8 @@ public class GameManager
 
     private GameManager()
     {
+		// default to playing mode for now
+		GameMode = MODE.PLAYING;
     }
 
     public static GameManager GetInstance()

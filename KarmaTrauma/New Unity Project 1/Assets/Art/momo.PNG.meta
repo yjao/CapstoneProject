@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 98f78d77d2544d44a9305883af14092a
-timeCreated: 1445119239
+timeCreated: 1445139078
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -70,25 +70,25 @@ TextureImporter:
         width: 122.333336
         height: 130.5
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: .50000006, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: momo_1
       rect:
         serializedVersion: 2
         x: 127
-        y: 391.5
-        width: 122.333336
-        height: 130.5
+        y: 393
+        width: 123
+        height: 129
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: momo_2
       rect:
         serializedVersion: 2
-        x: 249
-        y: 391.5
-        width: 122.333336
-        height: 130.5
+        x: 250
+        y: 392
+        width: 121
+        height: 130
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -96,39 +96,39 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 5
-        y: 261.5
-        width: 122.333336
-        height: 130.5
+        y: 262
+        width: 122
+        height: 129
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 1}
     - name: momo_4
       rect:
         serializedVersion: 2
         x: 127
-        y: 261.5
-        width: 122.333336
-        height: 130.5
+        y: 263
+        width: 122
+        height: 129
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 1}
     - name: momo_5
       rect:
         serializedVersion: 2
         x: 249
-        y: 261.5
-        width: 122.333336
-        height: 130.5
+        y: 262
+        width: 122
+        height: 129
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 1}
     - name: momo_6
       rect:
         serializedVersion: 2
         x: 5
-        y: 131.5
-        width: 122.333336
-        height: 130.5
+        y: 132
+        width: 122
+        height: 129
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,9 +136,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 127
-        y: 131.5
-        width: 122.333336
-        height: 130.5
+        y: 133
+        width: 122
+        height: 128
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,9 +146,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 249
-        y: 131.5
-        width: 122.333336
-        height: 130.5
+        y: 132
+        width: 122
+        height: 129
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,14 +160,14 @@ TextureImporter:
         width: 122.333336
         height: 130.5
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: .50000006, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: momo_10
       rect:
         serializedVersion: 2
         x: 127
         y: 1.5
-        width: 122.333336
+        width: 122.333344
         height: 130.5
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -177,10 +177,10 @@ TextureImporter:
         serializedVersion: 2
         x: 249
         y: 1.5
-        width: 122.333336
+        width: 122.333344
         height: 130.5
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: .500000119, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -2,17 +2,23 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class Textbox : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
+public class Textbox : MonoBehaviour
+{
+    private GameManager gameManager;
+    void Start()
+    {
+        gameManager = GameManager.GetInstance();
+    }
 	
 	// Update is called once per frame
-	void Update () {
-
-	}
+	void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject.Destroy(gameObject);
+            gameManager.ExitDialogue();
+        }
+    }
 
     public void DrawBox(string name, string dialog)
     {

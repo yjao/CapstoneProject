@@ -20,6 +20,7 @@ public class InteractableObject : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D c)
 	{
+        Debug.Log("colliededed");
 		if (c.gameObject.tag == "Player")
 		{
 			colliding = true;
@@ -40,7 +41,7 @@ public class InteractableObject : MonoBehaviour
 		{
 		case TYPE.DIALOG:
 			if (gameManager.GameMode != GameManager.MODE.DIALOGUE)
-				gameManager.DBox(ID);
+				gameManager.DBox(ID, true);
 			break;
 		}
 	}

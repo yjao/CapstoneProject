@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\InteractableObject.cs" />
      <Compile Include="Assets\Scripts\MapLocation.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\PrologueManager.cs" />
      <Compile Include="Assets\Scripts\RepeatSpriteBoundary.cs" />
      <Compile Include="Assets\Scripts\Stairs.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />

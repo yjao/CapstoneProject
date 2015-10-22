@@ -40,7 +40,7 @@ public class InteractableObject : MonoBehaviour
 		{
 		case TYPE.DIALOG:
 			if (gameManager.GameMode != GameManager.MODE.DIALOGUE)
-				gameManager.DBox(ID);
+				gameManager.DBox(ID, true);
 			break;
 		}
 	}

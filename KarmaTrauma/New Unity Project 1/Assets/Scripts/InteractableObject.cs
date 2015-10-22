@@ -3,8 +3,15 @@ using System.Collections;
 
 public class InteractableObject : MonoBehaviour
 {
+	public int ID;
 	private GameManager gameManager;
-    private bool collided = false;
+    private bool colliding = false;
+
+	public enum TYPE
+	{
+		NONE, DIALOG
+	};
+	public TYPE InteractionType;
 
 	void Start()
 	{
@@ -15,18 +22,36 @@ public class InteractableObject : MonoBehaviour
 	{
 		if (c.gameObject.tag == "Player")
 		{
-			collided = true;
+			colliding = true;
 		}
-
 	}
+
+	void OnTriggerExit2D(Collider2D c)
+	{
+		if (c.gameObject.tag == "Player")
+		{
+			colliding = false;
+		}
+	}
+
+	public void Interact()
+	{
+		switch (InteractionType)
+		{
+		case TYPE.DIALOG:
+			if (gameManager.GameMode != GameManager.MODE.DIALOGUE)
+				gameManager.DBox(ID);
+			break;
+		}
+	}
+
     void Update()
     {
-        if (collided && Input.GetKey(KeyCode.Space))
+        if (colliding && Input.GetKey(KeyCode.Space))
         {
-            //call dialogue box;
+			colliding = false; //troublesome without this line...
             Debug.Log("Interacting");
-            collided = false;
-			gameManager.DBox("Jewel", "\"Don't bother me, I'm taking a nap!\"");
+			Interact();
         }
     }
 }

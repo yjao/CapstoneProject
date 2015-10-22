@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class GameManager : MonoBehaviour
 		NONE, PLAYING, DIALOGUE, MENU, CUTSCENE
 	};
 	public MODE GameMode = MODE.NONE;
+	public MODE PrevMode = MODE.NONE;
 	
 	public enum AREA
 	{
 		NONE, HOUSE, APARTMENT, POLICE, MALL, PARK, HOSPITAL, SCHOOL
 	};
 	public AREA CurrentArea = AREA.HOUSE;
+
+	public Dictionary<int, Character> AllObjects;
 
     void Awake()
     {
@@ -28,9 +32,23 @@ public class GameManager : MonoBehaviour
 			Instance = this;
 		
 		DontDestroyOnLoad(this);
+
+		// Load interaction info here?
+		AllObjects = new Dictionary<int, Character>()
+		{
+			{ 150, new Character("Jewel", new string[] {"\"Don't bother me, I'm taking a nap!\""}) }/*,
+			{ 0, new Character() }*/
+		};
     }
 
-	public void DBox(string name, string message)
+	// Send the ONLY dialog available for character
+	public void DBox(int id)
+	{
+		Character ch = AllObjects[id];
+		CreateDialogue(ch.Name, ch.Dialogue[0]);
+	}
+
+	public void CreateDialogue(string name, string message)
 	{
 		GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
 		dialog.GetComponent<Textbox>().DrawBox(name, message);
@@ -38,11 +56,12 @@ public class GameManager : MonoBehaviour
 
 	public void EnterDialogue()
 	{
+		PrevMode = GameMode;
 		GameMode = MODE.DIALOGUE;
 	}
 
     public void ExitDialogue()
     {
-        GameMode = MODE.PLAYING;
+		GameMode = PrevMode;
     }
 }

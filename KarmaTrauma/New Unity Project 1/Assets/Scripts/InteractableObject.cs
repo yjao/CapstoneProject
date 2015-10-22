@@ -4,7 +4,7 @@ using System.Collections;
 public class InteractableObject : MonoBehaviour
 {
 	public int ID;
-	private GameManager gameManager;
+	protected GameManager gameManager;
     private bool colliding = false;
 
 	public enum TYPE
@@ -20,7 +20,7 @@ public class InteractableObject : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D c)
 	{
-		if (c.gameObject.tag == "Player")
+        if (c.gameObject.tag == "Player")
 		{
 			colliding = true;
 		}
@@ -45,13 +45,18 @@ public class InteractableObject : MonoBehaviour
 		}
 	}
 
+	public void CheckAndInteract()
+	{
+		if (colliding && Input.GetKey(KeyCode.Space))
+		{
+			colliding = false; //troublesome without this line...
+			Debug.Log("Interacting");
+			Interact();
+		}
+	}
+
     void Update()
     {
-        if (colliding && Input.GetKey(KeyCode.Space))
-        {
-			colliding = false; //troublesome without this line...
-            Debug.Log("Interacting");
-			Interact();
-        }
+		CheckAndInteract();
     }
 }

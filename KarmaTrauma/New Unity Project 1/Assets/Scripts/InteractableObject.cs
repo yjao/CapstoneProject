@@ -20,6 +20,7 @@ public class InteractableObject : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D c)
 	{
+        Debug.Log("colliededed");
 		if (c.gameObject.tag == "Player")
 		{
 			colliding = true;

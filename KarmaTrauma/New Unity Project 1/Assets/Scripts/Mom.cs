@@ -12,6 +12,9 @@ public class Mom : InteractableObject
     const int down = 2;
     const int right = 3;
     const int left = 4;
+
+    const int rightIdle = 5;
+    const int leftIdle = 6;
     const string animationState = "MomAnimationState";
 
     int k = 0;
@@ -30,7 +33,17 @@ public class Mom : InteractableObject
 
         transform.rotation = Quaternion.identity;
         if (gameManager.GameMode != GameManager.MODE.PLAYING)
+        {
+            if (r)
+            {
+                animator.SetInteger(animationState, rightIdle);
+            }
+            else if (l)
+            {
+                animator.SetInteger(animationState, leftIdle);
+            }
             return;
+        }
 
         if (r && k != 60)
         {
@@ -46,12 +59,13 @@ public class Mom : InteractableObject
         }
         else
         {
-            if (r)
+
+            if (r && k == 60)
             {
                 r = false;
                 l = true;
             }
-            else if (l)
+            else if (l && k == -60)
             {
                 l = false;
                 r = true;

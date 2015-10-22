@@ -1,0 +1,375 @@
+fileFormatVersion: 2
+guid: 6beb990a68ca50f4d8fed9f92829804e
+timeCreated: 1445552335
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: rpg_maker_vx___princess_room_0
+    21300002: rpg_maker_vx___princess_room_1
+    21300004: rpg_maker_vx___princess_room_2
+    21300006: rpg_maker_vx___princess_room_3
+    21300008: rpg_maker_vx___princess_room_4
+    21300010: rpg_maker_vx___princess_room_5
+    21300012: rpg_maker_vx___princess_room_6
+    21300014: rpg_maker_vx___princess_room_7
+    21300016: rpg_maker_vx___princess_room_8
+    21300018: rpg_maker_vx___princess_room_9
+    21300020: rpg_maker_vx___princess_room_10
+    21300022: rpg_maker_vx___princess_room_11
+    21300024: rpg_maker_vx___princess_room_12
+    21300026: rpg_maker_vx___princess_room_13
+    21300028: rpg_maker_vx___princess_room_14
+    21300030: rpg_maker_vx___princess_room_15
+    21300032: rpg_maker_vx___princess_room_16
+    21300034: rpg_maker_vx___princess_room_17
+    21300036: rpg_maker_vx___princess_room_18
+    21300038: rpg_maker_vx___princess_room_20
+    21300040: rpg_maker_vx___princess_room_21
+    21300042: rpg_maker_vx___princess_room_22
+    21300044: rpg_maker_vx___princess_room_19
+    21300046: rpg_maker_vx___princess_room_23
+    21300048: rpg_maker_vx___princess_room_24
+    21300050: rpg_maker_vx___princess_room_25
+    21300052: rpg_maker_vx___princess_room_26
+    21300054: rpg_maker_vx___princess_room_27
+    21300056: rpg_maker_vx___princess_room_28
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: rpg_maker_vx___princess_room_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 398
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 384
+        width: 12
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_3
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 384
+        width: 69
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 20
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_5
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 384
+        width: 20
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 352
+        width: 56
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 327
+        width: 64
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 328
+        width: 47
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 352
+        width: 64
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_10
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 324
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_11
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 254
+        width: 98
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 236
+        width: 64
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_13
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 288
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_14
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 258
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_15
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 160
+        width: 26
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_16
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 226
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_17
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 206
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_18
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 200
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_20
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 194
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 236
+        width: 32
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 236
+        width: 32
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 140
+        width: 64
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_23
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 140
+        width: 32
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 140
+        width: 32
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_25
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 67
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_26
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 4
+        width: 78
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_27
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 72
+        width: 77
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx___princess_room_28
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 96
+        width: 49
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

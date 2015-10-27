@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
 	public Dictionary<int, Character> AllObjects;
 
+    public string dialogue_choice;
+
     void Awake()
     {
 		// default to playing mode for now
@@ -41,7 +43,9 @@ public class GameManager : MonoBehaviour
 					"\"He looks familiar... What a strange night.\""
 				}) },
 			{ 150, new Character("Jewel", new string[] {
-					"\"Don't bother me, I'm taking a nap!\""}
+					"\"%CDon't bother me, I'm taking a nap!%COK%CNo\"",
+                    "\"%C!!!%CPeanut Butter%CHi%C???%C!!!\""
+            }
 				) },
 			{ 21, new Character("Mom", new string[] {
 					"\"Chelsey! Wake up! You don't want to be late on your first day of school!\"",
@@ -74,7 +78,14 @@ public class GameManager : MonoBehaviour
 			ch.LastDialogueDisplayed++;
 		else if (!next && ch.LastDialogueDisplayed < 0)
 			ch.LastDialogueDisplayed = 0;
-		CreateDialogue(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed]);
+        if (ch.Dialogue[ch.LastDialogueDisplayed].Contains("%C"))
+        {
+            StartCoroutine(CreateChoice(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed]));
+        }
+        else
+        {
+            CreateDialogue(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed]);
+        }
 	}
 
 	public void CreateDialogue(string name, string message)
@@ -82,6 +93,19 @@ public class GameManager : MonoBehaviour
 		GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
 		dialog.GetComponent<Textbox>().DrawBox(name, message);
 	}
+
+    public IEnumerator CreateChoice(string name, string message)
+    {
+        GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
+        message = message.Substring(3);
+        string text = message.Substring(0,message.IndexOf("%C"));
+        message = message.Substring(message.IndexOf("%C")+2);
+        string[] choices = message.Split(new string[] { "%C" }, System.StringSplitOptions.None);
+        choices[choices.Length-1] = choices[choices.Length-1].Substring(0, choices[choices.Length-1].Length-1);
+        yield return null;
+        yield return StartCoroutine(dialog.GetComponent<Textbox>().Choice(name, "\""+text+"\"" , choices));
+        Debug.Log(dialogue_choice);
+    }
 
 	public void EnterDialogue()
 	{

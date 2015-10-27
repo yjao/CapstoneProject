@@ -59,6 +59,11 @@ public class GameManager : MonoBehaviour
 		};
     }
 
+    public void Play()
+    {
+        GameMode = MODE.PLAYING;
+    }
+
 	public void DBox(int id, int dialogueId)
 	{
 		Character ch = AllObjects[id];

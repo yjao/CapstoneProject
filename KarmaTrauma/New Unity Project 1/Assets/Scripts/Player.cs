@@ -14,7 +14,19 @@ public class Player : MonoBehaviour
     const int down = 2;
     const int right = 3;
     const int left = 4;
+
+    const int upIdle = 5;
+    const int downIdle = 6;
+    const int rightIdle = 7;
+    const int leftIdle = 8;
+
     const string animationState = "AnimationState";
+
+    bool u = false;
+    bool d = false;
+    bool r = false;
+    bool l = false;
+
 
     //GameObject saveMachine = GameObject.AddComponent<SaveData>();
 
@@ -29,32 +41,65 @@ public class Player : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.identity;
-        if (gameManager.GameMode != GameManager.MODE.PLAYING)
-			return;
+        if (gameManager.GameMode != GameManager.MODE.PLAYING) {
 
+            if (this.transform.position.x > GameObject.FindGameObjectWithTag("Mom").transform.position.x)
+            {
+                animator.SetInteger(animationState, leftIdle);
+            }
+            else if (this.transform.position.x < GameObject.FindGameObjectWithTag("Mom").transform.position.x)
+            {
+                animator.SetInteger(animationState, rightIdle);
+            }
+
+            return;
+        }
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(0, speed, 0);
             animator.SetInteger(animationState, up);
+            u = true;
+            d = false;
+            r = false;
+            l = false;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(0, -speed, 0);
             animator.SetInteger(animationState, down);
+            u = false;
+            d = true;
+            r = false;
+            l = false;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(speed, 0, 0);
             animator.SetInteger(animationState, right);
+            u = false;
+            d = false;
+            r = true;
+            l = false;
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(-speed, 0, 0);
             animator.SetInteger(animationState, left);
+            u = false;
+            d = false;
+            r = false;
+            l = true;
         }
         else
         {
-            animator.SetInteger(animationState, idle);
+            if (u == true)
+                animator.SetInteger(animationState, upIdle);
+            else if (d == true)
+                animator.SetInteger(animationState, downIdle);
+            else if (r == true)
+                animator.SetInteger(animationState, rightIdle);
+            else if (l == true)
+                animator.SetInteger(animationState, leftIdle);
         }
 
         if (Input.GetKey(KeyCode.S))

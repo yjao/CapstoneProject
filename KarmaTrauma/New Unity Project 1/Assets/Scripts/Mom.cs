@@ -34,13 +34,14 @@ public class Mom : InteractableObject
         transform.rotation = Quaternion.identity;
         if (gameManager.GameMode != GameManager.MODE.PLAYING)
         {
-            if (r)
-            {
-                animator.SetInteger(animationState, rightIdle);
-            }
-            else if (l)
+
+            if (this.transform.position.x > GameObject.FindGameObjectWithTag("Player").transform.position.x)
             {
                 animator.SetInteger(animationState, leftIdle);
+            }
+            else if (this.transform.position.x < GameObject.FindGameObjectWithTag("Player").transform.position.x)
+            {
+                animator.SetInteger(animationState, rightIdle);
             }
             return;
         }

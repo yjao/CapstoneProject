@@ -60,7 +60,7 @@ public class PrologueManager : MonoBehaviour
         // Get Space
         while (true) { if (Input.GetKey(KeyCode.Space)) break; yield return null; }
 
-        gameManager.CreateDialogue("", "YOU TWISTED FATE!");
+		gameManager.CreateMessage("YOU TWISTED FATE!");
         yield return null; while (Pause()) { yield return null; }
         
         Application.LoadLevel(SCENE_HOUSE);

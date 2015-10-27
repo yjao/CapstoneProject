@@ -23,7 +23,7 @@ public class Mom : InteractableObject
 
     void Start()
     {
-		gameManager = GameManager.Instance;
+		base.Init();
         animator = GetComponent<Animator>();
     }
 

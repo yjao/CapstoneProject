@@ -3,11 +3,18 @@ using System.Collections;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
 	private GameManager gameManager;
     public float speed;
+
+	public static Player Instance;
+
+	// might be useful later on, can change to List<GameObject>?
+	public List<int> CollidingWithID;
+
     Animator animator;
     const int idle = 0;
     const int up = 1;
@@ -29,6 +36,18 @@ public class Player : MonoBehaviour
 
 
     //GameObject saveMachine = GameObject.AddComponent<SaveData>();
+
+	void Awake()
+	{
+		if ((Instance != null) && (Instance != this))
+			Destroy(gameObject);
+		else
+			Instance = this;
+		
+		DontDestroyOnLoad(this);
+
+		CollidingWithID = new List<int>();
+	}
 
     // Use this for initialization
     void Start()

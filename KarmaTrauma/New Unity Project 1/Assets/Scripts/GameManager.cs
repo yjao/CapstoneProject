@@ -112,6 +112,12 @@ public class GameManager : MonoBehaviour
         Debug.Log(dialogue_choice);
     }
 
+	public void CreateMessage(string message)
+	{
+		GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
+		dialog.GetComponent<Textbox>().DrawMessage(message);
+	}
+
 	public void EnterDialogue()
 	{
 		PrevMode = GameMode;

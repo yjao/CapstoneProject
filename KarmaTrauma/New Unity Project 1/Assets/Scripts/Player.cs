@@ -41,7 +41,30 @@ public class Player : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.identity;
-        if (gameManager.GameMode != GameManager.MODE.PLAYING) { 
+        if (gameManager.GameMode != GameManager.MODE.PLAYING) {
+
+            Debug.Log("BELOW IS PLAYER'S X");
+            Debug.Log(transform.position.x);
+           
+            Debug.Log("THIS IS MOM'S X");
+            Debug.Log(GameObject.FindGameObjectWithTag("Mom").transform.position.x);
+
+
+
+            if (this.transform.position.x > GameObject.FindGameObjectWithTag("Mom").transform.position.x)
+            {
+                animator.SetInteger(animationState, leftIdle);
+                Debug.Log("Looking to the left now");
+            }
+            else if (this.transform.position.x < GameObject.FindGameObjectWithTag("Mom").transform.position.x)
+            {
+                animator.SetInteger(animationState, rightIdle);
+                Debug.Log("Looking to the right now");
+            }
+
+            
+
+            /*
 
             if (u)
             {
@@ -59,6 +82,8 @@ public class Player : MonoBehaviour
             {
                 animator.SetInteger(animationState, leftIdle);
             }
+            */
+
             return;
         }
         if (Input.GetKey(KeyCode.UpArrow))

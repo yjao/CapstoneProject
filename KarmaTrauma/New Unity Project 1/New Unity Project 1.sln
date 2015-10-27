@@ -1,9 +1,9 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "New Unity Project 1.CSharp", "New Unity Project 1.CSharp.csproj", "{0CE60030-8EEB-F633-D60B-818BB5A32A64}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{702DC962-78F6-7E36-F806-ED0EAE2B934E}") = "New Unity Project 1", "Assembly-CSharp.csproj", "{FC9411EB-1B12-4154-0219-EEA7CBD09863}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "New Unity Project 1.CSharp.Editor", "New Unity Project 1.CSharp.Editor.csproj", "{7D56AD22-DE34-A0C9-7150-27EF953DDB48}"
+Project("{702DC962-78F6-7E36-F806-ED0EAE2B934E}") = "New Unity Project 1", "Assembly-CSharp-Editor.csproj", "{9794B609-D411-2657-D925-5971FE96ABB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,20 +11,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0CE60030-8EEB-F633-D60B-818BB5A32A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0CE60030-8EEB-F633-D60B-818BB5A32A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0CE60030-8EEB-F633-D60B-818BB5A32A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0CE60030-8EEB-F633-D60B-818BB5A32A64}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D56AD22-DE34-A0C9-7150-27EF953DDB48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D56AD22-DE34-A0C9-7150-27EF953DDB48}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D56AD22-DE34-A0C9-7150-27EF953DDB48}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D56AD22-DE34-A0C9-7150-27EF953DDB48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC9411EB-1B12-4154-0219-EEA7CBD09863}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC9411EB-1B12-4154-0219-EEA7CBD09863}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC9411EB-1B12-4154-0219-EEA7CBD09863}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9411EB-1B12-4154-0219-EEA7CBD09863}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9794B609-D411-2657-D925-5971FE96ABB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9794B609-D411-2657-D925-5971FE96ABB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9794B609-D411-2657-D925-5971FE96ABB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9794B609-D411-2657-D925-5971FE96ABB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-<<<<<<< HEAD
-						GlobalSection(MonoDevelopProperties) = preSolution
+									GlobalSection(MonoDevelopProperties) = preSolution
 =======
 										GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> af33be35be72779525da923346b13c25f6838144
@@ -51,6 +50,4 @@ Global
 		$3.scope = text/plain
 	EndGlobalSection
 
-=======
->>>>>>> b0e53d0e0441b323bd602c33ad9a1b52b1be4461
 EndGlobal

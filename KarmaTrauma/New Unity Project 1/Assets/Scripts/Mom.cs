@@ -34,14 +34,24 @@ public class Mom : InteractableObject
         transform.rotation = Quaternion.identity;
         if (gameManager.GameMode != GameManager.MODE.PLAYING)
         {
+<<<<<<< HEAD
 
             if (this.transform.position.x > GameObject.FindGameObjectWithTag("Player").transform.position.x)
             {
                 animator.SetInteger(animationState, leftIdle);
-            }
-            else if (this.transform.position.x < GameObject.FindGameObjectWithTag("Player").transform.position.x)
+=======
+            if (r)
             {
                 animator.SetInteger(animationState, rightIdle);
+>>>>>>> 8a065481df943409b583f3d760d24bc10a88d469
+            }
+            else if (l)
+            {
+<<<<<<< HEAD
+                animator.SetInteger(animationState, rightIdle);
+=======
+                animator.SetInteger(animationState, leftIdle);
+>>>>>>> 8a065481df943409b583f3d760d24bc10a88d469
             }
             return;
         }

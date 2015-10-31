@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 	};
 	public AREA CurrentArea = AREA.HOUSE;
 
-	public Dictionary<int, Character> AllObjects;
+	public Dictionary<int, Interactable> AllObjects;
 
     public string dialogue_choice;
 
@@ -32,45 +32,72 @@ public class GameManager : MonoBehaviour
 			Destroy(gameObject);
 		else
 			Instance = this;
-		
 		DontDestroyOnLoad(this);
-
+		
 		// Load interaction info here?
-		AllObjects = new Dictionary<int, Character>()
+		AllObjects = new Dictionary<int, Interactable>()
 		{
-			{ 1, new Character("Chelsey", new string[] {
+			{ 1, new Interactable("Chelsey", new string[] {
 					"\"Um... my name is Chelsey. I just moved in town recently. I like helping people, and.. yeah.\"",
 					"\"He looks familiar... What a strange night.\""
 				}) },
-			{ 150, new Character("Jewel", new string[] {
+			{ 150, new Interactable("Jewel", new string[] {
 					"\"%CDon't bother me, I'm taking a nap!%COK%CNo\"",
                     "\"%C!!!%CPeanut Butter%CHi%C???%C!!!\""
             }
 				) },
-			{ 21, new Character("Mom", new string[] {
+			{ 21, new Interactable("Mom", new string[] {
 					"\"Chelsey! Wake up! You don't want to be late on your first day of school!\"",
 					"\"The breakfast's on the table. Bacon and eggs, your favorite!\"",
 					"\"Come on, you're going to be late!\""
 				}) },
-			{ 65, new Character("Teacher", new string[] {
+			{ 65, new Interactable("Teacher", new string[] {
 					"\"Good morning class, we have a new student today. Chelsey, why don't you introduce yourself?\"",
 					"\"Thank you, Chelsey. Welcome, and we hope you enjoy our time together. Now, everybody, get out your textbooks and turn to page 42...\""
 				}) },
-			{ 66, new Character("Girl", new string[] {
+			{ 66, new Interactable("Girl", new string[] {
 					"\"Hey, your name is Chelsey right? You must be new to town, want me to show you around?\"",
 					"\"Whoa, it's getting late. Just go west from the Main Street and you should find home. I'll see you tomorrow!\""
+				}) },
+			{ 133, new Interactable("Bacon and Eggs", new string[] {
+					"%C A delicious floating egg on a magical bacon.%C\"I guess I'll eat it.\"%C\"Nah...\" ",
 				}) }
 		};
+
+		// Bind events
+		EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
     }
+
+	void OnDestroy()
+	{
+		EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
+	}
 
     public void Play()
     {
         GameMode = MODE.PLAYING;
     }
 
+	void Update()
+	{
+		// For debug purposes (obviously)
+		//Debug.Log (GameMode);
+	}
+
+
+	#region DIALOG BOX
+
+	void HandleOnDialogChoiceMade(object sender, GameEventArgs args)
+	{
+		// let's hard code something
+		if (args.DialogChoice == "\"I guess I'll eat it.\"")
+			CreateMessage("That's creepy! You actually ate it!?");
+	}
+
+
 	public void DBox(int id, int dialogueId)
 	{
-		Character ch = AllObjects[id];
+		Interactable ch = AllObjects[id];
 		ch.LastDialogueDisplayed = dialogueId;
 		DBox(id);
 	}
@@ -78,7 +105,7 @@ public class GameManager : MonoBehaviour
 	// Re-send current Dialogue
 	public void DBox(int id, bool next=false)
 	{
-		Character ch = AllObjects[id];
+		Interactable ch = AllObjects[id];
 		if (next)
 			ch.LastDialogueDisplayed++;
 		else if (!next && ch.LastDialogueDisplayed < 0)
@@ -128,4 +155,6 @@ public class GameManager : MonoBehaviour
     {
 		GameMode = PrevMode;
     }
+
+	#endregion
 }

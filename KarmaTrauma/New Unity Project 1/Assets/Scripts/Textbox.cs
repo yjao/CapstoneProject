@@ -62,9 +62,14 @@ public class Textbox : MonoBehaviour
         transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f+.1f*cursor);
         yield return null;
         yield return StartCoroutine(WaitForKeyDown(choices.Length-1));
+
         gameManager.dialogue_choice = choices[cursor];
         choice_mode = false;
         GameObject.Destroy(gameObject);
+
+		// bad code, just testing events
+		yield return null;
+		EventManager.NotifyDialogChoiceMade(this, new GameEventArgs() {DialogChoice = choices[cursor]});
     }
     
     Transform[,] MultipleChoice(string[] s)

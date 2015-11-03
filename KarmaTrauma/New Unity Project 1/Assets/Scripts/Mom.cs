@@ -31,7 +31,7 @@ public class Mom : InteractableObject
     {
 		CheckAndInteract();
 
-        transform.rotation = Quaternion.identity;
+        transform.rotation = Quaternion.Euler(Vector3.zero) ;
         if (gameManager.GameMode != GameManager.MODE.PLAYING)
         {
 
@@ -44,7 +44,7 @@ public class Mom : InteractableObject
             //{
             //    animator.SetInteger(animationState, rightIdle);
             //}
-            //return;
+            return;
         }
 
         if (r && k != 60)

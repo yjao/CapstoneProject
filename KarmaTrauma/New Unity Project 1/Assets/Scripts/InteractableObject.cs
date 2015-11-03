@@ -82,7 +82,7 @@ public class InteractableObject : MonoBehaviour
 
 	public void Interact()
 	{
-        EventManager.NotifyNPC(this, new GameEventArgs());
+        EventManager.NotifyNPC(this, new GameEventArgs() { Position = this.transform.position });
 		switch (InteractionType)
 		{
 		case TYPE.DIALOG:

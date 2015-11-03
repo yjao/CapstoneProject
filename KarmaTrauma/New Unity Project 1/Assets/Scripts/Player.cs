@@ -67,31 +67,33 @@ public class Player : MonoBehaviour
 
     void HandleNPC(object sender, GameEventArgs args)
     {
-        Debug.Log(sender == null);
+       
         //Fix this senderObj -> sender returns null
-        GameObject senderObj = sender as GameObject;
-        if (senderObj == null)
+        //GameObject senderObj = sender as GameObject;
+        if (sender == null)
         {
             return;
         }
-        
+        //this.transform.rotation = Quaternion.Euler(Vector3.zero);
+        //Debug.Log(this.transform.rotation);
         //set player to face sender's (NPC) direction
-        if (senderObj.transform.position.x < this.transform.position.x)
+        if (args.Position[0] < this.transform.position.x)
         {
-            animator.SetInteger(animationState, left);
+            animator.SetInteger(animationState, leftIdle);
         }
-        else if (senderObj.transform.position.x > this.transform.position.x)
+        else if (args.Position[0] > this.transform.position.x)
         {
-            animator.SetInteger(animationState, right);
+            animator.SetInteger(animationState, rightIdle);
         }
-        else if (senderObj.transform.position.y < this.transform.position.y)
-        {
-            animator.SetInteger(animationState, up);
-        }
-        else if (senderObj.transform.position.y > this.transform.position.y)
-        {
-            animator.SetInteger(animationState, down);
-        }
+        //Need to fix up and down facing;
+        //else if (args.Position[1] < this.transform.position.y)
+        //{
+        //    animator.SetInteger(animationState, downIdle);
+        //}
+        //else if (args.Position[1] > this.transform.position.y)
+        //{
+        //    animator.SetInteger(animationState, upIdle);
+        //}
     }
 
     public void onHitTop(float wall_y)
@@ -211,11 +213,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = Quaternion.Euler(Vector3.zero);
         if (gameManager.GameMode != GameManager.MODE.PLAYING)
         {
+
             return;
         }
-        transform.rotation = Quaternion.identity;
+        
         //if (gameManager.GameMode != GameManager.MODE.PLAYING) {
 
         //    if (this.transform.position.x > GameObject.FindGameObjectWithTag("Mom").transform.position.x)

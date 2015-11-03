@@ -12,7 +12,7 @@ public class EventManager
 	public static event GameEvent OnRestart;
 	public static event GameEvent OnRoundEnds;*/
 
-<<<<<<< HEAD
+
     public static event GameEvent OnNPC;
 
     public static void NotifyNPC(object sender, GameEventArgs args)
@@ -22,7 +22,7 @@ public class EventManager
             OnNPC(sender, args); 
         }
     }
-=======
+
 
     public static event GameEvent OnSpaceBar;
     public static void NotifySpaceBar(object sender, GameEventArgs args)
@@ -31,7 +31,7 @@ public class EventManager
             OnSpaceBar(sender, args);
     }
 	
->>>>>>> 1c821d1257cc72d306e4d12eaaf96433cc1df6f9
+
 	public static void NotifyDialogChoiceMade(object sender, GameEventArgs args)
 	{
 		if (OnDialogChoiceMade != null)

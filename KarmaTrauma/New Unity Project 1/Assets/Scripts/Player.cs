@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 {
     public static InvisibleWallTop walltop;
 	private GameManager gameManager;
+    public GameObject PlayerCamera;
     public float speed;
 
 	public static Player Instance;

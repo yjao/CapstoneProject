@@ -14,22 +14,19 @@ public class Falling : MonoBehaviour {
     // Use this for initialization
     void Start () {
        cam.SetActive(false);
-        Debug.Log(cam == null);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(cam == null);
-
         // start falling trigger
         if (GameObject.FindGameObjectWithTag("Player").transform.position.x > 2 && check == false && player_arrived == false)
         {
-            Debug.Log("triggered");
             player_arrived = true;
             Player.Instance.PlayerCamera.SetActive(false);
             if (cam != null)
                 cam.SetActive(true);
             check = true;
+           // Player.Instance.PlayerCamera.transform.position = Vector3.Lerp(this.transform.position, transform.position, 0.2f);
         }
 
         // falling
@@ -45,9 +42,8 @@ public class Falling : MonoBehaviour {
             Player.Instance.PlayerCamera.SetActive(true);
             if (cam != null)
                 cam.SetActive(false);
-            
             fallen = true;
-            Debug.Log("HELLO");
+            //Player.Instance.PlayerCamera.transform.position = Vector3.Lerp(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, 0.2f);
         }
 
     }

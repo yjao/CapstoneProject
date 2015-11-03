@@ -5,12 +5,20 @@ public class EventManager
 {
 	public delegate void GameEvent(object sender, GameEventArgs args);
 	public static event GameEvent OnDialogChoiceMade;
-	/*public static event GameEvent OnUserHotspotTap;
+    /*public static event GameEvent OnUserHotspotTap;
 	public static event GameEvent OnUserHotspotTapResult;
 	public static event GameEvent OnActivateReplayButton;
 	public static event GameEvent OnProgression;
 	public static event GameEvent OnRestart;
 	public static event GameEvent OnRoundEnds;*/
+
+
+    public static event GameEvent OnSpaceBar;
+    public static void NotifySpaceBar(object sender, GameEventArgs args)
+    {
+        if (OnSpaceBar != null)
+            OnSpaceBar(sender, args);
+    }
 	
 	public static void NotifyDialogChoiceMade(object sender, GameEventArgs args)
 	{

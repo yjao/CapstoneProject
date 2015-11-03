@@ -45,31 +45,30 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Packages\TileSprite\Scripts\TileSprite.cs" />
-     <Compile Include="Assets\Scripts\Character.cs" />
+     <Compile Include="Assets\Scripts\DayData.cs" />
      <Compile Include="Assets\Scripts\Dialog_Test.cs" />
      <Compile Include="Assets\Scripts\Door.cs" />
+     <Compile Include="Assets\Scripts\EventManager.cs" />
+     <Compile Include="Assets\Scripts\GameEventArgs.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\InteractableObject.cs" />
      <Compile Include="Assets\Scripts\MapLocation.cs" />
      <Compile Include="Assets\Scripts\Mom.cs" />
      <Compile Include="Assets\Scripts\NPCMovements.cs" />
+     <Compile Include="Assets\Scripts\Packages\TileSprite\Scripts\TileSprite.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\PlayerData.cs" />
      <Compile Include="Assets\Scripts\PrologueManager.cs" />
      <Compile Include="Assets\Scripts\RepeatSpriteBoundary.cs" />
      <Compile Include="Assets\Scripts\Stairs.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
+     <Compile Include="Assets\TileWindow.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity5.2.1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity5.2.1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity5.2.1/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

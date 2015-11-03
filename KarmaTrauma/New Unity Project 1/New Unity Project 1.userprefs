@@ -1,15 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\InteractableObject.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Interactable.cs">
     <Files>
-      <File FileName="Assets\Scripts\PrologueManager.cs" Line="6" Column="2" />
-      <File FileName="Assets\Scripts\MapLocation.cs" Line="14" Column="3" />
-      <File FileName="Assets\Scripts\Mom.cs" Line="32" Column="62" />
-      <File FileName="Assets\Scripts\InteractableObject.cs" Line="42" Column="58" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="49" Column="9" />
+      <File FileName="Assets\Scripts\Textbox.cs" Line="65" Column="36" />
+      <File FileName="Assets\Scripts\EventManager.cs" Line="4" Column="26" />
+      <File FileName="Assets\Scripts\GameEventArgs.cs" Line="7" Column="2" />
+      <File FileName="Assets\Scripts\DayData.cs" Line="8" Column="1" />
+      <File FileName="Assets\Scripts\Interactable.cs" Line="8" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="Assets\Scripts\InteractableObject.cs" line="61" offsetX="532" offsetY="1020" expression="DialogueIDMulti" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

@@ -3,12 +3,19 @@ using System.Collections;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
     public static InvisibleWallTop walltop;
 	private GameManager gameManager;
     public float speed;
+
+	public static Player Instance;
+
+	// might be useful later on, can change to List<GameObject>?
+	public List<int> CollidingWithID;
+
     Animator animator;
     const int idle = 0;
     const int up = 1;
@@ -30,6 +37,18 @@ public class Player : MonoBehaviour
 
 
     //GameObject saveMachine = GameObject.AddComponent<SaveData>();
+
+	void Awake()
+	{
+		if ((Instance != null) && (Instance != this))
+			Destroy(gameObject);
+		else
+			Instance = this;
+		
+		DontDestroyOnLoad(this);
+
+		CollidingWithID = new List<int>();
+	}
 
     // Use this for initialization
     void Start()
@@ -159,46 +178,14 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.identity;
         if (gameManager.GameMode != GameManager.MODE.PLAYING) {
 
-            Debug.Log("BELOW IS PLAYER'S X");
-            Debug.Log(transform.position.x);
-           
-            Debug.Log("THIS IS MOM'S X");
-            Debug.Log(GameObject.FindGameObjectWithTag("Mom").transform.position.x);
-
-
-
             if (this.transform.position.x > GameObject.FindGameObjectWithTag("Mom").transform.position.x)
             {
                 animator.SetInteger(animationState, leftIdle);
-                Debug.Log("Looking to the left now");
             }
             else if (this.transform.position.x < GameObject.FindGameObjectWithTag("Mom").transform.position.x)
             {
                 animator.SetInteger(animationState, rightIdle);
-                Debug.Log("Looking to the right now");
             }
-
-            
-
-            /*
-
-            if (u)
-            {
-                animator.SetInteger(animationState, upIdle);
-            }
-            else if (d)
-            {
-                animator.SetInteger(animationState, downIdle);
-            }
-            else if (r)
-            {
-                animator.SetInteger(animationState, rightIdle);
-            }
-            else if (l)
-            {
-                animator.SetInteger(animationState, leftIdle);
-            }
-            */
 
             return;
         }

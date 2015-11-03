@@ -11,7 +11,16 @@ public class EventManager
 	public static event GameEvent OnProgression;
 	public static event GameEvent OnRestart;
 	public static event GameEvent OnRoundEnds;*/
-	
+
+    public static event GameEvent OnNPC;
+
+    public static void NotifyNPC(object sender, GameEventArgs args)
+    {
+        if (OnNPC != null)
+        {
+            OnNPC(sender, args); 
+        }
+    }
 	public static void NotifyDialogChoiceMade(object sender, GameEventArgs args)
 	{
 		if (OnDialogChoiceMade != null)

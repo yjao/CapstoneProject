@@ -56,6 +56,41 @@ public class Player : MonoBehaviour
         walltop = FindObjectOfType(typeof(InvisibleWallTop)) as InvisibleWallTop;
 		gameManager = GameManager.Instance;
         animator = GetComponent<Animator>();
+        EventManager.OnNPC += HandleNPC;
+    }
+
+    void onDestroy()
+    {
+        EventManager.OnNPC -= HandleNPC;
+    }
+
+    void HandleNPC(object sender, GameEventArgs args)
+    {
+        Debug.Log(sender == null);
+        //Fix this senderObj -> sender returns null
+        GameObject senderObj = sender as GameObject;
+        if (senderObj == null)
+        {
+            return;
+        }
+        
+        //set player to face sender's (NPC) direction
+        if (senderObj.transform.position.x < this.transform.position.x)
+        {
+            animator.SetInteger(animationState, left);
+        }
+        else if (senderObj.transform.position.x > this.transform.position.x)
+        {
+            animator.SetInteger(animationState, right);
+        }
+        else if (senderObj.transform.position.y < this.transform.position.y)
+        {
+            animator.SetInteger(animationState, up);
+        }
+        else if (senderObj.transform.position.y > this.transform.position.y)
+        {
+            animator.SetInteger(animationState, down);
+        }
     }
 
     public void onHitTop(float wall_y)
@@ -175,20 +210,24 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.identity;
-        if (gameManager.GameMode != GameManager.MODE.PLAYING) {
-
-            if (this.transform.position.x > GameObject.FindGameObjectWithTag("Mom").transform.position.x)
-            {
-                animator.SetInteger(animationState, leftIdle);
-            }
-            else if (this.transform.position.x < GameObject.FindGameObjectWithTag("Mom").transform.position.x)
-            {
-                animator.SetInteger(animationState, rightIdle);
-            }
-
+        if (gameManager.GameMode != GameManager.MODE.PLAYING)
+        {
             return;
         }
+        transform.rotation = Quaternion.identity;
+        //if (gameManager.GameMode != GameManager.MODE.PLAYING) {
+
+        //    if (this.transform.position.x > GameObject.FindGameObjectWithTag("Mom").transform.position.x)
+        //    {
+        //        animator.SetInteger(animationState, leftIdle);
+        //    }
+        //    else if (this.transform.position.x < GameObject.FindGameObjectWithTag("Mom").transform.position.x)
+        //    {
+        //        animator.SetInteger(animationState, rightIdle);
+        //    }
+
+        //    return;
+        //}
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(0, speed, 0);

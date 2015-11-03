@@ -82,6 +82,7 @@ public class InteractableObject : MonoBehaviour
 
 	public void Interact()
 	{
+        EventManager.NotifyNPC(this, new GameEventArgs());
 		switch (InteractionType)
 		{
 		case TYPE.DIALOG:
@@ -108,13 +109,14 @@ public class InteractableObject : MonoBehaviour
         if (colliding && Input.GetKey(KeyCode.E))
         {
            // colliding = false; //troublesome without this line...
-            Debug.Log("Interacting");
             Interact();
+
         }
     }
 
     void Update()
     {
 		CheckAndInteract();
+        
     }
 }

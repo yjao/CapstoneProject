@@ -35,15 +35,16 @@ public class Mom : InteractableObject
         if (gameManager.GameMode != GameManager.MODE.PLAYING)
         {
 
-            if (this.transform.position.x > GameObject.FindGameObjectWithTag("Player").transform.position.x)
-            {
-                animator.SetInteger(animationState, leftIdle);
-            }
-            else if (this.transform.position.x < GameObject.FindGameObjectWithTag("Player").transform.position.x)
-            {
-                animator.SetInteger(animationState, rightIdle);
-            }
-            return;
+           
+            //if (this.transform.position.x > GameObject.FindGameObjectWithTag("Player").transform.position.x)
+            //{
+            //    animator.SetInteger(animationState, leftIdle);
+            //}
+            //else if (this.transform.position.x < GameObject.FindGameObjectWithTag("Player").transform.position.x)
+            //{
+            //    animator.SetInteger(animationState, rightIdle);
+            //}
+            //return;
         }
 
         if (r && k != 60)

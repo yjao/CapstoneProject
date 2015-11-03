@@ -40,7 +40,7 @@ public class InteractableObject : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D c)
 	{
         if (c.gameObject.tag == "Player")
-			colliding = true;
+            colliding = true;
 
 		if (!player.CollidingWithID.Contains(ID))
 			player.CollidingWithID.Add(ID);
@@ -48,8 +48,8 @@ public class InteractableObject : MonoBehaviour
 
 	void OnTriggerExit2D(Collider2D c)
 	{
-		if (c.gameObject.tag == "Player")
-			colliding = false;
+        if (c.gameObject.tag == "Player")
+            colliding = false;
 
 		if (player.CollidingWithID.Contains(ID))
 			player.CollidingWithID.Remove(ID);
@@ -103,15 +103,15 @@ public class InteractableObject : MonoBehaviour
 		}
 	}*/
 
-	public void CheckAndInteract()
-	{
-		if (colliding && Input.GetKey(KeyCode.Space))
-		{
-			colliding = false; //troublesome without this line...
-			Debug.Log("Interacting");
-			Interact();
-		}
-	}
+    public void CheckAndInteract()
+    {
+        if (colliding && Input.GetKey(KeyCode.E))
+        {
+           // colliding = false; //troublesome without this line...
+            Debug.Log("Interacting");
+            Interact();
+        }
+    }
 
     void Update()
     {

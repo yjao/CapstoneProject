@@ -37,32 +37,35 @@ public class GameManager : MonoBehaviour
 		// Load interaction info here?
 		AllObjects = new Dictionary<int, Interactable>()
 		{
-			{ 1, new Interactable("Chelsey", new string[] {
+			{ 1, new Interactable("Chelsey","", new string[] {
 					"\"Um... my name is Chelsey. I just moved in town recently. I like helping people, and.. yeah.\"",
+                    "\"I live on Maple Street.\"",
 					"\"He looks familiar... What a strange night.\""
 				}) },
-			{ 150, new Interactable("Jewel", new string[] {
+			{ 150, new Interactable("Jewel", "", new string[] {
 					"\"%CDon't bother me, I'm taking a nap!%COK%CNo\"",
                     "\"%C!!!%CPeanut Butter%CHi%C???%C!!!\""
             }
 				) },
-			{ 21, new Interactable("Mom", new string[] {
+			{ 21, new Interactable("Mom", "", new string[] {
 					"\"Chelsey! Wake up! You don't want to be late on your first day of school!\"",
 					"\"The breakfast's on the table. Bacon and eggs, your favorite!\"",
 					"\"Come on, you're going to be late!\""
 				}) },
-			{ 65, new Interactable("Teacher", new string[] {
+			{ 65, new Interactable("Mr.Ly", "Teacher", new string[] {
 					"\"Good morning class, we have a new student today. Chelsey, why don't you introduce yourself?\"",
-					"\"Thank you, Chelsey. Welcome, and we hope you enjoy our time together. Now, everybody, get out your textbooks and turn to page 42...\""
+					"\"Thank you Chelsey. Take a seat at the empty desk over there. Now, everybody, get out your textbooks and turn to page 42...\""
 				}) },
-			{ 66, new Interactable("Girl", new string[] {
-					"\"Hey, your name is Chelsey right? You must be new to town, want me to show you around?\"",
-					"\"Whoa, it's getting late. Just go west from the Main Street and you should find home. I'll see you tomorrow!\""
+			{ 66, new Interactable("Kelly", "",  new string[] {
+					"\"Hey, new kid! Your name is Chelsey right? I'm Kelly.\"",
+                    "\"Want me to show you around?\"",
+					"\"Whoa, it's getting late. Where do you live?\"",
+                    "\"Just head down from Main Street and you should be able to reach Maple Street. I'll see you tomorrow!\""
 				}) },
-			{ 133, new Interactable("Bacon and Eggs", new string[] {
+			{ 133, new Interactable("Bacon and Eggs", "", new string[] {
 					"%C A delicious floating egg on a magical bacon.%C\"I guess I'll eat it.\"%C\"Nah...\" ",
 				}) },
-            { 31, new Interactable("Suicidal Man", new string[] {
+            { 31, new Interactable("Alfred", "???", new string[] {
                     "%C A man who jumped off of the building.%C\"Should I talk to him?\"%C\"Nah...\" ",
                 }) }
         };

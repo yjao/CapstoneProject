@@ -10,6 +10,9 @@ public class Falling : MonoBehaviour {
 
     public GameObject cam;
 
+    public Transform target;
+    public float smoothTime = 0.3F;
+    private Vector3 velocity = Vector3.zero;
 
     // Use this for initialization
     void Start () {
@@ -26,7 +29,7 @@ public class Falling : MonoBehaviour {
             if (cam != null)
                 cam.SetActive(true);
             check = true;
-           // Player.Instance.PlayerCamera.transform.position = Vector3.Lerp(this.transform.position, transform.position, 0.2f);
+            //Player.Instance.PlayerCamera.transform.position = Vector3.Lerp(this.transform.position, transform.position, 0.2f);
         }
 
         // falling
@@ -39,10 +42,15 @@ public class Falling : MonoBehaviour {
         // he has fallen
         if (fallen == false && end == 100)
         {
+            //Vector3 targetPosition = target.TransformPoint(Player.Instance.PlayerCamera.transform.position);
+            //cam.transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
             Player.Instance.PlayerCamera.SetActive(true);
             if (cam != null)
                 cam.SetActive(false);
             fallen = true;
+
+            
+            Player.Instance.PlayerCamera.SetActive(true);
             //Player.Instance.PlayerCamera.transform.position = Vector3.Lerp(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, 0.2f);
         }
 

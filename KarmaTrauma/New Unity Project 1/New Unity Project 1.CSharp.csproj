@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Camera.cs" />
     <Compile Include="Assets\InvisibleWall.cs" />
     <Compile Include="Assets\Scripts\DayData.cs" />
     <Compile Include="Assets\Scripts\Dialog_Test.cs" />
@@ -82,7 +83,9 @@
     <Compile Include="Assets\Scripts\InvisibleWallLeft.cs" />
     <Compile Include="Assets\Scripts\InvisibleWallRight.cs" />
     <Compile Include="Assets\Scripts\InvisibleWallTop.cs" />
+    <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\MapLocation.cs" />
+    <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\Mom.cs" />
     <Compile Include="Assets\Scripts\NPCMovements.cs" />
     <Compile Include="Assets\Scripts\Packages\TileSprite\Scripts\TileSprite.cs" />

@@ -61,8 +61,11 @@ public class GameManager : MonoBehaviour
 				}) },
 			{ 133, new Interactable("Bacon and Eggs", new string[] {
 					"%C A delicious floating egg on a magical bacon.%C\"I guess I'll eat it.\"%C\"Nah...\" ",
-				}) }
-		};
+				}) },
+            { 31, new Interactable("Suicidal Man", new string[] {
+                    "%C A man who jumped off of the building.%C\"Should I talk to him?\"%C\"Nah...\" ",
+                }) }
+        };
 
 		// Bind events
 		EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;

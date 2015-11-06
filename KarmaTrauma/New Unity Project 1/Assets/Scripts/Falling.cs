@@ -22,7 +22,7 @@ public class Falling : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // start falling trigger
-        if (GameObject.FindGameObjectWithTag("Player").transform.position.x > 2 && check == false && player_arrived == false)
+        if (GameObject.FindGameObjectWithTag("Player").transform.position.x < 12 && check == false && player_arrived == false)
         {
             player_arrived = true;
             Player.Instance.PlayerCamera.SetActive(false);

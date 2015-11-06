@@ -57,7 +57,8 @@ public class GameManager : MonoBehaviour
 				}) },
 			{ 66, new Interactable("Girl", new string[] {
 					"\"Hey, your name is Chelsey right? You must be new to town, want me to show you around?\"",
-					"\"Whoa, it's getting late. Just go west from the Main Street and you should find home. I'll see you tomorrow!\""
+					"\"Whoa, it's getting late. You said your home is at Baker street, right? Just go west from the Main Street and you should get there. I'll see you tomorrow!\""
+
 				}) },
 			{ 133, new Interactable("Bacon and Eggs", new string[] {
 					"%C A delicious floating egg on a magical bacon.%C\"I guess I'll eat it.\"%C\"Nah...\" ",

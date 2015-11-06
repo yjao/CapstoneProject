@@ -8,11 +8,14 @@ public class PrologueManager : MonoBehaviour
 	private const string SCENE_HOUSE = "House in development";
     private const string STORY = "Story";
 	public int StoryProgress;
+    public string[] AllScenes;
 
 	void Start()
 	{
 		gameManager = GameManager.Instance;
 		DontDestroyOnLoad(this);
+
+        AllScenes = new string[2] {"Story", "Mall"};
 
         StartCoroutine(STORY);
 	}
@@ -72,6 +75,35 @@ public class PrologueManager : MonoBehaviour
         gameManager.DBox(21, true);
         yield return null; while (Pause()) { yield return null; }
 
+        MoveToNext();
+        yield break;
+    }
+
+    public void MoveToNext()
+    {
+        StoryProgress += 1;
+        StartCoroutine(AllScenes[StoryProgress]);
+    }
+
+    public IEnumerator Mall()
+    {
+        yield return new WaitForSeconds(1);
+        Application.LoadLevel("MallPrologue");
+        yield return new WaitForSeconds(1);
+        gameManager.DBox(66, 2);
+        yield return null; while (Pause()) { yield return null; }
+        for (int i = 0; i < 30; i++)
+        {
+            GameObject.Find("Kelly").transform.Translate(new Vector2(0.05f, 0f));
+            yield return null;
+        }
+        gameManager.DBox(66, true);
+        yield return null; while (Pause()) { yield return null; }
+        for (int i = 0; i < 150; i++)
+        {
+            GameObject.Find("Kelly").transform.Translate(new Vector2(0.05f, 0f));
+            yield return null;
+        }
         yield break;
     }
 

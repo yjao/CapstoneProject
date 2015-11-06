@@ -56,18 +56,12 @@ public class GameManager : MonoBehaviour
 					"\"Good morning class, we have a new student today. Chelsey, why don't you introduce yourself?\"",
 					"\"Thank you Chelsey. Take a seat at the empty desk over there. Now, everybody, get out your textbooks and turn to page 42...\""
 				}) },
-<<<<<<< HEAD
-			{ 66, new Interactable("Girl", new string[] {
-					"\"Hey, your name is Chelsey right? You must be new to town, want me to show you around?\"",
-					"\"Whoa, it's getting late. You said your home is at Baker street, right? Just go west from the Main Street and you should get there. I'll see you tomorrow!\""
-
-=======
-			{ 66, new Interactable("Kelly", "",  new string[] {
+	
+                { 66, new Interactable("Kelly", "",  new string[] {
 					"\"Hey, new kid! Your name is Chelsey right? I'm Kelly.\"",
                     "\"Want me to show you around?\"",
 					"\"Whoa, it's getting late. Where do you live?\"",
                     "\"Just head down from Main Street and you should be able to reach Maple Street. I'll see you tomorrow!\""
->>>>>>> 13817a3715ec76ef2ea51ac16bacd41a4f0ff04f
 				}) },
 			{ 133, new Interactable("Bacon and Eggs", "", new string[] {
 					"%C A delicious floating egg on a magical bacon.%C\"I guess I'll eat it.\"%C\"Nah...\" ",

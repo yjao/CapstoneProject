@@ -31,18 +31,19 @@ public class Mom : InteractableObject
     {
 		CheckAndInteract();
 
-        transform.rotation = Quaternion.identity;
+        transform.rotation = Quaternion.Euler(Vector3.zero) ;
         if (gameManager.GameMode != GameManager.MODE.PLAYING)
         {
 
-            if (this.transform.position.x > GameObject.FindGameObjectWithTag("Player").transform.position.x)
-            {
-                animator.SetInteger(animationState, leftIdle);
-            }
-            else if (this.transform.position.x < GameObject.FindGameObjectWithTag("Player").transform.position.x)
-            {
-                animator.SetInteger(animationState, rightIdle);
-            }
+           
+            //if (this.transform.position.x > GameObject.FindGameObjectWithTag("Player").transform.position.x)
+            //{
+            //    animator.SetInteger(animationState, leftIdle);
+            //}
+            //else if (this.transform.position.x < GameObject.FindGameObjectWithTag("Player").transform.position.x)
+            //{
+            //    animator.SetInteger(animationState, rightIdle);
+            //}
             return;
         }
 

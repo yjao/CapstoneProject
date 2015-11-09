@@ -11,22 +11,35 @@ public class Textbox : MonoBehaviour
     public string res;
     void Start()
     {
+        Debug.Log("hi");
 		gameManager = GameManager.Instance;
 		gameManager.EnterDialogue();
         choice_mode = false;
         done = false;
+
+        EventManager.OnSpaceBar += SelfDestruct;
     }
+
+    void SelfDestruct(object sender, GameEventArgs args)
+    {
+        GameObject.Destroy(gameObject);
+    }
+
 
 	void OnDestroy()
 	{
-		gameManager.ExitDialogue();
+        EventManager.OnSpaceBar -= SelfDestruct;
+        gameManager.ExitDialogue();
 	}
 	
 	void Update()
     {
-        if (choice_mode == false && Input.GetKeyDown(KeyCode.Space))
+        
+        if (/*choice_mode == false &&*/ Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject.Destroy(gameObject);
+            //GameObject.Destroy(gameObject);
+            Debug.Log("DID IT WORK");
+            EventManager.NotifySpaceBar(this, new GameEventArgs());
         }
     }
 
@@ -62,9 +75,14 @@ public class Textbox : MonoBehaviour
         transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f+.1f*cursor);
         yield return null;
         yield return StartCoroutine(WaitForKeyDown(choices.Length-1));
+
         gameManager.dialogue_choice = choices[cursor];
         choice_mode = false;
         GameObject.Destroy(gameObject);
+
+		// bad code, just testing events
+		yield return null;
+		EventManager.NotifyDialogChoiceMade(this, new GameEventArgs() {DialogChoice = choices[cursor]});
     }
     
     Transform[,] MultipleChoice(string[] s)

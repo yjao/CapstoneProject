@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+
 
 public class Player : MonoBehaviour
 {
@@ -282,56 +283,21 @@ public class Player : MonoBehaviour
                 animator.SetInteger(animationState, leftIdle);
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            Save(); ;
+            gameManager.Save(); ;
         }
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            Load();
+            gameManager.Load();
+          
         }
     }
 
 
 
-    public void Save()
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/SaveData.DK");   // Saves in SaveData.DK file
-        Debug.Log("File Saved");
-        Debug.Log(Application.persistentDataPath);
-        PlayerData data = new PlayerData();
-        data.days = 1;      // data.days = days
-        data.progress = 0;  // data.progress = progress
-
-        bf.Serialize(file, data);
-        file.Close();
-
-    }
-
-    public void Load()
-    {
-        if (File.Exists(Application.persistentDataPath + "/SaveData.DK"))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/SaveData.DK", FileMode.Open);
-            PlayerData data = (PlayerData)bf.Deserialize(file);
-            file.Close();
-
-            //days = data.days;
-            //progress = data.progress;
-        }
-
-    }
+   
 
 
-
-    [Serializable]  // by putting this bracket, Unity knows this class is serializable, thus savable with our serialized saving function
-    class PlayerData
-    {
-        public int days;
-        public int progress;
-
-    }
 
 }

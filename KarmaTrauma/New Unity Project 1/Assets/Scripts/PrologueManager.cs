@@ -15,7 +15,7 @@ public class PrologueManager : MonoBehaviour
 		gameManager = GameManager.Instance;
 		DontDestroyOnLoad(this);
 
-        AllScenes = new string[2] {"Story", "Mall"};
+        AllScenes = new string[3] {"Story", "School", "Mall"};
 
         StartCoroutine(STORY);
 	}
@@ -79,10 +79,35 @@ public class PrologueManager : MonoBehaviour
         yield break;
     }
 
-    public void MoveToNext()
+
+    public IEnumerator School()
     {
-        StoryProgress += 1;
-        StartCoroutine(AllScenes[StoryProgress]);
+        yield return new WaitForSeconds(1);
+        Application.LoadLevel("RaeClass");
+        yield return new WaitForSeconds(1);
+        gameManager.DBox(65, 0);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(1, 0);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(65, 1);
+        yield return null; while (Pause()) { yield return null; }
+
+        yield return new WaitForSeconds(1);
+        gameManager.DBox(65, 2);
+        yield return null; while (Pause()) { yield return null; }
+        Destroy(GameObject.Find("MrLy"));
+        yield return new WaitForSeconds(1);
+        gameManager.DBox(66, 0);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(66, 1);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(1, 1);
+        yield return null; while (Pause()) { yield return null; }
+        
+        
+        MoveToNext();
+        yield break;
+
     }
 
     public IEnumerator Mall()
@@ -105,6 +130,13 @@ public class PrologueManager : MonoBehaviour
             yield return null;
         }
         yield break;
+        
     }
 
+
+    public void MoveToNext()
+    {
+        StoryProgress += 1;
+        StartCoroutine(AllScenes[StoryProgress]);
+    }
 }

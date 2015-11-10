@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 	public GameObject DialogueContainer;
 	public enum MODE
 	{
-		NONE, PLAYING, DIALOGUE, MENU, CUTSCENE
+		NONE, PLAYING, DIALOGUE, MENU, CUTSCENE, WAITING
 	};
 	public MODE GameMode = MODE.NONE;
 	public MODE PrevMode = MODE.NONE;
@@ -122,11 +122,15 @@ public class GameManager : MonoBehaviour
         GameMode = MODE.PLAYING;
     }
 
+    public void Wait()
+    {
+        GameMode = MODE.WAITING;
+    }
+
 	void Update()
 	{
 		// For debug purposes (obviously)
 		//Debug.Log (GameMode);
-       
 	}
 
     public void Save()
@@ -241,4 +245,3 @@ public class GameManager : MonoBehaviour
         itemAmount += 1;
     }
 }
-

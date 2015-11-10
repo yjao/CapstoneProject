@@ -86,19 +86,58 @@ public class PrologueManager : MonoBehaviour
         return gameManager.GameMode == GameManager.MODE.DIALOGUE;
     }
 
+	private IEnumerator MovePlayer(int animatorDirection, float newPositionValue, float speed=0.02f)
+	{
+		switch (animatorDirection)
+		{
+		case left:
+			while (Player.Instance.transform.position.x >= newPositionValue)
+			{
+				Player.Instance.transform.Translate(-speed, 0.0f, 0.0f);
+				Player.Instance.animator.SetInteger(animationState, left);
+				yield return null;
+			}
+			break;
+		case right:
+			while (Player.Instance.transform.position.x <= newPositionValue)
+			{
+				Player.Instance.transform.Translate(speed, 0.0f, 0.0f);
+				Player.Instance.animator.SetInteger(animationState, right);
+				yield return null;
+			}
+			break;
+		case down:
+			while(Player.Instance.transform.position.y >= newPositionValue)
+			{
+				Player.Instance.transform.Translate(0.0f, -speed, 0.0f);
+				Player.Instance.animator.SetInteger(animationState, down);
+				yield return null;
+			}
+			break;
+		case up:
+			while(Player.Instance.transform.position.y <= newPositionValue)
+			{
+				Player.Instance.transform.Translate(0.0f, speed, 0.0f);
+				Player.Instance.animator.SetInteger(animationState, up);
+				yield return null;
+			}
+			break;
+		}
+		yield break;
+	}
+
 	public IEnumerator Story()
 	{
-        gameManager.Play();
+        //gameManager.Play();
+		gameManager.Wait();
 
         // Get Space
         while (true) { if (Input.GetKey(KeyCode.Space)) break; yield return null; }
-
 		gameManager.CreateMessage("YOU TWISTED FATE!");
         yield return null; while (Pause()) { yield return null; }
 
         // Loading the Scene: At House (Mom wakes you up)
         Application.LoadLevel(SCENE_HOUSE);
-        gameManager.Wait();
         yield return new WaitForSeconds(2);
 
         // Mom's dialogue appears
@@ -109,9 +148,9 @@ public class PrologueManager : MonoBehaviour
         gameManager.DBox(21, true);
         yield return null; while (Pause()) { yield return null; }
 
+		gameManager.Play();
         while (true)
         {
-            gameManager.Play();
             if (Application.loadedLevelName == SCHOOL)
             {
                 MoveToNext();
@@ -126,7 +165,6 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator School_0()
     {
-
         gameManager.Wait();
         yield return new WaitForSeconds(1);
        // yield return new WaitForSeconds(1);
@@ -139,21 +177,11 @@ public class PrologueManager : MonoBehaviour
         gameManager.DBox(65, 1);
         yield return null; while (Pause()) { yield return null; }
 
-
-        while(Player.Instance.transform.position.y >= -2.18)
-        {
-            Player.Instance.transform.Translate(0.0f, -0.02f, 0.0f);
-            Player.Instance.animator.SetInteger(animationState, down);
-            yield return null;
-        }
-        while (Player.Instance.transform.position.y <= -2.18 && Player.Instance.transform.position.x > -0.6)
-        {
-            Player.Instance.transform.Translate(-0.02f, 0.0f, 0.0f);
-            Player.Instance.animator.SetInteger(animationState, left);
-            yield return null;
-
-        }
-
+		// Chelsey walks to her desk
+		yield return StartCoroutine(MovePlayer(down, 2.45f));
+		yield return StartCoroutine(MovePlayer(right, 0.24f));
+		yield return StartCoroutine(MovePlayer(down, 1.16f));
+		yield return StartCoroutine(MovePlayer(left, -0.49f));
         Player.Instance.animator.SetInteger(animationState, upIdle);
 
         yield return new WaitForSeconds(1);
@@ -161,9 +189,12 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
         Destroy(GameObject.Find("MrLy"));
         yield return new WaitForSeconds(1);
-        gameManager.DBox(66, 0);
+
+		// Kelly talks
+		gameManager.DBox(66, 0);
         yield return null; while (Pause()) { yield return null; }
-        gameManager.DBox(66, 1);
+		Player.Instance.animator.SetInteger(animationState, leftIdle);
+		gameManager.DBox(66, 1);
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(1, 1);
         yield return null; while (Pause()) { yield return null; }
@@ -225,6 +256,7 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator Home_0()
     {
+		gameManager.Wait();
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_HOUSE);
         yield return new WaitForSeconds(1);
@@ -233,12 +265,15 @@ public class PrologueManager : MonoBehaviour
 
         MoveToNext();
         yield break;
-
     }
 
     //Need to fade to black:  Start of DAY 1
-    public IEnumerator Home_1(){
-        yield return new WaitForSeconds(1);
+    public IEnumerator Home_1()
+	{
+		gameManager.CreateMessage("The next day...");
+		yield return null; while (Pause()) { yield return null; }
+
+		yield return new WaitForSeconds(1);
         gameManager.DBox(21, 0);
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(21, true);
@@ -247,9 +282,10 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(1, 4);
         yield return null; while (Pause()) { yield return null; }
-        while (true)
+
+		gameManager.Play();
+		while (true)
         {
-            gameManager.Play();
             if (Application.loadedLevelName == SCHOOL)
             {
                 MoveToNext();
@@ -276,13 +312,21 @@ public class PrologueManager : MonoBehaviour
         gameManager.DBox(65, 1);
         yield return null; while (Pause()) { yield return null; }
 
-        yield return new WaitForSeconds(1);
-        gameManager.DBox(65, 2);
-        yield return null; while (Pause()) { yield return null; }
-        Destroy(GameObject.Find("MrLy"));
+		// Chelsey walks to her desk
+		yield return StartCoroutine(MovePlayer(down, 2.45f));
+		yield return StartCoroutine(MovePlayer(right, 0.24f));
+		yield return StartCoroutine(MovePlayer(down, 1.16f));
+		yield return StartCoroutine(MovePlayer(left, -0.49f));
+		Player.Instance.animator.SetInteger(animationState, upIdle);
+		
+		yield return new WaitForSeconds(1);
+		gameManager.DBox(65, 2);
+		yield return null; while (Pause()) { yield return null; }
+		Destroy(GameObject.Find("MrLy"));
+		yield return new WaitForSeconds(1);
 
-        yield return new WaitForSeconds(1);
-        gameManager.DBox(66, 0);
+		// Kelly talks
+		gameManager.DBox(66, 0);
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(1, 6);
         yield return null; while (Pause()) { yield return null; }
@@ -295,7 +339,6 @@ public class PrologueManager : MonoBehaviour
 
         MoveToNext();
         yield break;
-
     }
 
     /// <summary>
@@ -311,9 +354,18 @@ public class PrologueManager : MonoBehaviour
         gameManager.DBox(1, 9);
         yield return null; while (Pause()) { yield return null; }
 
-       
-        yield break;
+		gameManager.Play();
+		while (true)
+		{
+			/*if (Application.loadedLevelName == SCENE_HOUSE)
+			{
+				MoveToNext();
+				yield break;
+			}*/
+			yield return null;
+		}
 
+        yield break;
     }
     public void MoveToNext()
     {

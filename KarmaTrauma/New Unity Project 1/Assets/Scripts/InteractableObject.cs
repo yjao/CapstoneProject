@@ -42,8 +42,8 @@ public class InteractableObject : MonoBehaviour
         if (c.gameObject.tag == "Player")
             colliding = true;
 
-		if (!player.CollidingWithID.Contains(ID))
-			player.CollidingWithID.Add(ID);
+		/*if (!player.CollidingWithID.Contains(ID))
+			player.CollidingWithID.Add(ID);*/
 	}
 
 	void OnTriggerExit2D(Collider2D c)
@@ -51,8 +51,8 @@ public class InteractableObject : MonoBehaviour
         if (c.gameObject.tag == "Player")
             colliding = false;
 
-		if (player.CollidingWithID.Contains(ID))
-			player.CollidingWithID.Remove(ID);
+		/*if (player.CollidingWithID.Contains(ID))
+			player.CollidingWithID.Remove(ID);*/
 	}
 
 	private void CallDialogue()

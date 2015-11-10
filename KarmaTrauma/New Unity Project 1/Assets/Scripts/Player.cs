@@ -216,9 +216,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.Euler(Vector3.zero);
+
         if (gameManager.GameMode != GameManager.MODE.PLAYING)
         {
-
             return;
         }
         
@@ -235,6 +235,13 @@ public class Player : MonoBehaviour
 
         //    return;
         //}
+
+		// Speeding up!
+		if (Input.GetKey(KeyCode.LeftShift))
+		{
+			speed = 0.1f;
+		}
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(0, speed, 0);

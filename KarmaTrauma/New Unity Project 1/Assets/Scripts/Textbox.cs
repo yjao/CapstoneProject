@@ -11,7 +11,6 @@ public class Textbox : MonoBehaviour
     public string res;
     void Start()
     {
-        Debug.Log("hi");
 		gameManager = GameManager.Instance;
 		gameManager.EnterDialogue();
         choice_mode = false;
@@ -38,7 +37,6 @@ public class Textbox : MonoBehaviour
         if (/*choice_mode == false &&*/ Input.GetKeyDown(KeyCode.Space))
         {
             //GameObject.Destroy(gameObject);
-            Debug.Log("DID IT WORK");
             EventManager.NotifySpaceBar(this, new GameEventArgs());
         }
     }

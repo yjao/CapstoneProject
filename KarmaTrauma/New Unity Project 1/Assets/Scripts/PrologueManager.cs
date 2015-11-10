@@ -126,12 +126,9 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator School_0()
     {
-<<<<<<< HEAD
         gameManager.Wait();
         yield return new WaitForSeconds(1);
-=======
        // yield return new WaitForSeconds(1);
->>>>>>> ab4197583e24e45edcee93230ea739946d653ea9
         Application.LoadLevel(SCHOOL);
         yield return new WaitForSeconds(1);
         gameManager.DBox(65, 0);
@@ -243,6 +240,7 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
         while (true)
         {
+            gameManager.Play();
             if (Application.loadedLevelName == SCHOOL)
             {
                 MoveToNext();
@@ -254,6 +252,7 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator School_1()
     {
+        gameManager.Wait();
         // yield return new WaitForSeconds(1);
         Application.LoadLevel(SCHOOL);
         yield return new WaitForSeconds(1);

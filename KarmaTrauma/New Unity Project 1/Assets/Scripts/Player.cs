@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 	// might be useful later on, can change to List<GameObject>?
 	public List<int> CollidingWithID;
 
-    Animator animator;
+    public Animator animator;
     const int idle = 0;
     const int up = 1;
     const int down = 2;

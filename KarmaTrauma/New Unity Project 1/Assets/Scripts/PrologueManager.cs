@@ -6,7 +6,11 @@ public class PrologueManager : MonoBehaviour
 	private GameManager gameManager;
 	private const string SCENE_PROLOGUE = "Prologue";
 	private const string SCENE_HOUSE = "House in development";
+    private const string SCHOOL = "RaeClass";
     private const string STORY = "Story";
+    private const string MALL = "MallPrologue";
+    private const string MAIN_STREET = "MainStreetFalling";
+    
 	public int StoryProgress;
     public string[] AllScenes;
 
@@ -15,7 +19,7 @@ public class PrologueManager : MonoBehaviour
 		gameManager = GameManager.Instance;
 		DontDestroyOnLoad(this);
 
-        AllScenes = new string[3] {"Story", "School", "Mall"};
+        AllScenes = new string[5] {"Story", "School", "Mall", "Main_street", "Home"};
 
         StartCoroutine(STORY);
 	}
@@ -75,15 +79,24 @@ public class PrologueManager : MonoBehaviour
         gameManager.DBox(21, true);
         yield return null; while (Pause()) { yield return null; }
 
-        MoveToNext();
-        yield break;
+        while (true)
+        {
+            if (Application.loadedLevelName == SCHOOL)
+            {
+                MoveToNext();
+                yield break;
+            }
+            yield return null;
+        }
+  
+        //yield break;
     }
 
 
     public IEnumerator School()
     {
         yield return new WaitForSeconds(1);
-        Application.LoadLevel("RaeClass");
+        Application.LoadLevel(SCHOOL);
         yield return new WaitForSeconds(1);
         gameManager.DBox(65, 0);
         yield return null; while (Pause()) { yield return null; }
@@ -113,26 +126,55 @@ public class PrologueManager : MonoBehaviour
     public IEnumerator Mall()
     {
         yield return new WaitForSeconds(1);
-        Application.LoadLevel("MallPrologue");
+        Application.LoadLevel(MALL);
         yield return new WaitForSeconds(1);
         gameManager.DBox(66, 2);
         yield return null; while (Pause()) { yield return null; }
-        for (int i = 0; i < 30; i++)
-        {
-            GameObject.Find("Kelly").transform.Translate(new Vector2(0.05f, 0f));
-            yield return null;
-        }
-        gameManager.DBox(66, true);
-        yield return null; while (Pause()) { yield return null; }
-        for (int i = 0; i < 150; i++)
-        {
-            GameObject.Find("Kelly").transform.Translate(new Vector2(0.05f, 0f));
-            yield return null;
-        }
+        //for (int i = 0; i < 30; i++)
+        //{
+        //    GameObject.Find("Kelly").transform.Translate(new Vector2(0.05f, 0f));
+        //    yield return null;
+        //}
+        //gameManager.DBox(66, true);
+        //yield return null; while (Pause()) { yield return null; }
+        //for (int i = 0; i < 150; i++)
+        //{
+        //    GameObject.Find("Kelly").transform.Translate(new Vector2(0.05f, 0f));
+        //    yield return null;
+        //}
+        MoveToNext();
         yield break;
         
     }
 
+    public IEnumerator Main_street()
+    {
+        yield return new WaitForSeconds(1);
+        Application.LoadLevel(MAIN_STREET);
+        yield return new WaitForSeconds(1);
+        gameManager.DBox(66, 3);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(1, 2);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(66, 4);
+        yield return null; while (Pause()) { yield return null; }
+
+        MoveToNext();
+        yield break;
+        
+    }
+
+    public IEnumerator Home()
+    {
+        yield return new WaitForSeconds(1);
+        Application.LoadLevel(SCENE_HOUSE);
+        yield return new WaitForSeconds(1);
+        gameManager.DBox(1, 3);
+        yield return null; while (Pause()) { yield return null; }
+      
+        yield break;
+
+    }
 
     public void MoveToNext()
     {

@@ -9,7 +9,8 @@ public class Falling : MonoBehaviour {
     private bool fallen = false;
 
     public GameObject cam;
-
+    public GameObject person1;
+    
     public Transform target;
     public float smoothTime = 0.3F;
     private Vector3 velocity = Vector3.zero;
@@ -22,7 +23,7 @@ public class Falling : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // start falling trigger
-        if (GameObject.FindGameObjectWithTag("Player").transform.position.x > 2 && check == false && player_arrived == false)
+        if (GameObject.FindGameObjectWithTag("Player").transform.position.x < 10 && check == false && player_arrived == false)
         {
             player_arrived = true;
             Player.Instance.PlayerCamera.SetActive(false);
@@ -37,6 +38,7 @@ public class Falling : MonoBehaviour {
         {
             transform.Translate(0, -speed, 0);
             end += 1;
+
         }
 
         // he has fallen
@@ -48,8 +50,9 @@ public class Falling : MonoBehaviour {
             if (cam != null)
                 cam.SetActive(false);
             fallen = true;
-
-            
+            person1.transform.position=new Vector3(8, -13, 0);
+            //He should also turn around
+                
             Player.Instance.PlayerCamera.SetActive(true);
             //Player.Instance.PlayerCamera.transform.position = Vector3.Lerp(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, 0.2f);
         }

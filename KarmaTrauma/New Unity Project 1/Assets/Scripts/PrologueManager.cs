@@ -5,7 +5,7 @@ public class PrologueManager : MonoBehaviour
 {
 	private GameManager gameManager;
 	private const string SCENE_PROLOGUE = "Prologue";
-	private const string SCENE_HOUSE = "House in development";
+	private const string SCENE_HOUSE = "PrologueHouse";
     private const string SCHOOL = "RaeClass";
     private const string STORY = "Story";
     private const string MALL = "MallPrologue";

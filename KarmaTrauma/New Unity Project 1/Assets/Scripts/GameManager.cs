@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
 			{ 66, new Interactable("Kelly", "",  new string[] {
 					"\"Hey, new kid! Your name is Chelsey right? I'm Kelly.\"",
                     "\"Want me to show you around?\"",
+                    "\"This is the mall.  I got my belly piercing here.\"",
 					"\"Whoa, it's getting late. Where do you live?\"",
                     "\"Just head down from Main Street and you should be able to reach Maple Street. I'll see you tomorrow!\""
 				}) },

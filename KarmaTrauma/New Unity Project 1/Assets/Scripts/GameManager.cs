@@ -1,18 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters.Binary;
-using System;
-using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    PlayerData Data = new PlayerData();
 	public static GameManager Instance;
 	public GameObject DialogueContainer;
 	public enum MODE
 	{
-		NONE, PLAYING, DIALOGUE, MENU, CUTSCENE
+		NONE, PLAYING, DIALOGUE, MENU, CUTSCENE, WAITING
 	};
 	public MODE GameMode = MODE.NONE;
 	public MODE PrevMode = MODE.NONE;
@@ -101,44 +97,17 @@ public class GameManager : MonoBehaviour
         GameMode = MODE.PLAYING;
     }
 
+    public void Wait()
+    {
+        GameMode = MODE.WAITING;
+    }
+
 	void Update()
 	{
 		// For debug purposes (obviously)
 		//Debug.Log (GameMode);
-       
 	}
 
-    public void Save()
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/SaveData.DK");   // Saves in SaveData.DK file
-        Debug.Log("File Saved");
-        Debug.Log(Application.persistentDataPath);
-        //PlayerData data = new PlayerData();
-        Data.AlfredJumpsCW = true;
-
-        bf.Serialize(file, Data);
-        file.Close();
-
-    }
-
-    public void Load()
-    {
-        if (File.Exists(Application.persistentDataPath + "/SaveData.DK"))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/SaveData.DK", FileMode.Open);
-            PlayerData Data = (PlayerData)bf.Deserialize(file);
-            Debug.Log("File Load");
-            Debug.Log(Data.AlfredJumpsCW);
-            file.Close();
-
-            //days = data.days;
-            //progress = data.progress;
-        }
-        
-
-    }
 
 	#region DIALOG BOX
 
@@ -213,4 +182,3 @@ public class GameManager : MonoBehaviour
 
 	#endregion
 }
-

@@ -159,8 +159,15 @@ public class PrologueManager : MonoBehaviour
         gameManager.DBox(66, 4);
         yield return null; while (Pause()) { yield return null; }
 
-        MoveToNext();
-        yield break;
+        while (true)
+        {
+            if (Application.loadedLevelName == SCENE_HOUSE)
+            {
+                MoveToNext();
+                yield break;
+            }
+            yield return null;
+        }
         
     }
 
@@ -250,7 +257,7 @@ public class PrologueManager : MonoBehaviour
         gameManager.DBox(1, 9);
         yield return null; while (Pause()) { yield return null; }
 
-        MoveToNext();
+       
         yield break;
 
     }

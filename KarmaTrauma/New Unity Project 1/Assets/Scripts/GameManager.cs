@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+using System;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -165,4 +168,11 @@ public class GameManager : MonoBehaviour
     }
 
 	#endregion
+}
+
+[Serializable]  // by putting this bracket, Unity knows this class is serializable, thus savable with our serialized saving function
+class SaveData
+{
+    public int days;
+    public int progress;
 }

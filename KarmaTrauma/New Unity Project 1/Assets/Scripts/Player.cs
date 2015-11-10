@@ -285,44 +285,18 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Save(); ;
+            gameManager.Save(); ;
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            Load();
+            gameManager.Load();
+          
         }
     }
 
 
 
-    public void Save()
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/SaveData.DK");   // Saves in SaveData.DK file
-        Debug.Log("File Saved");
-        Debug.Log(Application.persistentDataPath);
-        PlayerData data = new PlayerData();
-        
-        bf.Serialize(file, data);
-        file.Close();
-
-    }
-
-    public void Load()
-    {
-        if (File.Exists(Application.persistentDataPath + "/SaveData.DK"))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/SaveData.DK", FileMode.Open);
-            PlayerData data = (PlayerData)bf.Deserialize(file);
-            Debug.Log("File Load");
-            file.Close();
-
-            //days = data.days;
-            //progress = data.progress;
-        }
-
-    }
+   
 
 
 

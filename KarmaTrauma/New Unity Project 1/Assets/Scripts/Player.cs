@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     bool r = false;
     bool l = false;
 
+	private bool speeding = false;
 
     //GameObject saveMachine = GameObject.AddComponent<SaveData>();
 
@@ -239,8 +240,21 @@ public class Player : MonoBehaviour
 		// Speeding up!
 		if (Input.GetKey(KeyCode.LeftShift))
 		{
-			speed = 0.1f;
+			if (!speeding)
+			{
+				speeding = true;
+				speed += 0.1f;
+			}
 		}
+		else
+		{
+			if (speeding)
+			{
+				speeding = false;
+				speed -= 0.1f;
+			}
+		}
+
 
         if (Input.GetKey(KeyCode.UpArrow))
         {

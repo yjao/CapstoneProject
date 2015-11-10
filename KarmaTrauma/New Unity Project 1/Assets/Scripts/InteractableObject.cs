@@ -12,7 +12,7 @@ public class InteractableObject : MonoBehaviour
 
 	public enum TYPE
 	{
-		NONE, DIALOG
+		NONE, DIALOG, ITEM
 	};
 	public TYPE InteractionType;
 
@@ -92,6 +92,12 @@ public class InteractableObject : MonoBehaviour
 		}
 	}
 
+    public void InteractItem()
+    {
+        EventManager.NotifyItemTaken(this, new GameEventArgs() { IDNum = ID });
+        GameObject.Destroy(gameObject);
+    }
+
 	/*public void CheckAndTurnCharacter()
 	{
 		if (this.transform.position.x > player.gameObject.transform.position.x)
@@ -106,17 +112,18 @@ public class InteractableObject : MonoBehaviour
 
     public void CheckAndInteract()
     {
-        if (colliding && Input.GetKey(KeyCode.E))
+        if (colliding && Input.GetKeyDown(KeyCode.E))
         {
            // colliding = false; //troublesome without this line...
-            Interact();
-
+            if (InteractionType == TYPE.DIALOG)
+                Interact();
+            else if (InteractionType == TYPE.ITEM)
+                InteractItem();
         }
     }
 
     void Update()
     {
 		CheckAndInteract();
-        
     }
 }

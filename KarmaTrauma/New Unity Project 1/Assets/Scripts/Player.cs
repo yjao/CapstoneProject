@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 	private GameManager gameManager;
     public GameObject PlayerCamera;
     public float speed;
+    public GameObject Menu;
 
 	public static Player Instance;
 
@@ -270,6 +271,12 @@ public class Player : MonoBehaviour
             d = false;
             r = false;
             l = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
+            gameManager.GameMode = GameManager.MODE.MENU;
+            gameManager.PrevMode = GameManager.MODE.PLAYING;
         }
         else
         {

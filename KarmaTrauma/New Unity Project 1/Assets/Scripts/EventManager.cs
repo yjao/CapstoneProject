@@ -5,6 +5,7 @@ public class EventManager
 {
 	public delegate void GameEvent(object sender, GameEventArgs args);
 	public static event GameEvent OnDialogChoiceMade;
+    public static event GameEvent OnItemPickup;
     /*public static event GameEvent OnUserHotspotTap;
 	public static event GameEvent OnUserHotspotTapResult;
 	public static event GameEvent OnActivateReplayButton;
@@ -37,6 +38,12 @@ public class EventManager
 		if (OnDialogChoiceMade != null)
 			OnDialogChoiceMade(sender, args);
 	}
+
+    public static void NotifyItemTaken(object sender, GameEventArgs args)
+    {
+        if (OnItemPickup != null)
+            OnItemPickup(sender, args);
+    }
 	
 	/*public static void NotifyUserHotspotTap(object sender, GameEventArgs args)
 	{

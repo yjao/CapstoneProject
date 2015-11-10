@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
 
     public string dialogue_choice;
 
+    //for items;
+    public Item[] items;
+    public int itemAmount;
+    public Dictionary<int, Item> AllItems;
+
     void Awake()
     {
 		// default to playing mode for now
@@ -89,11 +94,27 @@ public class GameManager : MonoBehaviour
 
 		// Bind events
 		EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
+        EventManager.OnItemPickup += ItemPickup;
+
+        //item stuff
+        AllItems = new Dictionary<int, Item>()
+	    {
+			{ 150, new Item("Jewel", "Quit stealing jewels already", "jewel")},
+            { 133, new Item("Bacon and Eggs", "Please stop stealing", "baconAndEggs")}
+        };
+
+        items = new Item[9];
+        items[0] = new Item("Momo", "The original soul of Chelsey", "sprite1");
+        items[1] = new Item("Jewel", "Contains the soul of a demon. Or just a jewel for debugging", "jewel");
+        items[2] = new Item("Bacon and Eggs", "Yum", "baconAndEggs");
+        items[3] = new Item("Stairs", "How did you steal the stairs?!", "stairs");
+        itemAmount = 4;
     }
 
 	void OnDestroy()
 	{
 		EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
+        EventManager.OnItemPickup -= ItemPickup;
 	}
 
     public void Play()
@@ -136,7 +157,7 @@ public class GameManager : MonoBehaviour
             //days = data.days;
             //progress = data.progress;
         }
-        
+            
 
     }
 
@@ -212,5 +233,12 @@ public class GameManager : MonoBehaviour
     }
 
 	#endregion
+
+    void ItemPickup(object sender, GameEventArgs args)
+    {
+        Debug.Log(itemAmount);
+        items[itemAmount] = AllItems[args.IDNum];
+        itemAmount += 1;
+    }
 }
 

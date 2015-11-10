@@ -19,7 +19,7 @@ public class PrologueManager : MonoBehaviour
 		gameManager = GameManager.Instance;
 		DontDestroyOnLoad(this);
 
-        AllScenes = new string[5] {"Story", "School", "Mall", "Main_street", "Home"};
+        AllScenes = new string[8] {"Story_0", "School_0", "Mall_0", "Main_street_0", "Home_0", "Home_1", "School_1", "Main_street_1"};
 
         StartCoroutine(STORY);
 	}
@@ -93,9 +93,9 @@ public class PrologueManager : MonoBehaviour
     }
 
 
-    public IEnumerator School()
+    public IEnumerator School_0()
     {
-        yield return new WaitForSeconds(1);
+       // yield return new WaitForSeconds(1);
         Application.LoadLevel(SCHOOL);
         yield return new WaitForSeconds(1);
         gameManager.DBox(65, 0);
@@ -123,7 +123,7 @@ public class PrologueManager : MonoBehaviour
 
     }
 
-    public IEnumerator Mall()
+    public IEnumerator Mall_0()
     {
         yield return new WaitForSeconds(1);
         Application.LoadLevel(MALL);
@@ -147,7 +147,7 @@ public class PrologueManager : MonoBehaviour
         
     }
 
-    public IEnumerator Main_street()
+    public IEnumerator Main_street_0()
     {
         yield return new WaitForSeconds(1);
         Application.LoadLevel(MAIN_STREET);
@@ -164,18 +164,96 @@ public class PrologueManager : MonoBehaviour
         
     }
 
-    public IEnumerator Home()
+    public IEnumerator Home_0()
     {
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_HOUSE);
         yield return new WaitForSeconds(1);
         gameManager.DBox(1, 3);
         yield return null; while (Pause()) { yield return null; }
-      
+
+        MoveToNext();
         yield break;
 
     }
 
+    //Need to fade to black:  Start of DAY 1
+    public IEnumerator Home_1(){
+        yield return new WaitForSeconds(1);
+        gameManager.DBox(21, 0);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(21, true);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(21, true);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(1, 4);
+        yield return null; while (Pause()) { yield return null; }
+        while (true)
+        {
+            if (Application.loadedLevelName == SCHOOL)
+            {
+                MoveToNext();
+                yield break;
+            }
+            yield return null;
+        }
+    }
+
+    public IEnumerator School_1()
+    {
+        // yield return new WaitForSeconds(1);
+        Application.LoadLevel(SCHOOL);
+        yield return new WaitForSeconds(1);
+        gameManager.DBox(65, 0);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(1, 5);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(65, 3);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(1, 0);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(65, 1);
+        yield return null; while (Pause()) { yield return null; }
+
+        yield return new WaitForSeconds(1);
+        gameManager.DBox(65, 2);
+        yield return null; while (Pause()) { yield return null; }
+        Destroy(GameObject.Find("MrLy"));
+
+        yield return new WaitForSeconds(1);
+        gameManager.DBox(66, 0);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(1, 6);
+        yield return null; while (Pause()) { yield return null; }
+
+        gameManager.DBox(66, 1);
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.DBox(1, 7);
+        yield return null; while (Pause()) { yield return null; }
+
+
+        MoveToNext();
+        yield break;
+
+    }
+
+    /// <summary>
+    ///Allow player to move around at this point and then continue with prologue.
+    /// </summary>
+
+    public IEnumerator Main_street_1()
+    {
+        yield return new WaitForSeconds(1);
+        Application.LoadLevel(MAIN_STREET);
+
+        yield return new WaitForSeconds(1);
+        gameManager.DBox(1, 9);
+        yield return null; while (Pause()) { yield return null; }
+
+        MoveToNext();
+        yield break;
+
+    }
     public void MoveToNext()
     {
         StoryProgress += 1;

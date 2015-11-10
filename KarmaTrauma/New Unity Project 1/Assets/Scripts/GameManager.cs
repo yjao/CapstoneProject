@@ -41,7 +41,15 @@ public class GameManager : MonoBehaviour
 					"\"Um... my name is Chelsey. I just moved in town recently. I like helping people, and.. yeah.\"",
                     "\"Sure!  Let's go~ furendddd.\"",
                     "\"I live on Maple Street.\"",
-					"\"He looks familiar... What a strange night.\""
+					"\"He looks familiar... What a strange night.\"",
+                    "\"...First day of school?.\"",
+                    "\"??\"",
+                    "*Didn't this happen yesterday?...*",
+                    "\"%CUm...%CMaybe not today.\"",
+                    "*What is happening today??  Is everyone playing a trick on me?*",
+                    "!!!The old man!!"
+                    
+                    
 				}) },
 			{ 150, new Interactable("Jewel", "", new string[] {
 					"\"%CDon't bother me, I'm taking a nap!%COK%CNo\"",
@@ -56,14 +64,16 @@ public class GameManager : MonoBehaviour
 			{ 65, new Interactable("Mr.Ly", "Teacher", new string[] {
 					"\"Good morning class, we have a new student today. Chelsey, why don't you introduce yourself?\"",
 					"\"Thank you Chelsey. Take a seat at the empty desk over there. Now, everybody, get out your textbooks and turn to page 42...\"",
-                    "\"That's all for today.  Remember to do the exercises on page 61.\""
+                    "\"That's all for today.  Remember to do the exercises on page 61.\"",
+                    "\"Go on, don't be shy and introduce yourself.\""
 				}) },
 			{ 66, new Interactable("Kelly", "",  new string[] {
 					"\"Hey, new kid! Your name is Chelsey right? I'm Kelly.\"",
                     "\"Want me to show you around?\"",
                     "\"This is the mall.  I got my belly piercing here.\"",
 					"\"Whoa, it's getting late. Where do you live?\"",
-                    "\"Just head down from Main Street and you should be able to reach Maple Street. I'll see you tomorrow!\""
+                    "\"Just head down from Main Street and you should be able to reach Maple Street. I'll see you tomorrow!\"",
+                    "\"Ok then.  See ya!\""
 				}) },
 			{ 133, new Interactable("Bacon and Eggs", "", new string[] {
 					"%C A delicious floating egg on a magical bacon.%C\"I guess I'll eat it.\"%C\"Nah...\" ",

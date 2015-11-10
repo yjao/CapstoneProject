@@ -10,8 +10,31 @@ public class PrologueManager : MonoBehaviour
     private const string STORY = "Story";
     private const string MALL = "MallPrologue";
     private const string MAIN_STREET = "MainStreetFalling";
-    
-	public int StoryProgress;
+
+
+    // PLAYER STUFF 
+    Animator animator;
+    const int idle = 0;
+    const int up = 1;
+    const int down = 2;
+    const int right = 3;
+    const int left = 4;
+
+    const int upIdle = 5;
+    const int downIdle = 6;
+    const int rightIdle = 7;
+    const int leftIdle = 8;
+
+    const string animationState = "AnimationState";
+
+    bool u = false;
+    bool d = false;
+    bool r = false;
+    bool l = false;
+    // END OF PLAYER STUFF
+
+
+    public int StoryProgress;
     public string[] AllScenes;
 
 	void Start()
@@ -53,11 +76,14 @@ public class PrologueManager : MonoBehaviour
 			}
 			StoryProgress++;
 		}*/
+
+
+        //Debug.Log(gameManager.GameMode);
 	}
 
     private bool Pause()
     {
-        return gameManager.GameMode != GameManager.MODE.PLAYING;
+        return gameManager.GameMode == GameManager.MODE.DIALOGUE;
     }
 
 	public IEnumerator Story()
@@ -69,9 +95,13 @@ public class PrologueManager : MonoBehaviour
 
 		gameManager.CreateMessage("YOU TWISTED FATE!");
         yield return null; while (Pause()) { yield return null; }
-        
+
+        // Loading the Scene: At House (Mom wakes you up)
         Application.LoadLevel(SCENE_HOUSE);
+        gameManager.Wait();
         yield return new WaitForSeconds(2);
+
+        // Mom's dialogue appears
         gameManager.DBox(21, 0);
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(21, true);
@@ -81,6 +111,7 @@ public class PrologueManager : MonoBehaviour
 
         while (true)
         {
+            gameManager.Play();
             if (Application.loadedLevelName == SCHOOL)
             {
                 MoveToNext();
@@ -95,6 +126,7 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator School()
     {
+        gameManager.Wait();
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCHOOL);
         yield return new WaitForSeconds(1);
@@ -104,6 +136,23 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(65, 1);
         yield return null; while (Pause()) { yield return null; }
+
+
+        while(Player.Instance.transform.position.y >= -2.18)
+        {
+            Player.Instance.transform.Translate(0.0f, -0.02f, 0.0f);
+            Player.Instance.animator.SetInteger(animationState, down);
+            yield return null;
+        }
+        while (Player.Instance.transform.position.y <= -2.18 && Player.Instance.transform.position.x > -0.6)
+        {
+            Player.Instance.transform.Translate(-0.02f, 0.0f, 0.0f);
+            Player.Instance.animator.SetInteger(animationState, left);
+            yield return null;
+
+        }
+
+        Player.Instance.animator.SetInteger(animationState, upIdle);
 
         yield return new WaitForSeconds(1);
         gameManager.DBox(65, 2);

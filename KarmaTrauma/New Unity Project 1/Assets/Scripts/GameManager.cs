@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 	public GameObject DialogueContainer;
 	public enum MODE
 	{
-		NONE, PLAYING, DIALOGUE, MENU, CUTSCENE
+		NONE, PLAYING, DIALOGUE, MENU, CUTSCENE, WAITING
 	};
 	public MODE GameMode = MODE.NONE;
 	public MODE PrevMode = MODE.NONE;
@@ -85,6 +85,11 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         GameMode = MODE.PLAYING;
+    }
+
+    public void Wait()
+    {
+        GameMode = MODE.WAITING;
     }
 
 	void Update()

@@ -41,12 +41,12 @@ public class Player : MonoBehaviour
 
 	void Awake()
 	{
-		if ((Instance != null) && (Instance != this))
+		/*if ((Instance != null) && (Instance != this))
 			Destroy(gameObject);
 		else
 			Instance = this;
 		
-		DontDestroyOnLoad(this);
+		DontDestroyOnLoad(this);*/
 
 		CollidingWithID = new List<int>();
 	}
@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		Instance = this;
         walltop = FindObjectOfType(typeof(InvisibleWallTop)) as InvisibleWallTop;
 		gameManager = GameManager.Instance;
         animator = GetComponent<Animator>();

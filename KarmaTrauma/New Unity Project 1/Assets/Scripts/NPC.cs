@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class NPC : MonoBehaviour
 {
+	public GameObject IntrObject;
     public Animator animator;
 
     const int idle = 0;
@@ -17,6 +19,9 @@ public class NPC : MonoBehaviour
     const int leftIdle = 8;
 
     const string animationState = "AnimationState";
+
+	private int prevAnimationInt;
+	private bool animationLocked = false;
 
 	// Wandering around
 	public float WanderDistanceX;
@@ -35,7 +40,7 @@ public class NPC : MonoBehaviour
 	}
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 		transform.rotation = Quaternion.Euler(Vector3.zero);
 		if (GameManager.Instance.GameMode != GameManager.MODE.PLAYING)
@@ -54,13 +59,13 @@ public class NPC : MonoBehaviour
 
 		if (WanderDirectionX > 0) // going right
 		{
-			animator.SetInteger(animationState, right);
+			SetAnimation(right);
 			transform.Translate(0.01f, 0, 0);
 			currentX += 1;
 		}
 		else if (WanderDirectionX < 0) // going lft
 		{
-			animator.SetInteger(animationState, left);
+			SetAnimation(left);
 			transform.Translate(-0.01f, 0, 0);
 			currentX -= 1;
 		}
@@ -71,22 +76,56 @@ public class NPC : MonoBehaviour
 		}
 	}
 
-	// Working on getting NPC to face player.
 	void HandleNPC(object sender, GameEventArgs args)
 	{
-		if (Player.Instance == null)
+		if ((Player.Instance == null) || (args.ThisGameObject != IntrObject))
 		{
 			return;
 		}
 
-		if (this.transform.position.x > Player.Instance.transform.position.x)
+		int playerAnimationInt = -1;
+		Vector3 difference = this.transform.position - Player.Instance.transform.position;
+		if (Math.Abs(difference.x) > Math.Abs(difference.y))
 		{
-			animator.SetInteger(animationState, leftIdle);
+			if (this.transform.position.x > Player.Instance.transform.position.x)
+			{
+				SetAnimation(leftIdle);
+				playerAnimationInt = rightIdle;
+			}
+			else if (this.transform.position.x < Player.Instance.transform.position.x)
+			{
+				SetAnimation(rightIdle);
+				playerAnimationInt = leftIdle;
+			}
 		}
-		else if (this.transform.position.x < Player.Instance.transform.position.x)
+		else if (Math.Abs(difference.x) < Math.Abs(difference.y))
 		{
-			animator.SetInteger(animationState, rightIdle);
+			if (this.transform.position.y > Player.Instance.transform.position.y)
+			{
+				SetAnimation(downIdle);
+				playerAnimationInt = upIdle;
+			}
+			else if (this.transform.position.y < Player.Instance.transform.position.y)
+			{
+				SetAnimation(upIdle);
+				playerAnimationInt = downIdle;
+			}
 		}
+		if (playerAnimationInt >= 0)
+		{
+			EventManager.NotifyNPC(this, new GameEventArgs() { Integer = playerAnimationInt });
+		}
+	}
+
+	private void SetAnimation(int newInteger)
+	{
+		prevAnimationInt = animator.GetInteger(animationState);
+		animator.SetInteger(animationState, newInteger);
+	}
+
+	private void ResumeAnimation()
+	{
+		SetAnimation(prevAnimationInt);
 	}
 
 }

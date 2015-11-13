@@ -84,9 +84,11 @@
     <Compile Include="Assets\Scripts\InvisibleWallRight.cs" />
     <Compile Include="Assets\Scripts\InvisibleWallTop.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\Scripts\Kelly.cs" />
     <Compile Include="Assets\Scripts\MapLocation.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\Mom.cs" />
+    <Compile Include="Assets\Scripts\NPC.cs" />
     <Compile Include="Assets\Scripts\NPCMovements.cs" />
     <Compile Include="Assets\Scripts\Packages\TileSprite\Scripts\TileSprite.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />

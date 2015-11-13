@@ -194,7 +194,9 @@ public class PrologueManager : MonoBehaviour
 		gameManager.DBox(66, 0);
         yield return null; while (Pause()) { yield return null; }
 		Player.Instance.animator.SetInteger(animationState, leftIdle);
-		gameManager.DBox(66, 1);
+        GameObject.Find("Kelly").GetComponent<Animator>().SetInteger("AnimationState", rightIdle);
+        Debug.Log(GameObject.Find("Kelly").GetComponent<Animator>());
+        gameManager.DBox(66, 1);
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(1, 1);
         yield return null; while (Pause()) { yield return null; }

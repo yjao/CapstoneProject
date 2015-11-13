@@ -84,6 +84,13 @@ public class GameManager : MonoBehaviour
                     "\"Just head down from Main Street and you should be able to reach Maple Street. I'll see you tomorrow!\"",
                     "\"Ok then.  See ya!\""
 				}) },
+            { 67, new Interactable("???", "???",  new string[] {
+				"\"Hey kid, have you seen a brown dog around here?\"",
+                "\"I came here to jog with my Sparky but he ran away as soon as we got here.\"",
+                "\"Please help me find him.\"",
+				"\"Oh, thank you so much kid.\"",
+                "\"BAD DOG! BAD SPARKY!! Don't you ever run away like that again.\""
+			}) },
 			{ 133, new Interactable("Bacon and Eggs", "", new string[] {
 					"%C A delicious floating egg on a magical bacon.%C\"I guess I'll eat it.\"%C\"Nah...\" ",
 				}) },

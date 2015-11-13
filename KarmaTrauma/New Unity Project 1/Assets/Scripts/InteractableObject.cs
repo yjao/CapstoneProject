@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class InteractableObject : MonoBehaviour
 {
 	public int ID;
+	public GameObject Npc;
 
 	protected GameManager gameManager;
 	protected Player player;

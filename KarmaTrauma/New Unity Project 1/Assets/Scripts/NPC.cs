@@ -4,29 +4,38 @@ using System;
 
 public class NPC : MonoBehaviour
 {
+	#region Public Variables
 	public GameObject IntrObject;
     public Animator animator;
 
-    const int idle = 0;
+	// Wandering
+	public float WanderDistanceX;
+	public int WanderDirectionX;
+	public float WanderDistanceY;
+	public int WanderDirectionY;
+	#endregion
+
+	#region Constants
+	const string animationState = "AnimationState";
+	const int idle = 0;
     const int up = 1;
     const int down = 2;
     const int right = 3;
     const int left = 4;
-
     const int upIdle = 5;
     const int downIdle = 6;
     const int rightIdle = 7;
     const int leftIdle = 8;
-
-    const string animationState = "AnimationState";
-
+	#endregion
+    
+	#region Private Variables
 	private int prevAnimationInt;
-	private bool animationLocked = false;
 
 	// Wandering around
-	public float WanderDistanceX;
-	public int WanderDirectionX = 1;
 	private int currentX = 0;
+	private int currentY = 0;
+	#endregion
+
 
     void Start()
     {
@@ -39,7 +48,6 @@ public class NPC : MonoBehaviour
 		EventManager.OnNPC -= HandleNPC;
 	}
 
-    // Update is called once per frame
     void FixedUpdate()
     {
 		transform.rotation = Quaternion.Euler(Vector3.zero);
@@ -48,7 +56,10 @@ public class NPC : MonoBehaviour
 			return;
 		}
 		WanderX();
+		WanderY();
     }
+
+	#region Wandering
 
 	private void WanderX()
 	{
@@ -63,7 +74,7 @@ public class NPC : MonoBehaviour
 			transform.Translate(0.01f, 0, 0);
 			currentX += 1;
 		}
-		else if (WanderDirectionX < 0) // going lft
+		else if (WanderDirectionX < 0) // going left
 		{
 			SetAnimation(left);
 			transform.Translate(-0.01f, 0, 0);
@@ -75,6 +86,34 @@ public class NPC : MonoBehaviour
 			WanderDirectionX *= -1;
 		}
 	}
+
+	private void WanderY()
+	{
+		if (WanderDirectionY == 0)
+		{
+			return;
+		}
+		
+		if (WanderDirectionY > 0) // going up
+		{
+			SetAnimation(up);
+			transform.Translate(0, 0.01f, 0);
+			currentY += 1;
+		}
+		else if (WanderDirectionY < 0) // going down
+		{
+			SetAnimation(down);
+			transform.Translate(0, -0.01f, 0);
+			currentY -= 1;
+		}
+		
+		if ((currentY < -WanderDistanceY) || (currentY > WanderDistanceY))
+		{
+			WanderDirectionY *= -1;
+		}
+	}
+
+	#endregion
 
 	void HandleNPC(object sender, GameEventArgs args)
 	{
@@ -117,6 +156,8 @@ public class NPC : MonoBehaviour
 		}
 	}
 
+	#region Animation Control
+
 	private void SetAnimation(int newInteger)
 	{
 		prevAnimationInt = animator.GetInteger(animationState);
@@ -128,4 +169,5 @@ public class NPC : MonoBehaviour
 		SetAnimation(prevAnimationInt);
 	}
 
+	#endregion
 }

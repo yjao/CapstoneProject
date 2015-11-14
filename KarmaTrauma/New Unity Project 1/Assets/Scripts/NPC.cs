@@ -5,14 +5,14 @@ using System;
 public class NPC : MonoBehaviour
 {
 	#region Public Variables
-	public GameObject IntrObject;
-    public Animator animator;
+	public GameObject interactableObject;
+	public CharacterAnimations characterAnimations;
 
 	// Wandering
-	public float WanderDistanceX;
-	public int WanderDirectionX;
-	public float WanderDistanceY;
-	public int WanderDirectionY;
+	public float wanderDistanceX;
+	public int wanderDirectionX;
+	public float wanderDistanceY;
+	public int wanderDirectionY;
 	#endregion
 
 	#region Constants
@@ -39,7 +39,6 @@ public class NPC : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
 		EventManager.OnNPC += HandleNPC;
     }
 
@@ -63,53 +62,53 @@ public class NPC : MonoBehaviour
 
 	private void WanderX()
 	{
-		if (WanderDirectionX == 0)
+		if (wanderDirectionX == 0)
 		{
 			return;
 		}
 
-		if (WanderDirectionX > 0) // going right
+		if (wanderDirectionX > 0) // going right
 		{
-			SetAnimation(right);
+			SetAnimation(CharacterAnimations.States.RIGHT_WALK);
 			transform.Translate(0.01f, 0, 0);
 			currentX += 1;
 		}
-		else if (WanderDirectionX < 0) // going left
+		else if (wanderDirectionX < 0) // going left
 		{
-			SetAnimation(left);
+			SetAnimation(CharacterAnimations.States.LEFT_WALK);
 			transform.Translate(-0.01f, 0, 0);
 			currentX -= 1;
 		}
 
-		if ((currentX < -WanderDistanceX) || (currentX > WanderDistanceX))
+		if ((currentX < -wanderDistanceX) || (currentX > wanderDistanceX))
 		{
-			WanderDirectionX *= -1;
+			wanderDirectionX *= -1;
 		}
 	}
 
 	private void WanderY()
 	{
-		if (WanderDirectionY == 0)
+		if (wanderDirectionY == 0)
 		{
 			return;
 		}
 		
-		if (WanderDirectionY > 0) // going up
+		if (wanderDirectionY > 0) // going up
 		{
-			SetAnimation(up);
+			SetAnimation(CharacterAnimations.States.UP_WALK);
 			transform.Translate(0, 0.01f, 0);
 			currentY += 1;
 		}
-		else if (WanderDirectionY < 0) // going down
+		else if (wanderDirectionY < 0) // going down
 		{
-			SetAnimation(down);
+			SetAnimation(CharacterAnimations.States.DOWN_WALK);
 			transform.Translate(0, -0.01f, 0);
 			currentY -= 1;
 		}
 		
-		if ((currentY < -WanderDistanceY) || (currentY > WanderDistanceY))
+		if ((currentY < -wanderDistanceY) || (currentY > wanderDistanceY))
 		{
-			WanderDirectionY *= -1;
+			wanderDirectionY *= -1;
 		}
 	}
 
@@ -117,7 +116,7 @@ public class NPC : MonoBehaviour
 
 	void HandleNPC(object sender, GameEventArgs args)
 	{
-		if ((Player.Instance == null) || (args.ThisGameObject != IntrObject))
+		if ((Player.Instance == null) || (args.ThisGameObject != interactableObject))
 		{
 			return;
 		}
@@ -128,12 +127,12 @@ public class NPC : MonoBehaviour
 		{
 			if (this.transform.position.x > Player.Instance.transform.position.x)
 			{
-				SetAnimation(leftIdle);
+				SetAnimation(CharacterAnimations.States.LEFT_IDLE);
 				playerAnimationInt = rightIdle;
 			}
 			else if (this.transform.position.x < Player.Instance.transform.position.x)
 			{
-				SetAnimation(rightIdle);
+				SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
 				playerAnimationInt = leftIdle;
 			}
 		}
@@ -141,12 +140,12 @@ public class NPC : MonoBehaviour
 		{
 			if (this.transform.position.y > Player.Instance.transform.position.y)
 			{
-				SetAnimation(downIdle);
+				SetAnimation(CharacterAnimations.States.DOWN_IDLE);
 				playerAnimationInt = upIdle;
 			}
 			else if (this.transform.position.y < Player.Instance.transform.position.y)
 			{
-				SetAnimation(upIdle);
+				SetAnimation(CharacterAnimations.States.UP_IDLE);
 				playerAnimationInt = downIdle;
 			}
 		}
@@ -158,15 +157,9 @@ public class NPC : MonoBehaviour
 
 	#region Animation Control
 
-	private void SetAnimation(int newInteger)
+	private void SetAnimation(CharacterAnimations.States newState)
 	{
-		prevAnimationInt = animator.GetInteger(animationState);
-		animator.SetInteger(animationState, newInteger);
-	}
-
-	private void ResumeAnimation()
-	{
-		SetAnimation(prevAnimationInt);
+		characterAnimations.AnimationState = newState;
 	}
 
 	#endregion

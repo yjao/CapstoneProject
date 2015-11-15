@@ -159,7 +159,10 @@ public class NPC : MonoBehaviour
 
 	private void SetAnimation(CharacterAnimations.States newState)
 	{
-		characterAnimations.AnimationState = newState;
+		if (characterAnimations.AnimationState != newState)
+		{
+			characterAnimations.AnimationState = newState;
+		}
 	}
 
 	#endregion

@@ -35,7 +35,7 @@ public class CharacterAnimations : MonoBehaviour
 		}
 	}
 
-	void Start ()
+	void Start()
 	{
 		sprites = Resources.LoadAll<Sprite>(atlasName);
 		m_animation_state = startingAnimationState;
@@ -63,7 +63,7 @@ public class CharacterAnimations : MonoBehaviour
 		{
 			int rangeStart = 0;
 			int rangeEnd = 0;
-			Debug.Log (m_animation_state);
+			//Debug.Log (m_animation_state);
 			switch (m_animation_state)
 			{
 			case States.DOWN_IDLE:
@@ -75,7 +75,8 @@ public class CharacterAnimations : MonoBehaviour
 				rangeEnd = states.upWalkStart;
 				break;
 			case States.LEFT_IDLE:
-
+				rangeStart = states.leftWalkStart;
+				rangeEnd = states.leftWalkStart;
 				break;
 			case States.RIGHT_IDLE:
 				rangeStart = states.rightWalkStart;

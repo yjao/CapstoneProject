@@ -25,6 +25,8 @@ public class InteractableObject : MonoBehaviour
 	public int DialogueIDMin;
 	public int DialogueIDMax;
 	public List<int> DialogueIDMulti;
+    public int[] BranchID;
+    public string[] BranchBool;
 
 	public void Init()
 	{
@@ -57,6 +59,13 @@ public class InteractableObject : MonoBehaviour
 
 	private void CallDialogue()
 	{
+        for (int branches = 0; branches < BranchID.Length; branches++)
+        {
+            if (gameManager.GetData(BranchBool[branches]) == true)
+            {
+                ID = BranchID[branches];
+            }
+        }
 		int newIndex = DialogueIDSingle;
 		switch (DialogueIDType)
 		{

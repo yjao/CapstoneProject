@@ -61,8 +61,17 @@ public class GameManager : MonoBehaviour
                     
 				}) },
 			{ 150, new Interactable("Jewel", "", new string[] {
+                    "\"%B~JewelTest~Testing playerdata\"",
 					"\"%CDon't bother me, I'm taking a nap!%COK%CNo\"",
                     "\"%C!!!%CPeanut Butter%CHi%C???%C!!!\""
+            }
+				) },
+            { 151, new Interactable("Jewel2", "", new string[] {
+					"\"Im a duplicate Jewel\""
+            }
+				) },
+            { 152, new Interactable("Jewel2", "", new string[] {
+					"\"That other jewel is weird huh?\""
             }
 				) },
 			{ 21, new Interactable("Mom", "", new string[] {
@@ -190,7 +199,16 @@ public class GameManager : MonoBehaviour
 			ch.LastDialogueDisplayed++;
 		else if (!next && ch.LastDialogueDisplayed < 0)
 			ch.LastDialogueDisplayed = 0;
-        if (ch.Dialogue[ch.LastDialogueDisplayed].Contains("%C"))
+        Debug.Log(ch.LastDialogueDisplayed);
+        if (ch.Dialogue[ch.LastDialogueDisplayed].Contains("%B"))
+        {
+            string message = ch.Dialogue[ch.LastDialogueDisplayed].Substring(4);
+            string dataBool = message.Substring(0, message.IndexOf('~'));
+            message = message.Substring(message.IndexOf('~') + 1);
+            Data.DataDictionary[dataBool] = true;
+            CreateDialogue(ch.Name, "\"" + message);
+        }
+        else if (ch.Dialogue[ch.LastDialogueDisplayed].Contains("%C"))
         {
             StartCoroutine(CreateChoice(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed]));
         }
@@ -240,8 +258,12 @@ public class GameManager : MonoBehaviour
 
     void ItemPickup(object sender, GameEventArgs args)
     {
-        Debug.Log(itemAmount);
         items[itemAmount] = AllItems[args.IDNum];
         itemAmount += 1;
+    }
+
+    public bool GetData(string name)
+    {
+        return Data.DataDictionary[name];
     }
 }

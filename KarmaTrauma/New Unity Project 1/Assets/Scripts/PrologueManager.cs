@@ -86,39 +86,40 @@ public class PrologueManager : MonoBehaviour
         return gameManager.GameMode == GameManager.MODE.DIALOGUE;
     }
 
-	private IEnumerator MovePlayer(int animatorDirection, float newPositionValue, float speed=0.02f)
+	private IEnumerator MovePlayer(GameObject character, int animatorDirection, float newPositionValue, float speed=0.02f)
 	{
+        Animator animator = character.GetComponent<Animator>();
 		switch (animatorDirection)
 		{
 		case left:
-			while (Player.Instance.transform.position.x >= newPositionValue)
+			while (character.transform.position.x >= newPositionValue)
 			{
-				Player.Instance.transform.Translate(-speed, 0.0f, 0.0f);
-				Player.Instance.animator.SetInteger(animationState, left);
+                character.transform.Translate(-speed, 0.0f, 0.0f);
+                animator.SetInteger(animationState, left);
 				yield return null;
 			}
 			break;
 		case right:
-			while (Player.Instance.transform.position.x <= newPositionValue)
+            while (character.transform.position.x <= newPositionValue)
 			{
-				Player.Instance.transform.Translate(speed, 0.0f, 0.0f);
-				Player.Instance.animator.SetInteger(animationState, right);
+                character.transform.Translate(speed, 0.0f, 0.0f);
+                animator.SetInteger(animationState, right);
 				yield return null;
 			}
 			break;
 		case down:
-			while(Player.Instance.transform.position.y >= newPositionValue)
+            while (character.transform.position.y >= newPositionValue)
 			{
-				Player.Instance.transform.Translate(0.0f, -speed, 0.0f);
-				Player.Instance.animator.SetInteger(animationState, down);
+                character.transform.Translate(0.0f, -speed, 0.0f);
+                animator.SetInteger(animationState, down);
 				yield return null;
 			}
 			break;
 		case up:
-			while(Player.Instance.transform.position.y <= newPositionValue)
+            while (character.transform.position.y <= newPositionValue)
 			{
-				Player.Instance.transform.Translate(0.0f, speed, 0.0f);
-				Player.Instance.animator.SetInteger(animationState, up);
+                character.transform.Translate(0.0f, speed, 0.0f);
+                animator.SetInteger(animationState, up);
 				yield return null;
 			}
 			break;
@@ -178,10 +179,10 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
 
 		// Chelsey walks to her desk
-		yield return StartCoroutine(MovePlayer(down, 2.45f));
-		yield return StartCoroutine(MovePlayer(right, 0.24f));
-		yield return StartCoroutine(MovePlayer(down, 1.16f));
-		yield return StartCoroutine(MovePlayer(left, -0.49f));
+		yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, down, 2.45f));
+        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, right, 0.24f));
+        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, down, 1.16f));
+        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, left, -0.49f));
         Player.Instance.animator.SetInteger(animationState, upIdle);
 
         yield return new WaitForSeconds(1);
@@ -191,14 +192,23 @@ public class PrologueManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
 		// Kelly talks
+        GameObject.Find("Kelly").GetComponent<Animator>().SetInteger("AnimationState", right);
+        yield return StartCoroutine(MovePlayer(GameObject.Find("Kelly"), right, -1.00f));
+        GameObject.Find("Kelly").GetComponent<Animator>().SetInteger("AnimationState", rightIdle);
+
+        Player.Instance.animator.SetInteger(animationState, leftIdle);
 		gameManager.DBox(66, 0);
         yield return null; while (Pause()) { yield return null; }
-		Player.Instance.animator.SetInteger(animationState, leftIdle);
-		gameManager.DBox(66, 1);
+        gameManager.DBox(66, 1);
         yield return null; while (Pause()) { yield return null; }
+
         gameManager.DBox(1, 1);
-        yield return null; while (Pause()) { yield return null; }
+        GameObject.Find("Kelly").GetComponent<Animator>().SetInteger("AnimationState", 9);
+        yield return new WaitForSeconds(1);
+
+        GameObject.Find("Kelly").GetComponent<Animator>().SetInteger("AnimationState", 10);
         
+        yield return null; while (Pause()) { yield return null; }
         
         MoveToNext();
         yield break;
@@ -313,10 +323,10 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
 
 		// Chelsey walks to her desk
-		yield return StartCoroutine(MovePlayer(down, 2.45f));
-		yield return StartCoroutine(MovePlayer(right, 0.24f));
-		yield return StartCoroutine(MovePlayer(down, 1.16f));
-		yield return StartCoroutine(MovePlayer(left, -0.49f));
+        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, down, 2.45f));
+        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, right, 0.24f));
+        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, down, 1.16f));
+        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, left, -0.49f));
 		Player.Instance.animator.SetInteger(animationState, upIdle);
 		
 		yield return new WaitForSeconds(1);

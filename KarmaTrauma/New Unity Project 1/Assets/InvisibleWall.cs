@@ -39,6 +39,11 @@ public class InvisibleWall : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (player == null)
+		{
+			player = Player.Instance;
+		}
+
 		float wall_y = this.transform.position.y;
 		float scale_y = this.transform.localScale.y;
 		float wall_x = this.transform.position.x;

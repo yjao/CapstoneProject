@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class InteractableObject : MonoBehaviour
 {
 	public int ID;
+	public GameObject Npc;
 
 	protected GameManager gameManager;
 	protected Player player;
@@ -91,7 +92,8 @@ public class InteractableObject : MonoBehaviour
 
 	public void Interact()
 	{
-        EventManager.NotifyNPC(this, new GameEventArgs() { Position = this.transform.position });
+		EventManager.NotifyNPC(this, new GameEventArgs() { ThisGameObject = gameObject });
+
 		switch (InteractionType)
 		{
 		case TYPE.DIALOG:

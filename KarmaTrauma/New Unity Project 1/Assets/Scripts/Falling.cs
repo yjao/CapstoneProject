@@ -34,7 +34,7 @@ public class Falling : MonoBehaviour {
         }
 
         // falling
-        if (end != 100 && player_arrived == true)
+        if (end != 70 && player_arrived == true)
         {
             transform.Translate(0, -speed, 0);
             end += 1;
@@ -42,7 +42,7 @@ public class Falling : MonoBehaviour {
         }
 
         // he has fallen
-        if (fallen == false && end == 100)
+        if (fallen == false && end == 70)
         {
             //Vector3 targetPosition = target.TransformPoint(Player.Instance.PlayerCamera.transform.position);
             //cam.transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);

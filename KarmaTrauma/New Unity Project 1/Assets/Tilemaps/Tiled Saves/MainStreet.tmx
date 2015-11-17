@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="MDTileA5" tilewidth="16" tileheight="16" tilecount="512">
+  <image source="../MDTileA5.png" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="513" name="MDTileA2" tilewidth="16" tileheight="16" tilecount="768">
+  <image source="../MDTileA2.png" width="512" height="384"/>
+ </tileset>
+ <tileset firstgid="1281" name="InnerModern-A4" tilewidth="16" tileheight="16" tilecount="960">
+  <image source="../InnerModern-A4.png" width="512" height="480"/>
+ </tileset>
+ <tileset firstgid="2241" name="ModernDay_A4" tilewidth="16" tileheight="16" tilecount="960">
+  <image source="../ModernDay_A4.png" width="512" height="480"/>
+ </tileset>
+ <tileset firstgid="3201" name="MDTileB" tilewidth="16" tileheight="16" tilecount="1024">
+  <image source="../MDTileB.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="4225" name="MDTileA4" tilewidth="16" tileheight="16" tilecount="960">
+  <image source="../MDTileA4.png" width="512" height="480"/>
+ </tileset>
+ <tileset firstgid="5185" name="ModernDay_A3" tilewidth="16" tileheight="16" tilecount="512">
+  <image source="../ModernDay_A3.png" width="512" height="256"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+</map>

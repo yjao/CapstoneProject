@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class InteractableObject : MonoBehaviour
 {
 	public int ID;
+	public GameObject Npc;
 
 	protected GameManager gameManager;
 	protected Player player;
@@ -25,6 +26,8 @@ public class InteractableObject : MonoBehaviour
 	public int DialogueIDMin;
 	public int DialogueIDMax;
 	public List<int> DialogueIDMulti;
+    public int[] BranchID;
+    public string[] BranchBool;
 
 	public void Init()
 	{
@@ -57,6 +60,13 @@ public class InteractableObject : MonoBehaviour
 
 	private void CallDialogue()
 	{
+        for (int branches = 0; branches < BranchID.Length; branches++)
+        {
+            if (gameManager.GetData(BranchBool[branches]) == true)
+            {
+                ID = BranchID[branches];
+            }
+        }
 		int newIndex = DialogueIDSingle;
 		switch (DialogueIDType)
 		{
@@ -82,7 +92,8 @@ public class InteractableObject : MonoBehaviour
 
 	public void Interact()
 	{
-        EventManager.NotifyNPC(this, new GameEventArgs() { Position = this.transform.position });
+		EventManager.NotifyNPC(this, new GameEventArgs() { ThisGameObject = gameObject });
+
 		switch (InteractionType)
 		{
 		case TYPE.DIALOG:

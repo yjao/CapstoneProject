@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     bool r = false;
     bool l = false;
 
+	private bool speeding = false;
 
     //GameObject saveMachine = GameObject.AddComponent<SaveData>();
 
@@ -69,34 +70,11 @@ public class Player : MonoBehaviour
 
     void HandleNPC(object sender, GameEventArgs args)
     {
-       
-        //Fix this senderObj -> sender returns null
-        //GameObject senderObj = sender as GameObject;
-        if (sender == null)
-        {
-            return;
-        }
-        //this.transform.rotation = Quaternion.Euler(Vector3.zero);
-        //Debug.Log(this.transform.rotation);
-        //set player to face sender's (NPC) direction
-        if (args.Position[0] < this.transform.position.x)
-        {
-            animator.SetInteger(animationState, leftIdle);
-        }
-        else if (args.Position[0] > this.transform.position.x)
-        {
-            animator.SetInteger(animationState, rightIdle);
-        }
-        //Need to fix up and down facing;
-        //else if (args.Position[1] < this.transform.position.y)
-        //{
-        //    animator.SetInteger(animationState, downIdle);
-        //}
-        //else if (args.Position[1] > this.transform.position.y)
-        //{
-        //    animator.SetInteger(animationState, upIdle);
-        //}
-    }
+		if (args.ThisGameObject == null)
+		{
+			animator.SetInteger(animationState, args.Integer);
+		}
+	}
 
     public void onHitTop(float wall_y)
     {
@@ -239,8 +217,21 @@ public class Player : MonoBehaviour
 		// Speeding up!
 		if (Input.GetKey(KeyCode.LeftShift))
 		{
-			speed = 0.1f;
+			if (!speeding)
+			{
+				speeding = true;
+				speed += 0.1f;
+			}
 		}
+		else
+		{
+			if (speeding)
+			{
+				speeding = false;
+				speed -= 0.1f;
+			}
+		}
+
 
         if (Input.GetKey(KeyCode.UpArrow))
         {

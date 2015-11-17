@@ -15,7 +15,7 @@ public class Mom : InteractableObject
 
     const int rightIdle = 5;
     const int leftIdle = 6;
-    const string animationState = "MomAnimationState";
+    const string animationState = "AnimationState";
 
     int k = 0;
     bool l = false;

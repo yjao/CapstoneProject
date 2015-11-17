@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerData
 {
@@ -7,4 +8,10 @@ public class PlayerData
 	public bool AlfredJumpsCW = false;
 	bool MomBreakfastCW = false;
 	bool ClassIntroductionsCW = false;
+    bool JewelTest = false;
+    public Dictionary<string, bool> DataDictionary = new Dictionary<string, bool>()
+    {
+        {"AlfredJumpsCW", false},
+        {"JewelTest", false}
+    };
 }

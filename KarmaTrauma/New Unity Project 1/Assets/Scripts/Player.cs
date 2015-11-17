@@ -306,7 +306,12 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    public void InvenButton()
+    {
+        Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
+        gameManager.GameMode = GameManager.MODE.MENU;
+        gameManager.PrevMode = GameManager.MODE.PLAYING;
+    }
 
     public void Save()
     {

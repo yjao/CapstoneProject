@@ -7,6 +7,8 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
+    public int gameClock = 0;
+    public string gameClockDisplay = "";
     PlayerData Data = new PlayerData();
 	public static GameManager Instance;
 	public GameObject DialogueContainer;
@@ -111,6 +113,10 @@ public class GameManager : MonoBehaviour
         itemAmount = 4;
     }
 
+    void Start()
+    {
+        gameClockDisplay = gameClock.ToString() + "AM";
+    }
 	void OnDestroy()
 	{
 		EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
@@ -127,11 +133,7 @@ public class GameManager : MonoBehaviour
         GameMode = MODE.WAITING;
     }
 
-	void Update()
-	{
-		// For debug purposes (obviously)
-		//Debug.Log (GameMode);
-	}
+
 
     public void Save()
     {
@@ -238,10 +240,35 @@ public class GameManager : MonoBehaviour
 
 	#endregion
 
+    void upDateClock()
+    {
+        if (gameClock == 24)
+        {
+            gameClock = 0;
+        }
+        if (gameClock <= 12)
+        {
+            gameClockDisplay = gameClock.ToString() + "AM";
+        }
+        else if (gameClock > 12)
+        {
+            int time = gameClock - 12;
+            gameClockDisplay =  time.ToString() + "PM";
+        }
+    }
+
+    
     void ItemPickup(object sender, GameEventArgs args)
     {
         Debug.Log(itemAmount);
         items[itemAmount] = AllItems[args.IDNum];
         itemAmount += 1;
+    }
+
+    void Update()
+    {
+        upDateClock();
+        // For debug purposes (obviously)
+        //Debug.Log (GameMode);
     }
 }

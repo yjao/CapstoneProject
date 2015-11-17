@@ -4,7 +4,12 @@ using System.Collections;
 public class Door : MonoBehaviour
 {
     public string AltDestination;
+    private GameManager gameManager;
 
+    void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
@@ -12,10 +17,13 @@ public class Door : MonoBehaviour
             if (AltDestination != "")
             {
                 Application.LoadLevel(AltDestination);
+                gameManager.gameClock += 2;
+                
+                
             }
             else
             {
-                Application.LoadLevel("World Map");
+                Application.LoadLevel("WorldMap");
             }
         }
     }

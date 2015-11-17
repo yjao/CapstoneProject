@@ -3,7 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Menu : MonoBehaviour {
+public class Menu : MonoBehaviour
+{
     private GameManager gameManager;
 
     public enum Modes
@@ -15,32 +16,25 @@ public class Menu : MonoBehaviour {
     int pointer;
     int pointer2;
 
-    Item[] items;
-    int itemAmount;
-
-	// Use this for initialization
-	void Start () {
-        items = new Item[9];
-        items[0] = new Item("Momo", "The original soul of Chelsey", "sprite1");
-        items[1] = new Item("Jewel", "Contains the soul of a demon. Or just a jewel for debugging", "jewel");
-        items[2] = new Item("Bacon and Eggs", "Yum", "baconAndEggs");
-        items[3] = new Item("Stairs", "How did you steal the stairs?!", "stairs");
-        itemAmount = 4;
+    // Use this for initialization
+    void Start()
+    {
         pointer = 0;
         pointer2 = 0;
         gameManager = GameManager.Instance;
         transform.Find("ItemPanel").gameObject.SetActive(false);
         transform.Find("ItemSelect").gameObject.SetActive(false);
         HideDescription();
-	}
+    }
 
     void OnDestroy()
     {
         //EventManager.OnItemPickup -= ItemPickup;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (MenuMode == Modes.MAIN)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -121,7 +115,7 @@ public class Menu : MonoBehaviour {
                 GameObject.Destroy(gameObject);
             }
         }
-	}
+    }
 
     void Inventory()
     {
@@ -139,9 +133,9 @@ public class Menu : MonoBehaviour {
                 }
             }
         }
-        for (int i = 0; i < gameManager.items.Length; ++i)
-            if (gameManager.items[i] != null)
-                DrawItem(gameManager.items[i].Filename);
+        for (int i = 0; i < gameManager.GetItemData().Length; ++i)
+            if (gameManager.GetItemData()[i] != null)
+                DrawItem(gameManager.GetItemData()[i].Filename);
         pointer = 0;
         pointer2 = 0;
         DrawSelect();
@@ -178,9 +172,9 @@ public class Menu : MonoBehaviour {
         transform.Find("ItemSelect").transform.GetComponent<RectTransform>().anchorMax = new Vector2((.154f + .14f * pointer), (.975f - .25f * pointer2));
         transform.Find("ItemSelect").transform.GetComponent<RectTransform>().anchorMin = new Vector2((.014f + .14f * pointer), (.725f - .25f * pointer2));
         transform.Find("ItemSelect").SetAsLastSibling();
-        if (gameManager.items[pointer + pointer2 * 3] != null)
+        if (gameManager.GetItemData()[pointer + pointer2 * 3] != null)
         {
-            Item i = gameManager.items[pointer + pointer2 * 3];
+            Item i = gameManager.GetItemData()[pointer + pointer2 * 3];
             DrawDescription(i.Name, i.Description);
         }
         else
@@ -204,11 +198,4 @@ public class Menu : MonoBehaviour {
         transform.Find("ItemText").gameObject.SetActive(false);
         transform.Find("ItemName").gameObject.SetActive(false);
     }
-    /*
-    public void ItemPickup(object sender, GameEventArgs args)
-    {
-        Debug.Log("PICKUP");
-        items[gameManager.itemAmount] = AllItems[args.IDNum];
-        itemAmount += 1;
-    }*/
 }

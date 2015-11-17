@@ -100,6 +100,12 @@ public class GameManager : MonoBehaviour
                     "\"Just head down from Main Street and you should be able to reach Maple Street. I'll see you tomorrow!\"",
                     "\"Ok then.  See ya!\""
 				}) },
+                
+			{ 71, new Interactable("Park Dude", "",  new string[] {
+					"\"Hey kid, have you seen a brown dog around here somewhere?\"",
+                    "\"I've lost him a little while ago, and I am worried sick about him.\"",
+                    "\"Thank you!\""
+				}) },
 			{ 133, new Interactable("Bacon and Eggs", "", new string[] {
 					"%C A delicious floating egg on a magical bacon.%C\"I guess I'll eat it.\"%C\"Nah...\" ",
 				}) },

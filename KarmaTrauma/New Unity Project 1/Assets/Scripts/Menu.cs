@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class Menu : MonoBehaviour
 {
     private GameManager gameManager;
+    private bool in_mode = true;
 
     public enum Modes
     {
@@ -15,6 +16,7 @@ public class Menu : MonoBehaviour
     Modes MenuMode = Modes.MAIN;
     int pointer;
     int pointer2;
+    
 
     // Use this for initialization
     void Start()
@@ -37,46 +39,12 @@ public class Menu : MonoBehaviour
     {
         if (MenuMode == Modes.MAIN)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (pointer > 0)
-                    pointer -= 1;
-                else if (pointer == 0)
-                    pointer = 4;
-                transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.75f, .86f - .055f * pointer);
-                transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.79f, .92f - .055f * pointer);
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if (pointer < 4)
-                    pointer += 1;
-                else if (pointer == 4)
-                    pointer = 0;
-                transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.75f, .86f - .055f * pointer);
-                transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.79f, .92f - .055f * pointer);
-            }
-            else if (Input.GetKeyDown(KeyCode.Space))
-            {
-                if (pointer == 0)
-                {
-                    MenuMode = Modes.INVENTORY;
-                    Inventory();
-                }
-                else if (pointer == 3)
-                {
-                    Application.LoadLevel(Application.loadedLevel);
-                    gameManager.ExitDialogue();
-                    GameObject.Destroy(gameObject);
-                }
-                else if (pointer == 4)
-                {
-                    gameManager.ExitDialogue();
-                    GameObject.Destroy(gameObject);
-                }
-            }
+            MenuMode = Modes.INVENTORY;
+            Inventory();
         }
         else if (MenuMode == Modes.INVENTORY)
         {
+            //GUI.enabled = false;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if (pointer2 > 0)
@@ -113,12 +81,20 @@ public class Menu : MonoBehaviour
             {
                 gameManager.ExitDialogue();
                 GameObject.Destroy(gameObject);
+                in_mode = false;
             }
         }
     }
 
+    public bool In_Mode(){
+        return in_mode;
+    }
+
     void Inventory()
     {
+        transform.Find("Panel").gameObject.SetActive(false);
+        transform.Find("Text").gameObject.SetActive(false);
+        transform.Find("Pointer").gameObject.SetActive(false);
         transform.Find("ItemPanel").gameObject.SetActive(true);
         for (int x = 0; x < 3; x++)
         {

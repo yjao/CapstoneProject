@@ -5,11 +5,11 @@ public class PrologueManager : MonoBehaviour
 {
 	private GameManager gameManager;
 	private const string SCENE_PROLOGUE = "Prologue";
-	private const string SCENE_HOUSE = "PrologueHouse";
-    private const string SCHOOL = "RaeClass";
     private const string STORY = "Story";
-    private const string MALL = "MallPrologue";
-    private const string MAIN_STREET = "MainStreetFalling";
+	private const string SCENE_HOUSE = "P_House";
+    private const string SCENE_SCHOOL = "P_Class";
+    private const string SCENE_MALL = "P_Mall";
+    private const string SCENE_MAIN_STREET = "P_MainStreet";
 
 
     // PLAYER STUFF 
@@ -152,7 +152,7 @@ public class PrologueManager : MonoBehaviour
 		gameManager.Play();
         while (true)
         {
-            if (Application.loadedLevelName == SCHOOL)
+            if (Application.loadedLevelName == SCENE_SCHOOL)
             {
                 MoveToNext();
                 yield break;
@@ -169,7 +169,7 @@ public class PrologueManager : MonoBehaviour
         gameManager.Wait();
         yield return new WaitForSeconds(1);
        // yield return new WaitForSeconds(1);
-        Application.LoadLevel(SCHOOL);
+        Application.LoadLevel(SCENE_SCHOOL);
         yield return new WaitForSeconds(1);
         gameManager.DBox(65, 0);
         yield return null; while (Pause()) { yield return null; }
@@ -219,7 +219,7 @@ public class PrologueManager : MonoBehaviour
     {
         
         yield return new WaitForSeconds(1);
-        Application.LoadLevel(MALL);
+        Application.LoadLevel(SCENE_MALL);
         yield return new WaitForSeconds(1);
         gameManager.DBox(66, 2);
         yield return null; while (Pause()) { yield return null; }
@@ -243,7 +243,7 @@ public class PrologueManager : MonoBehaviour
     public IEnumerator Main_street_0()
     {
         yield return new WaitForSeconds(1);
-        Application.LoadLevel(MAIN_STREET);
+        Application.LoadLevel(SCENE_MAIN_STREET);
         yield return new WaitForSeconds(1);
         gameManager.DBox(66, 3);
         yield return null; while (Pause()) { yield return null; }
@@ -296,7 +296,7 @@ public class PrologueManager : MonoBehaviour
 		gameManager.Play();
 		while (true)
         {
-            if (Application.loadedLevelName == SCHOOL)
+            if (Application.loadedLevelName == SCENE_SCHOOL)
             {
                 MoveToNext();
                 yield break;
@@ -309,7 +309,7 @@ public class PrologueManager : MonoBehaviour
     {
         gameManager.Wait();
         // yield return new WaitForSeconds(1);
-        Application.LoadLevel(SCHOOL);
+        Application.LoadLevel(SCENE_SCHOOL);
         yield return new WaitForSeconds(1);
         gameManager.DBox(65, 0);
         yield return null; while (Pause()) { yield return null; }
@@ -358,12 +358,13 @@ public class PrologueManager : MonoBehaviour
     public IEnumerator Main_street_1()
     {
         yield return new WaitForSeconds(1);
-        Application.LoadLevel(MAIN_STREET);
-
+        Application.LoadLevel(SCENE_MAIN_STREET);
         yield return new WaitForSeconds(1);
         gameManager.DBox(1, 9);
         yield return null; while (Pause()) { yield return null; }
 
+        GameObject.Find("Door").GetComponent<Door>().AltDestination = "WorldMap";
+        
 		gameManager.Play();
 		while (true)
 		{

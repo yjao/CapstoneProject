@@ -31,7 +31,7 @@ public class Dialogue
 {
 	public int ID;
 	public string text;
-	public Choices[] choices;
+	public Choice[] choices;
 	public Interactable.Action Action;
 }
 

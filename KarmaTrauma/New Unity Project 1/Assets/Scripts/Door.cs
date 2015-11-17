@@ -27,4 +27,8 @@ public class Door : MonoBehaviour
             }
         }
     }
+    void ChangeDestination(string newDestination)
+    {
+        AltDestination = newDestination;
+    }
 }

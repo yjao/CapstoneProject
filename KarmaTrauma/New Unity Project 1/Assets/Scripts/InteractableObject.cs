@@ -99,9 +99,6 @@ public class InteractableObject : MonoBehaviour
     public void Interact()
     {
         EventManager.NotifyNPC(this, new GameEventArgs() { ThisGameObject = gameObject });
-        ItemAction += InteractItem;
-        MoveAction += InteractMove;
-        //ItemAction += testfunction;
         EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
 
         switch (InteractionType)
@@ -113,16 +110,16 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    public void InteractItem(object sender, GameEventArgs args)
+    public static void InteractItem(object sender, GameEventArgs args)
     {
         Debug.Log(args.Testing);
-        EventManager.NotifyItemTaken(this, new GameEventArgs() { IDNum = ID });
-        GameObject.Destroy(gameObject);
+        EventManager.NotifyItemTaken(sender, args);
+        GameObject.Destroy(args.ThisGameObject);
     }
 
-    public void InteractMove(object sender, GameEventArgs args)
+    public static void InteractMove(object sender, GameEventArgs args)
     {
-        transform.Translate(args.Position.x, args.Position.y, 0);
+        args.ThisGameObject.transform.Translate(args.Position.x, args.Position.y, 0);
     }
 
     /*public void CheckAndTurnCharacter()
@@ -153,28 +150,9 @@ public class InteractableObject : MonoBehaviour
 
     void HandleOnDialogChoiceMade(object sender, GameEventArgs args)
     {
+        args.ThisGameObject = gameObject;
         args.ChoiceAction(this, args);
         EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
-        ItemAction -= InteractItem;
-        MoveAction -= InteractMove;
-    }
-
-    public static Interactable.Action ItemAction;
-    public static void DoItemAction(object sender, GameEventArgs args)
-    {
-        if (ItemAction != null)
-        {
-            ItemAction(sender, args);
-        }
-    }
-
-    public static Interactable.Action MoveAction;
-    public static void DoMoveAction(object sender, GameEventArgs args)
-    {
-        if (MoveAction != null)
-        {
-            MoveAction(sender, args);
-        }
     }
 
     void Update()

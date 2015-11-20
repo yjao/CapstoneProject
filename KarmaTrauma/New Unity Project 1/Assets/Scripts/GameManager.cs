@@ -50,13 +50,11 @@ public class GameManager : MonoBehaviour
         AllObjects = new Dictionary<int, Interactable>()
 		{
 			{ 150, new Interactable("Jewel", "", new Dialogue[] {
-                    //"\"%B~JewelTest~Testing playerdata\"",
-					//"\"%CDon't bother me, I'm taking a nap!%COK%CNo\"",
                     new Dialogue(0,"Choice Testing.", new Choice[] {
                         new Choice("Talk to jewel"),
-                        new Choice("Take the jewel", new GameEventArgs(){ChoiceAction = InteractableObject.DoItemAction,Testing = "action test"}),
+                        new Choice("Take the jewel", new GameEventArgs(){ChoiceAction = InteractableObject.InteractItem,Testing = "action test", IDNum = 150}),
                         new Choice("Destroy the jewel"),
-                        new Choice("Shove the jewel", new GameEventArgs(){ChoiceAction = InteractableObject.DoMoveAction, Position = new Vector2(1,1)}),
+                        new Choice("Shove the jewel", new GameEventArgs(){ChoiceAction = InteractableObject.InteractMove, Position = new Vector2(1,1)}),
                         new Choice("Do nothing")
                         })
 				    })}

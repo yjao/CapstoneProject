@@ -11,22 +11,22 @@ public class GameManager : MonoBehaviour
     public string gameClockDisplay = "";
     PlayerData Data = new PlayerData();
     DayData dayData = new DayData();
-	public static GameManager Instance;
-	public GameObject DialogueContainer;
-	public enum MODE
-	{
-		NONE, PLAYING, DIALOGUE, MENU, CUTSCENE, WAITING
-	};
-	public MODE GameMode = MODE.NONE;
-	public MODE PrevMode = MODE.NONE;
-	
-	public enum AREA
-	{
-		NONE, HOUSE, APARTMENT, POLICE, MALL, PARK, HOSPITAL, SCHOOL
-	};
-	public AREA CurrentArea = AREA.HOUSE;
+    public static GameManager Instance;
+    public GameObject DialogueContainer;
+    public enum MODE
+    {
+        NONE, PLAYING, DIALOGUE, MENU, CUTSCENE, WAITING
+    };
+    public MODE GameMode = MODE.NONE;
+    public MODE PrevMode = MODE.NONE;
 
-	public Dictionary<int, Interactable> AllObjects;
+    public enum AREA
+    {
+        NONE, HOUSE, APARTMENT, POLICE, MALL, PARK, HOSPITAL, SCHOOL
+    };
+    public AREA CurrentArea = AREA.HOUSE;
+
+    public Dictionary<int, Interactable> AllObjects;
 
     public string dialogue_choice;
 
@@ -37,17 +37,32 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-		// default to playing mode for now
-		GameMode = MODE.PLAYING;
+        // default to playing mode for now
+        GameMode = MODE.PLAYING;
 
-		if ((Instance != null) && (Instance != this))
-			Destroy(gameObject);
-		else
-			Instance = this;
-		DontDestroyOnLoad(this);
-		
-		// Load interaction info here?
-		AllObjects = new Dictionary<int, Interactable>()
+        if ((Instance != null) && (Instance != this))
+            Destroy(gameObject);
+        else
+            Instance = this;
+        DontDestroyOnLoad(this);
+
+        // Load interaction info here?
+        AllObjects = new Dictionary<int, Interactable>()
+		{
+			{ 150, new Interactable("Jewel", "", new Dialogue[] {
+                    //"\"%B~JewelTest~Testing playerdata\"",
+					//"\"%CDon't bother me, I'm taking a nap!%COK%CNo\"",
+                    new Dialogue(0,"Choice Testing.", new Choice[] {
+                        new Choice("Talk to jewel"),
+                        new Choice("Take the jewel", new GameEventArgs(){ChoiceAction = InteractableObject.DoItemAction,Testing = "action test"}),
+                        new Choice("Destroy the jewel"),
+                        new Choice("Shove the jewel", new GameEventArgs(){ChoiceAction = InteractableObject.DoMoveAction, Position = new Vector2(1,1)}),
+                        new Choice("Do nothing")
+                        })
+				    })}
+        };
+        /*
+        AllObjects = new Dictionary<int, Interactable>()
 		{
 			{ 1, new Interactable("Chelsey","", new string[] {
 					"\"Um... my name is Chelsey. I just moved in town recently. I like helping people, and.. yeah.\"",
@@ -64,13 +79,14 @@ public class GameManager : MonoBehaviour
                     
 				}) },
 			{ 150, new Interactable("Jewel", "", new string[] {
-                    "\"%B~JewelTest~Testing playerdata\"",
-					"\"%CDon't bother me, I'm taking a nap!%COK%CNo\"",
+                    //"\"%B~JewelTest~Testing playerdata\"",
+					//"\"%CDon't bother me, I'm taking a nap!%COK%CNo\"",
+                    "\"%CChoice Testing.%C~D_JewelTest~Talk to jewel%C~Item~Take the jewel%C~Destroy~Destroy the jewel%C~Move~Shove the jewel%CDo nothing\"",
                     "\"%C!!!%CPeanut Butter%CHi%C???%C!!!\""
             }
 				) },
             { 151, new Interactable("Jewel2", "", new string[] {
-					"\"Im a duplicate Jewel\""
+					"\"Listen to the other jewels.\""
             }
 				) },
             { 152, new Interactable("Jewel2", "", new string[] {
@@ -78,7 +94,7 @@ public class GameManager : MonoBehaviour
             }
 				) },
             { 153, new Interactable("Jewel2", "", new string[] {
-					"\"What did you just do to that other jewel?!\""
+					"\"How did you know I wanted a jewel?\""
             }
                 ) },
 			{ 21, new Interactable("Mom", "", new string[] {
@@ -100,8 +116,7 @@ public class GameManager : MonoBehaviour
                     "\"Just head down from Main Street and you should be able to reach Maple Street. I'll see you tomorrow!\"",
                     "\"Ok then.  See ya!\""
 				}) },
-                
-			{ 71, new Interactable("Park Dude", "",  new string[] {
+            { 71, new Interactable("Park Dude", "",  new string[] {
 					"\"Hey kid, have you seen a brown dog around here somewhere?\"",
                     "\"I've lost him a little while ago, and I am worried sick about him.\"",
                     "\"Thank you!\""
@@ -113,15 +128,17 @@ public class GameManager : MonoBehaviour
                     "%C A man who jumped off of the building.%C\"Should I talk to him?\"%C\"Nah...\" ",
                 }) }
         };
+        */
 
-		// Bind events
-		EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
+        // Bind events
+        //EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
         EventManager.OnItemPickup += ItemPickup;
 
         //item stuff
         AllItems = new Dictionary<int, Item>()
 	    {
 			{ 150, new Item("Jewel", "Quit stealing jewels already", "jewel")},
+            { 151, new Item("TestJewel", "IM NOT EVEN AN ITEM", "jewel")},
             { 133, new Item("Bacon and Eggs", "Please stop stealing", "baconAndEggs")}
         };
 
@@ -137,11 +154,11 @@ public class GameManager : MonoBehaviour
     {
         gameClockDisplay = gameClock.ToString() + "AM";
     }
-	void OnDestroy()
-	{
-		EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
+    void OnDestroy()
+    {
+        //EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
         EventManager.OnItemPickup -= ItemPickup;
-	}
+    }
 
     public void Play()
     {
@@ -183,28 +200,29 @@ public class GameManager : MonoBehaviour
             //days = data.days;
             //progress = data.progress;
         }
-            
+
 
     }
 
-	#region DIALOG BOX
+    #region DIALOG BOX
 
-	void HandleOnDialogChoiceMade(object sender, GameEventArgs args)
+    /*void HandleOnDialogChoiceMade(object sender, GameEventArgs args)
 	{
 		// let's hard code something
-		if (args.DialogChoice == "\"I guess I'll eat it.\"")
-			CreateMessage("That's creepy! You actually ate it!?");
-	}
+        Debug.Log(args.DialogChoice + " and " + args.ChoiceAction);
+		//if (args.DialogChoice == "\"I guess I'll eat it.\"")
+		//	CreateMessage("That's creepy! You actually ate it!?");
+	}*/
 
 
-	public void DBox(int id, int dialogueId)
-	{
-		Interactable ch = AllObjects[id];
-		ch.LastDialogueDisplayed = dialogueId;
-		DBox(id);
-	}
+    public void DBox(int id, int dialogueId)
+    {
+        Interactable ch = AllObjects[id];
+        ch.LastDialogueDisplayed = dialogueId;
+        DBox(id);
+    }
 
-	// Re-send current Dialogue
+    // Re-send current Dialogue
     public void DBox(int id, bool next = false)
     {
         Interactable ch = AllObjects[id];
@@ -212,62 +230,66 @@ public class GameManager : MonoBehaviour
             ch.LastDialogueDisplayed++;
         else if (!next && ch.LastDialogueDisplayed < 0)
             ch.LastDialogueDisplayed = 0;
-        Debug.Log(ch.LastDialogueDisplayed);
-        if (ch.Dialogue[ch.LastDialogueDisplayed].Contains("%B"))
+        if (ch.Dialogue[ch.LastDialogueDisplayed].text.Contains("%B"))
         {
-            string message = ch.Dialogue[ch.LastDialogueDisplayed].Substring(4);
+            string message = ch.Dialogue[ch.LastDialogueDisplayed].text.Substring(4);
             string dataBool = message.Substring(0, message.IndexOf('~'));
             message = message.Substring(message.IndexOf('~') + 1);
             Data.DataDictionary[dataBool] = true;
             CreateDialogue(ch.Name, "\"" + message);
         }
-        else if (ch.Dialogue[ch.LastDialogueDisplayed].Contains("%C"))
+        else if (ch.Dialogue[ch.LastDialogueDisplayed].choices != null)
         {
-            StartCoroutine(CreateChoice(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed]));
+            CreateChoice(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed].text, ch.Dialogue[ch.LastDialogueDisplayed].choices);
         }
         else
         {
-            CreateDialogue(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed]);
+            CreateDialogue(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed].text);
         }
     }
 
-	public void CreateDialogue(string name, string message)
-	{
-		GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
-		dialog.GetComponent<Textbox>().DrawBox(name, message);
-	}
-
-    public IEnumerator CreateChoice(string name, string message)
+    public void CreateDialogue(string name, string message)
     {
         GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
-        message = message.Substring(3);
-        string text = message.Substring(0,message.IndexOf("%C"));
-        message = message.Substring(message.IndexOf("%C")+2);
-        string[] choices = message.Split(new string[] { "%C" }, System.StringSplitOptions.None);
-        choices[choices.Length-1] = choices[choices.Length-1].Substring(0, choices[choices.Length-1].Length-1);
-        yield return null;
-        yield return StartCoroutine(dialog.GetComponent<Textbox>().Choice(name, "\""+text+"\"" , choices));
-        Debug.Log(dialogue_choice);
+        dialog.GetComponent<Textbox>().DrawBox(name, message);
     }
 
-	public void CreateMessage(string message)
-	{
-		GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
-		dialog.GetComponent<Textbox>().DrawMessage(message);
-	}
+    public void CreateChoice(string name, string message, Choice[] options)
+    {
+        GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
 
-	public void EnterDialogue()
-	{
-		PrevMode = GameMode;
-		GameMode = MODE.DIALOGUE;
-	}
+        Debug.Log(options[0].option);
+        dialog.GetComponent<Textbox>().Choice(name, message, options);
+        /*
+        message = message.Substring(3);
+        string text = message.Substring(0, message.IndexOf("%C"));
+        message = message.Substring(message.IndexOf("%C") + 2);
+        string[] choices = message.Split(new string[] { "%C" }, System.StringSplitOptions.None);
+        choices[choices.Length - 1] = choices[choices.Length - 1].Substring(0, choices[choices.Length - 1].Length - 1);
+        yield return null;
+        yield return StartCoroutine(dialog.GetComponent<Textbox>().Choice(name, "\"" + text + "\"", ID, choices));
+        */
+        //Debug.Log(dialogue_choice);
+    }
+
+    public void CreateMessage(string message)
+    {
+        GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
+        dialog.GetComponent<Textbox>().DrawMessage(message);
+    }
+
+    public void EnterDialogue()
+    {
+        PrevMode = GameMode;
+        GameMode = MODE.DIALOGUE;
+    }
 
     public void ExitDialogue()
     {
-		GameMode = PrevMode;
+        GameMode = PrevMode;
     }
 
-	#endregion
+    #endregion
 
     void upDateClock()
     {
@@ -282,7 +304,7 @@ public class GameManager : MonoBehaviour
         else if (gameClock > 12)
         {
             int time = gameClock - 12;
-            gameClockDisplay =  time.ToString() + "PM";
+            gameClockDisplay = time.ToString() + "PM";
         }
     }
 
@@ -305,6 +327,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetData(string name, bool value)
+    {
+        if (Data.DataDictionary.ContainsKey(name))
+        {
+            Data.DataDictionary[name] = value;
+        }
+    }
+
     public Item[] GetItemData()
     {
         return dayData.Inventory;
@@ -312,7 +342,6 @@ public class GameManager : MonoBehaviour
 
     public bool HasItem(string name)
     {
-        Debug.Log(dayData.Inventory.Length);
         for (int item = 0; item < dayData.Inventory.Length; item++)
         {
             if (dayData.Inventory[item] != null)

@@ -9,7 +9,8 @@ public class Textbox : MonoBehaviour
     int cursor;
     public bool done;
     public string res;
-    void Start()
+    private Choice[] choices;
+    void Awake()
     {
 		gameManager = GameManager.Instance;
 		gameManager.EnterDialogue();
@@ -33,8 +34,35 @@ public class Textbox : MonoBehaviour
 	
 	void Update()
     {
-        
-        if (/*choice_mode == false &&*/ Input.GetKeyDown(KeyCode.Space))
+        if (choice_mode == true)
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (cursor < choices.Length - 1)
+                {
+                    cursor += 1;
+                    transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
+                    transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                if (cursor > 0)
+                {
+                    cursor -= 1;
+                    transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
+                    transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                done = true;
+                EventManager.NotifyDialogChoiceMade(this, choices[cursor].GEA);
+                choice_mode = false;
+                EventManager.NotifySpaceBar(this, new GameEventArgs());
+            }
+        }
+        else if (choice_mode == false && Input.GetKeyDown(KeyCode.Space))
         {
             //GameObject.Destroy(gameObject);
             EventManager.NotifySpaceBar(this, new GameEventArgs());
@@ -58,36 +86,29 @@ public class Textbox : MonoBehaviour
         transform.Find("Message").GetComponent<Text>().text = message;
     }
 
-    public IEnumerator Choice(string name, string dialog, params string[] choices)
+    public void Choice(string name, string dialog, Choice[] options)
     {
-        cursor = choices.Length-1;
-        choice_mode = true;
+        cursor = options.Length-1;
         DrawBox(name, dialog);
         transform.Find("Choice_Panel").gameObject.SetActive(true);
         transform.Find("Select").gameObject.SetActive(true);
-        Transform[,] c = MultipleChoice(choices);
+        Transform[,] c = MultipleChoice(options);
         transform.Find("Choice_Panel").gameObject.SetActive(false);
         transform.Find("Select").gameObject.SetActive(false);
         transform.Find("Pointer").gameObject.SetActive(true);
         transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f+.1f*cursor);
         transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f+.1f*cursor);
-        yield return null;
-        yield return StartCoroutine(WaitForKeyDown(choices.Length-1));
-
-        gameManager.dialogue_choice = choices[cursor];
-        choice_mode = false;
-        GameObject.Destroy(gameObject);
-
-		// bad code, just testing events
-		yield return null;
-		EventManager.NotifyDialogChoiceMade(this, new GameEventArgs() {DialogChoice = choices[cursor]});
+        Debug.Log("start");
+        choice_mode = true;
+        Debug.Log(choice_mode);
+        choices = options;
     }
     
-    Transform[,] MultipleChoice(string[] s)
+    Transform[,] MultipleChoice(Choice[] options)
     {
-        Transform[,] g = new Transform[s.Length,2];
+        Transform[,] g = new Transform[options.Length,2];
         transform.Find("Select").gameObject.SetActive(true);
-        for (int i = 0; i < s.Length; i++)
+        for (int i = 0; i < options.Length; i++)
         {
             Transform box = (Instantiate(transform.Find("Choice_Panel"), new Vector3(0, 1, 0), Quaternion.identity)) as Transform;
             Transform c = (Instantiate(transform.Find("Select"), new Vector3(0, 1, 0), Quaternion.identity)) as Transform;
@@ -97,41 +118,10 @@ public class Textbox : MonoBehaviour
             box.transform.GetComponent<RectTransform>().anchorMin = new Vector2(.66f, (.325f+.1f*i));
             c.transform.GetComponent<RectTransform>().anchorMax = new Vector2(.895f, (.385f+.1f*i));
             c.transform.GetComponent<RectTransform>().anchorMin = new Vector2(.665f, (.34f+.1f*i));
-            c.transform.GetComponent<Text>().text = s[i];
+            c.transform.GetComponent<Text>().text = options[i].option;
             g[i, 0] = box;
             g[i, 1] = c;
         }
         return g;
-    }
-
-    IEnumerator WaitForKeyDown(int x)
-    {
-        while (true)
-        {   
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (cursor < x)
-                {
-                    cursor += 1;
-                    transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
-                    transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if (cursor > 0)
-                {
-                    cursor -= 1;
-                    transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
-                    transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.Space))
-            {
-                done = true;
-                yield break;
-            }
-            yield return null;
-        }
     }
 }

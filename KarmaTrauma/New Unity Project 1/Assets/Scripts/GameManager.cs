@@ -7,7 +7,7 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-	private const bool PARSING_MODE = true;
+	private const bool PARSING_MODE = false;
 
     public int gameClock = 0;
     public string gameClockDisplay = "";
@@ -54,9 +54,9 @@ public class GameManager : MonoBehaviour
 			{ 150, new Interactable("Jewel", "", new Dialogue[] {
                     new Dialogue(0,"Choice Testing.", new Choice[] {
                         new Choice("Talk to jewel"),
-                        new Choice("Take the jewel", new GameEventArgs(){ChoiceAction = InteractableObject.InteractItem,Testing = "action test", IDNum = 150}),
+                        new Choice("Take the jewel", new ChoiceEventArgs(){ChoiceAction = InteractableObject.InteractItem,Testing = "action test", IDNum = 150}),
                         new Choice("Destroy the jewel"),
-                        new Choice("Shove the jewel", new GameEventArgs(){ChoiceAction = InteractableObject.InteractMove, Position = new Vector2(1,1)}),
+                        new Choice("Shove the jewel", new ChoiceEventArgs(){ChoiceAction = InteractableObject.InteractMove, ShoveX = 1}),
                         new Choice("Do nothing")
                         })
 				    })}
@@ -157,6 +157,7 @@ public class GameManager : MonoBehaviour
 		else
 		{
 			// read and generate data from machine code
+            LoadGameData();
 		}
     }
 
@@ -391,7 +392,7 @@ public class GameManager : MonoBehaviour
 		{
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Open(Application.persistentDataPath + "/GameData.DK", FileMode.Open);
-			PlayerData Data = (PlayerData)bf.Deserialize(file);
+            AllObjects = (Dictionary<int, Interactable>)bf.Deserialize(file);
 			Debug.Log("Game Data loaded from file");
 			file.Close();			
         }

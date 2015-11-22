@@ -53,14 +53,14 @@ public class Choice
 {
 	public string option;
 	public Interactable.Action Action;
-    public GameEventArgs GEA;
-    public Choice (string _option, GameEventArgs _GEA = null)
+    public ChoiceEventArgs CEA;
+    public Choice (string _option, ChoiceEventArgs _CEA = null)
     {
         option = _option;
-        if (_GEA != null)
+        if (_CEA != null)
         {
-            Action += _GEA.ChoiceAction;
-            GEA = _GEA;
+            Action += _CEA.ChoiceAction;
+            CEA = _CEA;
         }
     }
 }

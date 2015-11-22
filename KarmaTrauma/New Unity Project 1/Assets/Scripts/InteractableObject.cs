@@ -119,7 +119,7 @@ public class InteractableObject : MonoBehaviour
 
     public static void InteractMove(object sender, GameEventArgs args)
     {
-        args.ThisGameObject.transform.Translate(args.Position.x, args.Position.y, 0);
+        args.ThisGameObject.transform.Translate(args.ShoveX, 0, 0);
     }
 
     /*public void CheckAndTurnCharacter()
@@ -151,7 +151,10 @@ public class InteractableObject : MonoBehaviour
     void HandleOnDialogChoiceMade(object sender, GameEventArgs args)
     {
         args.ThisGameObject = gameObject;
-        args.ChoiceAction(this, args);
+        if (args.ChoiceAction != null)
+        {
+            args.ChoiceAction(this, args);
+        }
         EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
     }
 

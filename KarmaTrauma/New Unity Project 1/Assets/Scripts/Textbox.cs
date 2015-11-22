@@ -57,7 +57,9 @@ public class Textbox : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Space))
             {
                 done = true;
-                EventManager.NotifyDialogChoiceMade(this, choices[cursor].GEA);
+                GameEventArgs g = new GameEventArgs();
+                g.ConvertChoiceEventArgs(choices[cursor].CEA);
+                EventManager.NotifyDialogChoiceMade(this, g);
                 choice_mode = false;
                 EventManager.NotifySpaceBar(this, new GameEventArgs());
             }

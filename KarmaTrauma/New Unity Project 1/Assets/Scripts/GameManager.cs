@@ -7,7 +7,7 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-	private const bool PARSING_MODE = false;
+	private const bool PARSING_MODE = true;
 
     public int gameClock = 0;
     public string gameClockDisplay = "";
@@ -40,10 +40,13 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         if ((Instance != null) && (Instance != this))
+		{
             Destroy(gameObject);
-        else
-            Instance = this;
-        DontDestroyOnLoad(this);
+			return;
+		}
+        
+		Instance = this;
+		DontDestroyOnLoad(this);
 
 		// default to playing mode for now
 		GameMode = MODE.PLAYING;
@@ -156,8 +159,7 @@ public class GameManager : MonoBehaviour
 		}
 		else
 		{
-			// read and generate data from machine code
-            LoadGameData();
+			LoadGameData();
 		}
     }
 
@@ -379,8 +381,7 @@ public class GameManager : MonoBehaviour
 	{
 		BinaryFormatter bf = new BinaryFormatter();
 		FileStream file = File.Create(Application.persistentDataPath + "/GameData.DK");
-		Debug.Log("Game Data saved to file");
-		Debug.Log(Application.persistentDataPath);
+		Debug.Log("Game Data saved to file in " + Application.persistentDataPath);
 
 		bf.Serialize(file, AllObjects);
 		file.Close();

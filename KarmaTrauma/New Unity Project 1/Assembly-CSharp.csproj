@@ -48,6 +48,7 @@
      <Compile Include="Assets\Camera.cs" />
      <Compile Include="Assets\InvisibleWall.cs" />
      <Compile Include="Assets\Scripts\Anim\CharacterAnimations.cs" />
+     <Compile Include="Assets\Scripts\ChoiceEventArgs.cs" />
      <Compile Include="Assets\Scripts\DataLoader.cs" />
      <Compile Include="Assets\Scripts\DayData.cs" />
      <Compile Include="Assets\Scripts\Dialog_Test.cs" />

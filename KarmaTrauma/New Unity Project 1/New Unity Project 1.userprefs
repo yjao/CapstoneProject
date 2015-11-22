@@ -1,18 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DataLoader.cs">
     <Files>
+      <File FileName="Assets\Scripts\InteractableObject.cs" Line="129" Column="55" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="3" Column="34" />
+      <File FileName="Assets\Scripts\Interactable.cs" Line="46" Column="22" />
+      <File FileName="Assets\Scripts\Anim\CharacterAnimations.cs" Line="150" Column="32" />
       <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\InteractableObject.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Interactable.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PrologueManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\NPC.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Mom.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Anim\CharacterAnimations.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Textbox.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EventManager.cs" Line="3" Column="1" />
-      <File FileName="Assets\Scripts\DataLoader.cs" Line="12" Column="24" />
+      <File FileName="Assets\Scripts\GameEventArgs.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\DataLoader.cs" Line="98" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

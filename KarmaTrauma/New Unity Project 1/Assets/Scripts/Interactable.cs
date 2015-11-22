@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 
+[Serializable]
 public class Interactable
 {
 	public delegate void Action(object sender, GameEventArgs args);
@@ -32,6 +33,7 @@ public class Interactable
 	}
 }
 
+[Serializable]
 public class Dialogue
 {
 	public int ID;
@@ -46,6 +48,7 @@ public class Dialogue
     }
 }
 
+[Serializable]
 public class Choice
 {
 	public string option;

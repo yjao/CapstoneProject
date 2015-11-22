@@ -371,4 +371,31 @@ public class GameManager : MonoBehaviour
         // For debug purposes (obviously)
         //Debug.Log (GameMode);
     }
+
+	#region Game Data Loading
+
+	public void SaveGameData()
+	{
+		BinaryFormatter bf = new BinaryFormatter();
+		FileStream file = File.Create(Application.persistentDataPath + "/GameData.DK");
+		Debug.Log("Game Data saved to file");
+		Debug.Log(Application.persistentDataPath);
+
+		bf.Serialize(file, AllObjects);
+		file.Close();
+	}
+	
+	public void LoadGameData()
+	{
+		if (File.Exists(Application.persistentDataPath + "/GameData.DK"))
+		{
+			BinaryFormatter bf = new BinaryFormatter();
+			FileStream file = File.Open(Application.persistentDataPath + "/GameData.DK", FileMode.Open);
+			PlayerData Data = (PlayerData)bf.Deserialize(file);
+			Debug.Log("Game Data loaded from file");
+			file.Close();			
+        }
+    }
+
+    #endregion
 }

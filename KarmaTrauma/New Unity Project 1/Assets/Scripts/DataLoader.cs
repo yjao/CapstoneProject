@@ -25,5 +25,6 @@ public class DataLoader
 		GameManager.Instance.AllObjects[intr.ID] = intr;
 		
 		Debug.Log("Loading Complete");
+		GameManager.Instance.SaveGameData();
 	}
 }

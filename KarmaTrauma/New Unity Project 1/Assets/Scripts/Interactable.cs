@@ -15,6 +15,11 @@ public class Interactable
 	public Dialogue[] Dialogue;
 	public int LastDialogueDisplayed;
 
+	public Interactable()
+	{
+		Dialogue = new Dialogue[]{};
+	}
+
 	public Interactable(string _name, string _strangerName, Dialogue[] _dialogues)
 	{
 		LastDialogueDisplayed = -1;

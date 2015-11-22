@@ -7,6 +7,8 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
+	private const bool PARSING_MODE = true;
+
     public int gameClock = 0;
     public string gameClockDisplay = "";
     PlayerData Data = new PlayerData();
@@ -37,16 +39,16 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        // default to playing mode for now
-        GameMode = MODE.PLAYING;
-
         if ((Instance != null) && (Instance != this))
             Destroy(gameObject);
         else
             Instance = this;
         DontDestroyOnLoad(this);
 
-        // Load interaction info here?
+		// default to playing mode for now
+		GameMode = MODE.PLAYING;
+
+		// Load interaction info here?
         AllObjects = new Dictionary<int, Interactable>()
 		{
 			{ 150, new Interactable("Jewel", "", new Dialogue[] {
@@ -146,6 +148,16 @@ public class GameManager : MonoBehaviour
         //items[2] = new Item("Bacon and Eggs", "Yum", "baconAndEggs");
         //items[3] = new Item("Stairs", "How did you steal the stairs?!", "stairs");
         //itemAmount = 4;
+
+		// Parse Game Data
+		if (PARSING_MODE)
+		{
+			DataLoader dataLoader = new DataLoader();
+		}
+		else
+		{
+			// read and generate data from machine code
+		}
     }
 
     void Start()

@@ -1,187 +1,187 @@
 fileFormatVersion: 2
-guid: adf62b3e28fd44d4e8c3f673467ea670
-timeCreated: 1448346959
+guid: 8a7dfb4908131d141a4e07501bde6dd7
+timeCreated: 1448347116
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Frost_0
-    21300002: Frost_1
-    21300004: Frost_2
-    21300006: Frost_3
-    21300008: Frost_4
-    21300010: Frost_5
-    21300012: Frost_6
-    21300014: Frost_7
-    21300016: Frost_8
-    21300018: Frost_9
-    21300020: Frost_10
-    21300022: Frost_11
-    21300024: Frost_12
-    21300026: Frost_13
-    21300028: Frost_14
-    21300030: Frost_15
-    21300032: Frost_16
-    21300034: Frost_17
-    21300036: Frost_18
-    21300038: Frost_19
-    21300040: Frost_20
-    21300042: Frost_21
-    21300044: Frost_22
-    21300046: Frost_23
-    21300048: Frost_24
-    21300050: Frost_25
-    21300052: Frost_26
-    21300054: Frost_27
-    21300056: Frost_28
-    21300058: Frost_29
-    21300060: Frost_30
-    21300062: Frost_31
-    21300064: Frost_32
-    21300066: Frost_33
-    21300068: Frost_34
-    21300070: Frost_35
-    21300072: Frost_36
-    21300074: Frost_37
-    21300076: Frost_38
-    21300078: Frost_39
-    21300080: Frost_40
-    21300082: Frost_41
-    21300084: Frost_42
-    21300086: Frost_43
-    21300088: Frost_44
-    21300090: Frost_45
-    21300092: Frost_46
-    21300094: Frost_47
-    21300096: Frost_48
-    21300098: Frost_49
-    21300100: Frost_50
-    21300102: Frost_51
-    21300104: Frost_52
-    21300106: Frost_53
-    21300108: Frost_54
-    21300110: Frost_55
-    21300112: Frost_56
-    21300114: Frost_57
-    21300116: Frost_58
-    21300118: Frost_59
-    21300120: Frost_60
-    21300122: Frost_61
-    21300124: Frost_62
-    21300126: Frost_63
-    21300128: Frost_64
-    21300130: Frost_65
-    21300132: Frost_66
-    21300134: Frost_67
-    21300136: Frost_68
-    21300138: Frost_69
-    21300140: Frost_70
-    21300142: Frost_71
-    21300144: Frost_72
-    21300146: Frost_73
-    21300148: Frost_74
-    21300150: Frost_75
-    21300152: Frost_76
-    21300154: Frost_77
-    21300156: Frost_78
-    21300158: Frost_79
-    21300160: Frost_80
-    21300162: Frost_81
-    21300164: Frost_82
-    21300166: Frost_83
-    21300168: Frost_84
-    21300170: Frost_85
-    21300172: Frost_86
-    21300174: Frost_87
-    21300176: Frost_88
-    21300178: Frost_89
-    21300180: Frost_90
-    21300182: Frost_91
-    21300184: Frost_92
-    21300186: Frost_93
-    21300188: Frost_94
-    21300190: Frost_95
-    21300192: Frost_96
-    21300194: Frost_97
-    21300196: Frost_98
-    21300198: Frost_99
-    21300200: Frost_100
-    21300202: Frost_101
-    21300204: Frost_102
-    21300206: Frost_103
-    21300208: Frost_104
-    21300210: Frost_105
-    21300212: Frost_106
-    21300214: Frost_107
-    21300216: Frost_108
-    21300218: Frost_109
-    21300220: Frost_110
-    21300222: Frost_111
-    21300224: Frost_112
-    21300226: Frost_113
-    21300228: Frost_114
-    21300230: Frost_115
-    21300232: Frost_116
-    21300234: Frost_117
-    21300236: Frost_118
-    21300238: Frost_119
-    21300240: Frost_120
-    21300242: Frost_121
-    21300244: Frost_122
-    21300246: Frost_123
-    21300248: Frost_124
-    21300250: Frost_125
-    21300252: Frost_126
-    21300254: Frost_127
-    21300256: Frost_128
-    21300258: Frost_129
-    21300260: Frost_130
-    21300262: Frost_131
-    21300264: Frost_132
-    21300266: Frost_133
-    21300268: Frost_134
-    21300270: Frost_135
-    21300272: Frost_136
-    21300274: Frost_137
-    21300276: Frost_138
-    21300278: Frost_139
-    21300280: Frost_140
-    21300282: Frost_141
-    21300284: Frost_142
-    21300286: Frost_143
-    21300288: Frost_144
-    21300290: Frost_145
-    21300292: Frost_146
-    21300294: Frost_147
-    21300296: Frost_148
-    21300298: Frost_149
-    21300300: Frost_150
-    21300302: Frost_151
-    21300304: Frost_152
-    21300306: Frost_153
-    21300308: Frost_154
-    21300310: Frost_155
-    21300312: Frost_156
-    21300314: Frost_157
-    21300316: Frost_158
-    21300318: Frost_159
-    21300320: Frost_160
-    21300322: Frost_161
-    21300324: Frost_162
-    21300326: Frost_163
-    21300328: Frost_164
-    21300330: Frost_165
-    21300332: Frost_166
-    21300334: Frost_167
-    21300336: Frost_168
-    21300338: Frost_169
-    21300340: Frost_170
-    21300342: Frost_171
-    21300344: Frost_172
-    21300346: Frost_173
-    21300348: Frost_174
-    21300350: Frost_175
-    21300352: Frost_176
-    21300354: Frost_177
+    21300000: Pink_hair_dude_0
+    21300002: Pink_hair_dude_1
+    21300004: Pink_hair_dude_2
+    21300006: Pink_hair_dude_3
+    21300008: Pink_hair_dude_4
+    21300010: Pink_hair_dude_5
+    21300012: Pink_hair_dude_6
+    21300014: Pink_hair_dude_7
+    21300016: Pink_hair_dude_8
+    21300018: Pink_hair_dude_9
+    21300020: Pink_hair_dude_10
+    21300022: Pink_hair_dude_11
+    21300024: Pink_hair_dude_12
+    21300026: Pink_hair_dude_13
+    21300028: Pink_hair_dude_14
+    21300030: Pink_hair_dude_15
+    21300032: Pink_hair_dude_16
+    21300034: Pink_hair_dude_17
+    21300036: Pink_hair_dude_18
+    21300038: Pink_hair_dude_19
+    21300040: Pink_hair_dude_20
+    21300042: Pink_hair_dude_21
+    21300044: Pink_hair_dude_22
+    21300046: Pink_hair_dude_23
+    21300048: Pink_hair_dude_24
+    21300050: Pink_hair_dude_25
+    21300052: Pink_hair_dude_26
+    21300054: Pink_hair_dude_27
+    21300056: Pink_hair_dude_28
+    21300058: Pink_hair_dude_29
+    21300060: Pink_hair_dude_30
+    21300062: Pink_hair_dude_31
+    21300064: Pink_hair_dude_32
+    21300066: Pink_hair_dude_33
+    21300068: Pink_hair_dude_34
+    21300070: Pink_hair_dude_35
+    21300072: Pink_hair_dude_36
+    21300074: Pink_hair_dude_37
+    21300076: Pink_hair_dude_38
+    21300078: Pink_hair_dude_39
+    21300080: Pink_hair_dude_40
+    21300082: Pink_hair_dude_41
+    21300084: Pink_hair_dude_42
+    21300086: Pink_hair_dude_43
+    21300088: Pink_hair_dude_44
+    21300090: Pink_hair_dude_45
+    21300092: Pink_hair_dude_46
+    21300094: Pink_hair_dude_47
+    21300096: Pink_hair_dude_48
+    21300098: Pink_hair_dude_49
+    21300100: Pink_hair_dude_50
+    21300102: Pink_hair_dude_51
+    21300104: Pink_hair_dude_52
+    21300106: Pink_hair_dude_53
+    21300108: Pink_hair_dude_54
+    21300110: Pink_hair_dude_55
+    21300112: Pink_hair_dude_56
+    21300114: Pink_hair_dude_57
+    21300116: Pink_hair_dude_58
+    21300118: Pink_hair_dude_59
+    21300120: Pink_hair_dude_60
+    21300122: Pink_hair_dude_61
+    21300124: Pink_hair_dude_62
+    21300126: Pink_hair_dude_63
+    21300128: Pink_hair_dude_64
+    21300130: Pink_hair_dude_65
+    21300132: Pink_hair_dude_66
+    21300134: Pink_hair_dude_67
+    21300136: Pink_hair_dude_68
+    21300138: Pink_hair_dude_69
+    21300140: Pink_hair_dude_70
+    21300142: Pink_hair_dude_71
+    21300144: Pink_hair_dude_72
+    21300146: Pink_hair_dude_73
+    21300148: Pink_hair_dude_74
+    21300150: Pink_hair_dude_75
+    21300152: Pink_hair_dude_76
+    21300154: Pink_hair_dude_77
+    21300156: Pink_hair_dude_78
+    21300158: Pink_hair_dude_79
+    21300160: Pink_hair_dude_80
+    21300162: Pink_hair_dude_81
+    21300164: Pink_hair_dude_82
+    21300166: Pink_hair_dude_83
+    21300168: Pink_hair_dude_84
+    21300170: Pink_hair_dude_85
+    21300172: Pink_hair_dude_86
+    21300174: Pink_hair_dude_87
+    21300176: Pink_hair_dude_88
+    21300178: Pink_hair_dude_89
+    21300180: Pink_hair_dude_90
+    21300182: Pink_hair_dude_91
+    21300184: Pink_hair_dude_92
+    21300186: Pink_hair_dude_93
+    21300188: Pink_hair_dude_94
+    21300190: Pink_hair_dude_95
+    21300192: Pink_hair_dude_96
+    21300194: Pink_hair_dude_97
+    21300196: Pink_hair_dude_98
+    21300198: Pink_hair_dude_99
+    21300200: Pink_hair_dude_100
+    21300202: Pink_hair_dude_101
+    21300204: Pink_hair_dude_102
+    21300206: Pink_hair_dude_103
+    21300208: Pink_hair_dude_104
+    21300210: Pink_hair_dude_105
+    21300212: Pink_hair_dude_106
+    21300214: Pink_hair_dude_107
+    21300216: Pink_hair_dude_108
+    21300218: Pink_hair_dude_109
+    21300220: Pink_hair_dude_110
+    21300222: Pink_hair_dude_111
+    21300224: Pink_hair_dude_112
+    21300226: Pink_hair_dude_113
+    21300228: Pink_hair_dude_114
+    21300230: Pink_hair_dude_115
+    21300232: Pink_hair_dude_116
+    21300234: Pink_hair_dude_117
+    21300236: Pink_hair_dude_118
+    21300238: Pink_hair_dude_119
+    21300240: Pink_hair_dude_120
+    21300242: Pink_hair_dude_121
+    21300244: Pink_hair_dude_122
+    21300246: Pink_hair_dude_123
+    21300248: Pink_hair_dude_124
+    21300250: Pink_hair_dude_125
+    21300252: Pink_hair_dude_126
+    21300254: Pink_hair_dude_127
+    21300256: Pink_hair_dude_128
+    21300258: Pink_hair_dude_129
+    21300260: Pink_hair_dude_130
+    21300262: Pink_hair_dude_131
+    21300264: Pink_hair_dude_132
+    21300266: Pink_hair_dude_133
+    21300268: Pink_hair_dude_134
+    21300270: Pink_hair_dude_135
+    21300272: Pink_hair_dude_136
+    21300274: Pink_hair_dude_137
+    21300276: Pink_hair_dude_138
+    21300278: Pink_hair_dude_139
+    21300280: Pink_hair_dude_140
+    21300282: Pink_hair_dude_141
+    21300284: Pink_hair_dude_142
+    21300286: Pink_hair_dude_143
+    21300288: Pink_hair_dude_144
+    21300290: Pink_hair_dude_145
+    21300292: Pink_hair_dude_146
+    21300294: Pink_hair_dude_147
+    21300296: Pink_hair_dude_148
+    21300298: Pink_hair_dude_149
+    21300300: Pink_hair_dude_150
+    21300302: Pink_hair_dude_151
+    21300304: Pink_hair_dude_152
+    21300306: Pink_hair_dude_153
+    21300308: Pink_hair_dude_154
+    21300310: Pink_hair_dude_155
+    21300312: Pink_hair_dude_156
+    21300314: Pink_hair_dude_157
+    21300316: Pink_hair_dude_158
+    21300318: Pink_hair_dude_159
+    21300320: Pink_hair_dude_160
+    21300322: Pink_hair_dude_161
+    21300324: Pink_hair_dude_162
+    21300326: Pink_hair_dude_163
+    21300328: Pink_hair_dude_164
+    21300330: Pink_hair_dude_165
+    21300332: Pink_hair_dude_166
+    21300334: Pink_hair_dude_167
+    21300336: Pink_hair_dude_168
+    21300338: Pink_hair_dude_169
+    21300340: Pink_hair_dude_170
+    21300342: Pink_hair_dude_171
+    21300344: Pink_hair_dude_172
+    21300346: Pink_hair_dude_173
+    21300348: Pink_hair_dude_174
+    21300350: Pink_hair_dude_175
+    21300352: Pink_hair_dude_176
+    21300354: Pink_hair_dude_177
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -228,107 +228,107 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Frost_0
+    - name: Pink_hair_dude_0
       rect:
         serializedVersion: 2
         x: 17
         y: 1282
         width: 30
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_1
+    - name: Pink_hair_dude_1
       rect:
         serializedVersion: 2
         x: 82
         y: 1282
         width: 28
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_2
+    - name: Pink_hair_dude_2
       rect:
         serializedVersion: 2
         x: 146
         y: 1282
         width: 28
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_3
+    - name: Pink_hair_dude_3
       rect:
         serializedVersion: 2
         x: 206
         y: 1282
         width: 36
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_4
+    - name: Pink_hair_dude_4
       rect:
         serializedVersion: 2
         x: 263
         y: 1282
         width: 50
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_5
+    - name: Pink_hair_dude_5
       rect:
         serializedVersion: 2
         x: 328
         y: 1282
         width: 48
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_6
+    - name: Pink_hair_dude_6
       rect:
         serializedVersion: 2
         x: 398
         y: 1282
         width: 36
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_7
+    - name: Pink_hair_dude_7
       rect:
         serializedVersion: 2
-        x: 21
+        x: 20
         y: 1218
-        width: 25
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_8
+    - name: Pink_hair_dude_8
       rect:
         serializedVersion: 2
-        x: 85
+        x: 84
         y: 1218
-        width: 25
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_9
+    - name: Pink_hair_dude_9
       rect:
         serializedVersion: 2
-        x: 149
+        x: 148
         y: 1218
-        width: 25
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_10
+    - name: Pink_hair_dude_10
       rect:
         serializedVersion: 2
         x: 212
@@ -338,7 +338,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_11
+    - name: Pink_hair_dude_11
       rect:
         serializedVersion: 2
         x: 274
@@ -348,7 +348,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_12
+    - name: Pink_hair_dude_12
       rect:
         serializedVersion: 2
         x: 338
@@ -358,7 +358,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_13
+    - name: Pink_hair_dude_13
       rect:
         serializedVersion: 2
         x: 404
@@ -368,107 +368,107 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_14
+    - name: Pink_hair_dude_14
       rect:
         serializedVersion: 2
         x: 17
         y: 1154
         width: 30
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_15
+    - name: Pink_hair_dude_15
       rect:
         serializedVersion: 2
         x: 81
         y: 1154
         width: 30
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_16
+    - name: Pink_hair_dude_16
       rect:
         serializedVersion: 2
         x: 146
         y: 1154
         width: 28
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_17
+    - name: Pink_hair_dude_17
       rect:
         serializedVersion: 2
         x: 206
         y: 1154
         width: 36
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_18
+    - name: Pink_hair_dude_18
       rect:
         serializedVersion: 2
         x: 263
         y: 1154
         width: 50
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_19
+    - name: Pink_hair_dude_19
       rect:
         serializedVersion: 2
         x: 328
         y: 1154
         width: 48
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_20
+    - name: Pink_hair_dude_20
       rect:
         serializedVersion: 2
         x: 399
         y: 1154
         width: 34
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_21
+    - name: Pink_hair_dude_21
       rect:
         serializedVersion: 2
-        x: 18
+        x: 20
         y: 1090
-        width: 25
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_22
+    - name: Pink_hair_dude_22
       rect:
         serializedVersion: 2
-        x: 82
+        x: 84
         y: 1090
-        width: 25
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_23
+    - name: Pink_hair_dude_23
       rect:
         serializedVersion: 2
-        x: 146
+        x: 148
         y: 1090
-        width: 25
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_24
+    - name: Pink_hair_dude_24
       rect:
         serializedVersion: 2
         x: 210
@@ -478,7 +478,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_25
+    - name: Pink_hair_dude_25
       rect:
         serializedVersion: 2
         x: 269
@@ -488,7 +488,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_26
+    - name: Pink_hair_dude_26
       rect:
         serializedVersion: 2
         x: 333
@@ -498,7 +498,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_27
+    - name: Pink_hair_dude_27
       rect:
         serializedVersion: 2
         x: 400
@@ -508,107 +508,107 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_28
+    - name: Pink_hair_dude_28
       rect:
         serializedVersion: 2
         x: 17
         y: 1026
         width: 30
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_29
+    - name: Pink_hair_dude_29
       rect:
         serializedVersion: 2
-        x: 84
+        x: 83
+        y: 1024
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_30
+      rect:
+        serializedVersion: 2
+        x: 148
         y: 1024
         width: 26
-        height: 48
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_30
+    - name: Pink_hair_dude_31
       rect:
         serializedVersion: 2
-        x: 150
+        x: 212
         y: 1024
-        width: 22
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_32
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 1024
+        width: 26
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_31
+    - name: Pink_hair_dude_33
       rect:
         serializedVersion: 2
-        x: 214
+        x: 341
         y: 1024
-        width: 22
+        width: 26
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_32
+    - name: Pink_hair_dude_34
       rect:
         serializedVersion: 2
-        x: 279
+        x: 405
         y: 1024
-        width: 22
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_33
-      rect:
-        serializedVersion: 2
-        x: 343
-        y: 1024
-        width: 22
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_34
-      rect:
-        serializedVersion: 2
-        x: 407
-        y: 1024
-        width: 22
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_35
-      rect:
-        serializedVersion: 2
-        x: 470
-        y: 1024
-        width: 22
+        width: 26
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_36
+    - name: Pink_hair_dude_35
       rect:
         serializedVersion: 2
-        x: 21
+        x: 468
+        y: 1024
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_36
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 962
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_37
+      rect:
+        serializedVersion: 2
+        x: 83
         y: 962
         width: 25
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_37
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 962
-        width: 27
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_38
+    - name: Pink_hair_dude_38
       rect:
         serializedVersion: 2
         x: 147
@@ -618,157 +618,157 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_39
+    - name: Pink_hair_dude_39
       rect:
         serializedVersion: 2
-        x: 213
+        x: 212
         y: 962
-        width: 26
+        width: 27
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_40
+    - name: Pink_hair_dude_40
       rect:
         serializedVersion: 2
         x: 271
         y: 962
-        width: 29
+        width: 27
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_41
+    - name: Pink_hair_dude_41
       rect:
         serializedVersion: 2
         x: 332
         y: 962
-        width: 32
+        width: 30
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_42
+    - name: Pink_hair_dude_42
       rect:
         serializedVersion: 2
         x: 399
         y: 962
-        width: 29
+        width: 27
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_43
+    - name: Pink_hair_dude_43
       rect:
         serializedVersion: 2
-        x: 469
+        x: 468
         y: 962
-        width: 26
+        width: 27
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_44
+    - name: Pink_hair_dude_44
       rect:
         serializedVersion: 2
         x: 17
         y: 898
         width: 30
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_45
+    - name: Pink_hair_dude_45
       rect:
         serializedVersion: 2
         x: 83
         y: 899
-        width: 24
-        height: 47
+        width: 26
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_46
+    - name: Pink_hair_dude_46
       rect:
         serializedVersion: 2
-        x: 149
+        x: 147
         y: 899
-        width: 22
-        height: 47
+        width: 26
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_47
+    - name: Pink_hair_dude_47
       rect:
         serializedVersion: 2
         x: 210
         y: 899
-        width: 25
-        height: 47
+        width: 27
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_48
+    - name: Pink_hair_dude_48
       rect:
         serializedVersion: 2
-        x: 277
+        x: 275
         y: 899
-        width: 22
-        height: 46
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_49
+    - name: Pink_hair_dude_49
       rect:
         serializedVersion: 2
-        x: 341
+        x: 339
         y: 899
-        width: 22
-        height: 46
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_50
+    - name: Pink_hair_dude_50
       rect:
         serializedVersion: 2
-        x: 405
+        x: 403
         y: 899
-        width: 22
-        height: 46
+        width: 26
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_51
+    - name: Pink_hair_dude_51
       rect:
         serializedVersion: 2
         x: 466
         y: 899
-        width: 25
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_52
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 834
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_53
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 834
         width: 27
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_52
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 834
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_54
+    - name: Pink_hair_dude_53
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 834
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_54
       rect:
         serializedVersion: 2
         x: 146
@@ -778,197 +778,197 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_55
+    - name: Pink_hair_dude_55
       rect:
         serializedVersion: 2
         x: 209
         y: 834
-        width: 26
+        width: 27
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_56
+    - name: Pink_hair_dude_56
       rect:
         serializedVersion: 2
-        x: 276
+        x: 278
         y: 834
-        width: 29
+        width: 27
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_57
+    - name: Pink_hair_dude_57
       rect:
         serializedVersion: 2
-        x: 340
+        x: 342
         y: 834
-        width: 32
+        width: 30
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_58
+    - name: Pink_hair_dude_58
       rect:
         serializedVersion: 2
-        x: 404
+        x: 406
         y: 834
-        width: 29
+        width: 27
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_59
+    - name: Pink_hair_dude_59
       rect:
         serializedVersion: 2
         x: 465
         y: 834
-        width: 26
+        width: 27
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_60
+    - name: Pink_hair_dude_60
       rect:
         serializedVersion: 2
         x: 17
         y: 771
         width: 30
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_61
+    - name: Pink_hair_dude_61
       rect:
         serializedVersion: 2
         x: 81
         y: 771
         width: 30
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_62
+    - name: Pink_hair_dude_62
       rect:
         serializedVersion: 2
         x: 145
         y: 770
         width: 30
-        height: 48
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_63
+    - name: Pink_hair_dude_63
       rect:
         serializedVersion: 2
         x: 209
         y: 769
         width: 29
-        height: 48
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_64
+    - name: Pink_hair_dude_64
       rect:
         serializedVersion: 2
         x: 273
         y: 770
         width: 30
-        height: 48
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_65
+    - name: Pink_hair_dude_65
       rect:
         serializedVersion: 2
         x: 337
         y: 771
         width: 30
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_66
+    - name: Pink_hair_dude_66
       rect:
         serializedVersion: 2
         x: 401
         y: 770
         width: 30
-        height: 48
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_67
+    - name: Pink_hair_dude_67
       rect:
         serializedVersion: 2
         x: 466
         y: 769
         width: 29
-        height: 48
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_68
+    - name: Pink_hair_dude_68
       rect:
         serializedVersion: 2
         x: 529
         y: 770
         width: 30
-        height: 48
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_69
+    - name: Pink_hair_dude_69
       rect:
         serializedVersion: 2
-        x: 21
+        x: 20
         y: 706
-        width: 25
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_70
+    - name: Pink_hair_dude_70
       rect:
         serializedVersion: 2
         x: 83
         y: 706
-        width: 27
+        width: 25
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_71
+    - name: Pink_hair_dude_71
       rect:
         serializedVersion: 2
-        x: 149
+        x: 148
+        y: 707
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_72
+      rect:
+        serializedVersion: 2
+        x: 212
         y: 707
         width: 25
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_72
+    - name: Pink_hair_dude_73
       rect:
         serializedVersion: 2
-        x: 213
-        y: 707
-        width: 25
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_73
-      rect:
-        serializedVersion: 2
-        x: 277
+        x: 276
         y: 706
-        width: 25
+        width: 26
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_74
+    - name: Pink_hair_dude_74
       rect:
         serializedVersion: 2
         x: 340
@@ -978,307 +978,307 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_75
+    - name: Pink_hair_dude_75
       rect:
         serializedVersion: 2
-        x: 405
+        x: 404
+        y: 706
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_76
+      rect:
+        serializedVersion: 2
+        x: 468
         y: 706
         width: 25
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_76
+    - name: Pink_hair_dude_77
       rect:
         serializedVersion: 2
-        x: 469
+        x: 532
         y: 706
-        width: 25
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_77
-      rect:
-        serializedVersion: 2
-        x: 533
-        y: 706
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_78
+    - name: Pink_hair_dude_78
       rect:
         serializedVersion: 2
         x: 17
         y: 642
         width: 30
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_79
+    - name: Pink_hair_dude_79
       rect:
         serializedVersion: 2
         x: 81
         y: 642
         width: 30
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_80
+    - name: Pink_hair_dude_80
       rect:
         serializedVersion: 2
         x: 145
         y: 641
         width: 30
-        height: 49
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_81
+    - name: Pink_hair_dude_81
       rect:
         serializedVersion: 2
         x: 210
         y: 641
         width: 29
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_82
+    - name: Pink_hair_dude_82
       rect:
         serializedVersion: 2
         x: 273
         y: 641
         width: 30
-        height: 49
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_83
+    - name: Pink_hair_dude_83
       rect:
         serializedVersion: 2
         x: 337
         y: 642
         width: 30
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_84
+    - name: Pink_hair_dude_84
       rect:
         serializedVersion: 2
         x: 401
         y: 641
         width: 30
-        height: 49
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_85
+    - name: Pink_hair_dude_85
       rect:
         serializedVersion: 2
         x: 465
         y: 641
         width: 29
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_86
+    - name: Pink_hair_dude_86
       rect:
         serializedVersion: 2
         x: 529
         y: 641
         width: 30
-        height: 49
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_87
+    - name: Pink_hair_dude_87
       rect:
         serializedVersion: 2
-        x: 18
+        x: 20
         y: 578
-        width: 25
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_88
+    - name: Pink_hair_dude_88
       rect:
         serializedVersion: 2
-        x: 82
+        x: 84
         y: 578
-        width: 27
+        width: 25
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_89
+    - name: Pink_hair_dude_89
       rect:
         serializedVersion: 2
-        x: 146
+        x: 148
+        y: 579
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_90
+      rect:
+        serializedVersion: 2
+        x: 211
         y: 579
         width: 25
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_90
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 579
-        width: 25
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_91
+    - name: Pink_hair_dude_91
       rect:
         serializedVersion: 2
         x: 274
         y: 578
-        width: 25
+        width: 26
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_92
+    - name: Pink_hair_dude_92
       rect:
         serializedVersion: 2
         x: 336
         y: 578
         width: 28
-        height: 50
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_93
+    - name: Pink_hair_dude_93
       rect:
         serializedVersion: 2
         x: 402
         y: 578
-        width: 25
+        width: 26
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_94
+    - name: Pink_hair_dude_94
       rect:
         serializedVersion: 2
-        x: 466
+        x: 467
         y: 578
         width: 25
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_95
+    - name: Pink_hair_dude_95
       rect:
         serializedVersion: 2
-        x: 530
+        x: 532
         y: 578
-        width: 25
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_96
+    - name: Pink_hair_dude_96
       rect:
         serializedVersion: 2
         x: 17
         y: 514
         width: 30
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_97
+    - name: Pink_hair_dude_97
       rect:
         serializedVersion: 2
         x: 83
         y: 513
         width: 26
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_98
+    - name: Pink_hair_dude_98
       rect:
         serializedVersion: 2
-        x: 148
+        x: 146
         y: 513
-        width: 25
-        height: 47
+        width: 27
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_99
+    - name: Pink_hair_dude_99
       rect:
         serializedVersion: 2
         x: 211
         y: 513
         width: 27
-        height: 48
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_100
+    - name: Pink_hair_dude_100
       rect:
         serializedVersion: 2
         x: 274
         y: 513
         width: 36
-        height: 48
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_101
+    - name: Pink_hair_dude_101
       rect:
         serializedVersion: 2
         x: 338
         y: 513
         width: 39
-        height: 48
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_102
+    - name: Pink_hair_dude_102
       rect:
         serializedVersion: 2
-        x: 21
+        x: 20
         y: 450
-        width: 25
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_103
+    - name: Pink_hair_dude_103
       rect:
         serializedVersion: 2
         x: 81
         y: 450
-        width: 27
+        width: 25
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_104
+    - name: Pink_hair_dude_104
       rect:
         serializedVersion: 2
-        x: 147
+        x: 146
         y: 450
-        width: 25
+        width: 26
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_105
+    - name: Pink_hair_dude_105
       rect:
         serializedVersion: 2
         x: 203
@@ -1288,7 +1288,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_106
+    - name: Pink_hair_dude_106
       rect:
         serializedVersion: 2
         x: 264
@@ -1298,7 +1298,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_107
+    - name: Pink_hair_dude_107
       rect:
         serializedVersion: 2
         x: 331
@@ -1308,97 +1308,97 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_108
+    - name: Pink_hair_dude_108
       rect:
         serializedVersion: 2
         x: 17
         y: 386
         width: 30
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_109
+    - name: Pink_hair_dude_109
       rect:
         serializedVersion: 2
         x: 83
         y: 386
         width: 26
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_110
+    - name: Pink_hair_dude_110
       rect:
         serializedVersion: 2
-        x: 147
+        x: 146
         y: 386
-        width: 26
-        height: 46
+        width: 27
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_111
+    - name: Pink_hair_dude_111
       rect:
         serializedVersion: 2
         x: 212
         y: 386
-        width: 26
-        height: 47
+        width: 27
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_112
+    - name: Pink_hair_dude_112
       rect:
         serializedVersion: 2
         x: 276
         y: 386
         width: 35
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_113
+    - name: Pink_hair_dude_113
       rect:
         serializedVersion: 2
         x: 339
         y: 386
         width: 39
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_114
+    - name: Pink_hair_dude_114
       rect:
         serializedVersion: 2
-        x: 18
+        x: 20
         y: 322
-        width: 25
+        width: 24
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_115
+    - name: Pink_hair_dude_115
       rect:
         serializedVersion: 2
-        x: 84
+        x: 85
         y: 322
-        width: 27
-        height: 48
+        width: 26
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_116
+    - name: Pink_hair_dude_116
       rect:
         serializedVersion: 2
         x: 148
         y: 322
-        width: 25
+        width: 26
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_117
+    - name: Pink_hair_dude_117
       rect:
         serializedVersion: 2
         x: 211
@@ -1408,7 +1408,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_118
+    - name: Pink_hair_dude_118
       rect:
         serializedVersion: 2
         x: 276
@@ -1418,7 +1418,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_119
+    - name: Pink_hair_dude_119
       rect:
         serializedVersion: 2
         x: 340
@@ -1428,157 +1428,157 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_120
+    - name: Pink_hair_dude_120
       rect:
         serializedVersion: 2
         x: 16
         y: 258
         width: 30
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_121
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 256
-        width: 26
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_122
+    - name: Pink_hair_dude_121
       rect:
         serializedVersion: 2
-        x: 149
-        y: 256
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_123
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 256
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_124
-      rect:
-        serializedVersion: 2
-        x: 276
+        x: 82
         y: 256
         width: 27
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_125
+    - name: Pink_hair_dude_122
       rect:
         serializedVersion: 2
-        x: 340
-        y: 256
-        width: 25
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_126
-      rect:
-        serializedVersion: 2
-        x: 404
+        x: 147
         y: 256
         width: 26
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_127
-      rect:
-        serializedVersion: 2
-        x: 468
-        y: 256
-        width: 27
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_128
-      rect:
-        serializedVersion: 2
-        x: 532
-        y: 256
-        width: 28
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_129
-      rect:
-        serializedVersion: 2
-        x: 596
-        y: 256
-        width: 27
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_130
-      rect:
-        serializedVersion: 2
-        x: 660
-        y: 256
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_131
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 256
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_132
-      rect:
-        serializedVersion: 2
-        x: 788
-        y: 256
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_133
-      rect:
-        serializedVersion: 2
-        x: 22
-        y: 194
-        width: 25
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_134
+    - name: Pink_hair_dude_123
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 256
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_124
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 256
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_125
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 256
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_126
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 256
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_127
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 256
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_128
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 256
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_129
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 256
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_130
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 256
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_131
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 256
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_132
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 256
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_133
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 194
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_134
       rect:
         serializedVersion: 2
         x: 84
         y: 194
-        width: 27
+        width: 25
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_135
+    - name: Pink_hair_dude_135
       rect:
         serializedVersion: 2
         x: 143
@@ -1588,7 +1588,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_136
+    - name: Pink_hair_dude_136
       rect:
         serializedVersion: 2
         x: 205
@@ -1598,7 +1598,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_137
+    - name: Pink_hair_dude_137
       rect:
         serializedVersion: 2
         x: 269
@@ -1608,27 +1608,27 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_138
+    - name: Pink_hair_dude_138
       rect:
         serializedVersion: 2
         x: 332
         y: 194
-        width: 35
+        width: 33
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_139
+    - name: Pink_hair_dude_139
       rect:
         serializedVersion: 2
         x: 396
         y: 194
-        width: 35
+        width: 34
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_140
+    - name: Pink_hair_dude_140
       rect:
         serializedVersion: 2
         x: 461
@@ -1638,7 +1638,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_141
+    - name: Pink_hair_dude_141
       rect:
         serializedVersion: 2
         x: 525
@@ -1648,7 +1648,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_142
+    - name: Pink_hair_dude_142
       rect:
         serializedVersion: 2
         x: 589
@@ -1658,7 +1658,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_143
+    - name: Pink_hair_dude_143
       rect:
         serializedVersion: 2
         x: 653
@@ -1668,17 +1668,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_144
+    - name: Pink_hair_dude_144
       rect:
         serializedVersion: 2
         x: 717
         y: 194
-        width: 34
+        width: 32
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_145
+    - name: Pink_hair_dude_145
       rect:
         serializedVersion: 2
         x: 781
@@ -1688,157 +1688,157 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_146
+    - name: Pink_hair_dude_146
       rect:
         serializedVersion: 2
         x: 16
         y: 130
         width: 30
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_147
+    - name: Pink_hair_dude_147
       rect:
         serializedVersion: 2
         x: 82
         y: 131
-        width: 25
-        height: 47
+        width: 26
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_148
+    - name: Pink_hair_dude_148
       rect:
         serializedVersion: 2
         x: 146
         y: 131
-        width: 24
-        height: 47
+        width: 26
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_149
+    - name: Pink_hair_dude_149
       rect:
         serializedVersion: 2
         x: 210
         y: 130
-        width: 24
-        height: 48
+        width: 26
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_150
+    - name: Pink_hair_dude_150
       rect:
         serializedVersion: 2
-        x: 275
+        x: 274
         y: 130
-        width: 23
-        height: 48
+        width: 26
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_151
+    - name: Pink_hair_dude_151
       rect:
         serializedVersion: 2
-        x: 339
+        x: 338
         y: 130
-        width: 23
-        height: 48
+        width: 26
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_152
+    - name: Pink_hair_dude_152
       rect:
         serializedVersion: 2
-        x: 403
+        x: 402
         y: 130
-        width: 23
-        height: 48
+        width: 26
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_153
+    - name: Pink_hair_dude_153
       rect:
         serializedVersion: 2
         x: 466
         y: 130
-        width: 24
-        height: 48
+        width: 26
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_154
+    - name: Pink_hair_dude_154
       rect:
         serializedVersion: 2
         x: 530
         y: 130
-        width: 24
-        height: 48
+        width: 26
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_155
+    - name: Pink_hair_dude_155
       rect:
         serializedVersion: 2
-        x: 595
+        x: 594
         y: 130
-        width: 23
-        height: 48
+        width: 26
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_156
+    - name: Pink_hair_dude_156
       rect:
         serializedVersion: 2
         x: 658
         y: 130
-        width: 24
-        height: 48
+        width: 26
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_157
+    - name: Pink_hair_dude_157
       rect:
         serializedVersion: 2
-        x: 724
+        x: 722
         y: 130
-        width: 22
-        height: 48
+        width: 26
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_158
+    - name: Pink_hair_dude_158
       rect:
         serializedVersion: 2
         x: 786
         y: 130
-        width: 24
-        height: 48
+        width: 26
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_159
+    - name: Pink_hair_dude_159
       rect:
         serializedVersion: 2
-        x: 17
+        x: 19
+        y: 66
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pink_hair_dude_160
+      rect:
+        serializedVersion: 2
+        x: 83
         y: 66
         width: 25
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_160
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 66
-        width: 27
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_161
+    - name: Pink_hair_dude_161
       rect:
         serializedVersion: 2
         x: 145
@@ -1848,7 +1848,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_162
+    - name: Pink_hair_dude_162
       rect:
         serializedVersion: 2
         x: 208
@@ -1858,7 +1858,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_163
+    - name: Pink_hair_dude_163
       rect:
         serializedVersion: 2
         x: 272
@@ -1868,27 +1868,27 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_164
+    - name: Pink_hair_dude_164
       rect:
         serializedVersion: 2
-        x: 337
+        x: 339
         y: 66
-        width: 35
+        width: 33
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_165
+    - name: Pink_hair_dude_165
       rect:
         serializedVersion: 2
-        x: 401
+        x: 402
         y: 66
-        width: 35
+        width: 34
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_166
+    - name: Pink_hair_dude_166
       rect:
         serializedVersion: 2
         x: 463
@@ -1898,7 +1898,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_167
+    - name: Pink_hair_dude_167
       rect:
         serializedVersion: 2
         x: 525
@@ -1908,7 +1908,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_168
+    - name: Pink_hair_dude_168
       rect:
         serializedVersion: 2
         x: 592
@@ -1918,7 +1918,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_169
+    - name: Pink_hair_dude_169
       rect:
         serializedVersion: 2
         x: 657
@@ -1928,17 +1928,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_170
+    - name: Pink_hair_dude_170
       rect:
         serializedVersion: 2
-        x: 721
+        x: 723
         y: 66
-        width: 34
+        width: 32
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_171
+    - name: Pink_hair_dude_171
       rect:
         serializedVersion: 2
         x: 785
@@ -1948,57 +1948,57 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_172
+    - name: Pink_hair_dude_172
       rect:
         serializedVersion: 2
         x: 17
         y: 2
         width: 30
-        height: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_173
+    - name: Pink_hair_dude_173
       rect:
         serializedVersion: 2
         x: 82
         y: 2
         width: 31
-        height: 47
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_174
+    - name: Pink_hair_dude_174
       rect:
         serializedVersion: 2
         x: 147
         y: 2
         width: 30
-        height: 41
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_175
+    - name: Pink_hair_dude_175
       rect:
         serializedVersion: 2
         x: 211
         y: 3
         width: 30
-        height: 36
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_176
+    - name: Pink_hair_dude_176
       rect:
         serializedVersion: 2
         x: 275
         y: 3
         width: 31
-        height: 31
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_177
+    - name: Pink_hair_dude_177
       rect:
         serializedVersion: 2
         x: 338

@@ -1,187 +1,187 @@
 fileFormatVersion: 2
-guid: adf62b3e28fd44d4e8c3f673467ea670
-timeCreated: 1448346959
+guid: 5e0c938f8daca9f4da070770df2d92a0
+timeCreated: 1448347101
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Frost_0
-    21300002: Frost_1
-    21300004: Frost_2
-    21300006: Frost_3
-    21300008: Frost_4
-    21300010: Frost_5
-    21300012: Frost_6
-    21300014: Frost_7
-    21300016: Frost_8
-    21300018: Frost_9
-    21300020: Frost_10
-    21300022: Frost_11
-    21300024: Frost_12
-    21300026: Frost_13
-    21300028: Frost_14
-    21300030: Frost_15
-    21300032: Frost_16
-    21300034: Frost_17
-    21300036: Frost_18
-    21300038: Frost_19
-    21300040: Frost_20
-    21300042: Frost_21
-    21300044: Frost_22
-    21300046: Frost_23
-    21300048: Frost_24
-    21300050: Frost_25
-    21300052: Frost_26
-    21300054: Frost_27
-    21300056: Frost_28
-    21300058: Frost_29
-    21300060: Frost_30
-    21300062: Frost_31
-    21300064: Frost_32
-    21300066: Frost_33
-    21300068: Frost_34
-    21300070: Frost_35
-    21300072: Frost_36
-    21300074: Frost_37
-    21300076: Frost_38
-    21300078: Frost_39
-    21300080: Frost_40
-    21300082: Frost_41
-    21300084: Frost_42
-    21300086: Frost_43
-    21300088: Frost_44
-    21300090: Frost_45
-    21300092: Frost_46
-    21300094: Frost_47
-    21300096: Frost_48
-    21300098: Frost_49
-    21300100: Frost_50
-    21300102: Frost_51
-    21300104: Frost_52
-    21300106: Frost_53
-    21300108: Frost_54
-    21300110: Frost_55
-    21300112: Frost_56
-    21300114: Frost_57
-    21300116: Frost_58
-    21300118: Frost_59
-    21300120: Frost_60
-    21300122: Frost_61
-    21300124: Frost_62
-    21300126: Frost_63
-    21300128: Frost_64
-    21300130: Frost_65
-    21300132: Frost_66
-    21300134: Frost_67
-    21300136: Frost_68
-    21300138: Frost_69
-    21300140: Frost_70
-    21300142: Frost_71
-    21300144: Frost_72
-    21300146: Frost_73
-    21300148: Frost_74
-    21300150: Frost_75
-    21300152: Frost_76
-    21300154: Frost_77
-    21300156: Frost_78
-    21300158: Frost_79
-    21300160: Frost_80
-    21300162: Frost_81
-    21300164: Frost_82
-    21300166: Frost_83
-    21300168: Frost_84
-    21300170: Frost_85
-    21300172: Frost_86
-    21300174: Frost_87
-    21300176: Frost_88
-    21300178: Frost_89
-    21300180: Frost_90
-    21300182: Frost_91
-    21300184: Frost_92
-    21300186: Frost_93
-    21300188: Frost_94
-    21300190: Frost_95
-    21300192: Frost_96
-    21300194: Frost_97
-    21300196: Frost_98
-    21300198: Frost_99
-    21300200: Frost_100
-    21300202: Frost_101
-    21300204: Frost_102
-    21300206: Frost_103
-    21300208: Frost_104
-    21300210: Frost_105
-    21300212: Frost_106
-    21300214: Frost_107
-    21300216: Frost_108
-    21300218: Frost_109
-    21300220: Frost_110
-    21300222: Frost_111
-    21300224: Frost_112
-    21300226: Frost_113
-    21300228: Frost_114
-    21300230: Frost_115
-    21300232: Frost_116
-    21300234: Frost_117
-    21300236: Frost_118
-    21300238: Frost_119
-    21300240: Frost_120
-    21300242: Frost_121
-    21300244: Frost_122
-    21300246: Frost_123
-    21300248: Frost_124
-    21300250: Frost_125
-    21300252: Frost_126
-    21300254: Frost_127
-    21300256: Frost_128
-    21300258: Frost_129
-    21300260: Frost_130
-    21300262: Frost_131
-    21300264: Frost_132
-    21300266: Frost_133
-    21300268: Frost_134
-    21300270: Frost_135
-    21300272: Frost_136
-    21300274: Frost_137
-    21300276: Frost_138
-    21300278: Frost_139
-    21300280: Frost_140
-    21300282: Frost_141
-    21300284: Frost_142
-    21300286: Frost_143
-    21300288: Frost_144
-    21300290: Frost_145
-    21300292: Frost_146
-    21300294: Frost_147
-    21300296: Frost_148
-    21300298: Frost_149
-    21300300: Frost_150
-    21300302: Frost_151
-    21300304: Frost_152
-    21300306: Frost_153
-    21300308: Frost_154
-    21300310: Frost_155
-    21300312: Frost_156
-    21300314: Frost_157
-    21300316: Frost_158
-    21300318: Frost_159
-    21300320: Frost_160
-    21300322: Frost_161
-    21300324: Frost_162
-    21300326: Frost_163
-    21300328: Frost_164
-    21300330: Frost_165
-    21300332: Frost_166
-    21300334: Frost_167
-    21300336: Frost_168
-    21300338: Frost_169
-    21300340: Frost_170
-    21300342: Frost_171
-    21300344: Frost_172
-    21300346: Frost_173
-    21300348: Frost_174
-    21300350: Frost_175
-    21300352: Frost_176
-    21300354: Frost_177
+    21300000: Kendogirlforgym_0
+    21300002: Kendogirlforgym_1
+    21300004: Kendogirlforgym_2
+    21300006: Kendogirlforgym_3
+    21300008: Kendogirlforgym_4
+    21300010: Kendogirlforgym_5
+    21300012: Kendogirlforgym_6
+    21300014: Kendogirlforgym_7
+    21300016: Kendogirlforgym_8
+    21300018: Kendogirlforgym_9
+    21300020: Kendogirlforgym_10
+    21300022: Kendogirlforgym_11
+    21300024: Kendogirlforgym_12
+    21300026: Kendogirlforgym_13
+    21300028: Kendogirlforgym_14
+    21300030: Kendogirlforgym_15
+    21300032: Kendogirlforgym_16
+    21300034: Kendogirlforgym_17
+    21300036: Kendogirlforgym_18
+    21300038: Kendogirlforgym_19
+    21300040: Kendogirlforgym_20
+    21300042: Kendogirlforgym_21
+    21300044: Kendogirlforgym_22
+    21300046: Kendogirlforgym_23
+    21300048: Kendogirlforgym_24
+    21300050: Kendogirlforgym_25
+    21300052: Kendogirlforgym_26
+    21300054: Kendogirlforgym_27
+    21300056: Kendogirlforgym_28
+    21300058: Kendogirlforgym_29
+    21300060: Kendogirlforgym_30
+    21300062: Kendogirlforgym_31
+    21300064: Kendogirlforgym_32
+    21300066: Kendogirlforgym_33
+    21300068: Kendogirlforgym_34
+    21300070: Kendogirlforgym_35
+    21300072: Kendogirlforgym_36
+    21300074: Kendogirlforgym_37
+    21300076: Kendogirlforgym_38
+    21300078: Kendogirlforgym_39
+    21300080: Kendogirlforgym_40
+    21300082: Kendogirlforgym_41
+    21300084: Kendogirlforgym_42
+    21300086: Kendogirlforgym_43
+    21300088: Kendogirlforgym_44
+    21300090: Kendogirlforgym_45
+    21300092: Kendogirlforgym_46
+    21300094: Kendogirlforgym_47
+    21300096: Kendogirlforgym_48
+    21300098: Kendogirlforgym_49
+    21300100: Kendogirlforgym_50
+    21300102: Kendogirlforgym_51
+    21300104: Kendogirlforgym_52
+    21300106: Kendogirlforgym_53
+    21300108: Kendogirlforgym_54
+    21300110: Kendogirlforgym_55
+    21300112: Kendogirlforgym_56
+    21300114: Kendogirlforgym_57
+    21300116: Kendogirlforgym_58
+    21300118: Kendogirlforgym_59
+    21300120: Kendogirlforgym_60
+    21300122: Kendogirlforgym_61
+    21300124: Kendogirlforgym_62
+    21300126: Kendogirlforgym_63
+    21300128: Kendogirlforgym_64
+    21300130: Kendogirlforgym_65
+    21300132: Kendogirlforgym_66
+    21300134: Kendogirlforgym_67
+    21300136: Kendogirlforgym_68
+    21300138: Kendogirlforgym_69
+    21300140: Kendogirlforgym_70
+    21300142: Kendogirlforgym_71
+    21300144: Kendogirlforgym_72
+    21300146: Kendogirlforgym_73
+    21300148: Kendogirlforgym_74
+    21300150: Kendogirlforgym_75
+    21300152: Kendogirlforgym_76
+    21300154: Kendogirlforgym_77
+    21300156: Kendogirlforgym_78
+    21300158: Kendogirlforgym_79
+    21300160: Kendogirlforgym_80
+    21300162: Kendogirlforgym_81
+    21300164: Kendogirlforgym_82
+    21300166: Kendogirlforgym_83
+    21300168: Kendogirlforgym_84
+    21300170: Kendogirlforgym_85
+    21300172: Kendogirlforgym_86
+    21300174: Kendogirlforgym_87
+    21300176: Kendogirlforgym_88
+    21300178: Kendogirlforgym_89
+    21300180: Kendogirlforgym_90
+    21300182: Kendogirlforgym_91
+    21300184: Kendogirlforgym_92
+    21300186: Kendogirlforgym_93
+    21300188: Kendogirlforgym_94
+    21300190: Kendogirlforgym_95
+    21300192: Kendogirlforgym_96
+    21300194: Kendogirlforgym_97
+    21300196: Kendogirlforgym_98
+    21300198: Kendogirlforgym_99
+    21300200: Kendogirlforgym_100
+    21300202: Kendogirlforgym_101
+    21300204: Kendogirlforgym_102
+    21300206: Kendogirlforgym_103
+    21300208: Kendogirlforgym_104
+    21300210: Kendogirlforgym_105
+    21300212: Kendogirlforgym_106
+    21300214: Kendogirlforgym_107
+    21300216: Kendogirlforgym_108
+    21300218: Kendogirlforgym_109
+    21300220: Kendogirlforgym_110
+    21300222: Kendogirlforgym_111
+    21300224: Kendogirlforgym_112
+    21300226: Kendogirlforgym_113
+    21300228: Kendogirlforgym_114
+    21300230: Kendogirlforgym_115
+    21300232: Kendogirlforgym_116
+    21300234: Kendogirlforgym_117
+    21300236: Kendogirlforgym_118
+    21300238: Kendogirlforgym_119
+    21300240: Kendogirlforgym_120
+    21300242: Kendogirlforgym_121
+    21300244: Kendogirlforgym_122
+    21300246: Kendogirlforgym_123
+    21300248: Kendogirlforgym_124
+    21300250: Kendogirlforgym_125
+    21300252: Kendogirlforgym_126
+    21300254: Kendogirlforgym_127
+    21300256: Kendogirlforgym_128
+    21300258: Kendogirlforgym_129
+    21300260: Kendogirlforgym_130
+    21300262: Kendogirlforgym_131
+    21300264: Kendogirlforgym_132
+    21300266: Kendogirlforgym_133
+    21300268: Kendogirlforgym_134
+    21300270: Kendogirlforgym_135
+    21300272: Kendogirlforgym_136
+    21300274: Kendogirlforgym_137
+    21300276: Kendogirlforgym_138
+    21300278: Kendogirlforgym_139
+    21300280: Kendogirlforgym_140
+    21300282: Kendogirlforgym_141
+    21300284: Kendogirlforgym_142
+    21300286: Kendogirlforgym_143
+    21300288: Kendogirlforgym_144
+    21300290: Kendogirlforgym_145
+    21300292: Kendogirlforgym_146
+    21300294: Kendogirlforgym_147
+    21300296: Kendogirlforgym_148
+    21300298: Kendogirlforgym_149
+    21300300: Kendogirlforgym_150
+    21300302: Kendogirlforgym_151
+    21300304: Kendogirlforgym_152
+    21300306: Kendogirlforgym_153
+    21300308: Kendogirlforgym_154
+    21300310: Kendogirlforgym_155
+    21300312: Kendogirlforgym_156
+    21300314: Kendogirlforgym_157
+    21300316: Kendogirlforgym_158
+    21300318: Kendogirlforgym_159
+    21300320: Kendogirlforgym_160
+    21300322: Kendogirlforgym_161
+    21300324: Kendogirlforgym_162
+    21300326: Kendogirlforgym_163
+    21300328: Kendogirlforgym_164
+    21300330: Kendogirlforgym_165
+    21300332: Kendogirlforgym_166
+    21300334: Kendogirlforgym_167
+    21300336: Kendogirlforgym_168
+    21300338: Kendogirlforgym_169
+    21300340: Kendogirlforgym_170
+    21300342: Kendogirlforgym_171
+    21300344: Kendogirlforgym_172
+    21300346: Kendogirlforgym_173
+    21300348: Kendogirlforgym_174
+    21300350: Kendogirlforgym_175
+    21300352: Kendogirlforgym_176
+    21300354: Kendogirlforgym_177
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -228,1780 +228,1780 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Frost_0
+    - name: Kendogirlforgym_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 1282
-        width: 30
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_1
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 1282
+        x: 18
+        y: 1281
         width: 28
-        height: 47
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_2
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 1282
-        width: 28
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_3
-      rect:
-        serializedVersion: 2
-        x: 206
-        y: 1282
-        width: 36
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_4
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 1282
-        width: 50
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_5
-      rect:
-        serializedVersion: 2
-        x: 328
-        y: 1282
-        width: 48
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_6
-      rect:
-        serializedVersion: 2
-        x: 398
-        y: 1282
-        width: 36
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_7
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 1218
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_8
+    - name: Kendogirlforgym_1
       rect:
         serializedVersion: 2
         x: 85
-        y: 1218
-        width: 25
-        height: 50
+        y: 1281
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_9
+    - name: Kendogirlforgym_2
       rect:
         serializedVersion: 2
         x: 149
-        y: 1218
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_10
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 1218
-        width: 26
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_11
-      rect:
-        serializedVersion: 2
-        x: 274
-        y: 1218
-        width: 33
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_12
-      rect:
-        serializedVersion: 2
-        x: 338
-        y: 1218
-        width: 33
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_13
-      rect:
-        serializedVersion: 2
-        x: 404
-        y: 1218
-        width: 28
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_14
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 1154
-        width: 30
+        y: 1281
+        width: 22
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_15
+    - name: Kendogirlforgym_3
       rect:
         serializedVersion: 2
-        x: 81
-        y: 1154
-        width: 30
+        x: 207
+        y: 1281
+        width: 34
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_16
+    - name: Kendogirlforgym_4
       rect:
         serializedVersion: 2
-        x: 146
-        y: 1154
-        width: 28
+        x: 266
+        y: 1281
+        width: 44
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_17
+    - name: Kendogirlforgym_5
       rect:
         serializedVersion: 2
-        x: 206
-        y: 1154
-        width: 36
+        x: 330
+        y: 1281
+        width: 44
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_18
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 1154
-        width: 50
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_19
-      rect:
-        serializedVersion: 2
-        x: 328
-        y: 1154
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_20
+    - name: Kendogirlforgym_6
       rect:
         serializedVersion: 2
         x: 399
-        y: 1154
+        y: 1281
         width: 34
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_21
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 1090
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_22
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 1090
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_23
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 1090
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_24
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 1090
-        width: 26
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_25
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 1090
-        width: 33
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_26
-      rect:
-        serializedVersion: 2
-        x: 333
-        y: 1090
-        width: 33
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_27
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 1090
-        width: 28
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_28
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 1026
-        width: 30
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_29
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 1024
-        width: 26
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_30
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 1024
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_31
-      rect:
-        serializedVersion: 2
-        x: 214
-        y: 1024
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_32
-      rect:
-        serializedVersion: 2
-        x: 279
-        y: 1024
-        width: 22
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_33
-      rect:
-        serializedVersion: 2
-        x: 343
-        y: 1024
-        width: 22
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_34
-      rect:
-        serializedVersion: 2
-        x: 407
-        y: 1024
-        width: 22
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_35
-      rect:
-        serializedVersion: 2
-        x: 470
-        y: 1024
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_36
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 962
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_37
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 962
-        width: 27
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_38
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 962
-        width: 27
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_39
-      rect:
-        serializedVersion: 2
-        x: 213
-        y: 962
-        width: 26
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_40
-      rect:
-        serializedVersion: 2
-        x: 271
-        y: 962
-        width: 29
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_41
-      rect:
-        serializedVersion: 2
-        x: 332
-        y: 962
-        width: 32
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_42
-      rect:
-        serializedVersion: 2
-        x: 399
-        y: 962
-        width: 29
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_43
-      rect:
-        serializedVersion: 2
-        x: 469
-        y: 962
-        width: 26
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_44
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 898
-        width: 30
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_45
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 899
-        width: 24
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_46
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 899
-        width: 22
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_47
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 899
-        width: 25
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_48
-      rect:
-        serializedVersion: 2
-        x: 277
-        y: 899
-        width: 22
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_49
-      rect:
-        serializedVersion: 2
-        x: 341
-        y: 899
-        width: 22
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_50
-      rect:
-        serializedVersion: 2
-        x: 405
-        y: 899
-        width: 22
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_51
-      rect:
-        serializedVersion: 2
-        x: 466
-        y: 899
-        width: 25
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_52
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 834
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_53
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 834
-        width: 27
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_54
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 834
-        width: 27
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_55
-      rect:
-        serializedVersion: 2
-        x: 209
-        y: 834
-        width: 26
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_56
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 834
-        width: 29
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_57
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 834
-        width: 32
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_58
-      rect:
-        serializedVersion: 2
-        x: 404
-        y: 834
-        width: 29
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_59
-      rect:
-        serializedVersion: 2
-        x: 465
-        y: 834
-        width: 26
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_60
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 771
-        width: 30
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_61
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 771
-        width: 30
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_62
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 770
-        width: 30
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_63
-      rect:
-        serializedVersion: 2
-        x: 209
-        y: 769
-        width: 29
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_64
-      rect:
-        serializedVersion: 2
-        x: 273
-        y: 770
-        width: 30
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_65
-      rect:
-        serializedVersion: 2
-        x: 337
-        y: 771
-        width: 30
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_66
-      rect:
-        serializedVersion: 2
-        x: 401
-        y: 770
-        width: 30
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_67
-      rect:
-        serializedVersion: 2
-        x: 466
-        y: 769
-        width: 29
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_68
-      rect:
-        serializedVersion: 2
-        x: 529
-        y: 770
-        width: 30
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_69
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 706
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_70
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 706
-        width: 27
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_71
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 707
-        width: 25
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_72
-      rect:
-        serializedVersion: 2
-        x: 213
-        y: 707
-        width: 25
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_73
-      rect:
-        serializedVersion: 2
-        x: 277
-        y: 706
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_74
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 706
-        width: 28
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_75
-      rect:
-        serializedVersion: 2
-        x: 405
-        y: 706
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_76
-      rect:
-        serializedVersion: 2
-        x: 469
-        y: 706
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_77
-      rect:
-        serializedVersion: 2
-        x: 533
-        y: 706
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_78
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 642
-        width: 30
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_79
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 642
-        width: 30
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_80
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 641
-        width: 30
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_81
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 641
-        width: 29
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_82
-      rect:
-        serializedVersion: 2
-        x: 273
-        y: 641
-        width: 30
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_83
-      rect:
-        serializedVersion: 2
-        x: 337
-        y: 642
-        width: 30
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_84
-      rect:
-        serializedVersion: 2
-        x: 401
-        y: 641
-        width: 30
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_85
-      rect:
-        serializedVersion: 2
-        x: 465
-        y: 641
-        width: 29
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_86
-      rect:
-        serializedVersion: 2
-        x: 529
-        y: 641
-        width: 30
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_87
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 578
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_88
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 578
-        width: 27
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_89
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 579
-        width: 25
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_90
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 579
-        width: 25
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_91
-      rect:
-        serializedVersion: 2
-        x: 274
-        y: 578
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_92
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 578
-        width: 28
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_93
-      rect:
-        serializedVersion: 2
-        x: 402
-        y: 578
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_94
-      rect:
-        serializedVersion: 2
-        x: 466
-        y: 578
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_95
-      rect:
-        serializedVersion: 2
-        x: 530
-        y: 578
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_96
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 514
-        width: 30
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_97
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 513
-        width: 26
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_98
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 513
-        width: 25
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_99
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 513
-        width: 27
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_100
-      rect:
-        serializedVersion: 2
-        x: 274
-        y: 513
-        width: 36
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_101
-      rect:
-        serializedVersion: 2
-        x: 338
-        y: 513
-        width: 39
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_102
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 450
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_103
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 450
-        width: 27
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_104
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 450
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_105
-      rect:
-        serializedVersion: 2
-        x: 203
-        y: 450
-        width: 34
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_106
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 450
-        width: 36
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_107
-      rect:
-        serializedVersion: 2
-        x: 331
-        y: 450
-        width: 33
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_108
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 386
-        width: 30
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_109
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 386
-        width: 26
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_110
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 386
-        width: 26
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_111
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 386
-        width: 26
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_112
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 386
-        width: 35
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_113
-      rect:
-        serializedVersion: 2
-        x: 339
-        y: 386
-        width: 39
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_114
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 322
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_115
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 322
-        width: 27
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_116
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 322
-        width: 25
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_117
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 322
-        width: 34
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_118
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 322
-        width: 36
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_119
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 322
-        width: 33
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_120
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 258
-        width: 30
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_121
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 256
-        width: 26
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_122
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 256
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_123
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 256
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_124
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 256
-        width: 27
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_125
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 256
-        width: 25
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_126
-      rect:
-        serializedVersion: 2
-        x: 404
-        y: 256
-        width: 26
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_127
-      rect:
-        serializedVersion: 2
-        x: 468
-        y: 256
-        width: 27
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_128
-      rect:
-        serializedVersion: 2
-        x: 532
-        y: 256
-        width: 28
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_129
-      rect:
-        serializedVersion: 2
-        x: 596
-        y: 256
-        width: 27
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_130
-      rect:
-        serializedVersion: 2
-        x: 660
-        y: 256
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_131
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 256
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_132
-      rect:
-        serializedVersion: 2
-        x: 788
-        y: 256
-        width: 22
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_133
+    - name: Kendogirlforgym_7
       rect:
         serializedVersion: 2
         x: 22
-        y: 194
+        y: 1217
+        width: 21
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_8
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1217
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_9
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1217
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_10
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1217
         width: 25
-        height: 50
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_134
+    - name: Kendogirlforgym_11
       rect:
         serializedVersion: 2
-        x: 84
-        y: 194
-        width: 27
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_135
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 194
+        x: 274
+        y: 1217
         width: 32
-        height: 50
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_136
+    - name: Kendogirlforgym_12
       rect:
         serializedVersion: 2
-        x: 205
-        y: 194
-        width: 35
-        height: 50
+        x: 338
+        y: 1217
+        width: 32
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_137
+    - name: Kendogirlforgym_13
       rect:
         serializedVersion: 2
-        x: 269
-        y: 194
-        width: 35
-        height: 50
+        x: 404
+        y: 1217
+        width: 25
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_138
+    - name: Kendogirlforgym_14
       rect:
         serializedVersion: 2
-        x: 332
-        y: 194
-        width: 35
-        height: 50
+        x: 18
+        y: 1153
+        width: 28
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_139
-      rect:
-        serializedVersion: 2
-        x: 396
-        y: 194
-        width: 35
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_140
-      rect:
-        serializedVersion: 2
-        x: 461
-        y: 194
-        width: 36
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_141
-      rect:
-        serializedVersion: 2
-        x: 525
-        y: 194
-        width: 38
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_142
-      rect:
-        serializedVersion: 2
-        x: 589
-        y: 194
-        width: 35
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_143
-      rect:
-        serializedVersion: 2
-        x: 653
-        y: 194
-        width: 34
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_144
-      rect:
-        serializedVersion: 2
-        x: 717
-        y: 194
-        width: 34
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_145
-      rect:
-        serializedVersion: 2
-        x: 781
-        y: 194
-        width: 34
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_146
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 130
-        width: 30
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_147
+    - name: Kendogirlforgym_15
       rect:
         serializedVersion: 2
         x: 82
-        y: 131
+        y: 1153
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_16
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 1153
+        width: 26
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_17
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 1153
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_18
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1153
+        width: 44
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_19
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1153
+        width: 44
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_20
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1153
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_21
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1089
+        width: 21
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_22
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1089
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_23
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1089
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_24
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 1089
         width: 25
-        height: 47
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_148
+    - name: Kendogirlforgym_25
       rect:
         serializedVersion: 2
-        x: 146
-        y: 131
-        width: 24
-        height: 47
+        x: 270
+        y: 1089
+        width: 32
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_149
+    - name: Kendogirlforgym_26
       rect:
         serializedVersion: 2
-        x: 210
-        y: 130
-        width: 24
-        height: 48
+        x: 334
+        y: 1089
+        width: 32
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_150
-      rect:
-        serializedVersion: 2
-        x: 275
-        y: 130
-        width: 23
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_151
-      rect:
-        serializedVersion: 2
-        x: 339
-        y: 130
-        width: 23
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_152
+    - name: Kendogirlforgym_27
       rect:
         serializedVersion: 2
         x: 403
-        y: 130
-        width: 23
+        y: 1089
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_28
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1024
+        width: 28
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_153
+    - name: Kendogirlforgym_29
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 1024
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_30
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1023
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_31
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1023
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_32
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 1023
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_33
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1023
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_34
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 1023
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_35
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 1023
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_36
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 961
+        width: 21
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_37
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 961
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_38
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 961
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_39
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 961
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_40
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 961
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_41
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 961
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_42
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 961
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_43
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 961
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_44
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 897
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_45
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 897
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_46
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 898
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_47
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 898
+        width: 25
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_48
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 898
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_49
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 898
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_50
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 898
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_51
       rect:
         serializedVersion: 2
         x: 466
-        y: 130
-        width: 24
+        y: 898
+        width: 25
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_154
+    - name: Kendogirlforgym_52
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 833
+        width: 21
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_53
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 833
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_54
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 833
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_55
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 833
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_56
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 833
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_57
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 833
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_58
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 833
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_59
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 833
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_60
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 769
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_61
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 769
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_62
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 768
+        width: 26
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_63
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 767
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_64
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 768
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_65
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 769
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_66
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 768
+        width: 26
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_67
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 767
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_68
       rect:
         serializedVersion: 2
         x: 530
-        y: 130
-        width: 24
+        y: 768
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_69
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 705
+        width: 21
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_70
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 705
+        width: 21
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_155
+    - name: Kendogirlforgym_71
       rect:
         serializedVersion: 2
-        x: 595
-        y: 130
-        width: 23
-        height: 48
+        x: 150
+        y: 706
+        width: 20
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_156
+    - name: Kendogirlforgym_72
       rect:
         serializedVersion: 2
-        x: 658
-        y: 130
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_157
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 130
+        x: 214
+        y: 706
         width: 22
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_158
+    - name: Kendogirlforgym_73
       rect:
         serializedVersion: 2
-        x: 786
+        x: 277
+        y: 705
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_74
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 705
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_75
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 705
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_76
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 705
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_77
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 705
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_78
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 641
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_79
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 641
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_80
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 640
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_81
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 640
+        width: 26
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_82
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 640
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_83
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 641
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_84
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 640
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_85
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 640
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_86
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 640
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_87
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 577
+        width: 21
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_88
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 577
+        width: 21
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_89
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 578
+        width: 20
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_90
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 578
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_91
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 577
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_92
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 577
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_93
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 577
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_94
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 577
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_95
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 577
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_96
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 513
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_97
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 513
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_98
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 513
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_99
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 513
+        width: 33
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_100
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 513
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_101
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 513
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_102
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 449
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_103
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 449
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_104
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 449
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_105
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 449
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_106
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 449
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_107
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 449
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_108
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 385
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_109
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 385
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_110
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 385
+        width: 26
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_111
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 385
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_112
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 385
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_113
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 385
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_114
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 321
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_115
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 321
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_116
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 321
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_117
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 321
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_118
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 321
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_119
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 321
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_120
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 257
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_121
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 257
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_122
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 255
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_123
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 255
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_124
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 255
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_125
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 255
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_126
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 255
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_127
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 255
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_128
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 255
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_129
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 255
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_130
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 255
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_131
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 255
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_132
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 255
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_133
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 193
+        width: 21
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_134
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 193
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_135
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 193
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_136
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 193
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_137
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 193
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_138
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 193
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_139
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 193
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_140
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 193
+        width: 36
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_141
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 193
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_142
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 193
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_143
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 193
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_144
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 193
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_145
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 193
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_146
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 129
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_147
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 128
+        width: 25
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_148
+      rect:
+        serializedVersion: 2
+        x: 146
         y: 130
         width: 24
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_159
+    - name: Kendogirlforgym_149
       rect:
         serializedVersion: 2
-        x: 17
-        y: 66
-        width: 25
-        height: 50
+        x: 210
+        y: 129
+        width: 24
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_160
+    - name: Kendogirlforgym_150
       rect:
         serializedVersion: 2
-        x: 81
-        y: 66
-        width: 27
-        height: 50
+        x: 274
+        y: 129
+        width: 24
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_161
+    - name: Kendogirlforgym_151
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 129
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_152
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 129
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_153
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 129
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_154
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 129
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_155
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 129
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_156
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 129
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_157
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 129
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_158
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 129
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_159
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 65
+        width: 21
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_160
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 65
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_161
       rect:
         serializedVersion: 2
         x: 145
-        y: 66
+        y: 65
         width: 32
-        height: 50
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_162
+    - name: Kendogirlforgym_162
       rect:
         serializedVersion: 2
         x: 208
-        y: 66
+        y: 65
         width: 35
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_163
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 66
-        width: 35
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_164
-      rect:
-        serializedVersion: 2
-        x: 337
-        y: 66
-        width: 35
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_165
-      rect:
-        serializedVersion: 2
-        x: 401
-        y: 66
-        width: 35
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_166
-      rect:
-        serializedVersion: 2
-        x: 463
-        y: 66
-        width: 36
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_167
-      rect:
-        serializedVersion: 2
-        x: 525
-        y: 66
-        width: 38
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_168
-      rect:
-        serializedVersion: 2
-        x: 592
-        y: 66
-        width: 35
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_169
-      rect:
-        serializedVersion: 2
-        x: 657
-        y: 66
-        width: 34
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_170
-      rect:
-        serializedVersion: 2
-        x: 721
-        y: 66
-        width: 34
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_171
-      rect:
-        serializedVersion: 2
-        x: 785
-        y: 66
-        width: 34
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_172
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 2
-        width: 30
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_173
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 2
-        width: 31
         height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_174
+    - name: Kendogirlforgym_163
       rect:
         serializedVersion: 2
-        x: 147
-        y: 2
-        width: 30
+        x: 272
+        y: 65
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_164
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 65
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_165
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 65
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_166
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 65
+        width: 36
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_167
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 65
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_168
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 65
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_169
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 65
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_170
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 65
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_171
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 65
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_172
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 28
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_173
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 1
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Kendogirlforgym_174
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1
+        width: 27
         height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_175
+    - name: Kendogirlforgym_175
       rect:
         serializedVersion: 2
-        x: 211
-        y: 3
-        width: 30
+        x: 212
+        y: 2
+        width: 27
         height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_176
+    - name: Kendogirlforgym_176
       rect:
         serializedVersion: 2
-        x: 275
+        x: 276
         y: 3
-        width: 31
-        height: 31
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Frost_177
+    - name: Kendogirlforgym_177
       rect:
         serializedVersion: 2
-        x: 338
+        x: 337
         y: 0
         width: 34
         height: 36

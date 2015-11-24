@@ -61,6 +61,14 @@ public class DataLoader
         };
         AddNpc(66, "Kelly", "", kelly);
 
+        string[] frost = new string[]
+		{
+			"\"Welcome to Frost's Pizza.\"",
+			"\"Today's special is Hwaiian Combo. It's only $2 a piece!\"",
+            
+        };
+        AddNpc(67, "Frost", "", frost);
+
 		string[] parkdude = new string[]
 		{
 			"\"Hey kid, have you seen a brown dog around here somewhere?\"",

@@ -85,7 +85,6 @@ public class Textbox : MonoBehaviour
             Debug.Log("pressing space");
             if (Dialog.CEA != null)
             {
-                //Debug.Log("hi there");
                 GameEventArgs g = new GameEventArgs();
                 g.ConvertChoiceEventArgs(Dialog.CEA);
                 g.DialogueBox = this;
@@ -171,8 +170,8 @@ public class Textbox : MonoBehaviour
             if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
             {
                 Debug.Log("hi");
-                args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID+1);
                 args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs());
+                args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID + 1);
             }
             args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = args.DialogueBox.Dialog.text;
         }

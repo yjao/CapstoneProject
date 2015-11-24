@@ -1,9 +1,92 @@
 fileFormatVersion: 2
 guid: f87edfb29c0debd4d8626ea6c9a677e4
-timeCreated: 1445551395
+timeCreated: 1448346755
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: rpg_maker_vx__modernrtp_tileset_0
+    21300002: rpg_maker_vx__modernrtp_tileset_1
+    21300004: rpg_maker_vx__modernrtp_tileset_2
+    21300006: rpg_maker_vx__modernrtp_tileset_4
+    21300008: rpg_maker_vx__modernrtp_tileset_5
+    21300010: rpg_maker_vx__modernrtp_tileset_6
+    21300012: rpg_maker_vx__modernrtp_tileset_7
+    21300014: rpg_maker_vx__modernrtp_tileset_8
+    21300016: rpg_maker_vx__modernrtp_tileset_9
+    21300018: rpg_maker_vx__modernrtp_tileset_10
+    21300020: rpg_maker_vx__modernrtp_tileset_11
+    21300022: rpg_maker_vx__modernrtp_tileset_12
+    21300024: rpg_maker_vx__modernrtp_tileset_13
+    21300026: rpg_maker_vx__modernrtp_tileset_14
+    21300028: rpg_maker_vx__modernrtp_tileset_15
+    21300030: rpg_maker_vx__modernrtp_tileset_16
+    21300032: rpg_maker_vx__modernrtp_tileset_17
+    21300034: rpg_maker_vx__modernrtp_tileset_18
+    21300036: rpg_maker_vx__modernrtp_tileset_19
+    21300038: rpg_maker_vx__modernrtp_tileset_20
+    21300040: rpg_maker_vx__modernrtp_tileset_21
+    21300042: rpg_maker_vx__modernrtp_tileset_22
+    21300044: rpg_maker_vx__modernrtp_tileset_23
+    21300046: rpg_maker_vx__modernrtp_tileset_24
+    21300048: rpg_maker_vx__modernrtp_tileset_25
+    21300050: rpg_maker_vx__modernrtp_tileset_26
+    21300052: rpg_maker_vx__modernrtp_tileset_27
+    21300054: rpg_maker_vx__modernrtp_tileset_28
+    21300056: rpg_maker_vx__modernrtp_tileset_3
+    21300058: rpg_maker_vx__modernrtp_tileset_29
+    21300060: rpg_maker_vx__modernrtp_tileset_30
+    21300062: rpg_maker_vx__modernrtp_tileset_31
+    21300064: rpg_maker_vx__modernrtp_tileset_32
+    21300066: rpg_maker_vx__modernrtp_tileset_33
+    21300068: rpg_maker_vx__modernrtp_tileset_34
+    21300070: rpg_maker_vx__modernrtp_tileset_35
+    21300072: rpg_maker_vx__modernrtp_tileset_36
+    21300074: rpg_maker_vx__modernrtp_tileset_37
+    21300076: rpg_maker_vx__modernrtp_tileset_38
+    21300078: rpg_maker_vx__modernrtp_tileset_39
+    21300080: rpg_maker_vx__modernrtp_tileset_40
+    21300082: rpg_maker_vx__modernrtp_tileset_41
+    21300084: rpg_maker_vx__modernrtp_tileset_42
+    21300086: rpg_maker_vx__modernrtp_tileset_43
+    21300088: rpg_maker_vx__modernrtp_tileset_44
+    21300090: rpg_maker_vx__modernrtp_tileset_45
+    21300092: rpg_maker_vx__modernrtp_tileset_46
+    21300094: rpg_maker_vx__modernrtp_tileset_47
+    21300096: rpg_maker_vx__modernrtp_tileset_48
+    21300098: rpg_maker_vx__modernrtp_tileset_49
+    21300100: rpg_maker_vx__modernrtp_tileset_50
+    21300102: rpg_maker_vx__modernrtp_tileset_51
+    21300104: rpg_maker_vx__modernrtp_tileset_52
+    21300106: rpg_maker_vx__modernrtp_tileset_53
+    21300108: rpg_maker_vx__modernrtp_tileset_54
+    21300110: rpg_maker_vx__modernrtp_tileset_55
+    21300112: rpg_maker_vx__modernrtp_tileset_56
+    21300114: rpg_maker_vx__modernrtp_tileset_57
+    21300116: rpg_maker_vx__modernrtp_tileset_58
+    21300118: rpg_maker_vx__modernrtp_tileset_59
+    21300120: rpg_maker_vx__modernrtp_tileset_60
+    21300122: rpg_maker_vx__modernrtp_tileset_61
+    21300124: rpg_maker_vx__modernrtp_tileset_62
+    21300126: rpg_maker_vx__modernrtp_tileset_63
+    21300128: rpg_maker_vx__modernrtp_tileset_64
+    21300130: rpg_maker_vx__modernrtp_tileset_65
+    21300132: rpg_maker_vx__modernrtp_tileset_66
+    21300134: rpg_maker_vx__modernrtp_tileset_67
+    21300136: rpg_maker_vx__modernrtp_tileset_68
+    21300138: rpg_maker_vx__modernrtp_tileset_69
+    21300140: rpg_maker_vx__modernrtp_tileset_70
+    21300142: rpg_maker_vx__modernrtp_tileset_71
+    21300144: rpg_maker_vx__modernrtp_tileset_72
+    21300146: rpg_maker_vx__modernrtp_tileset_73
+    21300148: rpg_maker_vx__modernrtp_tileset_74
+    21300150: rpg_maker_vx__modernrtp_tileset_75
+    21300152: rpg_maker_vx__modernrtp_tileset_76
+    21300154: rpg_maker_vx__modernrtp_tileset_77
+    21300156: rpg_maker_vx__modernrtp_tileset_78
+    21300158: rpg_maker_vx__modernrtp_tileset_79
+    21300160: rpg_maker_vx__modernrtp_tileset_80
+    21300162: rpg_maker_vx__modernrtp_tileset_81
+    21300164: rpg_maker_vx__modernrtp_tileset_82
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -29,8 +112,8 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,18 +121,848 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: rpg_maker_vx__modernrtp_tileset_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 469
+        width: 51
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 459
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 469
+        width: 51
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 395
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 32
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 224
+        width: 64
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 224
+        width: 64
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 192
+        width: 64
+        height: 27
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_11
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 192
+        width: 64
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 101
+        width: 93
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_13
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 150
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_14
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 134
+        width: 66
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_15
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 160
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_16
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 72
+        width: 63
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_17
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 132
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_18
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 96
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_19
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 64
+        width: 86
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_21
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_22
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 12
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_23
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 72
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 5
+        width: 93
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_25
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 14
+        width: 21
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_26
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 14
+        width: 20
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_27
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 4
+        width: 26
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_28
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 8
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 468
+        width: 33
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 399
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_30
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 395
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_31
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 32
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_32
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 14
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_33
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 14
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_34
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 100
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_35
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 107
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_36
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 136
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_37
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 104
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_38
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 8
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_39
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 8
+        width: 30
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_40
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 109
+        width: 32
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_41
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 109
+        width: 31
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_42
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 168
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_43
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 192
+        width: 95
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_44
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 160
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_45
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 170
+        width: 63
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_46
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 192
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_47
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 192
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_48
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_49
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_50
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_51
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 240
+        width: 32
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_52
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 240
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_53
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 240
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_54
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 288
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_55
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_56
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_57
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 324
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_58
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 324
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_59
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 324
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_60
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_61
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 352
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_62
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 320
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_63
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 352
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_64
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 320
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_65
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 352
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_66
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 320
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_67
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 321
+        width: 32
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_68
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_69
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 384
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_70
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 383
+        width: 31
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_71
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 384
+        width: 33
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_72
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_73
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_74
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 384
+        width: 31
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_75
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 448
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_76
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_77
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_78
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 448
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_79
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_80
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 448
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_81
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rpg_maker_vx__modernrtp_tileset_82
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 468
+        width: 31
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

@@ -1,9 +1,114 @@
 fileFormatVersion: 2
 guid: 7a50781797eee2a4aabff3d9459bb732
-timeCreated: 1446097559
+timeCreated: 1448346092
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: InnerModern-TileB_0
+    21300002: InnerModern-TileB_1
+    21300004: InnerModern-TileB_2
+    21300006: InnerModern-TileB_3
+    21300008: InnerModern-TileB_4
+    21300010: InnerModern-TileB_5
+    21300012: InnerModern-TileB_6
+    21300014: InnerModern-TileB_7
+    21300016: InnerModern-TileB_8
+    21300018: InnerModern-TileB_9
+    21300020: InnerModern-TileB_10
+    21300022: InnerModern-TileB_11
+    21300024: InnerModern-TileB_12
+    21300026: InnerModern-TileB_13
+    21300028: InnerModern-TileB_14
+    21300030: InnerModern-TileB_15
+    21300032: InnerModern-TileB_16
+    21300034: InnerModern-TileB_17
+    21300036: InnerModern-TileB_18
+    21300038: InnerModern-TileB_19
+    21300040: InnerModern-TileB_20
+    21300042: InnerModern-TileB_21
+    21300044: InnerModern-TileB_22
+    21300046: InnerModern-TileB_23
+    21300048: InnerModern-TileB_24
+    21300050: InnerModern-TileB_25
+    21300052: InnerModern-TileB_26
+    21300054: InnerModern-TileB_27
+    21300056: InnerModern-TileB_28
+    21300058: InnerModern-TileB_29
+    21300060: InnerModern-TileB_30
+    21300062: InnerModern-TileB_31
+    21300064: InnerModern-TileB_32
+    21300066: InnerModern-TileB_33
+    21300068: InnerModern-TileB_34
+    21300070: InnerModern-TileB_35
+    21300072: InnerModern-TileB_36
+    21300074: InnerModern-TileB_37
+    21300076: InnerModern-TileB_38
+    21300078: InnerModern-TileB_39
+    21300080: InnerModern-TileB_40
+    21300082: InnerModern-TileB_41
+    21300084: InnerModern-TileB_42
+    21300086: InnerModern-TileB_43
+    21300088: InnerModern-TileB_44
+    21300090: InnerModern-TileB_45
+    21300092: InnerModern-TileB_46
+    21300094: InnerModern-TileB_47
+    21300096: InnerModern-TileB_48
+    21300098: InnerModern-TileB_49
+    21300100: InnerModern-TileB_50
+    21300102: InnerModern-TileB_51
+    21300104: InnerModern-TileB_52
+    21300106: InnerModern-TileB_53
+    21300108: InnerModern-TileB_54
+    21300110: InnerModern-TileB_55
+    21300112: InnerModern-TileB_56
+    21300114: InnerModern-TileB_57
+    21300116: InnerModern-TileB_58
+    21300118: InnerModern-TileB_59
+    21300120: InnerModern-TileB_60
+    21300122: InnerModern-TileB_61
+    21300124: InnerModern-TileB_62
+    21300126: InnerModern-TileB_63
+    21300128: InnerModern-TileB_64
+    21300130: InnerModern-TileB_65
+    21300132: InnerModern-TileB_66
+    21300134: InnerModern-TileB_67
+    21300136: InnerModern-TileB_68
+    21300138: InnerModern-TileB_69
+    21300140: InnerModern-TileB_70
+    21300142: InnerModern-TileB_71
+    21300144: InnerModern-TileB_72
+    21300146: InnerModern-TileB_73
+    21300148: InnerModern-TileB_74
+    21300150: InnerModern-TileB_75
+    21300152: InnerModern-TileB_76
+    21300154: InnerModern-TileB_77
+    21300156: InnerModern-TileB_78
+    21300158: InnerModern-TileB_79
+    21300160: InnerModern-TileB_80
+    21300162: InnerModern-TileB_81
+    21300164: InnerModern-TileB_82
+    21300166: InnerModern-TileB_83
+    21300168: InnerModern-TileB_84
+    21300170: InnerModern-TileB_85
+    21300172: InnerModern-TileB_86
+    21300174: InnerModern-TileB_87
+    21300176: InnerModern-TileB_88
+    21300178: InnerModern-TileB_89
+    21300180: InnerModern-TileB_90
+    21300182: InnerModern-TileB_91
+    21300184: InnerModern-TileB_92
+    21300186: InnerModern-TileB_93
+    21300188: InnerModern-TileB_94
+    21300190: InnerModern-TileB_95
+    21300192: InnerModern-TileB_96
+    21300194: InnerModern-TileB_97
+    21300196: InnerModern-TileB_98
+    21300198: InnerModern-TileB_99
+    21300200: InnerModern-TileB_100
+    21300202: InnerModern-TileB_101
+    21300204: InnerModern-TileB_102
+    21300206: InnerModern-TileB_103
+    21300208: InnerModern-TileB_104
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -29,8 +134,8 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,18 +143,1068 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: InnerModern-TileB_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 488
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 479
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 483
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_3
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 480
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_4
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 479
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_5
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 461
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_6
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 461
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_7
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 456
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_8
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 462
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_9
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 480
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_10
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 480
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_11
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 486
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_12
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 484
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_13
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 480
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_14
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 384
+        width: 45
+        height: 93
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_15
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 384
+        width: 45
+        height: 93
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 416
+        width: 65
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_17
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 447
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_18
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 449
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_19
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 451
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_20
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 452
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_21
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 452
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_22
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 389
+        width: 59
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_23
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 386
+        width: 59
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_24
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 395
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_25
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 395
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_26
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 416
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_27
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 414
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_28
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 386
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_29
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 286
+        width: 74
+        height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_30
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 352
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_31
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 352
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_32
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 354
+        width: 48
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_33
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 352
+        width: 43
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_34
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 352
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_35
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 265
+        width: 75
+        height: 77
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_36
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 320
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_37
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 320
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_38
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 320
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_39
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 292
+        width: 28
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_40
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 287
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_41
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 295
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_42
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 288
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_43
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 287
+        width: 50
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_44
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 224
+        width: 44
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_45
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 256
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_46
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 256
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_47
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 256
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_48
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 256
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_49
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 192
+        width: 43
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_50
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 224
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_51
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 224
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_52
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 224
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_53
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 200
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_54
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 204
+        width: 25
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_55
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 204
+        width: 29
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_56
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 196
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_57
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 193
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_58
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 192
+        width: 43
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_59
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 102
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_60
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 136
+        width: 40
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_61
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 128
+        width: 63
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_62
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_63
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 62
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_64
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 64
+        width: 60
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_65
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_66
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 0
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_67
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 384
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_68
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 320
+        width: 72
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_69
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 461
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_70
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 320
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_71
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 128
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_72
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 61
+        width: 32
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_73
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 64
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_74
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 0
+        width: 31
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_75
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 33
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_76
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_77
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 81
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_78
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 23
+        width: 44
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_79
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 2
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_80
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 9
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_81
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_82
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 35
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_83
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 64
+        width: 32
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_84
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_85
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_86
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_87
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_88
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_89
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 224
+        width: 37
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_90
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 193
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_91
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_92
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 160
+        width: 52
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_93
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 160
+        width: 52
+        height: 63
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_94
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 195
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_95
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 168
+        width: 19
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 127
+        width: 48
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_97
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 127
+        width: 48
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_98
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 127
+        width: 48
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_99
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 127
+        width: 48
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 97
+        height: 63
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_101
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 32
+        width: 95
+        height: 63
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_102
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 64
+        width: 56
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_103
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 32
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InnerModern-TileB_104
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 32
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

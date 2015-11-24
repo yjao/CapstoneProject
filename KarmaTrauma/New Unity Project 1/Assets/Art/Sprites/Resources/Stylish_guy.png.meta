@@ -1,187 +1,187 @@
 fileFormatVersion: 2
-guid: 07f23d8ae02a3a24cb1a8324c36a6bd2
-timeCreated: 1448347400
+guid: d0246ae336ed5654da891b384a8fa966
+timeCreated: 1448353250
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Emo_kid_0
-    21300002: Emo_kid_1
-    21300004: Emo_kid_2
-    21300006: Emo_kid_3
-    21300008: Emo_kid_4
-    21300010: Emo_kid_5
-    21300012: Emo_kid_6
-    21300014: Emo_kid_7
-    21300016: Emo_kid_8
-    21300018: Emo_kid_9
-    21300020: Emo_kid_10
-    21300022: Emo_kid_11
-    21300024: Emo_kid_12
-    21300026: Emo_kid_13
-    21300028: Emo_kid_14
-    21300030: Emo_kid_15
-    21300032: Emo_kid_16
-    21300034: Emo_kid_17
-    21300036: Emo_kid_18
-    21300038: Emo_kid_19
-    21300040: Emo_kid_20
-    21300042: Emo_kid_21
-    21300044: Emo_kid_22
-    21300046: Emo_kid_23
-    21300048: Emo_kid_24
-    21300050: Emo_kid_25
-    21300052: Emo_kid_26
-    21300054: Emo_kid_27
-    21300056: Emo_kid_28
-    21300058: Emo_kid_29
-    21300060: Emo_kid_30
-    21300062: Emo_kid_31
-    21300064: Emo_kid_32
-    21300066: Emo_kid_33
-    21300068: Emo_kid_34
-    21300070: Emo_kid_35
-    21300072: Emo_kid_36
-    21300074: Emo_kid_37
-    21300076: Emo_kid_38
-    21300078: Emo_kid_39
-    21300080: Emo_kid_40
-    21300082: Emo_kid_41
-    21300084: Emo_kid_42
-    21300086: Emo_kid_43
-    21300088: Emo_kid_44
-    21300090: Emo_kid_45
-    21300092: Emo_kid_46
-    21300094: Emo_kid_47
-    21300096: Emo_kid_48
-    21300098: Emo_kid_49
-    21300100: Emo_kid_50
-    21300102: Emo_kid_51
-    21300104: Emo_kid_52
-    21300106: Emo_kid_53
-    21300108: Emo_kid_54
-    21300110: Emo_kid_55
-    21300112: Emo_kid_56
-    21300114: Emo_kid_57
-    21300116: Emo_kid_58
-    21300118: Emo_kid_59
-    21300120: Emo_kid_60
-    21300122: Emo_kid_61
-    21300124: Emo_kid_62
-    21300126: Emo_kid_63
-    21300128: Emo_kid_64
-    21300130: Emo_kid_65
-    21300132: Emo_kid_66
-    21300134: Emo_kid_67
-    21300136: Emo_kid_68
-    21300138: Emo_kid_69
-    21300140: Emo_kid_70
-    21300142: Emo_kid_71
-    21300144: Emo_kid_72
-    21300146: Emo_kid_73
-    21300148: Emo_kid_74
-    21300150: Emo_kid_75
-    21300152: Emo_kid_76
-    21300154: Emo_kid_77
-    21300156: Emo_kid_78
-    21300158: Emo_kid_79
-    21300160: Emo_kid_80
-    21300162: Emo_kid_81
-    21300164: Emo_kid_82
-    21300166: Emo_kid_83
-    21300168: Emo_kid_84
-    21300170: Emo_kid_85
-    21300172: Emo_kid_86
-    21300174: Emo_kid_87
-    21300176: Emo_kid_88
-    21300178: Emo_kid_89
-    21300180: Emo_kid_90
-    21300182: Emo_kid_91
-    21300184: Emo_kid_92
-    21300186: Emo_kid_93
-    21300188: Emo_kid_94
-    21300190: Emo_kid_95
-    21300192: Emo_kid_96
-    21300194: Emo_kid_97
-    21300196: Emo_kid_98
-    21300198: Emo_kid_99
-    21300200: Emo_kid_100
-    21300202: Emo_kid_101
-    21300204: Emo_kid_102
-    21300206: Emo_kid_103
-    21300208: Emo_kid_104
-    21300210: Emo_kid_105
-    21300212: Emo_kid_106
-    21300214: Emo_kid_107
-    21300216: Emo_kid_108
-    21300218: Emo_kid_109
-    21300220: Emo_kid_110
-    21300222: Emo_kid_111
-    21300224: Emo_kid_112
-    21300226: Emo_kid_113
-    21300228: Emo_kid_114
-    21300230: Emo_kid_115
-    21300232: Emo_kid_116
-    21300234: Emo_kid_117
-    21300236: Emo_kid_118
-    21300238: Emo_kid_119
-    21300240: Emo_kid_120
-    21300242: Emo_kid_121
-    21300244: Emo_kid_122
-    21300246: Emo_kid_123
-    21300248: Emo_kid_124
-    21300250: Emo_kid_125
-    21300252: Emo_kid_126
-    21300254: Emo_kid_127
-    21300256: Emo_kid_128
-    21300258: Emo_kid_129
-    21300260: Emo_kid_130
-    21300262: Emo_kid_131
-    21300264: Emo_kid_132
-    21300266: Emo_kid_133
-    21300268: Emo_kid_134
-    21300270: Emo_kid_135
-    21300272: Emo_kid_136
-    21300274: Emo_kid_137
-    21300276: Emo_kid_138
-    21300278: Emo_kid_139
-    21300280: Emo_kid_140
-    21300282: Emo_kid_141
-    21300284: Emo_kid_142
-    21300286: Emo_kid_143
-    21300288: Emo_kid_144
-    21300290: Emo_kid_145
-    21300292: Emo_kid_146
-    21300294: Emo_kid_147
-    21300296: Emo_kid_148
-    21300298: Emo_kid_149
-    21300300: Emo_kid_150
-    21300302: Emo_kid_151
-    21300304: Emo_kid_152
-    21300306: Emo_kid_153
-    21300308: Emo_kid_154
-    21300310: Emo_kid_155
-    21300312: Emo_kid_156
-    21300314: Emo_kid_157
-    21300316: Emo_kid_158
-    21300318: Emo_kid_159
-    21300320: Emo_kid_160
-    21300322: Emo_kid_161
-    21300324: Emo_kid_162
-    21300326: Emo_kid_163
-    21300328: Emo_kid_164
-    21300330: Emo_kid_165
-    21300332: Emo_kid_166
-    21300334: Emo_kid_167
-    21300336: Emo_kid_168
-    21300338: Emo_kid_169
-    21300340: Emo_kid_170
-    21300342: Emo_kid_171
-    21300344: Emo_kid_172
-    21300346: Emo_kid_173
-    21300348: Emo_kid_174
-    21300350: Emo_kid_175
-    21300352: Emo_kid_176
-    21300354: Emo_kid_177
+    21300000: Stylish_guy_0
+    21300002: Stylish_guy_1
+    21300004: Stylish_guy_2
+    21300006: Stylish_guy_3
+    21300008: Stylish_guy_4
+    21300010: Stylish_guy_5
+    21300012: Stylish_guy_6
+    21300014: Stylish_guy_7
+    21300016: Stylish_guy_8
+    21300018: Stylish_guy_9
+    21300020: Stylish_guy_10
+    21300022: Stylish_guy_11
+    21300024: Stylish_guy_12
+    21300026: Stylish_guy_13
+    21300028: Stylish_guy_14
+    21300030: Stylish_guy_15
+    21300032: Stylish_guy_16
+    21300034: Stylish_guy_17
+    21300036: Stylish_guy_18
+    21300038: Stylish_guy_19
+    21300040: Stylish_guy_20
+    21300042: Stylish_guy_21
+    21300044: Stylish_guy_22
+    21300046: Stylish_guy_23
+    21300048: Stylish_guy_24
+    21300050: Stylish_guy_25
+    21300052: Stylish_guy_26
+    21300054: Stylish_guy_27
+    21300056: Stylish_guy_28
+    21300058: Stylish_guy_29
+    21300060: Stylish_guy_30
+    21300062: Stylish_guy_31
+    21300064: Stylish_guy_32
+    21300066: Stylish_guy_33
+    21300068: Stylish_guy_34
+    21300070: Stylish_guy_35
+    21300072: Stylish_guy_36
+    21300074: Stylish_guy_37
+    21300076: Stylish_guy_38
+    21300078: Stylish_guy_39
+    21300080: Stylish_guy_40
+    21300082: Stylish_guy_41
+    21300084: Stylish_guy_42
+    21300086: Stylish_guy_43
+    21300088: Stylish_guy_44
+    21300090: Stylish_guy_45
+    21300092: Stylish_guy_46
+    21300094: Stylish_guy_47
+    21300096: Stylish_guy_48
+    21300098: Stylish_guy_49
+    21300100: Stylish_guy_50
+    21300102: Stylish_guy_51
+    21300104: Stylish_guy_52
+    21300106: Stylish_guy_53
+    21300108: Stylish_guy_54
+    21300110: Stylish_guy_55
+    21300112: Stylish_guy_56
+    21300114: Stylish_guy_57
+    21300116: Stylish_guy_58
+    21300118: Stylish_guy_59
+    21300120: Stylish_guy_60
+    21300122: Stylish_guy_61
+    21300124: Stylish_guy_62
+    21300126: Stylish_guy_63
+    21300128: Stylish_guy_64
+    21300130: Stylish_guy_65
+    21300132: Stylish_guy_66
+    21300134: Stylish_guy_67
+    21300136: Stylish_guy_68
+    21300138: Stylish_guy_69
+    21300140: Stylish_guy_70
+    21300142: Stylish_guy_71
+    21300144: Stylish_guy_72
+    21300146: Stylish_guy_73
+    21300148: Stylish_guy_74
+    21300150: Stylish_guy_75
+    21300152: Stylish_guy_76
+    21300154: Stylish_guy_77
+    21300156: Stylish_guy_78
+    21300158: Stylish_guy_79
+    21300160: Stylish_guy_80
+    21300162: Stylish_guy_81
+    21300164: Stylish_guy_82
+    21300166: Stylish_guy_83
+    21300168: Stylish_guy_84
+    21300170: Stylish_guy_85
+    21300172: Stylish_guy_86
+    21300174: Stylish_guy_87
+    21300176: Stylish_guy_88
+    21300178: Stylish_guy_89
+    21300180: Stylish_guy_90
+    21300182: Stylish_guy_91
+    21300184: Stylish_guy_92
+    21300186: Stylish_guy_93
+    21300188: Stylish_guy_94
+    21300190: Stylish_guy_95
+    21300192: Stylish_guy_96
+    21300194: Stylish_guy_97
+    21300196: Stylish_guy_98
+    21300198: Stylish_guy_99
+    21300200: Stylish_guy_100
+    21300202: Stylish_guy_101
+    21300204: Stylish_guy_102
+    21300206: Stylish_guy_103
+    21300208: Stylish_guy_104
+    21300210: Stylish_guy_105
+    21300212: Stylish_guy_106
+    21300214: Stylish_guy_107
+    21300216: Stylish_guy_108
+    21300218: Stylish_guy_109
+    21300220: Stylish_guy_110
+    21300222: Stylish_guy_111
+    21300224: Stylish_guy_112
+    21300226: Stylish_guy_113
+    21300228: Stylish_guy_114
+    21300230: Stylish_guy_115
+    21300232: Stylish_guy_116
+    21300234: Stylish_guy_117
+    21300236: Stylish_guy_118
+    21300238: Stylish_guy_119
+    21300240: Stylish_guy_120
+    21300242: Stylish_guy_121
+    21300244: Stylish_guy_122
+    21300246: Stylish_guy_123
+    21300248: Stylish_guy_124
+    21300250: Stylish_guy_125
+    21300252: Stylish_guy_126
+    21300254: Stylish_guy_127
+    21300256: Stylish_guy_128
+    21300258: Stylish_guy_129
+    21300260: Stylish_guy_130
+    21300262: Stylish_guy_131
+    21300264: Stylish_guy_132
+    21300266: Stylish_guy_133
+    21300268: Stylish_guy_134
+    21300270: Stylish_guy_135
+    21300272: Stylish_guy_136
+    21300274: Stylish_guy_137
+    21300276: Stylish_guy_138
+    21300278: Stylish_guy_139
+    21300280: Stylish_guy_140
+    21300282: Stylish_guy_141
+    21300284: Stylish_guy_142
+    21300286: Stylish_guy_143
+    21300288: Stylish_guy_144
+    21300290: Stylish_guy_145
+    21300292: Stylish_guy_146
+    21300294: Stylish_guy_147
+    21300296: Stylish_guy_148
+    21300298: Stylish_guy_149
+    21300300: Stylish_guy_150
+    21300302: Stylish_guy_151
+    21300304: Stylish_guy_152
+    21300306: Stylish_guy_153
+    21300308: Stylish_guy_154
+    21300310: Stylish_guy_155
+    21300312: Stylish_guy_156
+    21300314: Stylish_guy_157
+    21300316: Stylish_guy_158
+    21300318: Stylish_guy_159
+    21300320: Stylish_guy_160
+    21300322: Stylish_guy_161
+    21300324: Stylish_guy_162
+    21300326: Stylish_guy_163
+    21300328: Stylish_guy_164
+    21300330: Stylish_guy_165
+    21300332: Stylish_guy_166
+    21300334: Stylish_guy_167
+    21300336: Stylish_guy_168
+    21300338: Stylish_guy_169
+    21300340: Stylish_guy_170
+    21300342: Stylish_guy_171
+    21300344: Stylish_guy_172
+    21300346: Stylish_guy_173
+    21300348: Stylish_guy_174
+    21300350: Stylish_guy_175
+    21300352: Stylish_guy_176
+    21300354: Stylish_guy_177
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -228,1783 +228,1783 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Emo_kid_0
+    - name: Stylish_guy_0
       rect:
         serializedVersion: 2
         x: 17
         y: 1282
         width: 30
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_1
+    - name: Stylish_guy_1
       rect:
         serializedVersion: 2
         x: 82
         y: 1282
         width: 28
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_2
+    - name: Stylish_guy_2
       rect:
         serializedVersion: 2
         x: 146
         y: 1282
         width: 28
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_3
+    - name: Stylish_guy_3
       rect:
         serializedVersion: 2
         x: 206
         y: 1282
         width: 36
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_4
+    - name: Stylish_guy_4
       rect:
         serializedVersion: 2
         x: 263
         y: 1282
         width: 50
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_5
+    - name: Stylish_guy_5
       rect:
         serializedVersion: 2
         x: 328
         y: 1282
         width: 48
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_6
+    - name: Stylish_guy_6
       rect:
         serializedVersion: 2
         x: 398
         y: 1282
         width: 36
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_7
+    - name: Stylish_guy_7
       rect:
         serializedVersion: 2
-        x: 23
+        x: 21
         y: 1218
-        width: 20
-        height: 51
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_8
+    - name: Stylish_guy_8
       rect:
         serializedVersion: 2
         x: 85
         y: 1218
         width: 23
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_9
+    - name: Stylish_guy_9
       rect:
         serializedVersion: 2
-        x: 150
+        x: 149
         y: 1218
-        width: 21
-        height: 51
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_10
+    - name: Stylish_guy_10
       rect:
         serializedVersion: 2
         x: 212
         y: 1218
         width: 26
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_11
+    - name: Stylish_guy_11
       rect:
         serializedVersion: 2
         x: 274
         y: 1218
         width: 33
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_12
+    - name: Stylish_guy_12
       rect:
         serializedVersion: 2
         x: 338
         y: 1218
         width: 33
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_13
+    - name: Stylish_guy_13
       rect:
         serializedVersion: 2
         x: 404
         y: 1218
         width: 28
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_14
+    - name: Stylish_guy_14
       rect:
         serializedVersion: 2
         x: 17
         y: 1154
         width: 30
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_15
+    - name: Stylish_guy_15
       rect:
         serializedVersion: 2
         x: 81
         y: 1154
         width: 30
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_16
+    - name: Stylish_guy_16
       rect:
         serializedVersion: 2
         x: 146
         y: 1154
         width: 28
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_17
+    - name: Stylish_guy_17
       rect:
         serializedVersion: 2
         x: 206
         y: 1154
         width: 36
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_18
+    - name: Stylish_guy_18
       rect:
         serializedVersion: 2
         x: 263
         y: 1154
         width: 50
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_19
+    - name: Stylish_guy_19
       rect:
         serializedVersion: 2
         x: 328
         y: 1154
         width: 48
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_20
+    - name: Stylish_guy_20
       rect:
         serializedVersion: 2
         x: 399
         y: 1154
         width: 34
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_21
+    - name: Stylish_guy_21
       rect:
         serializedVersion: 2
         x: 21
         y: 1090
-        width: 20
-        height: 51
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_22
+    - name: Stylish_guy_22
       rect:
         serializedVersion: 2
         x: 84
         y: 1090
         width: 23
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_23
+    - name: Stylish_guy_23
       rect:
         serializedVersion: 2
         x: 149
         y: 1090
-        width: 21
-        height: 51
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_24
+    - name: Stylish_guy_24
       rect:
         serializedVersion: 2
         x: 210
         y: 1090
         width: 26
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_25
+    - name: Stylish_guy_25
       rect:
         serializedVersion: 2
         x: 269
         y: 1090
         width: 33
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_26
+    - name: Stylish_guy_26
       rect:
         serializedVersion: 2
         x: 333
         y: 1090
         width: 33
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_27
+    - name: Stylish_guy_27
       rect:
         serializedVersion: 2
         x: 400
         y: 1090
         width: 28
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_28
+    - name: Stylish_guy_28
       rect:
         serializedVersion: 2
         x: 17
         y: 1026
         width: 30
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_29
+    - name: Stylish_guy_29
       rect:
         serializedVersion: 2
         x: 84
         y: 1024
         width: 26
-        height: 52
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_30
+    - name: Stylish_guy_30
       rect:
         serializedVersion: 2
-        x: 150
+        x: 149
         y: 1024
-        width: 22
-        height: 53
+        width: 24
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_31
+    - name: Stylish_guy_31
       rect:
         serializedVersion: 2
-        x: 214
+        x: 213
         y: 1024
-        width: 22
-        height: 53
+        width: 24
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_32
+    - name: Stylish_guy_32
       rect:
         serializedVersion: 2
-        x: 279
+        x: 278
         y: 1024
-        width: 22
-        height: 52
+        width: 24
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_33
+    - name: Stylish_guy_33
       rect:
         serializedVersion: 2
-        x: 343
+        x: 342
         y: 1024
-        width: 22
-        height: 52
+        width: 24
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_34
+    - name: Stylish_guy_34
       rect:
         serializedVersion: 2
-        x: 407
+        x: 406
         y: 1024
-        width: 22
-        height: 52
+        width: 24
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_35
+    - name: Stylish_guy_35
       rect:
         serializedVersion: 2
-        x: 470
+        x: 459
         y: 1024
-        width: 22
-        height: 53
+        width: 34
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_36
+    - name: Stylish_guy_36
       rect:
         serializedVersion: 2
-        x: 23
+        x: 21
         y: 962
-        width: 20
-        height: 51
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_37
+    - name: Stylish_guy_37
       rect:
         serializedVersion: 2
         x: 83
         y: 962
         width: 25
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_38
+    - name: Stylish_guy_38
       rect:
         serializedVersion: 2
         x: 147
         y: 962
         width: 27
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_39
+    - name: Stylish_guy_39
       rect:
         serializedVersion: 2
-        x: 214
+        x: 213
         y: 962
-        width: 25
-        height: 51
+        width: 26
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_40
+    - name: Stylish_guy_40
       rect:
         serializedVersion: 2
         x: 271
         y: 962
         width: 27
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_41
+    - name: Stylish_guy_41
       rect:
         serializedVersion: 2
         x: 332
         y: 962
         width: 30
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_42
+    - name: Stylish_guy_42
       rect:
         serializedVersion: 2
         x: 399
         y: 962
         width: 27
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_43
+    - name: Stylish_guy_43
       rect:
         serializedVersion: 2
-        x: 470
+        x: 469
         y: 962
-        width: 25
-        height: 51
+        width: 26
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_44
+    - name: Stylish_guy_44
       rect:
         serializedVersion: 2
         x: 17
         y: 898
         width: 30
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_45
+    - name: Stylish_guy_45
       rect:
         serializedVersion: 2
         x: 83
         y: 899
-        width: 24
-        height: 52
+        width: 26
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_46
+    - name: Stylish_guy_46
       rect:
         serializedVersion: 2
-        x: 149
+        x: 148
         y: 899
-        width: 22
-        height: 52
+        width: 25
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_47
+    - name: Stylish_guy_47
       rect:
         serializedVersion: 2
         x: 210
         y: 899
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Stylish_guy_48
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 899
         width: 25
-        height: 52
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_48
+    - name: Stylish_guy_49
       rect:
         serializedVersion: 2
-        x: 277
+        x: 340
         y: 899
-        width: 22
-        height: 51
+        width: 25
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_49
+    - name: Stylish_guy_50
       rect:
         serializedVersion: 2
-        x: 341
+        x: 404
         y: 899
-        width: 22
-        height: 51
+        width: 25
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_50
-      rect:
-        serializedVersion: 2
-        x: 405
-        y: 899
-        width: 22
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_51
+    - name: Stylish_guy_51
       rect:
         serializedVersion: 2
         x: 466
         y: 899
-        width: 25
-        height: 52
+        width: 27
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_52
+    - name: Stylish_guy_52
       rect:
         serializedVersion: 2
         x: 21
         y: 834
-        width: 20
-        height: 51
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_53
+    - name: Stylish_guy_53
       rect:
         serializedVersion: 2
         x: 84
         y: 834
         width: 25
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_54
+    - name: Stylish_guy_54
       rect:
         serializedVersion: 2
         x: 146
         y: 834
         width: 27
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_55
+    - name: Stylish_guy_55
       rect:
         serializedVersion: 2
         x: 209
         y: 834
-        width: 25
-        height: 51
+        width: 26
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_56
+    - name: Stylish_guy_56
       rect:
         serializedVersion: 2
         x: 278
         y: 834
         width: 27
-        height: 51
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_57
+    - name: Stylish_guy_57
       rect:
         serializedVersion: 2
         x: 342
         y: 834
         width: 30
-        height: 51
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_58
+    - name: Stylish_guy_58
       rect:
         serializedVersion: 2
         x: 406
         y: 834
         width: 27
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_59
+    - name: Stylish_guy_59
       rect:
         serializedVersion: 2
         x: 465
         y: 834
-        width: 25
-        height: 51
+        width: 26
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_60
+    - name: Stylish_guy_60
       rect:
         serializedVersion: 2
         x: 17
         y: 771
         width: 30
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_61
+    - name: Stylish_guy_61
       rect:
         serializedVersion: 2
         x: 81
         y: 771
         width: 30
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_62
+    - name: Stylish_guy_62
       rect:
         serializedVersion: 2
         x: 145
         y: 770
         width: 30
-        height: 52
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_63
+    - name: Stylish_guy_63
       rect:
         serializedVersion: 2
         x: 209
         y: 769
         width: 29
-        height: 52
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_64
+    - name: Stylish_guy_64
       rect:
         serializedVersion: 2
         x: 273
         y: 770
         width: 30
-        height: 52
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_65
+    - name: Stylish_guy_65
       rect:
         serializedVersion: 2
         x: 337
         y: 771
         width: 30
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_66
+    - name: Stylish_guy_66
       rect:
         serializedVersion: 2
         x: 401
         y: 770
         width: 30
-        height: 52
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_67
+    - name: Stylish_guy_67
       rect:
         serializedVersion: 2
         x: 466
         y: 769
         width: 29
-        height: 52
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_68
+    - name: Stylish_guy_68
       rect:
         serializedVersion: 2
         x: 529
         y: 770
         width: 30
-        height: 52
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_69
+    - name: Stylish_guy_69
       rect:
         serializedVersion: 2
-        x: 23
+        x: 21
         y: 706
-        width: 20
-        height: 51
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_70
+    - name: Stylish_guy_70
       rect:
         serializedVersion: 2
         x: 83
         y: 706
         width: 25
-        height: 50
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_71
+    - name: Stylish_guy_71
       rect:
         serializedVersion: 2
         x: 149
         y: 707
         width: 22
-        height: 50
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_72
+    - name: Stylish_guy_72
       rect:
         serializedVersion: 2
-        x: 215
+        x: 213
         y: 707
-        width: 22
-        height: 50
+        width: 24
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_73
+    - name: Stylish_guy_73
       rect:
         serializedVersion: 2
-        x: 278
+        x: 277
         y: 706
-        width: 24
-        height: 51
+        width: 25
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_74
+    - name: Stylish_guy_74
       rect:
         serializedVersion: 2
         x: 340
         y: 706
         width: 28
-        height: 50
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_75
+    - name: Stylish_guy_75
       rect:
         serializedVersion: 2
-        x: 407
+        x: 405
+        y: 706
+        width: 25
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Stylish_guy_76
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 706
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Stylish_guy_77
+      rect:
+        serializedVersion: 2
+        x: 533
         y: 706
         width: 23
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_76
-      rect:
-        serializedVersion: 2
-        x: 471
-        y: 706
-        width: 22
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_77
-      rect:
-        serializedVersion: 2
-        x: 535
-        y: 706
-        width: 21
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_78
+    - name: Stylish_guy_78
       rect:
         serializedVersion: 2
         x: 17
         y: 642
         width: 30
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_79
+    - name: Stylish_guy_79
       rect:
         serializedVersion: 2
         x: 81
         y: 642
         width: 30
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_80
+    - name: Stylish_guy_80
       rect:
         serializedVersion: 2
         x: 145
         y: 641
         width: 30
-        height: 54
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_81
+    - name: Stylish_guy_81
       rect:
         serializedVersion: 2
         x: 210
         y: 641
         width: 29
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_82
+    - name: Stylish_guy_82
       rect:
         serializedVersion: 2
         x: 273
         y: 641
         width: 30
-        height: 54
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_83
+    - name: Stylish_guy_83
       rect:
         serializedVersion: 2
         x: 337
         y: 642
         width: 30
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_84
+    - name: Stylish_guy_84
       rect:
         serializedVersion: 2
         x: 401
         y: 641
         width: 30
-        height: 54
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_85
+    - name: Stylish_guy_85
       rect:
         serializedVersion: 2
         x: 465
         y: 641
         width: 29
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_86
+    - name: Stylish_guy_86
       rect:
         serializedVersion: 2
         x: 529
         y: 641
         width: 30
-        height: 54
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_87
+    - name: Stylish_guy_87
       rect:
         serializedVersion: 2
         x: 21
         y: 578
-        width: 20
-        height: 51
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_88
+    - name: Stylish_guy_88
       rect:
         serializedVersion: 2
         x: 84
         y: 578
         width: 25
-        height: 50
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_89
+    - name: Stylish_guy_89
       rect:
         serializedVersion: 2
         x: 149
         y: 579
         width: 22
-        height: 50
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_90
+    - name: Stylish_guy_90
       rect:
         serializedVersion: 2
         x: 211
         y: 579
-        width: 22
-        height: 50
+        width: 24
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_91
+    - name: Stylish_guy_91
       rect:
         serializedVersion: 2
         x: 274
         y: 578
-        width: 24
-        height: 51
+        width: 25
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_92
+    - name: Stylish_guy_92
       rect:
         serializedVersion: 2
         x: 336
         y: 578
         width: 28
-        height: 50
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_93
+    - name: Stylish_guy_93
       rect:
         serializedVersion: 2
         x: 402
         y: 578
-        width: 23
-        height: 51
+        width: 25
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_94
+    - name: Stylish_guy_94
       rect:
         serializedVersion: 2
         x: 467
         y: 578
-        width: 22
-        height: 51
+        width: 24
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_95
+    - name: Stylish_guy_95
       rect:
         serializedVersion: 2
         x: 532
         y: 578
-        width: 21
-        height: 51
+        width: 23
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_96
+    - name: Stylish_guy_96
       rect:
         serializedVersion: 2
         x: 17
         y: 514
         width: 30
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_97
+    - name: Stylish_guy_97
       rect:
         serializedVersion: 2
         x: 83
         y: 513
         width: 26
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_98
+    - name: Stylish_guy_98
       rect:
         serializedVersion: 2
-        x: 148
+        x: 147
         y: 513
-        width: 25
-        height: 51
+        width: 26
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_99
+    - name: Stylish_guy_99
       rect:
         serializedVersion: 2
         x: 211
         y: 513
         width: 27
-        height: 52
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_100
+    - name: Stylish_guy_100
       rect:
         serializedVersion: 2
         x: 274
         y: 513
         width: 36
-        height: 52
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_101
+    - name: Stylish_guy_101
       rect:
         serializedVersion: 2
         x: 338
         y: 513
         width: 39
-        height: 52
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_102
+    - name: Stylish_guy_102
       rect:
         serializedVersion: 2
-        x: 23
+        x: 21
         y: 450
-        width: 20
-        height: 51
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_103
+    - name: Stylish_guy_103
       rect:
         serializedVersion: 2
         x: 81
         y: 450
         width: 25
-        height: 49
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_104
+    - name: Stylish_guy_104
       rect:
         serializedVersion: 2
-        x: 148
+        x: 147
         y: 450
-        width: 24
-        height: 51
+        width: 25
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_105
+    - name: Stylish_guy_105
       rect:
         serializedVersion: 2
         x: 203
         y: 450
         width: 34
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_106
+    - name: Stylish_guy_106
       rect:
         serializedVersion: 2
         x: 264
         y: 450
         width: 36
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_107
+    - name: Stylish_guy_107
       rect:
         serializedVersion: 2
         x: 331
         y: 450
         width: 33
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_108
+    - name: Stylish_guy_108
       rect:
         serializedVersion: 2
         x: 17
         y: 386
         width: 30
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_109
+    - name: Stylish_guy_109
       rect:
         serializedVersion: 2
         x: 83
         y: 386
         width: 26
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_110
+    - name: Stylish_guy_110
       rect:
         serializedVersion: 2
         x: 147
         y: 386
         width: 26
-        height: 51
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_111
+    - name: Stylish_guy_111
       rect:
         serializedVersion: 2
         x: 212
         y: 386
-        width: 26
-        height: 52
+        width: 27
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_112
+    - name: Stylish_guy_112
       rect:
         serializedVersion: 2
         x: 276
         y: 386
         width: 35
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_113
+    - name: Stylish_guy_113
       rect:
         serializedVersion: 2
         x: 339
         y: 386
         width: 39
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_114
+    - name: Stylish_guy_114
       rect:
         serializedVersion: 2
         x: 21
         y: 322
-        width: 20
-        height: 51
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_115
+    - name: Stylish_guy_115
       rect:
         serializedVersion: 2
         x: 86
         y: 322
         width: 25
-        height: 49
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_116
+    - name: Stylish_guy_116
       rect:
         serializedVersion: 2
         x: 148
         y: 322
-        width: 24
-        height: 51
+        width: 25
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_117
+    - name: Stylish_guy_117
       rect:
         serializedVersion: 2
         x: 211
         y: 322
         width: 34
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_118
+    - name: Stylish_guy_118
       rect:
         serializedVersion: 2
         x: 276
         y: 322
         width: 36
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_119
+    - name: Stylish_guy_119
       rect:
         serializedVersion: 2
         x: 340
         y: 322
         width: 33
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_120
+    - name: Stylish_guy_120
       rect:
         serializedVersion: 2
         x: 16
         y: 258
         width: 30
-        height: 51
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_121
+    - name: Stylish_guy_121
       rect:
         serializedVersion: 2
         x: 83
         y: 256
         width: 26
-        height: 52
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_122
+    - name: Stylish_guy_122
       rect:
         serializedVersion: 2
-        x: 149
-        y: 256
-        width: 22
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_123
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 256
-        width: 22
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_124
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 256
-        width: 27
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_125
-      rect:
-        serializedVersion: 2
-        x: 340
+        x: 147
         y: 256
         width: 25
-        height: 53
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_126
+    - name: Stylish_guy_123
       rect:
         serializedVersion: 2
-        x: 404
+        x: 211
         y: 256
-        width: 26
-        height: 53
+        width: 24
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_127
+    - name: Stylish_guy_124
       rect:
         serializedVersion: 2
-        x: 468
-        y: 256
-        width: 27
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_128
-      rect:
-        serializedVersion: 2
-        x: 532
+        x: 275
         y: 256
         width: 28
-        height: 53
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_129
+    - name: Stylish_guy_125
       rect:
         serializedVersion: 2
-        x: 596
+        x: 339
+        y: 256
+        width: 26
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Stylish_guy_126
+      rect:
+        serializedVersion: 2
+        x: 403
         y: 256
         width: 27
-        height: 53
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_130
+    - name: Stylish_guy_127
       rect:
         serializedVersion: 2
-        x: 660
+        x: 467
         y: 256
-        width: 22
-        height: 53
+        width: 28
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_131
+    - name: Stylish_guy_128
       rect:
         serializedVersion: 2
-        x: 724
+        x: 531
         y: 256
-        width: 22
-        height: 53
+        width: 29
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_132
+    - name: Stylish_guy_129
       rect:
         serializedVersion: 2
-        x: 788
+        x: 595
         y: 256
-        width: 22
-        height: 53
+        width: 28
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_133
+    - name: Stylish_guy_130
       rect:
         serializedVersion: 2
-        x: 24
+        x: 659
+        y: 256
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Stylish_guy_131
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 256
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Stylish_guy_132
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 256
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Stylish_guy_133
+      rect:
+        serializedVersion: 2
+        x: 22
         y: 194
-        width: 20
-        height: 51
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_134
+    - name: Stylish_guy_134
       rect:
         serializedVersion: 2
         x: 84
         y: 194
         width: 25
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_135
+    - name: Stylish_guy_135
       rect:
         serializedVersion: 2
         x: 143
         y: 194
         width: 32
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_136
+    - name: Stylish_guy_136
       rect:
         serializedVersion: 2
         x: 205
         y: 194
         width: 35
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_137
+    - name: Stylish_guy_137
       rect:
         serializedVersion: 2
         x: 269
         y: 194
         width: 35
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_138
+    - name: Stylish_guy_138
       rect:
         serializedVersion: 2
         x: 332
         y: 194
         width: 32
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_139
+    - name: Stylish_guy_139
       rect:
         serializedVersion: 2
         x: 396
         y: 194
         width: 34
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_140
+    - name: Stylish_guy_140
       rect:
         serializedVersion: 2
         x: 461
         y: 194
         width: 36
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_141
+    - name: Stylish_guy_141
       rect:
         serializedVersion: 2
         x: 525
         y: 194
         width: 38
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_142
+    - name: Stylish_guy_142
       rect:
         serializedVersion: 2
         x: 589
         y: 194
         width: 35
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_143
+    - name: Stylish_guy_143
       rect:
         serializedVersion: 2
         x: 653
         y: 194
         width: 34
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_144
+    - name: Stylish_guy_144
       rect:
         serializedVersion: 2
         x: 717
         y: 194
         width: 30
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_145
+    - name: Stylish_guy_145
       rect:
         serializedVersion: 2
         x: 781
         y: 194
         width: 34
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_146
+    - name: Stylish_guy_146
       rect:
         serializedVersion: 2
         x: 16
         y: 130
         width: 30
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_147
+    - name: Stylish_guy_147
       rect:
         serializedVersion: 2
         x: 82
         y: 131
-        width: 25
-        height: 52
+        width: 26
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_148
+    - name: Stylish_guy_148
       rect:
         serializedVersion: 2
         x: 146
         y: 131
-        width: 24
-        height: 52
+        width: 26
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_149
+    - name: Stylish_guy_149
       rect:
         serializedVersion: 2
         x: 210
         y: 130
-        width: 24
-        height: 53
+        width: 26
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_150
+    - name: Stylish_guy_150
       rect:
         serializedVersion: 2
         x: 275
         y: 130
-        width: 23
-        height: 53
+        width: 25
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_151
+    - name: Stylish_guy_151
       rect:
         serializedVersion: 2
         x: 339
         y: 130
-        width: 23
-        height: 53
+        width: 25
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_152
+    - name: Stylish_guy_152
       rect:
         serializedVersion: 2
         x: 403
         y: 130
-        width: 23
-        height: 53
+        width: 25
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_153
+    - name: Stylish_guy_153
       rect:
         serializedVersion: 2
         x: 466
         y: 130
-        width: 24
-        height: 53
+        width: 26
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_154
+    - name: Stylish_guy_154
       rect:
         serializedVersion: 2
         x: 530
         y: 130
-        width: 24
-        height: 53
+        width: 26
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_155
+    - name: Stylish_guy_155
       rect:
         serializedVersion: 2
         x: 595
         y: 130
-        width: 23
-        height: 53
+        width: 25
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_156
+    - name: Stylish_guy_156
       rect:
         serializedVersion: 2
         x: 658
         y: 130
-        width: 24
-        height: 53
+        width: 26
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_157
+    - name: Stylish_guy_157
       rect:
         serializedVersion: 2
-        x: 724
+        x: 723
         y: 130
-        width: 22
-        height: 53
+        width: 25
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_158
+    - name: Stylish_guy_158
       rect:
         serializedVersion: 2
         x: 786
         y: 130
-        width: 24
-        height: 53
+        width: 26
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_159
+    - name: Stylish_guy_159
       rect:
         serializedVersion: 2
         x: 20
         y: 66
-        width: 20
-        height: 51
+        width: 22
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_160
+    - name: Stylish_guy_160
       rect:
         serializedVersion: 2
         x: 83
         y: 66
         width: 25
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_161
+    - name: Stylish_guy_161
       rect:
         serializedVersion: 2
         x: 145
         y: 66
         width: 32
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_162
+    - name: Stylish_guy_162
       rect:
         serializedVersion: 2
         x: 208
         y: 66
         width: 35
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_163
+    - name: Stylish_guy_163
       rect:
         serializedVersion: 2
         x: 272
         y: 66
         width: 35
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_164
+    - name: Stylish_guy_164
       rect:
         serializedVersion: 2
         x: 340
         y: 66
         width: 32
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_165
+    - name: Stylish_guy_165
       rect:
         serializedVersion: 2
         x: 402
         y: 66
         width: 34
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_166
+    - name: Stylish_guy_166
       rect:
         serializedVersion: 2
         x: 463
         y: 66
         width: 36
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_167
+    - name: Stylish_guy_167
       rect:
         serializedVersion: 2
         x: 525
         y: 66
         width: 38
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_168
+    - name: Stylish_guy_168
       rect:
         serializedVersion: 2
         x: 592
         y: 66
         width: 35
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_169
+    - name: Stylish_guy_169
       rect:
         serializedVersion: 2
         x: 657
         y: 66
         width: 34
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_170
+    - name: Stylish_guy_170
       rect:
         serializedVersion: 2
         x: 725
         y: 66
         width: 30
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_171
+    - name: Stylish_guy_171
       rect:
         serializedVersion: 2
         x: 785
         y: 66
         width: 34
-        height: 51
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_172
+    - name: Stylish_guy_172
       rect:
         serializedVersion: 2
         x: 17
         y: 2
         width: 30
-        height: 53
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_173
+    - name: Stylish_guy_173
       rect:
         serializedVersion: 2
         x: 82
         y: 2
         width: 31
-        height: 52
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_174
+    - name: Stylish_guy_174
       rect:
         serializedVersion: 2
         x: 147
         y: 2
         width: 30
-        height: 45
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_175
+    - name: Stylish_guy_175
       rect:
         serializedVersion: 2
         x: 211
         y: 3
         width: 30
-        height: 40
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_176
+    - name: Stylish_guy_176
       rect:
         serializedVersion: 2
         x: 275
         y: 3
         width: 31
-        height: 34
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Emo_kid_177
+    - name: Stylish_guy_177
       rect:
         serializedVersion: 2
         x: 338
-        y: 0
+        y: 1
         width: 34
-        height: 36
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

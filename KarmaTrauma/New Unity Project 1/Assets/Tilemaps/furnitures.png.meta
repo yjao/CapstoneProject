@@ -1,9 +1,91 @@
 fileFormatVersion: 2
 guid: f6fe83e063b0fa74993755e17fa8efd7
-timeCreated: 1445556109
+timeCreated: 1448339863
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: furnitures_0
+    21300002: furnitures_1
+    21300004: furnitures_2
+    21300006: furnitures_3
+    21300008: furnitures_4
+    21300010: furnitures_5
+    21300012: furnitures_6
+    21300014: furnitures_7
+    21300016: furnitures_8
+    21300018: furnitures_9
+    21300020: furnitures_10
+    21300022: furnitures_11
+    21300024: furnitures_12
+    21300026: furnitures_13
+    21300028: furnitures_14
+    21300030: furnitures_15
+    21300032: furnitures_16
+    21300034: furnitures_17
+    21300036: furnitures_18
+    21300038: furnitures_19
+    21300040: furnitures_20
+    21300042: furnitures_21
+    21300044: furnitures_22
+    21300046: furnitures_23
+    21300048: furnitures_24
+    21300050: furnitures_25
+    21300052: furnitures_26
+    21300054: furnitures_27
+    21300056: furnitures_28
+    21300058: furnitures_29
+    21300060: furnitures_30
+    21300062: furnitures_31
+    21300064: furnitures_32
+    21300066: furnitures_33
+    21300068: furnitures_34
+    21300070: furnitures_35
+    21300072: furnitures_36
+    21300074: furnitures_37
+    21300076: furnitures_38
+    21300078: furnitures_39
+    21300080: furnitures_40
+    21300082: furnitures_41
+    21300084: furnitures_42
+    21300086: furnitures_43
+    21300088: furnitures_44
+    21300090: furnitures_45
+    21300092: furnitures_46
+    21300094: furnitures_47
+    21300096: furnitures_48
+    21300098: furnitures_49
+    21300100: furnitures_50
+    21300102: furnitures_51
+    21300104: furnitures_52
+    21300106: furnitures_53
+    21300108: furnitures_54
+    21300110: furnitures_55
+    21300112: furnitures_56
+    21300114: furnitures_57
+    21300116: furnitures_58
+    21300118: furnitures_59
+    21300120: furnitures_60
+    21300122: furnitures_61
+    21300124: furnitures_62
+    21300126: furnitures_63
+    21300128: furnitures_64
+    21300130: furnitures_65
+    21300132: furnitures_66
+    21300134: furnitures_67
+    21300136: furnitures_68
+    21300138: furnitures_69
+    21300140: furnitures_70
+    21300142: furnitures_71
+    21300144: furnitures_72
+    21300146: furnitures_73
+    21300148: furnitures_74
+    21300150: furnitures_75
+    21300152: furnitures_76
+    21300154: furnitures_77
+    21300156: furnitures_78
+    21300158: furnitures_79
+    21300160: furnitures_80
+    21300162: furnitures_81
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -29,8 +111,8 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,18 +120,838 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: furnitures_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 416
+        width: 39
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_1
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 469
+        width: 51
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_2
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 448
+        width: 31
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_3
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 405
+        width: 51
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 6
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_5
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 352
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_6
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 331
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_7
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 264
+        width: 63
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_8
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 257
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_9
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 240
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 165
+        width: 93
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_12
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 168
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_13
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 100
+        width: 26
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_15
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 128
+        width: 64
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_16
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 136
+        width: 31
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_17
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 73
+        width: 63
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_18
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 69
+        width: 93
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_19
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_20
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 96
+        width: 64
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_21
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 104
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_22
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 32
+        width: 64
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_23
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 72
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_25
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 14
+        width: 21
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_26
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 14
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_27
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 14
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_28
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 14
+        width: 20
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_29
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 64
+        height: 27
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_30
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 8
+        width: 96
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_31
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_32
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_33
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 192
+        width: 96
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_34
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 110
+        width: 31
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_35
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 110
+        width: 32
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_36
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 196
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_37
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 203
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_38
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 240
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_39
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 240
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_40
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 336
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_41
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 331
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_42
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 395
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_43
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 468
+        width: 33
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_44
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 468
+        width: 31
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_45
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_46
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 448
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_47
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_48
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_49
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 384
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_50
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_51
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 384
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_52
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 448
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_53
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_54
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 448
+        width: 65
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_55
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_56
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_57
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 384
+        width: 31
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_58
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 324
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_59
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 324
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_60
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 324
+        width: 32
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_61
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 300
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_62
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_63
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 320
+        width: 32
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_64
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 352
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_65
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 319
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_66
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 352
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_67
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 320
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_68
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 448
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_69
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 39
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_70
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 480
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_71
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 480
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_72
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 416
+        width: 7
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_73
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 416
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_74
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 416
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 432
+        width: 2
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_76
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 384
+        width: 56
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_77
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_78
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_79
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 320
+        width: 6
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_80
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 321
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: furnitures_81
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 320
+        width: 63
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

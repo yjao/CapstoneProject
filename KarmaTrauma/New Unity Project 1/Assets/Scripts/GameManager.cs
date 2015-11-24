@@ -7,8 +7,6 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    private int gameClock = 0;
-    private string gameClockDisplay = "";
 	private const bool PARSING_MODE = true;
 
     PlayerData Data = new PlayerData();

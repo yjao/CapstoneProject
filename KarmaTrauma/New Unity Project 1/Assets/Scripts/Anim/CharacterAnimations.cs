@@ -256,7 +256,7 @@ public class CharacterAnimations : MonoBehaviour
 
             if (rangeStart == rangeEnd)
             {
-                Debug.Log(rangeStart);
+                //Debug.Log(rangeStart);
                 Sprite_Renderer.sprite = sprites[rangeStart];
             }
             yield return null;

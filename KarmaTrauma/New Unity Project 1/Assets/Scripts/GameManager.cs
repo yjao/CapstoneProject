@@ -307,6 +307,11 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+	public Interactable GetInteractableByID(int id)
+	{
+		return AllObjects[id];
+	}
+
     void upDateClock()
     {
         if (gameClock == 24)

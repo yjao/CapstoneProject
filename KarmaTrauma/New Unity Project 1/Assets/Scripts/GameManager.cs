@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
     private string gameClockDisplay = "";
 	private const bool PARSING_MODE = true;
 
-    public int gameClock = 0;
-    public string gameClockDisplay = "";
     PlayerData Data = new PlayerData();
     DayData dayData = new DayData();
     public static GameManager Instance;

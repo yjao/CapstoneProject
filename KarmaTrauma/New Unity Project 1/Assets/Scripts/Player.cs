@@ -8,15 +8,16 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour
 {
     public static InvisibleWallTop walltop;
-	private GameManager gameManager;
+    private GameManager gameManager;
     public GameObject PlayerCamera;
     public float speed;
     public GameObject Menu;
+    public CharacterAnimations characterAnimations;
 
-	public static Player Instance;
+    public static Player Instance;
 
-	// might be useful later on, can change to List<GameObject>?
-	public List<int> CollidingWithID;
+    // might be useful later on, can change to List<GameObject>?
+    public List<int> CollidingWithID;
 
     public Animator animator;
     const int idle = 0;
@@ -37,28 +38,28 @@ public class Player : MonoBehaviour
     bool r = false;
     bool l = false;
 
-	private bool speeding = false;
+    private bool speeding = false;
 
     //GameObject saveMachine = GameObject.AddComponent<SaveData>();
 
-	void Awake()
-	{
-		/*if ((Instance != null) && (Instance != this))
-			Destroy(gameObject);
-		else
-			Instance = this;
+    void Awake()
+    {
+        /*if ((Instance != null) && (Instance != this))
+            Destroy(gameObject);
+        else
+            Instance = this;
 		
-		DontDestroyOnLoad(this);*/
+        DontDestroyOnLoad(this);*/
 
-		CollidingWithID = new List<int>();
-	}
+        CollidingWithID = new List<int>();
+    }
 
     // Use this for initialization
     void Start()
     {
-		Instance = this;
+        Instance = this;
         walltop = FindObjectOfType(typeof(InvisibleWallTop)) as InvisibleWallTop;
-		gameManager = GameManager.Instance;
+        gameManager = GameManager.Instance;
         animator = GetComponent<Animator>();
         EventManager.OnNPC += HandleNPC;
     }
@@ -70,11 +71,12 @@ public class Player : MonoBehaviour
 
     void HandleNPC(object sender, GameEventArgs args)
     {
-		if (args.ThisGameObject == null)
-		{
-			animator.SetInteger(animationState, args.Integer);
-		}
-	}
+        if (args.ThisGameObject == null)
+        {
+            characterAnimations.AnimationState = (args.AnimationState);
+
+        }
+    }
 
     public void onHitTop(float wall_y)
     {
@@ -84,22 +86,23 @@ public class Player : MonoBehaviour
         //Debug.Log("char " + charposy + "wally: " + wall_y);
         if (charposy >= wall_y)
         {
-            
+
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                
+
                 //transform.position = new Vector3(Mathf.Clamp;
                 this.transform.position = new Vector3(charposx, wall_y);
                 //transform.Translate(0, 0, 0);
-                animator.SetInteger(animationState, up);
-                
+                //animator.SetInteger(animationState, up);
+                this.characterAnimations.AnimationState = (CharacterAnimations.States.UP_WALK);
+
             }
 
             else if (Input.GetKey(KeyCode.DownArrow))
             {
                 transform.Translate(0, -speed, 0);
-                animator.SetInteger(animationState, down);
-                
+                //animator.SetInteger(animationState, down);
+                this.characterAnimations.AnimationState = (CharacterAnimations.States.DOWN_WALK);
             }
         }
     }
@@ -119,15 +122,15 @@ public class Player : MonoBehaviour
                 //transform.position = new Vector3(Mathf.Clamp;
                 this.transform.position = new Vector3(charposx, wall_y);
                 //transform.Translate(0, 0, 0);
-                animator.SetInteger(animationState, down);
-
+                //animator.SetInteger(animationState, down);
+                this.characterAnimations.AnimationState = (CharacterAnimations.States.DOWN_WALK);
             }
 
             else if (Input.GetKey(KeyCode.UpArrow))
             {
                 transform.Translate(0, speed, 0);
-                animator.SetInteger(animationState, up);
-
+                //animator.SetInteger(animationState, up);
+                this.characterAnimations.AnimationState = (CharacterAnimations.States.UP_WALK);
             }
         }
     }
@@ -137,7 +140,7 @@ public class Player : MonoBehaviour
         //Debug.Log("hittingTop");
         float charposy = this.transform.position.y;
         float charposx = this.transform.position.x;
-        Debug.Log("charx " + charposx + " chary " + charposy + "wallx: " + wall_x); 
+        Debug.Log("charx " + charposx + " chary " + charposy + "wallx: " + wall_x);
         if (charposx >= wall_x)
         {
 
@@ -147,16 +150,16 @@ public class Player : MonoBehaviour
                 //transform.position = new Vector3(Mathf.Clamp;
                 this.transform.position = new Vector3(wall_x, charposy);
                 //transform.Translate(0, 0, 0);
-                animator.SetInteger(animationState, right);
-
+                //animator.SetInteger(animationState, right);
+                this.characterAnimations.AnimationState = (CharacterAnimations.States.RIGHT_WALK);
             }
 
             else if (Input.GetKey(KeyCode.LeftArrow))
             {
                 Debug.Log("here");
-                transform.Translate(-speed ,0, 0);
-                animator.SetInteger(animationState, left);
-
+                transform.Translate(-speed, 0, 0);
+                //                animator.SetInteger(animationState, left);
+                this.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_WALK);
             }
         }
     }
@@ -176,16 +179,16 @@ public class Player : MonoBehaviour
                 //transform.position = new Vector3(Mathf.Clamp;
                 this.transform.position = new Vector3(wall_x, charposy);
                 //transform.Translate(0, 0, 0);
-                animator.SetInteger(animationState, left);
-
+                //animator.SetInteger(animationState, left);
+                this.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_WALK);
             }
 
             else if (Input.GetKey(KeyCode.RightArrow))
             {
                 Debug.Log("here");
                 transform.Translate(speed, 0, 0);
-                animator.SetInteger(animationState, left);
-
+                //animator.SetInteger(animationState, left);
+                this.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_WALK);
             }
         }
     }
@@ -199,7 +202,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        
+
         //if (gameManager.GameMode != GameManager.MODE.PLAYING) {
 
         //    if (this.transform.position.x > GameObject.FindGameObjectWithTag("Mom").transform.position.x)
@@ -214,29 +217,30 @@ public class Player : MonoBehaviour
         //    return;
         //}
 
-		// Speeding up!
-		if (Input.GetKey(KeyCode.LeftShift))
-		{
-			if (!speeding)
-			{
-				speeding = true;
-				speed += 0.1f;
-			}
-		}
-		else
-		{
-			if (speeding)
-			{
-				speeding = false;
-				speed -= 0.1f;
-			}
-		}
+        // Speeding up!
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (!speeding)
+            {
+                speeding = true;
+                speed += 0.1f;
+            }
+        }
+        else
+        {
+            if (speeding)
+            {
+                speeding = false;
+                speed -= 0.1f;
+            }
+        }
 
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(0, speed, 0);
-            animator.SetInteger(animationState, up);
+            //animator.SetInteger(animationState, up);
+            this.characterAnimations.AnimationState = (CharacterAnimations.States.UP_WALK);
             u = true;
             d = false;
             r = false;
@@ -245,7 +249,8 @@ public class Player : MonoBehaviour
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(0, -speed, 0);
-            animator.SetInteger(animationState, down);
+            //animator.SetInteger(animationState, down);
+            this.characterAnimations.AnimationState = (CharacterAnimations.States.DOWN_WALK);
             u = false;
             d = true;
             r = false;
@@ -254,7 +259,8 @@ public class Player : MonoBehaviour
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(speed, 0, 0);
-            animator.SetInteger(animationState, right);
+            //animator.SetInteger(animationState, right);
+            this.characterAnimations.AnimationState = (CharacterAnimations.States.RIGHT_WALK);
             u = false;
             d = false;
             r = true;
@@ -263,26 +269,41 @@ public class Player : MonoBehaviour
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(-speed, 0, 0);
-            animator.SetInteger(animationState, left);
+            //animator.SetInteger(animationState, left);
+            this.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_WALK);
             u = false;
             d = false;
             r = false;
             l = true;
         }
-    
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
+            gameManager.GameMode = GameManager.MODE.MENU;
+            gameManager.PrevMode = GameManager.MODE.PLAYING;
+        }
         else
         {
             if (u == true)
-                animator.SetInteger(animationState, upIdle);
+                this.characterAnimations.AnimationState = (CharacterAnimations.States.UP_IDLE);
+            //animator.SetInteger(animationState, upIdle);
             else if (d == true)
-                animator.SetInteger(animationState, downIdle);
+                this.characterAnimations.AnimationState = (CharacterAnimations.States.DOWN_IDLE);
+            //animator.SetInteger(animationState, downIdle);
             else if (r == true)
-                animator.SetInteger(animationState, rightIdle);
+                this.characterAnimations.AnimationState = (CharacterAnimations.States.RIGHT_IDLE);
+            //animator.SetInteger(animationState, rightIdle);
             else if (l == true)
-                animator.SetInteger(animationState, leftIdle);
+                this.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_IDLE);
+            //animator.SetInteger(animationState, leftIdle);
+        }
+        if (Input.GetKey(KeyCode.B))
+        {
+            Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
+            gameManager.GameMode = GameManager.MODE.MENU;
+            gameManager.PrevMode = GameManager.MODE.PLAYING;
         }
 
-        ///SAVE AND LOAD STUFF
         if (Input.GetKey(KeyCode.S))
         {
             Save(); ;
@@ -291,14 +312,6 @@ public class Player : MonoBehaviour
         {
             Load();
         }
-
-        ///MENU STUFF
-        if (Input.GetKey(KeyCode.B))
-        {
-            Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
-            gameManager.GameMode = GameManager.MODE.MENU;
-            gameManager.PrevMode = GameManager.MODE.PLAYING;
-        }
     }
 
     public void InvenButton()
@@ -306,8 +319,8 @@ public class Player : MonoBehaviour
         Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
         gameManager.GameMode = GameManager.MODE.MENU;
         gameManager.PrevMode = GameManager.MODE.PLAYING;
-        
     }
+
 
     public void Save()
     {

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Falling : MonoBehaviour {
+public class Falling : MonoBehaviour
+{
     public float speed;
     private bool player_arrived = false;
     private int end = 0;
@@ -9,19 +10,20 @@ public class Falling : MonoBehaviour {
     private bool fallen = false;
 
     public GameObject cam;
-    public GameObject person1;
-    
+
     public Transform target;
     public float smoothTime = 0.3F;
     private Vector3 velocity = Vector3.zero;
 
     // Use this for initialization
-    void Start () {
-       cam.SetActive(false);
+    void Start()
+    {
+        cam.SetActive(false);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         // start falling trigger
         if (GameObject.FindGameObjectWithTag("Player").transform.position.x < 10 && check == false && player_arrived == false)
         {
@@ -50,12 +52,22 @@ public class Falling : MonoBehaviour {
             if (cam != null)
                 cam.SetActive(false);
             fallen = true;
-            person1.transform.position=new Vector3(8, -13, 0);
+
             //He should also turn around
-                
+
             Player.Instance.PlayerCamera.SetActive(true);
             //Player.Instance.PlayerCamera.transform.position = Vector3.Lerp(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, 0.2f);
+
         }
 
+    }
+
+    public bool FallingNow()
+    {
+        return player_arrived;
+    }
+    public bool HasFallen()
+    {
+        return fallen;
     }
 }

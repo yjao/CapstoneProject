@@ -17,6 +17,8 @@ public class GameEventArgs
     public int ShoveX { get; set; }
     public int IDNum { get; set; }
 
+    public CharacterAnimations.States AnimationState { get; set; }
+
     public void ConvertChoiceEventArgs(ChoiceEventArgs CEA)
     {
         ChoiceAction = CEA.ChoiceAction;

@@ -3,53 +3,106 @@ using System.Collections;
 
 public class CharacterAnimations : MonoBehaviour
 {
-	public enum States
-	{
-		DOWN_IDLE, DOWN_WALK, DOWN_DANCE, DOWN_STRETCH, DOWN_SWING, DOWN_BOW,
-		UP_IDLE, UP_WALK, UP_DANCE, UP_STRETCH, UP_SWING, UP_BOW,
-		LEFT_IDLE, LEFT_WALK, LEFT_DANCE, LEFT_STRETCH, LEFT_SWING, LEFT_BOW,
-		RIGHT_IDLE, RIGHT_WALK, RIGHT_DANCE, RIGHT_STRETCH, RIGHT_SWING, RIGHT_BOW,
-		FALL
-	}
+    [Header("Walking Animations")]
+    public const int downWalkStart = 78;
+    public const int downWalkEnd = 86;
+    public const int upWalkStart = 60;
+    public const int upWalkEnd = 68;
+    public const int leftWalkStart = 69;
+    public const int leftWalkEnd = 77;
+    public const int rightWalkStart = 87;
+    public const int rightWalkEnd = 95;
 
-	[Header("Stuff")]
-	public string atlasName;
-	public float speed;
-	public States startingAnimationState;
-	public CharacterStates states;
+    [Header("Dancing Animations")]
+    public const int downDanceStart = 44;
+    public const int downDanceEnd = 51;
+    public const int upDanceStart = 28;
+    public const int upDanceEnd = 35;
+    public const int leftDanceStart = 36;
+    public const int leftDanceEnd = 43;
+    public const int rightDanceStart = 52;
+    public const int rightDanceEnd = 59;
 
-	[Header("Sprite Stuff")]
-	private SpriteRenderer m_sprite_renderer;
-	private Sprite[] sprites;
-	private States m_animation_state;
-	private States prev_animation_state;
+    [Header("Stretching Animations")]
+    public const int downStretchStart = 14;
+    public const int downStretchEnd = 20;
+    public const int upStretchStart = 0;
+    public const int upStretchEnd = 6;
+    public const int leftStretchStart = 7;
+    public const int leftStretchEnd = 13;
+    public const int rightStretchStart = 21;
+    public const int rightStretchEnd = 27;
 
-	public SpriteRenderer Sprite_Renderer
-	{
-		get
-		{
-			if (m_sprite_renderer == null)
-				m_sprite_renderer = GetComponent<SpriteRenderer>();
+    [Header("Swinging Animations")]
+    public const int downSwingStart = 108;
+    public const int downSwingEnd = 112;
+    public const int upSwingStart = 96;
+    public const int upSwingEnd = 101;
+    public const int leftSwingStart = 102;
+    public const int leftSwingEnd = 107;
+    public const int rightSwingStart = 114;
+    public const int rightSwingEnd = 119;
 
-			return m_sprite_renderer;
-		}
-	}
+    [Header("Bowing Animations")]
+    public const int downBowStart = 146;
+    public const int downBowEnd = 158;
+    public const int upBowStart = 120;
+    public const int upBowEnd = 132;
+    public const int leftBowStart = 133;
+    public const int leftBowEnd = 145;
+    public const int rightBowStart = 159;
+    public const int rightBowEnd = 171;
 
-	void Start()
-	{
-		sprites = Resources.LoadAll<Sprite>(atlasName);
-		m_animation_state = startingAnimationState;
-		StartCoroutine("StateMachine");
-	}
+    [Header("Falling Animations")]
+    public const int fallStart = 172;
+    public const int fallEnd = 177;
 
-	public States AnimationState
-	{
-		get
-		{			
-			return m_animation_state;
-		}
-		set
-		{
+    public enum States
+    {
+        DOWN_IDLE, DOWN_WALK, DOWN_DANCE, DOWN_STRETCH, DOWN_SWING, DOWN_BOW,
+        UP_IDLE, UP_WALK, UP_DANCE, UP_STRETCH, UP_SWING, UP_BOW,
+        LEFT_IDLE, LEFT_WALK, LEFT_DANCE, LEFT_STRETCH, LEFT_SWING, LEFT_BOW,
+        RIGHT_IDLE, RIGHT_WALK, RIGHT_DANCE, RIGHT_STRETCH, RIGHT_SWING, RIGHT_BOW,
+        FALL
+    }
+
+    [Header("Stuff")]
+    public string atlasName;
+    public float speed;
+    public States startingAnimationState;
+
+    [Header("Sprite Stuff")]
+    private SpriteRenderer m_sprite_renderer;
+    private Sprite[] sprites;
+    private States m_animation_state;
+    private States prev_animation_state;
+
+    public SpriteRenderer Sprite_Renderer
+    {
+        get
+        {
+            if (m_sprite_renderer == null)
+                m_sprite_renderer = GetComponent<SpriteRenderer>();
+
+            return m_sprite_renderer;
+        }
+    }
+
+    void Start()
+    {
+        sprites = Resources.LoadAll<Sprite>(atlasName);
+        m_animation_state = startingAnimationState;
+        StartCoroutine("StateMachine");
+    }
+
+    public States AnimationState
+    {
+        get
+        {
+            return m_animation_state;
+        }
+        set
+        {
             if (m_animation_state != value)
             {
                 StopCoroutine("StateMachine");
@@ -57,154 +110,184 @@ public class CharacterAnimations : MonoBehaviour
                 m_animation_state = value;
                 StartCoroutine("StateMachine");
             }
-		}
-	}
+        }
+    }
 
-	private IEnumerator StateMachine()
-	{
-		while (true)
-		{
-			int rangeStart = 0;
-			int rangeEnd = 0;
-			//Debug.Log (m_animation_state);
-			switch (m_animation_state)
-			{
-			case States.DOWN_IDLE:
-				rangeStart = states.downWalkStart;
-				rangeEnd = states.downWalkStart;
-				break;
-			case States.UP_IDLE:
-				rangeStart = states.upWalkStart;
-				rangeEnd = states.upWalkStart;
-				break;
-			case States.LEFT_IDLE:
-				rangeStart = states.leftWalkStart;
-				rangeEnd = states.leftWalkStart;
-				break;
-			case States.RIGHT_IDLE:
-				rangeStart = states.rightWalkStart;
-				rangeEnd = states.rightWalkStart;
-				break;
-
-			case States.DOWN_WALK:
-				rangeStart = states.downWalkStart;
-				rangeEnd = states.downWalkEnd;
-				break;
-			case States.UP_WALK:
-				rangeStart = states.upWalkStart;
-				rangeEnd = states.upWalkEnd;
-				break;
-			case States.LEFT_WALK:
-				rangeStart = states.leftWalkStart;
-				rangeEnd = states.leftWalkEnd;
-				break;
-			case States.RIGHT_WALK:
-				rangeStart = states.rightWalkStart;
-				rangeEnd = states.rightWalkEnd;
-				break;
-			
-			case States.DOWN_DANCE:
-				rangeStart = states.downDanceStart;
-				rangeEnd = states.downDanceEnd;
-				break;
-			case States.UP_DANCE:
-				rangeStart = states.upDanceStart;
-				rangeEnd = states.upDanceEnd;
-				break;
-			case States.LEFT_DANCE:
-				rangeStart = states.leftDanceStart;
-				rangeEnd = states.leftDanceEnd;
-				break;
-			case States.RIGHT_DANCE:
-				rangeStart = states.rightDanceStart;
-				rangeEnd = states.rightDanceEnd;
-				break;
-
-			case States.DOWN_STRETCH:
-				rangeStart = states.downStretchStart;
-				rangeEnd = states.downStretchEnd;
-				break;
-			case States.UP_STRETCH:
-				rangeStart = states.upStretchStart;
-				rangeEnd = states.upStretchEnd;
-				break;
-			case States.LEFT_STRETCH:
-				rangeStart = states.leftStretchStart;
-				rangeEnd = states.leftStretchEnd;
-				break;
-			case States.RIGHT_STRETCH:
-				rangeStart = states.rightStretchStart;
-				rangeEnd = states.rightStretchEnd;
-				break;
-
-			case States.DOWN_SWING:
-				rangeStart = states.downSwingStart;
-				rangeEnd = states.downSwingEnd;
-				break;
-			case States.UP_SWING:
-				rangeStart = states.upSwingStart;
-				rangeEnd = states.upSwingEnd;
-				break;
-			case States.LEFT_SWING:
-				rangeStart = states.leftSwingStart;
-				rangeEnd = states.leftSwingEnd;
-				break;
-			case States.RIGHT_SWING:
-				rangeStart = states.rightSwingStart;
-				rangeEnd = states.rightSwingEnd;
-				break;
-
-			case States.DOWN_BOW:
-				rangeStart = states.downBowStart;
-				rangeEnd = states.downBowEnd;
-				break;
-			case States.UP_BOW:
-				rangeStart = states.upBowStart;
-				rangeEnd = states.upBowEnd;
-				break;
-			case States.LEFT_BOW:
-				rangeStart = states.leftBowStart;
-				rangeEnd = states.leftBowEnd;
-				break;
-			case States.RIGHT_BOW:
-				rangeStart = states.rightBowStart;
-				rangeEnd = states.rightBowEnd;
-				break;
-
-			case States.FALL:
-				rangeStart = states.fallStart;
-				rangeEnd = states.fallEnd;
-				break;
-			default:
-				Debug.Log("YA DONE GOOFED");
-				break;
-			}
-
-			for (int i = rangeStart; i < rangeEnd; i++)
-			{
-				Sprite_Renderer.sprite = sprites[i];
-				yield return new WaitForSeconds(speed);
-			}
-
-			if (rangeStart == rangeEnd)
-			{
-                //Debug.Log(rangeStart);
-				Sprite_Renderer.sprite = sprites[rangeStart];
-			}
-			yield return null;
-		}
-		yield break;
-	}
-
-    public IEnumerator Move(int animatorDirection, float newPositionValue, float speed = 0.02f)
+    private int[] AnimationStateRange(CharacterAnimations.States state)
     {
+        int rangeStart = 0;
+        int rangeEnd = 0;
+
+        int[] range;
+        range = new int[2];
+
+        switch (state)
+        {
+            case States.DOWN_IDLE:
+                rangeStart = downWalkStart;
+                rangeEnd = downWalkStart;
+                break;
+            case States.UP_IDLE:
+                rangeStart = upWalkStart;
+                rangeEnd = upWalkStart;
+                break;
+            case States.LEFT_IDLE:
+                rangeStart = leftWalkStart;
+                rangeEnd = leftWalkStart;
+                break;
+            case States.RIGHT_IDLE:
+                rangeStart = rightWalkStart;
+                rangeEnd = rightWalkStart;
+                break;
+
+            case States.DOWN_WALK:
+                rangeStart = downWalkStart;
+                rangeEnd = downWalkEnd;
+                break;
+            case States.UP_WALK:
+                rangeStart = upWalkStart;
+                rangeEnd = upWalkEnd;
+                break;
+            case States.LEFT_WALK:
+                rangeStart = leftWalkStart;
+                rangeEnd = leftWalkEnd;
+                break;
+            case States.RIGHT_WALK:
+                rangeStart = rightWalkStart;
+                rangeEnd = rightWalkEnd;
+                break;
+
+            case States.DOWN_DANCE:
+                rangeStart = downDanceStart;
+                rangeEnd = downDanceEnd;
+                break;
+            case States.UP_DANCE:
+                rangeStart = upDanceStart;
+                rangeEnd = upDanceEnd;
+                break;
+            case States.LEFT_DANCE:
+                rangeStart = leftDanceStart;
+                rangeEnd = leftDanceEnd;
+                break;
+            case States.RIGHT_DANCE:
+                rangeStart = rightDanceStart;
+                rangeEnd = rightDanceEnd;
+                break;
+
+            case States.DOWN_STRETCH:
+                rangeStart = downStretchStart;
+                rangeEnd = downStretchEnd;
+                break;
+            case States.UP_STRETCH:
+                rangeStart = upStretchStart;
+                rangeEnd = upStretchEnd;
+                break;
+            case States.LEFT_STRETCH:
+                rangeStart = leftStretchStart;
+                rangeEnd = leftStretchEnd;
+                break;
+            case States.RIGHT_STRETCH:
+                rangeStart = rightStretchStart;
+                rangeEnd = rightStretchEnd;
+                break;
+
+            case States.DOWN_SWING:
+                rangeStart = downSwingStart;
+                rangeEnd = downSwingEnd;
+                break;
+            case States.UP_SWING:
+                rangeStart = upSwingStart;
+                rangeEnd = upSwingEnd;
+                break;
+            case States.LEFT_SWING:
+                rangeStart = leftSwingStart;
+                rangeEnd = leftSwingEnd;
+                break;
+            case States.RIGHT_SWING:
+                rangeStart = rightSwingStart;
+                rangeEnd = rightSwingEnd;
+                break;
+
+            case States.DOWN_BOW:
+                rangeStart = downBowStart;
+                rangeEnd = downBowEnd;
+                break;
+            case States.UP_BOW:
+                rangeStart = upBowStart;
+                rangeEnd = upBowEnd;
+                break;
+            case States.LEFT_BOW:
+                rangeStart = leftBowStart;
+                rangeEnd = leftBowEnd;
+                break;
+            case States.RIGHT_BOW:
+                rangeStart = rightBowStart;
+                rangeEnd = rightBowEnd;
+                break;
+
+            case States.FALL:
+                rangeStart = fallStart;
+                rangeEnd = fallEnd;
+                break;
+            default:
+                Debug.Log("YA DONE GOOFED");
+                break;
+        }
+
+        range[0] = rangeStart;
+        range[1] = rangeEnd;
+
+        return range;
+    }
+
+    private IEnumerator StateMachine()
+    {
+        while (true)
+        {
+            int rangeStart = AnimationStateRange(m_animation_state)[0];
+            int rangeEnd = AnimationStateRange(m_animation_state)[1];
+            //Debug.Log (m_animation_state);
+
+            for (int i = rangeStart; i < rangeEnd; i++)
+            {
+                Sprite_Renderer.sprite = sprites[i];
+                yield return new WaitForSeconds(speed);
+            }
+
+            if (rangeStart == rangeEnd)
+            {
+                Debug.Log(rangeStart);
+                Sprite_Renderer.sprite = sprites[rangeStart];
+            }
+            yield return null;
+        }
+        yield break;
+    }
+
+    public IEnumerator PlayAnimation(CharacterAnimations.States state)
+    {
+        StopCoroutine("StateMachine");
+
+        int rangeStart = AnimationStateRange(state)[0];
+        int rangeEnd = AnimationStateRange(state)[1];
+
+        for (int i = rangeStart; i < rangeEnd; i++)
+        {
+            Sprite_Renderer.sprite = sprites[i];
+            yield return new WaitForSeconds(speed);
+        }
+        yield break;
+    }
+
+    public IEnumerator Move(int animatorDirection, float newPositionValue, CharacterAnimations.States state, float speed = 0.02f)
+    {
+        AnimationState = state;
         switch (animatorDirection)
         {
             case 4:
                 while (gameObject.transform.position.x >= newPositionValue)
                 {
                     gameObject.transform.Translate(-speed, 0.0f, 0.0f);
-                    AnimationState = CharacterAnimations.States.LEFT_WALK;
                     yield return null;
                 }
                 break;
@@ -212,7 +295,6 @@ public class CharacterAnimations : MonoBehaviour
                 while (gameObject.transform.position.x <= newPositionValue)
                 {
                     gameObject.transform.Translate(speed, 0.0f, 0.0f);
-                    AnimationState = CharacterAnimations.States.RIGHT_WALK;
                     yield return null;
                 }
                 break;
@@ -220,7 +302,6 @@ public class CharacterAnimations : MonoBehaviour
                 while (gameObject.transform.position.y >= newPositionValue)
                 {
                     gameObject.transform.Translate(0.0f, -speed, 0.0f);
-                    AnimationState = CharacterAnimations.States.DOWN_WALK;
                     yield return null;
                 }
                 break;
@@ -228,7 +309,6 @@ public class CharacterAnimations : MonoBehaviour
                 while (gameObject.transform.position.y <= newPositionValue)
                 {
                     gameObject.transform.Translate(0.0f, speed, 0.0f);
-                    AnimationState = CharacterAnimations.States.UP_WALK;
                     yield return null;
                 }
                 break;
@@ -236,62 +316,4 @@ public class CharacterAnimations : MonoBehaviour
 
         yield break;
     }
-}
-
-[System.Serializable]
-public class CharacterStates
-{
-	[Header("Walking Animations")]
-	public int downWalkStart;
-	public int downWalkEnd;
-	public int upWalkStart;
-	public int upWalkEnd;
-	public int leftWalkStart;
-	public int leftWalkEnd;
-	public int rightWalkStart;
-	public int rightWalkEnd;
-
-	[Header("Dancing Animations")]
-	public int downDanceStart;
-	public int downDanceEnd;
-	public int upDanceStart;
-	public int upDanceEnd;
-	public int leftDanceStart;
-	public int leftDanceEnd;
-	public int rightDanceStart;
-	public int rightDanceEnd;
-
-	[Header("Stretching Animations")]
-	public int downStretchStart;
-	public int downStretchEnd;
-	public int upStretchStart;
-	public int upStretchEnd;
-	public int leftStretchStart;
-	public int leftStretchEnd;
-	public int rightStretchStart;
-	public int rightStretchEnd;
-
-	[Header("Swinging Animations")]
-	public int downSwingStart;
-	public int downSwingEnd;
-	public int upSwingStart;
-	public int upSwingEnd;
-	public int leftSwingStart;
-	public int leftSwingEnd;
-	public int rightSwingStart;
-	public int rightSwingEnd;
-
-	[Header("Bowing Animations")]
-	public int downBowStart;
-	public int downBowEnd;
-	public int upBowStart;
-	public int upBowEnd;
-	public int leftBowStart;
-	public int leftBowEnd;
-	public int rightBowStart;
-	public int rightBowEnd;
-
-	[Header("Falling Animations")]
-	public int fallStart;
-	public int fallEnd;
 }

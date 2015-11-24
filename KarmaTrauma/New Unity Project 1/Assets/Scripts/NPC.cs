@@ -122,36 +122,38 @@ public class NPC : MonoBehaviour
 		}
 
 		int playerAnimationInt = -1;
+        CharacterAnimations.States playerNewState = characterAnimations.AnimationState;
+
 		Vector3 difference = this.transform.position - Player.Instance.transform.position;
 		if (Math.Abs(difference.x) > Math.Abs(difference.y))
 		{
 			if (this.transform.position.x > Player.Instance.transform.position.x)
 			{
 				SetAnimation(CharacterAnimations.States.LEFT_IDLE);
-				playerAnimationInt = rightIdle;
+                playerNewState = CharacterAnimations.States.RIGHT_IDLE;
 			}
 			else if (this.transform.position.x < Player.Instance.transform.position.x)
 			{
 				SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
-				playerAnimationInt = leftIdle;
-			}
+                playerNewState = CharacterAnimations.States.LEFT_IDLE;
+            }
 		}
 		else if (Math.Abs(difference.x) < Math.Abs(difference.y))
 		{
 			if (this.transform.position.y > Player.Instance.transform.position.y)
 			{
 				SetAnimation(CharacterAnimations.States.DOWN_IDLE);
-				playerAnimationInt = upIdle;
-			}
+                playerNewState = CharacterAnimations.States.UP_IDLE;
+            }
 			else if (this.transform.position.y < Player.Instance.transform.position.y)
 			{
 				SetAnimation(CharacterAnimations.States.UP_IDLE);
-				playerAnimationInt = downIdle;
-			}
+                playerNewState = CharacterAnimations.States.DOWN_IDLE;
+            }
 		}
 		if (playerAnimationInt >= 0)
 		{
-			EventManager.NotifyNPC(this, new GameEventArgs() { Integer = playerAnimationInt });
+			EventManager.NotifyNPC(this, new GameEventArgs() { AnimationState = playerNewState });
 		}
 	}
 

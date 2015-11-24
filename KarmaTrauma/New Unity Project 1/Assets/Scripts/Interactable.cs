@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 
+[Serializable]
 public class Interactable
 {
 	public delegate void Action(object sender, GameEventArgs args);
@@ -12,10 +13,15 @@ public class Interactable
 	public string StrangerName = "???";
 	public ObjectType objectType;
 
-	public string[] Dialogue;
+	public Dialogue[] Dialogue;
 	public int LastDialogueDisplayed;
 
-	public Interactable(string _name, string _strangerName, string[] _dialogues)
+	public Interactable()
+	{
+		Dialogue = new Dialogue[]{};
+	}
+
+	public Interactable(string _name, string _strangerName, Dialogue[] _dialogues)
 	{
 		LastDialogueDisplayed = -1;
 		Name = _name;
@@ -27,16 +33,34 @@ public class Interactable
 	}
 }
 
+[Serializable]
 public class Dialogue
 {
 	public int ID;
 	public string text;
-	public Choices[] choices;
+	public Choice[] choices;
 	public Interactable.Action Action;
+    public Dialogue(int _id, string _text, Choice[] _choices = null)
+    {
+        ID = _id;
+        text = _text;
+        choices = _choices;
+    }
 }
 
+[Serializable]
 public class Choice
 {
 	public string option;
 	public Interactable.Action Action;
+    public ChoiceEventArgs CEA;
+    public Choice (string _option, ChoiceEventArgs _CEA = null)
+    {
+        option = _option;
+        if (_CEA != null)
+        {
+            Action += _CEA.ChoiceAction;
+            CEA = _CEA;
+        }
+    }
 }

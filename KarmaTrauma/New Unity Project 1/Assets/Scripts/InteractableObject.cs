@@ -13,7 +13,7 @@ public class InteractableObject : MonoBehaviour
 
     public enum TYPE
     {
-        NONE, DIALOG, ITEM
+        NONE, DIALOG, ITEM, MOVE
     };
     public TYPE InteractionType;
 
@@ -58,6 +58,11 @@ public class InteractableObject : MonoBehaviour
             player.CollidingWithID.Remove(ID);*/
     }
 
+    void OnDestroy()
+    {
+        EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
+    }
+
     private void CallDialogue()
     {
         for (int branches = 0; branches < BranchID.Length; branches++)
@@ -65,6 +70,7 @@ public class InteractableObject : MonoBehaviour
             if ((gameManager.GetData(BranchBool[branches]) == true) || (gameManager.HasItem(BranchBool[branches])))
             {
                 ID = BranchID[branches];
+                DialogueIDSingle = 0;
             }
         }
         int newIndex = DialogueIDSingle;
@@ -93,6 +99,7 @@ public class InteractableObject : MonoBehaviour
     public void Interact()
     {
         EventManager.NotifyNPC(this, new GameEventArgs() { ThisGameObject = gameObject });
+        EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
 
         switch (InteractionType)
         {
@@ -103,10 +110,16 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    public void InteractItem()
+    public static void InteractItem(object sender, GameEventArgs args)
     {
-        EventManager.NotifyItemTaken(this, new GameEventArgs() { IDNum = ID });
-        GameObject.Destroy(gameObject);
+        Debug.Log(args.Testing);
+        EventManager.NotifyItemTaken(sender, args);
+        GameObject.Destroy(args.ThisGameObject);
+    }
+
+    public static void InteractMove(object sender, GameEventArgs args)
+    {
+        args.ThisGameObject.transform.Translate(args.ShoveX, 0, 0);
     }
 
     /*public void CheckAndTurnCharacter()
@@ -128,9 +141,21 @@ public class InteractableObject : MonoBehaviour
             // colliding = false; //troublesome without this line...
             if (InteractionType == TYPE.DIALOG)
                 Interact();
-            else if (InteractionType == TYPE.ITEM)
-                InteractItem();
+            //else if (InteractionType == TYPE.ITEM)
+                //InteractItem();
+            //else if (InteractionType == TYPE.MOVE)
+                //InteractMove(1, 0);
         }
+    }
+
+    void HandleOnDialogChoiceMade(object sender, GameEventArgs args)
+    {
+        args.ThisGameObject = gameObject;
+        if (args.ChoiceAction != null)
+        {
+            args.ChoiceAction(this, args);
+        }
+        EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
     }
 
     void Update()

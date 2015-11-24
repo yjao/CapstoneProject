@@ -86,6 +86,7 @@ public class PrologueManager : MonoBehaviour
         return gameManager.GameMode == GameManager.MODE.DIALOGUE;
     }
 
+    /*
 	private IEnumerator MovePlayer(GameObject character, int animatorDirection, float newPositionValue, float speed=0.02f)
 	{
         Animator animator = character.GetComponent<Animator>();
@@ -125,7 +126,7 @@ public class PrologueManager : MonoBehaviour
 			break;
 		}
 		yield break;
-	}
+	}*/
 
 	public IEnumerator Story()
 	{
@@ -166,6 +167,9 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator School_0()
     {
+        GameObject Chelsey = GameObject.Find("Player_P_School");
+        GameObject Kelly = GameObject.Find("Kelly_P_School");
+
         gameManager.Wait();
         yield return new WaitForSeconds(1);
        // yield return new WaitForSeconds(1);
@@ -179,11 +183,12 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
 
 		// Chelsey walks to her desk
-		yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, down, 2.45f));
-        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, right, 0.24f));
-        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, down, 1.16f));
-        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, left, -0.49f));
-        Player.Instance.animator.SetInteger(animationState, upIdle);
+        yield return StartCoroutine(GameObject.Find("Player_P_School").GetComponent<CharacterAnimations>().Move(down, 2.45f));
+        yield return StartCoroutine(GameObject.Find("Player_P_School").GetComponent<CharacterAnimations>().Move(right, 0.24f));
+        yield return StartCoroutine(GameObject.Find("Player_P_School").GetComponent<CharacterAnimations>().Move(down, 1.31f));
+        yield return StartCoroutine(GameObject.Find("Player_P_School").GetComponent<CharacterAnimations>().Move(left, -0.49f));
+        GameObject.Find("Player_P_School").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.UP_IDLE);
+
 
         yield return new WaitForSeconds(1);
         gameManager.DBox(65, 2);
@@ -192,21 +197,21 @@ public class PrologueManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
 		// Kelly talks
-        GameObject.Find("Kelly").GetComponent<Animator>().SetInteger("AnimationState", right);
-        yield return StartCoroutine(MovePlayer(GameObject.Find("Kelly"), right, -1.00f));
-        GameObject.Find("Kelly").GetComponent<Animator>().SetInteger("AnimationState", rightIdle);
+        GameObject.Find("Kelly_P_School").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_WALK);
+        yield return StartCoroutine(GameObject.Find("Kelly_P_School").GetComponent<CharacterAnimations>().Move(right, -1.00f));
+        GameObject.Find("Kelly_P_School").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
 
-        Player.Instance.animator.SetInteger(animationState, leftIdle);
-		gameManager.DBox(66, 0);
+        GameObject.Find("Player_P_School").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.LEFT_IDLE);
+        gameManager.DBox(66, 0);
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(66, 1);
         yield return null; while (Pause()) { yield return null; }
 
         gameManager.DBox(1, 1);
-        GameObject.Find("Kelly").GetComponent<Animator>().SetInteger("AnimationState", 9);
+        GameObject.Find("Kelly_P_School").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.LEFT_DANCE);
         yield return new WaitForSeconds(1);
 
-        GameObject.Find("Kelly").GetComponent<Animator>().SetInteger("AnimationState", 10);
+        GameObject.Find("Kelly_P_School").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_DANCE);
         
         yield return null; while (Pause()) { yield return null; }
         
@@ -307,6 +312,7 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator School_1()
     {
+        GameObject Chelsey = GameObject.Find("Player_P_School");
         gameManager.Wait();
         // yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_SCHOOL);
@@ -323,11 +329,11 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
 
 		// Chelsey walks to her desk
-        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, down, 2.45f));
-        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, right, 0.24f));
-        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, down, 1.16f));
-        yield return StartCoroutine(MovePlayer(Player.Instance.gameObject, left, -0.49f));
-		Player.Instance.animator.SetInteger(animationState, upIdle);
+        yield return StartCoroutine(GameObject.Find("Player_P_School").GetComponent<CharacterAnimations>().Move(down, 2.45f));
+        yield return StartCoroutine(GameObject.Find("Player_P_School").GetComponent<CharacterAnimations>().Move(right, 0.24f));
+        yield return StartCoroutine(GameObject.Find("Player_P_School").GetComponent<CharacterAnimations>().Move(down, 1.31f));
+        yield return StartCoroutine(GameObject.Find("Player_P_School").GetComponent<CharacterAnimations>().Move(left, -0.49f));
+        GameObject.Find("Player_P_School").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.UP_IDLE);
 		
 		yield return new WaitForSeconds(1);
 		gameManager.DBox(65, 2);
@@ -336,6 +342,10 @@ public class PrologueManager : MonoBehaviour
 		yield return new WaitForSeconds(1);
 
 		// Kelly talks
+        GameObject.Find("Kelly_P_School").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_WALK);
+        yield return StartCoroutine(GameObject.Find("Kelly_P_School").GetComponent<CharacterAnimations>().Move(right, -1.00f));
+        GameObject.Find("Kelly_P_School").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
+
 		gameManager.DBox(66, 0);
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(1, 6);

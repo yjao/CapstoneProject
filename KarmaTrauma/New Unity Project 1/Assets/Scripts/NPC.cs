@@ -157,7 +157,7 @@ public class NPC : MonoBehaviour
 
 	#region Animation Control
 
-	private void SetAnimation(CharacterAnimations.States newState)
+	public void SetAnimation(CharacterAnimations.States newState)
 	{
 		if (characterAnimations.AnimationState != newState)
 		{

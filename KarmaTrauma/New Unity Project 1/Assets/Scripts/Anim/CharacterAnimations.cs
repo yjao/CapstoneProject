@@ -50,10 +50,13 @@ public class CharacterAnimations : MonoBehaviour
 		}
 		set
 		{
-			StopCoroutine("StateMachine");
-			prev_animation_state = m_animation_state;
-			m_animation_state = value;
-			StartCoroutine("StateMachine");
+            if (m_animation_state != value)
+            {
+                StopCoroutine("StateMachine");
+                prev_animation_state = m_animation_state;
+                m_animation_state = value;
+                StartCoroutine("StateMachine");
+            }
 		}
 	}
 
@@ -185,12 +188,54 @@ public class CharacterAnimations : MonoBehaviour
 
 			if (rangeStart == rangeEnd)
 			{
+                //Debug.Log(rangeStart);
 				Sprite_Renderer.sprite = sprites[rangeStart];
 			}
 			yield return null;
 		}
 		yield break;
 	}
+
+    public IEnumerator Move(int animatorDirection, float newPositionValue, float speed = 0.02f)
+    {
+        switch (animatorDirection)
+        {
+            case 4:
+                while (gameObject.transform.position.x >= newPositionValue)
+                {
+                    gameObject.transform.Translate(-speed, 0.0f, 0.0f);
+                    AnimationState = CharacterAnimations.States.LEFT_WALK;
+                    yield return null;
+                }
+                break;
+            case 3:
+                while (gameObject.transform.position.x <= newPositionValue)
+                {
+                    gameObject.transform.Translate(speed, 0.0f, 0.0f);
+                    AnimationState = CharacterAnimations.States.RIGHT_WALK;
+                    yield return null;
+                }
+                break;
+            case 2:
+                while (gameObject.transform.position.y >= newPositionValue)
+                {
+                    gameObject.transform.Translate(0.0f, -speed, 0.0f);
+                    AnimationState = CharacterAnimations.States.DOWN_WALK;
+                    yield return null;
+                }
+                break;
+            case 1:
+                while (gameObject.transform.position.y <= newPositionValue)
+                {
+                    gameObject.transform.Translate(0.0f, speed, 0.0f);
+                    AnimationState = CharacterAnimations.States.UP_WALK;
+                    yield return null;
+                }
+                break;
+        }
+
+        yield break;
+    }
 }
 
 [System.Serializable]

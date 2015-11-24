@@ -197,6 +197,22 @@ public class PrologueManager : MonoBehaviour
         Destroy(GameObject.Find("MrLy"));
         yield return new WaitForSeconds(1);
 
+        // STUDENTS LEAVE
+        /*
+        yield return StartCoroutine(GameObject.Find("Stylish_guy").GetComponent<CharacterAnimations>().Move(left, -1.25f, CharacterAnimations.States.LEFT_WALK));
+        yield return StartCoroutine(GameObject.Find("Stylish_guy").GetComponent<CharacterAnimations>().Move(down, -1.25f, CharacterAnimations.States.DOWN_WALK));
+        StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(right, 3.6f, CharacterAnimations.States.RIGHT_WALK));
+        yield return StartCoroutine(GameObject.Find("Stylish_guy").GetComponent<CharacterAnimations>().Move(left, -3.25f, CharacterAnimations.States.LEFT_WALK));
+        StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(up, 2.5f, CharacterAnimations.States.UP_WALK));
+        yield return StartCoroutine(GameObject.Find("Stylish_guy").GetComponent<CharacterAnimations>().Move(up, 2.5f, CharacterAnimations.States.UP_WALK));
+        StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(up, 2.5f, CharacterAnimations.States.UP_WALK));
+        yield return StartCoroutine(GameObject.Find("Stylish_guy").GetComponent<CharacterAnimations>().Move(left, -6.0f, CharacterAnimations.States.LEFT_WALK));
+        StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(left, -6.0f, CharacterAnimations.States.LEFT_WALK));
+        */
+
+
+
+
         // Kelly talks
         GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_WALK);
         yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(right, -1.00f, CharacterAnimations.States.RIGHT_WALK));

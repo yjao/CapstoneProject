@@ -10,6 +10,7 @@ public class Textbox : MonoBehaviour
     public bool done;
     public string res;
     private Choice[] choices;
+    public Dialogue Dialog;
     void Awake()
     {
 		gameManager = GameManager.Instance;
@@ -22,7 +23,10 @@ public class Textbox : MonoBehaviour
 
     void SelfDestruct(object sender, GameEventArgs args)
     {
-        GameObject.Destroy(gameObject);
+        if (args.ChoiceAction == null)
+        {
+            GameObject.Destroy(gameObject);
+        }
     }
 
 
@@ -58,16 +62,41 @@ public class Textbox : MonoBehaviour
             {
                 done = true;
                 GameEventArgs g = new GameEventArgs();
-                g.ConvertChoiceEventArgs(choices[cursor].CEA);
-                EventManager.NotifyDialogChoiceMade(this, g);
-                choice_mode = false;
-                EventManager.NotifySpaceBar(this, new GameEventArgs());
+                g.DialogueBox = this;
+                if (choices[cursor].CEA != null)
+                {
+                    g.ConvertChoiceEventArgs(choices[cursor].CEA);
+                    choice_mode = false;
+                    Interactable.Action oldaction = g.ChoiceAction;
+                    EventManager.NotifyDialogChoiceMade(this, g);
+                    if (oldaction != continueDialogue)
+                    {
+                        Debug.Log("hi there");
+                        EventManager.NotifySpaceBar(this, new GameEventArgs());
+                    }
+                }
             }
         }
         else if (choice_mode == false && Input.GetKeyDown(KeyCode.Space))
         {
             //GameObject.Destroy(gameObject);
-            EventManager.NotifySpaceBar(this, new GameEventArgs());
+            if (Dialog.CEA != null)
+            {
+                GameEventArgs g = new GameEventArgs();
+                g.ConvertChoiceEventArgs(Dialog.CEA);
+                g.DialogueBox = this;
+                Interactable.Action oldaction = Dialog.CEA.ChoiceAction;
+                EventManager.NotifyDialogChoiceMade(this, g);
+                if (oldaction != continueDialogue)
+                {
+                    Debug.Log("hi there");
+                    EventManager.NotifySpaceBar(this, new GameEventArgs());
+                }
+            }
+            else
+            {
+                EventManager.NotifySpaceBar(this, new GameEventArgs());
+            }
         }
     }
 
@@ -100,9 +129,8 @@ public class Textbox : MonoBehaviour
         transform.Find("Pointer").gameObject.SetActive(true);
         transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f+.1f*cursor);
         transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f+.1f*cursor);
-        Debug.Log("start");
+        //Debug.Log("start");
         choice_mode = true;
-        Debug.Log(choice_mode);
         choices = options;
     }
     
@@ -125,5 +153,24 @@ public class Textbox : MonoBehaviour
             g[i, 1] = c;
         }
         return g;
+    }
+
+    public static void continueDialogue(object sender, GameEventArgs args)
+    {
+        args.DialogueBox.Dialog = args.DialogueBox.gameManager.GetNextDialogue(args.IDNum, args.DialogueID);
+        if (args.DialogueBox.Dialog.choices != null)
+        {
+            args.DialogueBox.Choice(args.DialogueBox.transform.Find("Name").GetComponent<Text>().text, args.DialogueBox.Dialog.text, args.DialogueBox.Dialog.choices);
+        }
+        else
+        {
+            if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
+            {
+                Debug.Log("hi");
+                args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID+1);
+                args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs());
+            }
+            args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = args.DialogueBox.Dialog.text;
+        }
     }
 }

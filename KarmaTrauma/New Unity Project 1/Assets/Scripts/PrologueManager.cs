@@ -132,6 +132,7 @@ public class PrologueManager : MonoBehaviour
     {
         //gameManager.Play();
         gameManager.Wait();
+        gameManager.GetComponent<Menu_Layout>().enabled = false;
 
         // Get Space
         while (true) { if (Input.GetKey(KeyCode.Space)) break; yield return null; }
@@ -149,6 +150,8 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(21, true);
         yield return null; while (Pause()) { yield return null; }
+
+        gameManager.GetComponent<Menu_Layout>().enabled = true;
 
         gameManager.Play();
         while (true)
@@ -168,6 +171,7 @@ public class PrologueManager : MonoBehaviour
     public IEnumerator School_0()
     {
         gameManager.Wait();
+        
         yield return new WaitForSeconds(1);
         // yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_SCHOOL);

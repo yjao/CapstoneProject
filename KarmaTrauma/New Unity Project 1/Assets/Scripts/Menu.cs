@@ -123,9 +123,9 @@ public class Menu : MonoBehaviour
 
     void Inventory()
     {
-        transform.Find("Panel").gameObject.SetActive(false);
-        transform.Find("Text").gameObject.SetActive(false);
-        transform.Find("Pointer").gameObject.SetActive(false);
+        //transform.Find("Panel").gameObject.SetActive(false);
+        //transform.Find("Text").gameObject.SetActive(false);
+        //transform.Find("Pointer").gameObject.SetActive(false);
         transform.Find("ItemPanel").gameObject.SetActive(true);
 
         

@@ -269,12 +269,7 @@ public class Player : MonoBehaviour
             r = false;
             l = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
-            gameManager.GameMode = GameManager.MODE.MENU;
-            gameManager.PrevMode = GameManager.MODE.PLAYING;
-        }
+    
         else
         {
             if (u == true)
@@ -287,6 +282,7 @@ public class Player : MonoBehaviour
                 animator.SetInteger(animationState, leftIdle);
         }
 
+        ///SAVE AND LOAD STUFF
         if (Input.GetKey(KeyCode.S))
         {
             Save(); ;
@@ -295,6 +291,14 @@ public class Player : MonoBehaviour
         {
             Load();
         }
+
+        ///MENU STUFF
+        if (Input.GetKey(KeyCode.B))
+        {
+            Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
+            gameManager.GameMode = GameManager.MODE.MENU;
+            gameManager.PrevMode = GameManager.MODE.PLAYING;
+        }
     }
 
     public void InvenButton()
@@ -302,6 +306,7 @@ public class Player : MonoBehaviour
         Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
         gameManager.GameMode = GameManager.MODE.MENU;
         gameManager.PrevMode = GameManager.MODE.PLAYING;
+        
     }
 
     public void Save()

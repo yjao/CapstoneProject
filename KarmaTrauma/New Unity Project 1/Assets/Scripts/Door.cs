@@ -17,7 +17,7 @@ public class Door : MonoBehaviour
             if (AltDestination != "")
             {
                 Application.LoadLevel(AltDestination);
-                gameManager.gameClock += 2;
+                gameManager.IncreaseTime();
                 
                 
             }

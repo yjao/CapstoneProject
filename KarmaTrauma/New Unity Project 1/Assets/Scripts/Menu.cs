@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Menu : MonoBehaviour
 {
     private GameManager gameManager;
-    private bool in_mode = true;
+    public static Menu Instance;
 
     public enum Modes
     {
@@ -24,9 +24,11 @@ public class Menu : MonoBehaviour
         pointer = 0;
         pointer2 = 0;
         gameManager = GameManager.Instance;
+        this.tag = "Menu";
         transform.Find("ItemPanel").gameObject.SetActive(false);
         transform.Find("ItemSelect").gameObject.SetActive(false);
         HideDescription();
+        Instance = this;
     }
 
     void OnDestroy()
@@ -44,7 +46,12 @@ public class Menu : MonoBehaviour
         }
         else if (MenuMode == Modes.INVENTORY)
         {
-            //GUI.enabled = false;
+
+            GUI.enabled = false;
+            if (Input.GetMouseButtonDown(0))
+            {
+                OnClick();
+            }
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if (pointer2 > 0)
@@ -81,13 +88,37 @@ public class Menu : MonoBehaviour
             {
                 gameManager.ExitDialogue();
                 GameObject.Destroy(gameObject);
-                in_mode = false;
+
             }
         }
     }
 
-    public bool In_Mode(){
-        return in_mode;
+    
+    void OnClick()
+    {
+        //Still need to fix the math...
+           // Debug.Log(transform.Find("ItemPanel").position);
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            float mousePos_x = Input.mousePosition.x/Screen.width;
+            float mousePos_y = Input.mousePosition.y/Screen.height;
+            Debug.Log(mousePos_x + ", " +mousePos_y);
+            for (int x = 0; x < 3; x++)
+            {
+                for (int y = 0; y < 3; y++)
+                {
+                    if (((.234f + .14f * x) < mousePos_x) && ((.95 - .25f * y) > mousePos_y))
+                    {
+                        pointer = x;
+                        pointer2 = y;
+                        gameManager.ExitDialogue();
+                        GameObject.Destroy(gameObject);
+                        Debug.Log("working");
+                        break;
+                    }
+                }
+            }
+               
+        
     }
 
     void Inventory()
@@ -96,16 +127,20 @@ public class Menu : MonoBehaviour
         transform.Find("Text").gameObject.SetActive(false);
         transform.Find("Pointer").gameObject.SetActive(false);
         transform.Find("ItemPanel").gameObject.SetActive(true);
+
+        
         for (int x = 0; x < 3; x++)
         {
             for (int y = 0; y < 3; y++)
             {
                 if (!(x == 0 && y == 0))
                 {
-                    Transform z = (Instantiate(transform.Find("ItemPanel"), new Vector3(0, 1, 0), Quaternion.identity)) as Transform;
+                   Transform z = (Instantiate(transform.Find("ItemPanel"), new Vector3(0, 1, 0), Quaternion.identity)) as Transform;
+        z.transform.Translate(new Vector2(0.1f,0.2f));
                     z.transform.SetParent(transform, false);
-                    z.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.154f + .14f * x), (.975f - .25f * y));
-                    z.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.014f + .14f * x), (.725f - .25f * y));
+                    z.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.3775f + .14f * x), (.95f - .25f * y));
+                    z.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f + .14f * x), (.695f - .25f * y));
+                    
                 }
             }
         }
@@ -125,8 +160,10 @@ public class Menu : MonoBehaviour
         image.AddComponent<CanvasRenderer>();
         image.AddComponent<Image>();
         image.transform.GetComponent<Image>().sprite = Resources.Load<Sprite>(item);
-        image.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.154f + .14f * pointer), (.975f - .25f * pointer2));
-        image.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.014f + .14f * pointer), (.725f - .25f * pointer2));
+        //image.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.154f + .14f * pointer), (.975f - .25f * pointer2));
+        //image.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.014f + .14f * pointer), (.725f - .25f * pointer2));
+        image.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.3775f + .14f * pointer), (.95f - .25f * pointer2));
+        image.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f + .14f * pointer), (.695f - .25f * pointer2));
         image.transform.GetComponent<RectTransform>().anchoredPosition = new Vector2(.5f, .5f);
         image.transform.GetComponent<RectTransform>().localScale = new Vector2(.5f, .5f);
         image.transform.GetComponent<Image>().preserveAspect = true;
@@ -145,8 +182,10 @@ public class Menu : MonoBehaviour
     void DrawSelect()
     {
         transform.Find("ItemSelect").gameObject.SetActive(true);
-        transform.Find("ItemSelect").transform.GetComponent<RectTransform>().anchorMax = new Vector2((.154f + .14f * pointer), (.975f - .25f * pointer2));
-        transform.Find("ItemSelect").transform.GetComponent<RectTransform>().anchorMin = new Vector2((.014f + .14f * pointer), (.725f - .25f * pointer2));
+        //transform.Find("ItemSelect").transform.GetComponent<RectTransform>().anchorMax = new Vector2((.154f + .14f * pointer), (.975f - .25f * pointer2));
+        //transform.Find("ItemSelect").transform.GetComponent<RectTransform>().anchorMin = new Vector2((.014f + .14f * pointer), (.725f - .25f * pointer2));
+        transform.Find("ItemSelect").transform.GetComponent<RectTransform>().anchorMax = new Vector2((.3775f + .14f * pointer), (.95f - .25f * pointer2));
+        transform.Find("ItemSelect").transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f + .14f * pointer), (.695f - .25f * pointer2));
         transform.Find("ItemSelect").SetAsLastSibling();
         if (gameManager.GetItemData()[pointer + pointer2 * 3] != null)
         {

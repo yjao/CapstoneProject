@@ -7,8 +7,8 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    public int gameClock = 0;
-    public string gameClockDisplay = "";
+    private int gameClock = 0;
+    private string gameClockDisplay = "";
     PlayerData Data = new PlayerData();
     DayData dayData = new DayData();
 	public static GameManager Instance;
@@ -286,7 +286,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public string GetTime()
+    {
+        return gameClockDisplay;
+    }
 
+    public void IncreaseTime()
+    {
+        gameClock += 2;
+    }
     void ItemPickup(object sender, GameEventArgs args)
     {
         dayData.Inventory[dayData.ItemAmount] = AllItems[args.IDNum];

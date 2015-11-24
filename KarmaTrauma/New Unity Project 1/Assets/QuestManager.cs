@@ -40,11 +40,16 @@ public class QuestManager : MonoBehaviour
 
 		// Any required/trigger items?
 		Debug.Log("QuestManager says: Faye told me to not check your bags yet.");
+		bool requiredItem = GameManager.Instance.HasItem("Jewel");
 
 		// Check boolean values.
 		Debug.Log("QuestManager says: No boolean values to report.");
 
 		// Overwrite NPC's Interact()
 		Debug.Log("QuestManager says: No Interact() has been modified.");
+		if ((intr.Name == "Frost") && (requiredItem))
+		{
+			GameManager.Instance.CreateMessage("You cleared the game!");
+		}
 	}
 }

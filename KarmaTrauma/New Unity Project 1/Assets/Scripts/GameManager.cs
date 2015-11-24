@@ -7,10 +7,10 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-	private const bool PARSING_MODE = true;
-
     private int gameClock = 0;
     private string gameClockDisplay = "";
+    private const bool PARSING_MODE = true;
+
     PlayerData Data = new PlayerData();
     DayData dayData = new DayData();
     public static GameManager Instance;
@@ -40,21 +40,21 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         if ((Instance != null) && (Instance != this))
-		{
+        {
             Destroy(gameObject);
-			return;
-		}
-        
-		Instance = this;
-		DontDestroyOnLoad(this);
+            return;
+        }
 
-		// default to playing mode for now
-		GameMode = MODE.PLAYING;
+        Instance = this;
+        DontDestroyOnLoad(this);
 
-		// Load interaction info here?
+        // default to playing mode for now
+        GameMode = MODE.PLAYING;
+
+        // Load interaction info here?
         AllObjects = new Dictionary<int, Interactable>()
-		{
-			{ 150, new Interactable("Jewel", "", new Dialogue[] {
+        {
+            /*{ 150, new Interactable("Jewel", "", new Dialogue[] {
                     new Dialogue(0,"Choice Testing.", new Choice[] {
                         new Choice("Talk to jewel"),
                         new Choice("Take the jewel", new ChoiceEventArgs(){ChoiceAction = InteractableObject.InteractItem,Testing = "action test", IDNum = 150}),
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
                         new Choice("Shove the jewel", new ChoiceEventArgs(){ChoiceAction = InteractableObject.InteractMove, ShoveX = 1}),
                         new Choice("Do nothing")
                         })
-				    })}
+                    })}*/
         };
         /*
         AllObjects = new Dictionary<int, Interactable>()
@@ -152,15 +152,15 @@ public class GameManager : MonoBehaviour
         //items[3] = new Item("Stairs", "How did you steal the stairs?!", "stairs");
         //itemAmount = 4;
 
-		// Parse Game Data
-		if (PARSING_MODE)
-		{
-			DataLoader dataLoader = new DataLoader();
-		}
-		else
-		{
-			LoadGameData();
-		}
+        // Parse Game Data
+        if (PARSING_MODE)
+        {
+            DataLoader dataLoader = new DataLoader();
+        }
+        else
+        {
+            LoadGameData();
+        }
     }
 
     void Start()
@@ -243,28 +243,25 @@ public class GameManager : MonoBehaviour
             ch.LastDialogueDisplayed++;
         else if (!next && ch.LastDialogueDisplayed < 0)
             ch.LastDialogueDisplayed = 0;
-        if (ch.Dialogue[ch.LastDialogueDisplayed].text.Contains("%B"))
+        if (ch.Dialogue[ch.LastDialogueDisplayed].setbool != null)
         {
-            string message = ch.Dialogue[ch.LastDialogueDisplayed].text.Substring(4);
-            string dataBool = message.Substring(0, message.IndexOf('~'));
-            message = message.Substring(message.IndexOf('~') + 1);
-            Data.DataDictionary[dataBool] = true;
-            CreateDialogue(ch.Name, "\"" + message);
+            Data.DataDictionary[ch.Dialogue[ch.LastDialogueDisplayed].setbool] = true;
         }
-        else if (ch.Dialogue[ch.LastDialogueDisplayed].choices != null)
+        if (ch.Dialogue[ch.LastDialogueDisplayed].choices != null)
         {
             CreateChoice(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed].text, ch.Dialogue[ch.LastDialogueDisplayed].choices);
         }
         else
         {
-            CreateDialogue(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed].text);
+            CreateDialogue(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed]);
         }
     }
 
-    public void CreateDialogue(string name, string message)
+    public void CreateDialogue(string name, Dialogue message)
     {
         GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
-        dialog.GetComponent<Textbox>().DrawBox(name, message);
+        dialog.GetComponent<Textbox>().Dialog = message;
+        dialog.GetComponent<Textbox>().DrawBox(name, message.text);
     }
 
     public void CreateChoice(string name, string message, Choice[] options)
@@ -289,6 +286,12 @@ public class GameManager : MonoBehaviour
     {
         GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
         dialog.GetComponent<Textbox>().DrawMessage(message);
+    }
+
+    public Dialogue GetNextDialogue(int id, int dialogueID)
+    {
+        Interactable ch = AllObjects[id];
+        return ch.Dialogue[dialogueID + 1];
     }
 
     public void EnterDialogue()
@@ -317,7 +320,7 @@ public class GameManager : MonoBehaviour
         else if (gameClock > 12)
         {
             int time = gameClock - 12;
-            gameClockDisplay =  time.ToString() + "PM";
+            gameClockDisplay = time.ToString() + "PM";
             gameClockDisplay = time.ToString() + "PM";
         }
     }
@@ -384,27 +387,27 @@ public class GameManager : MonoBehaviour
         //Debug.Log (GameMode);
     }
 
-	#region Game Data Loading
+    #region Game Data Loading
 
-	public void SaveGameData()
-	{
-		BinaryFormatter bf = new BinaryFormatter();
-		FileStream file = File.Create(Application.persistentDataPath + "/GameData.DK");
-		Debug.Log("Game Data saved to file in " + Application.persistentDataPath);
+    public void SaveGameData()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/GameData.DK");
+        Debug.Log("Game Data saved to file in " + Application.persistentDataPath);
 
-		bf.Serialize(file, AllObjects);
-		file.Close();
-	}
-	
-	public void LoadGameData()
-	{
-		if (File.Exists(Application.persistentDataPath + "/GameData.DK"))
-		{
-			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath + "/GameData.DK", FileMode.Open);
+        bf.Serialize(file, AllObjects);
+        file.Close();
+    }
+
+    public void LoadGameData()
+    {
+        if (File.Exists(Application.persistentDataPath + "/GameData.DK"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/GameData.DK", FileMode.Open);
             AllObjects = (Dictionary<int, Interactable>)bf.Deserialize(file);
-			Debug.Log("Game Data loaded from file");
-			file.Close();			
+            Debug.Log("Game Data loaded from file");
+            file.Close();
         }
     }
 

@@ -87,7 +87,26 @@ public class DataLoader
 			new Choice("I guess I'll eat it" /*Insert Message Box "You actually ate it?"*/),
 			new Choice("Nah...")
 		};
-        
+
+        string[] jewel = new string[]
+        {
+            "Setting bool"
+        };
+        AddNpc(150, "Jewel", "Jewel", jewel);
+        GameManager.Instance.AllObjects[150].Dialogue[0].setbool = "JewelTest";
+
+        string[] jewel2 = new string[]
+        {
+            "Bool is false"
+        };
+        AddNpc(151, "Jewel", "Jewel", jewel2);
+
+        string[] jewel3 = new string[]
+        {
+            "Bool is true"
+        };
+        AddNpc(152, "Jewel", "Jewel", jewel3);
+
 		string[] alfred = new string[]
 		{
 			"A man who jumped off of the building."

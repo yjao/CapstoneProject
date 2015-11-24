@@ -14,4 +14,5 @@ public class ChoiceEventArgs
     public int Integer { get; set; }
     public int ShoveX { get; set; }
     public int IDNum { get; set; }
+    public int DialogueID { get; set; }
 }

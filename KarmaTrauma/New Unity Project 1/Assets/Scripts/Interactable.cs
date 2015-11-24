@@ -40,11 +40,19 @@ public class Dialogue
 	public string text;
 	public Choice[] choices;
 	public Interactable.Action Action;
-    public Dialogue(int _id, string _text, Choice[] _choices = null)
+    public ChoiceEventArgs CEA;
+    public string setbool;
+    public Dialogue(int _id, string _text, Choice[] _choices = null, ChoiceEventArgs _CEA = null, string b = null)
     {
         ID = _id;
         text = _text;
         choices = _choices;
+        setbool = b;
+        if (_CEA != null)
+        {
+            CEA = _CEA;
+            Action += _CEA.ChoiceAction;
+        }
     }
 }
 

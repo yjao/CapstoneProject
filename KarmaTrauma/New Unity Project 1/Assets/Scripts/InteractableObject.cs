@@ -60,7 +60,7 @@ public class InteractableObject : MonoBehaviour
 
     void OnDestroy()
     {
-        EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
+        //EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
     }
 
     private void CallDialogue()
@@ -92,28 +92,34 @@ public class InteractableObject : MonoBehaviour
                 newIndex = DialogueIDSingle + 1;
                 break;
         }
-        gameManager.DBox(ID, DialogueIDSingle);
+
+		if (gameManager.AllObjects[ID].Dialogue[DialogueIDSingle].TypeIsChoice())
+		{
+			EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
+		}
+		gameManager.DBox(ID, DialogueIDSingle);
         DialogueIDSingle = newIndex;
     }
 
     public void Interact()
     {
         EventManager.NotifyNPC(this, new GameEventArgs() { ThisGameObject = gameObject });
-        EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
-        EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
-
+        //EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
+        
         switch (InteractionType)
         {
             case TYPE.DIALOG:
                 if (gameManager.GameMode != GameManager.MODE.DIALOGUE)
+				{
                     CallDialogue();
+				}
                 break;
         }
     }
 
     public static void InteractItem(object sender, GameEventArgs args)
     {
-        Debug.Log(args.Testing);
+		if (args.Testing != null) {Debug.Log(args.Testing);}
         EventManager.NotifyItemTaken(sender, args);
         GameObject.Destroy(args.ThisGameObject);
     }
@@ -151,6 +157,7 @@ public class InteractableObject : MonoBehaviour
 
     void HandleOnDialogChoiceMade(object sender, GameEventArgs args)
     {
+		EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
         args.ThisGameObject = gameObject;
         if (args.ChoiceAction != null)
         {

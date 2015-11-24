@@ -64,8 +64,7 @@ public class DataLoader
         string[] frost = new string[]
 		{
 			"\"Welcome to Frost's Pizza.\"",
-			"\"Today's special is Hwaiian Combo. It's only $2 a piece!\"",
-            
+			"\"Today's special is Hwaiian Combo. It's only $2 a piece!\""
         };
         AddNpc(67, "Frost", "", frost);
 
@@ -117,6 +116,17 @@ public class DataLoader
 			new Choice("Should I talk to him?"),
 			new Choice("Nah...")
         };
+
+		string[] jewel4 =
+		{
+			"Are you worthy enough to take the Debugger's Jewel?"
+		};
+		AddNpc(153, "Jewel", "", jewel4);
+		GameManager.Instance.AllObjects[153].Dialogue[0].choices = new Choice[2]
+		{
+			new Choice("You bet!", new ChoiceEventArgs() { ChoiceAction = InteractableObject.InteractItem, IDNum = 150 }),
+			new Choice("Nah, Idk Ruby.")
+		};
 	}
 
 	private void LoadTestData()
@@ -124,10 +134,16 @@ public class DataLoader
 		string[] test = new string[] 
 		{
 			"Oh um, hey, I didn't see you there. ...Go back to class!",
-			"And how dare you ditch your first day?",
-			"I can't believe this! Will you stop stealing? High schooler these days think they're all grown up..."
+			"Shh kid, can you find me one of those debugger jewels?",
+			"O.M.G.!!! You actually brought it. Gimme!"
 		};
-		AddNpc(999, "Mr. Ly", "", test);
+		AddNpc(999, "Mr. Test", "", test);
+		GameManager.Instance.AllObjects[999].Dialogue[1].setbool = "GimmeJewel";
+		/*GameManager.Instance.AllObjects[999].Dialogue[2].choices = new Choice[]
+		{
+			new Choice("Never!", new ChoiceEventArgs() { ChoiceAction =  }),
+			new Choice("I guess...")
+		};*/
 	}
 
 	public DataLoader()

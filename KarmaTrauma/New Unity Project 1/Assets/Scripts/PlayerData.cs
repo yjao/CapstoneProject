@@ -5,13 +5,25 @@ using System.Collections.Generic;
 public class PlayerData
 {
 	// Cutscenes Watched, or we can just use "Esc to skip scene" feature
-	public bool AlfredJumpsCW = false;
+	/*public bool AlfredJumpsCW = false;
 	bool MomBreakfastCW = false;
 	bool ClassIntroductionsCW = false;
     bool JewelTest = false;
-    public Dictionary<string, bool> DataDictionary = new Dictionary<string, bool>()
+	public bool GimmeJewel = false;*/
+	public Dictionary<string, bool> DataDictionary = new Dictionary<string, bool>()
     {
-        {"AlfredJumpsCW", false},
-        {"JewelTest", false}
+		{"AlfredJumpsCW", false},
+		{"JewelTest", false},
+		{"GimmeJewel", false}
     };
+
+	public void SetBool(string boolName, bool value=true)
+	{
+		DataDictionary[boolName] = value;
+	}
+
+	public bool GetBool(string boolName)
+	{
+		return DataDictionary[boolName];
+	}
 }

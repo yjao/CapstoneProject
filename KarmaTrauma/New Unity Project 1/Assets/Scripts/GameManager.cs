@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     private string gameClockDisplay = "";
     private const bool PARSING_MODE = true;
 
-    PlayerData Data = new PlayerData();
-    DayData dayData = new DayData();
+    public PlayerData Data = new PlayerData();
+    public DayData dayData = new DayData();
     public static GameManager Instance;
     public GameObject DialogueContainer;
     public enum MODE
@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
         DontDestroyOnLoad(this);
 
@@ -192,7 +191,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("File Saved");
         Debug.Log(Application.persistentDataPath);
         //PlayerData data = new PlayerData();
-        Data.AlfredJumpsCW = true;
+        //Data.AlfredJumpsCW = true;
 
         bf.Serialize(file, Data);
         file.Close();
@@ -207,7 +206,7 @@ public class GameManager : MonoBehaviour
             FileStream file = File.Open(Application.persistentDataPath + "/SaveData.DK", FileMode.Open);
             PlayerData Data = (PlayerData)bf.Deserialize(file);
             Debug.Log("File Load");
-            Debug.Log(Data.AlfredJumpsCW);
+            //Debug.Log(Data.AlfredJumpsCW);
             file.Close();
 
             //days = data.days;
@@ -240,20 +239,26 @@ public class GameManager : MonoBehaviour
     {
         Interactable ch = AllObjects[id];
         if (next)
+		{
             ch.LastDialogueDisplayed++;
+		}
         else if (!next && ch.LastDialogueDisplayed < 0)
-            ch.LastDialogueDisplayed = 0;
-        if (ch.Dialogue[ch.LastDialogueDisplayed].setbool != null)
+		{
+			ch.LastDialogueDisplayed = 0;
+		}
+
+		Dialogue dialogue = ch.Dialogue[ch.LastDialogueDisplayed];
+		if (dialogue.setbool != null)
         {
-            Data.DataDictionary[ch.Dialogue[ch.LastDialogueDisplayed].setbool] = true;
+			Data.SetBool(dialogue.setbool);
         }
-        if (ch.Dialogue[ch.LastDialogueDisplayed].choices != null)
+        if (dialogue.TypeIsChoice())
         {
-            CreateChoice(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed].text, ch.Dialogue[ch.LastDialogueDisplayed].choices);
+            CreateChoice(ch.Name, dialogue.text, dialogue.choices);
         }
         else
         {
-            CreateDialogue(ch.Name, ch.Dialogue[ch.LastDialogueDisplayed]);
+            CreateDialogue(ch.Name, dialogue);
         }
     }
 
@@ -268,7 +273,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
 
-        Debug.Log(options[0].option);
+        //Debug.Log(options[0].option);
         dialog.GetComponent<Textbox>().Choice(name, message, options);
         /*
         message = message.Substring(3);

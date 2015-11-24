@@ -33,21 +33,23 @@ public class QuestManager : MonoBehaviour
 
 		// Who is the NPC?
 		Interactable intr = GameManager.Instance.GetInteractableByID(args.ThisGameObject.GetComponent<InteractableObject>().ID);
-		Debug.Log("QuestManager says: Hello, " + intr.Name);
+		Debug.Log("QM: Hello, " + intr.Name);
+		bool requiredNpc = (intr.Name == "Mr. Test");
 
 		// What time is it?
-		Debug.Log("QuestManager says: The time now is " + GameManager.Instance.GetTime());
+		Debug.Log("QM: The time now is " + GameManager.Instance.GetTime());
 
 		// Any required/trigger items?
-		Debug.Log("QuestManager says: Faye told me to not check your bags yet.");
 		bool requiredItem = GameManager.Instance.HasItem("Jewel");
+		Debug.Log("QM: Checking to see if you have Jewel. You do" + (requiredItem? "!" : " NOT!"));
 
 		// Check boolean values.
-		Debug.Log("QuestManager says: No boolean values to report.");
+		bool requiredBool = GameManager.Instance.Data.GetBool("GimmeJewel");
+		Debug.Log("QM: Checking to see if he wanted Jewel. " + (requiredBool? "He does!" : "NOT yet!"));
 
 		// Overwrite NPC's Interact()
 		Debug.Log("QuestManager says: No Interact() has been modified.");
-		if ((intr.Name == "Frost") && (requiredItem))
+		if (requiredNpc && requiredItem && requiredBool)
 		{
 			GameManager.Instance.CreateMessage("You cleared the game!");
 		}

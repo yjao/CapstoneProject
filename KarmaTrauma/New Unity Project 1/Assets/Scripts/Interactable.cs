@@ -42,7 +42,8 @@ public class Dialogue
 	public Interactable.Action Action;
     public ChoiceEventArgs CEA;
     public string setbool;
-    public Dialogue(int _id, string _text, Choice[] _choices = null, ChoiceEventArgs _CEA = null, string b = null)
+    
+	public Dialogue(int _id, string _text, Choice[] _choices = null, ChoiceEventArgs _CEA = null, string b = null)
     {
         ID = _id;
         text = _text;
@@ -54,6 +55,11 @@ public class Dialogue
             Action += _CEA.ChoiceAction;
         }
     }
+
+	public bool TypeIsChoice()
+	{
+		return choices != null;
+	}
 }
 
 [Serializable]

@@ -7,4 +7,5 @@ public class DayData
     public Item[] Inventory = new Item[9];
     public int ItemAmount = 0;
     bool ChelseyHouseDoorUnlocked = false;
+	//bool FrostWantsJewel = false;
 }

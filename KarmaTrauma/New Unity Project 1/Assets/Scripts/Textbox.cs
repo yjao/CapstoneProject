@@ -35,7 +35,7 @@ public class Textbox : MonoBehaviour
 	
 	void Update()
     {
-        Debug.Log("updating");
+        //Debug.Log("updating");
         if (choice_mode == true)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -58,7 +58,7 @@ public class Textbox : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("pressing space choice");
+                //Debug.Log("pressing space choice");
                 done = true;
                 GameEventArgs g = new GameEventArgs();
                 g.DialogueBox = this;
@@ -70,7 +70,7 @@ public class Textbox : MonoBehaviour
                     EventManager.NotifyDialogChoiceMade(this, g);
                     if (oldaction != continueDialogue)
                     {
-                        Debug.Log("hi there");
+                        //Debug.Log("hi there");
                         EventManager.NotifySpaceBar(this, new GameEventArgs());
                     }
                 }
@@ -82,7 +82,7 @@ public class Textbox : MonoBehaviour
         }
         else if (choice_mode == false && Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("pressing space");
+            //Debug.Log("pressing space");
             if (Dialog.CEA != null)
             {
                 GameEventArgs g = new GameEventArgs();

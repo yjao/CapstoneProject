@@ -23,10 +23,7 @@ public class Textbox : MonoBehaviour
 
     void SelfDestruct(object sender, GameEventArgs args)
     {
-        if (args.ChoiceAction == null)
-        {
-            GameObject.Destroy(gameObject);
-        }
+        GameObject.Destroy(gameObject);
     }
 
 
@@ -38,6 +35,7 @@ public class Textbox : MonoBehaviour
 	
 	void Update()
     {
+        Debug.Log("updating");
         if (choice_mode == true)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -60,6 +58,7 @@ public class Textbox : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
+                Debug.Log("pressing space choice");
                 done = true;
                 GameEventArgs g = new GameEventArgs();
                 g.DialogueBox = this;
@@ -75,13 +74,18 @@ public class Textbox : MonoBehaviour
                         EventManager.NotifySpaceBar(this, new GameEventArgs());
                     }
                 }
+                else
+                {
+                    EventManager.NotifySpaceBar(this, new GameEventArgs());
+                }
             }
         }
         else if (choice_mode == false && Input.GetKeyDown(KeyCode.Space))
         {
-            //GameObject.Destroy(gameObject);
+            Debug.Log("pressing space");
             if (Dialog.CEA != null)
             {
+                //Debug.Log("hi there");
                 GameEventArgs g = new GameEventArgs();
                 g.ConvertChoiceEventArgs(Dialog.CEA);
                 g.DialogueBox = this;
@@ -89,7 +93,7 @@ public class Textbox : MonoBehaviour
                 EventManager.NotifyDialogChoiceMade(this, g);
                 if (oldaction != continueDialogue)
                 {
-                    Debug.Log("hi there");
+                    //Debug.Log("hi there");
                     EventManager.NotifySpaceBar(this, new GameEventArgs());
                 }
             }

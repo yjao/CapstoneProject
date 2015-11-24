@@ -99,6 +99,7 @@ public class InteractableObject : MonoBehaviour
     public void Interact()
     {
         EventManager.NotifyNPC(this, new GameEventArgs() { ThisGameObject = gameObject });
+        EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
         EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
 
         switch (InteractionType)
@@ -155,7 +156,7 @@ public class InteractableObject : MonoBehaviour
         {
             args.ChoiceAction(this, args);
         }
-        EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
+        //EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
     }
 
     void Update()

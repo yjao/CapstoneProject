@@ -89,10 +89,13 @@ public class DataLoader
 
         string[] jewel = new string[]
         {
-            "Setting bool"
+            "hi"
         };
         AddNpc(150, "Jewel", "Jewel", jewel);
-        GameManager.Instance.AllObjects[150].Dialogue[0].setbool = "JewelTest";
+		GameManager.Instance.AllObjects[150].Dialogue[0].choices = new Choice[1]
+		{
+			new Choice("Push the jewel", new ChoiceEventArgs(){ChoiceAction = InteractableObject.InteractMove, ShoveX = 2})
+		};
 
         string[] jewel2 = new string[]
         {
@@ -135,15 +138,17 @@ public class DataLoader
 		{
 			"Oh um, hey, I didn't see you there. ...Go back to class!",
 			"Shh kid, can you find me one of those debugger jewels?",
-			"O.M.G.!!! You actually brought it. Gimme!"
+			"Did you bring the Jewel?",
+			"O.M.G.!!! You actually brought it. Gimme!",
+			"Well whatever, you don't get to clear the game."
 		};
 		AddNpc(999, "Mr. Test", "", test);
 		GameManager.Instance.AllObjects[999].Dialogue[1].setbool = "GimmeJewel";
-		/*GameManager.Instance.AllObjects[999].Dialogue[2].choices = new Choice[]
+		GameManager.Instance.AllObjects[999].Dialogue[3].choices = new Choice[]
 		{
-			new Choice("Never!", new ChoiceEventArgs() { ChoiceAction =  }),
+			new Choice("Never!", new ChoiceEventArgs() { ChoiceAction =  Textbox.continueDialogue, IDNum = 999, DialogueID = 3}),
 			new Choice("I guess...")
-		};*/
+		};
 	}
 
 	public DataLoader()

@@ -301,7 +301,10 @@ public class GameManager : MonoBehaviour
 
     public void EnterDialogue()
     {
-        PrevMode = GameMode;
+		if (GameMode != MODE.DIALOGUE)
+		{
+        	PrevMode = GameMode;
+		}
         GameMode = MODE.DIALOGUE;
     }
 

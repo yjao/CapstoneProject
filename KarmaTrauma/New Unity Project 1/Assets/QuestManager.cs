@@ -51,7 +51,12 @@ public class QuestManager : MonoBehaviour
 		Debug.Log("QuestManager says: No Interact() has been modified.");
 		if (requiredNpc && requiredItem && requiredBool)
 		{
-			GameManager.Instance.CreateMessage("You cleared the game!");
+			// MAKE ME INTO A FUNCTION
+			//or a UpdateScene()
+			//GameManager.Instance.CreateMessage("You cleared the game!");
+			InteractableObject mrly = GameObject.Find("MrLy").GetComponent<InteractableObject>();
+			mrly.DialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID;
+			mrly.DialogueIDSingle = 3;
 		}
 	}
 }

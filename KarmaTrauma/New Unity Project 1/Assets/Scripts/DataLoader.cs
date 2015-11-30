@@ -3,6 +3,8 @@ using System.Collections;
 
 public class DataLoader
 {
+    enum ChoiceAction{ITEM, MOVE, CONTINUE, DESTROY, NONE}
+
 	private void AddNpc(int ID, string name, string strangerName, string[] strings)
 	{
 		Dialogue[] dialogues = new Dialogue[strings.GetLength(0)];
@@ -89,12 +91,17 @@ public class DataLoader
 
         string[] jewel = new string[]
         {
-            "hi"
+            "hi",
+            "continue",
+            "more"
         };
         AddNpc(150, "Jewel", "Jewel", jewel);
-		GameManager.Instance.AllObjects[150].Dialogue[0].choices = new Choice[1]
+		GameManager.Instance.AllObjects[150].Dialogue[0].choices = new Choice[]
 		{
-			new Choice("Push the jewel", new ChoiceEventArgs(){ChoiceAction = InteractableObject.InteractMove, ShoveX = 2})
+            addChoice("Talk to the jewel", ChoiceAction.CONTINUE, 150, 1),
+            addChoice("Take the jewel", ChoiceAction.ITEM, 150),
+            addChoice("Destroy the jewel", ChoiceAction.DESTROY),
+            addChoice("Do nothing")
 		};
 
         string[] jewel2 = new string[]
@@ -161,4 +168,38 @@ public class DataLoader
 		Debug.Log("Loading Complete");
 		GameManager.Instance.SaveGameData();
 	}
+
+    private ChoiceEventArgs item(int id)
+    {
+        ChoiceEventArgs CEA = new ChoiceEventArgs() { ChoiceAction = InteractableObject.InteractItem, IDNum = id };
+        return CEA;
+    }
+
+    private ChoiceEventArgs continueDialog(int id, int dialogueID)
+    {
+        ChoiceEventArgs CEA = new ChoiceEventArgs() { ChoiceAction = Textbox.continueDialogue, IDNum = id, DialogueID = dialogueID };
+        return CEA;
+    }
+
+    private Choice addChoice(string text, ChoiceAction CA = ChoiceAction.NONE, int id = -1, int subID = -1)
+    {
+        ChoiceEventArgs CEA;
+        if (CA == ChoiceAction.ITEM)
+        {
+            CEA = item(id);
+        }
+        else if (CA == ChoiceAction.CONTINUE)
+        {
+            CEA = continueDialog(id, subID);
+        }
+        else if (CA == ChoiceAction.DESTROY)
+        {
+            CEA = new ChoiceEventArgs() { ChoiceAction = InteractableObject.InteractDestroy };
+        }
+        else
+        {
+            CEA = new ChoiceEventArgs();
+        }
+        return new Choice(text, CEA);
+    }
 }

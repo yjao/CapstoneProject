@@ -296,7 +296,7 @@ public class GameManager : MonoBehaviour
     public Dialogue GetNextDialogue(int id, int dialogueID)
     {
         Interactable ch = AllObjects[id];
-        return ch.Dialogue[dialogueID + 1];
+        return ch.Dialogue[dialogueID];
     }
 
     public void EnterDialogue()
@@ -310,7 +310,9 @@ public class GameManager : MonoBehaviour
 
     public void ExitDialogue()
     {
+        MODE oldGameMode = GameMode;
         GameMode = PrevMode;
+        PrevMode = oldGameMode;
     }
 
     #endregion
@@ -349,6 +351,7 @@ public class GameManager : MonoBehaviour
     }
     void ItemPickup(object sender, GameEventArgs args)
     {
+        Debug.Log(args.IDNum);
         dayData.Inventory[dayData.ItemAmount] = AllItems[args.IDNum];
         dayData.ItemAmount += 1;
     }

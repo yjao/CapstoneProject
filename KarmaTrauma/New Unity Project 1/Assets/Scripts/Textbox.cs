@@ -29,7 +29,6 @@ public class Textbox : MonoBehaviour
 
 	void OnDestroy()
 	{
-		Debug.Log ("destroy");
         EventManager.OnSpaceBar -= SelfDestruct;
         gameManager.ExitDialogue();
 	}
@@ -170,11 +169,10 @@ public class Textbox : MonoBehaviour
         {
             if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
             {
-                Debug.Log("hi");
-				//args.DialogueBox.gameManager.PrevMode = args.DialogueBox.gameManager.MODE.PLAYING;
-				args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID + 1);
-				//args.DialogueBox.gameManager.GameMode = GameManager.MODE.DIALOGUE;
-				args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs());
+				args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID);
+                args.ThisGameObject.transform.GetComponent<InteractableObject>().DialogueIDSingle += 1;
+                args.DialogueBox.gameManager.ExitDialogue();
+				args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs());;
             }
             args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = args.DialogueBox.Dialog.text;
         }

@@ -129,6 +129,11 @@ public class InteractableObject : MonoBehaviour
         args.ThisGameObject.transform.Translate(args.ShoveX, 0, 0);
     }
 
+    public static void InteractDestroy(object sender, GameEventArgs args)
+    {
+        GameObject.Destroy(args.ThisGameObject);
+    }
+
     /*public void CheckAndTurnCharacter()
     {
         if (this.transform.position.x > player.gameObject.transform.position.x)

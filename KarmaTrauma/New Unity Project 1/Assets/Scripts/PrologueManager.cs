@@ -284,14 +284,18 @@ public class PrologueManager : MonoBehaviour
         //GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_WALK);
         Destroy(GameObject.Find("Kelly"));
 
+        /*
         gameManager.Play();
 
         while (Player.Instance.transform.position.x > 10)
         {
             yield return null;
         }
+         * */
 
         gameManager.Wait();
+
+        yield return StartCoroutine(GameObject.Find("Player").GetComponent<CharacterAnimations>().Move(left, 10.00f, CharacterAnimations.States.LEFT_WALK));
 
         while (!GameObject.Find("Alfred").GetComponent<Falling>().HasFallen())
         {

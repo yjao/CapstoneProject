@@ -4,21 +4,34 @@ using System.Collections.Generic;
 
 public class PlayerData
 {
-	// Cutscenes Watched, or we can just use "Esc to skip scene" feature
-	/*public bool AlfredJumpsCW = false;
-	bool MomBreakfastCW = false;
-	bool ClassIntroductionsCW = false;
-    bool JewelTest = false;
-	public bool GimmeJewel = false;*/
+	public int daysPassed;
+
 	public Dictionary<string, bool> DataDictionary = new Dictionary<string, bool>()
     {
 		{"AlfredJumps_CutsceneWatched", false},
-		{"GimmeJewel_QuestUnlocked", false}
+		{"GimmeJewel_QuestUnlocked", false},
+		{"AlfredName_Learned", false},
+		{"AlfredIsPolice_Learned", false}
     };
 
 	public void SetBool(string boolName, bool value=true)
 	{
 		DataDictionary[boolName] = value;
+
+		// hardcoded
+		if (GetBool("AlfredName_Learned"))
+		{
+			QuestManager.Instance.RemoveQuestFromLog(1);
+
+			// Hard-coded to remove bae from inventory because I don't know how :(
+			for (int i = 0; i < GameManager.Instance.dayData.ItemAmount; i++)
+			{
+				if (GameManager.Instance.dayData.Inventory[i].Name == "Bacon and Eggs")
+				{
+					GameManager.Instance.dayData.Inventory[i] = null;
+				}
+			}
+		}
 	}
 
 	public bool GetBool(string boolName)

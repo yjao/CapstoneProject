@@ -5,7 +5,9 @@ public class QuestManager : MonoBehaviour
 {
 	public static QuestManager Instance;
 	private GameManager gameManager;
-    private ArrayList quest_log;
+    
+	//temp public
+	public ArrayList quest_log;
 
 	void Start()
 	{
@@ -52,17 +54,15 @@ public class QuestManager : MonoBehaviour
 		switch (intr.Name)
 		{
 		case "Mr. Test":
+			if (gameManager.dayData.GetQuest("Quest1"))
+			{
+				Change("MrLy", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 5);
+				break;
+			}
 			requiredNpc = (intr.Name == "Mr. Test");
 			requiredItem = gameManager.HasItem("Jewel");
 			//Debug.Log("QM: Checking to see if you have Jewel. You do" + (requiredItem? "!" : " NOT!"));
 			requiredBools = gameManager.dayData.GetBool("GimmeJewel");
-
-			if (requiredBools)
-			{
-				AddQuestToLog(0);
-				Debug.Log ("added");
-			}
-
 			Debug.Log("QM: Checking to see if he wanted Jewel. " + (requiredBools? "He does!" : "NOT yet!"));
 			//Debug.Log("QuestManager says: No Interact() has been modified.");
 			if (requiredNpc && requiredItem && requiredBools)
@@ -70,24 +70,59 @@ public class QuestManager : MonoBehaviour
 				Change("MrLy", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 3);
 			}
 			break;
-		case "Mom":
-			requiredNpc = (intr.Name == "Mom");
+		case "Random Woman":
+			if (gameManager.Data.GetBool("AlfredName_Learned"))
+			{
+				GameManager.Instance.AllObjects[73].Dialogue[0].choices = null;
+				Change("Jeney", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 0);
+			}
+			requiredItem = gameManager.HasItem("Bacon and Eggs");
+			requiredBools = gameManager.dayData.GetBool("JeneyHungry");
+			if (requiredItem && requiredBools)
+			{
+				Change("Jeney", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 2);
+				gameManager.Data.SetBool("AlfredName_Learned");
+			}
+			break;
+		case "Mr.Ly":
+			if (gameManager.Data.GetBool("AlfredName_Learned"))
+			{
+				GameManager.Instance.AllObjects[65].Dialogue[4].choices = new Choice[]
+				{
+					DataLoader.Instance.addChoice("Say nothing"),
+					DataLoader.Instance.addChoice("Poor Alfred...", DataLoader.ChoiceAction.CONTINUE, 65, 6)
+				};
+			}
+			else
+			{
+				Change("MrLy", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 4);
+			}
 			break;
 		}
 	}
 
+	// temp method. really hardcoded
 	private void Change(string objName, InteractableObject.Dialogue_ID_Type dialogueIDType, int dialogueID)
 	{
-		InteractableObject npc = GameObject.Find(objName).GetComponent<InteractableObject>();
+		//InteractableObject npc = GameObject.Find(objName).GetComponent<InteractableObject>();
+		InteractableObject npc = GameObject.Find(objName).transform.GetChild(0).GetComponent<InteractableObject>();
 		npc.DialogueIDType = dialogueIDType;
 		npc.DialogueIDSingle = dialogueID;
 	}
 
-	private void AddQuestToLog(int index)
+	public void AddQuestToLog(int index)
 	{
 		if (!quest_log.Contains(index))
 		{
 			quest_log.Add(index);
+		}
+	}
+
+	public void RemoveQuestFromLog(int index)
+	{
+		if (quest_log.Contains(index))
+		{
+			quest_log.Remove(index);
 		}
 	}
 

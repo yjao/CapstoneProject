@@ -317,3 +317,18 @@ public class CharacterAnimations : MonoBehaviour
         yield break;
     }
 }
+
+/*
+public class Move : MonoBehaviour
+{
+    public int direction;
+    public float position;
+    public CharacterAnimations.States state;
+    public GameObject gameObj;
+
+    public IEnumerator MoveGroup()
+    {
+        yield break;
+    }
+}
+*/

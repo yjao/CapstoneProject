@@ -7,7 +7,7 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    private int gameClock = 0;
+    private int gameClock = 6;
     private string gameClockDisplay = "";
     private const bool PARSING_MODE = true;
 
@@ -349,6 +349,12 @@ public class GameManager : MonoBehaviour
     {
         gameClock += 2;
     }
+
+    public void ResetTime()
+    {
+        gameClock = 6;
+    }
+
     void ItemPickup(object sender, GameEventArgs args)
     {
         Debug.Log(args.IDNum);

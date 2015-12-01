@@ -82,52 +82,15 @@ public class PrologueManager : MonoBehaviour
         //Debug.Log(gameManager.GameMode);
     }
 
+	private void TutorialBox(string message, bool persist=false)
+	{
+		gameManager.CreateMessage(message, persist);
+	}
+
     private bool Pause()
     {
         return gameManager.GameMode == GameManager.MODE.DIALOGUE;
     }
-
-    /*
-	private IEnumerator MovePlayer(GameObject character, int animatorDirection, float newPositionValue, float speed=0.02f)
-	{
-        Animator animator = character.GetComponent<Animator>();
-		switch (animatorDirection)
-		{
-		case left:
-			while (character.transform.position.x >= newPositionValue)
-			{
-                character.transform.Translate(-speed, 0.0f, 0.0f);
-                animator.SetInteger(animationState, left);
-				yield return null;
-			}
-			break;
-		case right:
-            while (character.transform.position.x <= newPositionValue)
-			{
-                character.transform.Translate(speed, 0.0f, 0.0f);
-                animator.SetInteger(animationState, right);
-				yield return null;
-			}
-			break;
-		case down:
-            while (character.transform.position.y >= newPositionValue)
-			{
-                character.transform.Translate(0.0f, -speed, 0.0f);
-                animator.SetInteger(animationState, down);
-				yield return null;
-			}
-			break;
-		case up:
-            while (character.transform.position.y <= newPositionValue)
-			{
-                character.transform.Translate(0.0f, speed, 0.0f);
-                animator.SetInteger(animationState, up);
-				yield return null;
-			}
-			break;
-		}
-		yield break;
-	}*/
 
     public IEnumerator Story()
     {
@@ -137,12 +100,12 @@ public class PrologueManager : MonoBehaviour
 
         // Get Space
         while (true) { if (Input.GetKey(KeyCode.Space)) break; yield return null; }
-        gameManager.CreateMessage("YOU TWISTED FATE!");
+		TutorialBox("YOU HAVE TWISTED FATE! Whenever you see a message or dialog box, press the spacebar to close it.", true);
         yield return null; while (Pause()) { yield return null; }
 
         // Loading the Scene: At House (Mom wakes you up)
         Application.LoadLevel(SCENE_HOUSE);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         // Mom's dialogue appears
         gameManager.DBox(21, 0);
@@ -153,6 +116,13 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
 
         gameManager.GetComponent<Menu_Layout>().enabled = true;
+
+		TutorialBox("Use the arrow keys to move.");
+		yield return null; while (Pause()) { yield return null; }
+		gameManager.Play();
+		yield return new WaitForSeconds(3);
+		TutorialBox("Press the E key to interact.");
+		yield return null; while (Pause()) { yield return null; }
 
         gameManager.Play();
         while (true)
@@ -219,6 +189,7 @@ public class PrologueManager : MonoBehaviour
         yield return StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(left, -6.0f, CharacterAnimations.States.LEFT_WALK));
         */
 
+		gameManager.SetTime(16);
 
         // Kelly talks
         GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_WALK);
@@ -244,6 +215,7 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator Mall_0()
     {
+		gameManager.SetTime(18);
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MALL);
         gameManager.IncreaseTime();
@@ -269,6 +241,7 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator Main_street_0()
     {
+		gameManager.SetTime(22);
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MAIN_STREET);
         gameManager.SetTime(22);
@@ -323,6 +296,7 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator Home_0()
     {
+		gameManager.SetTime(23);
         gameManager.Wait();
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_HOUSE);
@@ -350,6 +324,9 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(1, 4);
         yield return null; while (Pause()) { yield return null; }
+
+		TutorialBox("Hold shift to speed up player movement.");
+		yield return null; while (Pause()) { yield return null; }
 
         gameManager.Play();
         while (true)
@@ -393,6 +370,8 @@ public class PrologueManager : MonoBehaviour
         Destroy(GameObject.Find("MrLy"));
         yield return new WaitForSeconds(1);
 
+		gameManager.SetTime(16);
+
         // Kelly talks
         GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_WALK);
         yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(right, -1.00f, CharacterAnimations.States.RIGHT_WALK));
@@ -432,6 +411,7 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator Main_street_1()
     {
+		gameManager.SetTime(22);
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MAIN_STREET);
         gameManager.IncreaseTime();
@@ -464,6 +444,9 @@ public class PrologueManager : MonoBehaviour
         }
         */
 
+		TutorialBox("You're now free to roam the world! Try to clear the game.", true);
+		yield return null; while (Pause()) { yield return null; }
+
         EndPrologue();
         yield break;
     }
@@ -471,7 +454,7 @@ public class PrologueManager : MonoBehaviour
     public void EndPrologue()
     {
         Application.LoadLevel(SCENE_MAIN_STREET_2);
-        gameManager.Play();
+		gameManager.Play();
         Destroy(this);
     }
 

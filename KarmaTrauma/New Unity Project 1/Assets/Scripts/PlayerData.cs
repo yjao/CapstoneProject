@@ -12,9 +12,8 @@ public class PlayerData
 	public bool GimmeJewel = false;*/
 	public Dictionary<string, bool> DataDictionary = new Dictionary<string, bool>()
     {
-		{"AlfredJumpsCW", false},
-		{"JewelTest", false},
-		{"GimmeJewel", false}
+		{"AlfredJumps_CutsceneWatched", false},
+		{"GimmeJewel_QuestUnlocked", false}
     };
 
 	public void SetBool(string boolName, bool value=true)

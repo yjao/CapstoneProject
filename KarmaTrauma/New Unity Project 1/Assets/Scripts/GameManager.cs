@@ -250,7 +250,7 @@ public class GameManager : MonoBehaviour
 		Dialogue dialogue = ch.Dialogue[ch.LastDialogueDisplayed];
 		if (dialogue.setbool != null)
         {
-			Data.SetBool(dialogue.setbool);
+			dayData.SetBool(dialogue.setbool);
         }
         if (dialogue.TypeIsChoice())
         {

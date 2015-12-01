@@ -6,6 +6,20 @@ public class DayData
 {
     public Item[] Inventory = new Item[9];
     public int ItemAmount = 0;
-    bool ChelseyHouseDoorUnlocked = false;
-	//bool FrostWantsJewel = false;
+
+	public Dictionary<string, bool> DataDictionary = new Dictionary<string, bool>()
+	{
+		{"GimmeJewel", false},
+		{"HolyEgg", false}
+	};
+	
+	public void SetBool(string boolName, bool value=true)
+	{
+		DataDictionary[boolName] = value;
+	}
+	
+	public bool GetBool(string boolName)
+	{
+		return DataDictionary[boolName];
+	}
 }

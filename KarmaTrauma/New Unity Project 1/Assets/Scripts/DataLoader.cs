@@ -153,7 +153,7 @@ public class DataLoader
 		GameManager.Instance.AllObjects[999].Dialogue[1].setbool = "GimmeJewel";
 		GameManager.Instance.AllObjects[999].Dialogue[3].choices = new Choice[]
 		{
-			new Choice("Never!", new ChoiceEventArgs() { ChoiceAction =  Textbox.continueDialogue, IDNum = 999, DialogueID = 3}),
+			new Choice("Never!", new ChoiceEventArgs() { ChoiceAction =  Textbox.continueDialogue, IDNum = 999, DialogueID = 4}),
 			new Choice("I guess...")
 		};
 	}

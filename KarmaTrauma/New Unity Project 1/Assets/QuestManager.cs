@@ -4,6 +4,7 @@ using System.Collections;
 public class QuestManager : MonoBehaviour
 {
 	public static QuestManager Instance;
+	private GameManager gameManager;
 
 	void Start()
 	{
@@ -17,6 +18,7 @@ public class QuestManager : MonoBehaviour
 		DontDestroyOnLoad(this);
 
 		EventManager.OnNPC += HandleNPC;
+		gameManager = GameManager.Instance;
 	}
 
 	void OnDestroy()
@@ -31,32 +33,46 @@ public class QuestManager : MonoBehaviour
 			return;
 		}
 
-		// Who is the NPC?
-		Interactable intr = GameManager.Instance.GetInteractableByID(args.ThisGameObject.GetComponent<InteractableObject>().ID);
-		Debug.Log("QM: Hello, " + intr.Name);
-		bool requiredNpc = (intr.Name == "Mr. Test");
-
 		// What time is it?
 		Debug.Log("QM: The time now is " + GameManager.Instance.GetTime());
 
+		// Who is the NPC?
+		Interactable intr = GameManager.Instance.GetInteractableByID(args.ThisGameObject.GetComponent<InteractableObject>().ID);
+		Debug.Log("QM: Hello, " + intr.Name);
+		bool requiredNpc;
+
 		// Any required/trigger items?
-		bool requiredItem = GameManager.Instance.HasItem("Jewel");
-		Debug.Log("QM: Checking to see if you have Jewel. You do" + (requiredItem? "!" : " NOT!"));
-
+		bool requiredItem;
 		// Check boolean values.
-		bool requiredBool = GameManager.Instance.Data.GetBool("GimmeJewel");
-		Debug.Log("QM: Checking to see if he wanted Jewel. " + (requiredBool? "He does!" : "NOT yet!"));
-
+		bool requiredBools;
 		// Overwrite NPC's Interact()
-		Debug.Log("QuestManager says: No Interact() has been modified.");
-		if (requiredNpc && requiredItem && requiredBool)
+
+
+		switch (intr.Name)
 		{
-			// MAKE ME INTO A FUNCTION
-			//or a UpdateScene()
-			//GameManager.Instance.CreateMessage("You cleared the game!");
-			InteractableObject mrly = GameObject.Find("MrLy").GetComponent<InteractableObject>();
-			mrly.DialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID;
-			mrly.DialogueIDSingle = 3;
+		case "Mr. Test":
+			requiredNpc = (intr.Name == "Mr. Test");
+			requiredItem = gameManager.HasItem("Jewel");
+			Debug.Log("QM: Checking to see if you have Jewel. You do" + (requiredItem? "!" : " NOT!"));
+			requiredBools = gameManager.dayData.GetBool("GimmeJewel");
+			Debug.Log("QM: Checking to see if he wanted Jewel. " + (requiredBools? "He does!" : "NOT yet!"));
+			Debug.Log("QuestManager says: No Interact() has been modified.");
+			if (requiredNpc && requiredItem && requiredBools)
+			{
+				//GameManager.Instance.CreateMessage("You cleared the game!");
+				Change("MrLy", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 3);
+			}
+			break;
+		case "Mom":
+			requiredNpc = (intr.Name == "Mom");
+			break;
 		}
+	}
+
+	private void Change(string objName, InteractableObject.Dialogue_ID_Type dialogueIDType, int dialogueID)
+	{
+		InteractableObject npc = GameObject.Find(objName).GetComponent<InteractableObject>();
+		npc.DialogueIDType = dialogueIDType;
+		npc.DialogueIDSingle = dialogueID;
 	}
 }

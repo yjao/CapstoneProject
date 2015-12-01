@@ -49,7 +49,8 @@ public class DataLoader
 			"\"Good morning class, we have a new student today. Chelsey, why don't you introduce yourself?\"",
 			"\"Thank you Chelsey. Take a seat at the empty desk over there. Now, everybody, get out your textbooks and turn to page 42...\"",
 			"\"That's all for today.  Remember to do the exercises on page 61.\"",
-			"\"Go on, don't be shy and introduce yourself.\""
+			"\"Go on, don't be shy and introduce yourself.\"",
+            "\"Why did he do it?\""
 		};
 		AddNpc(65, "Mr.Ly", "Teacher", mrly);
 
@@ -78,12 +79,24 @@ public class DataLoader
 			"\"Thank you!\""
         };
         AddNpc(71, "Park Dude", "", parkdude);
+
+        string[] stylish_guy = new string[]
+		{
+			"\"He just suddenly jumped off the building!\""
+        };
+        AddNpc(72, "Stylish Guy", "", stylish_guy);
+
+        string[] jeney = new string[]
+		{
+			"\"This is what he deserves...\""
+        };
+        AddNpc(73, "Random Woman", "", jeney);
         
 		string[] baconandeggs = new string[]
 		{
 			"A delicious floating egg on a magical bacon."
 		};
-		AddNpc(71, "Bacon and Eggs", "Food???", baconandeggs);
+		AddNpc(171, "Bacon and Eggs", "Food???", baconandeggs);
 		GameManager.Instance.AllObjects[71].Dialogue[0].choices = new Choice[2]
 		{
 			new Choice("I guess I'll eat it" /*Insert Message Box "You actually ate it?"*/),

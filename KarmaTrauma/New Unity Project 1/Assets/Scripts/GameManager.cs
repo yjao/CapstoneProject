@@ -325,10 +325,7 @@ public class GameManager : MonoBehaviour
     void upDateClock()
     {
         int temp = gameClock + 2;
-        if (gameClock == 24)
-        {
-            gameClock = 0;
-        }
+        
         if (gameClock < 12 && temp != 12)
         {
             
@@ -362,7 +359,13 @@ public class GameManager : MonoBehaviour
 
     public bool Midnight()
     {
-        return gameClock == 0;
+        Debug.Log("gameClock : " + gameClock);
+        if (gameClock == 24)
+        {
+            gameClock = 6;
+            return true;
+        }
+        return false;
     }
 
     public void IncreaseTime()

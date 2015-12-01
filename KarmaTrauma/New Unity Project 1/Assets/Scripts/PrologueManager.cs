@@ -430,14 +430,12 @@ public class PrologueManager : MonoBehaviour
     public IEnumerator Main_street_1()
     {
         yield return new WaitForSeconds(1);
-        Application.LoadLevel(SCENE_MAIN_STREET_NEW);
+        Application.LoadLevel(SCENE_MAIN_STREET_START);
         gameManager.IncreaseTime();
         yield return new WaitForSeconds(0);
         Destroy(GameObject.Find("Kelly"));
         gameManager.DBox(1, 9);
         yield return null; while (Pause()) { yield return null; }
-
-        GameObject.Find("Door").GetComponent<Door>().AltDestination = "WorldMap";
 
         gameManager.Play();
         while (true)

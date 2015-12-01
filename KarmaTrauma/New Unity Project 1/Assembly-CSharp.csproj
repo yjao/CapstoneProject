@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Camera.cs" />
      <Compile Include="Assets\InvisibleWall.cs" />
+     <Compile Include="Assets\QuestLog.cs" />
      <Compile Include="Assets\QuestManager.cs" />
      <Compile Include="Assets\Scripts\Anim\CharacterAnimations.cs" />
      <Compile Include="Assets\Scripts\ChoiceEventArgs.cs" />
@@ -71,6 +72,7 @@
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Menu_Layout.cs" />
      <Compile Include="Assets\Scripts\Mom.cs" />
+     <Compile Include="Assets\Scripts\Move.cs" />
      <Compile Include="Assets\Scripts\NPC.cs" />
      <Compile Include="Assets\Scripts\NPCMovements.cs" />
      <Compile Include="Assets\Scripts\Packages\TileSprite\Scripts\TileSprite.cs" />

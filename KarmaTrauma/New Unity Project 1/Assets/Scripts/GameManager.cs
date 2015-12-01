@@ -400,6 +400,11 @@ public class GameManager : MonoBehaviour
         {
             Data.DataDictionary[name] = value;
         }
+        else if (dayData.QuestComplete.ContainsKey(name))
+        {
+            dayData.QuestComplete[name] = value;
+            AllQuestsDone();
+        }
     }
 
     public Item[] GetItemData()
@@ -420,6 +425,25 @@ public class GameManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public bool AllQuestsDone()
+    {
+        bool result = true;
+        foreach (bool questcomplete in dayData.QuestComplete.Values)
+        {
+            result = (result && questcomplete);
+            if (result == false)
+            {
+                break;
+            }
+        }
+        if (result == true)
+        {
+            Application.LoadLevel("TempEnding");
+            GameObject.Destroy(GameManager.Instance.gameObject);
+        }
+        return result;
     }
 
     void Update()

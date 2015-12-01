@@ -68,7 +68,8 @@ public class Choice
 	public string option;
 	public Interactable.Action Action;
     public ChoiceEventArgs CEA;
-    public Choice (string _option, ChoiceEventArgs _CEA = null)
+    public string setbool;
+    public Choice (string _option, ChoiceEventArgs _CEA = null, string b = null)
     {
         option = _option;
         if (_CEA != null)
@@ -76,5 +77,6 @@ public class Choice
             Action += _CEA.ChoiceAction;
             CEA = _CEA;
         }
+        setbool = b;
     }
 }

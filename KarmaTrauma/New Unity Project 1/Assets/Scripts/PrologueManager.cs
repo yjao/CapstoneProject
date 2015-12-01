@@ -133,7 +133,7 @@ public class PrologueManager : MonoBehaviour
     {
         //gameManager.Play();
         gameManager.Wait();
-        gameManager.GetComponent<Menu_Layout>().enabled = false;
+        Destroy(gameManager.GetComponent<Menu_Layout>());
 
         // Get Space
         while (true) { if (Input.GetKey(KeyCode.Space)) break; yield return null; }
@@ -152,7 +152,7 @@ public class PrologueManager : MonoBehaviour
         gameManager.DBox(21, true);
         yield return null; while (Pause()) { yield return null; }
 
-        gameManager.GetComponent<Menu_Layout>().enabled = true;
+        gameManager.gameObject.AddComponent<Menu_Layout>();
 
         gameManager.Play();
         while (true)
@@ -303,7 +303,8 @@ public class PrologueManager : MonoBehaviour
             Player.Instance.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_IDLE);
             yield return null;
         }
-
+        gameManager.DBox(2, 0);
+        yield return null; while (Pause()) { yield return null; }
         MoveToNext();
         yield break;
         /*

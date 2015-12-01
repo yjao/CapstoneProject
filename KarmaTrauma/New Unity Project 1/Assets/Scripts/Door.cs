@@ -16,7 +16,12 @@ public class Door : MonoBehaviour
         {
             if (AltDestination != "")
             {
-                Application.LoadLevel(AltDestination);        
+                Application.LoadLevel(AltDestination);
+                gameManager.IncreaseTime();
+                if (gameManager.Midnight())
+                {
+                    Application.LoadLevel("G_House");
+                }
             }
             else
             {

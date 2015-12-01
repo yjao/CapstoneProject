@@ -4,9 +4,11 @@ using System.Collections;
 public class QuestManager : MonoBehaviour
 {
 	public static QuestManager Instance;
+    private ArrayList quest_log;
 
 	void Start()
 	{
+        quest_log = new ArrayList();
 		// Singleton/Persistent
 		if ((Instance != null) && (Instance != this))
 		{
@@ -49,6 +51,13 @@ public class QuestManager : MonoBehaviour
 
 		// Overwrite NPC's Interact()
 		Debug.Log("QuestManager says: No Interact() has been modified.");
+        if (requiredNpc && !quest_log.Contains(0))
+        {
+            //Should have a list of things 
+            quest_log.Add(0);
+            //Debug.Log(quest_log.Count);
+        }
+
 		if (requiredNpc && requiredItem && requiredBool)
 		{
 			// MAKE ME INTO A FUNCTION
@@ -59,4 +68,9 @@ public class QuestManager : MonoBehaviour
 			mrly.DialogueIDSingle = 3;
 		}
 	}
+
+    public ArrayList Quest_log()
+    {
+        return quest_log;
+    }
 }

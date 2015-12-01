@@ -47,7 +47,6 @@ public class Menu : MonoBehaviour
         else if (MenuMode == Modes.INVENTORY)
         {
 
-            GUI.enabled = false;
             if (Input.GetMouseButtonDown(0))
             {
                 OnClick();

@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class Menu_Layout : MonoBehaviour {
 
     GameManager gameManager;
+    QuestManager questManager;
+    QuestLog quest_log;
     Menu gameMenu;
     Player player;
     private bool timeButton_show = false;
@@ -18,8 +22,9 @@ public class Menu_Layout : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         gameManager = GameManager.Instance;
+        questManager = QuestManager.Instance;
         //gameMenu = FindObjectOfType(typeof(Menu)) as Menu;
-        
+        quest_log = QuestLog.Instance; 
         player = FindObjectOfType(typeof(Player)) as Player;
         //show_button = gameMenu.In_Mode();
         inventory_texture = Resources.Load("Bag") as Texture2D;
@@ -50,9 +55,15 @@ public class Menu_Layout : MonoBehaviour {
 
         diaryButton_show = GUI.Button(new Rect(0, 80, 40, 40), "Diary");
 
+        //Find a place to put this:  Dataloader
+       
+
         if (diaryButton_show && !open_menu)
         {
             //Insert open diary function here
+            player.QuestButton();
+            diaryButton_show = false;
+
         }
 
         

@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject DialogueContainer;
     public enum MODE
     {
-        NONE, PLAYING, DIALOGUE, MENU, CUTSCENE, WAITING
+        NONE, PLAYING, DIALOGUE, MENU, CUTSCENE, WAITING, LOG
     };
     public MODE GameMode = MODE.NONE;
     public MODE PrevMode = MODE.NONE;

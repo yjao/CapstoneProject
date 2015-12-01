@@ -41,7 +41,14 @@ public class DataLoader
             "\"...\""
 		};
 		AddNpc(1, "Chelsey", "", chelsey);
+
 		GameManager.Instance.AllObjects[1].Dialogue[7].choices = new Choice[1] { new Choice("Maybe not today.") };
+
+        string[] alfred = new string[]
+        {
+            "\"Help me...\""
+        };
+        AddNpc(2, "???", "Alfred", alfred);
 
 		string[] mom = new string[]
 		{
@@ -49,6 +56,7 @@ public class DataLoader
 			"\"The breakfast's on the table. Bacon and eggs, your favorite!\"",
 			"\"Come on, you're going to be late!\""
         };
+
 		AddNpc(21, "Mom", "Mom", mom);
 
 		string[] mrly = new string[]
@@ -118,7 +126,7 @@ public class DataLoader
 			/*1*/ "\"Kid, why should I tell you? Unless you have some food for me, then I'll consider.\"",
 			/*2*/ "\"Wow, I was kidding, you actually have it? Well okay, his name is Alfred. That's all I'm going to tell you.\""
         };
-        AddNpc(73, "Random Woman", "", jeney);
+        AddNpc(73, "Random Woman", "Jeney", jeney);
 		GameManager.Instance.AllObjects[73].Dialogue[0].choices = new Choice[]
 		{
 			addChoice("Say nothing"),
@@ -164,16 +172,16 @@ public class DataLoader
         };
         AddNpc(152, "Jewel", "Jewel", jewel3);
 
-		string[] alfred = new string[]
-		{
-			"A man who jumped off of the building."
-		};
-		AddNpc(31, "Alfred", "", alfred);
-		GameManager.Instance.AllObjects[31].Dialogue[0].choices = new Choice[2]
-		{
-			new Choice("Should I talk to him?"),
-			new Choice("Nah...")
-        };
+        //string[] alfred = new string[]
+        //{
+        //    "A man who jumped off of the building."
+        //};
+        //AddNpc(31, "Alfred", "", alfred);
+        //GameManager.Instance.AllObjects[31].Dialogue[0].choices = new Choice[2]
+        //{
+        //    new Choice("Should I talk to him?"),
+        //    new Choice("Nah...")
+        //};
 
 		string[] jewel4 =
 		{

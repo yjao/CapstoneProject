@@ -442,8 +442,16 @@ public class PrologueManager : MonoBehaviour
             yield return null;
         }
 
+        MoveToNext();
         yield break;
     }
+
+    public IEnumerator EndPrologue()
+    {
+        Destroy(this);
+        yield break;
+    }
+
     public void MoveToNext()
     {
         StoryProgress += 1;

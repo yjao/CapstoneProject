@@ -324,19 +324,34 @@ public class GameManager : MonoBehaviour
 
     void upDateClock()
     {
+        int temp = gameClock + 2;
         if (gameClock == 24)
         {
             gameClock = 0;
         }
-        if (gameClock <= 12)
+        if (gameClock < 12 && temp != 12)
         {
-            gameClockDisplay = gameClock.ToString() + "AM";
+            
+            gameClockDisplay = gameClock.ToString() + " - " + temp + "AM";
         }
-        else if (gameClock > 12)
+
+        else if (temp == 12)
+        {
+            gameClockDisplay = "10 - 12PM";
+        }
+        else if (gameClock == 12)
+        {
+            gameClockDisplay = "12 - 2PM";
+        }
+        else if (gameClock > 12 && gameClock < 22)
         {
             int time = gameClock - 12;
-            gameClockDisplay = time.ToString() + "PM";
-            gameClockDisplay = time.ToString() + "PM";
+            int temp1 = time + 2;
+            gameClockDisplay = time.ToString() + " - " + temp1 + "PM";
+        }
+        else if (gameClock >= 22)
+        {
+            gameClockDisplay = "10 - 12AM";
         }
     }
 
@@ -345,14 +360,19 @@ public class GameManager : MonoBehaviour
         return gameClockDisplay;
     }
 
+    public bool Midnight()
+    {
+        return gameClock == 0;
+    }
+
     public void IncreaseTime()
     {
         gameClock += 2;
     }
 
-    public void ResetTime()
+    public void SetTime(int time)
     {
-        gameClock = 6;
+        gameClock = time;
     }
 
     void ItemPickup(object sender, GameEventArgs args)

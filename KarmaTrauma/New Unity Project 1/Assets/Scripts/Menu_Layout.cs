@@ -43,7 +43,7 @@ public class Menu_Layout : MonoBehaviour {
         //GUI.skin.toggle.hover.background = inventory_texture;
         //GUI.skin.toggle.active.background = inventory_texture;
         
-        timeButton_show = GUI.Button(new Rect(0,0,40,40), time);
+        timeButton_show = GUI.Button(new Rect(0,0,100,40), time);
         
         invenButton_show = GUI.Button(new Rect(0, 40, 40, 40), inventory_texture);
 

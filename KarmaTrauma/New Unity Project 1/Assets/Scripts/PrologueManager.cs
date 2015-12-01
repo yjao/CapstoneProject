@@ -10,6 +10,7 @@ public class PrologueManager : MonoBehaviour
     private const string SCENE_SCHOOL = "P_Class";
     private const string SCENE_MALL = "P_Mall";
     private const string SCENE_MAIN_STREET = "P_MainStreet";
+    private const string SCENE_MAIN_STREET_START = "G_MainStreet";
 
 
     // PLAYER STUFF 
@@ -243,9 +244,9 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator Mall_0()
     {
-        gameManager.IncreaseTime();
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MALL);
+        gameManager.IncreaseTime();
         yield return new WaitForSeconds(1);
         gameManager.DBox(66, 2);
         yield return null; while (Pause()) { yield return null; }
@@ -270,7 +271,7 @@ public class PrologueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MAIN_STREET);
-        gameManager.IncreaseTime();
+        gameManager.SetTime(22);
         yield return new WaitForSeconds(1);
         Player.Instance.characterAnimations.AnimationState = (CharacterAnimations.States.RIGHT_IDLE);
 
@@ -329,8 +330,8 @@ public class PrologueManager : MonoBehaviour
     //Need to fade to black:  Start of DAY 1
     public IEnumerator Home_1()
     {
+        gameManager.SetTime(6);
         gameManager.CreateMessage("The next day...");
-        gameManager.ResetTime();
         yield return null; while (Pause()) { yield return null; }
 
         yield return new WaitForSeconds(1);
@@ -425,7 +426,7 @@ public class PrologueManager : MonoBehaviour
     public IEnumerator Main_street_1()
     {
         yield return new WaitForSeconds(1);
-        Application.LoadLevel(SCENE_MAIN_STREET);
+        Application.LoadLevel(SCENE_MAIN_STREET_NEW);
         gameManager.IncreaseTime();
         yield return new WaitForSeconds(0);
         Destroy(GameObject.Find("Kelly"));

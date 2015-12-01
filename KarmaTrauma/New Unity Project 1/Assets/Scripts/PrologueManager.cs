@@ -243,7 +243,7 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator Mall_0()
     {
-
+        gameManager.IncreaseTime();
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MALL);
         yield return new WaitForSeconds(1);
@@ -270,6 +270,7 @@ public class PrologueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MAIN_STREET);
+        gameManager.IncreaseTime();
         yield return new WaitForSeconds(1);
         Player.Instance.characterAnimations.AnimationState = (CharacterAnimations.States.RIGHT_IDLE);
 
@@ -329,6 +330,7 @@ public class PrologueManager : MonoBehaviour
     public IEnumerator Home_1()
     {
         gameManager.CreateMessage("The next day...");
+        gameManager.ResetTime();
         yield return null; while (Pause()) { yield return null; }
 
         yield return new WaitForSeconds(1);
@@ -424,6 +426,7 @@ public class PrologueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MAIN_STREET);
+        gameManager.IncreaseTime();
         yield return new WaitForSeconds(0);
         Destroy(GameObject.Find("Kelly"));
         gameManager.DBox(1, 9);

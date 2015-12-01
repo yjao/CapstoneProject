@@ -10,6 +10,7 @@ public class PrologueManager : MonoBehaviour
     private const string SCENE_SCHOOL = "P_Class";
     private const string SCENE_MALL = "P_Mall";
     private const string SCENE_MAIN_STREET = "P_MainStreet";
+    private const string SCENE_MAIN_STREET_2 = "G_MainStreet";
 
 
     // PLAYER STUFF 
@@ -198,19 +199,25 @@ public class PrologueManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         // STUDENTS LEAVE
+
         /*
+        Move Stylish_Guy1;
+        Stylish_Guy1.direction = left;
+        Stylish_Guy1.position = -1.25f;
+        Stylish_Guy1.state = CharacterAnimations.States.LEFT_WALK;
+
         yield return StartCoroutine(GameObject.Find("Stylish_guy").GetComponent<CharacterAnimations>().Move(left, -1.25f, CharacterAnimations.States.LEFT_WALK));
-        yield return StartCoroutine(GameObject.Find("Stylish_guy").GetComponent<CharacterAnimations>().Move(down, -1.25f, CharacterAnimations.States.DOWN_WALK));
-        StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(right, 3.6f, CharacterAnimations.States.RIGHT_WALK));
+        yield return StartCoroutine(GameObject.Find("Stylish_guy").GetComponent<CharacterAnimations>().Move(down, -1.10f, CharacterAnimations.States.DOWN_WALK));
         yield return StartCoroutine(GameObject.Find("Stylish_guy").GetComponent<CharacterAnimations>().Move(left, -3.25f, CharacterAnimations.States.LEFT_WALK));
-        StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(up, 2.5f, CharacterAnimations.States.UP_WALK));
         yield return StartCoroutine(GameObject.Find("Stylish_guy").GetComponent<CharacterAnimations>().Move(up, 2.5f, CharacterAnimations.States.UP_WALK));
-        StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(up, 2.5f, CharacterAnimations.States.UP_WALK));
         yield return StartCoroutine(GameObject.Find("Stylish_guy").GetComponent<CharacterAnimations>().Move(left, -6.0f, CharacterAnimations.States.LEFT_WALK));
-        StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(left, -6.0f, CharacterAnimations.States.LEFT_WALK));
+
+
+        yield return StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(right, 3.4f, CharacterAnimations.States.RIGHT_WALK));
+        yield return StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(up, 2.5f, CharacterAnimations.States.UP_WALK));
+        yield return StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(up, 2.5f, CharacterAnimations.States.UP_WALK));
+        yield return StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(left, -6.0f, CharacterAnimations.States.LEFT_WALK));
         */
-
-
 
 
         // Kelly talks
@@ -237,9 +244,9 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator Mall_0()
     {
-
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MALL);
+        gameManager.IncreaseTime();
         yield return new WaitForSeconds(1);
         gameManager.DBox(66, 2);
         yield return null; while (Pause()) { yield return null; }
@@ -264,6 +271,7 @@ public class PrologueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MAIN_STREET);
+        gameManager.SetTime(22);
         yield return new WaitForSeconds(1);
         Player.Instance.characterAnimations.AnimationState = (CharacterAnimations.States.RIGHT_IDLE);
 
@@ -273,21 +281,22 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(66, 4);
         //yield return null; while (Pause()) { yield return null; }
-        yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(right, 30.00f, CharacterAnimations.States.RIGHT_WALK));
+        yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(right, 20.00f, CharacterAnimations.States.RIGHT_WALK));
         //GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_WALK);
         Destroy(GameObject.Find("Kelly"));
 
+        /*
         gameManager.Play();
-
-        Debug.Log("Is Alfred falling?");
 
         while (Player.Instance.transform.position.x > 10)
         {
-            Debug.Log(Player.Instance.transform.position.x);
             yield return null;
         }
+         * */
 
         gameManager.Wait();
+
+        yield return StartCoroutine(GameObject.Find("Player").GetComponent<CharacterAnimations>().Move(left, 10.00f, CharacterAnimations.States.LEFT_WALK));
 
         while (!GameObject.Find("Alfred").GetComponent<Falling>().HasFallen())
         {
@@ -295,6 +304,9 @@ public class PrologueManager : MonoBehaviour
             yield return null;
         }
 
+        MoveToNext();
+        yield break;
+        /*
         gameManager.Play();
 
         while (true)
@@ -306,7 +318,7 @@ public class PrologueManager : MonoBehaviour
             }
             yield return null;
         }
-
+        */
     }
 
     public IEnumerator Home_0()
@@ -325,6 +337,7 @@ public class PrologueManager : MonoBehaviour
     //Need to fade to black:  Start of DAY 1
     public IEnumerator Home_1()
     {
+        gameManager.SetTime(6);
         gameManager.CreateMessage("The next day...");
         yield return null; while (Pause()) { yield return null; }
 
@@ -396,7 +409,7 @@ public class PrologueManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
         gameManager.DBox(1, 7);
         yield return null; while (Pause()) { yield return null; }
-        gameManager.DBox(66, 6);
+        gameManager.DBox(66, 5);
         yield return null; while (Pause()) { yield return null; }
 
         GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.LEFT_WALK);
@@ -406,7 +419,7 @@ public class PrologueManager : MonoBehaviour
         GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.LEFT_WALK);
         yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(left, -6.00f, CharacterAnimations.States.LEFT_WALK));
 
-        gameManager.DBox(1, 10);
+        gameManager.DBox(1, 8);
         yield return null; while (Pause()) { yield return null; }
 
         MoveToNext();
@@ -421,26 +434,47 @@ public class PrologueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MAIN_STREET);
+        gameManager.IncreaseTime();
+        yield return new WaitForSeconds(0);
         Destroy(GameObject.Find("Kelly"));
-        yield return new WaitForSeconds(1);
+        Player.Instance.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_IDLE); 
         gameManager.DBox(1, 9);
         yield return null; while (Pause()) { yield return null; }
 
+        gameManager.Wait();
+
+        yield return StartCoroutine(GameObject.Find("Player").GetComponent<CharacterAnimations>().Move(left, 10.00f, CharacterAnimations.States.LEFT_WALK, 0.1f));
+
+        while (!GameObject.Find("Alfred").GetComponent<Falling>().HasFallen())
+        {
+            Player.Instance.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_IDLE);
+            yield return null;
+        }
+        yield return new WaitForSeconds(1);
+        gameManager.DBox(1, 10);
+        yield return null; while (Pause()) { yield return null; }
+
+        /*
         GameObject.Find("Door").GetComponent<Door>().AltDestination = "WorldMap";
 
         gameManager.Play();
         while (true)
         {
-            /*if (Application.loadedLevelName == SCENE_HOUSE)
-            {
-                MoveToNext();
-                yield break;
-            }*/
             yield return null;
         }
+        */
 
+        EndPrologue();
         yield break;
     }
+
+    public void EndPrologue()
+    {
+        Application.LoadLevel(SCENE_MAIN_STREET_2);
+        gameManager.Play();
+        Destroy(this);
+    }
+
     public void MoveToNext()
     {
         StoryProgress += 1;

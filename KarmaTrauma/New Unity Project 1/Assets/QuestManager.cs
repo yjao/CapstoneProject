@@ -5,9 +5,11 @@ public class QuestManager : MonoBehaviour
 {
 	public static QuestManager Instance;
 	private GameManager gameManager;
+    private ArrayList quest_log;
 
 	void Start()
 	{
+        quest_log = new ArrayList();
 		// Singleton/Persistent
 		if ((Instance != null) && (Instance != this))
 		{
@@ -39,27 +41,32 @@ public class QuestManager : MonoBehaviour
 		// Who is the NPC?
 		Interactable intr = GameManager.Instance.GetInteractableByID(args.ThisGameObject.GetComponent<InteractableObject>().ID);
 		Debug.Log("QM: Hello, " + intr.Name);
-		bool requiredNpc;
+		bool requiredNpc = false;
 
 		// Any required/trigger items?
-		bool requiredItem;
+		bool requiredItem = false;
 		// Check boolean values.
-		bool requiredBools;
+		bool requiredBools = false;
 		// Overwrite NPC's Interact()
-
 
 		switch (intr.Name)
 		{
 		case "Mr. Test":
 			requiredNpc = (intr.Name == "Mr. Test");
 			requiredItem = gameManager.HasItem("Jewel");
-			Debug.Log("QM: Checking to see if you have Jewel. You do" + (requiredItem? "!" : " NOT!"));
+			//Debug.Log("QM: Checking to see if you have Jewel. You do" + (requiredItem? "!" : " NOT!"));
 			requiredBools = gameManager.dayData.GetBool("GimmeJewel");
+
+			if (requiredBools)
+			{
+				AddQuestToLog(0);
+				Debug.Log ("added");
+			}
+
 			Debug.Log("QM: Checking to see if he wanted Jewel. " + (requiredBools? "He does!" : "NOT yet!"));
-			Debug.Log("QuestManager says: No Interact() has been modified.");
+			//Debug.Log("QuestManager says: No Interact() has been modified.");
 			if (requiredNpc && requiredItem && requiredBools)
 			{
-				//GameManager.Instance.CreateMessage("You cleared the game!");
 				Change("MrLy", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 3);
 			}
 			break;
@@ -75,4 +82,18 @@ public class QuestManager : MonoBehaviour
 		npc.DialogueIDType = dialogueIDType;
 		npc.DialogueIDSingle = dialogueID;
 	}
+
+	private void AddQuestToLog(int index)
+	{
+		if (!quest_log.Contains(index))
+		{
+			quest_log.Add(index);
+		}
+	}
+
+    public ArrayList Quest_log()
+    {
+        return quest_log;
+    }
+
 }

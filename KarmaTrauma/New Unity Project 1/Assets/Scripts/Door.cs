@@ -16,14 +16,27 @@ public class Door : MonoBehaviour
         {
             if (AltDestination != "")
             {
-                Application.LoadLevel(AltDestination);
                 gameManager.IncreaseTime();
-                
-                
+                if (gameManager.Midnight())
+                {
+                    Application.LoadLevel("G_House");
+                    //Loop back to where mom yelling at you on Scene Manager or somewhere...                        
+                }
+                Application.LoadLevel(AltDestination);
+
             }
             else
             {
-                Application.LoadLevel("WorldMap");
+                gameManager.IncreaseTime();
+                if (gameManager.Midnight())
+                {
+                    Application.LoadLevel("G_House");
+                }
+                else {
+                    Application.LoadLevel("WorldMap");
+                }
+                
+                
             }
         }
     }

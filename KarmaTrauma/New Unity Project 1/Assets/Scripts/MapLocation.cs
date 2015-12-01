@@ -17,7 +17,6 @@ public class MapLocation : MonoBehaviour
 		if (Destination != GameManager.AREA.NONE)
 			sceneName = Destination.ToString();
 		Application.LoadLevel(sceneName);
-        gameManager.IncreaseTime();
        
 	}
 }

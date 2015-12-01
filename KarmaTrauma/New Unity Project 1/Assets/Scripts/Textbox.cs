@@ -58,10 +58,13 @@ public class Textbox : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
-                //Debug.Log("pressing space choice");
                 done = true;
                 GameEventArgs g = new GameEventArgs();
                 g.DialogueBox = this;
+                if (choices[cursor].setbool != null)
+                {
+                    gameManager.SetData(choices[cursor].setbool, true);
+                }
                 if (choices[cursor].CEA != null)
                 {
                     g.ConvertChoiceEventArgs(choices[cursor].CEA);

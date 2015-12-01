@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public GameObject PlayerCamera;
     public float speed;
     public GameObject Menu;
+    public GameObject QuestLog;
     public CharacterAnimations characterAnimations;
 
     public static Player Instance;
@@ -318,6 +319,13 @@ public class Player : MonoBehaviour
     {
         Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
         gameManager.GameMode = GameManager.MODE.MENU;
+        gameManager.PrevMode = GameManager.MODE.PLAYING;
+    }
+
+    public void QuestButton()
+    {
+        Instantiate(QuestLog, new Vector3(0, 0, 0), Quaternion.identity);
+        gameManager.GameMode = GameManager.MODE.LOG;
         gameManager.PrevMode = GameManager.MODE.PLAYING;
     }
 

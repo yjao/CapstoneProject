@@ -24,13 +24,14 @@ public class DataLoader
 			"\"Um... my name is Chelsey. I just moved in town recently. I like helping people, and.. yeah.\"",
 			"\"Sure!  Let's go~ furendddd.\"",
 			"\"I live on Maple Street.\"",
-			"\"He looks familiar... What a strange night.\"",
+			"\"What just happened? That man... He looks familiar. What a strange night.\"",
 			"\"...First day of school?.\"",
 			"\"??\"",
 			"*Didn't this happen yesterday?...*",
 			"\"Um...\"",
 			"*What is happening today??  Is everyone playing a trick on me?*",
-			"!!!The old man!!"
+			"!!!The old man!!",
+            "\"...\""
 		};
 		AddNpc(1, "Chelsey", "", chelsey);
 		GameManager.Instance.AllObjects[1].Dialogue[7].choices = new Choice[1] { new Choice("Maybe not today.") };
@@ -154,7 +155,8 @@ public class DataLoader
 		GameManager.Instance.AllObjects[999].Dialogue[3].choices = new Choice[]
 		{
 			new Choice("Never!", new ChoiceEventArgs() { ChoiceAction =  Textbox.continueDialogue, IDNum = 999, DialogueID = 4}),
-			new Choice("I guess...")
+			//new Choice("I guess...")
+            addChoice("I guess...", boolname:"Quest1")
 		};
 	}
 
@@ -181,7 +183,7 @@ public class DataLoader
         return CEA;
     }
 
-    private Choice addChoice(string text, ChoiceAction CA = ChoiceAction.NONE, int id = -1, int subID = -1)
+    private Choice addChoice(string text, ChoiceAction CA = ChoiceAction.NONE, int id = -1, int subID = -1, string boolname = null)
     {
         ChoiceEventArgs CEA;
         if (CA == ChoiceAction.ITEM)
@@ -200,6 +202,6 @@ public class DataLoader
         {
             CEA = new ChoiceEventArgs();
         }
-        return new Choice(text, CEA);
+        return new Choice(text, CEA, boolname);
     }
 }

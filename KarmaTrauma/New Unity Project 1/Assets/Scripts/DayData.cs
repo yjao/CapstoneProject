@@ -7,6 +7,13 @@ public class DayData
     public Item[] Inventory = new Item[9];
     public int ItemAmount = 0;
 
+	public Dictionary<string, bool> QuestComplete = new Dictionary<string, bool>()
+	{
+		{"Quest1", false},
+		{"Quest2", true},
+		//{"Quest3", false}
+	};
+
 	public Dictionary<string, bool> DataDictionary = new Dictionary<string, bool>()
 	{
 		{"GimmeJewel", false},

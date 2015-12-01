@@ -7,7 +7,7 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    private int gameClock = 0;
+    private int gameClock = 6;
     private string gameClockDisplay = "";
     private const bool PARSING_MODE = true;
 
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject DialogueContainer;
     public enum MODE
     {
-        NONE, PLAYING, DIALOGUE, MENU, CUTSCENE, WAITING
+        NONE, PLAYING, DIALOGUE, MENU, CUTSCENE, WAITING, LOG
     };
     public MODE GameMode = MODE.NONE;
     public MODE PrevMode = MODE.NONE;
@@ -324,19 +324,31 @@ public class GameManager : MonoBehaviour
 
     void upDateClock()
     {
-        if (gameClock == 24)
+        int temp = gameClock + 2;
+        
+        if (gameClock < 12 && temp != 12)
         {
-            gameClock = 0;
+            
+            gameClockDisplay = gameClock.ToString() + " - " + temp + "AM";
         }
-        if (gameClock <= 12)
+
+        else if (temp == 12)
         {
-            gameClockDisplay = gameClock.ToString() + "AM";
+            gameClockDisplay = "10 - 12PM";
         }
-        else if (gameClock > 12)
+        else if (gameClock == 12)
+        {
+            gameClockDisplay = "12 - 2PM";
+        }
+        else if (gameClock > 12 && gameClock < 22)
         {
             int time = gameClock - 12;
-            gameClockDisplay = time.ToString() + "PM";
-            gameClockDisplay = time.ToString() + "PM";
+            int temp1 = time + 2;
+            gameClockDisplay = time.ToString() + " - " + temp1 + "PM";
+        }
+        else if (gameClock >= 22)
+        {
+            gameClockDisplay = "10 - 12AM";
         }
     }
 
@@ -345,10 +357,27 @@ public class GameManager : MonoBehaviour
         return gameClockDisplay;
     }
 
+    public bool Midnight()
+    {
+        Debug.Log("gameClock : " + gameClock);
+        if (gameClock == 24)
+        {
+            gameClock = 6;
+            return true;
+        }
+        return false;
+    }
+
     public void IncreaseTime()
     {
         gameClock += 2;
     }
+
+    public void SetTime(int time)
+    {
+        gameClock = time;
+    }
+
     void ItemPickup(object sender, GameEventArgs args)
     {
         Debug.Log(args.IDNum);
@@ -374,6 +403,11 @@ public class GameManager : MonoBehaviour
         {
             Data.DataDictionary[name] = value;
         }
+        else if (dayData.QuestComplete.ContainsKey(name))
+        {
+            dayData.QuestComplete[name] = value;
+            AllQuestsDone();
+        }
     }
 
     public Item[] GetItemData()
@@ -394,6 +428,25 @@ public class GameManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public bool AllQuestsDone()
+    {
+        bool result = true;
+        foreach (bool questcomplete in dayData.QuestComplete.Values)
+        {
+            result = (result && questcomplete);
+            if (result == false)
+            {
+                break;
+            }
+        }
+        if (result == true)
+        {
+            Application.LoadLevel("TempEnding");
+            GameObject.Destroy(GameManager.Instance.gameObject);
+        }
+        return result;
     }
 
     void Update()

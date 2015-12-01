@@ -24,13 +24,14 @@ public class DataLoader
 			"\"Um... my name is Chelsey. I just moved in town recently. I like helping people, and.. yeah.\"",
 			"\"Sure!  Let's go~ furendddd.\"",
 			"\"I live on Maple Street.\"",
-			"\"He looks familiar... What a strange night.\"",
+			"\"What just happened? That man... He looks familiar. What a strange night.\"",
 			"\"...First day of school?.\"",
 			"\"??\"",
 			"*Didn't this happen yesterday?...*",
 			"\"Um...\"",
 			"*What is happening today??  Is everyone playing a trick on me?*",
-			"!!!The old man!!"
+			"!!!The old man!!",
+            "\"...\""
 		};
 		AddNpc(1, "Chelsey", "", chelsey);
 		GameManager.Instance.AllObjects[1].Dialogue[7].choices = new Choice[1] { new Choice("Maybe not today.") };

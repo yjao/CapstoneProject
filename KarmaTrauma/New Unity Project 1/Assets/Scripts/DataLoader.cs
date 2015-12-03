@@ -138,7 +138,6 @@ public class DataLoader
 		{
 			"A delicious floating egg on a magical bacon."
 		};
-<<<<<<< HEAD
 
         string[] monologue = new string[]
         {
@@ -149,14 +148,10 @@ public class DataLoader
 
         AddNpc(171, "Bacon and Eggs", "Food???", baconandeggs);
 		GameManager.Instance.AllObjects[71].Dialogue[0].choices = new Choice[2]
-=======
-		AddNpc(131, "Bacon and Eggs", "Food???", baconandeggs);
-		/*GameManager.Instance.AllObjects[71].Dialogue[0].choices = new Choice[2]
->>>>>>> 162748b50f82d85356fc0028d80ebeaca6abaa7d
 		{
 			new Choice("I guess I'll eat it"),
 			new Choice("Nah...")
-		};*/
+		};
 
         string[] jewel = new string[]
         {

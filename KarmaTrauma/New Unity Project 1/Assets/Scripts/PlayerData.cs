@@ -10,14 +10,11 @@ public class PlayerData : MonoBehaviour
     {
 		{"AlfredJumps_CutsceneWatched", false},
 		{"GimmeJewel_QuestUnlocked", false},
-<<<<<<< HEAD
         {"Have_$2", false },
         {"Have_Pizza" ,false},
-        {"none", true }
-=======
+        {"none", true },
 		{"AlfredName_Learned", false},
 		{"AlfredIsPolice_Learned", false}
->>>>>>> 162748b50f82d85356fc0028d80ebeaca6abaa7d
     };
 
 	public void SetBool(string boolName, bool value=true)

@@ -27,7 +27,7 @@ public class QuestLog : MonoBehaviour {
         //Quests
         quests_table = new Dictionary<int, string> {
             {0 , "Get debugger jewel for sensei lel"},
-            {1 , "Some other quest"}
+            {1 , "Bring Bacon and Eggs to Random Woman so she can tell you who the fallen old man is."}
         };
 	}
 

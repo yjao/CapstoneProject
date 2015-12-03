@@ -53,84 +53,7 @@ public class GameManager : MonoBehaviour
         // Load interaction info here?
         AllObjects = new Dictionary<int, Interactable>()
         {
-            /*{ 150, new Interactable("Jewel", "", new Dialogue[] {
-                    new Dialogue(0,"Choice Testing.", new Choice[] {
-                        new Choice("Talk to jewel"),
-                        new Choice("Take the jewel", new ChoiceEventArgs(){ChoiceAction = InteractableObject.InteractItem,Testing = "action test", IDNum = 150}),
-                        new Choice("Destroy the jewel"),
-                        new Choice("Shove the jewel", new ChoiceEventArgs(){ChoiceAction = InteractableObject.InteractMove, ShoveX = 1}),
-                        new Choice("Do nothing")
-                        })
-                    })}*/
         };
-        /*
-        AllObjects = new Dictionary<int, Interactable>()
-		{
-			{ 1, new Interactable("Chelsey","", new string[] {
-					"\"Um... my name is Chelsey. I just moved in town recently. I like helping people, and.. yeah.\"",
-                    "\"Sure!  Let's go~ furendddd.\"",
-                    "\"I live on Maple Street.\"",
-					"\"He looks familiar... What a strange night.\"",
-                    "\"...First day of school?.\"",
-                    "\"??\"",
-                    "*Didn't this happen yesterday?...*",
-                    "\"%CUm...%CMaybe not today.\"",
-                    "*What is happening today??  Is everyone playing a trick on me?*",
-                    "!!!The old man!!"
-                    
-                    
-				}) },
-			{ 150, new Interactable("Jewel", "", new string[] {
-                    //"\"%B~JewelTest~Testing playerdata\"",
-					//"\"%CDon't bother me, I'm taking a nap!%COK%CNo\"",
-                    "\"%CChoice Testing.%C~D_JewelTest~Talk to jewel%C~Item~Take the jewel%C~Destroy~Destroy the jewel%C~Move~Shove the jewel%CDo nothing\"",
-                    "\"%C!!!%CPeanut Butter%CHi%C???%C!!!\""
-            }
-				) },
-            { 151, new Interactable("Jewel2", "", new string[] {
-					"\"Listen to the other jewels.\""
-            }
-				) },
-            { 152, new Interactable("Jewel2", "", new string[] {
-					"\"That other jewel is weird huh?\""
-            }
-				) },
-            { 153, new Interactable("Jewel2", "", new string[] {
-					"\"How did you know I wanted a jewel?\""
-            }
-                ) },
-			{ 21, new Interactable("Mom", "", new string[] {
-					"\"Chelsey! Wake up! You don't want to be late on your first day of school!\"",
-					"\"The breakfast's on the table. Bacon and eggs, your favorite!\"",
-					"\"Come on, you're going to be late!\""
-				}) },
-			{ 65, new Interactable("Mr.Ly", "Teacher", new string[] {
-					"\"Good morning class, we have a new student today. Chelsey, why don't you introduce yourself?\"",
-					"\"Thank you Chelsey. Take a seat at the empty desk over there. Now, everybody, get out your textbooks and turn to page 42...\"",
-                    "\"That's all for today.  Remember to do the exercises on page 61.\"",
-                    "\"Go on, don't be shy and introduce yourself.\""
-				}) },
-			{ 66, new Interactable("Kelly", "",  new string[] {
-					"\"Hey, new kid! Your name is Chelsey right? I'm Kelly.\"",
-                    "\"Want me to show you around?\"",
-                    "\"This is the mall.  I got my belly piercing here.\"",
-					"\"Whoa, it's getting late. Where do you live?\"",
-                    "\"Just head down from Main Street and you should be able to reach Maple Street. I'll see you tomorrow!\"",
-                    "\"Ok then.  See ya!\""
-				}) },
-            { 71, new Interactable("Park Dude", "",  new string[] {
-					"\"Hey kid, have you seen a brown dog around here somewhere?\"",
-                    "\"I've lost him a little while ago, and I am worried sick about him.\"",
-                    "\"Thank you!\""
-				}) },
-			{ 133, new Interactable("Bacon and Eggs", "", new string[] {
-					"%C A delicious floating egg on a magical bacon.%C\"I guess I'll eat it.\"%C\"Nah...\" ",
-				}) },
-            { 31, new Interactable("Alfred", "???", new string[] {
-                    "%C A man who jumped off of the building.%C\"Should I talk to him?\"%C\"Nah...\" ",
-                }) }
-        };
-        */
 
         // Bind events
         //EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
@@ -141,7 +64,7 @@ public class GameManager : MonoBehaviour
 	    {
 			{ 150, new Item("Jewel", "Quit stealing jewels already", "jewel")},
             { 151, new Item("TestJewel", "IM NOT EVEN AN ITEM", "jewel")},
-            { 133, new Item("Bacon and Eggs", "Please stop stealing", "baconAndEggs")}
+            { 133, new Item("Bacon and Eggs", "Feed it to the hungry.", "baconAndEggs")}
         };
 
         //items = new Item[9];
@@ -287,10 +210,14 @@ public class GameManager : MonoBehaviour
         //Debug.Log(dialogue_choice);
     }
 
-    public void CreateMessage(string message)
+	public void CreateMessage(string message, bool persistUntilClosed=false)
     {
         GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
         dialog.GetComponent<Textbox>().DrawMessage(message);
+		if (persistUntilClosed)
+		{
+			DontDestroyOnLoad(dialog);
+		}
     }
 
     public Dialogue GetNextDialogue(int id, int dialogueID)
@@ -360,9 +287,12 @@ public class GameManager : MonoBehaviour
     public bool Midnight()
     {
         Debug.Log("gameClock : " + gameClock);
-        if (gameClock == 24)
+        if (gameClock == 12) //CHANGE THIS BACK TO 24
         {
-            gameClock = 6;
+			dayData.Wipe();
+			Data.daysPassed++;
+			CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day "+(Data.daysPassed+1), true);
+			gameClock = 6;
             return true;
         }
         return false;
@@ -401,12 +331,14 @@ public class GameManager : MonoBehaviour
     {
         if (Data.DataDictionary.ContainsKey(name))
         {
-            Data.DataDictionary[name] = value;
+            //Data.DataDictionary[name] = value;
+			Data.SetBool(name, value);
         }
         else if (dayData.QuestComplete.ContainsKey(name))
         {
-            dayData.QuestComplete[name] = value;
-            AllQuestsDone();
+            //dayData.QuestComplete[name] = value;
+			dayData.SetQuest(name, value);
+			AllQuestsDone();
         }
     }
 

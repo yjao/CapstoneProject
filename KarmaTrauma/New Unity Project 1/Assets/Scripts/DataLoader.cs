@@ -3,7 +3,14 @@ using System.Collections;
 
 public class DataLoader
 {
-    enum ChoiceAction{ITEM, MOVE, CONTINUE, DESTROY, NONE}
+    public enum ChoiceAction{ITEM, MOVE, CONTINUE, DESTROY, NONE}
+
+	// temporary
+	public static DataLoader Instance;
+	public void Init()
+	{
+		Instance = this;
+	}
 
 	private void AddNpc(int ID, string name, string strangerName, string[] strings)
 	{
@@ -34,7 +41,14 @@ public class DataLoader
             "\"...\""
 		};
 		AddNpc(1, "Chelsey", "", chelsey);
+
 		GameManager.Instance.AllObjects[1].Dialogue[7].choices = new Choice[1] { new Choice("Maybe not today.") };
+
+        string[] alfred = new string[]
+        {
+            "\"Help me...\""
+        };
+        AddNpc(2, "???", "Alfred", alfred);
 
 		string[] mom = new string[]
 		{
@@ -42,17 +56,36 @@ public class DataLoader
 			"\"The breakfast's on the table. Bacon and eggs, your favorite!\"",
 			"\"Come on, you're going to be late!\""
         };
+
 		AddNpc(21, "Mom", "Mom", mom);
 
 		string[] mrly = new string[]
 		{
-			"\"Good morning class, we have a new student today. Chelsey, why don't you introduce yourself?\"",
-			"\"Thank you Chelsey. Take a seat at the empty desk over there. Now, everybody, get out your textbooks and turn to page 42...\"",
-			"\"That's all for today.  Remember to do the exercises on page 61.\"",
-			"\"Go on, don't be shy and introduce yourself.\"",
-            "\"Why did he do it?\""
+			/*0*/ "\"Good morning class, we have a new student today. Chelsey, why don't you introduce yourself?\"",
+			/*1*/ "\"Thank you Chelsey. Take a seat at the empty desk over there. Now, everybody, get out your textbooks and turn to page 42...\"",
+			/*2*/ "\"That's all for today.  Remember to do the exercises on page 61.\"",
+			/*3*/ "\"Go on, don't be shy and introduce yourself.\"",
+			/*4*/  "\"Why did he do it?\"",
+			/*5*/ "\"You don't even know him, anyway. It's too sad.\"",
+			/*6*/ "\"Yup. Great cop, wasn't he? But that was all in the past. Ask his ex-coworkers, they all know! That poor, poor soul.\""
 		};
 		AddNpc(65, "Mr.Ly", "Teacher", mrly);
+		GameManager.Instance.AllObjects[65].Dialogue[4].choices = new Choice[]
+		{
+			addChoice("Say nothing"),
+			addChoice("Who is he?", ChoiceAction.CONTINUE, 65, 5)
+		};
+		//GameManager.Instance.AllObjects[65].Dialogue[5].CEA = new ChoiceEventArgs() { ChoiceAction = Textbox.continueDialogue, IDNum = 65, DialogueID = 4};
+		/*GameManager.Instance.AllObjects[65].Dialogue[6].choices = new Choice[]
+		{
+			addChoice("Say nothing"),
+			addChoice("What happened?", ChoiceAction.CONTINUE, 65, 7)
+		};*/
+		GameManager.Instance.AllObjects[65].Dialogue[6].choices = new Choice[]
+		{
+			addChoice("Okay.", boolname:"Quest2")
+		};
+		//GameManager.Instance.AllObjects[65].Dialogue[6].setbool = "Quest2";
 
 		string[] kelly = new string[]
 		{
@@ -82,20 +115,30 @@ public class DataLoader
 
         string[] stylish_guy = new string[]
 		{
-			"\"He just suddenly jumped off the building!\""
+			"\"He just suddenly jumped off the building!\"",
+			"\"How am I supposed to know?\""
         };
         AddNpc(72, "Stylish Guy", "", stylish_guy);
 
         string[] jeney = new string[]
 		{
-			"\"This is what he deserves...\""
+			/*0*/ "\"This is what he deserves...\"",
+			/*1*/ "\"Kid, why should I tell you? Unless you have some food for me, then I'll consider.\"",
+			/*2*/ "\"Wow, I was kidding, you actually have it? Well okay, his name is Alfred. That's all I'm going to tell you.\""
         };
-        AddNpc(73, "Random Woman", "", jeney);
+        AddNpc(73, "Random Woman", "Jeney", jeney);
+		GameManager.Instance.AllObjects[73].Dialogue[0].choices = new Choice[]
+		{
+			addChoice("Say nothing"),
+			addChoice("Who is he?", ChoiceAction.CONTINUE, 73, 1)
+		};
+		GameManager.Instance.AllObjects[73].Dialogue[1].setbool = "JeneyHungry";
         
 		string[] baconandeggs = new string[]
 		{
 			"A delicious floating egg on a magical bacon."
 		};
+<<<<<<< HEAD
 
         string[] monologue = new string[]
         {
@@ -106,10 +149,14 @@ public class DataLoader
 
         AddNpc(171, "Bacon and Eggs", "Food???", baconandeggs);
 		GameManager.Instance.AllObjects[71].Dialogue[0].choices = new Choice[2]
+=======
+		AddNpc(131, "Bacon and Eggs", "Food???", baconandeggs);
+		/*GameManager.Instance.AllObjects[71].Dialogue[0].choices = new Choice[2]
+>>>>>>> 162748b50f82d85356fc0028d80ebeaca6abaa7d
 		{
-			new Choice("I guess I'll eat it" /*Insert Message Box "You actually ate it?"*/),
+			new Choice("I guess I'll eat it"),
 			new Choice("Nah...")
-		};
+		};*/
 
         string[] jewel = new string[]
         {
@@ -138,16 +185,16 @@ public class DataLoader
         };
         AddNpc(152, "Jewel", "Jewel", jewel3);
 
-		string[] alfred = new string[]
-		{
-			"A man who jumped off of the building."
-		};
-		AddNpc(31, "Alfred", "", alfred);
-		GameManager.Instance.AllObjects[31].Dialogue[0].choices = new Choice[2]
-		{
-			new Choice("Should I talk to him?"),
-			new Choice("Nah...")
-        };
+        //string[] alfred = new string[]
+        //{
+        //    "A man who jumped off of the building."
+        //};
+        //AddNpc(31, "Alfred", "", alfred);
+        //GameManager.Instance.AllObjects[31].Dialogue[0].choices = new Choice[2]
+        //{
+        //    new Choice("Should I talk to him?"),
+        //    new Choice("Nah...")
+        //};
 
 		string[] jewel4 =
 		{
@@ -169,7 +216,8 @@ public class DataLoader
 			"Shh kid, can you find me one of those debugger jewels?",
 			"Did you bring the Jewel?",
 			"O.M.G.!!! You actually brought it. Gimme!",
-			"Well whatever, you don't get to clear the game."
+			"Well whatever, you don't get to clear the game.",
+			"Thanks kid."
 		};
 		AddNpc(999, "Mr. Test", "", test);
 		GameManager.Instance.AllObjects[999].Dialogue[1].setbool = "GimmeJewel";
@@ -179,10 +227,18 @@ public class DataLoader
 			//new Choice("I guess...")
             addChoice("I guess...", boolname:"Quest1")
 		};
+
+		string[] test2 = new string[] 
+		{
+			""
+		};
+		AddNpc(998, "Mom", "", test2);
 	}
 
 	public DataLoader()
 	{
+		Init(); //delete me one day
+
 		Debug.Log("Loading Game Data");
 		
 		LoadOldData();
@@ -204,7 +260,8 @@ public class DataLoader
         return CEA;
     }
 
-    private Choice addChoice(string text, ChoiceAction CA = ChoiceAction.NONE, int id = -1, int subID = -1, string boolname = null)
+	// temporarily making it public for hardcoding purposes
+    public Choice addChoice(string text, ChoiceAction CA = ChoiceAction.NONE, int id = -1, int subID = -1, string boolname = null)
     {
         ChoiceEventArgs CEA;
         if (CA == ChoiceAction.ITEM)

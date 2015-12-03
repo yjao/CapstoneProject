@@ -158,9 +158,12 @@ public class InteractableObject : MonoBehaviour
             // colliding = false; //troublesome without this line...
             if (InteractionType == TYPE.DIALOG)
                 Interact();
-            //else if (InteractionType == TYPE.ITEM)
-                //InteractItem();
-            //else if (InteractionType == TYPE.MOVE)
+            else if (InteractionType == TYPE.ITEM)
+			{
+				GameEventArgs args = new GameEventArgs() { IDNum = ID, ThisGameObject = gameObject };
+				InteractItem(this, args);
+			}
+			//else if (InteractionType == TYPE.MOVE)
                 //InteractMove(1, 0);
         }
     }

@@ -307,11 +307,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S))
         {
-            Save(); ;
+      //      Save(); ;
         }
         if (Input.GetKey(KeyCode.L))
         {
-            Load();
+      //      Load();
         }
     }
 
@@ -328,7 +328,7 @@ public class Player : MonoBehaviour
         gameManager.GameMode = GameManager.MODE.LOG;
         gameManager.PrevMode = GameManager.MODE.PLAYING;
     }
-
+    /*
 
     public void Save()
     {
@@ -359,9 +359,9 @@ public class Player : MonoBehaviour
         }
 
     }
+    */
 
-
-
+/*
     [Serializable]  // by putting this bracket, Unity knows this class is serializable, thus savable with our serialized saving function
     class PlayerData
     {
@@ -369,5 +369,5 @@ public class Player : MonoBehaviour
         public int progress;
 
     }
-
+    */
 }

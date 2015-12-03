@@ -111,7 +111,12 @@ public class InteractableObject : MonoBehaviour
             case TYPE.DIALOG:
                 if (gameManager.GameMode != GameManager.MODE.DIALOGUE)
 				{
+
                     CallDialogue();
+                    // Call QuestList and check if the quest requirements are met with this interactable object. Change dialogue if necessasry
+                    GameObject QL = GameObject.Find("QuestList");
+                    QuestList ql = QL.GetComponent<QuestList>();
+                    ql.CheckQuest(this);
 				}
                 break;
         }

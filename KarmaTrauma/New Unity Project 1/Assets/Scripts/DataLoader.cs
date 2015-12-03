@@ -67,8 +67,8 @@ public class DataLoader
 
         string[] frost = new string[]
 		{
-			"\"Welcome to Frost's Pizza.\"",
-			"\"Today's special is Hwaiian Combo. It's only $2 a piece!\""
+            "\"Welcome to Frost's Pizza.  Today's special is Hwaiian Combo. It's only $2 a piece!\"",
+            "\"Here's your pizza.\""
         };
         AddNpc(67, "Frost", "", frost);
 
@@ -96,7 +96,15 @@ public class DataLoader
 		{
 			"A delicious floating egg on a magical bacon."
 		};
-		AddNpc(171, "Bacon and Eggs", "Food???", baconandeggs);
+
+        string[] monologue = new string[]
+        {
+            "\"Ooh, money on the floor!\"",
+            "\"This is where I found $2\""
+        };
+        AddNpc(111, "Chelsey", "Chelsey", monologue);
+
+        AddNpc(171, "Bacon and Eggs", "Food???", baconandeggs);
 		GameManager.Instance.AllObjects[71].Dialogue[0].choices = new Choice[2]
 		{
 			new Choice("I guess I'll eat it" /*Insert Message Box "You actually ate it?"*/),

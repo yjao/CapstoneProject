@@ -304,6 +304,7 @@ public class GameManager : MonoBehaviour
             //Data.daysPassed++;
             //CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day "+(Data.daysPassed+1), true);
             return true;
+        }
    
         return false;
     }

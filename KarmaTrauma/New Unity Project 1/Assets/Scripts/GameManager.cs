@@ -284,6 +284,11 @@ public class GameManager : MonoBehaviour
         return gameClockDisplay;
     }
 
+    public int GetTimeAsInt()
+    {
+        return gameClock;
+    }
+
     public bool Midnight()
     {
         Debug.Log("gameClock : " + gameClock);

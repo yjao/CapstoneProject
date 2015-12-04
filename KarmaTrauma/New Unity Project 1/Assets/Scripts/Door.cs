@@ -22,6 +22,7 @@ public class Door : MonoBehaviour
                     Application.LoadLevel("G_House");
                     //Loop back to where mom yelling at you on Scene Manager or somewhere...                        
                 }
+                //SceneManager.Instance.LoadScene(AltDestination);
                 Application.LoadLevel(AltDestination);
 
             }

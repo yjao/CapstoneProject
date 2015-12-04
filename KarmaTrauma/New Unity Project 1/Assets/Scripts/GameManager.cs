@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private const bool PARSING_MODE = true;
 
     public PlayerData Data = new PlayerData();
+    //public PlayerData Data;
     public DayData dayData = new DayData();
     public static GameManager Instance;
     public GameObject DialogueContainer;
@@ -46,6 +47,8 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(this);
+
+        
 
         // default to playing mode for now
         GameMode = MODE.PLAYING;
@@ -88,6 +91,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameClockDisplay = gameClock.ToString() + "AM";
+        Data = PlayerData.Instance;
     }
     void OnDestroy()
     {
@@ -291,15 +295,16 @@ public class GameManager : MonoBehaviour
 
     public bool Midnight()
     {
+        //Debug.Log("data is null: " + (Data == null));
         Debug.Log("gameClock : " + gameClock);
-        if (gameClock == 12) //CHANGE THIS BACK TO 24
+        if (gameClock == 24) //CHANGE THIS BACK TO 24
         {
-			dayData.Wipe();
-			Data.daysPassed++;
-			CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day "+(Data.daysPassed+1), true);
-			gameClock = 6;
+            gameClock = 6;
+            dayData.Wipe();
+            //Data.daysPassed++;
+            //CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day "+(Data.daysPassed+1), true);
             return true;
-        }
+   
         return false;
     }
 

@@ -4,7 +4,13 @@ using System.Collections.Generic;
 
 public class PlayerData : MonoBehaviour
 {
-	public int daysPassed;
+	public int daysPassed = 0;
+    public static PlayerData Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
 	public Dictionary<string, bool> DataDictionary = new Dictionary<string, bool>()
     {

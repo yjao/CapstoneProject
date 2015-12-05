@@ -415,7 +415,6 @@ public class PrologueManager : MonoBehaviour
 		gameManager.SetTime(22);
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MAIN_STREET);
-        gameManager.IncreaseTime();
         yield return new WaitForSeconds(0);
         Destroy(GameObject.Find("Kelly"));
         Player.Instance.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_IDLE); 

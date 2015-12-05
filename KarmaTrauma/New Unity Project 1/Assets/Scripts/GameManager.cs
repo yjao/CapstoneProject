@@ -311,6 +311,7 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseTime()
     {
+        Debug.Log("gameClock: " + gameClock);
         gameClock += 2;
     }
 
@@ -328,6 +329,8 @@ public class GameManager : MonoBehaviour
 
     public bool GetData(string name)
     {
+        //Debug.Log("Here!");
+        //Debug.Log("data is null: " + Data == null);
         if (Data.DataDictionary.ContainsKey(name))
         {
             return Data.DataDictionary[name];

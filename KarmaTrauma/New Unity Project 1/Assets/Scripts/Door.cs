@@ -17,9 +17,9 @@ public class Door : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
+            gameManager.IncreaseTime();
             if (AltDestination != "")
             {
-                gameManager.IncreaseTime();
                 if (gameManager.Midnight())
                 {
                     Application.LoadLevel("G_House");
@@ -31,12 +31,11 @@ public class Door : MonoBehaviour
             }
             else
             {
-                gameManager.IncreaseTime();
                 if (gameManager.Midnight())
                 {
                     Application.LoadLevel("G_House");
-                    Data.daysPassed++;
-                    Debug.Log("day: " + Data.daysPassed);
+                    //Data.daysPassed++;
+                    //Debug.Log("day: " + Data.daysPassed);
                     //gameManager.CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day " + (Data.daysPassed + 1), true);
                     //dayData.Wipe();
                     //Data.daysPassed++;

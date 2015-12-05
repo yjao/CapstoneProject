@@ -7,8 +7,6 @@ public class NPC : MonoBehaviour
 {
 	#region Public Variables
 	public GameObject interactableObject;
-    public int[] time;
-    public NPCParameters[] NPCParameter;
 	public CharacterAnimations characterAnimations;
 
 	// Wandering
@@ -171,19 +169,4 @@ public class NPC : MonoBehaviour
 	}
 
 	#endregion
-    [System.Serializable]
-    public class NPCParameters
-    {
-        public List<int> Time;
-        public InteractableObject.Dialogue_ID_Type DialogueIDType;
-        public int DialogueIDSingle;
-        public int DialogueIDMin;
-        public int DialogueIDMax;
-        public List<int> DialogueIDMulti;
-        public CharacterAnimations.States StartingAnimationState;
-        public float wanderDistanceX;
-        public int wanderDirectionX;
-        public float wanderDistanceY;
-        public int wanderDirectionY;
-    }
 }

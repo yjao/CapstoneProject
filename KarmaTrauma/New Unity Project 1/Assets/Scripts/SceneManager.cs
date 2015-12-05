@@ -26,48 +26,51 @@ public class SceneManager : MonoBehaviour {
         StartCoroutine("LoadSceneCoroutine");
     }
 
-    private void loadParameters(NPC npc, NPC.NPCParameters parameter)
+    private void loadParameters(InteractableObject IO, InteractableObject.Parameters parameter)
     {
-        InteractableObject io = npc.interactableObject.GetComponent<InteractableObject>();
-        io.DialogueIDType = parameter.DialogueIDType;
-        io.DialogueIDSingle = parameter.DialogueIDSingle;
-        io.DialogueIDMin = parameter.DialogueIDMin;
-        io.DialogueIDMax = parameter.DialogueIDMax;
-        io.DialogueIDMulti = parameter.DialogueIDMulti;
-        //npc.characterAnimations.setAnimationOnLoad(parameter.StartingAnimationState);
-        npc.wanderDistanceX = parameter.wanderDistanceX;
-        npc.wanderDirectionX = parameter.wanderDirectionX;
-        npc.wanderDistanceY = parameter.wanderDistanceY;
-        npc.wanderDirectionY = parameter.wanderDirectionY;
+        //InteractableObject io = npc.interactableObject.GetComponent<InteractableObject>();
+        IO.DialogueIDType = parameter.DialogueIDType;
+        IO.DialogueIDSingle = parameter.DialogueIDSingle;
+        IO.DialogueIDMin = parameter.DialogueIDMin;
+        IO.DialogueIDMax = parameter.DialogueIDMax;
+        IO.DialogueIDMulti = parameter.DialogueIDMulti;
+        if (IO.transform.parent.GetComponent<NPC>() != null)
+        {
+            NPC npc = IO.transform.parent.GetComponent<NPC>();
+            npc.characterAnimations.AnimationState = parameter.StartingAnimationState;
+            npc.wanderDistanceX = parameter.wanderDistanceX;
+            npc.wanderDirectionX = parameter.wanderDirectionX;
+            npc.wanderDistanceY = parameter.wanderDistanceY;
+            npc.wanderDirectionY = parameter.wanderDirectionY;
+        }
     }
 
     IEnumerator LoadSceneCoroutine()
     {
         yield return null;
-        if (GameObject.Find("NPCList") != null)
+        if (GameObject.Find("InteractableList") != null)
         {
-            foreach (Transform child in GameObject.Find("NPCList").transform)
+            foreach (Transform child in GameObject.Find("InteractableList").transform)
             {
                 bool isActive = false;
-                foreach (NPC.NPCParameters p in child.GetComponent<NPC>().NPCParameter)
+                InteractableObject IO;
+                if (child.childCount > 0)
+                {
+                    IO = child.GetComponentInChildren<InteractableObject>();
+                }
+                else
+                {
+                    IO = child.GetComponent<InteractableObject>();
+                }
+                foreach (InteractableObject.Parameters p in IO.Parameter)
                 {
                     if (p.Time.Contains(GameManager.Instance.GetTimeAsInt()))
                     {
                         isActive = true;
-                        loadParameters(child.GetComponent<NPC>(), p);
+                        loadParameters(IO, p);
                         break;
                     }
                 }
-                /*
-                for (int times = 0; times < child.GetComponent<NPC>().time.Length; times++)
-                {
-                    Debug.Log(times);
-                    if (child.GetComponent<NPC>().time[times] == GameManager.Instance.GetTimeAsInt())
-                    {
-                        isActive = true;
-                        break;
-                    }
-                }*/
                 child.gameObject.SetActive(isActive);
             }
         }

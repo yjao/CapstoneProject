@@ -26,8 +26,7 @@ public class InteractableObject : MonoBehaviour
     public int DialogueIDMin;
     public int DialogueIDMax;
     public List<int> DialogueIDMulti;
-    public int[] BranchID;
-    public string[] BranchBool;
+    public Parameters[] Parameter;
 
     public void Init()
     {
@@ -65,14 +64,6 @@ public class InteractableObject : MonoBehaviour
 
     private void CallDialogue()
     {
-        for (int branches = 0; branches < BranchID.Length; branches++)
-        {
-            if ((gameManager.GetData(BranchBool[branches]) == true) || (gameManager.HasItem(BranchBool[branches])))
-            {
-                ID = BranchID[branches];
-                DialogueIDSingle = 0;
-            }
-        }
         int newIndex = DialogueIDSingle;
         switch (DialogueIDType)
         {
@@ -182,5 +173,21 @@ public class InteractableObject : MonoBehaviour
     void Update()
     {
         CheckAndInteract();
+    }
+
+    [System.Serializable]
+    public class Parameters
+    {
+        public List<int> Time;
+        public InteractableObject.Dialogue_ID_Type DialogueIDType;
+        public int DialogueIDSingle;
+        public int DialogueIDMin;
+        public int DialogueIDMax;
+        public List<int> DialogueIDMulti;
+        public CharacterAnimations.States StartingAnimationState;
+        public float wanderDistanceX;
+        public int wanderDirectionX;
+        public float wanderDistanceY;
+        public int wanderDirectionY;
     }
 }

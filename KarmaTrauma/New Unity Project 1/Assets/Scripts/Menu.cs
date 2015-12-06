@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ public class Menu : MonoBehaviour
     {
         pointer = 0;
         pointer2 = 0;
-        gameManager = GameManager.Instance;
+        gameManager = GameManager.instance;
         this.tag = "Menu";
         transform.Find("ItemPanel").gameObject.SetActive(false);
         transform.Find("ItemSelect").gameObject.SetActive(false);

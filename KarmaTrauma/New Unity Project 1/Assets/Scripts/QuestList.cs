@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 public class QuestList : MonoBehaviour
@@ -37,7 +37,7 @@ public class QuestList : MonoBehaviour
         for (int i = 0; i < Qlist.Count; i++)
         {
             QClass temp = (QClass)Qlist[i];
-            if (obj.ID == temp.NPC)
+            if (obj.iD == temp.NPC)
             {
                 if(temp.completed)
                 {
@@ -47,26 +47,26 @@ public class QuestList : MonoBehaviour
                     InteractableObject io = obj.GetComponent<InteractableObject>();
 
                     //If requirement met
-                    PlayerData pl = GameManager.Instance.playerData;
+                    PlayerData pl = GameManager.instance.playerData;
                     Debug.Log(pl);
-                    DayData dd = GameManager.Instance.dayData;
+                    DayData dd = GameManager.instance.dayData;
                     Debug.Log(dd);
                     if (pl.GetBool(temp.requirement))   
                     {
                         if (temp.triggered == false)
                         {
                             temp.triggered = true;
-                            io.DialogueIDSingle = temp.dialogue_in_progress;
+                            io.dialogueIDSingle = temp.dialogue_in_progress;
                             break;
                         }
                         if (temp.itemTurnedIn == false)
                         {
-                            for (int j = 0; j < GameManager.Instance.dayData.ItemAmount; j++)
+                            for (int j = 0; j < GameManager.instance.dayData.ItemAmount; j++)
                             {
-                                if (GameManager.Instance.dayData.Inventory[j].Name == temp.requiredItem)
+                                if (GameManager.instance.dayData.Inventory[j].Name == temp.requiredItem)
                                 {
-                                    GameManager.Instance.dayData.Inventory[j] = null;
-                                    GameManager.Instance.dayData.ItemAmount--;
+                                    GameManager.instance.dayData.Inventory[j] = null;
+                                    GameManager.instance.dayData.ItemAmount--;
                                     temp.itemTurnedIn = true;
                                     break;
                                 }
@@ -79,7 +79,7 @@ public class QuestList : MonoBehaviour
 
                     if (temp.itemTurnedIn)
                     {
-                        io.DialogueIDSingle = temp.dialogue_change;
+                        io.dialogueIDSingle = temp.dialogue_change;
                         pl.SetBool(temp.changeBool);
                         temp.completed = true;
 
@@ -87,7 +87,7 @@ public class QuestList : MonoBehaviour
 
                     else
                     {
-                        io.DialogueIDSingle = temp.dialogue_in_progress;
+                        io.dialogueIDSingle = temp.dialogue_in_progress;
                     }
                     
 

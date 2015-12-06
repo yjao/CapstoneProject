@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -13,7 +13,7 @@ public class Textbox : MonoBehaviour
     public Dialogue Dialog;
     void Awake()
     {
-		gameManager = GameManager.Instance;
+		gameManager = GameManager.instance;
 		gameManager.EnterDialogue();
         choice_mode = false;
         done = false;
@@ -212,7 +212,7 @@ public class Textbox : MonoBehaviour
         if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
         {
 			args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID);
-            args.ThisGameObject.transform.GetComponent<InteractableObject>().DialogueIDSingle += 1;
+            args.ThisGameObject.transform.GetComponent<InteractableObject>().dialogueIDSingle += 1;
             args.DialogueBox.gameManager.ExitDialogue();
 			args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs());;
         }

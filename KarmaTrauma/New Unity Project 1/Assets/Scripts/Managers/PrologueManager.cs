@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PrologueManager : MonoBehaviour
@@ -40,7 +40,7 @@ public class PrologueManager : MonoBehaviour
 
     void Start()
     {
-        gameManager = GameManager.Instance;
+        gameManager = GameManager.instance;
         DontDestroyOnLoad(this);
 
         AllScenes = new string[8] { "Story_0", "School_0", "Mall_0", "Main_street_0", "Home_0", "Home_1", "School_1", "Main_street_1" };
@@ -89,7 +89,7 @@ public class PrologueManager : MonoBehaviour
 
     private bool Pause()
     {
-        return gameManager.GameMode == GameManager.MODE.DIALOGUE;
+        return gameManager.gameMode == GameManager.GameMode.DIALOGUE;
     }
 
     public IEnumerator Story()

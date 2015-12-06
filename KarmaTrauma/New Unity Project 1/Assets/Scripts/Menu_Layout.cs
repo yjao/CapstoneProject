@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ public class Menu_Layout : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         
-        gameManager = GameManager.Instance;
+        gameManager = GameManager.instance;
         questManager = QuestManager.Instance;
         //gameMenu = FindObjectOfType(typeof(Menu)) as Menu;
         //quest_log = QuestLog.Instance; 

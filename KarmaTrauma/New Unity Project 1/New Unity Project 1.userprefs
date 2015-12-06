@@ -1,14 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Quest.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DataLoader.cs">
     <Files>
-      <File FileName="Assets\Scripts\InteractableObject.cs" Line="109" Column="41" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerData.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\DataLoader.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Textbox.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\QuestList.cs" Line="5" Column="2" />
-      <File FileName="Assets\Scripts\Quest.cs" Line="17" Column="1" />
+      <File FileName="Assets\Scripts\InteractableObject.cs" Line="89" Column="1" />
+      <File FileName="Assets\Scripts\DataLoader.cs" Line="406" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -16,5 +11,6 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="Assets\Scripts\InteractableObject.cs" line="61" offsetX="532" offsetY="1020" expression="DialogueIDMulti" liveUpdate="False" />
+    <Watch file="Assets\Scripts\InteractableObject.cs" line="87" offsetX="409" offsetY="1412" expression="gameManager.AllObjects[ID].Dialogue" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

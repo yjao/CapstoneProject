@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     {
         Instance = this;
         walltop = FindObjectOfType(typeof(InvisibleWallTop)) as InvisibleWallTop;
-        gameManager = GameManager.Instance;
+        gameManager = GameManager.instance;
         animator = GetComponent<Animator>();
         EventManager.OnNPC += HandleNPC;
     }
@@ -199,7 +199,7 @@ public class Player : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(Vector3.zero);
 
-        if (gameManager.GameMode != GameManager.MODE.PLAYING)
+        if (gameManager.gameMode != GameManager.GameMode.PLAYING)
         {
             return;
         }
@@ -282,15 +282,15 @@ public class Player : MonoBehaviour
         ///Hot Keys
         else if (Input.GetKeyDown(KeyCode.Q)){
             Instantiate(QuestLog, new Vector3(0, 0, 0), Quaternion.identity);
-            gameManager.GameMode = GameManager.MODE.LOG;
-            gameManager.PrevMode = GameManager.MODE.PLAYING;
+            gameManager.gameMode = GameManager.GameMode.LOG;
+            gameManager.prevMode = GameManager.GameMode.PLAYING;
 
         }
         else if (Input.GetKeyDown(KeyCode.B))
         {
             Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
-            gameManager.GameMode = GameManager.MODE.MENU;
-            gameManager.PrevMode = GameManager.MODE.PLAYING;
+            gameManager.gameMode = GameManager.GameMode.MENU;
+            gameManager.prevMode = GameManager.GameMode.PLAYING;
         }
 
 
@@ -323,15 +323,15 @@ public class Player : MonoBehaviour
     public void InvenButton()
     {
         Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
-        gameManager.GameMode = GameManager.MODE.MENU;
-        gameManager.PrevMode = GameManager.MODE.PLAYING;
+        gameManager.gameMode = GameManager.GameMode.MENU;
+        gameManager.prevMode = GameManager.GameMode.PLAYING;
     }
 
     public void QuestButton()
     {
         Instantiate(QuestLog, new Vector3(0, 0, 0), Quaternion.identity);
-        gameManager.GameMode = GameManager.MODE.LOG;
-        gameManager.PrevMode = GameManager.MODE.PLAYING;
+        gameManager.gameMode = GameManager.GameMode.LOG;
+        gameManager.prevMode = GameManager.GameMode.PLAYING;
     }
     /*
 

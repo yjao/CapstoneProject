@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Door : MonoBehaviour
@@ -10,7 +10,7 @@ public class Door : MonoBehaviour
 
     void Start()
     {
-        gameManager = GameManager.Instance;
+        gameManager = GameManager.instance;
         //playerData = PlayerData.Instance;
     }
     void OnTriggerEnter2D(Collider2D col)
@@ -30,7 +30,7 @@ public class Door : MonoBehaviour
 				destination = "G_House";
 			}
 
-			SceneManager.Instance.LoadScene(destination);
+			SceneManager.instance.LoadScene(destination);
         }
     }
     void ChangeDestination(string newDestination)

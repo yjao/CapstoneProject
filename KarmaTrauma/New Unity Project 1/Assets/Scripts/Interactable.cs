@@ -8,35 +8,35 @@ public class Interactable
 	public delegate void Action(object sender, GameEventArgs args);
 	public enum ObjectType { NPC, OBJECT };
 
-	public int ID;
-	public string Name;
-	public string StrangerName = "???";
+	public int iD;
+	public string name;
+	public string strangerName = "???";
 	public ObjectType objectType;
 
-	public Dialogue[] Dialogue;
-	public int LastDialogueDisplayed;
+	public Dialogue[] dialogues;
+	public int lastDialogueDisplayed;
 
 	public Interactable()
 	{
-		Dialogue = new Dialogue[]{};
+		dialogues = new Dialogue[]{};
 	}
 
 	public Interactable(string _name, string _strangerName, Dialogue[] _dialogues)
 	{
-		LastDialogueDisplayed = -1;
-		Name = _name;
+		lastDialogueDisplayed = -1;
+		name = _name;
 		if (_strangerName.Length > 0)
 		{
-			StrangerName = _strangerName;
+			strangerName = _strangerName;
 		}
-		Dialogue = _dialogues;
+		dialogues = _dialogues;
 	}
 }
 
 [Serializable]
 public class Dialogue
 {
-	public int ID;
+	public int iD;
 	public string text;
 	public Choice[] choices;
 	public Interactable.Action Action;
@@ -45,7 +45,7 @@ public class Dialogue
     
 	public Dialogue(int _id, string _text, Choice[] _choices = null, ChoiceEventArgs _CEA = null, string b = null)
     {
-        ID = _id;
+        iD = _id;
         text = _text;
         choices = _choices;
         setbool = b;

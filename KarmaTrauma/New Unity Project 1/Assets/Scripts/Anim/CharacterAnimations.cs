@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CharacterAnimations : MonoBehaviour
 {
+	#region ANIMATION STATE FRAME CONSTANTS
+
     [Header("Walking Animations")]
     public const int downWalkStart = 78;
     public const int downWalkEnd = 86;
@@ -57,6 +59,9 @@ public class CharacterAnimations : MonoBehaviour
     public const int fallStart = 172;
     public const int fallEnd = 177;
 
+	#endregion
+
+
     public enum States
     {
         DOWN_IDLE, DOWN_WALK, DOWN_DANCE, DOWN_STRETCH, DOWN_SWING, DOWN_BOW,
@@ -66,12 +71,10 @@ public class CharacterAnimations : MonoBehaviour
         FALL
     }
 
-    [Header("Stuff")]
     public string atlasName;
-    public float speed;
+    public float animationSpeed;
     public States startingAnimationState;
 
-    [Header("Sprite Stuff")]
     private SpriteRenderer m_sprite_renderer;
     private Sprite[] sprites;
     private States m_animation_state;
@@ -251,7 +254,7 @@ public class CharacterAnimations : MonoBehaviour
             for (int i = rangeStart; i < rangeEnd; i++)
             {
                 Sprite_Renderer.sprite = sprites[i];
-                yield return new WaitForSeconds(speed);
+                yield return new WaitForSeconds(animationSpeed);
             }
 
             if (rangeStart == rangeEnd)
@@ -274,7 +277,7 @@ public class CharacterAnimations : MonoBehaviour
         for (int i = rangeStart; i < rangeEnd; i++)
         {
             Sprite_Renderer.sprite = sprites[i];
-            yield return new WaitForSeconds(speed);
+            yield return new WaitForSeconds(animationSpeed);
         }
         yield break;
     }

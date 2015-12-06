@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -32,7 +32,7 @@ public class Mom : InteractableObject
 		CheckAndInteract();
 
         transform.rotation = Quaternion.Euler(Vector3.zero) ;
-        if (gameManager.GameMode != GameManager.MODE.PLAYING)
+        if (gameManager.gameMode != GameManager.GameMode.PLAYING)
         {
 
            

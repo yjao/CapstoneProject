@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class QuestManager : MonoBehaviour
@@ -22,7 +22,7 @@ public class QuestManager : MonoBehaviour
 		DontDestroyOnLoad(this);
 
 		EventManager.OnNPC += HandleNPC;
-		gameManager = GameManager.Instance;
+		gameManager = GameManager.instance;
 	}
 
 	void OnDestroy()
@@ -42,11 +42,11 @@ public class QuestManager : MonoBehaviour
 		}
 
 		// What time is it?
-		Debug.Log("QM: The time now is " + GameManager.Instance.GetTime());
+		Debug.Log("QM: The time now is " + GameManager.instance.GetTime());
 
 		// Who is the NPC?
-		Interactable intr = GameManager.Instance.GetInteractableByID(args.ThisGameObject.GetComponent<InteractableObject>().ID);
-		Debug.Log("QM: Hello, " + intr.Name);
+		Interactable intr = GameManager.instance.GetInteractableByID(args.ThisGameObject.GetComponent<InteractableObject>().iD);
+		Debug.Log("QM: Hello, " + intr.name);
 		bool requiredNpc = false;
 
 		// Any required/trigger items?
@@ -55,7 +55,7 @@ public class QuestManager : MonoBehaviour
 		bool requiredBools = false;
 		// Overwrite NPC's Interact()
 
-		switch (intr.Name)
+		switch (intr.name)
 		{
 		case "Mr. Test":
 			if (gameManager.dayData.GetQuest("Quest1"))
@@ -63,7 +63,7 @@ public class QuestManager : MonoBehaviour
 				Change("MrLy", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 5);
 				break;
 			}
-			requiredNpc = (intr.Name == "Mr. Test");
+			requiredNpc = (intr.name == "Mr. Test");
 			requiredItem = gameManager.HasItem("Jewel");
 			//Debug.Log("QM: Checking to see if you have Jewel. You do" + (requiredItem? "!" : " NOT!"));
 			requiredBools = gameManager.dayData.GetBool("GimmeJewel");
@@ -77,7 +77,7 @@ public class QuestManager : MonoBehaviour
 		case "Random Woman":
 			if (gameManager.playerData.GetBool("AlfredName_Learned"))
 			{
-				GameManager.Instance.AllObjects[73].Dialogue[0].choices = null;
+				GameManager.instance.allObjects[73].dialogues[0].choices = null;
 				Change("Jeney", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 0);
 			}
 			requiredItem = gameManager.HasItem("Bacon and Eggs");
@@ -91,10 +91,10 @@ public class QuestManager : MonoBehaviour
 		case "Mr.Ly":
 			if (gameManager.playerData.GetBool("AlfredName_Learned"))
 			{
-				GameManager.Instance.AllObjects[65].Dialogue[4].choices = new Choice[]
+				GameManager.instance.allObjects[65].dialogues[4].choices = new Choice[]
 				{
-					DataLoader.Instance.addChoice("Say nothing"),
-					DataLoader.Instance.addChoice("Poor Alfred...", DataLoader.ChoiceAction.CONTINUE, 65, 6)
+					DataLoader.Instance.AddChoice("Say nothing"),
+					DataLoader.Instance.AddChoice("Poor Alfred...", DataLoader.ChoiceAction.CONTINUE, 65, 6)
 				};
 			}
 			else
@@ -110,8 +110,8 @@ public class QuestManager : MonoBehaviour
 	{
 		//InteractableObject npc = GameObject.Find(objName).GetComponent<InteractableObject>();
 		InteractableObject npc = GameObject.Find(objName).transform.GetChild(0).GetComponent<InteractableObject>();
-		npc.DialogueIDType = dialogueIDType;
-		npc.DialogueIDSingle = dialogueID;
+		npc.dialogueIDType = dialogueIDType;
+		npc.dialogueIDSingle = dialogueID;
 	}
 
 	public void AddQuestToLog(int index)

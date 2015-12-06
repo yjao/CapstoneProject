@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -7,45 +7,53 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    private int gameClock = 6;
-    private string gameClockDisplay = "";
-    private const bool PARSING_MODE = true;
-
     public PlayerData playerData = new PlayerData();
-    //public PlayerData playerData;
     public DayData dayData = new DayData();
-    public static GameManager Instance;
-    public GameObject DialogueContainer;
-    public enum MODE
+    public static GameManager instance;
+    public GameObject dialogueContainer;
+    public enum GameMode
     {
         NONE, PLAYING, DIALOGUE, MENU, CUTSCENE, WAITING, LOG
     };
-    public MODE GameMode = MODE.NONE;
-    public MODE PrevMode = MODE.NONE;
+    public GameMode gameMode = GameMode.NONE;
+    public GameMode prevMode = GameMode.NONE;
 
-    public enum AREA
+    public enum Area
     {
         NONE, HOUSE, APARTMENT, POLICE, MALL, PARK, HOSPITAL, SCHOOL
     };
-    public AREA CurrentArea = AREA.HOUSE;
+    public Area currentArea = Area.HOUSE;
 
-    public Dictionary<int, Interactable> AllObjects;
+    public Dictionary<int, Interactable> allObjects;
 	public Dictionary<string, string> questTerms;
+	public Dictionary<string, List<InteractableObject.Parameters>> sceneParameters;
+
+	#region CONSTANT VALUES
 
 	public const char QUEST_KEYWORD = '#';
 	public const string QUEST_KEYWORD_COLOR = "yellow";
 	public const bool QUEST_KEYWORD_BOLDED = true;
 
+	private const bool PARSING_MODE = true;
+	private const int END_DAY_HOUR = 24;
+	private const int START_DAY_HOUR = 6;
+
+	#endregion
+
+	// Clock
+	private int gameClock = 6;
+	private string gameClockDisplay = "";
+
     //for items;
     public Item[] items;
     public int itemAmount;
-    public Dictionary<int, Item> AllItems;
+    public Dictionary<int, Item> allItems;
 
     void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
             DontDestroyOnLoad(this);
         }
         else
@@ -53,22 +61,21 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-            
-        
 
         // default to playing mode for now
-        GameMode = MODE.PLAYING;
+        gameMode = GameMode.PLAYING;
 
         // Load interaction info here?
-		AllObjects = new Dictionary<int, Interactable>();
+		allObjects = new Dictionary<int, Interactable>();
 		questTerms = new Dictionary<string, string>();
+		sceneParameters = new Dictionary<string, List<InteractableObject.Parameters>>();
 
         // Bind events
         //EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
         EventManager.OnItemPickup += ItemPickup;
 
         //item stuff
-        AllItems = new Dictionary<int, Item>()
+        allItems = new Dictionary<int, Item>()
 	    {
 			{ 150, new Item("Jewel", "Quit stealing jewels already", "jewel")},
             { 151, new Item("TestJewel", "IM NOT EVEN AN ITEM", "jewel")},
@@ -106,12 +113,12 @@ public class GameManager : MonoBehaviour
 
     public void Play()
     {
-        GameMode = MODE.PLAYING;
+        gameMode = GameMode.PLAYING;
     }
 
     public void Wait()
     {
-        GameMode = MODE.WAITING;
+        gameMode = GameMode.WAITING;
     }
 
 
@@ -150,60 +157,51 @@ public class GameManager : MonoBehaviour
 
     #region DIALOG BOX
 
-    /*void HandleOnDialogChoiceMade(object sender, GameEventArgs args)
-	{
-		// let's hard code something
-        Debug.Log(args.DialogChoice + " and " + args.ChoiceAction);
-		//if (args.DialogChoice == "\"I guess I'll eat it.\"")
-		//	CreateMessage("That's creepy! You actually ate it!?");
-	}*/
-
-
     public void DBox(int id, int dialogueId)
     {
-        Interactable ch = AllObjects[id];
-        ch.LastDialogueDisplayed = dialogueId;
+        Interactable ch = allObjects[id];
+        ch.lastDialogueDisplayed = dialogueId;
         DBox(id);
     }
 
     // Re-send current Dialogue
     public void DBox(int id, bool next = false)
     {
-        Interactable ch = AllObjects[id];
+        Interactable ch = allObjects[id];
         if (next)
 		{
-            ch.LastDialogueDisplayed++;
+            ch.lastDialogueDisplayed++;
 		}
-        else if (!next && ch.LastDialogueDisplayed < 0)
+        else if (!next && ch.lastDialogueDisplayed < 0)
 		{
-			ch.LastDialogueDisplayed = 0;
+			ch.lastDialogueDisplayed = 0;
 		}
 
-		Dialogue dialogue = ch.Dialogue[ch.LastDialogueDisplayed];
+		Dialogue dialogue = ch.dialogues[ch.lastDialogueDisplayed];
 		if (dialogue.setbool != null)
         {
 			dayData.SetBool(dialogue.setbool);
         }
         if (dialogue.TypeIsChoice())
         {
-            CreateChoice(ch.Name, dialogue.text, dialogue.choices);
+            CreateChoice(ch.name, dialogue.text, dialogue.choices);
         }
         else
         {
-            CreateDialogue(ch.Name, dialogue);
+            CreateDialogue(ch.name, dialogue);
         }
     }
 
     public void CreateDialogue(string name, Dialogue message)
     {
-        GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
+        GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
         dialog.GetComponent<Textbox>().Dialog = message;
         dialog.GetComponent<Textbox>().DrawBox(name, message.text);
     }
 
     public void CreateChoice(string name, string message, Choice[] options)
     {
-        GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
+        GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
 
         //Debug.Log(options[0].option);
         dialog.GetComponent<Textbox>().Choice(name, message, options);
@@ -221,7 +219,7 @@ public class GameManager : MonoBehaviour
 
 	public void CreateMessage(string message, bool persistUntilClosed=false)
     {
-        GameObject dialog = (GameObject)Instantiate(DialogueContainer, DialogueContainer.transform.position, Quaternion.identity);
+        GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
         dialog.GetComponent<Textbox>().DrawMessage(message);
 		if (persistUntilClosed)
 		{
@@ -231,43 +229,43 @@ public class GameManager : MonoBehaviour
 
     public Dialogue GetNextDialogue(int id, int dialogueID)
     {
-        Interactable ch = AllObjects[id];
-        return ch.Dialogue[dialogueID];
+        Interactable ch = allObjects[id];
+        return ch.dialogues[dialogueID];
     }
 
     public void EnterDialogue()
     {
-		if (GameMode != MODE.DIALOGUE)
+		if (gameMode != GameMode.DIALOGUE)
 		{
-        	PrevMode = GameMode;
+        	prevMode = gameMode;
 		}
-        GameMode = MODE.DIALOGUE;
+        gameMode = GameMode.DIALOGUE;
     }
 
     public void ExitDialogue()
     {
-        MODE oldGameMode = GameMode;
-        GameMode = PrevMode;
-        PrevMode = oldGameMode;
+        GameMode oldGameMode = gameMode;
+        gameMode = prevMode;
+        prevMode = oldGameMode;
     }
 
     #endregion
 
 	public Interactable GetInteractableByID(int id)
 	{
-		return AllObjects[id];
+		return allObjects[id];
 	}
+
+	#region CLOCK & TIME
 
     void upDateClock()
     {
         int temp = gameClock + 2;
         
         if (gameClock < 12 && temp != 12)
-        {
-            
+        {            
             gameClockDisplay = gameClock.ToString() + " - " + temp + "AM";
         }
-
         else if (temp == 12)
         {
             gameClockDisplay = "10 - 12PM";
@@ -298,16 +296,20 @@ public class GameManager : MonoBehaviour
         return gameClock;
     }
 
-    public bool Midnight()
+    public bool Midnight(bool createMessage=true)
     {
         //Debug.Log("data is null: " + (playerData == null));
         Debug.Log("gameClock : " + gameClock);
-        if (gameClock == 24) //CHANGE THIS BACK TO 24
+		if (gameClock == END_DAY_HOUR)
         {
-            gameClock = 6;
+            gameClock = START_DAY_HOUR;
             dayData.Wipe();
             playerData.daysPassed++;
-            CreateMessage("Day "+(playerData.daysPassed+1)+".", true);
+			if (createMessage)
+			{
+	            CreateMessage("Day "+(playerData.daysPassed+1)+".", true);
+			}
+			SceneManager.instance.LoadScene();
             return true;
         }
    
@@ -325,17 +327,18 @@ public class GameManager : MonoBehaviour
         gameClock = time;
     }
 
+	#endregion
+
+
     void ItemPickup(object sender, GameEventArgs args)
     {
         Debug.Log(args.IDNum);
-        dayData.Inventory[dayData.ItemAmount] = AllItems[args.IDNum];
+        dayData.Inventory[dayData.ItemAmount] = allItems[args.IDNum];
         dayData.ItemAmount += 1;
     }
 
     public bool GetData(string name)
     {
-        //Debug.Log("Here!");
-        //Debug.Log("data is null: " + playerData == null);
         if (playerData.DataDictionary.ContainsKey(name))
         {
             return playerData.DataDictionary[name];
@@ -395,7 +398,7 @@ public class GameManager : MonoBehaviour
         if (result == true)
         {
             Application.LoadLevel("TempEnding");
-            GameObject.Destroy(GameManager.Instance.gameObject);
+            GameObject.Destroy(GameManager.instance.gameObject);
         }
         return result;
     }
@@ -415,7 +418,7 @@ public class GameManager : MonoBehaviour
         FileStream file = File.Create(Application.persistentDataPath + "/GameData.DK");
         Debug.Log("Game data saved to file in " + Application.persistentDataPath);
 
-        bf.Serialize(file, AllObjects);
+        bf.Serialize(file, allObjects);
         file.Close();
     }
 
@@ -425,11 +428,18 @@ public class GameManager : MonoBehaviour
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/GameData.DK", FileMode.Open);
-            AllObjects = (Dictionary<int, Interactable>)bf.Deserialize(file);
+            allObjects = (Dictionary<int, Interactable>)bf.Deserialize(file);
             Debug.Log("Game data loaded from file");
             file.Close();
         }
     }
 
     #endregion
+
+	public static void UseBed(object sender, GameEventArgs args)
+	{
+		instance.SetTime(END_DAY_HOUR);
+		instance.Midnight(false);
+	}
+
 }

@@ -38,65 +38,65 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/5.2.1f1/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity5.2.1/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/5.2.1f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity5.2.1/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Packages\TileSprite\Scripts\TileSprite.cs" />
      <Compile Include="Assets\Scripts\Anim\CharacterAnimations.cs" />
      <Compile Include="Assets\Scripts\Camera.cs" />
      <Compile Include="Assets\Scripts\ChoiceEventArgs.cs" />
      <Compile Include="Assets\Scripts\DataLoader.cs" />
      <Compile Include="Assets\Scripts\DayData.cs" />
-     <Compile Include="Assets\Scripts\Dialog_Test.cs" />
      <Compile Include="Assets\Scripts\Door.cs" />
-     <Compile Include="Assets\Scripts\EventManager.cs" />
-     <Compile Include="Assets\Scripts\Falling.cs" />
      <Compile Include="Assets\Scripts\GameEventArgs.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\InteractableObject.cs" />
      <Compile Include="Assets\Scripts\InvisibleWall.cs" />
-     <Compile Include="Assets\Scripts\InvisibleWallBot.cs" />
-     <Compile Include="Assets\Scripts\InvisibleWallLeft.cs" />
-     <Compile Include="Assets\Scripts\InvisibleWallRight.cs" />
-     <Compile Include="Assets\Scripts\InvisibleWallTop.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
-     <Compile Include="Assets\Scripts\Kelly.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Managers\EventManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\PrologueManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\QuestManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\SceneManager.cs" />
      <Compile Include="Assets\Scripts\MapLocation.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Menu_Layout.cs" />
-     <Compile Include="Assets\Scripts\Mom.cs" />
-     <Compile Include="Assets\Scripts\Move.cs" />
      <Compile Include="Assets\Scripts\NPC.cs" />
-     <Compile Include="Assets\Scripts\NPCMovements.cs" />
-     <Compile Include="Assets\Scripts\Packages\TileSprite\Scripts\TileSprite.cs" />
+     <Compile Include="Assets\Scripts\Old Scripts\Dialog_Test.cs" />
+     <Compile Include="Assets\Scripts\Old Scripts\Falling.cs" />
+     <Compile Include="Assets\Scripts\Old Scripts\InvisibleWallBot.cs" />
+     <Compile Include="Assets\Scripts\Old Scripts\InvisibleWallLeft.cs" />
+     <Compile Include="Assets\Scripts\Old Scripts\InvisibleWallRight.cs" />
+     <Compile Include="Assets\Scripts\Old Scripts\InvisibleWallTop.cs" />
+     <Compile Include="Assets\Scripts\Old Scripts\Kelly.cs" />
+     <Compile Include="Assets\Scripts\Old Scripts\Mom.cs" />
+     <Compile Include="Assets\Scripts\Old Scripts\Move.cs" />
+     <Compile Include="Assets\Scripts\Old Scripts\NPCMovements.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerData.cs" />
-     <Compile Include="Assets\Scripts\PrologueManager.cs" />
      <Compile Include="Assets\Scripts\Quest.cs" />
      <Compile Include="Assets\Scripts\QuestList.cs" />
      <Compile Include="Assets\Scripts\QuestLog.cs" />
-     <Compile Include="Assets\Scripts\QuestManager.cs" />
      <Compile Include="Assets\Scripts\RepeatSpriteBoundary.cs" />
-     <Compile Include="Assets\Scripts\SceneManager.cs" />
      <Compile Include="Assets\Scripts\Stairs.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
      <Compile Include="Assets\Scripts\TileWindow.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/5.2.1f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity5.2.1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/5.2.1f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity5.2.1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
- <HintPath>C:/Program Files/Unity/5.2.1f1/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
+ <HintPath>C:/Program Files/Unity5.2.1/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity/5.2.1f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ <HintPath>C:/Program Files/Unity5.2.1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

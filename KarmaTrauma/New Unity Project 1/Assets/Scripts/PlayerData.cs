@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -35,11 +35,11 @@ public class PlayerData
 			QuestManager.Instance.RemoveQuestFromLog(1);
 
 			// Hard-coded to remove bae from inventory because I don't know how :(
-			for (int i = 0; i < GameManager.Instance.dayData.ItemAmount; i++)
+			for (int i = 0; i < GameManager.instance.dayData.ItemAmount; i++)
 			{
-				if (GameManager.Instance.dayData.Inventory[i].Name == "Bacon and Eggs")
+				if (GameManager.instance.dayData.Inventory[i].Name == "Bacon and Eggs")
 				{
-					GameManager.Instance.dayData.Inventory[i] = null;
+					GameManager.instance.dayData.Inventory[i] = null;
 				}
 			}
 		}

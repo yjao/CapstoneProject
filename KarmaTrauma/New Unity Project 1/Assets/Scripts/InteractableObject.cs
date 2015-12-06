@@ -1,36 +1,38 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 public class InteractableObject : MonoBehaviour
 {
-    public int ID;
-    public GameObject Npc;
+    public int iD;
+    public GameObject npc;
 
     protected GameManager gameManager;
     protected Player player;
     private bool colliding = false;
 
-    public enum TYPE
+    public enum InteractionType
     {
         NONE, DIALOG, ITEM, MOVE
     };
-    public TYPE InteractionType;
+    public InteractionType interactionType;
 
     public enum Dialogue_ID_Type
     {
         SINGLE_DIALOGUE_ID, DIALOGUE_MIN_MAX, MULTI_DIALOGUE_ID
     };
-    public Dialogue_ID_Type DialogueIDType;
-    public int DialogueIDSingle;
-    public int DialogueIDMin;
-    public int DialogueIDMax;
-    public List<int> DialogueIDMulti;
-    public Parameters[] Parameter;
+    public Dialogue_ID_Type dialogueIDType;
+    public int dialogueIDSingle;
+    public int dialogueIDMin;
+    public int dialogueIDMax;
+    public List<int> dialogueIDMulti;
+
+	[Header("How many sets/distinct time blocks?")]
+    public Parameters[] parameter;
 
     public void Init()
     {
-        gameManager = GameManager.Instance;
+        gameManager = GameManager.instance;
         player = Player.Instance;
     }
 
@@ -64,32 +66,32 @@ public class InteractableObject : MonoBehaviour
 
     private void CallDialogue()
     {
-        int newIndex = DialogueIDSingle;
-        switch (DialogueIDType)
+        int newIndex = dialogueIDSingle;
+        switch (dialogueIDType)
         {
             case Dialogue_ID_Type.SINGLE_DIALOGUE_ID:
-                newIndex = DialogueIDSingle;
+                newIndex = dialogueIDSingle;
                 break;
             case Dialogue_ID_Type.MULTI_DIALOGUE_ID:
-                int multiIndex = DialogueIDMulti.IndexOf(DialogueIDSingle);
-                if ((multiIndex < 0) || (multiIndex >= DialogueIDMulti.Count))
+                int multiIndex = dialogueIDMulti.IndexOf(dialogueIDSingle);
+                if ((multiIndex < 0) || (multiIndex >= dialogueIDMulti.Count))
                     multiIndex = 0;
-                DialogueIDSingle = DialogueIDMulti[multiIndex];
-                newIndex = (multiIndex + 1 >= DialogueIDMulti.Count) ? DialogueIDMulti[0] : DialogueIDMulti[multiIndex + 1];
+                dialogueIDSingle = dialogueIDMulti[multiIndex];
+                newIndex = (multiIndex + 1 >= dialogueIDMulti.Count) ? dialogueIDMulti[0] : dialogueIDMulti[multiIndex + 1];
                 break;
             case Dialogue_ID_Type.DIALOGUE_MIN_MAX:
-                if ((DialogueIDSingle <= DialogueIDMin) || (DialogueIDSingle > DialogueIDMax))
-                    DialogueIDSingle = DialogueIDMin;
-                newIndex = DialogueIDSingle + 1;
+                if ((dialogueIDSingle <= dialogueIDMin) || (dialogueIDSingle > dialogueIDMax))
+                    dialogueIDSingle = dialogueIDMin;
+                newIndex = dialogueIDSingle + 1;
                 break;
         }
 
-		if (gameManager.AllObjects[ID].Dialogue[DialogueIDSingle].TypeIsChoice())
+		if (gameManager.allObjects[iD].dialogues[dialogueIDSingle].TypeIsChoice())
 		{
 			EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
 		}
-		gameManager.DBox(ID, DialogueIDSingle);
-        DialogueIDSingle = newIndex;
+		gameManager.DBox(iD, dialogueIDSingle);
+        dialogueIDSingle = newIndex;
     }
 
     public void Interact()
@@ -97,10 +99,10 @@ public class InteractableObject : MonoBehaviour
         EventManager.NotifyNPC(this, new GameEventArgs() { ThisGameObject = gameObject });
         //EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
         
-        switch (InteractionType)
+        switch (interactionType)
         {       
-            case TYPE.DIALOG:
-                if (gameManager.GameMode != GameManager.MODE.DIALOGUE)
+            case InteractionType.DIALOG:
+                if (gameManager.gameMode != GameManager.GameMode.DIALOGUE)
 				{
 
                     // Call QuestList and check if the quest requirements are met with this interactable object. Change dialogue if necessasry
@@ -132,28 +134,16 @@ public class InteractableObject : MonoBehaviour
         GameObject.Destroy(args.ThisGameObject);
     }
 
-    /*public void CheckAndTurnCharacter()
-    {
-        if (this.transform.position.x > player.gameObject.transform.position.x)
-        {
-            animator.SetInteger(animationState, leftIdle);
-        }
-        else if (this.transform.position.x < player.gameObject.transform.position.x)
-        {
-            animator.SetInteger(animationState, rightIdle);
-        }
-    }*/
-
     public void CheckAndInteract()
     {
         if (colliding && Input.GetKeyDown(KeyCode.E))
         {
             // colliding = false; //troublesome without this line...
-            if (InteractionType == TYPE.DIALOG)
+            if (interactionType == InteractionType.DIALOG)
                 Interact();
-            else if (InteractionType == TYPE.ITEM)
+            else if (interactionType == InteractionType.ITEM)
 			{
-				GameEventArgs args = new GameEventArgs() { IDNum = ID, ThisGameObject = gameObject };
+				GameEventArgs args = new GameEventArgs() { IDNum = iD, ThisGameObject = gameObject };
 				InteractItem(this, args);
 			}
 			//else if (InteractionType == TYPE.MOVE)
@@ -180,16 +170,48 @@ public class InteractableObject : MonoBehaviour
     [System.Serializable]
     public class Parameters
     {
-        public List<int> Time;
-        public InteractableObject.Dialogue_ID_Type DialogueIDType;
-        public int DialogueIDSingle;
-        public int DialogueIDMin;
-        public int DialogueIDMax;
-        public List<int> DialogueIDMulti;
-        public CharacterAnimations.States StartingAnimationState;
+		[Header("Specify the time frames that this set takes effect")]
+        public List<int> timeBlocks;
+
+		[Header("InteractableObject dialogue information")]
+        public InteractableObject.Dialogue_ID_Type dialogueIDType;
+        public int dialogueIDSingle;
+        public int dialogueIDMin;
+        public int dialogueIDMax;
+        public List<int> dialogueIDMulti;
+
+		[Header("NPC CharacterAnimations")]
+        public CharacterAnimations.States startingAnimationState;
+		public float animationSpeed;
         public float wanderDistanceX;
         public int wanderDirectionX;
         public float wanderDistanceY;
         public int wanderDirectionY;
+
+		private int m_npcID = -1;
+		public int NpcID
+		{
+			set
+			{
+				m_npcID = value;
+			}
+			get
+			{
+				return m_npcID;
+			}
+		}
+
+		private string m_summary = "";
+		public string Summary
+		{
+			set
+			{
+				m_summary = value;
+			}
+			get
+			{
+				return m_summary;
+			}
+		}
     }
 }

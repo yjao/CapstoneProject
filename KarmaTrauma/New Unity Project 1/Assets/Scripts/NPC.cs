@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -51,7 +51,7 @@ public class NPC : MonoBehaviour
     void FixedUpdate()
     {
 		transform.rotation = Quaternion.Euler(Vector3.zero);
-		if (GameManager.Instance.GameMode != GameManager.MODE.PLAYING)
+		if (GameManager.instance.gameMode != GameManager.GameMode.PLAYING)
 		{
 			return;
 		}

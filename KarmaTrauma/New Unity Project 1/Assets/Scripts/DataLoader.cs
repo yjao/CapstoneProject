@@ -15,17 +15,8 @@ public class DataLoader
 		Instance = this;
 	}
 
-	private void AddNpc(int ID, string name, string strangerName, string[] strings)
-	{
-		Dialogue[] dialogues = new Dialogue[strings.GetLength(0)];
-		for (int i = 0; i < strings.GetLength(0); i++)
-		{
-			Choice[] choices = null;
-			dialogues[i] = new Dialogue(i, strings[i], choices);
-		}
-		
-		GameManager.Instance.AllObjects[ID] = new Interactable(name, strangerName, dialogues);
-	}
+
+	#region GAME CHARACTER DATA
 	
 	private void LoadOldData()
 	{
@@ -45,7 +36,7 @@ public class DataLoader
 		};
 		AddNpc(1, "Chelsey", "", chelsey);
 
-		GameManager.Instance.AllObjects[1].Dialogue[7].choices = new Choice[1] { new Choice("Maybe not today.") };
+		gameManager.allObjects[1].dialogues[7].choices = new Choice[1] { new Choice("Maybe not today.") };
 
         string[] alfred = new string[]
         {
@@ -57,9 +48,11 @@ public class DataLoader
 
 		string[] mom = new string[]
 		{
-			"\"Chelsey! Wake up! You don't want to be late on your first day of school!\"",
-			"\"The breakfast's on the table. Bacon and eggs, your favorite!\"",
-			"\"Come on, you're going to be late!\""
+			/*0*/ "\"Chelsey! Wake up! You don't want to be late on your first day of school!\"",
+			/*1*/ "\"The breakfast's on the table. Bacon and eggs, your favorite!\"",
+			/*2*/ "\"Come on, you're going to be late!\"",
+			/*3*/ "\"Hi Chelsey, hope you had a great time at school today!\"",
+			/*4*/ "\"It's late, go to bed!\""
         };
 
 		AddNpc(21, "Mom", "Mom", mom);
@@ -75,10 +68,10 @@ public class DataLoader
 			/*6*/ "\"Yup. Great cop, wasn't he? But that was all in the past. Ask his ex-coworkers, they all know! That poor, poor soul.\""
 		};
 		AddNpc(65, "Mr.Ly", "Teacher", mrly);
-		GameManager.Instance.AllObjects[65].Dialogue[4].choices = new Choice[]
+		gameManager.allObjects[65].dialogues[4].choices = new Choice[]
 		{
-			addChoice("Say nothing"),
-			addChoice("Who is he?", ChoiceAction.CONTINUE, 65, 5)
+			AddChoice("Say nothing"),
+			AddChoice("Who is he?", ChoiceAction.CONTINUE, 65, 5)
 		};
 		//GameManager.Instance.AllObjects[65].Dialogue[5].CEA = new ChoiceEventArgs() { ChoiceAction = Textbox.continueDialogue, IDNum = 65, DialogueID = 4};
 		/*GameManager.Instance.AllObjects[65].Dialogue[6].choices = new Choice[]
@@ -86,9 +79,9 @@ public class DataLoader
 			addChoice("Say nothing"),
 			addChoice("What happened?", ChoiceAction.CONTINUE, 65, 7)
 		};*/
-		GameManager.Instance.AllObjects[65].Dialogue[6].choices = new Choice[]
+		gameManager.allObjects[65].dialogues[6].choices = new Choice[]
 		{
-			addChoice("Okay.", boolname:"Quest2")
+			AddChoice("Okay.", boolname:"Quest2")
 		};
 		//GameManager.Instance.AllObjects[65].Dialogue[6].setbool = "Quest2";
 
@@ -163,7 +156,7 @@ public class DataLoader
         AddNpc(111, "Chelsey", "Chelsey", monologue);
 
         AddNpc(171, "Bacon and Eggs", "Food???", baconandeggs);
-		GameManager.Instance.AllObjects[71].Dialogue[0].choices = new Choice[2]
+		gameManager.allObjects[71].dialogues[0].choices = new Choice[2]
 		{
 			new Choice("I guess I'll eat it"),
 			new Choice("Nah...")
@@ -176,12 +169,12 @@ public class DataLoader
             "more"
         };
         AddNpc(150, "Jewel", "Jewel", jewel);
-		GameManager.Instance.AllObjects[150].Dialogue[0].choices = new Choice[]
+		gameManager.allObjects[150].dialogues[0].choices = new Choice[]
 		{
-            addChoice("Talk to the jewel", ChoiceAction.CONTINUE, 150, 1),
-            addChoice("Take the jewel", ChoiceAction.ITEM, 150),
-            addChoice("Destroy the jewel", ChoiceAction.DESTROY),
-            addChoice("Do nothing")
+            AddChoice("Talk to the jewel", ChoiceAction.CONTINUE, 150, 1),
+            AddChoice("Take the jewel", ChoiceAction.ITEM, 150),
+            AddChoice("Destroy the jewel", ChoiceAction.DESTROY),
+            AddChoice("Do nothing")
 		};
 
         string[] jewel2 = new string[]
@@ -212,7 +205,7 @@ public class DataLoader
 			"Are you worthy enough to take the Debugger's Jewel?"
 		};
 		AddNpc(153, "Jewel", "", jewel4);
-		GameManager.Instance.AllObjects[153].Dialogue[0].choices = new Choice[2]
+		gameManager.allObjects[153].dialogues[0].choices = new Choice[2]
 		{
 			new Choice("You bet!", new ChoiceEventArgs() { ChoiceAction = InteractableObject.InteractItem, IDNum = 150 }),
 			new Choice("Nah, Idk Ruby.")
@@ -221,8 +214,6 @@ public class DataLoader
 
     private void LoadFallDemoData()
     {
-
-
         // ================ JENEY ================ //
         string[] jeney = new string[]
 		{
@@ -230,7 +221,7 @@ public class DataLoader
             /*1*/ "\"Alex was just at my donut shop at 4PM today to talk about his father and now he's gone...\"",
         };
         AddNpc(73, "Random Woman", "Jeney", jeney);
-        GameManager.Instance.AllObjects[73].Dialogue[0].setbool = "AlfredName_Learned";
+        gameManager.allObjects[73].dialogues[0].setbool = "AlfredName_Learned";
 
 
 
@@ -244,15 +235,15 @@ public class DataLoader
             /*4*/ "\"Please leave if you're not here to see someone\""
         };
         AddNpc(74, "Guard", "Manny", manny);
-        GameManager.Instance.AllObjects[74].Dialogue[0].choices = new Choice[]
+        gameManager.allObjects[74].dialogues[0].choices = new Choice[]
 		{
-			addChoice("Alfred", ChoiceAction.CONTINUE, 74, 1),
-			addChoice("Uh...", ChoiceAction.CONTINUE, 74, 4)
+			AddChoice("Alfred", ChoiceAction.CONTINUE, 74, 1),
+			AddChoice("Uh...", ChoiceAction.CONTINUE, 74, 4)
 		};
-        GameManager.Instance.AllObjects[74].Dialogue[1].choices = new Choice[]
+        gameManager.allObjects[74].dialogues[1].choices = new Choice[]
 		{
-			addChoice("Alex", ChoiceAction.CONTINUE, 74, 2),
-            addChoice("Chelsey", ChoiceAction.CONTINUE, 74, 3)
+			AddChoice("Alex", ChoiceAction.CONTINUE, 74, 2),
+            AddChoice("Chelsey", ChoiceAction.CONTINUE, 74, 3)
 		};
 
 
@@ -269,26 +260,27 @@ public class DataLoader
             /*6*/ "\"Weirdo...\""
         };
         AddNpc(75, "Kid", "Alex", alex);
-        GameManager.Instance.AllObjects[75].Dialogue[0].choices = new Choice[]
+        gameManager.allObjects[75].dialogues[0].choices = new Choice[]
 		{
-			addChoice("Tell him you're new in town and want to make friends", ChoiceAction.CONTINUE, 75, 1),
-			addChoice("Say nothing", ChoiceAction.CONTINUE, 75, 6)
+			AddChoice("Tell him you're new in town and want to make friends", ChoiceAction.CONTINUE, 75, 1),
+			AddChoice("Say nothing", ChoiceAction.CONTINUE, 75, 6)
 		};
-        GameManager.Instance.AllObjects[75].Dialogue[1].choices = new Choice[]
+        gameManager.allObjects[75].dialogues[1].choices = new Choice[]
 		{
-			addChoice("Ask him if his father is the cop in the Mental Hospital", ChoiceAction.CONTINUE, 75, 2)
+			AddChoice("Ask him if his father is the cop in the Mental Hospital", ChoiceAction.CONTINUE, 75, 2)
 		};
-        GameManager.Instance.AllObjects[75].Dialogue[2].choices = new Choice[]
+        gameManager.allObjects[75].dialogues[2].choices = new Choice[]
 		{
-			addChoice("Tell him that he needs to come with you and visit his father", ChoiceAction.CONTINUE, 75, 3)
+			AddChoice("Tell him that he needs to come with you and visit his father", ChoiceAction.CONTINUE, 75, 3)
 		};
-        GameManager.Instance.AllObjects[75].Dialogue[3].choices = new Choice[]
+        gameManager.allObjects[75].dialogues[3].choices = new Choice[]
 		{
-			addChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
-            addChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5),
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
+            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5),
 		};
 
 
+		// ================ ITEMS & OBJECTS ================ //
 
         string[] jewel = new string[]
 		{
@@ -300,6 +292,17 @@ public class DataLoader
         AddNpc(2, "Jewel", "Jewel", jewel);
 
         //GameManager.Instance.AllObjects[74].Dialogue[1].setbool = "JeneyHungry";
+
+		string[] bed = new string[]
+		{
+			/*0*/ "\"Sleep and end the day?\""
+		};
+		AddNpc(100, "Bed", "Bed", bed);
+		gameManager.allObjects[100].dialogues[0].choices = new Choice[]
+		{
+			new Choice("Good Night!", new ChoiceEventArgs() { ChoiceAction = GameManager.UseBed }),
+			AddChoice("I ain't weak!")
+		};
     }
 
 	private void LoadTestData()
@@ -314,12 +317,12 @@ public class DataLoader
 			"Thanks kid."
 		};
 		AddNpc(999, "Mr. Test", "", test);
-		GameManager.Instance.AllObjects[999].Dialogue[1].setbool = "GimmeJewel";
-		GameManager.Instance.AllObjects[999].Dialogue[3].choices = new Choice[]
+		gameManager.allObjects[999].dialogues[1].setbool = "GimmeJewel";
+		gameManager.allObjects[999].dialogues[3].choices = new Choice[]
 		{
 			new Choice("Never!", new ChoiceEventArgs() { ChoiceAction =  Textbox.continueDialogue, IDNum = 999, DialogueID = 4}),
 			//new Choice("I guess...")
-            addChoice("I guess...", boolname:"Quest1")
+            AddChoice("I guess...", boolname:"Quest1")
 		};
 
 		string[] test2 = new string[] 
@@ -327,16 +330,6 @@ public class DataLoader
 			""
 		};
 		AddNpc(998, "Mom", "", test2);
-	}
-
-	private void LoadQuestTerms()
-	{
-		GameManager.Instance.questTerms = new Dictionary<string, string>()
-		{
-			{ "PB" , "peanut butter" },
-			{ "NM" , "name" },
-			{ "" , "" }
-		};
 	}
 
 	private void LoadMiniTestData()
@@ -348,48 +341,154 @@ public class DataLoader
 		AddNpc(1000, "Mr. Test", "", test);
 	}
 
+	#endregion
+
+	private void LoadQuestTerms()
+	{
+		gameManager.questTerms = new Dictionary<string, string>()
+		{
+			{ "PB" , "peanut butter" },
+			{ "NM" , "name" },
+			{ "" , "" }
+		};
+	}
+
+	private void LoadSceneData()
+	{
+		string sceneName = "";
+
+		#region EMPTY TEMPLATE
+		// EMPTY TEMPLATE
+		/*
+		InteractableObject.Parameters emptyTemplate = new InteractableObject.Parameters()
+		{
+			// Specify the time frames that this set takes effect
+			timeBlocks = new List<int>() {  },
+			
+			// InteractableObject dialogue information
+			dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+			dialogueIDSingle = 0,
+			dialogueIDMin = 0,  dialogueIDMax = 0,
+			dialogueIDMulti = new List<int>() {  },
+			
+			// NPC CharacterAnimations
+			startingAnimationState = CharacterAnimations.States.DOWN_IDLE,
+			animationSpeed = 0f,
+			wanderDistanceX = 0f,  wanderDirectionX = 0,
+			wanderDistanceY = 0f,  wanderDirectionY = 0,
+			
+			// Getter/Setter variables, NpcID is required
+			Summary = "",
+			NpcID = -1
+		};
+		AddParameters(sceneName, emptyTemplate);
+		*/
+		#endregion
+
+		sceneName = SceneManager.SCENE_HOUSE;
+
+		InteractableObject.Parameters mom = new InteractableObject.Parameters()
+		{
+			// Specify the time frames that this set takes effect
+			timeBlocks = new List<int>() { 6 },
+
+			// InteractableObject dialogue information
+			dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+			dialogueIDSingle = 2,
+
+			// NPC CharacterAnimations
+			startingAnimationState = CharacterAnimations.States.DOWN_STRETCH,
+			animationSpeed = 0.2f,
+
+			// Getter/Setter variables, NpcID is required
+			Summary = "mom says wakeup in the morning",
+			NpcID = 21
+		};
+		AddParameters(sceneName, mom);
+
+		InteractableObject.Parameters mom2 = new InteractableObject.Parameters()
+		{
+			// Specify the time frames that this set takes effect
+			timeBlocks = new List<int>() { 16, 18, 20 },
+			
+			// InteractableObject dialogue information
+			dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+			dialogueIDSingle = 3,
+			
+			// NPC CharacterAnimations
+			startingAnimationState = CharacterAnimations.States.DOWN_IDLE,
+			animationSpeed = 0.05f,
+			wanderDistanceX = 30f,  wanderDirectionX = 1,
+
+			// Getter/Setter variables, NpcID is required
+			Summary = "mom walks around after school",
+			NpcID = 21
+		};
+		AddParameters(sceneName, mom2);
+
+		InteractableObject.Parameters mom3 = new InteractableObject.Parameters()
+		{
+			// Specify the time frames that this set takes effect
+			timeBlocks = new List<int>() { 22 },
+			
+			// InteractableObject dialogue information
+			dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+			dialogueIDSingle = 3,
+			dialogueIDMin = 3,  dialogueIDMax = 4,
+
+			// NPC CharacterAnimations
+			startingAnimationState = CharacterAnimations.States.DOWN_IDLE,
+			
+			// Getter/Setter variables, NpcID is required
+			Summary = "mom stands and says go sleep",
+			NpcID = 21
+		};
+		AddParameters(sceneName, mom3);
+	}
+
 	public DataLoader()
 	{
-		gameManager = GameManager.Instance;
+		gameManager = GameManager.instance;
 
 		Init(); //delete me one day
 
 		Debug.Log("Loading Game playerData");
 		
-		//LoadOldData();
-		//LoadTestData();
 		LoadOldData();
 		LoadMiniTestData();
+		LoadFallDemoData();
+
+		LoadSceneData();
 		LoadQuestTerms();
-        LoadFallDemoData();
+
 
 		Debug.Log("Loading Complete");
-		GameManager.Instance.SaveGameData();
+		gameManager.SaveGameData();
 	}
 
-    private ChoiceEventArgs item(int id)
+    private ChoiceEventArgs ChoiceInteractItem(int id)
     {
         ChoiceEventArgs CEA = new ChoiceEventArgs() { ChoiceAction = InteractableObject.InteractItem, IDNum = id };
         return CEA;
     }
 
-    private ChoiceEventArgs continueDialog(int id, int dialogueID)
+    private ChoiceEventArgs ChoiceContinueDialog(int id, int dialogueID)
     {
         ChoiceEventArgs CEA = new ChoiceEventArgs() { ChoiceAction = Textbox.continueDialogue, IDNum = id, DialogueID = dialogueID };
         return CEA;
     }
 
 	// temporarily making it public for hardcoding purposes
-    public Choice addChoice(string text, ChoiceAction CA = ChoiceAction.NONE, int id = -1, int subID = -1, string boolname = null)
+    public Choice AddChoice(string text, ChoiceAction CA = ChoiceAction.NONE, int id = -1, int subID = -1, string boolname = null)
     {
         ChoiceEventArgs CEA;
         if (CA == ChoiceAction.ITEM)
         {
-            CEA = item(id);
+            CEA = ChoiceInteractItem(id);
         }
         else if (CA == ChoiceAction.CONTINUE)
         {
-            CEA = continueDialog(id, subID);
+            CEA = ChoiceContinueDialog(id, subID);
         }
         else if (CA == ChoiceAction.DESTROY)
         {
@@ -401,4 +500,33 @@ public class DataLoader
         }
         return new Choice(text, CEA, boolname);
     }
+
+	private void AddNpc(int ID, string name, string strangerName, string[] strings)
+	{
+		Dialogue[] dialogues = new Dialogue[strings.GetLength(0)];
+		for (int i = 0; i < strings.GetLength(0); i++)
+		{
+			Choice[] choices = null;
+			dialogues[i] = new Dialogue(i, strings[i], choices);
+		}
+
+		gameManager.allObjects[ID] = new Interactable(name, strangerName, dialogues);
+	}
+
+	private void AddParameters(string sceneName, InteractableObject.Parameters parameters)
+	{
+		List<InteractableObject.Parameters> paramList = null;
+		if (gameManager.sceneParameters.ContainsKey(sceneName))
+		{
+			paramList = gameManager.sceneParameters[sceneName];
+		}
+
+		if (paramList == null)
+		{
+			gameManager.sceneParameters[sceneName] = new List<InteractableObject.Parameters>();
+		}
+
+		gameManager.sceneParameters[sceneName].Add(parameters);
+	}
+
 }

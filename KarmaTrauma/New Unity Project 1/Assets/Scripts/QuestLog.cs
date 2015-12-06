@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ public class QuestLog : MonoBehaviour {
 	void Start () {
         Instance = this;
         questManager = QuestManager.Instance;
-        gameManager = GameManager.Instance;
+        gameManager = GameManager.instance;
         this.tag = "Menu";
         transform.Find("Dim").gameObject.SetActive(false);
         transform.Find("Header").gameObject.SetActive(false);

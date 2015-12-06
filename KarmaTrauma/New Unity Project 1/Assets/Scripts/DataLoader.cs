@@ -226,6 +226,7 @@ public class DataLoader
 			/*0*/ "\"Oh... Poor Alfred. This must have a toll on Alex.\"",
             /*1*/ "\"Alex was just at my donut shop at 4PM today to talk about his father and now he's gone...\"",
         };
+        AddNpc(73, "Random Woman", "Jeney", jeney);
         GameManager.Instance.AllObjects[73].Dialogue[0].setbool = "AlfredName_Learned";
 
 
@@ -331,9 +332,9 @@ public class DataLoader
 
 		Debug.Log("Loading Game playerData");
 		
-		LoadOldData();
+		//LoadOldData();
 		//LoadTestData();
-        //LoadFallDemoData();
+        LoadFallDemoData();
 
 		Debug.Log("Loading Complete");
 		GameManager.Instance.SaveGameData();

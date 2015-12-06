@@ -218,24 +218,72 @@ public class DataLoader
 
     private void LoadFallDemoData()
     {
+
+
+        // ================ JENEY ================ //
+        string[] jeney = new string[]
+		{
+			/*0*/ "\"Oh... Poor Alfred. This must have a toll on Alex.\"",
+            /*1*/ "\"Alex was just at my donut shop at 4PM today to talk about his father and now he's gone...\"",
+        };
+        GameManager.Instance.AllObjects[73].Dialogue[0].setbool = "AlfredName_Learned";
+
+
+
+        // ================ MANNY ================ //
         string[] manny = new string[]
 		{
-			/*0*/ "\"Hello. Are you here to see someone?\"",
-			/*1*/ "\"Please leave if you're not here to see someone.\"",
-			/*2*/ "\"What is your name?\"",
-            /*3*/ "\"Sorry, you are not on the visitors list. Please leave.\""
+			/*0*/ "\"Hello. Who are you visiting today?\"",
+			/*1*/ "\"What is your name?\"",
+			/*2*/ "\"Oh, Alex! Your father talked about how much he misses you. Right now, he is busy, but you are permitted to wait for him here. ...I could've sworn he had a son.\"",
+            /*3*/ "\"Sorry, you are not on the visitors list. Please leave.\"",
+            /*4*/ "\"Please leave if you're not here to see someone\""
         };
         AddNpc(74, "Guard", "Manny", manny);
         GameManager.Instance.AllObjects[74].Dialogue[0].choices = new Choice[]
 		{
-			addChoice("Yes", ChoiceAction.CONTINUE, 74, 2),
-			addChoice("No", ChoiceAction.CONTINUE, 74, 1)
+			addChoice("Alfred", ChoiceAction.CONTINUE, 74, 1),
+			addChoice("Uh...", ChoiceAction.CONTINUE, 74, 4)
+		};
+        GameManager.Instance.AllObjects[74].Dialogue[1].choices = new Choice[]
+		{
+			addChoice("Alex", ChoiceAction.CONTINUE, 74, 2),
+            addChoice("Chelsey", ChoiceAction.CONTINUE, 74, 3)
 		};
 
-        GameManager.Instance.AllObjects[74].Dialogue[2].choices = new Choice[]
+
+
+        // ================ ALEX ================ //
+        string[] alex = new string[]
 		{
-			addChoice("Chelsey", ChoiceAction.CONTINUE, 74, 3)
+			/*0*/ "\"What do you want?\"",
+            /*1*/ "\"I'm Alex. Welcome to our mundane little town.\"",
+            /*2*/ "\"Yes, he is. How do you even know this?\"",
+            /*3*/ "\"Please, he never cared about me so why should I care about him? If you want me to come with you, prove to me that he still cares and I'll consider going with you to visit him.\"",
+            /*4*/ "\"He... He still has this? I guess the old man really does care. I'll go with you.\"",
+            /*5*/ "\"Stop wasting my time.\"",
+            /*6*/ "\"Weirdo...\""
+        };
+        AddNpc(75, "Kid", "Alex", alex);
+        GameManager.Instance.AllObjects[75].Dialogue[0].choices = new Choice[]
+		{
+			addChoice("Tell him you're new in town and want to make friends", ChoiceAction.CONTINUE, 75, 1),
+			addChoice("Say nothing", ChoiceAction.CONTINUE, 75, 6)
 		};
+        GameManager.Instance.AllObjects[75].Dialogue[1].choices = new Choice[]
+		{
+			addChoice("Ask him if his father is the cop in the Mental Hospital", ChoiceAction.CONTINUE, 75, 2)
+		};
+        GameManager.Instance.AllObjects[75].Dialogue[2].choices = new Choice[]
+		{
+			addChoice("Tell him that he needs to come with you and visit his father", ChoiceAction.CONTINUE, 75, 3)
+		};
+        GameManager.Instance.AllObjects[75].Dialogue[3].choices = new Choice[]
+		{
+			addChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
+            addChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5),
+		};
+
 
 
         string[] jewel = new string[]
@@ -283,9 +331,9 @@ public class DataLoader
 
 		Debug.Log("Loading Game playerData");
 		
-		//LoadOldData();
+		LoadOldData();
 		//LoadTestData();
-        LoadFallDemoData();
+        //LoadFallDemoData();
 
 		Debug.Log("Loading Complete");
 		GameManager.Instance.SaveGameData();

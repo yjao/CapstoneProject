@@ -82,6 +82,7 @@
      <Compile Include="Assets\Scripts\Quest.cs" />
      <Compile Include="Assets\Scripts\QuestList.cs" />
      <Compile Include="Assets\Scripts\RepeatSpriteBoundary.cs" />
+     <Compile Include="Assets\Scripts\SceneManager.cs" />
      <Compile Include="Assets\Scripts\Stairs.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
      <Compile Include="Assets\TileWindow.cs" />

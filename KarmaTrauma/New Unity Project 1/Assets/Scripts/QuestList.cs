@@ -5,6 +5,7 @@ public class QuestList : MonoBehaviour
 {
     List<QClass> Qlist;
 
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -20,11 +21,10 @@ public class QuestList : MonoBehaviour
 	void Update () {
 	}
 
-    public void AddQuest(int NPC, int dialogue, string requirement, string changeBool)
+    public void AddQuest(int NPC, int dialogue_in,int dialogue_change, string requirement, string changeBool, string requiredItem)
     {
             QClass temporary;
-            temporary = new QClass(NPC, dialogue, requirement, changeBool);
-            Debug.Log(Qlist);
+            temporary = new QClass(NPC, dialogue_in, dialogue_change, requirement, changeBool,requiredItem);
             
             Qlist.Add(temporary);
         
@@ -33,28 +33,66 @@ public class QuestList : MonoBehaviour
     public void CheckQuest(InteractableObject obj)
     {
 
-        Debug.Log("Number of quests: " + Qlist.Count);
         // Iterate thorugh all the quests in the quest list
-        for (int i = 0; i < Qlist.Count ; i++)
+        for (int i = 0; i < Qlist.Count; i++)
         {
             QClass temp = (QClass)Qlist[i];
-            if(obj.ID==temp.NPC && !temp.completed)
+            if (obj.ID == temp.NPC)
             {
-                InteractableObject io = obj.GetComponent<InteractableObject>();
-               
-                //If requirement met
-
-                GameObject PL = GameObject.Find("Player");
-                PlayerData pl = PL.GetComponent<PlayerData>();
-                if(pl.GetBool(temp.requirement))
+                if(temp.completed)
                 {
-                    io.DialogueIDSingle = temp.dialogue;
-                    pl.SetBool(temp.changeBool);
-                    temp.completed = true;
                 }
-                
-                
-               
+                else
+                {
+                    InteractableObject io = obj.GetComponent<InteractableObject>();
+
+                    //If requirement met
+                    PlayerData pl = GameManager.Instance.playerData;
+                    Debug.Log(pl);
+                    DayData dd = GameManager.Instance.dayData;
+                    Debug.Log(dd);
+                    if (pl.GetBool(temp.requirement))   
+                    {
+                        if (temp.triggered == false)
+                        {
+                            temp.triggered = true;
+                            io.DialogueIDSingle = temp.dialogue_in_progress;
+                            break;
+                        }
+                        if (temp.itemTurnedIn == false)
+                        {
+                            for (int j = 0; j < GameManager.Instance.dayData.ItemAmount; j++)
+                            {
+                                if (GameManager.Instance.dayData.Inventory[j].Name == temp.requiredItem)
+                                {
+                                    GameManager.Instance.dayData.Inventory[j] = null;
+                                    GameManager.Instance.dayData.ItemAmount--;
+                                    temp.itemTurnedIn = true;
+                                    break;
+                                }
+                                else
+                                {
+                                }
+                            }
+                        }
+                    }
+
+                    if (temp.itemTurnedIn)
+                    {
+                        io.DialogueIDSingle = temp.dialogue_change;
+                        pl.SetBool(temp.changeBool);
+                        temp.completed = true;
+
+                    }
+
+                    else
+                    {
+                        io.DialogueIDSingle = temp.dialogue_in_progress;
+                    }
+                    
+
+
+                }
             }
         }
     }
@@ -63,17 +101,36 @@ public class QuestList : MonoBehaviour
 class QClass
 {
     public int NPC;
-    public int dialogue;
+    public int dialogue_in_progress;
+    public int dialogue_change;
     public string requirement;
     public string changeBool;
     public bool completed;
-    public QClass(int npc, int dial, string req, string cb)
+    public string requiredItem;
+    public bool itemTurnedIn;
+    public bool triggered;
+    public QClass(int npc, int dial_in, int dial_ch, string req, string cb,string item)
     {
         NPC = npc;
-        dialogue = dial;
+        dialogue_in_progress = dial_in;
+        dialogue_change = dial_ch;
         requirement = req;
         changeBool = cb;
         completed = false;
+        requiredItem = item;
+        triggered = false;
+        
+        
+        ////
+    
+        if (requiredItem == "none")
+        {
+            itemTurnedIn = true;
+        }
+        else
+            itemTurnedIn = false;
+
+
     }
     
     

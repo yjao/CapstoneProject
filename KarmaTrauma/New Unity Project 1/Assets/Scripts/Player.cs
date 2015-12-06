@@ -277,12 +277,23 @@ public class Player : MonoBehaviour
             r = false;
             l = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
+
+
+        ///Hot Keys
+        else if (Input.GetKeyDown(KeyCode.Q)){
+            Instantiate(QuestLog, new Vector3(0, 0, 0), Quaternion.identity);
+            gameManager.GameMode = GameManager.MODE.LOG;
+            gameManager.PrevMode = GameManager.MODE.PLAYING;
+
+        }
+        else if (Input.GetKeyDown(KeyCode.B))
         {
             Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
             gameManager.GameMode = GameManager.MODE.MENU;
             gameManager.PrevMode = GameManager.MODE.PLAYING;
         }
+
+
         else
         {
             if (u == true)
@@ -297,12 +308,6 @@ public class Player : MonoBehaviour
             else if (l == true)
                 this.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_IDLE);
             //animator.SetInteger(animationState, leftIdle);
-        }
-        if (Input.GetKey(KeyCode.B))
-        {
-            Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
-            gameManager.GameMode = GameManager.MODE.MENU;
-            gameManager.PrevMode = GameManager.MODE.PLAYING;
         }
 
         if (Input.GetKey(KeyCode.S))

@@ -18,35 +18,19 @@ public class Door : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             gameManager.IncreaseTime();
+			bool midnight = gameManager.Midnight();
+			string destination = "WorldMap";
             if (AltDestination != "")
             {
-                if (gameManager.Midnight())
-                {
-                    Application.LoadLevel("G_House");
-                    //Loop back to where mom yelling at you on Scene Manager or somewhere...                        
-                }
-                SceneManager.Instance.LoadScene(AltDestination);
-                //Application.LoadLevel(AltDestination);
+				destination = AltDestination;
+            }
 
-            }
-            else
-            {
-                if (gameManager.Midnight())
-                {
-                    Application.LoadLevel("G_House");
-                    //playerData.daysPassed++;
-                    //Debug.Log("day: " + playerData.daysPassed);
-                    //gameManager.CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day " + (playerData.daysPassed + 1), true);
-                    //dayData.Wipe();
-                    //playerData.daysPassed++;
-                    //gameManager.CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day " + (playerData.daysPassed + 1), true);
-                }
-                else {
-                    Application.LoadLevel("WorldMap");
-                }
-                
-                
-            }
+			if (midnight)
+			{
+				destination = "G_House";
+			}
+
+			SceneManager.Instance.LoadScene(destination);
         }
     }
     void ChangeDestination(string newDestination)

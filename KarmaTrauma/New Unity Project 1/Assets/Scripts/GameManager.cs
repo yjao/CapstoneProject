@@ -306,8 +306,8 @@ public class GameManager : MonoBehaviour
         {
             gameClock = 6;
             dayData.Wipe();
-            //playerData.daysPassed++;
-            //CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day "+(playerData.daysPassed+1), true);
+            playerData.daysPassed++;
+            CreateMessage("Day "+(playerData.daysPassed+1)+".", true);
             return true;
         }
    

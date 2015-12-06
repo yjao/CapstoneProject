@@ -11,7 +11,7 @@ public class Door : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.Instance;
-        //Data = PlayerData.Instance;
+        //playerData = PlayerData.Instance;
     }
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -34,12 +34,12 @@ public class Door : MonoBehaviour
                 if (gameManager.Midnight())
                 {
                     Application.LoadLevel("G_House");
-                    //Data.daysPassed++;
-                    //Debug.Log("day: " + Data.daysPassed);
-                    //gameManager.CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day " + (Data.daysPassed + 1), true);
+                    //playerData.daysPassed++;
+                    //Debug.Log("day: " + playerData.daysPassed);
+                    //gameManager.CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day " + (playerData.daysPassed + 1), true);
                     //dayData.Wipe();
-                    //Data.daysPassed++;
-                    //gameManager.CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day " + (Data.daysPassed + 1), true);
+                    //playerData.daysPassed++;
+                    //gameManager.CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day " + (playerData.daysPassed + 1), true);
                 }
                 else {
                     Application.LoadLevel("WorldMap");

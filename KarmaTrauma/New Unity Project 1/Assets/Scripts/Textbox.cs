@@ -164,20 +164,13 @@ public class Textbox : MonoBehaviour
     public static void continueDialogue(object sender, GameEventArgs args)
     {
         args.DialogueBox.Dialog = args.DialogueBox.gameManager.GetNextDialogue(args.IDNum, args.DialogueID);
-        if (args.DialogueBox.Dialog.choices != null)
+        if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
         {
-            args.DialogueBox.Choice(args.DialogueBox.transform.Find("Name").GetComponent<Text>().text, args.DialogueBox.Dialog.text, args.DialogueBox.Dialog.choices);
+			args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID);
+            args.ThisGameObject.transform.GetComponent<InteractableObject>().DialogueIDSingle += 1;
+            args.DialogueBox.gameManager.ExitDialogue();
+			args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs());;
         }
-        else
-        {
-            if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
-            {
-				args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID);
-                args.ThisGameObject.transform.GetComponent<InteractableObject>().DialogueIDSingle += 1;
-                args.DialogueBox.gameManager.ExitDialogue();
-				args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs());;
-            }
-            args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = args.DialogueBox.Dialog.text;
-        }
+        args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = args.DialogueBox.Dialog.text;
     }
 }

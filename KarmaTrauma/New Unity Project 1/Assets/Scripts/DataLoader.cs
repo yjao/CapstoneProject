@@ -344,7 +344,7 @@ public class DataLoader
 		{
 			"I wanted to tell you I absolutely LOVE #PB#. Bring it to me at #5AM#!!"
 		};
-		AddNpc(999, "Mr. Test", "", test);
+		AddNpc(1000, "Mr. Test", "", test);
 	}
 
 	public DataLoader()
@@ -356,14 +356,9 @@ public class DataLoader
 		Debug.Log("Loading Game playerData");
 		
 		LoadOldData();
-		//LoadTestData();
-<<<<<<< HEAD
 		LoadMiniTestData();
 		LoadQuestTerms();
         LoadFallDemoData();
-=======
-        //LoadFallDemoData();
->>>>>>> b356c5290be3e6211489a6bbf9fc162b4403389c
 
 		Debug.Log("Loading Complete");
 		GameManager.Instance.SaveGameData();

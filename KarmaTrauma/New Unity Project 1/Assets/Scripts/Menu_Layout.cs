@@ -22,7 +22,7 @@ public class Menu_Layout : MonoBehaviour {
    
 	// Use this for initialization
 	void Start () {
-        DontDestroyOnLoad(this);
+        
         gameManager = GameManager.Instance;
         questManager = QuestManager.Instance;
         //gameMenu = FindObjectOfType(typeof(Menu)) as Menu;

@@ -30,8 +30,11 @@ public class GameManager : MonoBehaviour
     public AREA CurrentArea = AREA.HOUSE;
 
     public Dictionary<int, Interactable> AllObjects;
+	public Dictionary<string, string> questTerms;
 
-    public string dialogue_choice;
+	public const char QUEST_KEYWORD = '#';
+	public const string QUEST_KEYWORD_COLOR = "yellow";
+	public const bool QUEST_KEYWORD_BOLDED = true;
 
     //for items;
     public Item[] items;
@@ -57,9 +60,8 @@ public class GameManager : MonoBehaviour
         GameMode = MODE.PLAYING;
 
         // Load interaction info here?
-        AllObjects = new Dictionary<int, Interactable>()
-        {
-        };
+		AllObjects = new Dictionary<int, Interactable>();
+		questTerms = new Dictionary<string, string>();
 
         // Bind events
         //EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;

@@ -356,14 +356,11 @@ public class DataLoader
 
 		Debug.Log("Loading Game playerData");
 		
-<<<<<<< HEAD
 		//LoadOldData();
 		//LoadTestData();
-=======
 		LoadOldData();
 		LoadMiniTestData();
 		LoadQuestTerms();
->>>>>>> f6fcb914b2e7ee7f395bb76b456de7a72133734a
         LoadFallDemoData();
 
 		Debug.Log("Loading Complete");

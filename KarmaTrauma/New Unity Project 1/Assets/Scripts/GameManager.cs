@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     private string gameClockDisplay = "";
     private const bool PARSING_MODE = true;
 
-    public PlayerData Data = new PlayerData();
-    //public PlayerData Data;
+    public PlayerData playerData = new PlayerData();
+    //public PlayerData playerData;
     public DayData dayData = new DayData();
     public static GameManager Instance;
     public GameObject DialogueContainer;
@@ -40,14 +40,17 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if ((Instance != null) && (Instance != this))
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
         {
             Destroy(gameObject);
             return;
         }
-        Instance = this;
-        DontDestroyOnLoad(this);
-
+            
         
 
         // default to playing mode for now
@@ -67,7 +70,8 @@ public class GameManager : MonoBehaviour
 	    {
 			{ 150, new Item("Jewel", "Quit stealing jewels already", "jewel")},
             { 151, new Item("TestJewel", "IM NOT EVEN AN ITEM", "jewel")},
-            { 133, new Item("Bacon and Eggs", "Feed it to the hungry.", "baconAndEggs")}
+            { 133, new Item("Bacon and Eggs", "Feed it to the hungry.", "baconAndEggs")},
+            { 152, new Item("Alfred's Jewel", "This was a gift from his son.", "alfredsjewel")}
         };
 
         //items = new Item[9];
@@ -77,7 +81,7 @@ public class GameManager : MonoBehaviour
         //items[3] = new Item("Stairs", "How did you steal the stairs?!", "stairs");
         //itemAmount = 4;
 
-        // Parse Game Data
+        // Parse Game playerData
         if (PARSING_MODE)
         {
             DataLoader dataLoader = new DataLoader();
@@ -91,7 +95,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameClockDisplay = gameClock.ToString() + "AM";
-        Data = PlayerData.Instance;
     }
     void OnDestroy()
     {
@@ -118,9 +121,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("File Saved");
         Debug.Log(Application.persistentDataPath);
         //PlayerData data = new PlayerData();
-        //Data.AlfredJumpsCW = true;
+        //playerData.AlfredJumpsCW = true;
 
-        bf.Serialize(file, Data);
+        bf.Serialize(file, playerData);
         file.Close();
 
     }
@@ -133,7 +136,7 @@ public class GameManager : MonoBehaviour
             FileStream file = File.Open(Application.persistentDataPath + "/SaveData.DK", FileMode.Open);
             PlayerData Data = (PlayerData)bf.Deserialize(file);
             Debug.Log("File Load");
-            //Debug.Log(Data.AlfredJumpsCW);
+            //Debug.Log(playerData.AlfredJumpsCW);
             file.Close();
 
             //days = data.days;
@@ -295,14 +298,14 @@ public class GameManager : MonoBehaviour
 
     public bool Midnight()
     {
-        //Debug.Log("data is null: " + (Data == null));
+        //Debug.Log("data is null: " + (playerData == null));
         Debug.Log("gameClock : " + gameClock);
         if (gameClock == 24) //CHANGE THIS BACK TO 24
         {
             gameClock = 6;
             dayData.Wipe();
-            //Data.daysPassed++;
-            //CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day "+(Data.daysPassed+1), true);
+            //playerData.daysPassed++;
+            //CreateMessage("Oops, another day had passed. Try to clear all quests in one go. You're now on Day "+(playerData.daysPassed+1), true);
             return true;
         }
    
@@ -330,10 +333,10 @@ public class GameManager : MonoBehaviour
     public bool GetData(string name)
     {
         //Debug.Log("Here!");
-        //Debug.Log("data is null: " + Data == null);
-        if (Data.DataDictionary.ContainsKey(name))
+        //Debug.Log("data is null: " + playerData == null);
+        if (playerData.DataDictionary.ContainsKey(name))
         {
-            return Data.DataDictionary[name];
+            return playerData.DataDictionary[name];
         }
         else
         {
@@ -343,10 +346,10 @@ public class GameManager : MonoBehaviour
 
     public void SetData(string name, bool value)
     {
-        if (Data.DataDictionary.ContainsKey(name))
+        if (playerData.DataDictionary.ContainsKey(name))
         {
-            //Data.DataDictionary[name] = value;
-			Data.SetBool(name, value);
+            //playerData.DataDictionary[name] = value;
+			playerData.SetBool(name, value);
         }
         else if (dayData.QuestComplete.ContainsKey(name))
         {
@@ -402,13 +405,13 @@ public class GameManager : MonoBehaviour
         //Debug.Log (GameMode);
     }
 
-    #region Game Data Loading
+    #region Game data Loading
 
     public void SaveGameData()
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/GameData.DK");
-        Debug.Log("Game Data saved to file in " + Application.persistentDataPath);
+        Debug.Log("Game data saved to file in " + Application.persistentDataPath);
 
         bf.Serialize(file, AllObjects);
         file.Close();
@@ -421,7 +424,7 @@ public class GameManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/GameData.DK", FileMode.Open);
             AllObjects = (Dictionary<int, Interactable>)bf.Deserialize(file);
-            Debug.Log("Game Data loaded from file");
+            Debug.Log("Game data loaded from file");
             file.Close();
         }
     }

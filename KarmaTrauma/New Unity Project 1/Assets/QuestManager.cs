@@ -70,8 +70,10 @@ public class QuestManager : MonoBehaviour
 				Change("MrLy", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 3);
 			}
 			break;
+
+                /*
 		case "Random Woman":
-			if (gameManager.Data.GetBool("AlfredName_Learned"))
+			if (gameManager.playerData.GetBool("AlfredName_Learned"))
 			{
 				GameManager.Instance.AllObjects[73].Dialogue[0].choices = null;
 				Change("Jeney", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 0);
@@ -81,11 +83,11 @@ public class QuestManager : MonoBehaviour
 			if (requiredItem && requiredBools)
 			{
 				Change("Jeney", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 2);
-				gameManager.Data.SetBool("AlfredName_Learned");
+				gameManager.playerData.SetBool("AlfredName_Learned");
 			}
 			break;
 		case "Mr.Ly":
-			if (gameManager.Data.GetBool("AlfredName_Learned"))
+			if (gameManager.playerData.GetBool("AlfredName_Learned"))
 			{
 				GameManager.Instance.AllObjects[65].Dialogue[4].choices = new Choice[]
 				{
@@ -98,6 +100,7 @@ public class QuestManager : MonoBehaviour
 				Change("MrLy", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 4);
 			}
 			break;
+                 */
 		}
 	}
 

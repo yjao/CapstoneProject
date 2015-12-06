@@ -46,7 +46,9 @@ public class DataLoader
 
         string[] alfred = new string[]
         {
-            "\"Help me...\""
+            "\"Help me...\"",
+            "[You told Alfred his son loves him now]"
+
         };
         AddNpc(2, "???", "Alfred", alfred);
 
@@ -122,18 +124,29 @@ public class DataLoader
 
         string[] jeney = new string[]
 		{
-			/*0*/ "\"This is what he deserves...\"",
-			/*1*/ "\"Kid, why should I tell you? Unless you have some food for me, then I'll consider.\"",
-			/*2*/ "\"Wow, I was kidding, you actually have it? Well okay, his name is Alfred. That's all I'm going to tell you.\""
+			/*0*/ "[Jeney tells you she saw the crying person at the mall around 4PM]",
+			/*1*/ "\"Welcome to Jeney's Donut Shop!\"",
+			/*2*/ "\"   \""
         };
         AddNpc(73, "Random Woman", "Jeney", jeney);
+
+        string[] alex = new string[]
+		{
+			/*0*/ "[A crying person tells you that's his father]",
+			/*1*/ "[Dialogue. This person does not trust you]",
+			/*2*/ "[He refuses to believe that Alfred is going to jump off a building today]",
+			/*3*/ "[You showed him the jewel and now he trusts you]"
+        };
+        AddNpc(74, "???", "", alex);
+
+        /*
 		GameManager.Instance.AllObjects[73].Dialogue[0].choices = new Choice[]
 		{
 			addChoice("Say nothing"),
 			addChoice("Who is he?", ChoiceAction.CONTINUE, 73, 1)
 		};
 		GameManager.Instance.AllObjects[73].Dialogue[1].setbool = "JeneyHungry";
-        
+        */
 		string[] baconandeggs = new string[]
 		{
 			"A delicious floating egg on a magical bacon."
@@ -203,6 +216,40 @@ public class DataLoader
 		};
 	}
 
+    private void LoadFallDemoData()
+    {
+        string[] manny = new string[]
+		{
+			/*0*/ "\"Hello. Are you here to see someone?\"",
+			/*1*/ "\"Please leave if you're not here to see someone.\"",
+			/*2*/ "\"What is your name?\"",
+            /*3*/ "\"Sorry, you are not on the visitors list. Please leave.\""
+        };
+        AddNpc(74, "Guard", "Manny", manny);
+        GameManager.Instance.AllObjects[74].Dialogue[0].choices = new Choice[]
+		{
+			addChoice("Yes", ChoiceAction.CONTINUE, 74, 2),
+			addChoice("No", ChoiceAction.CONTINUE, 74, 1)
+		};
+
+        GameManager.Instance.AllObjects[74].Dialogue[2].choices = new Choice[]
+		{
+			addChoice("Chelsey", ChoiceAction.CONTINUE, 74, 3)
+		};
+
+
+        string[] jewel = new string[]
+		{
+			/*0*/ "\"Hello.\""
+			/*1*/ 
+			/*2*/ 
+            /*3*/ 
+        };
+        AddNpc(2, "Jewel", "Jewel", jewel);
+
+        //GameManager.Instance.AllObjects[74].Dialogue[1].setbool = "JeneyHungry";
+    }
+
 	private void LoadTestData()
 	{
 		string[] test = new string[] 
@@ -234,11 +281,12 @@ public class DataLoader
 	{
 		Init(); //delete me one day
 
-		Debug.Log("Loading Game Data");
+		Debug.Log("Loading Game playerData");
 		
-		LoadOldData();
-		LoadTestData();
-		
+		//LoadOldData();
+		//LoadTestData();
+        LoadFallDemoData();
+
 		Debug.Log("Loading Complete");
 		GameManager.Instance.SaveGameData();
 	}

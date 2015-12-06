@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerData : MonoBehaviour
+public class PlayerData 
 {
 	public int daysPassed = 0;
     public static PlayerData Instance;
@@ -20,7 +20,9 @@ public class PlayerData : MonoBehaviour
         {"Have_Pizza" ,false},
         {"none", true },
 		{"AlfredName_Learned", false},
-		{"AlfredIsPolice_Learned", false}
+		{"AlfredIsPolice_Learned", false},
+        {"Meet_Alfred_Son", false},
+        {"AlfredSon_Trust", false}
     };
 
 	public void SetBool(string boolName, bool value=true)

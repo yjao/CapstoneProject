@@ -189,8 +189,6 @@ public class PrologueManager : MonoBehaviour
         yield return StartCoroutine(GameObject.Find("Girl_in_drama").GetComponent<CharacterAnimations>().Move(left, -6.0f, CharacterAnimations.States.LEFT_WALK));
         */
 
-		gameManager.SetTime(16);
-
         // Kelly talks
         GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_WALK);
         yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(right, -1.00f, CharacterAnimations.States.RIGHT_WALK));
@@ -215,7 +213,6 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator Mall_0()
     {
-		gameManager.SetTime(18);
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MALL);
         gameManager.IncreaseTime();
@@ -241,10 +238,11 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator Main_street_0()
     {
-		gameManager.SetTime(22);
+		
         yield return new WaitForSeconds(1);
+        gameManager.SetTime(20);
         Application.LoadLevel(SCENE_MAIN_STREET);
-        gameManager.SetTime(22);
+  
         yield return new WaitForSeconds(1);
         Player.Instance.characterAnimations.AnimationState = (CharacterAnimations.States.RIGHT_IDLE);
 
@@ -297,9 +295,10 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator Home_0()
     {
-		gameManager.SetTime(23);
+		
         gameManager.Wait();
         yield return new WaitForSeconds(1);
+        gameManager.SetTime(22);
         Application.LoadLevel(SCENE_HOUSE);
         yield return new WaitForSeconds(1);
         gameManager.DBox(1, 3);
@@ -371,7 +370,7 @@ public class PrologueManager : MonoBehaviour
         Destroy(GameObject.Find("MrLy"));
         yield return new WaitForSeconds(1);
 
-		gameManager.SetTime(16);
+	
 
         // Kelly talks
         GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_WALK);
@@ -412,8 +411,9 @@ public class PrologueManager : MonoBehaviour
 
     public IEnumerator Main_street_1()
     {
-		gameManager.SetTime(22);
+		
         yield return new WaitForSeconds(1);
+        gameManager.SetTime(20);
         Application.LoadLevel(SCENE_MAIN_STREET);
         yield return new WaitForSeconds(0);
         Destroy(GameObject.Find("Kelly"));

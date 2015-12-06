@@ -216,6 +216,40 @@ public class DataLoader
 		};
 	}
 
+    private void LoadFallDemoData()
+    {
+        string[] manny = new string[]
+		{
+			/*0*/ "\"Hello. Are you here to see someone?\"",
+			/*1*/ "\"Please leave if you're not here to see someone.\"",
+			/*2*/ "\"What is your name?\"",
+            /*3*/ "\"Sorry, you are not on the visitors list. Please leave.\""
+        };
+        AddNpc(74, "Guard", "Manny", manny);
+        GameManager.Instance.AllObjects[74].Dialogue[0].choices = new Choice[]
+		{
+			addChoice("Yes", ChoiceAction.CONTINUE, 74, 2),
+			addChoice("No", ChoiceAction.CONTINUE, 74, 1)
+		};
+
+        GameManager.Instance.AllObjects[74].Dialogue[2].choices = new Choice[]
+		{
+			addChoice("Chelsey", ChoiceAction.CONTINUE, 74, 3)
+		};
+
+
+        string[] jewel = new string[]
+		{
+			/*0*/ "\"Hello.\""
+			/*1*/ 
+			/*2*/ 
+            /*3*/ 
+        };
+        AddNpc(2, "Jewel", "Jewel", jewel);
+
+        //GameManager.Instance.AllObjects[74].Dialogue[1].setbool = "JeneyHungry";
+    }
+
 	private void LoadTestData()
 	{
 		string[] test = new string[] 
@@ -249,9 +283,10 @@ public class DataLoader
 
 		Debug.Log("Loading Game playerData");
 		
-		LoadOldData();
-		LoadTestData();
-		
+		//LoadOldData();
+		//LoadTestData();
+        LoadFallDemoData();
+
 		Debug.Log("Loading Complete");
 		GameManager.Instance.SaveGameData();
 	}

@@ -45,11 +45,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Camera.cs" />
-     <Compile Include="Assets\InvisibleWall.cs" />
-     <Compile Include="Assets\QuestLog.cs" />
-     <Compile Include="Assets\QuestManager.cs" />
      <Compile Include="Assets\Scripts\Anim\CharacterAnimations.cs" />
+     <Compile Include="Assets\Scripts\Camera.cs" />
      <Compile Include="Assets\Scripts\ChoiceEventArgs.cs" />
      <Compile Include="Assets\Scripts\DataLoader.cs" />
      <Compile Include="Assets\Scripts\DayData.cs" />
@@ -61,6 +58,7 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\InteractableObject.cs" />
+     <Compile Include="Assets\Scripts\InvisibleWall.cs" />
      <Compile Include="Assets\Scripts\InvisibleWallBot.cs" />
      <Compile Include="Assets\Scripts\InvisibleWallLeft.cs" />
      <Compile Include="Assets\Scripts\InvisibleWallRight.cs" />
@@ -81,11 +79,13 @@
      <Compile Include="Assets\Scripts\PrologueManager.cs" />
      <Compile Include="Assets\Scripts\Quest.cs" />
      <Compile Include="Assets\Scripts\QuestList.cs" />
+     <Compile Include="Assets\Scripts\QuestLog.cs" />
+     <Compile Include="Assets\Scripts\QuestManager.cs" />
      <Compile Include="Assets\Scripts\RepeatSpriteBoundary.cs" />
      <Compile Include="Assets\Scripts\SceneManager.cs" />
      <Compile Include="Assets\Scripts\Stairs.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
-     <Compile Include="Assets\TileWindow.cs" />
+     <Compile Include="Assets\Scripts\TileWindow.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/5.2.1f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

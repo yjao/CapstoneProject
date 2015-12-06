@@ -106,14 +106,57 @@ public class Textbox : MonoBehaviour
         }
     }
 
-    public void DrawBox(string name, string dialog)
+	#region DIALOG BOXES
+
+	private string FormatMessage(string message)
+	{
+		string newMessage = message;
+		while (true)
+		{
+			int keywordIndex = newMessage.IndexOf(GameManager.QUEST_KEYWORD);
+			if (keywordIndex < 0)
+			{
+				return newMessage;
+			}
+			
+			string keyword = "";
+			for (int i = keywordIndex+1; i <= newMessage.Length; i++)
+			{
+				if (newMessage[i] == GameManager.QUEST_KEYWORD)
+				{
+					break;
+				}
+				keyword += newMessage[i];
+			}
+
+			string newKeyword = keyword;
+			if (gameManager.questTerms.ContainsKey(keyword))
+			{
+				newKeyword = gameManager.questTerms[keyword];
+			}
+
+			if (GameManager.QUEST_KEYWORD_BOLDED)
+			{
+				newKeyword = "<b><color="+GameManager.QUEST_KEYWORD_COLOR+">" + newKeyword + "</color></b>";
+			}
+			else
+			{
+				newKeyword = "<color="+GameManager.QUEST_KEYWORD_COLOR+">" + newKeyword + "</color>";
+			}
+			newMessage = newMessage.Replace(GameManager.QUEST_KEYWORD+keyword+GameManager.QUEST_KEYWORD, newKeyword);
+		}
+	}
+	
+	public void DrawBox(string name, string message)
     {
+		message = FormatMessage(message);
         transform.Find("Name").GetComponent<Text>().text = name;
-        transform.Find("Text").GetComponent<Text>().text = dialog;
+		transform.Find("Text").GetComponent<Text>().text = message;
     }
 
     public void DrawMessage(string message)
     {
+		message = FormatMessage(message);
         transform.Find("Name_Panel").gameObject.SetActive(false);
         transform.Find("Text_Panel").gameObject.SetActive(false);
         transform.Find("Name").gameObject.SetActive(false);
@@ -160,6 +203,8 @@ public class Textbox : MonoBehaviour
         }
         return g;
     }
+
+	#endregion
 
     public static void continueDialogue(object sender, GameEventArgs args)
     {

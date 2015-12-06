@@ -32,6 +32,10 @@ public class QuestManager : MonoBehaviour
 
 	public void HandleNPC(object sender, GameEventArgs args)
 	{
+	}
+
+	public void Old_HandleNPC(object sender, GameEventArgs args)
+	{
 		if (args.ThisGameObject == null)
 		{
 			return;
@@ -70,8 +74,6 @@ public class QuestManager : MonoBehaviour
 				Change("MrLy", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 3);
 			}
 			break;
-
-                /*
 		case "Random Woman":
 			if (gameManager.playerData.GetBool("AlfredName_Learned"))
 			{
@@ -100,7 +102,6 @@ public class QuestManager : MonoBehaviour
 				Change("MrLy", InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID, 4);
 			}
 			break;
-                 */
 		}
 	}
 

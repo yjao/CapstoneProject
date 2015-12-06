@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DataLoader
 {
+	private GameManager gameManager;
+
     public enum ChoiceAction{ITEM, MOVE, CONTINUE, DESTROY, NONE}
 
 	// temporary
@@ -326,14 +329,41 @@ public class DataLoader
 		AddNpc(998, "Mom", "", test2);
 	}
 
+	private void LoadQuestTerms()
+	{
+		GameManager.Instance.questTerms = new Dictionary<string, string>()
+		{
+			{ "PB" , "peanut butter" },
+			{ "NM" , "name" },
+			{ "" , "" }
+		};
+	}
+
+	private void LoadMiniTestData()
+	{
+		string[] test = new string[] 
+		{
+			"I wanted to tell you I absolutely LOVE #PB#. Bring it to me at #5AM#!!"
+		};
+		AddNpc(1000, "Mr. Test", "", test);
+	}
+
 	public DataLoader()
 	{
+		gameManager = GameManager.Instance;
+
 		Init(); //delete me one day
 
 		Debug.Log("Loading Game playerData");
 		
+<<<<<<< HEAD
 		//LoadOldData();
 		//LoadTestData();
+=======
+		LoadOldData();
+		LoadMiniTestData();
+		LoadQuestTerms();
+>>>>>>> f6fcb914b2e7ee7f395bb76b456de7a72133734a
         LoadFallDemoData();
 
 		Debug.Log("Loading Complete");

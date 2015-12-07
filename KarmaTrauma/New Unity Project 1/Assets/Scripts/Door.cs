@@ -3,10 +3,12 @@ using System.Collections;
 
 public class Door : MonoBehaviour
 {
-    public string AltDestination;
-    private GameManager gameManager;
-    public PlayerData Data;
-    public DayData dayData = new DayData();
+	private GameManager gameManager;
+
+	public string AltDestination;
+	public bool increaseTime = true;
+    //public PlayerData playerData;
+    //public DayData dayData = new DayData();
 
     void Start()
     {
@@ -17,7 +19,10 @@ public class Door : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            gameManager.IncreaseTime();
+			if (increaseTime)
+			{
+	            gameManager.IncreaseTime();
+			}
 			bool midnight = gameManager.Midnight();
 			string destination = "WorldMap";
             if (AltDestination != "")

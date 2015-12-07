@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scripts\Stairs.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
      <Compile Include="Assets\Scripts\TileWindow.cs" />
+     <Compile Include="Assets\ShortPrologue.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity5.2.1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

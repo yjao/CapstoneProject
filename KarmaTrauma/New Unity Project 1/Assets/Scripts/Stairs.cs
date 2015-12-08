@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Stairs : MonoBehaviour {
-
+public class Stairs : MonoBehaviour
+{
+	public bool active = true;
     public Type type;
     public float char_positionx;
     public float char_positiony;

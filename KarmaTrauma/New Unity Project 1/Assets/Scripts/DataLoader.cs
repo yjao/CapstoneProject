@@ -650,7 +650,7 @@ public class DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 2,
+            dialogueIDSingle = 0,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,

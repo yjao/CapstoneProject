@@ -356,6 +356,10 @@ public class GameManager : MonoBehaviour
             //playerData.DataDictionary[name] = value;
 			playerData.SetBool(name, value);
         }
+        else if (dayData.DataDictionary.ContainsKey(name))
+        {
+            dayData.SetBool(name, value);
+        }
         else if (dayData.QuestComplete.ContainsKey(name))
         {
             //dayData.QuestComplete[name] = value;

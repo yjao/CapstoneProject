@@ -13,8 +13,7 @@ public class Quest : MonoBehaviour {
 	// Use this for initialization
     void Start()
     {
-            GameObject QL = GameObject.Find("QuestList");
-            QuestList ql = QL.GetComponent<QuestList>();
+            QuestList ql = GameManager.instance.GetComponent<QuestList>();
             ql.AddQuest(NPC_ID, dialogue_in_progress,dialogue_change, requirement, changeBool,required_item);
 	}
 	void OnEnable()

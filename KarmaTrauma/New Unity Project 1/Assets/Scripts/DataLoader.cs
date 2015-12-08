@@ -221,7 +221,7 @@ public class DataLoader
             /*1*/ "\"Alex was just at my donut shop at 4PM today to talk about his father and now he's gone...\"",
         };
         AddNpc(73, "Random Woman", "Jeney", jeney);
-        gameManager.allObjects[73].dialogues[0].setbool = "AlfredName_Learned";
+        addBooleanToDialogue(73, 0, "AlfredName_Learned");
 
 
 
@@ -230,10 +230,10 @@ public class DataLoader
 		{
 			/*0*/ "\"Hello. Who are you visiting today?\"",
 			/*1*/ "\"What is your name?\"",
-			/*2*/ "\"Oh, Alex! Your father talked about how much he misses you. Right now, he is busy, but you are permitted to wait for him here. ...I could've sworn he had a son.\"",
-            /*3*/ "\"Sorry, you are not on the visitors list. Please leave.\"",
-            /*4*/ "\"Please leave if you're not here to see someone\"",
-            /*5*/ "\"How did I let him out of my sight? I'm going to be fired...\""
+			/*2*/ "\"Oh, Alex! Your father talked about how much he misses you. Right now, he is busy, but you are permitted to wait for him here.\"", 
+            /*3*/ "\"...I could've sworn he had a son.\"",
+            /*4*/ "\"Sorry, you are not on the visitors list. Please leave.\"",
+            /*5*/ "\"Please leave if you're not here to see someone\""
         };
         AddNpc(74, "Guard", "Manny", manny);
         gameManager.allObjects[74].dialogues[0].choices = new Choice[]
@@ -263,7 +263,7 @@ public class DataLoader
         AddNpc(75, "Kid", "Alex", alex);
         gameManager.allObjects[75].dialogues[0].choices = new Choice[]
 		{
-			AddChoice("Tell him you're new in town and want to make friends", ChoiceAction.CONTINUE, 75, 1),
+			AddChoice("Tell him you're new in town and want to make friends", ChoiceAction.CONTINUE, 75, 1, "Meet_Alfred_Son"),
 			AddChoice("Say nothing", ChoiceAction.CONTINUE, 75, 6)
 		};
         gameManager.allObjects[75].dialogues[1].choices = new Choice[]
@@ -276,7 +276,7 @@ public class DataLoader
 		};
         gameManager.allObjects[75].dialogues[3].choices = new Choice[]
 		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
             AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5),
 		};
 
@@ -562,6 +562,11 @@ public class DataLoader
 
 		gameManager.allObjects[ID] = new Interactable(name, strangerName, dialogues);
 	}
+
+    private void addBooleanToDialogue(int id, int dialogueID, string boolName)
+    {
+        gameManager.allObjects[id].dialogues[dialogueID].setbool = boolName;
+    }
 
 	private void AddParameters(string sceneName, InteractableObject.Parameters parameters)
 	{

@@ -19,6 +19,11 @@ public class Stairs : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+		if (!active)
+		{
+			return;
+		}
+
         if (col.gameObject.tag == "Player")
         {
             col.transform.position = new Vector2(char_positionx, char_positiony);

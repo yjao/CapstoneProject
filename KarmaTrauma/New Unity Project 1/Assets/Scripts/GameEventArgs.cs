@@ -28,5 +28,6 @@ public class GameEventArgs
         ShoveX = CEA.ShoveX;
         IDNum = CEA.IDNum;
         DialogueID = CEA.DialogueID;
+		String = CEA.String;
     }
 }

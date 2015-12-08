@@ -237,7 +237,6 @@ public class DataLoader
         addBooleanToDialogue(73, 0, "AlfredName_Learned");
 
 
-
         // ================ MANNY ================ //
         string[] manny = new string[]
 		{
@@ -508,8 +507,10 @@ public class DataLoader
             timeBlocks = new List<int>() { 20 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
             dialogueIDSingle = 0,
+            dialogueIDMin = 0,
+            dialogueIDMax = 1,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,

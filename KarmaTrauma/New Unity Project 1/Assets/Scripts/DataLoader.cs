@@ -562,6 +562,25 @@ public class DataLoader
         AddParameters(sceneName, alex);
 	}
 
+	private void LoadQuestData()
+	{
+		#region EMPTY TEMPLATE
+		// EMPTY TEMPLATE
+		/*
+		Quest emptyTemplate = new Quest();
+		{
+			int NPC_ID;
+			int dialogue_in_progress;
+			int dialogue_change;
+			string requirement = "none";
+			string changeBool = "none";
+			string required_item = "none";
+		};
+		AddQuest(emptyTemplate);
+		*/
+		#endregion
+	}
+
 	public DataLoader()
 	{
 		gameManager = GameManager.instance;

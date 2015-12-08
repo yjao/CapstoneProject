@@ -26,9 +26,13 @@ public class QuestList : MonoBehaviour
             QClass temporary;
             temporary = new QClass(NPC, dialogue_in, dialogue_change, requirement, changeBool,requiredItem);
             
-            Qlist.Add(temporary);
-        
+            Qlist.Add(temporary);    
     }
+
+	public void AddQuest(Quest q)
+	{
+		AddQuest(q.NPC_ID, q.dialogue_in_progress, q.dialogue_change, q.requirement, q.changeBool, q.required_item);
+	}
 
     public void CheckQuest(InteractableObject obj)
     {

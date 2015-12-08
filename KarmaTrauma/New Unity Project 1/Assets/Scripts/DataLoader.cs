@@ -257,7 +257,12 @@ public class DataLoader
             /*3*/ "\"Please, he never cared about me so why should I care about him? If you want me to come with you, prove to me that he still cares and I'll consider going with you to visit him.\"",
             /*4*/ "\"He... He still has this? I guess the old man really does care. I'll go with you.\"",
             /*5*/ "\"Stop wasting my time.\"",
-            /*6*/ "\"Weirdo...\""
+            /*6*/ "\"Weirdo...\""  ,
+            /*7*/ "\"Do you have anything else to say?\""  ,
+            /*8*/ "\"Weirdo...\""  ,
+            /*9*/ "\"Weirdo...\""  ,
+            /*10*/ "\"Weirdo...\""  
+
         };
         AddNpc(75, "Kid", "Alex", alex);
         gameManager.allObjects[75].dialogues[0].choices = new Choice[]
@@ -277,7 +282,17 @@ public class DataLoader
 		{
 			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
             AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5),
-		};
+		}; 
+        gameManager.allObjects[75].dialogues[5].choices = new Choice[]
+		{
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
+            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5),
+		}; 
+        gameManager.allObjects[75].dialogues[7].choices = new Choice[]
+		{
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
+            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6),
+		}; 
 
 
 		// ================ ITEMS & OBJECTS ================ //

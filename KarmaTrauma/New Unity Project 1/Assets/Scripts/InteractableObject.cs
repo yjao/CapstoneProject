@@ -106,11 +106,9 @@ public class InteractableObject : MonoBehaviour
 				{
 
                     // Call QuestList and check if the quest requirements are met with this interactable object. Change dialogue if necessasry
-                    GameObject QL = GameObject.Find("QuestList");
-                    QuestList ql = QL.GetComponent<QuestList>();
+                   
+                    QuestList ql = GameManager.instance.GetComponent<QuestList>();
                     ql.CheckQuest(this);
-
-
                     CallDialogue();
 				}
                 break;

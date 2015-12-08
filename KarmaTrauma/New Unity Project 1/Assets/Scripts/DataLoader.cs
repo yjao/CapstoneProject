@@ -232,6 +232,7 @@ public class DataLoader
 		{
 			/*0*/ "\"Oh... Poor Alfred. This must have a toll on Alex.\"",
             /*1*/ "\"Alex was just at my #donut shop at 4PM# today to talk about his father and now he's gone...\"",
+            /*2*/ "\"Hi! Welcome to my humble donut shop. Unfortunately, we're out of stock. Please visit tomorrow. Sorry!\"",
         };
         AddNpc(73, "Random Woman", "Jeney", jeney);
         addBooleanToDialogue(73, 0, "AlfredName_Learned");
@@ -258,7 +259,7 @@ public class DataLoader
 			AddChoice("Alex", ChoiceAction.CONTINUE, 74, 2),
             AddChoice("Chelsey", ChoiceAction.CONTINUE, 74, 3)
 		};
-
+		AddToDialogue(74, 3, new ChoiceEventArgs() { ChoiceAction = GameManager.UnlockDoor, String = "DoorToAlfredRoom" });
 
 
         // ================ ALEX ================ //
@@ -363,7 +364,6 @@ public class DataLoader
 			new Choice("Good Night!", new ChoiceEventArgs() { ChoiceAction = GameManager.UseBed }),
 			AddChoice("I ain't weak!")
 		};
-
     }
 
 	private void LoadTestData()
@@ -605,14 +605,14 @@ public class DataLoader
         InteractableObject.Parameters jeney = new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 20 },
+            timeBlocks = new List<int>() { 6, 8, 10, 12, 14, 16, 18 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 2,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            startingAnimationState = CharacterAnimations.States.DOWN_IDLE,
             animationSpeed = 0.0f,
 
             // Getter/Setter variables, NpcID is required
@@ -629,7 +629,7 @@ public class DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 2,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,

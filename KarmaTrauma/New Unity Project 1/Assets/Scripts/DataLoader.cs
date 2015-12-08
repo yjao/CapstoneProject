@@ -274,7 +274,7 @@ public class DataLoader
             /*7*/ "\"Do you have anything else to say?\""  ,
             /*8*/ "\"Do you have anything else to say?\"" , 
             /*9*/ "\"Dad...why did you do it? *sob*\""  ,
-            /*10*/ "\"Dad...\""  ,
+            /*10*/ "\"Dad... you still have the #jewel#. You really did care about me.\""  ,
             /*11*/ "\"I'm still mad at you, but Chelsey showed me this jewel.  You've been keeping it with you since then.\""  
 
         };
@@ -334,7 +334,7 @@ public class DataLoader
       
 
         };
-        AddNpc(77, "Cop", "Cop", cop);
+        AddNpc(77, "Guard", "Cop", cop);
         {
 		}; 
 
@@ -562,9 +562,9 @@ public class DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDSingle = 8,
-            dialogueIDMin = 8,
-            dialogueIDMax = 9,
+            dialogueIDSingle = 9,
+            dialogueIDMin = 9,
+            dialogueIDMax = 10,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.UP_IDLE,
@@ -576,8 +576,8 @@ public class DataLoader
         };
         AddParameters(sceneName, alex2);
 
-        // ================ COP ================ //
-        InteractableObject.Parameters cop = new InteractableObject.Parameters()
+        // ================ MANNY ================ //
+        InteractableObject.Parameters manny2 = new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 20 },
@@ -596,7 +596,7 @@ public class DataLoader
             Summary = "cop tells people to back off",
             NpcID = 77
         };
-        AddParameters(sceneName, cop);
+        AddParameters(sceneName, manny2);
 
 
         sceneName = SceneManager.SCENE_MALL;

@@ -231,11 +231,11 @@ public class DataLoader
         string[] jeney = new string[]
 		{
 			/*0*/ "\"Oh... Poor Alfred. This must have a toll on Alex.\"",
-            /*1*/ "\"Alex was just at my donut shop at 4PM today to talk about his father and now he's gone...\"",
+            /*1*/ "\"Alex was just at my #donut shop at 4PM# today to talk about his father and now he's gone...\"",
         };
         AddNpc(73, "Random Woman", "Jeney", jeney);
         addBooleanToDialogue(73, 0, "AlfredName_Learned");
-		AddToDialogue(73, 0, ChoiceContinueDialog(73, 1));
+//		AddToDialogue(73, 0, ChoiceContinueDialog(73, 1));
 
         // ================ MANNY ================ //
         string[] manny = new string[]
@@ -274,7 +274,7 @@ public class DataLoader
 
             /*7*/ "\"Do you have anything else to say?\""  ,
             /*8*/ "\"Dad...why did you do it? *sob*\""  ,
-            /*9*/ "\"Dad...\""  ,
+            /*9*/ "\"Dad... you still have the #jewel#... so you do care about me.\""  ,
             /*10*/ "\"I'm still mad at you, but Chelsey showed me this jewel.  You've been keeping it with you since then.\""  
 
 
@@ -337,11 +337,6 @@ public class DataLoader
 
         };
         AddNpc(77, "Cop", "Cop", cop);
-        {
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
-            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6)
-		}; 
-
 
 
 		// ================ ITEMS & OBJECTS ================ //
@@ -558,6 +553,51 @@ public class DataLoader
             NpcID = 73
         };
         AddParameters(sceneName, jeney2);
+
+
+        // ================ ALEX ================ //
+        InteractableObject.Parameters alex2 = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDSingle = 8,
+            dialogueIDMin = 8,
+            dialogueIDMax = 9,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "alex is devastated",
+            NpcID = 75
+        };
+        AddParameters(sceneName, alex2);
+
+        // ================ COP ================ //
+        InteractableObject.Parameters cop = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDSingle = 0,
+            dialogueIDMin = 0,
+            dialogueIDMax = 1,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "cop tells people to back off",
+            NpcID = 77
+        };
+        AddParameters(sceneName, cop);
 
 
         sceneName = SceneManager.SCENE_MALL;

@@ -231,11 +231,11 @@ public class DataLoader
         string[] jeney = new string[]
 		{
 			/*0*/ "\"Oh... Poor Alfred. This must have a toll on Alex.\"",
-            /*1*/ "\"Alex was just at my donut shop at 4PM today to talk about his father and now he's gone...\"",
+            /*1*/ "\"Alex was just at my #donut shop at 4PM# today to talk about his father and now he's gone...\"",
         };
         AddNpc(73, "Random Woman", "Jeney", jeney);
         addBooleanToDialogue(73, 0, "AlfredName_Learned");
-		AddToDialogue(73, 0, ChoiceContinueDialog(73, 1));
+//		AddToDialogue(73, 0, ChoiceContinueDialog(73, 1));
 
         // ================ MANNY ================ //
         string[] manny = new string[]
@@ -271,12 +271,11 @@ public class DataLoader
             /*4*/ "\"He... He still has this? I guess the old man really does care. I'll go with you.\"",
             /*5*/ "\"Stop wasting my time.\"",
             /*6*/ "\"Weirdo...\""  ,
-
             /*7*/ "\"Do you have anything else to say?\""  ,
-            /*8*/ "\"Dad...why did you do it? *sob*\""  ,
-            /*9*/ "\"Dad...\""  ,
-            /*10*/ "\"I'm still mad at you, but Chelsey showed me this jewel.  You've been keeping it with you since then.\""  
-
+            /*8*/ "\"Do you have anything else to say?\"" , 
+            /*9*/ "\"Dad...why did you do it? *sob*\""  ,
+            /*10*/ "\"Dad... you still have the #jewel#. You really did care about me.\""  ,
+            /*11*/ "\"I'm still mad at you, but Chelsey showed me this jewel.  You've been keeping it with you since then.\""  
 
         };
 
@@ -296,20 +295,19 @@ public class DataLoader
 		};
         gameManager.allObjects[75].dialogues[3].choices = new Choice[]
 		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
-            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5)
-		}; 
-        gameManager.allObjects[75].dialogues[5].choices = new Choice[]
-		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
             AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5)
 		}; 
         gameManager.allObjects[75].dialogues[7].choices = new Choice[]
 		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
             AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6),
 		};
-
+        gameManager.allObjects[75].dialogues[8].choices = new Choice[]
+		{
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
+		}; gameManager.allObjects[75].dialogues[4].choices = new Choice[]
+		{
+			AddChoice("Thanks!", ChoiceAction.DESTROY, 75, 4),
+		}; 
 
         // ================ ALFRED ================ //
         string[] alfred = new string[]
@@ -336,13 +334,9 @@ public class DataLoader
       
 
         };
-        AddNpc(77, "Cop", "Cop", cop);
+        AddNpc(77, "Guard", "Cop", cop);
         {
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
-            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6)
 		}; 
-
-
 
 		// ================ ITEMS & OBJECTS ================ //
 
@@ -558,6 +552,51 @@ public class DataLoader
             NpcID = 73
         };
         AddParameters(sceneName, jeney2);
+
+
+        // ================ ALEX ================ //
+        InteractableObject.Parameters alex2 = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDSingle = 9,
+            dialogueIDMin = 9,
+            dialogueIDMax = 10,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "alex is devastated",
+            NpcID = 75
+        };
+        AddParameters(sceneName, alex2);
+
+        // ================ MANNY ================ //
+        InteractableObject.Parameters manny2 = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDSingle = 0,
+            dialogueIDMin = 0,
+            dialogueIDMax = 1,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "cop tells people to back off",
+            NpcID = 77
+        };
+        AddParameters(sceneName, manny2);
 
 
         sceneName = SceneManager.SCENE_MALL;

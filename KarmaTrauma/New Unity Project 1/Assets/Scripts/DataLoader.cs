@@ -398,9 +398,10 @@ public class DataLoader
 		AddParameters(sceneName, emptyTemplate);
 		*/
 		#endregion
-
-		sceneName = SceneManager.SCENE_HOUSE;
-
+        
+        sceneName = SceneManager.SCENE_HOUSE;
+        
+        // ================ MOM ================ //
 		InteractableObject.Parameters mom = new InteractableObject.Parameters()
 		{
 			// Specify the time frames that this set takes effect
@@ -458,6 +459,54 @@ public class DataLoader
 			NpcID = 21
 		};
 		AddParameters(sceneName, mom3);
+
+
+        sceneName = SceneManager.SCENE_HOSPITAL;
+        
+        // ================ MANNY ================ //
+        InteractableObject.Parameters manny = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 6, 8, 10, 12, 14, 16, 18 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "guard talks to you",
+            NpcID = 74
+        };
+        AddParameters(sceneName, manny);
+
+
+        sceneName = SceneManager.SCENE_MAINSTREET;
+
+        // ================ JENEY ================ //
+        InteractableObject.Parameters jeney2 = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "jeney tells you about alfred and his son",
+            NpcID = 73
+        };
+        AddParameters(sceneName, jeney2);
+
+
 	}
 
 	public DataLoader()

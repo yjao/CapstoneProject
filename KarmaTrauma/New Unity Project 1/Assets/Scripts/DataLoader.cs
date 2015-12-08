@@ -243,7 +243,7 @@ public class DataLoader
 		{
 			/*0*/ "\"Hello. Who are you visiting today?\"",
 			/*1*/ "\"What is your name?\"",
-			/*2*/ "\"Oh, Alex! Your father talked about how much he misses you. Right now, he is busy, but you are permitted to wait for him here.\"", 
+			/*2*/ "\"Oh, Alex! Your father talked about how much he misses you. Right now, he is busy, but you are permitted to wait for him inside.\"", 
             /*3*/ "\"...I could've sworn he had a son.\"",
             /*4*/ "\"Sorry, you are not on the visitors list. Please leave.\"",
             /*5*/ "\"Please leave if you're not here to see someone\""
@@ -252,12 +252,16 @@ public class DataLoader
         gameManager.allObjects[74].dialogues[0].choices = new Choice[]
 		{
 			AddChoice("Alfred", ChoiceAction.CONTINUE, 74, 1),
-			AddChoice("Uh...", ChoiceAction.CONTINUE, 74, 4)
+			AddChoice("Uh...", ChoiceAction.CONTINUE, 74, 5)
 		};
         gameManager.allObjects[74].dialogues[1].choices = new Choice[]
 		{
 			AddChoice("Alex", ChoiceAction.CONTINUE, 74, 2),
-            AddChoice("Chelsey", ChoiceAction.CONTINUE, 74, 3)
+            AddChoice("Chelsey", ChoiceAction.CONTINUE, 74, 4)
+		};
+        gameManager.allObjects[74].dialogues[2].choices = new Choice[]
+		{
+			AddChoice("Thank you", ChoiceAction.CONTINUE, 74, 3)
 		};
 		AddToDialogue(74, 3, new ChoiceEventArgs() { ChoiceAction = GameManager.UnlockDoor, String = "DoorToAlfredRoom" });
 
@@ -629,7 +633,7 @@ public class DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 2,
+            dialogueIDSingle = 0,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,

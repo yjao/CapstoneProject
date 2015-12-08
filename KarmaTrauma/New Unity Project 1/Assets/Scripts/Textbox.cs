@@ -73,7 +73,6 @@ public class Textbox : MonoBehaviour
                     EventManager.NotifyDialogChoiceMade(this, g);
                     if (oldaction != continueDialogue)
                     {
-                        //Debug.Log("hi there");
                         EventManager.NotifySpaceBar(this, new GameEventArgs());
                     }
                 }
@@ -85,7 +84,6 @@ public class Textbox : MonoBehaviour
         }
         else if (choice_mode == false && Input.GetKeyDown(KeyCode.Space))
         {
-            //Debug.Log("pressing space");
             if (Dialog.CEA != null)
             {
                 GameEventArgs g = new GameEventArgs();
@@ -95,7 +93,6 @@ public class Textbox : MonoBehaviour
                 EventManager.NotifyDialogChoiceMade(this, g);
                 if (oldaction != continueDialogue)
                 {
-                    //Debug.Log("hi there");
                     EventManager.NotifySpaceBar(this, new GameEventArgs());
                 }
             }
@@ -211,8 +208,11 @@ public class Textbox : MonoBehaviour
         args.DialogueBox.Dialog = args.DialogueBox.gameManager.GetNextDialogue(args.IDNum, args.DialogueID);
         if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
         {
-			args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID);
-            args.ThisGameObject.transform.GetComponent<InteractableObject>().dialogueIDSingle += 1;
+            args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID);
+            if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice())
+            {
+                EventManager.OnDialogChoiceMade += args.ThisGameObject.GetComponent<InteractableObject>().HandleOnDialogChoiceMade;
+            }
             args.DialogueBox.gameManager.ExitDialogue();
 			args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs());;
         }

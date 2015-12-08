@@ -54,15 +54,18 @@ public class QuestList : MonoBehaviour
                     Debug.Log(pl);
                     DayData dd = GameManager.instance.dayData;
                     Debug.Log(dd);
-                    if (pl.GetBool(temp.requirement))   
+                    if (pl.GetBool(temp.requirement))
                     {
                         if (temp.triggered == false)
                         {
-                            Debug.Log("Quest triggered");
                             temp.triggered = true;
-                            io.dialogueIDSingle = temp.dialogue_in_progress;
                             break;
                         }
+                        else
+                        {
+                            Debug.Log("Dialogue in progress");
+                            io.dialogueIDSingle = temp.dialogue_in_progress;
+                        }    
                         if (temp.itemTurnedIn == false)
                         {
                             for (int j = 0; j < GameManager.instance.dayData.ItemAmount; j++)
@@ -88,12 +91,6 @@ public class QuestList : MonoBehaviour
                         pl.SetBool(temp.changeBool);
                         temp.completed = true;
 
-                    }
-
-                    else
-                    {
-                        io.dialogueIDSingle = temp.dialogue_in_progress;
-                        Debug.Log("Quest in progress");
                     }
                     
 

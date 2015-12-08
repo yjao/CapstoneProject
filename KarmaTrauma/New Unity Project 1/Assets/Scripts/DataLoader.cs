@@ -271,12 +271,17 @@ public class DataLoader
             /*4*/ "\"He... He still has this? I guess the old man really does care. I'll go with you.\"",
             /*5*/ "\"Stop wasting my time.\"",
             /*6*/ "\"Weirdo...\""  ,
+<<<<<<< HEAD
+            /*7*/ "\"Do you have anything else to say?\""  ,
+            /*8*/ "\"Do you have anything else to say?\""  
+=======
 
             /*7*/ "\"Do you have anything else to say?\""  ,
             /*8*/ "\"Dad...why did you do it? *sob*\""  ,
             /*9*/ "\"Dad... you still have the #jewel#... so you do care about me.\""  ,
             /*10*/ "\"I'm still mad at you, but Chelsey showed me this jewel.  You've been keeping it with you since then.\""  
 
+>>>>>>> 761c92465ad8eb3e0c4e5bc7a48660bbb429be4a
 
         };
 
@@ -296,16 +301,12 @@ public class DataLoader
 		};
         gameManager.allObjects[75].dialogues[3].choices = new Choice[]
 		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
-            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5)
-		}; 
-        gameManager.allObjects[75].dialogues[5].choices = new Choice[]
-		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
             AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5)
 		}; 
         gameManager.allObjects[75].dialogues[7].choices = new Choice[]
 		{
+<<<<<<< HEAD
+=======
 			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
             AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6),
 		};
@@ -337,8 +338,27 @@ public class DataLoader
 
         };
         AddNpc(77, "Cop", "Cop", cop);
+<<<<<<< HEAD
+=======
+        {
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
+>>>>>>> 761c92465ad8eb3e0c4e5bc7a48660bbb429be4a
+            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6)
+		}; gameManager.allObjects[75].dialogues[8].choices = new Choice[]
+		{
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
+		}; gameManager.allObjects[75].dialogues[4].choices = new Choice[]
+		{
+			AddChoice("Thanks!", ChoiceAction.DESTROY, 75, 4),
+		}; 
+
+>>>>>>> d45e002f0bb2bf2ac576b10a41e0a1b70056e022
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 761c92465ad8eb3e0c4e5bc7a48660bbb429be4a
 		// ================ ITEMS & OBJECTS ================ //
 
         string[] jewel = new string[]

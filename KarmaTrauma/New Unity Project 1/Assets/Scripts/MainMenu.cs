@@ -7,11 +7,9 @@ public class MainMenu : MonoBehaviour
     public Canvas quitMenu;
     public Button startText;
     public Button exitText;
-    private GameManager gameManager;
 
     void Start()
     {
-        gameManager = GameManager.instance;
         //quitMenu = quitMenu.GetComponent<Canvas>();
         startText = startText.GetComponent<Button>();
         //exitText = exitText.GetComponent<Button>();
@@ -62,11 +60,12 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadDemoScene()
     {
-        Debug.Log("callling");
-        Application.LoadLevel("G_Mainstreetsmall");
-        Debug.Log("callling");
+        Application.LoadLevel(SceneManager.SCENE_MAINSTREET);
         yield return null;
-        gameManager.SetTime(8);
+		GameManager.instance.SetTime(20);
+		yield return null;
+		SceneManager.instance.LoadScene();
+		yield return null;
         Destroy(this);
 
 

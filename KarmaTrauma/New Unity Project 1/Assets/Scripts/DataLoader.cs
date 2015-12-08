@@ -221,7 +221,7 @@ public class DataLoader
 			/*0*/ "\"Hey, I'm Chelsey. Do you also go to Pinewood High School?.\"",
             /*1*/ "\"That old guy in the hospital, his name is Alfred I think, he's your dad right?\"",
             /*2*/ "\"Come with me! Your dad is going to die soon!  He might change his mind if you visit him!\"",
-            /*3*/ "\"Come with me! Your dad is goign to die soon!\"",
+            /*3*/ "\"Come with me! Your dad is going to die soon!\"",
         };
         AddNpc(72, "", "Chelsey", chelsey);
         
@@ -271,9 +271,15 @@ public class DataLoader
             /*4*/ "\"He... He still has this? I guess the old man really does care. I'll go with you.\"",
             /*5*/ "\"Stop wasting my time.\"",
             /*6*/ "\"Weirdo...\""  ,
-            /*7*/ "\"Do you have anything else to say?\""  
+
+            /*7*/ "\"Do you have anything else to say?\""  ,
+            /*8*/ "\"Dad...why did you do it? *sob*\""  ,
+            /*9*/ "\"Dad...\""  ,
+            /*10*/ "\"I'm still mad at you, but Chelsey showed me this jewel.  You've been keeping it with you since then.\""  
+
 
         };
+
         AddNpc(75, "Kid", "Alex", alex);
         gameManager.allObjects[75].dialogues[0].choices = new Choice[]
 		{
@@ -300,9 +306,42 @@ public class DataLoader
 		}; 
         gameManager.allObjects[75].dialogues[7].choices = new Choice[]
 		{
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
+            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6),
+		};
+
+
+        // ================ ALFRED ================ //
+        string[] alfred = new string[]
+		{
+			/*0*/ "\"What do you want?  Go away kid!\"",
+            /*1*/ "\"Alex!!!\"",
+            /*2*/ "\"Oh Alex, I missed you!  I've been regretting since the day I left you.\"",
+            /*3*/ "\"I was wrong.  Will you forgive me Alex?\"",
+            /*4*/ "\"I love you, son\"",
+            /*5*/ "\"Stop wasting my time.\"",
+            /*6*/ "\"*mumble* forgive me... *mumble*\""  ,
+            /*7*/ "\"Do you have anything else to say?\""  ,
+     
+
+        };
+        AddNpc(76, "Old Man", "Alfred", alfred);
+
+
+        // ================ COP ================ //
+        string[] cop = new string[]
+		{
+			/*0*/ "\"Stand back!\"",
+            /*1*/ "\"Go home, kid.\"",
+      
+
+        };
+        AddNpc(77, "Cop", "Cop", cop);
+        {
 			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
             AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6)
 		}; 
+
 
 
 		// ================ ITEMS & OBJECTS ================ //
@@ -328,6 +367,7 @@ public class DataLoader
 			new Choice("Good Night!", new ChoiceEventArgs() { ChoiceAction = GameManager.UseBed }),
 			AddChoice("I ain't weak!")
 		};
+
     }
 
 	private void LoadTestData()

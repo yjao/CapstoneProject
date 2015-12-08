@@ -105,8 +105,10 @@ public class Textbox : MonoBehaviour
 
 	#region DIALOG BOXES
 
-	private string FormatMessage(string message)
+	private static string FormatMessage(string message)
 	{
+		GameManager gameManager = GameManager.instance;
+
 		string newMessage = message;
 		while (true)
 		{
@@ -216,6 +218,6 @@ public class Textbox : MonoBehaviour
             args.DialogueBox.gameManager.ExitDialogue();
 			args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs());;
         }
-        args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = args.DialogueBox.Dialog.text;
+		args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = FormatMessage(args.DialogueBox.Dialog.text);
     }
 }

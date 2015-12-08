@@ -235,7 +235,7 @@ public class DataLoader
         };
         AddNpc(73, "Random Woman", "Jeney", jeney);
         addBooleanToDialogue(73, 0, "AlfredName_Learned");
-//		AddToDialogue(73, 0, ChoiceContinueDialog(73, 1));
+		AddToDialogue(73, 0, ChoiceContinueDialog(73, 1));
 
         // ================ MANNY ================ //
         string[] manny = new string[]

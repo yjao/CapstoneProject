@@ -230,9 +230,10 @@ public class DataLoader
 		{
 			/*0*/ "\"Hello. Who are you visiting today?\"",
 			/*1*/ "\"What is your name?\"",
-			/*2*/ "\"Oh, Alex! Your father talked about how much he misses you. Right now, he is busy, but you are permitted to wait for him here. ...I could've sworn he had a son.\"",
-            /*3*/ "\"Sorry, you are not on the visitors list. Please leave.\"",
-            /*4*/ "\"Please leave if you're not here to see someone\""
+			/*2*/ "\"Oh, Alex! Your father talked about how much he misses you. Right now, he is busy, but you are permitted to wait for him here.\"", 
+            /*3*/ "\"...I could've sworn he had a son.\"",
+            /*4*/ "\"Sorry, you are not on the visitors list. Please leave.\"",
+            /*5*/ "\"Please leave if you're not here to see someone\""
         };
         AddNpc(74, "Guard", "Manny", manny);
         gameManager.allObjects[74].dialogues[0].choices = new Choice[]

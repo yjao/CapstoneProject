@@ -214,6 +214,19 @@ public class DataLoader
 
     private void LoadFallDemoData()
     {
+
+        // ================ Chelsey ================ //
+        string[] chelsey = new string[]
+		{
+			/*0*/ "\"Hey, I'm Chelsey. Do you also go to Pinewood High School?.\"",
+            /*1*/ "\"That old guy in the hospital, his name is Alfred I think, he's your dad right?\"",
+            /*2*/ "\"Come with me! Your dad is going to die soon!  He might change his mind if you visit him!\"",
+            /*3*/ "\"Come with me! Your dad is goign to die soon!\"",
+        };
+        AddNpc(72, "", "Chelsey", chelsey);
+        
+
+
         // ================ JENEY ================ //
         string[] jeney = new string[]
 		{
@@ -221,7 +234,7 @@ public class DataLoader
             /*1*/ "\"Alex was just at my donut shop at 4PM today to talk about his father and now he's gone...\"",
         };
         AddNpc(73, "Random Woman", "Jeney", jeney);
-        gameManager.allObjects[73].dialogues[0].setbool = "AlfredName_Learned";
+        addBooleanToDialogue(73, 0, "AlfredName_Learned");
 
 
 
@@ -230,9 +243,10 @@ public class DataLoader
 		{
 			/*0*/ "\"Hello. Who are you visiting today?\"",
 			/*1*/ "\"What is your name?\"",
-			/*2*/ "\"Oh, Alex! Your father talked about how much he misses you. Right now, he is busy, but you are permitted to wait for him here. ...I could've sworn he had a son.\"",
-            /*3*/ "\"Sorry, you are not on the visitors list. Please leave.\"",
-            /*4*/ "\"Please leave if you're not here to see someone\""
+			/*2*/ "\"Oh, Alex! Your father talked about how much he misses you. Right now, he is busy, but you are permitted to wait for him here.\"", 
+            /*3*/ "\"...I could've sworn he had a son.\"",
+            /*4*/ "\"Sorry, you are not on the visitors list. Please leave.\"",
+            /*5*/ "\"Please leave if you're not here to see someone\""
         };
         AddNpc(74, "Guard", "Manny", manny);
         gameManager.allObjects[74].dialogues[0].choices = new Choice[]
@@ -252,7 +266,7 @@ public class DataLoader
         string[] alex = new string[]
 		{
 			/*0*/ "\"What do you want?\"",
-            /*1*/ "\"I'm Alex. Welcome to our mundane little town.\"",
+            /*1*/ "\"Yeah, I'm Alex. Welcome to our little town.\"",
             /*2*/ "\"Yes, he is. How do you even know this?\"",
             /*3*/ "\"Please, he never cared about me so why should I care about him? If you want me to come with you, prove to me that he still cares and I'll consider going with you to visit him.\"",
             /*4*/ "\"He... He still has this? I guess the old man really does care. I'll go with you.\"",
@@ -267,20 +281,20 @@ public class DataLoader
         AddNpc(75, "Kid", "Alex", alex);
         gameManager.allObjects[75].dialogues[0].choices = new Choice[]
 		{
-			AddChoice("Tell him you're new in town and want to make friends", ChoiceAction.CONTINUE, 75, 1),
+			AddChoice("Be friendly", ChoiceAction.CONTINUE, 75, 1, "Meet_Alfred_Son"),
 			AddChoice("Say nothing", ChoiceAction.CONTINUE, 75, 6)
 		};
         gameManager.allObjects[75].dialogues[1].choices = new Choice[]
 		{
-			AddChoice("Ask him if his father is the cop in the Mental Hospital", ChoiceAction.CONTINUE, 75, 2)
+			AddChoice("Ask about Alfred", ChoiceAction.CONTINUE, 75, 2)
 		};
         gameManager.allObjects[75].dialogues[2].choices = new Choice[]
 		{
-			AddChoice("Tell him that he needs to come with you and visit his father", ChoiceAction.CONTINUE, 75, 3)
+			AddChoice("Ask Alex to meet Alfred", ChoiceAction.CONTINUE, 75, 3)
 		};
         gameManager.allObjects[75].dialogues[3].choices = new Choice[]
 		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
             AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5),
 		}; 
         gameManager.allObjects[75].dialogues[5].choices = new Choice[]
@@ -399,9 +413,10 @@ public class DataLoader
 		AddParameters(sceneName, emptyTemplate);
 		*/
 		#endregion
-
-		sceneName = SceneManager.SCENE_HOUSE;
-
+        
+        sceneName = SceneManager.SCENE_HOUSE;
+        
+        // ================ MOM ================ //
 		InteractableObject.Parameters mom = new InteractableObject.Parameters()
 		{
 			// Specify the time frames that this set takes effect
@@ -459,6 +474,95 @@ public class DataLoader
 			NpcID = 21
 		};
 		AddParameters(sceneName, mom3);
+
+
+        sceneName = SceneManager.SCENE_HOSPITAL;
+        
+        // ================ MANNY ================ //
+        InteractableObject.Parameters manny = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 6, 8, 10, 12, 14, 16, 18 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "guard talks to you",
+            NpcID = 74
+        };
+        AddParameters(sceneName, manny);
+
+
+        sceneName = SceneManager.SCENE_MAINSTREET;
+
+        // ================ JENEY ================ //
+        InteractableObject.Parameters jeney2 = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "jeney tells you about alfred and his son",
+            NpcID = 73
+        };
+        AddParameters(sceneName, jeney2);
+
+
+        sceneName = SceneManager.SCENE_MALL;
+
+        // ================ JENEY ================ //
+        InteractableObject.Parameters jeney = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "jeney sells stuff",
+            NpcID = 73
+        };
+        AddParameters(sceneName, jeney);
+
+        // ================ ALEX ================ //
+        InteractableObject.Parameters alex = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 16 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "jeney tells you about alfred and his son",
+            NpcID = 75
+        };
+        AddParameters(sceneName, alex);
 	}
 
 	public DataLoader()
@@ -527,6 +631,11 @@ public class DataLoader
 
 		gameManager.allObjects[ID] = new Interactable(name, strangerName, dialogues);
 	}
+
+    private void addBooleanToDialogue(int id, int dialogueID, string boolName)
+    {
+        gameManager.allObjects[id].dialogues[dialogueID].setbool = boolName;
+    }
 
 	private void AddParameters(string sceneName, InteractableObject.Parameters parameters)
 	{

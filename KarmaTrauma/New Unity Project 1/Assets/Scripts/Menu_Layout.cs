@@ -14,6 +14,7 @@ public class Menu_Layout : MonoBehaviour {
     private bool timeButton_show = false;
     private bool invenButton_show = false;
     private bool diaryButton_show = false;
+    public int startTime;
 
     
     private Texture2D inventory_texture;
@@ -31,6 +32,10 @@ public class Menu_Layout : MonoBehaviour {
         ////show_button = gameMenu.In_Mode();
         //inventory_texture = Resources.Load("Bag") as Texture2D;
         //inventory_content.inventory_texture = inventory_texture;
+        if (startTime != null)
+        {
+            gameManager.SetTime(startTime);
+        }
        
 	}
 

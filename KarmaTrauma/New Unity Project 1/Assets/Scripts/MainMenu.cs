@@ -7,13 +7,16 @@ public class MainMenu : MonoBehaviour
     public Canvas quitMenu;
     public Button startText;
     public Button exitText;
+    private GameManager gameManager;
 
     void Start()
     {
+        gameManager = GameManager.instance;
         //quitMenu = quitMenu.GetComponent<Canvas>();
         startText = startText.GetComponent<Button>();
         //exitText = exitText.GetComponent<Button>();
     //    quitMenu.enabled = false;
+        DontDestroyOnLoad(this);
 
     }
 
@@ -41,6 +44,31 @@ public class MainMenu : MonoBehaviour
     public void LoadLevel()
     {
         // This will require some serious coding 
+
+    }
+
+    public void ShortPrologueDemo()
+    {
+        Application.LoadLevel("ShortPrologue");
+    }
+
+    public void MainGameDemo()
+    {
+
+        StartCoroutine("LoadDemoScene");
+        
+
+    }
+
+    IEnumerator LoadDemoScene()
+    {
+        Debug.Log("callling");
+        Application.LoadLevel("G_Mainstreetsmall");
+        Debug.Log("callling");
+        yield return null;
+        gameManager.SetTime(8);
+        Destroy(this);
+
 
     }
 

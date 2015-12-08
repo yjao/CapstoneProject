@@ -273,11 +273,12 @@ public class DataLoader
             /*5*/ "\"Stop wasting my time.\"",
             /*6*/ "\"Weirdo...\""  ,
             /*7*/ "\"Do you have anything else to say?\""  ,
-            /*8*/ "\"Weirdo...\""  ,
-            /*9*/ "\"Weirdo...\""  ,
-            /*10*/ "\"Weirdo...\""  
+            /*8*/ "\"Dad...why did you do it? *sob*\""  ,
+            /*9*/ "\"Dad...\""  ,
+            /*10*/ "\"I'm still mad at you, but Chelsey showed me this jewel.  You've been keeping it with you since then.\""  
 
         };
+
         AddNpc(75, "Kid", "Alex", alex);
         gameManager.allObjects[75].dialogues[0].choices = new Choice[]
 		{
@@ -306,7 +307,35 @@ public class DataLoader
 		{
 			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
             AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6),
-		}; 
+		};
+
+
+        // ================ ALFRED ================ //
+        string[] alfred = new string[]
+		{
+			/*0*/ "\"What do you want?  Go away kid!\"",
+            /*1*/ "\"Alex!!!\"",
+            /*2*/ "\"Oh Alex, I missed you!  I've been regretting since the day I left you.\"",
+            /*3*/ "\"I was wrong.  Will you forgive me Alex?\"",
+            /*4*/ "\"I love you, son\"",
+            /*5*/ "\"Stop wasting my time.\"",
+            /*6*/ "\"*mumble* forgive me... *mumble*\""  ,
+            /*7*/ "\"Do you have anything else to say?\""  ,
+     
+
+        };
+        AddNpc(76, "Old Man", "Alfred", alfred);
+
+
+        // ================ COP ================ //
+        string[] cop = new string[]
+		{
+			/*0*/ "\"Stand back!\"",
+            /*1*/ "\"Go home, kid.\"",
+      
+
+        };
+        AddNpc(77, "Cop", "Cop", cop);
 
 
 		// ================ ITEMS & OBJECTS ================ //
@@ -332,6 +361,8 @@ public class DataLoader
 			new Choice("Good Night!", new ChoiceEventArgs() { ChoiceAction = GameManager.UseBed }),
 			AddChoice("I ain't weak!")
 		};
+
+
     }
 
 	private void LoadTestData()

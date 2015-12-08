@@ -330,13 +330,15 @@ public class DataLoader
         string[] cop = new string[]
 		{
 			/*0*/ "\"Stand back!\"",
-            /*1*/ "\"Go home, kid.\"",
+            /*1*/ "\"Go home, kid.\""
       
 
         };
-        AddNpc(77, "Guard", "Cop", cop);
-        {
-		}; 
+        AddNpc(77, "Guard", "Cop", cop); 
+        gameManager.allObjects[77].dialogues[0].choices = new Choice[]
+		{
+			AddChoice("What's going on?", ChoiceAction.CONTINUE, 77, 1)
+		};
 
 		// ================ ITEMS & OBJECTS ================ //
 
@@ -583,10 +585,8 @@ public class DataLoader
             timeBlocks = new List<int>() { 20 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
-            dialogueIDMin = 0,
-            dialogueIDMax = 1,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,

@@ -446,4 +446,8 @@ public class GameManager : MonoBehaviour
 		instance.Midnight(false);
 	}
 
+	public static void UnlockDoor(object sender, GameEventArgs args)
+	{
+		GameObject.Find(args.String).GetComponent<Stairs>().active = true;
+	}
 }

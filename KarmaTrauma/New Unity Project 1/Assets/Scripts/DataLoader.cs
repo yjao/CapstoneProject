@@ -235,7 +235,7 @@ public class DataLoader
         };
         AddNpc(73, "Random Woman", "Jeney", jeney);
         addBooleanToDialogue(73, 0, "AlfredName_Learned");
-//		AddToDialogue(73, 0, ChoiceContinueDialog(73, 1));
+		AddToDialogue(73, 0, ChoiceContinueDialog(73, 1));
 
         // ================ MANNY ================ //
         string[] manny = new string[]
@@ -719,6 +719,7 @@ public class DataLoader
 	private void AddToDialogue(int ID, int dID, ChoiceEventArgs cea)
 	{
 		gameManager.allObjects[ID].dialogues[dID].CEA = cea;
+        gameManager.allObjects[ID].dialogues[dID].Action += cea.ChoiceAction;
 	}
 
 	private void AddNpc(int ID, string name, string strangerName, string[] strings)

@@ -214,6 +214,19 @@ public class DataLoader
 
     private void LoadFallDemoData()
     {
+
+        // ================ Chelsey ================ //
+        string[] chelsey = new string[]
+		{
+			/*0*/ "\"Hey, I'm Chelsey. Do you also go to Pinewood High School?.\"",
+            /*1*/ "\"That old guy in the hospital, his name is Alfred I think, he's your dad right?\"",
+            /*2*/ "\"Come with me! Your dad is going to die soon!  He might change his mind if you visit him!\"",
+            /*3*/ "\"Come with me! Your dad is goign to die soon!\"",
+        };
+        AddNpc(72, "", "Chelsey", chelsey);
+        
+
+
         // ================ JENEY ================ //
         string[] jeney = new string[]
 		{
@@ -253,7 +266,7 @@ public class DataLoader
         string[] alex = new string[]
 		{
 			/*0*/ "\"What do you want?\"",
-            /*1*/ "\"I'm Alex. Welcome to our mundane little town.\"",
+            /*1*/ "\"Yeah, I'm Alex. Welcome to our little town.\"",
             /*2*/ "\"Yes, he is. How do you even know this?\"",
             /*3*/ "\"Please, he never cared about me so why should I care about him? If you want me to come with you, prove to me that he still cares and I'll consider going with you to visit him.\"",
             /*4*/ "\"He... He still has this? I guess the old man really does care. I'll go with you.\"",
@@ -263,16 +276,16 @@ public class DataLoader
         AddNpc(75, "Kid", "Alex", alex);
         gameManager.allObjects[75].dialogues[0].choices = new Choice[]
 		{
-			AddChoice("Tell him you're new in town and want to make friends", ChoiceAction.CONTINUE, 75, 1, "Meet_Alfred_Son"),
+			AddChoice("Be friendly", ChoiceAction.CONTINUE, 75, 1, "Meet_Alfred_Son"),
 			AddChoice("Say nothing", ChoiceAction.CONTINUE, 75, 6)
 		};
         gameManager.allObjects[75].dialogues[1].choices = new Choice[]
 		{
-			AddChoice("Ask him if his father is the cop in the Mental Hospital", ChoiceAction.CONTINUE, 75, 2)
+			AddChoice("Ask about Alfred", ChoiceAction.CONTINUE, 75, 2)
 		};
         gameManager.allObjects[75].dialogues[2].choices = new Choice[]
 		{
-			AddChoice("Tell him that he needs to come with you and visit his father", ChoiceAction.CONTINUE, 75, 3)
+			AddChoice("Ask Alex to meet Alfred", ChoiceAction.CONTINUE, 75, 3)
 		};
         gameManager.allObjects[75].dialogues[3].choices = new Choice[]
 		{

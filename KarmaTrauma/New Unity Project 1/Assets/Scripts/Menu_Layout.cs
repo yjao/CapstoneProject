@@ -32,7 +32,7 @@ public class Menu_Layout : MonoBehaviour {
         ////show_button = gameMenu.In_Mode();
         //inventory_texture = Resources.Load("Bag") as Texture2D;
         //inventory_content.inventory_texture = inventory_texture;
-        if (startTime != null)
+        if (startTime != 0)
         {
             gameManager.SetTime(startTime);
         }

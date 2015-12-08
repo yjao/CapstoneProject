@@ -36,7 +36,6 @@ public class QuestList : MonoBehaviour
 
     public void CheckQuest(InteractableObject obj)
     {
-
         // Iterate thorugh all the quests in the quest list
         for (int i = 0; i < Qlist.Count; i++)
         {
@@ -59,6 +58,7 @@ public class QuestList : MonoBehaviour
                     {
                         if (temp.triggered == false)
                         {
+                            Debug.Log("Quest triggered");
                             temp.triggered = true;
                             io.dialogueIDSingle = temp.dialogue_in_progress;
                             break;
@@ -92,6 +92,7 @@ public class QuestList : MonoBehaviour
                     else
                     {
                         io.dialogueIDSingle = temp.dialogue_in_progress;
+                        Debug.Log("Quest in progress");
                     }
                     
 

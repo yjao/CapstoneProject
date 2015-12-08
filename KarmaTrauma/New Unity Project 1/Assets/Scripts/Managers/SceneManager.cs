@@ -89,19 +89,22 @@ public class SceneManager : MonoBehaviour
                 }
 
 				// Check GameManager's sceneParameters
-				List<InteractableObject.Parameters> list = gameManager.sceneParameters[Application.loadedLevelName];
-				foreach (InteractableObject.Parameters p in list)
-				{
-					if (IO.iD == p.NpcID)
-					{
-						if (p.timeBlocks.Contains(GameManager.instance.GetTimeAsInt()))
-						{
-							isActive = true;
-							LoadParameters(IO, p);
-							break;
-						}
-					}
-				}
+                if (gameManager.sceneParameters.ContainsKey(Application.loadedLevelName) != false)
+                {
+                    List<InteractableObject.Parameters> list = gameManager.sceneParameters[Application.loadedLevelName];
+                    foreach (InteractableObject.Parameters p in list)
+                    {
+                        if (IO.iD == p.NpcID)
+                        {
+                            if (p.timeBlocks.Contains(GameManager.instance.GetTimeAsInt()))
+                            {
+                                isActive = true;
+                                LoadParameters(IO, p);
+                                break;
+                            }
+                        }
+                    }
+                }
 
                 child.gameObject.SetActive(isActive);
             }

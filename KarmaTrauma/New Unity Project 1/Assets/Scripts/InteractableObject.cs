@@ -86,7 +86,7 @@ public class InteractableObject : MonoBehaviour
                 break;
         }
 
-		if (gameManager.allObjects[iD].dialogues[dialogueIDSingle].TypeIsChoice())
+		if (gameManager.allObjects[iD].dialogues[dialogueIDSingle].TypeIsChoice() || gameManager.allObjects[iD].dialogues[dialogueIDSingle].Action != null)
 		{
 			EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
 		}

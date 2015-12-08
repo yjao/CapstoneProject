@@ -719,6 +719,7 @@ public class DataLoader
 	private void AddToDialogue(int ID, int dID, ChoiceEventArgs cea)
 	{
 		gameManager.allObjects[ID].dialogues[dID].CEA = cea;
+        gameManager.allObjects[ID].dialogues[dID].Action += cea.ChoiceAction;
 	}
 
 	private void AddNpc(int ID, string name, string strangerName, string[] strings)

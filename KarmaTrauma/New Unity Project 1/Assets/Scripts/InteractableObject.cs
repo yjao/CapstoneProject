@@ -149,7 +149,7 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    void HandleOnDialogChoiceMade(object sender, GameEventArgs args)
+    public void HandleOnDialogChoiceMade(object sender, GameEventArgs args)
     {
 		EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
         args.ThisGameObject = gameObject;

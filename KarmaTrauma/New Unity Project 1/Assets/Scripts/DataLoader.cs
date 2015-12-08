@@ -237,7 +237,6 @@ public class DataLoader
         addBooleanToDialogue(73, 0, "AlfredName_Learned");
 		AddToDialogue(73, 0, ChoiceContinueDialog(73, 1));
 
-
         // ================ MANNY ================ //
         string[] manny = new string[]
 		{
@@ -272,10 +271,7 @@ public class DataLoader
             /*4*/ "\"He... He still has this? I guess the old man really does care. I'll go with you.\"",
             /*5*/ "\"Stop wasting my time.\"",
             /*6*/ "\"Weirdo...\""  ,
-            /*7*/ "\"Do you have anything else to say?\""  ,
-            /*8*/ "\"Weirdo...\""  ,
-            /*9*/ "\"Weirdo...\""  ,
-            /*10*/ "\"Weirdo...\""  
+            /*7*/ "\"Do you have anything else to say?\""  
 
         };
         AddNpc(75, "Kid", "Alex", alex);
@@ -294,18 +290,18 @@ public class DataLoader
 		};
         gameManager.allObjects[75].dialogues[3].choices = new Choice[]
 		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
-            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5),
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
+            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5)
 		}; 
         gameManager.allObjects[75].dialogues[5].choices = new Choice[]
 		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
-            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5),
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
+            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5)
 		}; 
         gameManager.allObjects[75].dialogues[7].choices = new Choice[]
 		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
-            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6),
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
+            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6)
 		}; 
 
 
@@ -508,8 +504,10 @@ public class DataLoader
             timeBlocks = new List<int>() { 20 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
             dialogueIDSingle = 0,
+            dialogueIDMin = 0,
+            dialogueIDMax = 1,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,

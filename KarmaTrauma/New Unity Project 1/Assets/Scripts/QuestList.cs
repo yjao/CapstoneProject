@@ -69,6 +69,7 @@ public class QuestList : MonoBehaviour
                             {
                                 if (GameManager.instance.dayData.Inventory[j].Name == temp.requiredItem)
                                 {
+                                    Debug.Log("Have Item");
                                     GameManager.instance.dayData.Inventory[j] = null;
                                     GameManager.instance.dayData.ItemAmount--;
                                     temp.itemTurnedIn = true;

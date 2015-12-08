@@ -494,6 +494,47 @@ public class DataLoader
         AddParameters(sceneName, jeney2);
 
 
+        sceneName = SceneManager.SCENE_MALL;
+
+        // ================ JENEY ================ //
+        InteractableObject.Parameters jeney = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "jeney sells stuff",
+            NpcID = 73
+        };
+        AddParameters(sceneName, jeney);
+
+        // ================ ALEX ================ //
+        InteractableObject.Parameters alex = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 16 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "jeney tells you about alfred and his son",
+            NpcID = 75
+        };
+        AddParameters(sceneName, alex);
 	}
 
 	public DataLoader()

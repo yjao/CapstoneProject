@@ -221,7 +221,7 @@ public class DataLoader
 			/*0*/ "\"Hey, I'm Chelsey. Do you also go to Pinewood High School?.\"",
             /*1*/ "\"That old guy in the hospital, his name is Alfred I think, he's your dad right?\"",
             /*2*/ "\"Come with me! Your dad is going to die soon!  He might change his mind if you visit him!\"",
-            /*3*/ "\"Come with me! Your dad is goign to die soon!\"",
+            /*3*/ "\"Come with me! Your dad is going to die soon!\"",
         };
         AddNpc(72, "", "Chelsey", chelsey);
         
@@ -235,7 +235,6 @@ public class DataLoader
         };
         AddNpc(73, "Random Woman", "Jeney", jeney);
         addBooleanToDialogue(73, 0, "AlfredName_Learned");
-
 
 
         // ================ MANNY ================ //
@@ -272,10 +271,12 @@ public class DataLoader
             /*4*/ "\"He... He still has this? I guess the old man really does care. I'll go with you.\"",
             /*5*/ "\"Stop wasting my time.\"",
             /*6*/ "\"Weirdo...\""  ,
+
             /*7*/ "\"Do you have anything else to say?\""  ,
             /*8*/ "\"Dad...why did you do it? *sob*\""  ,
             /*9*/ "\"Dad...\""  ,
             /*10*/ "\"I'm still mad at you, but Chelsey showed me this jewel.  You've been keeping it with you since then.\""  
+
 
         };
 
@@ -295,13 +296,13 @@ public class DataLoader
 		};
         gameManager.allObjects[75].dialogues[3].choices = new Choice[]
 		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
-            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5),
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
+            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5)
 		}; 
         gameManager.allObjects[75].dialogues[5].choices = new Choice[]
 		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4),
-            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5),
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
+            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5)
 		}; 
         gameManager.allObjects[75].dialogues[7].choices = new Choice[]
 		{
@@ -336,6 +337,11 @@ public class DataLoader
 
         };
         AddNpc(77, "Cop", "Cop", cop);
+        {
+			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
+            AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6)
+		}; 
+
 
 
 		// ================ ITEMS & OBJECTS ================ //
@@ -361,7 +367,6 @@ public class DataLoader
 			new Choice("Good Night!", new ChoiceEventArgs() { ChoiceAction = GameManager.UseBed }),
 			AddChoice("I ain't weak!")
 		};
-
 
     }
 
@@ -539,8 +544,10 @@ public class DataLoader
             timeBlocks = new List<int>() { 20 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
             dialogueIDSingle = 0,
+            dialogueIDMin = 0,
+            dialogueIDMax = 1,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
@@ -594,6 +601,25 @@ public class DataLoader
             NpcID = 75
         };
         AddParameters(sceneName, alex);
+	}
+
+	private void LoadQuestData()
+	{
+		#region EMPTY TEMPLATE
+		// EMPTY TEMPLATE
+		/*
+		Quest emptyTemplate = new Quest();
+		{
+			int NPC_ID;
+			int dialogue_in_progress;
+			int dialogue_change;
+			string requirement = "none";
+			string changeBool = "none";
+			string required_item = "none";
+		};
+		AddQuest(emptyTemplate);
+		*/
+		#endregion
 	}
 
 	public DataLoader()

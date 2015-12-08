@@ -258,7 +258,7 @@ public class DataLoader
 			AddChoice("Alex", ChoiceAction.CONTINUE, 74, 2),
             AddChoice("Chelsey", ChoiceAction.CONTINUE, 74, 3)
 		};
-
+		AddToDialogue(74, 3, new ChoiceEventArgs() { ChoiceAction = GameManager.UnlockDoor, String = "DoorToAlfredRoom" });
 
 
         // ================ ALEX ================ //
@@ -361,7 +361,6 @@ public class DataLoader
 			new Choice("Good Night!", new ChoiceEventArgs() { ChoiceAction = GameManager.UseBed }),
 			AddChoice("I ain't weak!")
 		};
-
     }
 
 	private void LoadTestData()

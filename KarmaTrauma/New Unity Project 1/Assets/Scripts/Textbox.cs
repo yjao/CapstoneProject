@@ -211,7 +211,7 @@ public class Textbox : MonoBehaviour
         if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
         {
             args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID);
-            if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice())
+            if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice() || GameManager.instance.allObjects[args.IDNum].dialogues[args.DialogueID].Action != null)
             {
                 EventManager.OnDialogChoiceMade += args.ThisGameObject.GetComponent<InteractableObject>().HandleOnDialogChoiceMade;
             }

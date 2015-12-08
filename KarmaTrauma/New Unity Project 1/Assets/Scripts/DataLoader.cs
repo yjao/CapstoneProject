@@ -602,6 +602,27 @@ public class DataLoader
         };
         AddParameters(sceneName, manny2);
 
+        // ================ ALFRED ================ //
+        InteractableObject.Parameters deadalfred = new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDSingle = 0,
+            dialogueIDMin = 0,
+            dialogueIDMax = 1,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            animationSpeed = 0.0f,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "a dead body",
+            NpcID = -999
+        };
+        AddParameters(sceneName, deadalfred);
 
         sceneName = SceneManager.SCENE_MALL;
 

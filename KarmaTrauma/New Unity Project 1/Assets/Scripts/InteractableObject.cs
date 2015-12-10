@@ -4,23 +4,32 @@ using System.Collections.Generic;
 
 public class InteractableObject : MonoBehaviour
 {
-    public int iD;
-    public GameObject npc;
+	#region ENUMS
+
+	public enum InteractionType
+	{
+		NONE, DIALOG, ITEM, MOVE
+	};
+
+	public enum Dialogue_ID_Type
+	{
+		SINGLE_DIALOGUE_ID, DIALOGUE_MIN_MAX, MULTI_DIALOGUE_ID
+	};
+
+	#endregion
+	
+	public int iD;
+
+	public NPC npc;
+	public CharacterAnimations characterAnimations;
 
     protected GameManager gameManager;
     protected Player player;
     private bool colliding = false;
 
-    public enum InteractionType
-    {
-        NONE, DIALOG, ITEM, MOVE
-    };
     public InteractionType interactionType;
 
-    public enum Dialogue_ID_Type
-    {
-        SINGLE_DIALOGUE_ID, DIALOGUE_MIN_MAX, MULTI_DIALOGUE_ID
-    };
+	[Header("Choose one type of Dialogue")]
     public Dialogue_ID_Type dialogueIDType;
     public int dialogueIDSingle;
     public int dialogueIDMin;
@@ -61,7 +70,6 @@ public class InteractableObject : MonoBehaviour
 
     void OnDestroy()
     {
-        //EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
     }
 
     private void CallDialogue()
@@ -96,23 +104,25 @@ public class InteractableObject : MonoBehaviour
 
     public void Interact()
     {
-        EventManager.NotifyNPC(this, new GameEventArgs() { ThisGameObject = gameObject });
-        //EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
+        npc.TurnNpcAndPlayer();
         
         switch (interactionType)
         {       
-            case InteractionType.DIALOG:
-                if (gameManager.gameMode != GameManager.GameMode.DIALOGUE)
-				{
+        case InteractionType.DIALOG:
+            if (gameManager.gameMode != GameManager.GameMode.DIALOGUE)
+			{
 
-                    // Call QuestList and check if the quest requirements are met with this interactable object. Change dialogue if necessasry
-                   
-                    QuestList ql = GameManager.instance.GetComponent<QuestList>();
-                    ql.CheckQuest(this);
-                    CallDialogue();
-				}
-                break;
-        }
+                // Call QuestList and check if the quest requirements are met with this interactable object. Change dialogue if necessasry
+               
+                QuestList ql = GameManager.instance.GetComponent<QuestList>();
+                ql.CheckQuest(this);
+                CallDialogue();
+			}
+            break;
+		default:
+			Debug.Log("Interaction type is: " + interactionType);
+			break;
+		}
     }
 
     public static void InteractItem(object sender, GameEventArgs args)
@@ -157,7 +167,6 @@ public class InteractableObject : MonoBehaviour
         {
             args.ChoiceAction(this, args);
         }
-        //EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
     }
 
     void Update()

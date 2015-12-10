@@ -18,26 +18,10 @@ public class Player : MonoBehaviour
     public static Player Instance;
 
     // might be useful later on, can change to List<GameObject>?
-    public List<int> CollidingWithID;
+    //public List<int> CollidingWithID;
 
-    public Animator animator;
-    const int idle = 0;
-    const int up = 1;
-    const int down = 2;
-    const int right = 3;
-    const int left = 4;
-
-    const int upIdle = 5;
-    const int downIdle = 6;
-    const int rightIdle = 7;
-    const int leftIdle = 8;
-
-    const string animationState = "AnimationState";
-
-    bool u = false;
-    bool d = false;
-    bool r = false;
-    bool l = false;
+	public const bool SPEED_BOOST_ALLOWED = true;
+	private const float SPEED_BOOST = 0.1f;
 
     private bool speeding = false;
 
@@ -52,7 +36,7 @@ public class Player : MonoBehaviour
 		
         DontDestroyOnLoad(this);*/
 
-        CollidingWithID = new List<int>();
+        //CollidingWithID = new List<int>();
     }
 
     // Use this for initialization
@@ -61,8 +45,7 @@ public class Player : MonoBehaviour
         Instance = this;
         walltop = FindObjectOfType(typeof(InvisibleWallTop)) as InvisibleWallTop;
         gameManager = GameManager.instance;
-        animator = GetComponent<Animator>();
-        EventManager.OnNPC += HandleNPC;
+		EventManager.OnNPC += HandleNPC;
     }
 
     void onDestroy()
@@ -72,12 +55,10 @@ public class Player : MonoBehaviour
 
     void HandleNPC(object sender, GameEventArgs args)
     {
-        if (args.ThisGameObject == null)
-        {
-            characterAnimations.AnimationState = (args.AnimationState);
-
-        }
+        characterAnimations.AnimationState = (args.AnimationState);
     }
+
+	#region OnHit
 
     public void onHitTop(float wall_y)
     {
@@ -194,6 +175,8 @@ public class Player : MonoBehaviour
         }
     }
 
+	#endregion
+
     // Update is called once per frame
     void Update()
     {
@@ -201,81 +184,39 @@ public class Player : MonoBehaviour
 
         if (gameManager.gameMode != GameManager.GameMode.PLAYING)
         {
+			characterAnimations.SetIdle();
             return;
         }
-
-        //if (gameManager.GameMode != GameManager.MODE.PLAYING) {
-
-        //    if (this.transform.position.x > GameObject.FindGameObjectWithTag("Mom").transform.position.x)
-        //    {
-        //        animator.SetInteger(animationState, leftIdle);
-        //    }
-        //    else if (this.transform.position.x < GameObject.FindGameObjectWithTag("Mom").transform.position.x)
-        //    {
-        //        animator.SetInteger(animationState, rightIdle);
-        //    }
-
-        //    return;
-        //}
-
+		
         // Speeding up!
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            if (!speeding)
-            {
-                speeding = true;
-                speed += 0.1f;
-            }
-        }
-        else
-        {
-            if (speeding)
-            {
-                speeding = false;
-                speed -= 0.1f;
-            }
-        }
-
+        if (SPEED_BOOST_ALLOWED)
+		{
+			SpeedUp();
+		}
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(0, speed, 0);
             //animator.SetInteger(animationState, up);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.UP_WALK);
-            u = true;
-            d = false;
-            r = false;
-            l = false;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(0, -speed, 0);
             //animator.SetInteger(animationState, down);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.DOWN_WALK);
-            u = false;
-            d = true;
-            r = false;
-            l = false;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(speed, 0, 0);
             //animator.SetInteger(animationState, right);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.RIGHT_WALK);
-            u = false;
-            d = false;
-            r = true;
-            l = false;
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(-speed, 0, 0);
             //animator.SetInteger(animationState, left);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_WALK);
-            u = false;
-            d = false;
-            r = false;
-            l = true;
         }
 
 
@@ -293,32 +234,35 @@ public class Player : MonoBehaviour
             gameManager.prevMode = GameManager.GameMode.PLAYING;
         }
 
-
         else
         {
-            if (u == true)
-                this.characterAnimations.AnimationState = (CharacterAnimations.States.UP_IDLE);
-            //animator.SetInteger(animationState, upIdle);
-            else if (d == true)
-                this.characterAnimations.AnimationState = (CharacterAnimations.States.DOWN_IDLE);
-            //animator.SetInteger(animationState, downIdle);
-            else if (r == true)
-                this.characterAnimations.AnimationState = (CharacterAnimations.States.RIGHT_IDLE);
-            //animator.SetInteger(animationState, rightIdle);
-            else if (l == true)
-                this.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_IDLE);
-            //animator.SetInteger(animationState, leftIdle);
+			characterAnimations.SetIdle();
         }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-      //      Save(); ;
-        }
-        if (Input.GetKey(KeyCode.L))
-        {
-      //      Load();
-        }
     }
+
+	private void SpeedUp()
+	{
+		if (Input.GetKey(KeyCode.LeftShift))
+		{
+			if (!speeding)
+			{
+				speeding = true;
+				speed += SPEED_BOOST;
+				characterAnimations.animationSpeed -= SPEED_BOOST;
+			}
+		}
+		else
+		{
+			if (speeding)
+			{
+				speeding = false;
+				speed -= SPEED_BOOST;
+				characterAnimations.animationSpeed += SPEED_BOOST;
+			}
+		}
+	}
+
 
     public void InvenButton()
     {
@@ -333,46 +277,5 @@ public class Player : MonoBehaviour
         gameManager.gameMode = GameManager.GameMode.LOG;
         gameManager.prevMode = GameManager.GameMode.PLAYING;
     }
-    /*
-
-    public void Save()
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/SaveData.DK");   // Saves in SaveData.DK file
-        Debug.Log("File Saved");
-        Debug.Log(Application.persistentDataPath);
-        PlayerData data = new PlayerData();
-        data.days = 1;      // data.days = days
-        data.progress = 0;  // data.progress = progress
-
-        bf.Serialize(file, data);
-        file.Close();
-
-    }
-
-    public void Load()
-    {
-        if (File.Exists(Application.persistentDataPath + "/SaveData.DK"))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/SaveData.DK", FileMode.Open);
-            PlayerData data = (PlayerData)bf.Deserialize(file);
-            file.Close();
-
-            //days = data.days;
-            //progress = data.progress;
-        }
-
-    }
-    */
-
-/*
-    [Serializable]  // by putting this bracket, Unity knows this class is serializable, thus savable with our serialized saving function
-    class PlayerData
-    {
-        public int days;
-        public int progress;
-
-    }
-    */
+    
 }

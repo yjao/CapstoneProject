@@ -71,7 +71,6 @@ public class GameManager : MonoBehaviour
 		sceneParameters = new Dictionary<string, List<InteractableObject.Parameters>>();
 
         // Bind events
-        //EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;
         EventManager.OnItemPickup += ItemPickup;
 
         //item stuff
@@ -107,7 +106,6 @@ public class GameManager : MonoBehaviour
     }
     void OnDestroy()
     {
-        //EventManager.OnDialogChoiceMade -= HandleOnDialogChoiceMade;
         EventManager.OnItemPickup -= ItemPickup;
     }
 
@@ -448,6 +446,12 @@ public class GameManager : MonoBehaviour
 
 	public static void UnlockDoor(object sender, GameEventArgs args)
 	{
-		GameObject.Find(args.String).GetComponent<Stairs>().active = true;
+		GameObject obj = GameObject.Find(args.String);
+		if (obj == null)
+		{
+			Debug.Log("The door (teleporter) '" + args.String + "' is not found.");
+			return;
+		}
+		obj.GetComponent<Stairs>().active = true;
 	}
 }

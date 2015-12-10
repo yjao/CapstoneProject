@@ -6,7 +6,7 @@ using System;
 public class NPC : MonoBehaviour
 {
 	#region Public Variables
-	public GameObject interactableObject;
+	public InteractableObject interactableObject;
 	public CharacterAnimations characterAnimations;
 
 	// Wandering
@@ -40,12 +40,12 @@ public class NPC : MonoBehaviour
 
     void Start()
     {
-		EventManager.OnNPC += HandleNPC;
+		//EventManager.OnNPC += HandleNPC;
     }
 
 	void OnDestroy()
 	{
-		EventManager.OnNPC -= HandleNPC;
+		//EventManager.OnNPC -= HandleNPC;
 	}
 
     void FixedUpdate()
@@ -115,15 +115,9 @@ public class NPC : MonoBehaviour
 
 	#endregion
 
-	void HandleNPC(object sender, GameEventArgs args)
+	public void TurnNpcAndPlayer()
 	{
-		if ((Player.Instance == null) || (args.ThisGameObject != interactableObject))
-		{
-			return;
-		}
-
-		int playerAnimationInt = -1;
-        CharacterAnimations.States playerNewState = characterAnimations.AnimationState;
+		CharacterAnimations.States playerNewState = characterAnimations.AnimationState;
 
 		Vector3 difference = this.transform.position - Player.Instance.transform.position;
 		if (Math.Abs(difference.x) > Math.Abs(difference.y))
@@ -152,10 +146,8 @@ public class NPC : MonoBehaviour
                 playerNewState = CharacterAnimations.States.DOWN_IDLE;
             }
 		}
-		if (playerAnimationInt >= 0)
-		{
-			EventManager.NotifyNPC(this, new GameEventArgs() { AnimationState = playerNewState });
-		}
+
+		EventManager.NotifyNPC(this, new GameEventArgs() { AnimationState = playerNewState });
 	}
 
 	#region Animation Control

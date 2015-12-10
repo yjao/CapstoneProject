@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 public class CharacterAnimations : MonoBehaviour
 {
-	#region ANIMATION STATE FRAME CONSTANTS
+	#region ANIMATION STATE CONSTANTS
 
     [Header("Walking Animations")]
     public const int downWalkStart = 78;
@@ -59,6 +60,8 @@ public class CharacterAnimations : MonoBehaviour
     public const int fallStart = 172;
     public const int fallEnd = 177;
 
+	public readonly string[] DIRECTIONS = { "DOWN", "UP", "LEFT", "RIGHT" };
+
 	#endregion
 
 
@@ -72,7 +75,7 @@ public class CharacterAnimations : MonoBehaviour
     }
 
     public string atlasName;
-    public float animationSpeed;
+    public float animationSpeed = 0.05f;
     public States startingAnimationState;
 
     private SpriteRenderer m_sprite_renderer;
@@ -267,7 +270,38 @@ public class CharacterAnimations : MonoBehaviour
         yield break;
     }
 
-    public IEnumerator PlayAnimation(CharacterAnimations.States state)
+	public void ResumePreviousAnimation()
+	{
+		AnimationState = prev_animation_state;
+	}
+
+	public States Idle(States state)
+	{
+		foreach (string direction in DIRECTIONS)
+		{
+			if (state.ToString().Contains(direction))
+			{
+				return (States) Enum.Parse(typeof(States), direction + "_IDLE");
+			}
+		}
+		Debug.Log("You must've fallen somehow.");
+		return state;
+	}
+
+	public void SetIdle()
+	{
+		States newState = Idle(m_animation_state);
+		if (newState == m_animation_state)
+		{
+			return;
+		}
+
+		States prev = prev_animation_state;
+		AnimationState = newState;
+		prev_animation_state = prev;
+	}
+
+	public IEnumerator PlayAnimation(CharacterAnimations.States state, bool resumeAfter=false)
     {
         StopCoroutine("StateMachine");
 
@@ -279,6 +313,11 @@ public class CharacterAnimations : MonoBehaviour
             Sprite_Renderer.sprite = sprites[i];
             yield return new WaitForSeconds(animationSpeed);
         }
+
+		if (resumeAfter)
+		{
+			StartCoroutine("StateMachine");
+		}
         yield break;
     }
 

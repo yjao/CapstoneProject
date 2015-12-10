@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 		EventManager.OnNPC += HandleNPC;
     }
 
-    void onDestroy()
+    void OnDestroy()
     {
         EventManager.OnNPC -= HandleNPC;
     }

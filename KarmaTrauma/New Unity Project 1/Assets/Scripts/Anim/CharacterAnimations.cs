@@ -74,6 +74,7 @@ public class CharacterAnimations : MonoBehaviour
         FALL
     }
 
+	public bool active = true;
     public string atlasName;
     public float animationSpeed = 0.05f;
     public States startingAnimationState;
@@ -96,6 +97,8 @@ public class CharacterAnimations : MonoBehaviour
 
     void Start()
     {
+		if (!active) { return; }
+
         sprites = Resources.LoadAll<Sprite>(atlasName);
         m_animation_state = startingAnimationState;
         StartCoroutine("StateMachine");
@@ -109,6 +112,8 @@ public class CharacterAnimations : MonoBehaviour
         }
         set
         {
+			if (!active) { return; }
+
             if (m_animation_state != value)
             {
                 StopCoroutine("StateMachine");
@@ -290,6 +295,8 @@ public class CharacterAnimations : MonoBehaviour
 
 	public void SetIdle()
 	{
+		if (!active) { return; }
+
 		States newState = Idle(m_animation_state);
 		if (newState == m_animation_state)
 		{

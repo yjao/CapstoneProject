@@ -49,9 +49,9 @@ public class SceneManager : MonoBehaviour
         IO.dialogueIDMin = parameter.dialogueIDMin;
         IO.dialogueIDMax = parameter.dialogueIDMax;
         IO.dialogueIDMulti = parameter.dialogueIDMulti;
-        if (IO.transform.parent.GetComponent<NPC>() != null)
+		NPC npc = IO.transform.GetComponent<NPC>();
+        if (npc != null)
         {
-            NPC npc = IO.transform.parent.GetComponent<NPC>();
             npc.characterAnimations.AnimationState = parameter.startingAnimationState;
 			npc.characterAnimations.animationSpeed = parameter.animationSpeed;
 			npc.wanderDistanceX = parameter.wanderDistanceX;
@@ -64,20 +64,18 @@ public class SceneManager : MonoBehaviour
     IEnumerator LoadSceneCoroutine()
     {
         yield return null;
-        if (GameObject.Find("InteractableList") != null)
+		GameObject interactableList = GameObject.Find("InteractableList");
+		if (interactableList!= null)
         {
-            foreach (Transform child in GameObject.Find("InteractableList").transform)
+			foreach (Transform child in interactableList.transform)
             {
                 bool isActive = false;
-                InteractableObject IO;
-                if (child.childCount > 0)
-                {
-                    IO = child.GetComponentInChildren<InteractableObject>();
-                }
-                else
-                {
-                    IO = child.GetComponent<InteractableObject>();
-                }
+                InteractableObject IO = child.GetComponent<InteractableObject>();
+				if (IO == null)
+				{
+					break;
+				}
+                
                 foreach (InteractableObject.Parameters p in IO.parameter)
                 {
                     if (p.timeBlocks.Contains(GameManager.instance.GetTimeAsInt()))

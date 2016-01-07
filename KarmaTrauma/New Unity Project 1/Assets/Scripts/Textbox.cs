@@ -167,6 +167,7 @@ public class Textbox : MonoBehaviour
 
     public void Choice(string name, string dialog, Choice[] options)
     {
+        options = checkChoices(options);
         cursor = options.Length-1;
         DrawBox(name, dialog);
         transform.Find("Choice_Panel").gameObject.SetActive(true);
@@ -182,6 +183,34 @@ public class Textbox : MonoBehaviour
         choices = options;
     }
     
+    private Choice[] checkChoices(Choice[] options)
+    {
+        int counter = 0;
+        for (int i = 0; i < options.Length; i++)
+        {
+            if (options[i].checkbool != null)
+            {
+                if (gameManager.GetData(options[i].checkbool) == false && gameManager.HasItem(options[i].checkbool) == false)
+                {
+                    counter += 1;
+                }
+            }
+        }
+        Choice[] result = new Choice[options.Length - counter];
+        counter = 0;
+        for (int i = 0; i < options.Length; i++)
+        {
+            if (options[i].checkbool == null || gameManager.GetData(options[i].checkbool) == true || gameManager.HasItem(options[i].checkbool) == true)
+            {
+                Debug.Log(counter);
+                result[counter] = options[i];
+                counter += 1;
+            }
+        }
+        choices = result;
+        return result;
+    }
+
     Transform[,] MultipleChoice(Choice[] options)
     {
         Transform[,] g = new Transform[options.Length,2];

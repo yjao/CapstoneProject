@@ -81,7 +81,7 @@ public class DataLoader
 		};*/
 		gameManager.allObjects[65].dialogues[6].choices = new Choice[]
 		{
-			AddChoice("Okay.", boolname:"Quest2")
+			AddChoice("Okay.", setboolname:"Quest2")
 		};
 		//GameManager.Instance.AllObjects[65].Dialogue[6].setbool = "Quest2";
 
@@ -172,7 +172,7 @@ public class DataLoader
 		gameManager.allObjects[150].dialogues[0].choices = new Choice[]
 		{
             AddChoice("Talk to the jewel", ChoiceAction.CONTINUE, 150, 1),
-            AddChoice("Take the jewel", ChoiceAction.ITEM, 150),
+            AddChoice("Take the jewel", ChoiceAction.ITEM, 150, checkboolname: "Jewel"),
             AddChoice("Destroy the jewel", ChoiceAction.DESTROY),
             AddChoice("Do nothing")
 		};
@@ -387,7 +387,7 @@ public class DataLoader
 		{
 			new Choice("Never!", new ChoiceEventArgs() { ChoiceAction =  Textbox.continueDialogue, IDNum = 999, DialogueID = 4}),
 			//new Choice("I guess...")
-            AddChoice("I guess...", boolname:"Quest1")
+            AddChoice("I guess...", setboolname:"Quest1")
 		};
 
 		string[] test2 = new string[] 
@@ -719,7 +719,7 @@ public class DataLoader
     }
 
 	// temporarily making it public for hardcoding purposes
-    public Choice AddChoice(string text, ChoiceAction CA = ChoiceAction.NONE, int id = -1, int subID = -1, string boolname = null)
+    public Choice AddChoice(string text, ChoiceAction CA = ChoiceAction.NONE, int id = -1, int subID = -1, string setboolname = null, string checkboolname = null)
     {
         ChoiceEventArgs CEA;
         if (CA == ChoiceAction.ITEM)
@@ -738,7 +738,7 @@ public class DataLoader
         {
             CEA = new ChoiceEventArgs();
         }
-        return new Choice(text, CEA, boolname);
+        return new Choice(text, CEA, setboolname, checkboolname);
     }
 
 	private void AddToDialogue(int ID, int dID, ChoiceEventArgs cea)

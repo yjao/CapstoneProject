@@ -341,6 +341,10 @@ public class GameManager : MonoBehaviour
         {
             return playerData.DataDictionary[name];
         }
+        else if (dayData.DataDictionary.ContainsKey(name))
+        {
+            return dayData.DataDictionary[name];
+        }
         else
         {
             return false;

@@ -16,7 +16,7 @@ public class Menu_Layout : MonoBehaviour {
     private bool diaryButton_show = false;
     public int startTime;
 
-    
+    private int world_map_level = 17;
     private Texture2D inventory_texture;
     private Texture2D diary_texture;
    // public GUIContent inventory_content;
@@ -82,6 +82,11 @@ public class Menu_Layout : MonoBehaviour {
         transform.FindChild("Clock_display").GetComponent<Text>().text = gameManager.GetTime();
     }
 
+    public void M_Fastforward()
+    {
+        gameManager.IncreaseTime();
+    }
+
     public void M_Bag()
     {
         player.InvenButton();
@@ -94,6 +99,17 @@ public class Menu_Layout : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         M_Clock();
+        Debug.Log("Level is: " + Application.loadedLevel);
+
+        //Get the world map level;
+        if (Application.loadedLevel == world_map_level)
+        {
+            transform.FindChild("Fast_forward").gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.FindChild("Fast_forward").gameObject.SetActive(false);
+        }
         
 	
 	}

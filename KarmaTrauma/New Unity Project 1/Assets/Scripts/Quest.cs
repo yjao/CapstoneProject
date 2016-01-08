@@ -9,12 +9,12 @@ public class Quest : MonoBehaviour {
     public string requirement = "none";
     public string changeBool = "none";
     public string required_item = "none";
-   
+    public string questName;
 	// Use this for initialization
     void Start()
     {
             QuestList ql = GameManager.instance.GetComponent<QuestList>();
-            ql.AddQuest(NPC_ID, dialogue_in_progress,dialogue_change, requirement, changeBool,required_item);
+            ql.AddQuest(NPC_ID, dialogue_in_progress,dialogue_change, requirement, changeBool,required_item, questName);
 	}
 	void OnEnable()
     {

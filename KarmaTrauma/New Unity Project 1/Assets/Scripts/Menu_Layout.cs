@@ -36,6 +36,9 @@ public class Menu_Layout : MonoBehaviour {
         {
             gameManager.SetTime(startTime);
         }
+
+        transform.FindChild("QuestBook").gameObject.SetActive(false);
+        transform.FindChild("Inventory").gameObject.SetActive(false);
        
 	}
 
@@ -92,12 +95,28 @@ public class Menu_Layout : MonoBehaviour {
 
     public void M_Bag()
     {
-        player.InvenButton();
+        //player.InvenButton();
+        gameManager.Wait();
+        transform.FindChild("Inventory").gameObject.SetActive(true);
+    }
+
+    public void Close_Bag()
+    {
+        transform.FindChild("Inventory").gameObject.SetActive(false);
+        gameManager.Play();
     }
 
     public void M_Diary()
     {
-        player.QuestButton();
+        //player.QuestButton();
+        gameManager.Wait();
+        transform.FindChild("QuestBook").gameObject.SetActive(true);
+    }
+
+    public void Close_Diary()
+    {
+        transform.FindChild("QuestBook").gameObject.SetActive(false);
+        gameManager.Play();
     }
 
     public void Fast_Forward_Label(bool setToTrue)

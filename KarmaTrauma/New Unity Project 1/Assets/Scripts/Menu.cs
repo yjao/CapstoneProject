@@ -47,10 +47,10 @@ public class Menu : MonoBehaviour
         else if (MenuMode == Modes.INVENTORY)
         {
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                OnClick();
-            }
+            //if (Input.GetMouseButtonDown(0))
+            //{
+            //    OnClick();
+            //}
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if (pointer2 > 0)
@@ -83,42 +83,42 @@ public class Menu : MonoBehaviour
                     DrawSelect();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.Space))
-            {
-                gameManager.ExitDialogue();
-                GameObject.Destroy(gameObject);
+            //else if (Input.GetKeyDown(KeyCode.Space))
+            //{
+            //    gameManager.ExitDialogue();
+            //    GameObject.Destroy(gameObject);
 
-            }
+            //}
         }
     }
 
     
-    void OnClick()
-    {
-        //Still need to fix the math...
-           // Debug.Log(transform.Find("ItemPanel").position);
-            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            float mousePos_x = Input.mousePosition.x/Screen.width;
-            float mousePos_y = Input.mousePosition.y/Screen.height;
-            Debug.Log(mousePos_x + ", " +mousePos_y);
-            for (int x = 0; x < 3; x++)
-            {
-                for (int y = 0; y < 3; y++)
-                {
-                    if (((.234f + .14f * x) < mousePos_x) && ((.95 - .25f * y) > mousePos_y))
-                    {
-                        pointer = x;
-                        pointer2 = y;
-                        gameManager.ExitDialogue();
-                        GameObject.Destroy(gameObject);
-                        Debug.Log("working");
-                        break;
-                    }
-                }
-            }
+    //void OnClick()
+    //{
+    //    //Still need to fix the math...
+    //       // Debug.Log(transform.Find("ItemPanel").position);
+    //        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //        float mousePos_x = Input.mousePosition.x/Screen.width;
+    //        float mousePos_y = Input.mousePosition.y/Screen.height;
+    //        Debug.Log(mousePos_x + ", " +mousePos_y);
+    //        for (int x = 0; x < 3; x++)
+    //        {
+    //            for (int y = 0; y < 3; y++)
+    //            {
+    //                if (((.234f + .14f * x) < mousePos_x) && ((.95 - .25f * y) > mousePos_y))
+    //                {
+    //                    pointer = x;
+    //                    pointer2 = y;
+    //                    gameManager.ExitDialogue();
+    //                    GameObject.Destroy(gameObject);
+    //                    Debug.Log("working");
+    //                    break;
+    //                }
+    //            }
+    //        }
                
         
-    }
+    //}
 
     void Inventory()
     {

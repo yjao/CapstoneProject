@@ -221,18 +221,18 @@ public class Player : MonoBehaviour
 
 
         ///Hot Keys
-        else if (Input.GetKeyDown(KeyCode.Q)){
-            Instantiate(QuestLog, new Vector3(0, 0, 0), Quaternion.identity);
-            gameManager.gameMode = GameManager.GameMode.LOG;
-            gameManager.prevMode = GameManager.GameMode.PLAYING;
+        //else if (Input.GetKeyDown(KeyCode.Q)){
+        //    Instantiate(QuestLog, new Vector3(0, 0, 0), Quaternion.identity);
+        //    gameManager.gameMode = GameManager.GameMode.LOG;
+        //    gameManager.prevMode = GameManager.GameMode.PLAYING;
 
-        }
-        else if (Input.GetKeyDown(KeyCode.B))
-        {
-            Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
-            gameManager.gameMode = GameManager.GameMode.MENU;
-            gameManager.prevMode = GameManager.GameMode.PLAYING;
-        }
+        //}
+        //else if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
+        //    gameManager.gameMode = GameManager.GameMode.MENU;
+        //    gameManager.prevMode = GameManager.GameMode.PLAYING;
+        //}
 
         else
         {
@@ -264,18 +264,18 @@ public class Player : MonoBehaviour
 	}
 
 
-    public void InvenButton()
-    {
-        Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
-        gameManager.gameMode = GameManager.GameMode.MENU;
-        gameManager.prevMode = GameManager.GameMode.PLAYING;
-    }
+    //public void InvenButton()
+    //{
+    //    Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
+    //    gameManager.gameMode = GameManager.GameMode.MENU;
+    //    gameManager.prevMode = GameManager.GameMode.PLAYING;
+    //}
 
-    public void QuestButton()
-    {
-        Instantiate(QuestLog, new Vector3(0, 0, 0), Quaternion.identity);
-        gameManager.gameMode = GameManager.GameMode.LOG;
-        gameManager.prevMode = GameManager.GameMode.PLAYING;
-    }
+    //public void QuestButton()
+    //{
+    //    Instantiate(QuestLog, new Vector3(0, 0, 0), Quaternion.identity);
+    //    gameManager.gameMode = GameManager.GameMode.LOG;
+    //    gameManager.prevMode = GameManager.GameMode.PLAYING;
+    //}
     
 }

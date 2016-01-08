@@ -25,25 +25,56 @@ public class PlayerData
         {"AlfredSon_Trust", false}
     };
 
-	public void SetBool(string boolName, bool value=true)
-	{
-		DataDictionary[boolName] = value;
+    public Dictionary<string, bool> QuestDictionary = new Dictionary<string, bool>()
+    {
+        {"Alex_1",false}
+    };
 
-		// hardcoded
-		if (GetBool("AlfredName_Learned"))
-		{
-			QuestManager.Instance.RemoveQuestFromLog(1);
+    public void SetBool(string boolName, bool value = true)
+    {
+        DataDictionary[boolName] = value;
 
-			// Hard-coded to remove bae from inventory because I don't know how :(
-			for (int i = 0; i < GameManager.instance.dayData.ItemAmount; i++)
-			{
-				if (GameManager.instance.dayData.Inventory[i].Name == "Bacon and Eggs")
-				{
-					GameManager.instance.dayData.Inventory[i] = null;
-				}
-			}
-		}
-	}
+        // hardcoded
+        if (GetBool("AlfredName_Learned"))
+        {
+            QuestManager.Instance.RemoveQuestFromLog(1);
+
+            // Hard-coded to remove bae from inventory because I don't know how :(
+            for (int i = 0; i < GameManager.instance.dayData.ItemAmount; i++)
+            {
+                if (GameManager.instance.dayData.Inventory[i].Name == "Bacon and Eggs")
+                {
+                    GameManager.instance.dayData.Inventory[i] = null;
+                }
+            }
+        }
+    }
+    public void FinishQuest(string boolName)
+    {
+        QuestDictionary[boolName] = true;
+    }
+    public bool CheckQuest(string boolName)
+    {
+        if (QuestDictionary.ContainsKey(boolName))
+        {
+            return QuestDictionary[boolName];
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public void RegisterQuest(string questName)
+    {
+        if(QuestDictionary.ContainsKey(questName))
+        {
+
+        }
+        else
+        {
+            QuestDictionary.Add(questName, false);
+        }
+    }
 
 	public bool GetBool(string boolName)
 	{

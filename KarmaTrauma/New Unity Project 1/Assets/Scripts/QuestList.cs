@@ -21,17 +21,19 @@ public class QuestList : MonoBehaviour
 	void Update () {
 	}
 
-    public void AddQuest(int NPC, int dialogue_in,int dialogue_change, string requirement, string changeBool, string requiredItem)
+    public void AddQuest(int NPC, int dialogue_in,int dialogue_change, string requirement, string changeBool, string requiredItem, string questName)
     {
             QClass temporary;
-            temporary = new QClass(NPC, dialogue_in, dialogue_change, requirement, changeBool,requiredItem);
+            temporary = new QClass(NPC, dialogue_in, dialogue_change, requirement, changeBool,requiredItem,questName);
             
             Qlist.Add(temporary);    
     }
 
 	public void AddQuest(Quest q)
 	{
-		AddQuest(q.NPC_ID, q.dialogue_in_progress, q.dialogue_change, q.requirement, q.changeBool, q.required_item);
+		AddQuest(q.NPC_ID, q.dialogue_in_progress, q.dialogue_change, q.requirement, q.changeBool, q.required_item, q.questName);
+        PlayerData pl = GameManager.instance.playerData;
+        pl.RegisterQuest(q.questName);
 	}
 
     public void CheckQuest(InteractableObject obj)
@@ -42,15 +44,24 @@ public class QuestList : MonoBehaviour
             QClass temp = (QClass)Qlist[i];
             if (obj.iD == temp.NPC)
             {
+                Debug.Log(temp.questName);
+                PlayerData pl = GameManager.instance.playerData;
                 if(temp.completed)
                 {
+                    // IF the quest is already finished in a scene
+                    // This should be redundant
+                }
+                    
+                else if(pl.CheckQuest(temp.questName))
+                {
+                  // If the player data says the quest is finished, do nothing
                 }
                 else
                 {
                     InteractableObject io = obj.GetComponent<InteractableObject>();
 
                     //If requirement met
-                    PlayerData pl = GameManager.instance.playerData;
+                    
                     Debug.Log(pl);
                     DayData dd = GameManager.instance.dayData;
                     Debug.Log(dd);
@@ -89,11 +100,10 @@ public class QuestList : MonoBehaviour
                     {
                         io.dialogueIDSingle = temp.dialogue_change;
                         pl.SetBool(temp.changeBool);
+                        pl.FinishQuest(temp.questName);
                         temp.completed = true;
-
                     }
                     
-
 
                 }
             }
@@ -112,7 +122,8 @@ class QClass
     public string requiredItem;
     public bool itemTurnedIn;
     public bool triggered;
-    public QClass(int npc, int dial_in, int dial_ch, string req, string cb,string item)
+    public string questName;
+    public QClass(int npc, int dial_in, int dial_ch, string req, string cb,string item, string name)
     {
         NPC = npc;
         dialogue_in_progress = dial_in;
@@ -122,6 +133,7 @@ class QClass
         completed = false;
         requiredItem = item;
         triggered = false;
+        questName = name;
         
         
         ////

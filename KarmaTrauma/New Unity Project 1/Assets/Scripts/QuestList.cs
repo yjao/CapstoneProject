@@ -60,13 +60,14 @@ public class QuestList : MonoBehaviour
                 {
                     InteractableObject io = obj.GetComponent<InteractableObject>();
 
-                    //If requirement met
+                    //If requirements are met
                     
                     Debug.Log(pl);
                     DayData dd = GameManager.instance.dayData;
                     Debug.Log(dd);
                     if (pl.GetBool(temp.requirement))
                     {
+                        // Trigger the quest 
                         if (temp.triggered == false)
                         {
                             temp.triggered = true;

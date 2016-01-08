@@ -302,6 +302,7 @@ public class GameManager : MonoBehaviour
         {
             gameClock = START_DAY_HOUR;
             dayData.Wipe();
+            playerData.WipeQuest();
             playerData.daysPassed++;
 			if (createMessage)
 			{

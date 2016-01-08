@@ -84,7 +84,10 @@ public class Menu_Layout : MonoBehaviour {
 
     public void M_Fastforward()
     {
-        gameManager.IncreaseTime();
+        if (gameManager.GetTimeAsInt() < 22)
+        {
+            gameManager.IncreaseTime();
+        }
     }
 
     public void M_Bag()
@@ -96,13 +99,10 @@ public class Menu_Layout : MonoBehaviour {
     {
         player.QuestButton();
     }
-	// Update is called once per frame
-	void Update () {
-        M_Clock();
-        Debug.Log("Level is: " + Application.loadedLevel);
 
-        //Get the world map level;
-        if (Application.loadedLevel == world_map_level)
+    public void Fast_Forward_Label(bool setToTrue)
+    {
+        if (setToTrue)
         {
             transform.FindChild("Fast_forward").gameObject.SetActive(true);
         }
@@ -110,7 +110,10 @@ public class Menu_Layout : MonoBehaviour {
         {
             transform.FindChild("Fast_forward").gameObject.SetActive(false);
         }
-        
+    }
+	// Update is called once per frame
+	void Update () {
+        M_Clock();
 	
 	}
 }

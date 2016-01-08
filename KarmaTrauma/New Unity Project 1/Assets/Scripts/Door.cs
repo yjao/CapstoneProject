@@ -22,6 +22,7 @@ public class Door : MonoBehaviour
 			if (increaseTime)
 			{
 	            gameManager.IncreaseTime();
+                //Debug.Log("gameClock : " + gameManager.GetTimeAsInt());
 			}
 			bool midnight = gameManager.Midnight();
 			string destination = "WorldMap";

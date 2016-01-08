@@ -16,6 +16,7 @@ public class SceneManager : MonoBehaviour
 	public const string SCENE_MALL = "G_Mall";
 	public const string SCENE_HOSPITAL = "G_MentalHospital";
 	public const string SCENE_PARK = "G_Park";
+    public const string SCENE_WORLDMAP = "WorldMapFallDemo";
 
 	#endregion
 
@@ -37,7 +38,13 @@ public class SceneManager : MonoBehaviour
 		if (name != null)
 		{
 			Application.LoadLevel(name);
+            gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(false);
 		}
+
+        if (name == SCENE_WORLDMAP)
+        {
+            gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(true);
+        }
         StartCoroutine("LoadSceneCoroutine");
     }
 

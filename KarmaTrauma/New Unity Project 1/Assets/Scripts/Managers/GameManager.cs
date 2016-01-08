@@ -297,7 +297,7 @@ public class GameManager : MonoBehaviour
     public bool Midnight(bool createMessage=true)
     {
         //Debug.Log("data is null: " + (playerData == null));
-        Debug.Log("gameClock : " + gameClock);
+        //Debug.Log("gameClock : " + gameClock);
 		if (gameClock == END_DAY_HOUR)
         {
             gameClock = START_DAY_HOUR;
@@ -316,8 +316,9 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseTime()
     {
-        Debug.Log("gameClock: " + gameClock);
+        //Debug.Log("prevgameClock: " + gameClock);
         gameClock += 2;
+        Debug.Log("gameClock: " + gameClock);
     }
 
     public void SetTime(int time)

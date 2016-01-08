@@ -68,12 +68,17 @@ public class PlayerData
     {
         if(QuestDictionary.ContainsKey(questName))
         {
-
+            // If the questName is already in the dictionary, do nothing
         }
         else
         {
             QuestDictionary.Add(questName, false);
         }
+    }
+
+    public void WipeQuest()
+    {
+        QuestDictionary.Clear();
     }
 
 	public bool GetBool(string boolName)

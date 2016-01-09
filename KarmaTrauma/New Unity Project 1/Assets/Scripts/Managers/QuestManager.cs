@@ -34,7 +34,7 @@ public class QuestManager : MonoBehaviour
 	{
 	}
 
-	public void Old_HandleNPC(object sender, GameEventArgs args)
+	/*public void Old_HandleNPC(object sender, GameEventArgs args)
 	{
 		if (args.ThisGameObject == null)
 		{
@@ -103,7 +103,7 @@ public class QuestManager : MonoBehaviour
 			}
 			break;
 		}
-	}
+	}*/
 
 	// temp method. really hardcoded
 	private void Change(string objName, InteractableObject.Dialogue_ID_Type dialogueIDType, int dialogueID)

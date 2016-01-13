@@ -332,8 +332,8 @@ public class GameManager : MonoBehaviour
 
     void ItemPickup(object sender, GameEventArgs args)
     {
-        Debug.Log(args.IDNum);
         dayData.Inventory[dayData.ItemAmount] = allItems[args.IDNum];
+        dayData.DataDictionary[allItems[args.IDNum].Name] = true;
         dayData.ItemAmount += 1;
     }
 
@@ -369,6 +369,18 @@ public class GameManager : MonoBehaviour
             //dayData.QuestComplete[name] = value;
 			dayData.SetQuest(name, value);
 			AllQuestsDone();
+        }
+    }
+
+    public void SetDayData(string name, bool value)
+    {
+        if (dayData.DataDictionary.ContainsKey(name))
+        {
+            dayData.SetBool(name, value);
+        }
+        else
+        {
+            dayData.DataDictionary.Add(name,value);
         }
     }
 
@@ -459,5 +471,6 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 		obj.GetComponent<Stairs>().active = true;
+        GameManager.instance.SetDayData(args.String, true);
 	}
 }

@@ -38,6 +38,8 @@ public class InteractableObject : MonoBehaviour
 
 	[Header("How many sets/distinct time blocks?")]
     public Parameters[] parameter;
+    [Header("Boolean to check if object is active")]
+    public string activeBool;
 
     public void Init()
     {
@@ -48,6 +50,10 @@ public class InteractableObject : MonoBehaviour
     void Start()
     {
         Init();
+        if (interactionType == InteractionType.ITEM)
+        {
+            activeBool = gameManager.allItems[iD].Name;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D c)

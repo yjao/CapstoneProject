@@ -51,12 +51,12 @@ public class QuestLog : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        OpenQuestLog();
-	    if (Input.GetKeyDown(KeyCode.Space)){
+        //OpenQuestLog();
+        //if (Input.GetKeyDown(KeyCode.Space)){
 
-            gameManager.Play();
-            GameObject.Destroy(gameObject);
+        //    gameManager.Play();
+        //    GameObject.Destroy(gameObject);
             
-        }
+        //}
 	}
 }

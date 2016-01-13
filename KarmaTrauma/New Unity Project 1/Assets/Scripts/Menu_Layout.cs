@@ -15,6 +15,7 @@ public class Menu_Layout : MonoBehaviour
     private bool timeButton_show = false;
     private bool invenButton_show = false;
     private bool diaryButton_show = false;
+    private bool open_menu = false;
     public int startTime;
 
     private int world_map_level = 17;
@@ -98,36 +99,37 @@ public class Menu_Layout : MonoBehaviour
     public void M_Bag()
     {
         //player.InvenButton();
-        gameManager.Wait();
-        transform.FindChild("Inventory").gameObject.SetActive(true);
-    }
-
-    private void B_Bag()
-    {
         transform.FindChild("Inventory").gameObject.SetActive(true);
         invenButton_show = true;
+        open_menu = true;
         gameManager.gameMode = GameManager.GameMode.MENU;
         gameManager.prevMode = GameManager.GameMode.PLAYING;
-
     }
+
 
     public void Close_Bag()
     {
         transform.FindChild("Inventory").gameObject.SetActive(false);
-        //invenButton_show = false;
+        invenButton_show = false;
+        open_menu = false;
         gameManager.Play();
     }
 
     public void M_Diary()
     {
         //player.QuestButton();
-        gameManager.Wait();
         transform.FindChild("QuestBook").gameObject.SetActive(true);
+        diaryButton_show = true;
+        open_menu = true;
+        gameManager.gameMode = GameManager.GameMode.LOG;
+        gameManager.prevMode = GameManager.GameMode.PLAYING;
     }
 
     public void Close_Diary()
     {
         transform.FindChild("QuestBook").gameObject.SetActive(false);
+        diaryButton_show = false;
+        open_menu = false;
         gameManager.Play();
     }
 
@@ -145,15 +147,29 @@ public class Menu_Layout : MonoBehaviour
     // Update is called once per frame
     void Update() {
         M_Clock();
-	    if (Input.GetKeyDown(KeyCode.B)){
-            B_Bag();
+        if (!open_menu)
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                M_Bag();
+            }
+
+            else if (Input.GetKeyDown(KeyCode.Q))
+            {
+                M_Diary();
+
+            }
         }
-        //if (invenButton_show){
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        Close_Bag();
-               
-        //    }
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (invenButton_show)
+            {
+                Close_Bag();
+            }
+            if (diaryButton_show)
+            {
+                Close_Diary();
+            }
+        }
 	}
 }

@@ -202,7 +202,6 @@ public class Textbox : MonoBehaviour
         {
             if (options[i].checkbool == null || gameManager.GetData(options[i].checkbool) == true || gameManager.HasItem(options[i].checkbool) == true)
             {
-                Debug.Log(counter);
                 result[counter] = options[i];
                 counter += 1;
             }

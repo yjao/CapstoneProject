@@ -17,6 +17,20 @@ public class Stairs : MonoBehaviour
         NORMAL, CAMERA
     };
 
+    void Start()
+    {
+        if (active == false)
+        {
+            if (GameManager.instance.dayData.DataDictionary.ContainsKey(gameObject.name))
+            {
+                if (GameManager.instance.dayData.DataDictionary[gameObject.name])
+                {
+                    active = true;
+                }
+            }
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
 		if (!active)

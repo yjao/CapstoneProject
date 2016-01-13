@@ -83,35 +83,60 @@ public class SceneManager : MonoBehaviour
 				{
 					break;
 				}
-                
-                foreach (InteractableObject.Parameters p in IO.parameter)
+                if (IO.interactionType == InteractableObject.InteractionType.ITEM)
                 {
-                    if (p.timeBlocks.Contains(GameManager.instance.GetTimeAsInt()))
+                    if (gameManager.dayData.DataDictionary.ContainsKey(gameManager.allItems[IO.iD].Name))
+                    {
+                        if (!gameManager.dayData.DataDictionary[gameManager.allItems[IO.iD].Name])
+                        {
+                            isActive = true;
+                            break;
+                        }
+                    }
+                    else
                     {
                         isActive = true;
-                        LoadParameters(IO, p);
                         break;
                     }
                 }
-
-				// Check GameManager's sceneParameters
-                if (gameManager.sceneParameters.ContainsKey(Application.loadedLevelName) != false)
+                else if (gameManager.dayData.DataDictionary.ContainsKey(IO.activeBool))
                 {
-                    List<InteractableObject.Parameters> list = gameManager.sceneParameters[Application.loadedLevelName];
-                    foreach (InteractableObject.Parameters p in list)
+                    if (gameManager.dayData.DataDictionary[IO.activeBool])
                     {
-                        if (IO.iD == p.NpcID)
+                        isActive = true;
+                        break;
+                    }
+                }
+                else
+                {
+                    foreach (InteractableObject.Parameters p in IO.parameter)
+                    {
+                        if (p.timeBlocks.Contains(GameManager.instance.GetTimeAsInt()))
                         {
-                            if (p.timeBlocks.Contains(GameManager.instance.GetTimeAsInt()))
+                            isActive = true;
+                            LoadParameters(IO, p);
+                            break;
+                        }
+                    }
+
+                    // Check GameManager's sceneParameters
+                    if (gameManager.sceneParameters.ContainsKey(Application.loadedLevelName) != false)
+                    {
+                        List<InteractableObject.Parameters> list = gameManager.sceneParameters[Application.loadedLevelName];
+                        foreach (InteractableObject.Parameters p in list)
+                        {
+                            if (IO.iD == p.NpcID)
                             {
-                                isActive = true;
-                                LoadParameters(IO, p);
-                                break;
+                                if (p.timeBlocks.Contains(GameManager.instance.GetTimeAsInt()))
+                                {
+                                    isActive = true;
+                                    LoadParameters(IO, p);
+                                    break;
+                                }
                             }
                         }
                     }
                 }
-
                 child.gameObject.SetActive(isActive);
             }
         }

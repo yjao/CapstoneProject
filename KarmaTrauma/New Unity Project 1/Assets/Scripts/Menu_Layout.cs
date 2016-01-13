@@ -7,8 +7,8 @@ using System.Collections.Generic;
 public class Menu_Layout : MonoBehaviour {
 
     GameManager gameManager;
-    QuestManager questManager;
-    QuestLog quest_log;
+    //QuestManager questManager;
+ //   QuestLog quest_log;
     Menu gameMenu;
     Player player;
     private bool timeButton_show = false;
@@ -25,7 +25,7 @@ public class Menu_Layout : MonoBehaviour {
 	void Start () {
         
         gameManager = GameManager.instance;
-        questManager = QuestManager.Instance;
+       // questManager = QuestManager.Instance;
         //gameMenu = FindObjectOfType(typeof(Menu)) as Menu;
         //quest_log = QuestLog.Instance; 
         player = FindObjectOfType(typeof(Player)) as Player;

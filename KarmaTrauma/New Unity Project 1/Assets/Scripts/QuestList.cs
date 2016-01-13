@@ -60,11 +60,14 @@ public class QuestList : MonoBehaviour
                 {
                     InteractableObject io = obj.GetComponent<InteractableObject>();
 
-                    //If requirements are met
-                    
-                    Debug.Log(pl);
                     DayData dd = GameManager.instance.dayData;
-                    Debug.Log(dd);
+
+
+                    //If the requirement is not yet registered
+                        pl.RegisterData(temp.requirement);
+
+
+                    // If requirements are met
                     if (pl.GetBool(temp.requirement))
                     {
                         // Trigger the quest 

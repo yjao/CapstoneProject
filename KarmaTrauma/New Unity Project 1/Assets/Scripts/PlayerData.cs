@@ -30,6 +30,10 @@ public class PlayerData
         {"Alex_1",false}
     };
 
+    public Dictionary<string, bool> DialogueHistory = new Dictionary<string, bool>()
+    {
+    };
+
     public void SetBool(string boolName, bool value = true)
     {
         DataDictionary[boolName] = value;

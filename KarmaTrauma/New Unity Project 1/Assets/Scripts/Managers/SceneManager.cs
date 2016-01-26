@@ -46,7 +46,7 @@ public class SceneManager : MonoBehaviour
             gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(true);
         }
         StartCoroutine("LoadSceneCoroutine");
-        SoundManager.instance.LoadSceneMusic(name);
+        //SoundManager.instance.LoadSceneMusic(name);
     }
 
     private void LoadParameters(InteractableObject IO, InteractableObject.Parameters parameter)

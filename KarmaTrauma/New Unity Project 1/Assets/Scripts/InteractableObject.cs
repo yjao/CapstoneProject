@@ -150,7 +150,7 @@ public class InteractableObject : MonoBehaviour
 
     public void CheckAndInteract()
     {
-        if (colliding && Input.GetKeyDown(KeyCode.E))
+        if (colliding && Input.GetKeyDown(KeyCode.Space) && gameManager.gameMode == GameManager.GameMode.PLAYING)
         {
             // colliding = false; //troublesome without this line...
             if (interactionType == InteractionType.DIALOG)

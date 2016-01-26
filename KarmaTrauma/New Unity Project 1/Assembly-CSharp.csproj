@@ -45,6 +45,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\LocationArrow.cs" />
      <Compile Include="Assets\Packages\TileSprite\Scripts\TileSprite.cs" />
      <Compile Include="Assets\Scripts\Anim\CharacterAnimations.cs" />
      <Compile Include="Assets\Scripts\Camera.cs" />
@@ -65,6 +66,7 @@
      <Compile Include="Assets\Scripts\Managers\PrologueManager.cs" />
      <Compile Include="Assets\Scripts\Managers\QuestManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SceneManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
      <Compile Include="Assets\Scripts\MapLocation.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Menu_Layout.cs" />

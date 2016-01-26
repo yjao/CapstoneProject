@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Collections.Generic;
 
+
 public class Player : MonoBehaviour
 {
     public static InvisibleWallTop walltop;
@@ -14,6 +15,8 @@ public class Player : MonoBehaviour
     public GameObject Menu;
     public GameObject QuestLog;
     public CharacterAnimations characterAnimations;
+    public string locationString;
+
 
     public static Player Instance;
 
@@ -176,6 +179,26 @@ public class Player : MonoBehaviour
     }
 
 	#endregion
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        Debug.Log(coll);
+        if (coll.gameObject.name == "Mall")
+        {
+            locationString = "Mall";
+        }
+        if (coll.gameObject.tag == "MainStreet")
+        {
+            locationString = "MainStreet";
+        }
+        if (coll.gameObject.tag == "House")
+        {
+            locationString = "House";
+        }
+    }
+    void OnTriggerExit2D(Collider2D coll)
+    {
+        locationString = "";
+    }
 
     // Update is called once per frame
     void Update()
@@ -218,6 +241,29 @@ public class Player : MonoBehaviour
             //animator.SetInteger(animationState, left);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_WALK);
         }
+           
+        // Entering World Map Location 
+        else if (Input.GetKey(KeyCode.Space))
+        {
+            if(locationString =="Mall")
+            {
+                SceneManager.instance.LoadScene("G_Mall");
+            }
+            if (locationString == "MainStreet")
+            {
+                SceneManager.instance.LoadScene("G_MainStreetSmall");
+            }
+            if (locationString == "House")
+            {
+                SceneManager.instance.LoadScene("G_House");
+            }
+            // Not on any location
+            if (locationString =="")
+            {
+
+            }
+        }
+
 
 
         ///Hot Keys
@@ -236,7 +282,7 @@ public class Player : MonoBehaviour
 
         else
         {
-			characterAnimations.SetIdle();
+            characterAnimations.SetIdle();
         }
 
     }
@@ -262,6 +308,8 @@ public class Player : MonoBehaviour
 			}
 		}
 	}
+
+    
 
 
     //public void InvenButton()

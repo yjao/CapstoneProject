@@ -27,7 +27,9 @@ public class GameManager : MonoBehaviour
     public Dictionary<int, Interactable> allObjects;
 	public Dictionary<string, string> questTerms;
 	public Dictionary<string, List<InteractableObject.Parameters>> sceneParameters;
-
+    //Questlist in the form of List<[keyword , NPCName, dialogue]>
+    
+    public List<string[]> questList;
 	#region CONSTANT VALUES
 
 	public const char QUEST_KEYWORD = '#';
@@ -69,6 +71,7 @@ public class GameManager : MonoBehaviour
 		allObjects = new Dictionary<int, Interactable>();
 		questTerms = new Dictionary<string, string>();
 		sceneParameters = new Dictionary<string, List<InteractableObject.Parameters>>();
+        questList = new List<string[]>();
 
         // Bind events
         EventManager.OnItemPickup += ItemPickup;

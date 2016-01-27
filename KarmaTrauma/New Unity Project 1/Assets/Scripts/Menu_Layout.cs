@@ -28,7 +28,8 @@ public class Menu_Layout : MonoBehaviour
     {
 
         gameManager = GameManager.instance;
-        questManager = QuestManager.Instance;
+        quest_log = QuestLog.Instance;
+        gameMenu = Menu.Instance;
         //gameMenu = FindObjectOfType(typeof(Menu)) as Menu;
         //quest_log = QuestLog.Instance; 
         player = FindObjectOfType(typeof(Player)) as Player;
@@ -102,8 +103,8 @@ public class Menu_Layout : MonoBehaviour
         transform.FindChild("Inventory").gameObject.SetActive(true);
         invenButton_show = true;
         open_menu = true;
-        gameManager.gameMode = GameManager.GameMode.MENU;
-        gameManager.prevMode = GameManager.GameMode.PLAYING;
+        gameManager.Wait();
+        quest_log.display();
     }
 
 
@@ -121,8 +122,10 @@ public class Menu_Layout : MonoBehaviour
         transform.FindChild("QuestBook").gameObject.SetActive(true);
         diaryButton_show = true;
         open_menu = true;
-        gameManager.gameMode = GameManager.GameMode.LOG;
-        gameManager.prevMode = GameManager.GameMode.PLAYING;
+        gameManager.Wait();
+        quest_log.display() ;
+        //gameManager.gameMode = GameManager.GameMode.LOG;
+        //gameManager.prevMode = GameManager.GameMode.PLAYING;
     }
 
     public void Close_Diary()
@@ -160,7 +163,7 @@ public class Menu_Layout : MonoBehaviour
 
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (invenButton_show)
             {
@@ -172,4 +175,5 @@ public class Menu_Layout : MonoBehaviour
             }
         }
 	}
+
 }

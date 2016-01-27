@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Textbox : MonoBehaviour
 {
     private GameManager gameManager;
+
     bool choice_mode;
     int cursor;
     public bool done;
@@ -17,8 +19,27 @@ public class Textbox : MonoBehaviour
 		gameManager.EnterDialogue();
         choice_mode = false;
         done = false;
+        
 
         EventManager.OnSpaceBar += SelfDestruct;
+    }
+
+    static string BuildIntoQuestList(string name, string message)
+    {
+        string[] qvalue = new string[3];
+        string keyword = FindKeyword(message);
+        string newMessage = AddKeywordToMessage(message, keyword);
+
+        if (keyword != "")
+        {
+            qvalue[0] = keyword;
+            qvalue[1] = name;
+            qvalue[2] = newMessage;
+
+            GameManager.instance.questList.Add(qvalue);
+        }
+        
+        return newMessage;
     }
 
     void SelfDestruct(object sender, GameEventArgs args)
@@ -105,58 +126,99 @@ public class Textbox : MonoBehaviour
 
 	#region DIALOG BOXES
 
+    private static string FindKeyword(string message)
+    {
+        GameManager gameManager = GameManager.instance;
+
+        string newMessage = message;
+        while (true)
+        {
+            int keywordIndex = newMessage.IndexOf(GameManager.QUEST_KEYWORD);
+            if (keywordIndex < 0)
+            {
+                return "";
+            }
+
+            string keyword = "";
+            for (int i = keywordIndex + 1; i <= newMessage.Length; i++)
+            {
+                if (newMessage[i] == GameManager.QUEST_KEYWORD)
+                {
+                    return keyword;
+                    //break;
+                }
+                keyword += newMessage[i];
+            }
+
+            //string newKeyword = keyword;
+            //if (gameManager.questTerms.ContainsKey(keyword))
+            //{
+            //    newKeyword = gameManager.questTerms[keyword];
+            //}
+
+            //if (GameManager.QUEST_KEYWORD_BOLDED)
+            //{
+            //    newKeyword = "<b><color=" + GameManager.QUEST_KEYWORD_COLOR + ">" + newKeyword + "</color></b>";
+            //    return newKeyword;
+                
+            //}
+            //else
+            //{
+            //    newKeyword = "<color=" + GameManager.QUEST_KEYWORD_COLOR + ">" + newKeyword + "</color>";
+            //    return newKeyword;
+            //}
+            //return newKeyword;
+        }
+    }
+
+    private static string FormatKeyWord(string keyword)
+    {
+        GameManager gameManager = GameManager.instance;
+        string newKeyword = keyword;
+        if (gameManager.questTerms.ContainsKey(keyword))
+        {
+            newKeyword = gameManager.questTerms[keyword];
+        }
+
+        if (GameManager.QUEST_KEYWORD_BOLDED)
+        {
+            newKeyword = "<b><color=" + GameManager.QUEST_KEYWORD_COLOR + ">" + newKeyword + "</color></b>";
+            return newKeyword;
+
+        }
+        else
+        {
+            newKeyword = "<color=" + GameManager.QUEST_KEYWORD_COLOR + ">" + newKeyword + "</color>";
+            return newKeyword;
+        }
+        //return newKeyword;
+    }
+
+    
+
+    private static string AddKeywordToMessage(string message, string keyword)
+    {
+        string newkeyword = FormatKeyWord(keyword);
+         
+        return message.Replace(GameManager.QUEST_KEYWORD + keyword + GameManager.QUEST_KEYWORD, newkeyword);
+    }
+
 	private static string FormatMessage(string message)
 	{
-		GameManager gameManager = GameManager.instance;
-
-		string newMessage = message;
-		while (true)
-		{
-			int keywordIndex = newMessage.IndexOf(GameManager.QUEST_KEYWORD);
-			if (keywordIndex < 0)
-			{
-				return newMessage;
-			}
-			
-			string keyword = "";
-			for (int i = keywordIndex+1; i <= newMessage.Length; i++)
-			{
-				if (newMessage[i] == GameManager.QUEST_KEYWORD)
-				{
-					break;
-				}
-				keyword += newMessage[i];
-			}
-
-			string newKeyword = keyword;
-			if (gameManager.questTerms.ContainsKey(keyword))
-			{
-				newKeyword = gameManager.questTerms[keyword];
-			}
-
-			if (GameManager.QUEST_KEYWORD_BOLDED)
-			{
-				newKeyword = "<b><color="+GameManager.QUEST_KEYWORD_COLOR+">" + newKeyword + "</color></b>";
-			}
-			else
-			{
-				newKeyword = "<color="+GameManager.QUEST_KEYWORD_COLOR+">" + newKeyword + "</color>";
-			}
-			newMessage = newMessage.Replace(GameManager.QUEST_KEYWORD+keyword+GameManager.QUEST_KEYWORD, newKeyword);
-		}
+        return AddKeywordToMessage(message, FindKeyword(message));
 	}
-	
+
 	public void DrawBox(string name, string message)
     {
-		message = FormatMessage(message);
+        message = BuildIntoQuestList(name, message);
+
         transform.Find("Name").GetComponent<Text>().text = name;
 		transform.Find("Text").GetComponent<Text>().text = message;
     }
 
     public void DrawMessage(string message)
     {
-		message = FormatMessage(message);
-        transform.Find("Name_Panel").gameObject.SetActive(false);
+		transform.Find("Name_Panel").gameObject.SetActive(false);
         transform.Find("Text_Panel").gameObject.SetActive(false);
         transform.Find("Name").gameObject.SetActive(false);
         transform.Find("Text").gameObject.SetActive(false);
@@ -246,6 +308,8 @@ public class Textbox : MonoBehaviour
             args.DialogueBox.gameManager.ExitDialogue();
 			args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs());;
         }
-		args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = FormatMessage(args.DialogueBox.Dialog.text);
+        string name = args.DialogueBox.transform.Find("Name").GetComponent<Text>().text;
+        string message = BuildIntoQuestList(name, args.DialogueBox.Dialog.text);
+		args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = message;
     }
 }

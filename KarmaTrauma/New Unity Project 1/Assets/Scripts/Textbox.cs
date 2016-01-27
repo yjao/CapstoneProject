@@ -213,10 +213,10 @@ public class Textbox : MonoBehaviour
 	}
 
 
-	public void DrawBox(string name, string message)
+    public void DrawBox(string name, string message)
     {
         message = BuildIntoQuestList(name, message);
-
+    }
 	
 	public void DrawBox(string name, string message, int id)
     {

@@ -8,7 +8,6 @@ public class Menu_Layout : MonoBehaviour
 {
 
     GameManager gameManager;
-    QuestManager questManager;
     QuestLog quest_log;
     Menu gameMenu;
     Player player;

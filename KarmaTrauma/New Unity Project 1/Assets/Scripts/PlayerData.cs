@@ -30,6 +30,10 @@ public class PlayerData
         {"Alex_1",false}
     };
 
+    public Dictionary<string, bool> DialogueHistory = new Dictionary<string, bool>()
+    {
+    };
+
     public void SetBool(string boolName, bool value = true)
     {
         DataDictionary[boolName] = value;
@@ -37,7 +41,7 @@ public class PlayerData
         // hardcoded
         if (GetBool("AlfredName_Learned"))
         {
-            QuestManager.Instance.RemoveQuestFromLog(1);
+  //          QuestManager.Instance.RemoveQuestFromLog(1);
 
             // Hard-coded to remove bae from inventory because I don't know how :(
             for (int i = 0; i < GameManager.instance.dayData.ItemAmount; i++)
@@ -73,6 +77,18 @@ public class PlayerData
         else
         {
             QuestDictionary.Add(questName, false);
+        }
+    }
+
+    public void RegisterData(string dataName)
+    {
+        if (DataDictionary.ContainsKey(dataName))
+        {
+            // If the questName is already in the dictionary, do nothing
+        }
+        else
+        {
+            DataDictionary.Add(dataName, false);
         }
     }
 

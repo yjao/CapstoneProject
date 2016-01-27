@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 using System.Collections;
 
@@ -104,7 +105,7 @@ public class QuestManager : MonoBehaviour
 			break;
 		}
 	}*/
-
+/*
 	// temp method. really hardcoded
 	private void Change(string objName, InteractableObject.Dialogue_ID_Type dialogueIDType, int dialogueID)
 	{
@@ -136,3 +137,4 @@ public class QuestManager : MonoBehaviour
     }
 
 }
+*/

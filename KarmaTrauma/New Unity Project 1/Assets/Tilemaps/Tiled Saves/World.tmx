@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="MDTileA2" tilewidth="16" tileheight="16" tilecount="768">
+  <image source="../MDTileA2.png" width="512" height="384"/>
+ </tileset>
+ <tileset firstgid="769" name="MDTileA5" tilewidth="16" tileheight="16" tilecount="512">
+  <image source="../MDTileA5.png" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="1281" name="ParkTile" tilewidth="16" tileheight="16" tilecount="768">
+  <image source="../ParkTile.png" width="512" height="384"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztmE1uwjAQhR1C1G7bTbtNm01/LtCfTSAXoXCRkFwEmoN2onikh2tTqeB4iLz4ZBz8Hho/O7YoM6VWRG6QGMyIlJjDmFKQFseZOtezUiNJi7X3dT0Qj0Th8CqEavlzrscviOURr0qo1lyPtnVZgNdGZytNm2eH9TGYcwVebTbssS9h2hJahHNmH/bqiJrYCtOuoEX6utfgw147zV6YtoYW6etuwMf0+ham3UG7s2jYC/tStS4PzBS/k6hN/vDi/GxjJGnzbNgztvHoZZs7SdrSottn9jWIXnNhWpsXrkfs87nE56wkrW0NVg74XOK+JK1tPjYOWg33JWnNfnuEzhgjSWt7X7gwx0jSLtQ0WE+EZiKEnseYR8xDMqHnMeZxyH4iXKdK3Wqu0v/3n4hn4oV4DaC/h+d3J/TfiHfig/gMoF+qcaiIhH5vRpTqcu9XLdSx8uDfjATWUXvwj3nEPGIeMY+Yx+88btLh7L30PPg+4SOPse6jHdThIw/2HuN+6nN/YB2+76eu/dGcIY8Q//2lHvI4dR6kcO55CUXoeYx5HPID1bjxiQ==
+  </data>
+ </layer>
+ <layer name="Building1" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAADg3wAnEAAB
+  </data>
+ </layer>
+</map>

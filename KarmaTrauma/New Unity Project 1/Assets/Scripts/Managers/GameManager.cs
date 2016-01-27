@@ -185,27 +185,28 @@ public class GameManager : MonoBehaviour
         }
         if (dialogue.TypeIsChoice())
         {
-            CreateChoice(ch.name, dialogue.text, dialogue.choices);
+            CreateChoice(ch.name, dialogue, id);
         }
         else
         {
-            CreateDialogue(ch.name, dialogue);
+            CreateDialogue(ch.name, dialogue, id);
         }
     }
 
-    public void CreateDialogue(string name, Dialogue message)
+    public void CreateDialogue(string name, Dialogue message, int id)
     {
         GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
         dialog.GetComponent<Textbox>().Dialog = message;
-        dialog.GetComponent<Textbox>().DrawBox(name, message.text);
+        dialog.GetComponent<Textbox>().DrawBox(name, message.text, id);
     }
 
-    public void CreateChoice(string name, string message, Choice[] options)
+    public void CreateChoice(string name, Dialogue dialogue, int id)
     {
         GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
 
         //Debug.Log(options[0].option);
-        dialog.GetComponent<Textbox>().Choice(name, message, options);
+        dialog.GetComponent<Textbox>().Dialog = dialogue;
+        dialog.GetComponent<Textbox>().Choice(name, dialogue.text, dialogue.choices, id);
         /*
         message = message.Substring(3);
         string text = message.Substring(0, message.IndexOf("%C"));
@@ -335,8 +336,8 @@ public class GameManager : MonoBehaviour
 
     void ItemPickup(object sender, GameEventArgs args)
     {
-        Debug.Log(args.IDNum);
         dayData.Inventory[dayData.ItemAmount] = allItems[args.IDNum];
+        dayData.DataDictionary[allItems[args.IDNum].Name] = true;
         dayData.ItemAmount += 1;
     }
 
@@ -372,6 +373,18 @@ public class GameManager : MonoBehaviour
             //dayData.QuestComplete[name] = value;
 			dayData.SetQuest(name, value);
 			AllQuestsDone();
+        }
+    }
+
+    public void SetDayData(string name, bool value)
+    {
+        if (dayData.DataDictionary.ContainsKey(name))
+        {
+            dayData.SetBool(name, value);
+        }
+        else
+        {
+            dayData.DataDictionary.Add(name,value);
         }
     }
 
@@ -462,5 +475,6 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 		obj.GetComponent<Stairs>().active = true;
+        GameManager.instance.SetDayData(args.String, true);
 	}
 }

@@ -56,7 +56,7 @@ public class DayData
 		}
 		else*/ if (GetBool("JeneyHungry"))
 		{
-			QuestManager.Instance.AddQuestToLog(1);
+//			QuestManager.Instance.AddQuestToLog(1);
 		}
 	}
 	
@@ -84,6 +84,6 @@ public class DayData
 		Inventory = new Item[9];
 
 		//temp
-		QuestManager.Instance.quest_log = new ArrayList();
+//		QuestManager.Instance.quest_log = new ArrayList();
 	}
 }

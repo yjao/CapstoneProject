@@ -86,6 +86,10 @@ public class Textbox : MonoBehaviour
                 {
                     gameManager.SetData(choices[cursor].setbool, true);
                 }
+                if (!gameManager.playerData.DialogueHistory.ContainsKey(choices[cursor].CEA.IDNum + "," + choices[cursor].CEA.DialogueID + "," + cursor))
+                {
+                    gameManager.playerData.DialogueHistory.Add(choices[cursor].CEA.IDNum + "," + choices[cursor].CEA.DialogueID + "," + cursor, true);
+                }
                 if (choices[cursor].CEA != null)
                 {
                     g.ConvertChoiceEventArgs(choices[cursor].CEA);
@@ -208,9 +212,26 @@ public class Textbox : MonoBehaviour
         return AddKeywordToMessage(message, FindKeyword(message));
 	}
 
+
 	public void DrawBox(string name, string message)
     {
         message = BuildIntoQuestList(name, message);
+
+	
+	public void DrawBox(string name, string message, int id)
+    {
+        if (gameManager.playerData.DialogueHistory.ContainsKey(id + "," + Dialog.iD))
+        {
+            if (gameManager.playerData.DialogueHistory[id + "," + Dialog.iD])
+            {
+                transform.Find("Text_Panel").GetComponent<Image>().color = new Color((22f/255f), (22f/255f), (92f/255f), (150f/255f));
+            }
+        }
+        else
+        {
+            gameManager.playerData.DialogueHistory.Add(id + "," + Dialog.iD, true);
+        }
+		message = FormatMessage(message);
 
         transform.Find("Name").GetComponent<Text>().text = name;
 		transform.Find("Text").GetComponent<Text>().text = message;
@@ -227,11 +248,11 @@ public class Textbox : MonoBehaviour
         transform.Find("Message").GetComponent<Text>().text = message;
     }
 
-    public void Choice(string name, string dialog, Choice[] options)
+    public void Choice(string name, string dialog, Choice[] options, int id)
     {
         options = checkChoices(options);
         cursor = options.Length-1;
-        DrawBox(name, dialog);
+        DrawBox(name, dialog, id);
         transform.Find("Choice_Panel").gameObject.SetActive(true);
         transform.Find("Select").gameObject.SetActive(true);
         Transform[,] c = MultipleChoice(options);
@@ -289,6 +310,10 @@ public class Textbox : MonoBehaviour
             c.transform.GetComponent<Text>().text = options[i].option;
             g[i, 0] = box;
             g[i, 1] = c;
+            if (gameManager.playerData.DialogueHistory.ContainsKey(options[i].CEA.IDNum + "," + options[i].CEA.DialogueID + "," + i))
+            {
+                box.transform.GetComponent<Image>().color = new Color(22 / 255f, 22 / 255f, 92 / 255f, 150 / 255f);
+            }
         }
         return g;
     }

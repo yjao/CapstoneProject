@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class SceneManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class SceneManager : MonoBehaviour
 
 	#endregion
 
+    Dictionary<string, bool> outdoors;
+
 	void Start()
 	{
 		gameManager = GameManager.instance;
@@ -31,6 +34,13 @@ public class SceneManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(this);
+        outdoors = new Dictionary<string, bool>()
+        {
+            {SCENE_MAINSTREET, true},
+            {SCENE_PARK, true},
+            {SCENE_WORLDMAP, true}
+        };
+        //gameManager.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
 	}
 
     public void LoadScene(string name=null)
@@ -140,6 +150,37 @@ public class SceneManager : MonoBehaviour
                 child.gameObject.SetActive(isActive);
             }
         }
+        tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());
         yield break;
+    }
+
+    private void tint_screen(string scene, int time)
+    {
+        if (outdoors.ContainsKey(scene))
+        {
+            if (time == 18)
+            {
+                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(true);
+                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").GetComponent<Image>().color = new Color(255f / 255f, 153f / 255f, 0f, 50f / 255f);
+            }
+            else if (time == 20)
+            {
+                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(true);
+                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").GetComponent<Image>().color = new Color(107f / 255f, 107f / 255f, 107f / 255f, 100f / 255f);
+            }
+            else if (time == 22)
+            {
+                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(true);
+                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").GetComponent<Image>().color = new Color(107f / 255f, 107f / 255f, 107f / 255f, 150f / 255f);
+            }
+            else
+            {
+                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
+        }
     }
 }

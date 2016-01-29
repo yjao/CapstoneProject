@@ -312,6 +312,7 @@ public class GameManager : MonoBehaviour
 			{
 	            CreateMessage("Day "+(playerData.daysPassed+1)+".", true);
 			}
+            transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
 			SceneManager.instance.LoadScene();
             return true;
         }

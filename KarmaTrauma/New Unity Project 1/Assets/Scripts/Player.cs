@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public GameObject QuestLog;
     public CharacterAnimations characterAnimations;
     public string locationString;
-
+    private AudioSource source;
 
     public static Player Instance;
 
@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
         walltop = FindObjectOfType(typeof(InvisibleWallTop)) as InvisibleWallTop;
         gameManager = GameManager.instance;
 		EventManager.OnNPC += HandleNPC;
+        source = GetComponent<AudioSource>();
     }
 
     void OnDestroy()
@@ -222,24 +223,40 @@ public class Player : MonoBehaviour
             transform.Translate(0, speed, 0);
             //animator.SetInteger(animationState, up);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.UP_WALK);
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(0, -speed, 0);
             //animator.SetInteger(animationState, down);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.DOWN_WALK);
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(speed, 0, 0);
             //animator.SetInteger(animationState, right);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.RIGHT_WALK);
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(-speed, 0, 0);
             //animator.SetInteger(animationState, left);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_WALK);
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
         }
            
         // Entering World Map Location 
@@ -283,6 +300,10 @@ public class Player : MonoBehaviour
         else
         {
             characterAnimations.SetIdle();
+            if (source.isPlaying)
+            {
+                source.Stop();
+            }
         }
 
     }
@@ -296,6 +317,7 @@ public class Player : MonoBehaviour
 				speeding = true;
 				speed += SPEED_BOOST;
 				characterAnimations.animationSpeed -= SPEED_BOOST;
+                source.pitch += .3f;
 			}
 		}
 		else
@@ -305,6 +327,7 @@ public class Player : MonoBehaviour
 				speeding = false;
 				speed -= SPEED_BOOST;
 				characterAnimations.animationSpeed += SPEED_BOOST;
+                source.pitch -= .3f;
 			}
 		}
 	}

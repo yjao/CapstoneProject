@@ -59,6 +59,11 @@ public class SceneManager : MonoBehaviour
         //SoundManager.instance.LoadSceneMusic(name);
     }
 
+    public void LoadEnding()
+    {
+        Application.LoadLevel("Outcome Screen");
+    }
+
     private void LoadParameters(InteractableObject IO, InteractableObject.Parameters parameter)
     {
         //InteractableObject io = npc.interactableObject.GetComponent<InteractableObject>();

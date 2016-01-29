@@ -181,21 +181,26 @@ public class Data_FallDemo : DataLoader
 
 	private void LoadQuestData()
 	{
-		#region EMPTY TEMPLATE
-		// EMPTY TEMPLATE
-		/*
-		Quest emptyTemplate = new Quest();
-		{
-			int NPC_ID;
-			int dialogue_in_progress;
-			int dialogue_change;
-			string requirement = "none";
-			string changeBool = "none";
-			string required_item = "none";
-		};
-		AddQuest(emptyTemplate);
-		*/
-		#endregion
+        QuestList ql = GameManager.instance.GetComponent<QuestList>();
+        #region QUEST TEMPLATE
+        //Quest Template
+        /*  NPC_ID : ID of the NPC this quest belongs to
+         *  dialogue_in_progress : What this NPC says after you talk to him once quest has been activated
+         *  dialogue_change : What the NPC says once you FINISH the quest
+         *  requirement : Required quest finished in order to activate this quest  Leave it as "none" if nothing is required
+         *  changebool : What boolean gets changed once you finish the quest       Leave it as "none" if nothing is changed afterwards
+         *  required_item : Item you need in order to finish the quest             Leave it as "none" if nothing is required
+         *  questName : name of this quest
+         */
+        //   ql.AddQuest(NPC_ID, dialogue_in_progress, dialogue_change, requirement, changeBool, required_item, questName);
+
+        #endregion
+        // Alfred's son's quest
+        // Meet Alex
+        ql.AddQuest(75,1,7,"none","none","none","MeetAlex");
+        // Convince Alex
+        ql.AddQuest(75, 7, 8, "MeetAlex", "none", "Alfred's Jewel", "Convince Alfred's Son");
+      
 	}
 
 	private void LoadSceneData()

@@ -342,6 +342,15 @@ public class GameManager : MonoBehaviour
         dayData.ItemAmount += 1;
     }
 
+    public bool HasData(string name)
+    {
+        if (playerData.DataDictionary.ContainsKey(name) || dayData.DataDictionary.ContainsKey(name))
+        {
+            return true;
+        }
+        return false;
+    }
+
     public bool GetData(string name)
     {
         if (playerData.DataDictionary.ContainsKey(name))

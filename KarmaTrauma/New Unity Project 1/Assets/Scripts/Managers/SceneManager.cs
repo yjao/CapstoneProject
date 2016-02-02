@@ -15,9 +15,10 @@ public class SceneManager : MonoBehaviour
 	public const string SCENE_CLASS = "G_Class";
 	public const string SCENE_MAINSTREET = "G_MainStreetSmall";
 	public const string SCENE_MALL = "G_Mall";
-	public const string SCENE_HOSPITAL = "G_MentalHospital";
+	public const string SCENE_HOSPITAL = "G_Hospital";
 	public const string SCENE_PARK = "G_Park";
 	public const string SCENE_POLICE = "G_PoliceStation";
+	public const string SCENE_APARTMENT = "G_Apartment";
 	public const string SCENE_WORLDMAP = "WorldMapFallDemo";
 
 	#endregion

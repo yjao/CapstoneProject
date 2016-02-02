@@ -708,8 +708,13 @@ public class Data_WinterPlayTest : DataLoader
             "Text to display on screen if the boolean is false");
         */
         #endregion
-        AddOutcome(
-            "TestJewelOutcome",
+
+		AddOutcome(
+			"FoundDog",
+			"You have found and returned the Dog to Rae! She's happy 5ever.",
+			"Rae never found her dog. She left the city, alone, with that useless train ticket... :'(");
+		/*AddOutcome(
+			"TestJewelOutcome",
             "You have found the jewel of ultimate power. Now you set off on your quest to rule the world",
             "The jewel broke and made you sad.");
         AddOutcome(
@@ -719,6 +724,6 @@ public class Data_WinterPlayTest : DataLoader
         AddOutcome(
             "NoOutcomeHere",
             "blank",
-            "blank");
+            "blank");*/
     }
 }

@@ -630,7 +630,9 @@ public class Data_WinterPlayTest : DataLoader
 				// InteractableObject dialogue information
 				dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
 				dialogueIDMin = 5,  dialogueIDMax = 6,
-
+                wanderDistanceX = 20f,
+                wanderDirectionX = -1,
+                animationSpeed = 0.05f,
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
 				NpcID = 2

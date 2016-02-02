@@ -251,19 +251,26 @@ public class Textbox : MonoBehaviour
     public void Choice(string name, string dialog, Choice[] options, int id)
     {
         options = checkChoices(options);
-        cursor = options.Length-1;
-        DrawBox(name, dialog, id);
-        transform.Find("Choice_Panel").gameObject.SetActive(true);
-        transform.Find("Select").gameObject.SetActive(true);
-        Transform[,] c = MultipleChoice(options);
-        transform.Find("Choice_Panel").gameObject.SetActive(false);
-        transform.Find("Select").gameObject.SetActive(false);
-        transform.Find("Pointer").gameObject.SetActive(true);
-        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f+.1f*cursor);
-        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f+.1f*cursor);
-        //Debug.Log("start");
-        choice_mode = true;
-        choices = options;
+        if (options == null)
+        {
+            DrawBox(name, dialog, id);
+        }
+        else
+        {
+            cursor = options.Length - 1;
+            DrawBox(name, dialog, id);
+            transform.Find("Choice_Panel").gameObject.SetActive(true);
+            transform.Find("Select").gameObject.SetActive(true);
+            Transform[,] c = MultipleChoice(options);
+            transform.Find("Choice_Panel").gameObject.SetActive(false);
+            transform.Find("Select").gameObject.SetActive(false);
+            transform.Find("Pointer").gameObject.SetActive(true);
+            transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
+            transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
+            //Debug.Log("start");
+            choice_mode = true;
+            choices = options;
+        }
     }
     
     private Choice[] checkChoices(Choice[] options)
@@ -279,11 +286,15 @@ public class Textbox : MonoBehaviour
                 }
             }
         }
+        if (counter == options.Length)
+        {
+            return null;
+        }
         Choice[] result = new Choice[options.Length - counter];
         counter = 0;
         for (int i = 0; i < options.Length; i++)
         {
-            if (options[i].checkbool == null || gameManager.GetData(options[i].checkbool) == true || gameManager.HasItem(options[i].checkbool) == true)
+            if (options[i].checkbool == null || gameManager.GetData(options[i].checkbool) == true)
             {
                 result[counter] = options[i];
                 counter += 1;
@@ -328,7 +339,7 @@ public class Textbox : MonoBehaviour
             args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID);
             if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice() || GameManager.instance.allObjects[args.IDNum].dialogues[args.DialogueID].Action != null)
             {
-                EventManager.OnDialogChoiceMade += args.ThisGameObject.GetComponent<InteractableObject>().HandleOnDialogChoiceMade;
+                //EventManager.OnDialogChoiceMade += args.ThisGameObject.GetComponent<InteractableObject>().HandleOnDialogChoiceMade;
             }
             args.DialogueBox.gameManager.ExitDialogue();
 			args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs());;
@@ -336,5 +347,9 @@ public class Textbox : MonoBehaviour
         string name = args.DialogueBox.transform.Find("Name").GetComponent<Text>().text;
         string message = BuildIntoQuestList(name, args.DialogueBox.Dialog.text);
 		args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = message;
+        if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice() || GameManager.instance.allObjects[args.IDNum].dialogues[args.DialogueID].Action != null)
+        {
+            EventManager.OnDialogChoiceMade += args.ThisGameObject.GetComponent<InteractableObject>().HandleOnDialogChoiceMade;
+        }
     }
 }

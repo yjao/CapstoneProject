@@ -71,7 +71,7 @@ public class CharacterAnimations : MonoBehaviour
         UP_IDLE, UP_WALK, UP_DANCE, UP_STRETCH, UP_SWING, UP_BOW,
         LEFT_IDLE, LEFT_WALK, LEFT_DANCE, LEFT_STRETCH, LEFT_SWING, LEFT_BOW,
         RIGHT_IDLE, RIGHT_WALK, RIGHT_DANCE, RIGHT_STRETCH, RIGHT_SWING, RIGHT_BOW,
-        FALL
+        FALL, FALLEN, SLEEPING
     }
 
 	public bool active = true;
@@ -240,6 +240,15 @@ public class CharacterAnimations : MonoBehaviour
                 rangeStart = fallStart;
                 rangeEnd = fallEnd;
                 break;
+            case States.FALLEN:
+                rangeStart = fallEnd;
+                rangeEnd = fallEnd;
+                break;
+            case States.SLEEPING:
+                rangeStart = downStretchStart + 3;
+                rangeEnd = downStretchStart + 3;
+                break;
+
             default:
                 Debug.Log("YA DONE GOOFED");
                 break;

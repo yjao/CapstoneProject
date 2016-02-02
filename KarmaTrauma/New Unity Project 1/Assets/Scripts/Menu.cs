@@ -49,14 +49,12 @@ public class Menu : MonoBehaviour
                     z.transform.SetParent(transform, false);
                     z.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.3775f + .14f * x), (.95f - .25f * y));
                     z.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f + .14f * x), (.695f - .25f * y));
-                    z.name = "ItemPanel" + y;
+                    z.name = "ItemPanel" + x + y;
                     //Debug.Log("calling");
                 }
             }
         }
-        for (int i = 0; i < gameManager.GetItemData().Length; ++i)
-            if (gameManager.GetItemData()[i] != null)
-                DrawItem(gameManager.GetItemData()[i].Filename);
+    
         pointer = 0;
         pointer2 = 0;
         DrawSelect();
@@ -65,10 +63,16 @@ public class Menu : MonoBehaviour
 
     public void display()
     {
-
+        for (int i = 0; i < gameManager.GetItemData().Length; ++i)
+            if (gameManager.GetItemData()[i] != null)
+            {
+                int p = i % 3;
+                int p1 = i / 3;
+                DrawItem(gameManager.GetItemData()[i].Filename, p, p1);
+            }
     }
 
-    void DrawItem(string item)
+    void DrawItem(string item, int p, int p1)
     {
         GameObject image = new GameObject(item);
         image.transform.SetParent(transform);
@@ -78,21 +82,21 @@ public class Menu : MonoBehaviour
         image.transform.GetComponent<Image>().sprite = Resources.Load<Sprite>(item);
         //image.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.154f + .14f * pointer), (.975f - .25f * pointer2));
         //image.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.014f + .14f * pointer), (.725f - .25f * pointer2));
-        image.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.3775f + .14f * pointer), (.95f - .25f * pointer2));
-        image.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f + .14f * pointer), (.695f - .25f * pointer2));
+        image.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.3775f + .14f * p), (.95f - .25f * p1));
+        image.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f + .14f * p), (.695f - .25f * p1));
         image.transform.GetComponent<RectTransform>().anchoredPosition = new Vector2(.5f, .5f);
         image.transform.GetComponent<RectTransform>().localScale = new Vector2(.5f, .5f);
         image.transform.GetComponent<Image>().preserveAspect = true;
-        if (pointer2 < 2)
-        {
-            if (pointer < 2)
-                pointer += 1;
-            else
-            {
-                pointer = 0;
-                pointer2 += 1;
-            }
-        }
+        //if (pointer2 < 2)
+        //{
+        //    if (pointer < 2)
+        //        pointer += 1;
+        //    else
+        //    {
+        //        pointer = 0;
+        //        pointer2 += 1;
+        //    }
+        //}
     }
 
     void DrawSelect()

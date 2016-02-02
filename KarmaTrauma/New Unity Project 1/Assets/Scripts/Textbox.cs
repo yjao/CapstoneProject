@@ -26,17 +26,15 @@ public class Textbox : MonoBehaviour
 
     static string BuildIntoQuestList(string name, string message)
     {
-        string[] qvalue = new string[3];
+        string[] qvalue = new string[2];
         string keyword = FindKeyword(message);
         string newMessage = AddKeywordToMessage(message, keyword);
-
-        if (keyword != "")
+        if (keyword != "" && !(GameManager.instance.questList.ContainsKey(keyword)))
         {
-            qvalue[0] = keyword;
-            qvalue[1] = name;
-            qvalue[2] = newMessage;
+            qvalue[0] = name;
+            qvalue[1] = newMessage;
 
-            GameManager.instance.questList.Add(qvalue);
+            GameManager.instance.questList[keyword] = qvalue;
         }
         
         return newMessage;
@@ -215,11 +213,13 @@ public class Textbox : MonoBehaviour
 
     public void DrawBox(string name, string message)
     {
+        
         message = BuildIntoQuestList(name, message);
     }
 	
 	public void DrawBox(string name, string message, int id)
     {
+        message = BuildIntoQuestList(name, message);
         if (gameManager.playerData.DialogueHistory.ContainsKey(id + "," + Dialog.iD))
         {
             if (gameManager.playerData.DialogueHistory[id + "," + Dialog.iD])

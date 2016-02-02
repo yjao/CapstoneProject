@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
 	public Dictionary<string, List<InteractableObject.Parameters>> sceneParameters;
     //Questlist in the form of List<[keyword , NPCName, dialogue]>
     
-    public List<string[]> questList;
+    //public List<string[]> questList;
+    public Dictionary<string,string[]> questList;
     public List<OutcomeManager.outcome> outcomeList;
 	#region CONSTANT VALUES
 
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
 		allObjects = new Dictionary<int, Interactable>();
 		questTerms = new Dictionary<string, string>();
 		sceneParameters = new Dictionary<string, List<InteractableObject.Parameters>>();
-        questList = new List<string[]>();
+        questList = new Dictionary<string, string[]>();
         outcomeList = new List<OutcomeManager.outcome>();
 
         // Bind events

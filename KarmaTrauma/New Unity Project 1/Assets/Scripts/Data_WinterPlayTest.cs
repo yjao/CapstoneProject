@@ -52,8 +52,8 @@ public class Data_WinterPlayTest : DataLoader
 		{
 			/*0*/ "\"Welcome to the Donut Hole! Today's special is the Donot Sprinklez~\"",
 			/*1*/ "\"Come by the Donut Hole when you have time. We sell really tasty donuts.\"",
-		    /*2*/ "\"Oh no...my friend's #dog was here at 4 PM#. I tried catching him by feeding him food, but he ran off.\"",
-            /*3*/ "\"I hope that he returned home safely.\"",
+            /*2*/ "\"Oh no...my friend's #dog was here at 4 PM#.  I tried catching him by feeding him a donut, but he ran off.\"",
+            /*3*/ "\"Dogs like meat; maybe he'll stay if there's #bacon#? I hope that he returned home safely.\"",
             /*4*/ "\"Poor man...he was a really #nice cop# who comes by my store often.\"",
             /*5*/ "\"He always tell me that our Cocodonut tastes the best.\"",
             /*6*/ "\"Whew...what a long day.  So many things happened.\"",

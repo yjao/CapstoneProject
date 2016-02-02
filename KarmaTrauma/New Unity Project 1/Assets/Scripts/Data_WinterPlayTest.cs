@@ -74,7 +74,8 @@ public class Data_WinterPlayTest : DataLoader
             /*7*/ "\"Ugh...Go away, kid. Don't you see that I'm about to go to bed?\"",
         };
         AddNpc(11, "Park Ranger", "Hank", hank);
-
+        AddBooleanToDialogue(11, 1, "LostDog");
+        AddBooleanToDialogue(11, 3, "DogCanDig");
 
         // ================ RAE ================ //
         string[] rae = new string[]
@@ -94,7 +95,7 @@ public class Data_WinterPlayTest : DataLoader
 			
 		};
         AddNpc(23, "Crying Girl", "Rae", rae);
-        
+        AddBooleanToDialogue(23, 0, "LostDog");
 
         // ================ DOGE ================ //
         string[] dog = new string[]
@@ -105,17 +106,6 @@ public class Data_WinterPlayTest : DataLoader
 
 
         // ================ ITEMS & OBJECTS ================ //
-
-        string[] jewel = new string[]
-		{
-			/*0*/ "\"Hello.\""
-			/*1*/ 
-			/*2*/ 
-			/*3*/ 
-		};
-        AddNpc(2, "Jewel", "Jewel", jewel);
-
-        //GameManager.Instance.AllObjects[74].Dialogue[1].setbool = "JeneyHungry";
 
         string[] bed = new string[]
 		{

@@ -52,10 +52,8 @@ public class MainMenu : MonoBehaviour
 
     public void MainGameDemo()
     {
-
-        StartCoroutine("LoadDemoScene");
-        
-
+        //StartCoroutine("LoadDemoScene");
+		StartCoroutine("ExitPrologue");
     }
 
     IEnumerator LoadDemoScene()
@@ -67,14 +65,28 @@ public class MainMenu : MonoBehaviour
 		SceneManager.instance.LoadScene();
 		yield return null;
         Destroy(this);
-
-
     }
+
+	IEnumerator ExitPrologue()
+	{
+		DontDestroyOnLoad(this);
+
+		Application.LoadLevel(SceneManager.SCENE_MAINSTREET);
+		yield return null;
+
+		GameManager.instance.SetTime(20);
+		yield return null;
+
+		SceneManager.instance.LoadScene(SceneManager.SCENE_MAINSTREET);
+		yield return null;
+
+		Destroy(this);
+		yield break;
+	}
 
     public void ExitGame() //This function will be used on our "Yes" button in our Quit menu
     {
         Application.Quit(); //this will quit our game. Note this will only work after building the game
-
     }
 
 }

@@ -91,11 +91,16 @@ public class Data_WinterPlayTest : DataLoader
 			/*8*/ "\"It's been 12 hours since I lost my dog. I don't know what to do.\"" , 
 			/*9*/ "\"I hope someone finds him and returns him to me.\""  ,
 			/*10*/ "\"I guess this #train ticket# is useless now since I can't leave town without him.\""  ,
-			/*11*/ "\"Poor guy...I hope he rests in peace.\""  
+			/*11*/ "\"Poor guy...I hope he rests in peace.\""  ,
+
+			/*12*/ "\"Omg! Thank you for finding my dog!!\"",
+			/*13*/ "\"You're the best.\""
 			
 		};
         AddNpc(23, "Crying Girl", "Rae", rae);
         AddBooleanToDialogue(23, 0, "LostDog");
+		AddBooleanToDialogue(23, 6, "LostDog");
+		AddBooleanToDialogue(23, 8, "LostDog");
 
         // ================ DOGE ================ //
         string[] dog = new string[]

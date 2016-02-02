@@ -99,16 +99,16 @@ public class QuestList : MonoBehaviour
                             {
                                 for (int j = 0; j < GameManager.instance.dayData.ItemAmount; j++)
                                 {
-                                    if (GameManager.instance.dayData.Inventory[j].Name == temp.requiredItem)
+									if (GameManager.instance.dayData.Inventory[j] == null)
+									{
+									}
+                                    else if (GameManager.instance.dayData.Inventory[j].Name == temp.requiredItem)
                                     {
                                         Debug.Log("Have Item");
                                         GameManager.instance.dayData.Inventory[j] = null;
                                         GameManager.instance.dayData.ItemAmount--;
                                         temp.itemTurnedIn = true;
                                         break;
-                                    }
-                                    else
-                                    {
                                     }
                                 }
                             }

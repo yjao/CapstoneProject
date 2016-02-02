@@ -420,7 +420,7 @@ public class Data_WinterPlayTest : DataLoader
 				NpcID = 2
 			});
 
-		// ======================== ALFRED ======================== //
+		// ======================== MEGAN ======================== //
 		AddParameters(sceneName, new InteractableObject.Parameters()
 			{
 				// Specify the time frames that this set takes effect
@@ -435,7 +435,7 @@ public class Data_WinterPlayTest : DataLoader
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
-				NpcID = 2
+				NpcID = 3
 			});
 
 

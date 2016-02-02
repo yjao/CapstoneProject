@@ -109,13 +109,13 @@ public class Data_WinterPlayTest : DataLoader
             /*1*/ "(You give the dog some bacon)",
             /*2*/ "(The dog appears to be following you)"
         };
-        AddNpc(24, "Dog", "Dog", dog);
-        gameManager.allObjects[24].dialogues[0].choices = new Choice[]
+        AddNpc(105, "Dog", "Dog", dog);
+        gameManager.allObjects[105].dialogues[0].choices = new Choice[]
 		{
-            AddChoice("Feed the dog bacon", ChoiceAction.CONTINUE, 24, 1, checkboolname: "Bacon")
+            AddChoice("Feed the dog bacon", ChoiceAction.CONTINUE, 105, 1, checkboolname: "Bacon")
         };
-        AddToDialogue(24, 1, ChoiceContinueDialog(24, 2));
-        AddToDialogue(24, 2, ChoiceInteractItem(24));
+        AddToDialogue(105, 1, ChoiceContinueDialog(105, 2));
+        AddToDialogue(105, 2, ChoiceInteractItem(105));
 
 
         // ================ ITEMS & OBJECTS ================ //
@@ -243,7 +243,7 @@ public class Data_WinterPlayTest : DataLoader
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
-				NpcID = 24
+				NpcID = 105
 			});
 		
 		// ======================== RAE ======================== //
@@ -360,7 +360,7 @@ public class Data_WinterPlayTest : DataLoader
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
-				NpcID = 24
+				NpcID = 105
 			});
 
 		// ======================== RAE ======================== //
@@ -505,7 +505,7 @@ public class Data_WinterPlayTest : DataLoader
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
-				NpcID = 24
+				NpcID = 105
 			});
 
 		// ======================== RAE ======================== //

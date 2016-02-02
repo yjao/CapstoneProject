@@ -10,11 +10,12 @@ public class Menu : MonoBehaviour
 
     int pointer;
     int pointer2;
-    
+    private List<string> item_list;
 
     // Use this for initialization
     void Start()
     {
+        item_list = new List<string>();
         pointer = 0;
         pointer2 = 0;
         gameManager = GameManager.instance;
@@ -63,15 +64,29 @@ public class Menu : MonoBehaviour
 
     public void display()
     {
-        for (int i = 0; i < gameManager.GetItemData().Length; ++i)
+        if (gameManager.MN_call())
+        {
+            close();
+            return;
+        }
+  
+        for (int i = 0; i < gameManager.GetItemAmount(); ++i)
             if (gameManager.GetItemData()[i] != null)
             {
                 int p = i % 3;
                 int p1 = i / 3;
                 DrawItem(gameManager.GetItemData()[i].Filename, p, p1);
+                item_list.Add(gameManager.GetItemData()[i].Filename);
             }
     }
 
+    public void close()
+    {
+        for (int i = 0; i < item_list.Count; ++i)
+        {
+            Destroy(transform.Find(item_list[i]).gameObject);
+        }
+    }
     void DrawItem(string item, int p, int p1)
     {
         GameObject image = new GameObject(item);

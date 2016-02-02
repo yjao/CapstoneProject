@@ -84,7 +84,7 @@ public class DayData
 		DataDictionary = newBools;
 
 		Inventory = new Item[9];
-
+        ItemAmount = 0;
 		//temp
 //		QuestManager.Instance.quest_log = new ArrayList();
 	}

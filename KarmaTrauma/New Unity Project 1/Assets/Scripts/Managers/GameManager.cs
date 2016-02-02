@@ -7,6 +7,7 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
+
     public PlayerData playerData = new PlayerData();
     public DayData dayData = new DayData();
     public static GameManager instance;
@@ -32,6 +33,9 @@ public class GameManager : MonoBehaviour
     //public List<string[]> questList;
     public Dictionary<string,string[]> questList;
     public List<OutcomeManager.outcome> outcomeList;
+
+    private bool reset;
+
 	#region CONSTANT VALUES
 
 	public const char QUEST_KEYWORD = '#';
@@ -110,6 +114,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameClockDisplay = gameClock.ToString() + "AM";
+        reset = true;
     }
     void OnDestroy()
     {
@@ -302,6 +307,11 @@ public class GameManager : MonoBehaviour
         return gameClock;
     }
 
+    public bool MN_call()
+    {
+        return reset;
+    }
+
     public bool Midnight(bool createMessage=true)
     {
         //Debug.Log("data is null: " + (playerData == null));
@@ -310,6 +320,7 @@ public class GameManager : MonoBehaviour
         {
             gameClock = START_DAY_HOUR;
             dayData.Wipe();
+            reset = true;
             playerData.WipeQuest();
             playerData.daysPassed++;
 			if (createMessage)
@@ -320,7 +331,7 @@ public class GameManager : MonoBehaviour
 			SceneManager.instance.LoadScene(SceneManager.SCENE_HOUSE);
             return true;
         }
-   
+        reset = false;
         return false;
     }
 
@@ -405,6 +416,11 @@ public class GameManager : MonoBehaviour
     public Item[] GetItemData()
     {
         return dayData.Inventory;
+    }
+
+    public int GetItemAmount()
+    {
+        return dayData.ItemAmount;
     }
 
     public bool HasItem(string name)

@@ -408,7 +408,7 @@ public class Data_WinterPlayTest : DataLoader
 				dialogueIDMin = 7, dialogueIDMax = 9,
 
 				// NPC CharacterAnimations
-				startingAnimationState = CharacterAnimations.States.FALL,
+				startingAnimationState = CharacterAnimations.States.FALLEN,
 				animationSpeed = 0.0f,
 
 				// Getter/Setter variables, NpcID is required
@@ -596,7 +596,7 @@ public class Data_WinterPlayTest : DataLoader
 				dialogueIDSingle = 10,
 
 				// NPC CharacterAnimations
-				startingAnimationState = CharacterAnimations.States.DOWN_STRETCH,
+				startingAnimationState = CharacterAnimations.States.SLEEPING,
 				animationSpeed = 0f,
 
 				// Getter/Setter variables, NpcID is required

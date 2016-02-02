@@ -103,7 +103,7 @@ public class Menu_Layout : MonoBehaviour
         invenButton_show = true;
         open_menu = true;
         gameManager.Wait();
-        quest_log.display();
+        gameMenu.display();
     }
 
 

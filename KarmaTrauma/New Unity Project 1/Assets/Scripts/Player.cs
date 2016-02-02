@@ -187,6 +187,10 @@ public class Player : MonoBehaviour
         {
             locationString = "Mall";
         }
+        if (coll.gameObject.name == "Hospital")
+        {
+            locationString = "Hospital";
+        }
         if (coll.gameObject.tag == "MainStreet")
         {
             locationString = "MainStreet";
@@ -195,6 +199,19 @@ public class Player : MonoBehaviour
         {
             locationString = "House";
         }
+        if (coll.gameObject.tag == "Park")
+        {
+            locationString = "Park";
+        }
+        if (coll.gameObject.tag == "PoliceStation")
+        {
+            locationString = "PoliceStation";
+        }
+        if (coll.gameObject.tag == "Apartment")
+        {
+            locationString = "Apartment";
+        }
+
     }
     void OnTriggerExit2D(Collider2D coll)
     {
@@ -273,6 +290,22 @@ public class Player : MonoBehaviour
             if (locationString == "House")
             {
                 SceneManager.instance.LoadScene("G_House");
+            }
+            if (locationString == "Park")
+            {
+                SceneManager.instance.LoadScene("G_Park");
+            }
+            if (locationString == "PoliceStation")
+            {
+                SceneManager.instance.LoadScene("G_PoliceStation");
+            }
+            if (locationString == "Apartment")
+            {
+                SceneManager.instance.LoadScene("G_Apartment");
+            }
+            if (locationString == "Hospital")
+            {
+                SceneManager.instance.LoadScene("G_Hospital");
             }
             // Not on any location
             if (locationString =="")

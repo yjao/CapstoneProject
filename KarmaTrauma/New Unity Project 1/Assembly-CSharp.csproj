@@ -54,7 +54,9 @@
      <Compile Include="Assets\Scripts\DataLoader.cs" />
      <Compile Include="Assets\Scripts\Data_FallDemo.cs" />
      <Compile Include="Assets\Scripts\Data_OldStuff.cs" />
+     <Compile Include="Assets\Scripts\Data_WinterPlayTest.cs" />
      <Compile Include="Assets\Scripts\DayData.cs" />
+     <Compile Include="Assets\Scripts\Dog.cs" />
      <Compile Include="Assets\Scripts\Door.cs" />
      <Compile Include="Assets\Scripts\GameEventArgs.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />

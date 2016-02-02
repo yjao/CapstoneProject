@@ -15,135 +15,94 @@ public class Data_WinterPlayTest : DataLoader
 
     private void LoadNpcData()
     {
-        // ================ Chelsey ================ //
-        string[] chelsey = new string[]
-		{
-			/*0*/ "\"Hey, I'm Chelsey. Do you also go to Pinewood High School?.\"",
-			/*1*/ "\"That old guy in the hospital, his name is Alfred I think, he's your dad right?\"",
-			/*2*/ "\"Come with me! Your dad is going to die soon!  He might change his mind if you visit him!\"",
-			/*3*/ "\"Come with me! Your dad is going to die soon!\"",
-		};
-        AddNpc(72, "", "Chelsey", chelsey);
+        // ================ ALFRED ================ //
+        string[] alfred = new string[]
+        {
+            /*0*/ "\"Good morning! The donuts here are tasty. You should try some. I recommend the Cocodonut.\"",
+            /*1*/ "\"Today is a big day. I need that #box# soon. That filthy man will get what he deserves...\"",
+            /*2*/ "\"Oh, hello there. Are you lost? Better hurry before you're late to class!\"",
+            /*3*/ "\"Is there something wrong? No class today?\"",
+            /*4*/ "\"Work just doesn't feel right when he's still running about, but it'll be over soon. He'll get what he deserves.\"",
+            /*5*/ "\"Hey there! I need to go grab some clothes for my wife at the hospital.\"",
+            /*6*/ "\"Sorry I'm not up for a chat.  Stay safe out there!\"",
+            /*7*/ "\"Oh Megan...I'm so sorry...\"",
+            /*8*/ "\"Had I reach the park in time...\"",
+            /*9*/ "\"Faraday...you will regret this.\"",
+            /*10*/ "\"...\"",
 
+        };
+        AddNpc(2, "Police Man", "Alfred", alfred);
+
+
+        // ================ MEGAN ================ //
+        string[] megan = new string[]
+        {
+            /*0*/ "\"Hello there. I'm waiting for my husband to get here with my clothes.\"",       
+            /*1*/ "\"He should be here any minute now. What's taking him so long?\"",
+            /*2*/ "\"If only I knew that #someone was out to get him#.\"",
+            /*3*/ "*Sob* \"He was going to get something from home to deliver to me here.\"",
+            /*4*/ "\"If I haven't been hospitalize at all, this wouldn't have happened.\"",
+            /*5*/ "\"Oh Alfred, please hang in there!\"*Sob*",
+        };
+        AddNpc(3, "Nice Woman", "Megan", megan);
 
 
         // ================ JENEY ================ //
         string[] jeney = new string[]
 		{
-			/*0*/ "\"Oh... Poor Alfred. This must have a toll on Alex.\"",
-			/*1*/ "\"Alex was just at my #donut shop at 4PM# today to talk about his father and now he's gone...\"",
-			/*2*/ "\"Hi! Welcome to my humble donut shop. Unfortunately, we're out of stock. Please visit tomorrow. Sorry!\"",
-		};
-        AddNpc(73, "Random Woman", "Jeney", jeney);
-        AddBooleanToDialogue(73, 0, "AlfredName_Learned");
-        AddToDialogue(73, 0, ChoiceContinueDialog(73, 1));
-
-        // ================ MANNY ================ //
-        string[] manny = new string[]
-		{
-			/*0*/ "\"Hello. Who are you visiting today?\"",
-			/*1*/ "\"What is your name?\"",
-			/*2*/ "\"Oh, Alex! Your father talked about how much he misses you. Right now, he is busy, but you are permitted to wait for him inside.\"", 
-			/*3*/ "\"...I could've sworn he had a son.\"",
-			/*4*/ "\"Sorry, you are not on the visitors list. Please leave.\"",
-			/*5*/ "\"Please leave if you're not here to see someone\""
-		};
-        AddNpc(74, "Guard", "Manny", manny);
-        gameManager.allObjects[74].dialogues[0].choices = new Choice[]
-		{
-			AddChoice("Alfred", ChoiceAction.CONTINUE, 74, 1),
-			AddChoice("Uh...", ChoiceAction.CONTINUE, 74, 5)
-		};
-        gameManager.allObjects[74].dialogues[1].choices = new Choice[]
-		{
-			AddChoice("Alex", ChoiceAction.CONTINUE, 74, 2),
-			AddChoice("Chelsey", ChoiceAction.CONTINUE, 74, 4)
-		};
-        gameManager.allObjects[74].dialogues[2].choices = new Choice[]
-		{
-			AddChoice("Thank you", ChoiceAction.CONTINUE, 74, 3)
-		};
-        AddToDialogue(74, 3, new ChoiceEventArgs() { ChoiceAction = GameManager.UnlockDoor, String = "DoorToAlfredRoom" });
+			/*0*/ "\"Welcome to the Donut Hole! Today's special is the Donot Sprinklez~\"",
+			/*1*/ "\"Come by the Donut Hole when you have time. We sell really tasty donuts.\"",
+		    /*2*/ "\"Oh no...my friend's #dog was here at 4 PM#. I tried catching him by feeding him food, but he ran off.\"",
+            /*3*/ "\"I hope that he returned home safely.\"",
+            /*4*/ "\"Poor man...he was a really #nice cop# who comes by my store often.\"",
+            /*5*/ "\"He always tell me that our Cocodonut tastes the best.\"",
+            /*6*/ "\"Whew...what a long day.  So many things happened.\"",
+        };
+        AddNpc(7, "Donut Shop Owner", "Jeney", jeney);
 
 
-        // ================ ALEX ================ //
-        string[] alex = new string[]
+        // ================ HANK ================ //
+        string[] hank = new string[]
 		{
-			/*0*/ "\"What do you want?\"",
-			/*1*/ "\"Yeah, I'm Alex. Welcome to our little town.\"",
-			/*2*/ "\"Yes, he is. How do you even know this?\"",
-			/*3*/ "\"Please, he never cared about me so why should I care about him? If you want me to come with you, prove to me that he still cares and I'll consider going with you to visit him.\"",
-			/*4*/ "\"He... He still has this? I guess the old man really does care. I'll go with you.\"",
-			/*5*/ "\"Stop wasting my time.\"",
-			/*6*/ "\"Weirdo...\""  ,
-			/*7*/ "\"Do you have anything else to say?\""  ,
-			/*8*/ "\"Do you have anything else to say?\"" , 
-			/*9*/ "\"Dad...why did you do it? *sob*\""  ,
-			/*10*/ "\"Dad... you still have the #jewel#. You really did care about me.\""  ,
-			/*11*/ "\"I'm still mad at you, but Chelsey showed me this jewel.  You've been keeping it with you since then.\""  
+			/*0*/ "\"Ugh I'm so sleepy. I hate this job.\"",
+			/*1*/ "\"That ugly dog belongs to this girl name Rae. She was at the #park until noon# looking for the dog while crying.\"",
+			/*2*/ "\"So annoying ugh...\"", 
+			/*3*/ "\"I was enjoying my nap when that stupid #dog started digging# all over the park at 2 PM.\"",
+			/*4*/ "\"I had to go and fill all the holes that he dug up. Now go away and stop bothering me.\"",
+			/*5*/ "\"Ugh...I'm hungry. I don't get paid enough for this.\"",
+		    /*6*/ "\"I see him sometimes at the park. I guess it must be his time to go.\"",
+            /*7*/ "\"Ugh...Go away, kid. Don't you see that I'm about to go to bed?\"",
+        };
+        AddNpc(11, "Park Ranger", "Hank", hank);
+
+
+        // ================ RAE ================ //
+        string[] rae = new string[]
+		{
+			/*0*/ "*Sob*\"I #lost my dog# today...\"",
+			/*1*/ "\"He went outside to take a leak and hadn't come back since.\"",
+			/*2*/ "\"I tried looking for him everywhere, but he's nowhere to be found.\"",
+			/*3*/ "\"What should I do...\"*Sob*",
+			/*4*/ "\"Jeney is my friend from middle school. She now owns this successful donut shop chain.\"",
+			/*5*/ "\"All the cops in this town loves this store and comes by often. You should try some.\"",
+			/*6*/ "\"Have you seen my dog? I've been looking everywhere for him.\""  ,
+			/*7*/ "\"I was hoping that he will at the park since it's his #favorite spot#.\""  ,
+			/*8*/ "\"It's been 12 hours since I lost my dog. I don't know what to do.\"" , 
+			/*9*/ "\"I hope someone finds him and returns him to me.\""  ,
+			/*10*/ "\"I guess this #train ticket# is useless now since I can't leave town without him.\""  ,
+			/*11*/ "\"Poor guy...I hope he rests in peace.\""  
 			
 		};
+        AddNpc(23, "Crying Girl", "Rae", rae);
+        
 
-        AddNpc(75, "Kid", "Alex", alex);
-        gameManager.allObjects[75].dialogues[0].choices = new Choice[]
+        // ================ DOGE ================ //
+        string[] dog = new string[]
 		{
-			AddChoice("Be friendly", ChoiceAction.CONTINUE, 75, 1, "Meet_Alfred_Son"),
-			AddChoice("Say nothing", ChoiceAction.CONTINUE, 75, 6)
-		};
-        gameManager.allObjects[75].dialogues[1].choices = new Choice[]
-		{
-			AddChoice("Ask about Alfred", ChoiceAction.CONTINUE, 75, 2)
-		};
-        gameManager.allObjects[75].dialogues[2].choices = new Choice[]
-		{
-			AddChoice("Ask Alex to meet Alfred", ChoiceAction.CONTINUE, 75, 3)
-		};
-        gameManager.allObjects[75].dialogues[3].choices = new Choice[]
-		{
-			AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 5)
-		};
-        gameManager.allObjects[75].dialogues[7].choices = new Choice[]
-		{
-			AddChoice("Do nothing", ChoiceAction.CONTINUE, 75, 6),
-		};
-        gameManager.allObjects[75].dialogues[8].choices = new Choice[]
-		{
-			AddChoice("Show him the Jewel", ChoiceAction.CONTINUE, 75, 4, "AlfredSon_Trust"),
-		}; gameManager.allObjects[75].dialogues[4].choices = new Choice[]
-		{
-			AddChoice("Thanks!", ChoiceAction.DESTROY, 75, 4),
-		};
+            /*0*/ "\"Woof\"",
+        };
+        AddNpc(24, "Dog", "Dog", dog);
 
-        // ================ ALFRED ================ //
-        string[] alfred = new string[]
-		{
-			/*0*/ "\"What do you want?  Go away kid!\"",
-			/*1*/ "\"Alex!!!\"",
-			/*2*/ "\"Oh Alex, I missed you!  I've been regretting since the day I left you.\"",
-			/*3*/ "\"I was wrong.  Will you forgive me Alex?\"",
-			/*4*/ "\"I love you, son\"",
-			/*5*/ "\"Stop wasting my time.\"",
-			/*6*/ "\"*mumble* forgive me... *mumble*\""  ,
-			/*7*/ "\"Do you have anything else to say?\""  ,
-			
-			
-		};
-        AddNpc(76, "Old Man", "Alfred", alfred);
-
-
-        // ================ COP ================ //
-        string[] cop = new string[]
-		{
-			/*0*/ "\"Stand back!\"",
-			/*1*/ "\"Go home, kid.\""
-			
-			
-		};
-        AddNpc(77, "Guard", "Cop", cop);
-        gameManager.allObjects[77].dialogues[0].choices = new Choice[]
-		{
-			AddChoice("What's going on?", ChoiceAction.CONTINUE, 77, 1)
-		};
 
         // ================ ITEMS & OBJECTS ================ //
 

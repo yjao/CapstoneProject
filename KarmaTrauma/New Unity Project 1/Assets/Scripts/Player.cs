@@ -187,6 +187,10 @@ public class Player : MonoBehaviour
         {
             locationString = "Mall";
         }
+        if (coll.gameObject.name == "Hospital")
+        {
+            locationString = "Hospital";
+        }
         if (coll.gameObject.tag == "MainStreet")
         {
             locationString = "MainStreet";
@@ -202,6 +206,10 @@ public class Player : MonoBehaviour
         if (coll.gameObject.tag == "PoliceStation")
         {
             locationString = "PoliceStation";
+        }
+        if (coll.gameObject.tag == "Apartment")
+        {
+            locationString = "Apartment";
         }
 
     }
@@ -290,6 +298,14 @@ public class Player : MonoBehaviour
             if (locationString == "PoliceStation")
             {
                 SceneManager.instance.LoadScene("G_PoliceStation");
+            }
+            if (locationString == "Apartment")
+            {
+                SceneManager.instance.LoadScene("G_Apartment");
+            }
+            if (locationString == "Hospital")
+            {
+                SceneManager.instance.LoadScene("G_Hospital");
             }
             // Not on any location
             if (locationString =="")

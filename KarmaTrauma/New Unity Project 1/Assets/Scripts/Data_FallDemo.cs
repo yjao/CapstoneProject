@@ -197,9 +197,9 @@ public class Data_FallDemo : DataLoader
         #endregion
         // Alfred's son's quest
         // Meet Alex
-        ql.AddQuest(75,1,7,"none","none","none","MeetAlex");
+      //  ql.AddQuest(75,1,7,"none","none","none","MeetAlex");
         // Convince Alex
-        ql.AddQuest(75, 7, 8, "MeetAlex", "none", "Alfred's Jewel", "Convince Alfred's Son");
+    //    ql.AddQuest(75, 7, 8, "MeetAlex", "none", "Alfred's Jewel", "Convince Alfred's Son");
       
 	}
 

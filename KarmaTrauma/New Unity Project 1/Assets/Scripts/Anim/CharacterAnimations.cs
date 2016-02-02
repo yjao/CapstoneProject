@@ -75,6 +75,7 @@ public class CharacterAnimations : MonoBehaviour
     }
 
 	public bool active = true;
+	public bool facePlayerOnInteraction = true;
     public string atlasName;
     public float animationSpeed = 0.05f;
     public States startingAnimationState;
@@ -112,7 +113,7 @@ public class CharacterAnimations : MonoBehaviour
         }
         set
         {
-			if (!active) { return; }
+			if (!active || !facePlayerOnInteraction) { return; }
 
             if (m_animation_state != value)
             {

@@ -77,8 +77,6 @@ public class MainMenu : MonoBehaviour
 
 	IEnumerator ExitPrologue()
 	{
-		DontDestroyOnLoad(this);
-
 		Application.LoadLevel(SceneManager.SCENE_MAINSTREET);
 		yield return null;
 

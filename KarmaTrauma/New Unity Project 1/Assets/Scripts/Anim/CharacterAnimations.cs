@@ -70,8 +70,8 @@ public class CharacterAnimations : MonoBehaviour
         DOWN_IDLE, DOWN_WALK, DOWN_DANCE, DOWN_STRETCH, DOWN_SWING, DOWN_BOW,
         UP_IDLE, UP_WALK, UP_DANCE, UP_STRETCH, UP_SWING, UP_BOW,
         LEFT_IDLE, LEFT_WALK, LEFT_DANCE, LEFT_STRETCH, LEFT_SWING, LEFT_BOW,
-        RIGHT_IDLE, RIGHT_WALK, RIGHT_DANCE, RIGHT_STRETCH, RIGHT_SWING, RIGHT_BOW,
-        FALL, FALLEN, SLEEPING
+		RIGHT_IDLE, RIGHT_WALK, RIGHT_DANCE, RIGHT_STRETCH, RIGHT_SWING, RIGHT_BOW,
+		FALL, FALLEN, SLEEPING, RIGHT_PRAY
     }
 
 	public bool active = true;
@@ -236,6 +236,11 @@ public class CharacterAnimations : MonoBehaviour
                 rangeStart = rightBowStart;
                 rangeEnd = rightBowEnd;
                 break;
+
+			case States.RIGHT_PRAY:
+				rangeStart = rightStretchStart + 1;
+				rangeEnd = rightStretchStart + 3;
+				break;
 
             case States.FALL:
                 rangeStart = fallStart;

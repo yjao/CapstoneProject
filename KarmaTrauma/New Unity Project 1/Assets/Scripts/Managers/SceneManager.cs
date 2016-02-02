@@ -98,9 +98,10 @@ public class SceneManager : MonoBehaviour
                 InteractableObject IO = child.GetComponent<InteractableObject>();
 				if (IO == null)
 				{
-					break;
+					break; //<-- should this be "continue" (i.e. next item in for loop) instead of break?
 				}
-                if (IO.interactionType == InteractableObject.InteractionType.ITEM)
+				if ((IO.iD >= 100) && (IO.iD < 200))
+                //if (IO.interactionType == InteractableObject.InteractionType.ITEM)
                 {
                     if (gameManager.dayData.DataDictionary.ContainsKey(gameManager.allItems[IO.iD].Name))
                     {

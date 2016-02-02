@@ -317,7 +317,7 @@ public class GameManager : MonoBehaviour
 	            CreateMessage("Day "+(playerData.daysPassed+1)+".", true);
 			}
             transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
-			SceneManager.instance.LoadScene();
+			SceneManager.instance.LoadScene(SceneManager.SCENE_HOUSE);
             return true;
         }
    
@@ -328,7 +328,7 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log("prevgameClock: " + gameClock);
         gameClock += 2;
-        Debug.Log("gameClock: " + gameClock);
+        //Debug.Log("gameClock: " + gameClock);
     }
 
     public void SetTime(int time)

@@ -182,7 +182,7 @@ public class Player : MonoBehaviour
 	#endregion
     void OnTriggerEnter2D(Collider2D coll)
     {
-        Debug.Log(coll);
+        //Debug.Log(coll);
         if (coll.gameObject.name == "Mall")
         {
             locationString = "Mall";

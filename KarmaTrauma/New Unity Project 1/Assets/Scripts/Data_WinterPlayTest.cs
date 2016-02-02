@@ -101,8 +101,8 @@ public class Data_WinterPlayTest : DataLoader
         string[] dog = new string[]
 		{
             /*0*/ "\"Woof\"",
-            /*1*/ "\"(You give the dog some bacon)\"",
-            /*2*/ "\"(The dog appears to be following you)\""
+            /*1*/ "(You give the dog some bacon)",
+            /*2*/ "(The dog appears to be following you)"
         };
         AddNpc(24, "Dog", "Dog", dog);
         gameManager.allObjects[24].dialogues[0].choices = new Choice[]
@@ -117,7 +117,7 @@ public class Data_WinterPlayTest : DataLoader
 
         string[] bacon = new string[]
         {
-            /*0*/ "\"There's some bacon here\""
+            /*0*/ "Mom left some bacon here. It doesn't look very appetizing."
         };
         AddNpc(110, "Bacon", "Bacon", bacon);
         gameManager.allObjects[110].dialogues[0].choices = new Choice[]
@@ -213,7 +213,7 @@ public class Data_WinterPlayTest : DataLoader
 		sceneName = SceneManager.SCENE_HOUSE;
 
 		// ======================== BACON ======================== //
-		AddParameters(sceneName, new InteractableObject.Parameters()
+		/*AddParameters(sceneName, new InteractableObject.Parameters()
 	    	{
 				// Specify the time frames that this set takes effect
 				timeBlocks = new List<int>() { 8, 10, 12, 14, 16, 18, 20, 22 },
@@ -221,7 +221,7 @@ public class Data_WinterPlayTest : DataLoader
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
 				NpcID = 110
-			});
+			});*/
 
 
 		sceneName = SceneManager.SCENE_PARK;
@@ -450,7 +450,6 @@ public class Data_WinterPlayTest : DataLoader
 
 				// NPC CharacterAnimations
 				startingAnimationState = CharacterAnimations.States.FALLEN,
-				animationSpeed = 0.0f,
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
@@ -483,7 +482,7 @@ public class Data_WinterPlayTest : DataLoader
 
 			// Getter/Setter variables, NpcID is required
 			Summary = "",
-			NpcID = 120
+			NpcID = 220
 		});
 
 
@@ -649,7 +648,6 @@ public class Data_WinterPlayTest : DataLoader
 
 				// NPC CharacterAnimations
 				startingAnimationState = CharacterAnimations.States.SLEEPING,
-				animationSpeed = 0f,
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
@@ -665,6 +663,10 @@ public class Data_WinterPlayTest : DataLoader
 				// InteractableObject dialogue information
 				dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
 				dialogueIDMin = 3,  dialogueIDMax = 5,
+
+				// NPC CharacterAnimations
+				startingAnimationState = CharacterAnimations.States.RIGHT_PRAY,
+				animationSpeed = 1f,
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",

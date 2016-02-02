@@ -38,7 +38,7 @@ public class QuestList : MonoBehaviour
     */
     public void CheckQuest(InteractableObject obj)
     {
-        Debug.Log(Qlist.Count);
+        //Debug.Log(Qlist.Count);
         // Iterate thorugh all the quests in the quest list
         for (int i = 0; i < Qlist.Count; i++)
         {

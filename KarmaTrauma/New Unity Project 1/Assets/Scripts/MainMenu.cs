@@ -18,6 +18,14 @@ public class MainMenu : MonoBehaviour
 
     }
 
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			MainGameDemo();
+		}
+	}
+
     public void ExitPress() //this function will be used on our Exit button
     {
       //  quitMenu.enabled = true; //enable the Quit menu when we click the Exit button

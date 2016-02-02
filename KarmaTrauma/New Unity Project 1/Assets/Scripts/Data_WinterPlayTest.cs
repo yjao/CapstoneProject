@@ -191,6 +191,19 @@ public class Data_WinterPlayTest : DataLoader
         
         #endregion
 
+		sceneName = SceneManager.SCENE_HOUSE;
+
+		// ======================== BACON ======================== //
+		AddParameters(sceneName, new InteractableObject.Parameters()
+	    	{
+				// Specify the time frames that this set takes effect
+				timeBlocks = new List<int>() { 8, 10, 12, 14, 16, 18, 20, 22 },
+				
+				// Getter/Setter variables, NpcID is required
+				Summary = "",
+				NpcID = 110
+			});
+
 
 		sceneName = SceneManager.SCENE_PARK;
 
@@ -349,6 +362,9 @@ public class Data_WinterPlayTest : DataLoader
 				dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
 				dialogueIDSingle = 11,
 
+				// NPC CharacterAnimations
+				startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
 				NpcID = 23
@@ -364,6 +380,9 @@ public class Data_WinterPlayTest : DataLoader
 				dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
 				dialogueIDSingle = 6,
 
+				// NPC CharacterAnimations
+				startingAnimationState = CharacterAnimations.States.UP_IDLE,
+
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
 				NpcID = 11
@@ -378,6 +397,9 @@ public class Data_WinterPlayTest : DataLoader
 				// InteractableObject dialogue information
 				dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
 				dialogueIDMin = 4, dialogueIDMax = 5,
+
+				// NPC CharacterAnimations
+				startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
@@ -433,6 +455,17 @@ public class Data_WinterPlayTest : DataLoader
 				Summary = "",
 				NpcID = 3
 			});
+
+		// ======================== CONES ======================== //
+		AddParameters(sceneName, new InteractableObject.Parameters()
+		              {
+			// Specify the time frames that this set takes effect
+			timeBlocks = new List<int>() { 20 },
+
+			// Getter/Setter variables, NpcID is required
+			Summary = "",
+			NpcID = 120
+		});
 
 
 		sceneName = SceneManager.SCENE_MALL;

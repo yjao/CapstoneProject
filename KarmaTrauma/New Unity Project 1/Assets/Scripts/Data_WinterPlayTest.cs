@@ -101,11 +101,30 @@ public class Data_WinterPlayTest : DataLoader
         string[] dog = new string[]
 		{
             /*0*/ "\"Woof\"",
+            /*1*/ "\"(You give the dog some bacon)\"",
+            /*2*/ "\"(The dog appears to be following you)\""
         };
         AddNpc(24, "Dog", "Dog", dog);
+        gameManager.allObjects[24].dialogues[0].choices = new Choice[]
+		{
+            AddChoice("Feed the dog bacon", ChoiceAction.CONTINUE, 24, 1, checkboolname: "Bacon")
+        };
+        AddToDialogue(24, 1, ChoiceContinueDialog(24, 2));
+        AddToDialogue(24, 2, ChoiceInteractItem(24));
 
 
         // ================ ITEMS & OBJECTS ================ //
+
+        string[] bacon = new string[]
+        {
+            /*0*/ "\"There's some bacon here\""
+        };
+        AddNpc(110, "Bacon", "Bacon", bacon);
+        gameManager.allObjects[110].dialogues[0].choices = new Choice[]
+        {
+            AddChoice("Leave it alone"),
+            AddChoice("Take the bacon", ChoiceAction.ITEM, 110)
+        };
 
         string[] bed = new string[]
 		{

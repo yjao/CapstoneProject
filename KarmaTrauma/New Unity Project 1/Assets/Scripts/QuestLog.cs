@@ -16,6 +16,7 @@ public class QuestLog : MonoBehaviour
 
     int pointer;
 
+    private List<string> q_log;
     // Use this for initialization
     void Start()
     {
@@ -23,6 +24,7 @@ public class QuestLog : MonoBehaviour
         pointer = 0;
         q_i = 0;
         q_l = 0;
+        q_log = new List<string>();
 
         gameManager = GameManager.instance;
 
@@ -59,12 +61,22 @@ public class QuestLog : MonoBehaviour
                     z.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f + .14f * x), (.84f - .13f * y));
                     z.name = "QuestPanel" + y;
 
-                    if (gameManager.questList.Count != 0 && q_l < gameManager.questList.Count)
-                    {
-
-                        transform.Find("QuestPanel0").transform.Find("QuestText").GetComponent<Text>().text = gameManager.questList[q_l][0];
-                        ++q_l;
-                    }
+                    //foreach (string key in gameManager.questList.Keys)
+                    //{
+                    //    if (!(q_log.Contains(key)))
+                    //    {
+                    //        q_log.Add(key);
+                    //    }
+                    //}
+                    //if (gameManager.questList.Count != 0 && q_l < gameManager.questList.Count)
+                    //{
+                    //    Debug.Log("ql " + q_l);
+                    //    for (int quest = 0; quest < gameManager.questList.Count && quest < 5; ++quest)
+                    //    {
+                    //        transform.Find("QuestPanel" + q_l).transform.Find("QuestText").GetComponent<Text>().text = q_log[q_l];
+                    //        ++q_l;
+                    //    }
+                    //}
 
                 }
             }
@@ -74,12 +86,27 @@ public class QuestLog : MonoBehaviour
 
     public void display()
     {
-
+        //Debug.Log("q_l" + q_l);
+        Debug.Log("index " + q_i);
+        Debug.Log("questlist count: " + gameManager.questList.Count);
+        foreach(string key in gameManager.questList.Keys)
+        {
+            if (!(q_log.Contains(key)))
+            {
+                q_log.Add(key);
+            }
+        }
+        Debug.Log("q_log " + q_log.Count);
         if (gameManager.questList.Count != 0 && q_l < gameManager.questList.Count)
         {
+            //transform.Find("QuestPanel" + q_l).transform.Find("QuestText").GetComponent<Text>().text = q_log[q_l];
+            //++q_l;
+            //Debug.Log("q_l " + q_l);
             for (int quest = 0; quest < gameManager.questList.Count && quest < 5; ++quest)
-                transform.Find("QuestPanel" + quest).transform.Find("QuestText").GetComponent<Text>().text = gameManager.questList[q_l][0];
-            ++q_l;
+            {
+                transform.Find("QuestPanel" + q_l).transform.Find("QuestText").GetComponent<Text>().text = q_log[q_l];
+                ++q_l;
+            }
         }
     }
 
@@ -90,12 +117,13 @@ public class QuestLog : MonoBehaviour
         transform.Find("QuestSelect").transform.GetComponent<RectTransform>().anchorMax = new Vector2((.8f), (.95f - .13f * pointer));
         transform.Find("QuestSelect").transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f), (.84f - .13f * pointer));
         transform.Find("QuestSelect").SetAsLastSibling();
- 
-        if (gameManager.questList.Count != 0 && gameManager.questList.Count > q_i)
+
+        
+        if (q_log.Count > q_i && gameManager.questList.Count != 0 && gameManager.questList.Count > q_i)
         {
-            Debug.Log("index " + q_i);
-            string NPCName = (gameManager.questList[q_i])[1];
-            string dialog = (gameManager.questList[q_i])[2];
+            Debug.Log("in here");
+            string NPCName = (gameManager.questList[q_log[q_i]])[0];
+            string dialog = (gameManager.questList[q_log[q_i]])[1];
     
             DrawDescription(NPCName, dialog);
         }

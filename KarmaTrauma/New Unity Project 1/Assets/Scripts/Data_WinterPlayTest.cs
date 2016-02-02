@@ -206,7 +206,7 @@ public class Data_WinterPlayTest : DataLoader
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
-				NpcID = 105
+				NpcID = 24
 			});
 		
 		// ======================== RAE ======================== //
@@ -323,7 +323,7 @@ public class Data_WinterPlayTest : DataLoader
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
-				NpcID = 105
+				NpcID = 24
 			});
 
 		// ======================== RAE ======================== //
@@ -449,7 +449,7 @@ public class Data_WinterPlayTest : DataLoader
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
-				NpcID = 105
+				NpcID = 24
 			});
 
 		// ======================== RAE ======================== //

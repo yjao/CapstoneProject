@@ -10,6 +10,7 @@ public class Data_WinterPlayTest : DataLoader
         LoadQuestTerms();
         LoadQuestData();
         LoadSceneData();
+        LoadOutcomeData();
     }
 
     private void LoadNpcData()
@@ -483,4 +484,27 @@ public class Data_WinterPlayTest : DataLoader
         AddParameters(sceneName, alex);
     }
 
+    private void LoadOutcomeData()
+    {
+        #region EMPTY_TEMPLATE
+        /*
+        AddOutcome(
+            "Name of the boolean to check",
+            "Text to display on screen if the boolean is true",
+            "Text to display on screen if the boolean is false");
+        */
+        #endregion
+        AddOutcome(
+            "TestJewelOutcome",
+            "You have found the jewel of ultimate power. Now you set off on your quest to rule the world",
+            "The jewel broke and made you sad.");
+        AddOutcome(
+            "TestPeanutButterOutcome",
+            "You ate some delicious peanut butter. Yum",
+            "Without peanut butter, you fall into a deep depression and starved to death");
+        AddOutcome(
+            "NoOutcomeHere",
+            "blank",
+            "blank");
+    }
 }

@@ -118,4 +118,8 @@ public class DataLoader
 		gameManager.sceneParameters[sceneName].Add(parameters);
 	}
 
+    protected void AddOutcome(string booleanName, string trueText, string falseText)
+    {
+        gameManager.outcomeList.Add(new OutcomeManager.outcome(booleanName, trueText, falseText));
+    }
 }

@@ -93,7 +93,7 @@ public class QuestList : MonoBehaviour
                             else
                             {
                                 Debug.Log("Dialogue in progress");
-                                io.dialogueIDSingle = temp.dialogue_in_progress;
+                               // io.dialogueIDSingle = temp.dialogue_in_progress;
                             }
                             if (temp.itemTurnedIn == false)
                             {
@@ -118,7 +118,6 @@ public class QuestList : MonoBehaviour
                         {
                             io.dialogueIDSingle = temp.dialogue_change;
                             pl.SetBool(temp.changeBool);
-                            Debug.Log(temp.changeBool);
                             pl.FinishQuest(temp.questName);
                             temp.completed = true;
                             Debug.Log("QuestCompleted");

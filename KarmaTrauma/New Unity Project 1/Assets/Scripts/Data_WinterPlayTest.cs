@@ -106,17 +106,6 @@ public class Data_WinterPlayTest : DataLoader
 
         // ================ ITEMS & OBJECTS ================ //
 
-        string[] jewel = new string[]
-		{
-			/*0*/ "\"Hello.\""
-			/*1*/ 
-			/*2*/ 
-			/*3*/ 
-		};
-        AddNpc(2, "Jewel", "Jewel", jewel);
-
-        //GameManager.Instance.AllObjects[74].Dialogue[1].setbool = "JeneyHungry";
-
         string[] bed = new string[]
 		{
 			/*0*/ "\"Sleep and end the day?\""

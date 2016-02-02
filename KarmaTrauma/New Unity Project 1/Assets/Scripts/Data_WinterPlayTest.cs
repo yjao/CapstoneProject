@@ -235,6 +235,35 @@ public class Data_WinterPlayTest : DataLoader
         */
         #endregion
 
+		sceneName = SceneManager.SCENE_MAINSTREET;
+
+		AddParameters(sceneName, new InteractableObject.Parameters()
+		{
+			// Specify the time frames that this set takes effect
+			timeBlocks = new List<int>() { 8, 10 },
+			
+			// InteractableObject dialogue information
+			dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+			dialogueIDSingle = 0,
+			dialogueIDMin = 0,  dialogueIDMax = 0,
+			dialogueIDMulti = new List<int>() {  },
+
+			// NPC CharacterAnimations
+			startingAnimationState = CharacterAnimations.States.DOWN_IDLE,
+			animationSpeed = 0f,
+			wanderDistanceX = 0f,  wanderDirectionX = 0,
+			wanderDistanceY = 0f,  wanderDirectionY = 0,
+
+			// Getter/Setter variables, NpcID is required
+			Summary = "",
+			NpcID = 105
+		});
+
+
+		sceneName = SceneManager.SCENE_PARK;
+		sceneName = SceneManager.SCENE_MALL;
+		sceneName = SceneManager.SCENE_POLICE;
+
         sceneName = SceneManager.SCENE_HOUSE;
 
         // ================ MOM ================ //

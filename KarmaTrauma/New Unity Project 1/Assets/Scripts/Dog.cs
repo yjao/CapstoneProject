@@ -12,6 +12,9 @@ public class Dog : MonoBehaviour {
     private int right_idle = 7;
     private int left_idle = 8;
 
+    private int interacted = 9;
+    private int check = 10;
+
     private int counter = 0;
 
     private int animationState;
@@ -73,4 +76,34 @@ public class Dog : MonoBehaviour {
             }
         }
 	}
+
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            animationState = interacted;
+            if (coll.transform.position.x > transform.position.x)
+            {
+                animator.SetInteger("AnimationState", right_idle);
+                check = 11;
+            }
+            else
+            {
+                animator.SetInteger("AnimationState", left_idle);
+                check = 12;
+            }
+        }
+    }
+    void OnTriggerExit2D(Collider2D coll)
+    {
+        if (check == 11)
+        {
+            animationState = 8;
+        }
+        else if (check == 12)
+        {
+            animationState = 7;
+        }
+        check = 10;
+    }
 }

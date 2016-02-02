@@ -151,15 +151,21 @@ public class Data_WinterPlayTest : DataLoader
          *  changebool : What boolean gets changed once you finish the quest       Leave it as "none" if nothing is changed afterwards
          *  required_item : Item you need in order to finish the quest             Leave it as "none" if nothing is required
          *  questName : name of this quest
+         *  Time : When the quest is accessible : 0 for anytime, otherwise, list timeblocks i.e. {6,8,10}
          */
         //   ql.AddQuest(NPC_ID, dialogue_in_progress, dialogue_change, requirement, changeBool, required_item, questName);
 
         #endregion
         // Alfred's son's quest
         // Meet Alex
-        ql.AddQuest(75, 1, 7, "none", "none", "none", "MeetAlex");
+       // ql.AddQuest(75, 1, 7, "none", "none", "none", "MeetAlex");
         // Convince Alex
-        ql.AddQuest(75, 7, 8, "MeetAlex", "none", "Alfred's Jewel", "Convince Alfred's Son");
+      //  ql.AddQuest(75, 7, 8, "MeetAlex", "none", "Alfred's Jewel", "Convince Alfred's Son");
+
+        ql.AddQuest(11, 1, 1, "none", "LostDog", "none", "HankMorning",new List<int>{12,14});
+        ql.AddQuest(11, 3, 3, "none", "DogCanDig", "none", "HankAfternoon", new List<int> {16});
+
+        
 
     }
 

@@ -74,7 +74,8 @@ public class Data_WinterPlayTest : DataLoader
             /*7*/ "\"Ugh...Go away, kid. Don't you see that I'm about to go to bed?\"",
         };
         AddNpc(11, "Park Ranger", "Hank", hank);
-
+        AddBooleanToDialogue(11, 1, "LostDog");
+        AddBooleanToDialogue(11, 3, "DogCanDig");
 
         // ================ RAE ================ //
         string[] rae = new string[]
@@ -94,7 +95,7 @@ public class Data_WinterPlayTest : DataLoader
 			
 		};
         AddNpc(23, "Crying Girl", "Rae", rae);
-        
+        AddBooleanToDialogue(23, 0, "LostDog");
 
         // ================ DOGE ================ //
         string[] dog = new string[]
@@ -105,17 +106,6 @@ public class Data_WinterPlayTest : DataLoader
 
 
         // ================ ITEMS & OBJECTS ================ //
-
-        string[] jewel = new string[]
-		{
-			/*0*/ "\"Hello.\""
-			/*1*/ 
-			/*2*/ 
-			/*3*/ 
-		};
-        AddNpc(2, "Jewel", "Jewel", jewel);
-
-        //GameManager.Instance.AllObjects[74].Dialogue[1].setbool = "JeneyHungry";
 
         string[] bed = new string[]
 		{
@@ -151,15 +141,21 @@ public class Data_WinterPlayTest : DataLoader
          *  changebool : What boolean gets changed once you finish the quest       Leave it as "none" if nothing is changed afterwards
          *  required_item : Item you need in order to finish the quest             Leave it as "none" if nothing is required
          *  questName : name of this quest
+         *  Time : When the quest is accessible : 0 for anytime, otherwise, list timeblocks i.e. {6,8,10}
          */
         //   ql.AddQuest(NPC_ID, dialogue_in_progress, dialogue_change, requirement, changeBool, required_item, questName);
 
         #endregion
         // Alfred's son's quest
         // Meet Alex
-        ql.AddQuest(75, 1, 7, "none", "none", "none", "MeetAlex");
+       // ql.AddQuest(75, 1, 7, "none", "none", "none", "MeetAlex");
         // Convince Alex
-        ql.AddQuest(75, 7, 8, "MeetAlex", "none", "Alfred's Jewel", "Convince Alfred's Son");
+      //  ql.AddQuest(75, 7, 8, "MeetAlex", "none", "Alfred's Jewel", "Convince Alfred's Son");
+
+        ql.AddQuest(11, 1, 1, "none", "LostDog", "none", "HankMorning",new List<int>{12,14});
+        ql.AddQuest(11, 3, 3, "none", "DogCanDig", "none", "HankAfternoon", new List<int> {16});
+
+        
 
     }
 
@@ -210,7 +206,7 @@ public class Data_WinterPlayTest : DataLoader
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
-				NpcID = 105
+				NpcID = 24
 			});
 		
 		// ======================== RAE ======================== //
@@ -327,7 +323,7 @@ public class Data_WinterPlayTest : DataLoader
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
-				NpcID = 105
+				NpcID = 24
 			});
 
 		// ======================== RAE ======================== //
@@ -412,7 +408,7 @@ public class Data_WinterPlayTest : DataLoader
 				dialogueIDMin = 7, dialogueIDMax = 9,
 
 				// NPC CharacterAnimations
-				startingAnimationState = CharacterAnimations.States.FALL,
+				startingAnimationState = CharacterAnimations.States.FALLEN,
 				animationSpeed = 0.0f,
 
 				// Getter/Setter variables, NpcID is required
@@ -453,7 +449,7 @@ public class Data_WinterPlayTest : DataLoader
 
 				// Getter/Setter variables, NpcID is required
 				Summary = "",
-				NpcID = 105
+				NpcID = 24
 			});
 
 		// ======================== RAE ======================== //
@@ -600,7 +596,7 @@ public class Data_WinterPlayTest : DataLoader
 				dialogueIDSingle = 10,
 
 				// NPC CharacterAnimations
-				startingAnimationState = CharacterAnimations.States.DOWN_STRETCH,
+				startingAnimationState = CharacterAnimations.States.SLEEPING,
 				animationSpeed = 0f,
 
 				// Getter/Setter variables, NpcID is required

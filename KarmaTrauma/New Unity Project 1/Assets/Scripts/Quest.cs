@@ -10,11 +10,12 @@ public class Quest : MonoBehaviour {
     public int dialogue_in_progress;
     public int dialogue_change;
     public string changeBool = "none";
+    //public List<int> timeBlocks;
 	// Use this for initialization
     void Start()
     {
             QuestList ql = GameManager.instance.GetComponent<QuestList>();
-            ql.AddQuest(NPC_ID, dialogue_in_progress,dialogue_change, requirement, changeBool,required_item, questName);
+            //ql.AddQuest(NPC_ID, dialogue_in_progress,dialogue_change, requirement, changeBool,required_item, questName,timeBlocks);
 	}
 	void OnEnable()
     {

@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         //item stuff
         allItems = new Dictionary<int, Item>()
 	    {
-            { 105, new Item("Lost Dog", "A lost dog. It seems to really like bacon.", "RaesDog")},
+            { 24, new Item("Lost Dog", "A lost dog. It seems to really like bacon.", "RaesDog")},
 			{ 150, new Item("Jewel", "Quit stealing jewels already", "jewel")},
             { 151, new Item("TestJewel", "IM NOT EVEN AN ITEM", "jewel")},
             { 110, new Item("Bacon", "Maybe you could feed this to someone", "baconAndEggs")},

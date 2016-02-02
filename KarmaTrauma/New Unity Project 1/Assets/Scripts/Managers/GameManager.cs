@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     //Questlist in the form of List<[keyword , NPCName, dialogue]>
     
     public List<string[]> questList;
+    public List<OutcomeManager.outcome> outcomeList;
 	#region CONSTANT VALUES
 
 	public const char QUEST_KEYWORD = '#';
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
 		questTerms = new Dictionary<string, string>();
 		sceneParameters = new Dictionary<string, List<InteractableObject.Parameters>>();
         questList = new List<string[]>();
+        outcomeList = new List<OutcomeManager.outcome>();
 
         // Bind events
         EventManager.OnItemPickup += ItemPickup;

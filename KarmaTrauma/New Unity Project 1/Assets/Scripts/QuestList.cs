@@ -121,6 +121,7 @@ public class QuestList : MonoBehaviour
                             pl.FinishQuest(temp.questName);
                             temp.completed = true;
                             Debug.Log("QuestCompleted");
+                            Application.LoadLevel("Outcome_Screen");
                         }
 
 

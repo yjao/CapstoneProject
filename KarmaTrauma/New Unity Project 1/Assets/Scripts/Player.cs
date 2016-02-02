@@ -195,6 +195,15 @@ public class Player : MonoBehaviour
         {
             locationString = "House";
         }
+        if (coll.gameObject.tag == "Park")
+        {
+            locationString = "Park";
+        }
+        if (coll.gameObject.tag == "PoliceStation")
+        {
+            locationString = "PoliceStation";
+        }
+
     }
     void OnTriggerExit2D(Collider2D coll)
     {
@@ -273,6 +282,14 @@ public class Player : MonoBehaviour
             if (locationString == "House")
             {
                 SceneManager.instance.LoadScene("G_House");
+            }
+            if (locationString == "Park")
+            {
+                SceneManager.instance.LoadScene("G_Park");
+            }
+            if (locationString == "PoliceStation")
+            {
+                SceneManager.instance.LoadScene("G_PoliceStation");
             }
             // Not on any location
             if (locationString =="")

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\LocationArrow.cs" />
+     <Compile Include="Assets\OutcomeManager.cs" />
      <Compile Include="Assets\Packages\TileSprite\Scripts\TileSprite.cs" />
      <Compile Include="Assets\Scripts\Anim\CharacterAnimations.cs" />
      <Compile Include="Assets\Scripts\Camera.cs" />
@@ -53,6 +54,7 @@
      <Compile Include="Assets\Scripts\DataLoader.cs" />
      <Compile Include="Assets\Scripts\Data_FallDemo.cs" />
      <Compile Include="Assets\Scripts\Data_OldStuff.cs" />
+     <Compile Include="Assets\Scripts\Data_WinterPlayTest.cs" />
      <Compile Include="Assets\Scripts\DayData.cs" />
      <Compile Include="Assets\Scripts\Door.cs" />
      <Compile Include="Assets\Scripts\GameEventArgs.cs" />

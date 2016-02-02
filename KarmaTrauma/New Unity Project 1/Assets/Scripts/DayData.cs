@@ -42,7 +42,9 @@ public class DayData
 	public Dictionary<string, bool> DataDictionary = new Dictionary<string, bool>()
 	{
 		//{"GimmeJewel", false},
-		{"JeneyHungry", false}
+		{"JeneyHungry", false},
+        {"TestJewelOutcome", false},
+        {"TestPeanutButterOutcome", true},
 	};
 	
 	public void SetBool(string boolName, bool value=true)

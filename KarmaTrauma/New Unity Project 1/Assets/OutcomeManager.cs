@@ -5,7 +5,7 @@ using System.Collections;
 public class OutcomeManager : MonoBehaviour
 {
 
-    private class outcome
+    public class outcome
     {
         public string BooleanName;
         public string True_text;
@@ -34,22 +34,11 @@ public class OutcomeManager : MonoBehaviour
     void Start()
     {
         GameManager.instance.transform.Find("Menu_layout").gameObject.SetActive(false);
-        outcome[] outcomes = new outcome[]{
-            new outcome ("TestJewelOutcome",
-                        "You have found the jewel of ultimate power. Now you set off on your quest to rule the world",
-                        "The jewel broke and made you sad."),
-            new outcome ("TestPeanutButterOutcome",
-                        "You ate some delicious peanut butter. Yum",
-                        "Without peanut butter, you fall into a deep depression and starved to death"),
-            new outcome ("NoOutcomeHere",
-                        "blank",
-                        "blank")
-        };
-        for (int i = 0; i < outcomes.Length; i++)
+        for (int i = 0; i < GameManager.instance.outcomeList.Count; i++)
         {
-            if (GameManager.instance.HasData(outcomes[i].BooleanName))
+            if (GameManager.instance.HasData(GameManager.instance.outcomeList[i].BooleanName))
             {
-                WriteToOutcome(outcomes[i].getText(GameManager.instance.GetData(outcomes[i].BooleanName)));
+                WriteToOutcome(GameManager.instance.outcomeList[i].getText(GameManager.instance.GetData(GameManager.instance.outcomeList[i].BooleanName)));
             }
         }
     }

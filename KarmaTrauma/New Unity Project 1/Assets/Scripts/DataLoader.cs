@@ -33,8 +33,8 @@ public class DataLoader
 		Debug.Log("Loading Game Data");
 
 		// Put in your test Data_ scripts here. Comment out the ones you don't need.
-		var d1 = new Data_FallDemo();
-
+		//var d1 = new Data_FallDemo();
+        var d2 = new Data_WinterPlayTest();
 		Debug.Log("Loading Complete");
 		gameManager.SaveGameData();
 	}

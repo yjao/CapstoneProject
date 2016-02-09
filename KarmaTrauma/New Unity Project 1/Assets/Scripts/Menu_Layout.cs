@@ -92,7 +92,6 @@ public class Menu_Layout : MonoBehaviour
     {
         if (gameManager.GetTimeAsInt() < 22)
         {
-            Debug.Log("getting called");
             gameManager.IncreaseTime();
         }
     }
@@ -158,7 +157,7 @@ public class Menu_Layout : MonoBehaviour
 
             }
 
-            else if (Input.GetKeyDown(KeyCode.Q))
+            else if (Input.GetKeyDown(KeyCode.M))
             {
                 M_Diary();
 

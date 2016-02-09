@@ -35,7 +35,8 @@ public class GameManager : MonoBehaviour
     public List<OutcomeManager.outcome> outcomeList;
 
     private bool reset;
-
+    public bool has_text_box;
+   
 	#region CONSTANT VALUES
 
 	public const char QUEST_KEYWORD = '#';
@@ -204,6 +205,7 @@ public class GameManager : MonoBehaviour
 
     public void CreateDialogue(string name, Dialogue message, int id)
     {
+     
         GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
         dialog.GetComponent<Textbox>().Dialog = message;
         dialog.GetComponent<Textbox>().DrawBox(name, message.text, id);
@@ -246,6 +248,7 @@ public class GameManager : MonoBehaviour
 
     public void EnterDialogue()
     {
+        has_text_box = true;
 		if (gameMode != GameMode.DIALOGUE)
 		{
         	prevMode = gameMode;
@@ -255,9 +258,11 @@ public class GameManager : MonoBehaviour
 
     public void ExitDialogue()
     {
+        
         GameMode oldGameMode = gameMode;
         gameMode = prevMode;
         prevMode = oldGameMode;
+        has_text_box = false;
     }
 
     #endregion
@@ -507,4 +512,5 @@ public class GameManager : MonoBehaviour
 		obj.GetComponent<Stairs>().active = true;
         GameManager.instance.SetDayData(args.String, true);
 	}
+
 }

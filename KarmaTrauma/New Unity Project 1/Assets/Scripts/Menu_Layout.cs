@@ -92,6 +92,7 @@ public class Menu_Layout : MonoBehaviour
     {
         if (gameManager.GetTimeAsInt() < 22)
         {
+            Debug.Log("getting called");
             gameManager.IncreaseTime();
         }
     }
@@ -149,11 +150,12 @@ public class Menu_Layout : MonoBehaviour
     // Update is called once per frame
     void Update() {
         M_Clock();
-        if (!open_menu)
+        if (!open_menu && !gameManager.has_text_box)
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
                 M_Bag();
+
             }
 
             else if (Input.GetKeyDown(KeyCode.Q))
@@ -161,8 +163,12 @@ public class Menu_Layout : MonoBehaviour
                 M_Diary();
 
             }
+            else if (Input.GetKeyDown(KeyCode.F))
+            {
+                M_Fastforward();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (invenButton_show)
             {
@@ -173,6 +179,8 @@ public class Menu_Layout : MonoBehaviour
                 Close_Diary();
             }
         }
+
+    
 	}
 
 }

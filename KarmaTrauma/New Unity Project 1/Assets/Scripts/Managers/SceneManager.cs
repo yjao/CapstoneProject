@@ -98,7 +98,7 @@ public class SceneManager : MonoBehaviour
                 InteractableObject IO = child.GetComponent<InteractableObject>();
 				if (IO == null)
 				{
-					break; //<-- should this be "continue" (i.e. next item in for loop) instead of break?
+					continue; //<-- should this be "continue" (i.e. next item in for loop) instead of break?
 				}
 				if ((IO.iD >= 100) && (IO.iD < 200))
                 //if (IO.interactionType == InteractableObject.InteractionType.ITEM)
@@ -108,22 +108,18 @@ public class SceneManager : MonoBehaviour
                         if (!gameManager.dayData.DataDictionary[gameManager.allItems[IO.iD].Name])
                         {
                             isActive = true;
-                            break;
+                            continue;
                         }
                     }
                     else
                     {
                         isActive = true;
-                        break;
+                        continue;
                     }
                 }
-                else if (gameManager.dayData.DataDictionary.ContainsKey(IO.activeBool))
+                else if (gameManager.GetData(IO.disableBool))
                 {
-                    if (gameManager.dayData.DataDictionary[IO.activeBool])
-                    {
-                        isActive = true;
-                        break;
-                    }
+                    isActive = false;
                 }
                 else
                 {

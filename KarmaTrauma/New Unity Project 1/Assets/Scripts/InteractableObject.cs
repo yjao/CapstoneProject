@@ -38,8 +38,10 @@ public class InteractableObject : MonoBehaviour
 
 	[Header("How many sets/distinct time blocks?")]
     public Parameters[] parameter;
-    [Header("Boolean to check if object is active")]
-    public string activeBool;
+    [Header("Boolean to check if object is disabled")]
+    public string disableBool;
+    [Header("Is this NPC also an item?")]
+    public bool isItem;
 
     public void Init()
     {
@@ -50,9 +52,9 @@ public class InteractableObject : MonoBehaviour
     void Start()
     {
         Init();
-        if (interactionType == InteractionType.ITEM)
+        if (interactionType == InteractionType.ITEM || isItem)
         {
-            activeBool = gameManager.allItems[iD].Name;
+            disableBool = gameManager.allItems[iD].Name;
         }
     }
 
@@ -99,7 +101,6 @@ public class InteractableObject : MonoBehaviour
                 newIndex = dialogueIDSingle + 1;
                 break;
         }
-
 		if (gameManager.allObjects[iD].dialogues[dialogueIDSingle].TypeIsChoice() || gameManager.allObjects[iD].dialogues[dialogueIDSingle].Action != null)
 		{
 			EventManager.OnDialogChoiceMade += HandleOnDialogChoiceMade;

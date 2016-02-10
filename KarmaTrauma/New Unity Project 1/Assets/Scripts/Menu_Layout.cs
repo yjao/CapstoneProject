@@ -149,7 +149,7 @@ public class Menu_Layout : MonoBehaviour
     // Update is called once per frame
     void Update() {
         M_Clock();
-        if (!open_menu && !gameManager.has_text_box)
+        if (!open_menu && !gameManager.has_text_box && gameManager.gameMode != GameManager.GameMode.NONE)
         {
             if (Input.GetKeyDown(KeyCode.B))
             {

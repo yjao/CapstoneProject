@@ -36,14 +36,9 @@ public class Stairs : MonoBehaviour
 
     void Update()
     {
-        if (colliding == true && Input.GetKey(KeyCode.Space))
+        if (colliding == true && Input.GetKeyDown(KeyCode.Space))
         {
-            c.transform.position = new Vector2(char_positionx, char_positiony);
-
-            if (type == Type.CAMERA)
-            {
-                camera.transform.position = new Vector3(x, y, z);
-            }
+            StartCoroutine(StairsCoroutine());
         }
     }
 
@@ -65,5 +60,18 @@ public class Stairs : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
             colliding = false;
+    }
+
+    IEnumerator StairsCoroutine()
+    {
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+        c.transform.position = new Vector2(char_positionx, char_positiony);
+
+        if (type == Type.CAMERA)
+        {
+            camera.transform.position = new Vector3(x, y, z);
+        }
+        yield return null;
+        yield return StartCoroutine(SceneManager.instance.fade_out());
     }
 }

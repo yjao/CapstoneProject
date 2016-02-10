@@ -9,6 +9,8 @@ public class SceneManager : MonoBehaviour
 
 	private GameManager gameManager;
 
+    private string current_map;
+
 	#region SCENE CONSTANTS
 
 	public const string SCENE_HOUSE = "G_House";
@@ -24,6 +26,7 @@ public class SceneManager : MonoBehaviour
 	#endregion
 
     Dictionary<string, bool> outdoors;
+    Dictionary<string, string> scene_display_names;
 
 	void Start()
 	{
@@ -42,21 +45,25 @@ public class SceneManager : MonoBehaviour
             {SCENE_PARK, true},
             {SCENE_WORLDMAP, true}
         };
+
+        scene_display_names = new Dictionary<string, string>()
+        {
+            {SCENE_HOUSE, "Home"},
+	        {SCENE_CLASS, "Classroom"},
+	        {SCENE_MAINSTREET, "Main Street"},
+	        {SCENE_MALL, "Mall"},
+	        {SCENE_HOSPITAL, "Hospital"},
+            {SCENE_PARK, "Park"},
+            {SCENE_POLICE, "Police Station"},
+            {SCENE_APARTMENT, "Apartments"},
+            {SCENE_WORLDMAP, "World Map"}
+        };
         //gameManager.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
 	}
 
     public void LoadScene(string name=null)
     {
-		if (name != null)
-		{
-			Application.LoadLevel(name);
-            gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(false);
-		}
-
-        if (name == SCENE_WORLDMAP)
-        {
-            gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(true);
-        }
+        current_map = name;
         StartCoroutine("LoadSceneCoroutine");
         //SoundManager.instance.LoadSceneMusic(name);
     }
@@ -89,6 +96,19 @@ public class SceneManager : MonoBehaviour
     IEnumerator LoadSceneCoroutine()
     {
         yield return null;
+        yield return StartCoroutine(fade_black());
+        if (current_map != null)
+        {
+            Application.LoadLevel(current_map);
+            gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(false);
+        }
+
+        if (current_map == SCENE_WORLDMAP)
+        {
+            gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(true);
+        }
+        yield return null;
+        yield return StartCoroutine(map_name());
 		GameObject interactableList = GameObject.Find("InteractableList");
 		if (interactableList!= null)
         {
@@ -154,11 +174,13 @@ public class SceneManager : MonoBehaviour
                 child.gameObject.SetActive(isActive);
             }
         }
-        tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());
+        //tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());
+        yield return StartCoroutine(fade_out());
+        yield return null;
         yield break;
     }
 
-    private void tint_screen(string scene, int time)
+    public void tint_screen(string scene, int time)
     {
         if (outdoors.ContainsKey(scene))
         {
@@ -186,5 +208,53 @@ public class SceneManager : MonoBehaviour
         {
             GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
         }
+    }
+
+    public IEnumerator fade_black()
+    {
+        gameManager.prevMode = gameManager.gameMode;
+        gameManager.gameMode = GameManager.GameMode.NONE;
+        gameManager.transform.Find("Menu_layout").transform.Find("Fade_Panel").gameObject.SetActive(true);
+        Image fade_panel = gameManager.transform.Find("Menu_layout").transform.Find("Fade_Panel").GetComponent<Image>();
+        Color current_color = fade_panel.color;
+        while (fade_panel.color.a <= 1f)
+        {
+            current_color.a += 5f/255f;
+            fade_panel.color = current_color;
+            yield return null;
+        }
+    }
+
+    public IEnumerator fade_out()
+    {
+        Image fade_panel = gameManager.transform.Find("Menu_layout").transform.Find("Fade_Panel").GetComponent<Image>();
+        Color current_color = fade_panel.color;
+        while (fade_panel.color.a >= 0f)
+        {
+            current_color.a -= 5f / 255f;
+            fade_panel.color = current_color;
+            yield return null;
+        }
+        gameManager.transform.Find("Menu_layout").transform.Find("Fade_Panel").gameObject.SetActive(false);
+        gameManager.prevMode = gameManager.gameMode;
+        gameManager.gameMode = GameManager.GameMode.PLAYING;
+    }
+
+    IEnumerator map_name()
+    {
+        GameObject name = new GameObject();
+        name.AddComponent<CanvasRenderer>();
+        name.AddComponent<Text>();
+        Text t = name.transform.GetComponent<Text>();
+        t.text = scene_display_names[current_map];
+        name.transform.SetParent(gameManager.transform.Find("Menu_layout"), false);
+        t.rectTransform.anchorMin = new Vector2(0f, 0f);
+        t.rectTransform.anchorMax = new Vector2(1f, 1f);
+        t.alignment = TextAnchor.MiddleCenter;
+        t.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+        t.resizeTextForBestFit = true;
+        t.resizeTextMaxSize = 60;
+        yield return new WaitForSeconds(1);
+        GameObject.Destroy(name);
     }
 }

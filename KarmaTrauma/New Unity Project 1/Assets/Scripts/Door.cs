@@ -20,7 +20,7 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if (colliding == true && Input.GetKey(KeyCode.Space))
+        if (colliding == true && Input.GetKeyDown(KeyCode.Space))
         {
             if (increaseTime)
             {

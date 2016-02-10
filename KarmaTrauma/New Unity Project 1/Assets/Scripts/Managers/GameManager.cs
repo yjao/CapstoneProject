@@ -344,6 +344,7 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log("prevgameClock: " + gameClock);
         gameClock += 2;
+        SceneManager.instance.tint_screen(Application.loadedLevelName, GetTimeAsInt());
         //Debug.Log("gameClock: " + gameClock);
     }
 

@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
         //exitText = exitText.GetComponent<Button>();
     //    quitMenu.enabled = false;
         DontDestroyOnLoad(this);
-
+		Cursor.visible = false;
     }
 
 	void Update()

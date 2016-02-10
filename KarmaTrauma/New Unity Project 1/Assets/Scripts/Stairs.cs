@@ -12,6 +12,9 @@ public class Stairs : MonoBehaviour
     public float y;
     public float z;
 
+    private bool colliding = false;
+    private Collider2D c;
+
     public enum Type
     {
         NORMAL, CAMERA
@@ -31,6 +34,19 @@ public class Stairs : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (colliding == true && Input.GetKey(KeyCode.Space))
+        {
+            c.transform.position = new Vector2(char_positionx, char_positiony);
+
+            if (type == Type.CAMERA)
+            {
+                camera.transform.position = new Vector3(x, y, z);
+            }
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
 		if (!active)
@@ -40,12 +56,14 @@ public class Stairs : MonoBehaviour
 
         if (col.gameObject.tag == "Player")
         {
-            col.transform.position = new Vector2(char_positionx, char_positiony);
-
-            if (type == Type.CAMERA)
-            {
-                camera.transform.position = new Vector3(x, y, z);
-            }
+            colliding = true;
+            c = col;
         }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+            colliding = false;
     }
 }

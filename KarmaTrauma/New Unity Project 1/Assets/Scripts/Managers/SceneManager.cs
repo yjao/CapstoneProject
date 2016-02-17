@@ -25,6 +25,14 @@ public class SceneManager : MonoBehaviour
 
 	#endregion
 
+    #region COLOR CONSTANTS
+
+    Color sunset = new Color(255f / 255f, 153f / 255f, 0f, 50f / 255f);
+    Color night = new Color(138f / 255f, 138f / 255f, 203f / 255f, 100f / 255f);
+    Color late_night = new Color(38f / 255f, 38f / 255f, 137f/255f, 100f / 255f);
+
+    #endregion
+
     Dictionary<string, bool> outdoors;
     Dictionary<string, string> scene_display_names;
 
@@ -187,17 +195,17 @@ public class SceneManager : MonoBehaviour
             if (time == 18)
             {
                 GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(true);
-                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").GetComponent<Image>().color = new Color(255f / 255f, 153f / 255f, 0f, 50f / 255f);
+                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").GetComponent<Image>().color = sunset;
             }
             else if (time == 20)
             {
                 GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(true);
-                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").GetComponent<Image>().color = new Color(107f / 255f, 107f / 255f, 107f / 255f, 100f / 255f);
+                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").GetComponent<Image>().color = night;
             }
             else if (time == 22)
             {
                 GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(true);
-                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").GetComponent<Image>().color = new Color(107f / 255f, 107f / 255f, 107f / 255f, 150f / 255f);
+                GameManager.instance.transform.Find("Menu_layout").transform.Find("Time_Tint").GetComponent<Image>().color = late_night;
             }
             else
             {

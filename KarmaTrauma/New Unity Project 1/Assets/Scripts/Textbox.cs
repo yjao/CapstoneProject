@@ -54,7 +54,6 @@ public class Textbox : MonoBehaviour
 	
 	void Update()
     {
-        //Debug.Log("updating");
         if (choice_mode == true)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -105,21 +104,33 @@ public class Textbox : MonoBehaviour
                 }
                 else
                 {
+                    EventManager.NotifyDialogChoiceMade(this, new GameEventArgs());
                     EventManager.NotifySpaceBar(this, new GameEventArgs());
                 }
             }
         }
         else if (choice_mode == false && Input.GetKeyDown(KeyCode.Space))
         {
-            if (Dialog.CEA != null)
+            if (Dialog != null)
             {
-                GameEventArgs g = new GameEventArgs();
-                g.ConvertChoiceEventArgs(Dialog.CEA);
-                g.DialogueBox = this;
-                Interactable.Action oldaction = Dialog.CEA.ChoiceAction;
-                EventManager.NotifyDialogChoiceMade(this, g);
-                if (oldaction != continueDialogue)
+                if (Dialog.CEA != null)
                 {
+                    GameEventArgs g = new GameEventArgs();
+                    g.ConvertChoiceEventArgs(Dialog.CEA);
+                    g.DialogueBox = this;
+                    Interactable.Action oldaction = Dialog.CEA.ChoiceAction;
+                    EventManager.NotifyDialogChoiceMade(this, g);
+                    if (oldaction != continueDialogue)
+                    {
+                        EventManager.NotifySpaceBar(this, new GameEventArgs());
+                    }
+                }
+                else
+                {
+                    if (Dialog.choices != null)
+                    {
+                        EventManager.NotifyDialogChoiceMade(this, new GameEventArgs());
+                    }
                     EventManager.NotifySpaceBar(this, new GameEventArgs());
                 }
             }
@@ -271,7 +282,6 @@ public class Textbox : MonoBehaviour
             transform.Find("Pointer").gameObject.SetActive(true);
             transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
             transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
-            //Debug.Log("start");
             choice_mode = true;
             choices = options;
         }

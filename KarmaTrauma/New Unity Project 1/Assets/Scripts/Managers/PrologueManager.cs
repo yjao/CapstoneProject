@@ -215,7 +215,7 @@ public class PrologueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MALL);
-        gameManager.IncreaseTime();
+        gameManager.IncreaseTime(false);
         yield return new WaitForSeconds(1);
         gameManager.DBox(66, 2);
         yield return null; while (Pause()) { yield return null; }

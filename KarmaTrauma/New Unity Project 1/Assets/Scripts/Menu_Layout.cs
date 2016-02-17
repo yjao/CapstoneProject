@@ -92,7 +92,7 @@ public class Menu_Layout : MonoBehaviour
     {
         if (gameManager.GetTimeAsInt() < 22)
         {
-            gameManager.IncreaseTime();
+            gameManager.IncreaseTime(false);
         }
     }
 

@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 	#endregion
 
 	// Clock
-	private int gameClock = 6;
+	private int gameClock = 8;
 	private string gameClockDisplay = "";
 
     //for items;
@@ -114,7 +114,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        gameClockDisplay = gameClock.ToString() + "AM";
+        gameClockDisplay = gameClock.ToString() + " - " +  (gameClock+2).ToString() + "PM";
+
         reset = true;
     }
     void OnDestroy()
@@ -274,32 +275,34 @@ public class GameManager : MonoBehaviour
 
 	#region CLOCK & TIME
 
-    void upDateClock()
+    string upDateClock()
     {
         int temp = gameClock + 2;
-        
+
         if (gameClock < 12 && temp != 12)
-        {            
-            gameClockDisplay = gameClock.ToString() + " - " + temp + "AM";
+        {
+            return gameClock.ToString() + " - " + temp + "AM";
         }
         else if (temp == 12)
         {
-            gameClockDisplay = "10 - 12PM";
+            return "10 - 12PM";
         }
         else if (gameClock == 12)
         {
-            gameClockDisplay = "12 - 2PM";
+            return "12 - 2PM";
         }
         else if (gameClock > 12 && gameClock < 22)
         {
             int time = gameClock - 12;
             int temp1 = time + 2;
-            gameClockDisplay = time.ToString() + " - " + temp1 + "PM";
+            return time.ToString() + " - " + temp1 + "PM";
         }
         else if (gameClock >= 22)
         {
-            gameClockDisplay = "10 - 12AM";
+            return "10 - 12AM";
         }
+        Debug.Log("lllllllllllllllll");
+        return gameClockDisplay;
     }
 
     public string GetTime()
@@ -321,9 +324,9 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log("data is null: " + (playerData == null));
         //Debug.Log("gameClock : " + gameClock);
-		if (gameClock == END_DAY_HOUR)
+		if (GetTimeAsInt() == END_DAY_HOUR)
         {
-            gameClock = START_DAY_HOUR;
+            SetTime(START_DAY_HOUR);
             dayData.Wipe();
             reset = true;
             playerData.WipeQuest();
@@ -340,17 +343,36 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public void IncreaseTime()
+    public void IncreaseTime(bool delay=false)
     {
         //Debug.Log("prevgameClock: " + gameClock);
-        gameClock += 2;
+        
         SceneManager.instance.tint_screen(Application.loadedLevelName, GetTimeAsInt());
+        int newTime = gameClock + 2;
+        SetTime(newTime, delay);
+
         //Debug.Log("gameClock: " + gameClock);
     }
 
-    public void SetTime(int time)
+    public void SetTime(int time, bool delay=false)
     {
         gameClock = time;
+        string newDisplay = upDateClock();
+        if (delay)
+        {
+            StartCoroutine(DelaySetClock(newDisplay));
+        }
+        else
+        {
+            gameClockDisplay = newDisplay;
+        }
+    }
+
+    IEnumerator DelaySetClock(string display)
+    {
+        yield return new WaitForSeconds(1.5f);
+        gameClockDisplay = display;
+        yield break;       
     }
 
 	#endregion
@@ -465,7 +487,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        upDateClock();
         // For debug purposes (obviously)
         //Debug.Log (GameMode);
     }

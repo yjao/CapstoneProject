@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="ParkTile" tilewidth="16" tileheight="16" tilecount="768">
+  <image source="../ParkTile.png" width="512" height="384"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzFlk1OwzAQheO0azhD2qzhDIGs4QyFruEMgYp7BCruwY9UrsGPBMfggTzS9OnZVKhqFl/cWLbfeObZzaooihew2nH7Cb4GaBdbZJ6hiRyDFiy3SC6mWeQ8xnEL7tzcGlQgCEowAmPX14s1FJ1DzWtjfyWYgCnF5mMZu3Wsrxco3XlcsxEcufo0Qrd2+vZex/FWZ5vDuou45kxw5uqj9to6LdMzTatzSncZNTrBFbim+X6vc6el/ODfR0K7S9TFj2HNtlg/S+yHTTzJ7yqnyu8e9oOP0Xz7Hx3ld0/OD+bbnO7P7wc8HsETeA5pv3vYD/5OMN+m7gTjFY838A4+gr5H2Pu8l8blIsS42AOczwCBEozAuFyfz/hY7BxYLJYL8xR7wNfpVxuLTcAU1OX62lzXTfRNV3kg5Z/U3mwvOX0/t094wGC//LU39i3f6Uaf8IDBflExpLS4fn6uyrPX6QgVg8+f18qtu4fB+2H37QE4HKA9AacDtBfgcoA2RC82wn/m/1qcNetPecf3qf/NKvpQjTf9Vpw16+d4OtHH3z52pqrEeHV/MRxPL/r428fy0iTGq/tL0WXywdi31s1A3A/EN0tHNe4=
+  </data>
+ </layer>
+</map>

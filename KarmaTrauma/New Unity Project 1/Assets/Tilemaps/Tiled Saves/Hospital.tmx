@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="MDTileA5" tilewidth="16" tileheight="16" tilecount="512">
+  <image source="../MDTileA5.png" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="513" name="InnerModern-A4" tilewidth="16" tileheight="16" tilecount="960">
+  <image source="../InnerModern-A4.png" width="512" height="480"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJy9k/sNwiAQh3l0EW0XUSepuoiJk0g3gAV8LOJjEI+kxOMXLlUx/vGlBxwfcJTOKHUg3A9oiT1xJE4VnIkLsRt9V+JWwZ14MJ+2SpkKLNHYl29G8byCluiYb9C/4V8+B7GDvikfzk9xAFfJzdvRt2W+oPM44tkcz9olfw8+PJNna3hoD+CWfHx/6evf8IWCD8eDzvf5yf6wFkHnNZR8nuUlH6+zg/ySF+/Hg2+A9dK49J/h/eB5MX/KJ635rU/Kib6GWAkYk9cvsqC+pYAl1gKb8S2irx/HJJ6nBOZj
+  </data>
+ </layer>
+</map>

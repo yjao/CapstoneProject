@@ -39,6 +39,7 @@ public class Stairs : MonoBehaviour
         if (colliding == true && Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(StairsCoroutine());
+            colliding = false;
         }
     }
 

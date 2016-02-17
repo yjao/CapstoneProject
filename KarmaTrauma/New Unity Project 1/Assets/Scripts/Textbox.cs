@@ -88,6 +88,10 @@ public class Textbox : MonoBehaviour
                 {
                     gameManager.playerData.DialogueHistory.Add(choices[cursor].CEA.IDNum + "," + choices[cursor].CEA.DialogueID + "," + cursor, true);
                 }
+                if (choices[cursor].removeitem != null)
+                {
+                    gameManager.dayData.removeItem(choices[cursor].removeitem);
+                }
                 if (choices[cursor].CEA != null)
                 {
                     g.ConvertChoiceEventArgs(choices[cursor].CEA);

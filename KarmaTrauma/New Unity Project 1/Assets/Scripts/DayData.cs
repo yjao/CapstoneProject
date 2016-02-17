@@ -67,6 +67,20 @@ public class DayData
 		return DataDictionary[boolName];
 	}
 
+    public void removeItem(string itemName)
+    {
+        for (int i = 0; i < ItemAmount; i++)
+        {
+            if (Inventory[i].Name == itemName)
+            {
+                Transform.Destroy(GameManager.instance.transform.Find("Menu_layout/Inventory/" + Inventory[i].Filename));
+                Inventory[i] = null;
+                ItemAmount -= 1;
+                return;
+            }
+        }
+    }
+
 	public void Wipe()
 	{
 		Dictionary<string, bool> newQuests = new Dictionary<string, bool>();

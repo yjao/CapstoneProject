@@ -85,6 +85,14 @@ public class DataLoader
         gameManager.allObjects[ID].dialogues[dID].Action += cea.ChoiceAction;
 	}
 
+    protected void LinkContinueDialogues(int ID, int[] dIDs)
+    {
+        for (int i = 0; i < dIDs.Length-1; i++)
+        {
+                AddToDialogue(ID, dIDs[i], ChoiceContinueDialog(ID, dIDs[i + 1]));
+        }
+    }
+
 	protected void AddNpc(int ID, string name, string strangerName, string[] strings)
 	{
 		Dialogue[] dialogues = new Dialogue[strings.GetLength(0)];

@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
     };
     public Area currentArea = Area.HOUSE;
 
+	public enum TimeType
+	{
+		INCREASE, END_DAY, SET
+	};
+
     public Dictionary<int, Interactable> allObjects;
 	public Dictionary<string, string> questTerms;
 	public Dictionary<string, List<InteractableObject.Parameters>> sceneParameters;
@@ -320,13 +325,13 @@ public class GameManager : MonoBehaviour
         return reset;
     }
 
-    public bool Midnight(bool createMessage=true)
+    private bool Midnight(bool createMessage=true)
     {
         //Debug.Log("data is null: " + (playerData == null));
         //Debug.Log("gameClock : " + gameClock);
 		if (GetTimeAsInt() == END_DAY_HOUR)
         {
-            SetTime(START_DAY_HOUR);
+            gameClock = START_DAY_HOUR;
             dayData.Wipe();
             reset = true;
             playerData.WipeQuest();
@@ -344,18 +349,30 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public void IncreaseTime(bool delay=false)
-    {
-        //Debug.Log("prevgameClock: " + gameClock);
-        
-        SceneManager.instance.tint_screen(Application.loadedLevelName, GetTimeAsInt());
-        int newTime = gameClock + 2;
-        SetTime(newTime, delay);
+    public bool SetTime(TimeType type, int time=0, bool delay=false)
+	{
+		switch (type)
+		{
+		case TimeType.INCREASE:
+			gameClock += 2;
+			break;
+		case TimeType.END_DAY:
+			gameClock = END_DAY_HOUR;
+			break;
+		default:
+			if (time >= 6 && time <= 24)
+			{
+				gameClock = time;
+			}
+			break;
+		}
 
-        //Debug.Log("gameClock: " + gameClock);
-    }
+		bool midnight = Midnight();
+		SetTime(gameClock, delay);
+		return midnight;
+	}
 
-    public void SetTime(int time, bool delay=false)
+    private void SetTime(int time, bool delay=false)
     {
         gameClock = time;
         string newDisplay = upDateClock();
@@ -365,6 +382,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+			ApplyTint();
             gameClockDisplay = newDisplay;
         }
     }
@@ -373,8 +391,14 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         gameClockDisplay = display;
+		ApplyTint();
         yield break;       
     }
+
+	private void ApplyTint()
+	{
+		SceneManager.instance.tint_screen(Application.loadedLevelName, GetTimeAsInt());
+	}
 
 	#endregion
 
@@ -520,8 +544,7 @@ public class GameManager : MonoBehaviour
 
 	public static void UseBed(object sender, GameEventArgs args)
 	{
-		instance.SetTime(END_DAY_HOUR);
-		instance.Midnight(false);
+		instance.SetTime(TimeType.END_DAY, delay:true);
 	}
 
 	public static void UnlockDoor(object sender, GameEventArgs args)

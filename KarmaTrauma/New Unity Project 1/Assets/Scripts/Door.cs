@@ -22,13 +22,13 @@ public class Door : MonoBehaviour
     {
         if (colliding == true && Input.GetKeyDown(KeyCode.Space))
         {
+			bool midnight = false;
             if (increaseTime)
             {
-                gameManager.IncreaseTime(true);
+                midnight = gameManager.SetTime(GameManager.TimeType.INCREASE, delay:true);
                 //Debug.Log("gameClock : " + gameManager.GetTimeAsInt());
             }
-            bool midnight = gameManager.Midnight();
-            destination = "WorldMap";
+            destination = SceneManager.SCENE_WORLDMAP;
             if (AltDestination != "")
             {
                 destination = AltDestination;
@@ -36,7 +36,7 @@ public class Door : MonoBehaviour
 
             if (midnight)
             {
-                destination = "G_House";
+                destination = SceneManager.SCENE_HOUSE;
             }
             
         SceneManager.instance.LoadScene(destination);

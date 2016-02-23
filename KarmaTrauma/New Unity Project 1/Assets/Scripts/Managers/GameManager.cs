@@ -33,10 +33,10 @@ public class GameManager : MonoBehaviour
     public Dictionary<int, Interactable> allObjects;
 	public Dictionary<string, string> questTerms;
 	public Dictionary<string, List<InteractableObject.Parameters>> sceneParameters;
-    //Questlist in the form of List<[keyword , NPCName, dialogue]>
+    //Questlist in the form of List<[keyword , NPCName, dialogue, time, location]>
     
     //public List<string[]> questList;
-    public Dictionary<string,string[]> questList;
+    public Dictionary<string,List<string>> questList;
     public List<OutcomeManager.outcome> outcomeList;
 
     private bool reset;
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
 		allObjects = new Dictionary<int, Interactable>();
 		questTerms = new Dictionary<string, string>();
 		sceneParameters = new Dictionary<string, List<InteractableObject.Parameters>>();
-        questList = new Dictionary<string, string[]>();
+        questList = new Dictionary<string, List<string>>();
         outcomeList = new List<OutcomeManager.outcome>();
 
         // Bind events

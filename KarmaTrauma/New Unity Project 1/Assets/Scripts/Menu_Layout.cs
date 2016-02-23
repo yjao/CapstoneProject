@@ -27,7 +27,7 @@ public class Menu_Layout : MonoBehaviour
     {
 
         gameManager = GameManager.instance;
-        quest_log = QuestLog.Instance;
+        quest_log = QuestLog.instance;
         gameMenu = Menu.Instance;
         //gameMenu = FindObjectOfType(typeof(Menu)) as Menu;
         //quest_log = QuestLog.Instance; 
@@ -122,6 +122,7 @@ public class Menu_Layout : MonoBehaviour
         diaryButton_show = true;
         open_menu = true;
         gameManager.Wait();
+
         quest_log.display() ;
         //gameManager.gameMode = GameManager.GameMode.LOG;
         //gameManager.prevMode = GameManager.GameMode.PLAYING;

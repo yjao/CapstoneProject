@@ -26,15 +26,22 @@ public class Textbox : MonoBehaviour
 
     static string BuildIntoQuestList(string name, string message)
     {
-        string[] qvalue = new string[2];
+        List<string> qvalue = new List<string>();
         string keyword = FindKeyword(message);
         string newMessage = AddKeywordToMessage(message, keyword);
         if (keyword != "" && !(GameManager.instance.questList.ContainsKey(keyword)))
         {
-            qvalue[0] = name;
-            qvalue[1] = newMessage;
+            qvalue.Add(name);
+            qvalue.Add(newMessage);
+            Debug.Log("Time is" + GameManager.instance.GetTime());
+            qvalue.Add(GameManager.instance.GetTime());
+            qvalue.Add(Application.loadedLevelName);
 
             GameManager.instance.questList[keyword] = qvalue;
+        }
+        else if(keyword != "" && GameManager.instance.questList.ContainsKey(keyword) && GameManager.instance.questList[keyword][3] != GameManager.instance.GetTime()){
+            GameManager.instance.questList[keyword].Add(GameManager.instance.GetTime());
+            GameManager.instance.questList[keyword].Add(Application.loadedLevelName);
         }
         
         return newMessage;

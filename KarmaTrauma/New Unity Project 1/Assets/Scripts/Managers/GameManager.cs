@@ -407,6 +407,22 @@ public class GameManager : MonoBehaviour
 		SceneManager.instance.tint_screen(Application.loadedLevelName, GetTimeAsInt());
 	}
 
+    public IEnumerator GradualClock(int endTime, float timer, bool reverse = false)
+    {
+        while (gameClock != endTime)
+        {
+            yield return new WaitForSeconds(timer);
+            if (reverse)
+            {
+                SetTime(gameClock -= 2);
+            }
+            else
+            {
+                SetTime(gameClock += 2);
+            }
+        }
+    }
+
 	#endregion
 
 

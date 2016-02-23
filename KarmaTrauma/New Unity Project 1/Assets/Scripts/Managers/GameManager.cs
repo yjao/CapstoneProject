@@ -246,10 +246,11 @@ public class GameManager : MonoBehaviour
 		}
     }
 
-    public void CreateTutorialBox(string message, int destroyTimer = -1, Textbox.TutorialBoxPosition position = Textbox.TutorialBoxPosition.MIDDLE)
+    public GameObject CreateTutorialBox(string message, int destroyTimer = -1, Textbox.TutorialBoxPosition position = Textbox.TutorialBoxPosition.MIDDLE)
     {
         GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
         StartCoroutine(dialog.GetComponent<Textbox>().DrawTutorialBox(message, destroyTimer, position));
+        return dialog;
     }
 
     public Dialogue GetNextDialogue(int id, int dialogueID)

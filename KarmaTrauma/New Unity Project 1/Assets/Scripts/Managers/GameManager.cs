@@ -246,6 +246,13 @@ public class GameManager : MonoBehaviour
 		}
     }
 
+    public GameObject CreateTutorialBox(string message, float destroyTimer = -1, Textbox.TutorialBoxPosition position = Textbox.TutorialBoxPosition.MIDDLE)
+    {
+        GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
+        StartCoroutine(dialog.GetComponent<Textbox>().DrawTutorialBox(message, destroyTimer, position));
+        return dialog;
+    }
+
     public Dialogue GetNextDialogue(int id, int dialogueID)
     {
         Interactable ch = allObjects[id];
@@ -399,6 +406,22 @@ public class GameManager : MonoBehaviour
 	{
 		SceneManager.instance.tint_screen(Application.loadedLevelName, GetTimeAsInt());
 	}
+
+    public IEnumerator GradualClock(int endTime, float timer, bool reverse = false)
+    {
+        while (gameClock != endTime)
+        {
+            yield return new WaitForSeconds(timer);
+            if (reverse)
+            {
+                SetTime(gameClock -= 2);
+            }
+            else
+            {
+                SetTime(gameClock += 2);
+            }
+        }
+    }
 
 	#endregion
 

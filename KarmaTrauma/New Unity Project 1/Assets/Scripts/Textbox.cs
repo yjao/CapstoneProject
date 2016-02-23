@@ -8,15 +8,24 @@ public class Textbox : MonoBehaviour
     private GameManager gameManager;
 
     bool choice_mode;
+    bool tutorial_mode;
     int cursor;
     public bool done;
     public string res;
     private Choice[] choices;
     public Dialogue Dialog;
+
+    public enum TutorialBoxPosition
+    {
+        TOP, BOTTOM, MIDDLE
+    }
     void Awake()
     {
-		gameManager = GameManager.instance;
-		gameManager.EnterDialogue();
+        if (GameManager.instance != null)
+        {
+            gameManager = GameManager.instance;
+            gameManager.EnterDialogue();
+        }
         choice_mode = false;
         done = false;
         
@@ -56,94 +65,100 @@ public class Textbox : MonoBehaviour
 	void OnDestroy()
 	{
         EventManager.OnSpaceBar -= SelfDestruct;
-        gameManager.ExitDialogue();
+        if (!tutorial_mode)
+        {
+            gameManager.ExitDialogue();
+        }
 	}
 	
 	void Update()
     {
-        if (choice_mode == true)
+        if (!tutorial_mode)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (choice_mode == true)
             {
-                if (cursor < choices.Length - 1)
+                if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
-                    cursor += 1;
-                    transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
-                    transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if (cursor > 0)
-                {
-                    cursor -= 1;
-                    transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
-                    transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.Space))
-            {
-                done = true;
-                GameEventArgs g = new GameEventArgs();
-                g.DialogueBox = this;
-                if (choices[cursor].setbool != null)
-                {
-                    gameManager.SetData(choices[cursor].setbool, true);
-                }
-                if (!gameManager.playerData.DialogueHistory.ContainsKey(choices[cursor].CEA.IDNum + "," + choices[cursor].CEA.DialogueID + "," + cursor))
-                {
-                    gameManager.playerData.DialogueHistory.Add(choices[cursor].CEA.IDNum + "," + choices[cursor].CEA.DialogueID + "," + cursor, true);
-                }
-                if (choices[cursor].removeitem != null)
-                {
-                    gameManager.dayData.removeItem(choices[cursor].removeitem);
-                }
-                if (choices[cursor].CEA != null)
-                {
-                    g.ConvertChoiceEventArgs(choices[cursor].CEA);
-                    choice_mode = false;
-                    Interactable.Action oldaction = g.ChoiceAction;
-                    EventManager.NotifyDialogChoiceMade(this, g);
-                    if (oldaction != continueDialogue)
+                    if (cursor < choices.Length - 1)
                     {
-                        EventManager.NotifySpaceBar(this, new GameEventArgs());
+                        cursor += 1;
+                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
+                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
                     }
                 }
-                else
+                else if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
-                    EventManager.NotifyDialogChoiceMade(this, new GameEventArgs());
-                    EventManager.NotifySpaceBar(this, new GameEventArgs());
+                    if (cursor > 0)
+                    {
+                        cursor -= 1;
+                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
+                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
+                    }
                 }
-            }
-        }
-        else if (choice_mode == false && Input.GetKeyDown(KeyCode.Space))
-        {
-            if (Dialog != null)
-            {
-                if (Dialog.CEA != null)
+                else if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    done = true;
                     GameEventArgs g = new GameEventArgs();
-                    g.ConvertChoiceEventArgs(Dialog.CEA);
                     g.DialogueBox = this;
-                    Interactable.Action oldaction = Dialog.CEA.ChoiceAction;
-                    EventManager.NotifyDialogChoiceMade(this, g);
-                    if (oldaction != continueDialogue)
+                    if (choices[cursor].setbool != null)
                     {
-                        EventManager.NotifySpaceBar(this, new GameEventArgs());
+                        gameManager.SetData(choices[cursor].setbool, true);
                     }
-                }
-                else
-                {
-                    if (Dialog.choices != null)
+                    if (!gameManager.playerData.DialogueHistory.ContainsKey(choices[cursor].CEA.IDNum + "," + choices[cursor].CEA.DialogueID + "," + cursor))
+                    {
+                        gameManager.playerData.DialogueHistory.Add(choices[cursor].CEA.IDNum + "," + choices[cursor].CEA.DialogueID + "," + cursor, true);
+                    }
+                    if (choices[cursor].removeitem != null)
+                    {
+                        gameManager.dayData.removeItem(choices[cursor].removeitem);
+                    }
+                    if (choices[cursor].CEA != null)
+                    {
+                        g.ConvertChoiceEventArgs(choices[cursor].CEA);
+                        choice_mode = false;
+                        Interactable.Action oldaction = g.ChoiceAction;
+                        EventManager.NotifyDialogChoiceMade(this, g);
+                        if (oldaction != continueDialogue)
+                        {
+                            EventManager.NotifySpaceBar(this, new GameEventArgs());
+                        }
+                    }
+                    else
                     {
                         EventManager.NotifyDialogChoiceMade(this, new GameEventArgs());
+                        EventManager.NotifySpaceBar(this, new GameEventArgs());
                     }
-                    EventManager.NotifySpaceBar(this, new GameEventArgs());
                 }
             }
-            else
+            else if (choice_mode == false && Input.GetKeyDown(KeyCode.Space))
             {
-                EventManager.NotifySpaceBar(this, new GameEventArgs());
+                if (Dialog != null)
+                {
+                    if (Dialog.CEA != null)
+                    {
+                        GameEventArgs g = new GameEventArgs();
+                        g.ConvertChoiceEventArgs(Dialog.CEA);
+                        g.DialogueBox = this;
+                        Interactable.Action oldaction = Dialog.CEA.ChoiceAction;
+                        EventManager.NotifyDialogChoiceMade(this, g);
+                        if (oldaction != continueDialogue)
+                        {
+                            EventManager.NotifySpaceBar(this, new GameEventArgs());
+                        }
+                    }
+                    else
+                    {
+                        if (Dialog.choices != null)
+                        {
+                            EventManager.NotifyDialogChoiceMade(this, new GameEventArgs());
+                        }
+                        EventManager.NotifySpaceBar(this, new GameEventArgs());
+                    }
+                }
+                else
+                {
+                    EventManager.NotifySpaceBar(this, new GameEventArgs());
+                }
             }
         }
     }
@@ -268,6 +283,37 @@ public class Textbox : MonoBehaviour
         transform.Find("Message").gameObject.SetActive(true);
         transform.Find("Message_Panel").gameObject.SetActive(true);
         transform.Find("Message").GetComponent<Text>().text = message;
+    }
+
+    public IEnumerator DrawTutorialBox(string message, float destroytimer = -1, TutorialBoxPosition position = TutorialBoxPosition.MIDDLE)
+    {
+        EventManager.OnSpaceBar -= SelfDestruct;
+        tutorial_mode = true;
+        if (gameManager != null)
+        {
+            gameManager.ExitDialogue();
+        }
+        DrawMessage(message);
+        if (position == TutorialBoxPosition.TOP)
+        {
+            transform.Find("Message_Panel").GetComponent<RectTransform>().anchorMin = new Vector2(.2f, .65f);
+            transform.Find("Message_Panel").GetComponent<RectTransform>().anchorMax = new Vector2(.8f, .95f);
+            transform.Find("Message").GetComponent<RectTransform>().anchorMin = new Vector2(.2f, .65f);
+            transform.Find("Message").GetComponent<RectTransform>().anchorMax = new Vector2(.8f, .95f);
+        }
+        if (position == TutorialBoxPosition.BOTTOM)
+        {
+            transform.Find("Message_Panel").GetComponent<RectTransform>().anchorMin = new Vector2(.2f, .05f);
+            transform.Find("Message_Panel").GetComponent<RectTransform>().anchorMax = new Vector2(.8f, .35f);
+            transform.Find("Message").GetComponent<RectTransform>().anchorMin = new Vector2(.2f, .05f);
+            transform.Find("Message").GetComponent<RectTransform>().anchorMax = new Vector2(.8f, .35f);
+        }
+        yield return null;
+        if (destroytimer != -1)
+        {
+            yield return new WaitForSeconds(destroytimer);
+        }
+        GameObject.Destroy(gameObject);
     }
 
     public void Choice(string name, string dialog, Choice[] options, int id)

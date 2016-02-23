@@ -108,6 +108,7 @@ public class SceneManager : MonoBehaviour
         if (current_map != null)
         {
             Application.LoadLevel(current_map);
+            gameManager.transform.Find("Menu_layout/MapName").GetComponent<Text>().text = scene_display_names[current_map];
             gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(false);
         }
 

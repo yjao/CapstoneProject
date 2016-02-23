@@ -37,7 +37,7 @@ public class Menu_Layout : MonoBehaviour
         //inventory_content.inventory_texture = inventory_texture;
         if (startTime != 0)
         {
-            gameManager.SetTime(startTime);
+            gameManager.SetTime(GameManager.TimeType.SET, startTime);
         }
 
         transform.FindChild("QuestBook").gameObject.SetActive(false);
@@ -92,7 +92,7 @@ public class Menu_Layout : MonoBehaviour
     {
         if (gameManager.GetTimeAsInt() < 22)
         {
-            gameManager.IncreaseTime();
+            gameManager.SetTime(GameManager.TimeType.INCREASE);
         }
     }
 

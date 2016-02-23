@@ -43,7 +43,7 @@ public class ShortPrologue : MonoBehaviour
 		Application.LoadLevel(SceneManager.SCENE_MAINSTREET);
 		yield return null;
 
-		GameManager.instance.SetTime(20);
+		GameManager.instance.SetTime(GameManager.TimeType.SET, 20);
 		yield return null;
 
 		SceneManager.instance.LoadScene(SceneManager.SCENE_MAINSTREET);

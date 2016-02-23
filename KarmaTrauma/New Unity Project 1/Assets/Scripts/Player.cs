@@ -235,7 +235,7 @@ public class Player : MonoBehaviour
 			SpeedUp();
 		}
 
-        if (Input.GetKey(KeyCode.UpArrow))
+		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             transform.Translate(0, speed, 0);
             //animator.SetInteger(animationState, up);
@@ -245,7 +245,7 @@ public class Player : MonoBehaviour
                 source.Play();
             }
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+		else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             transform.Translate(0, -speed, 0);
             //animator.SetInteger(animationState, down);
@@ -255,7 +255,7 @@ public class Player : MonoBehaviour
                 source.Play();
             }
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+		else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             transform.Translate(speed, 0, 0);
             //animator.SetInteger(animationState, right);
@@ -265,7 +265,7 @@ public class Player : MonoBehaviour
                 source.Play();
             }
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+		else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             transform.Translate(-speed, 0, 0);
             //animator.SetInteger(animationState, left);
@@ -281,31 +281,31 @@ public class Player : MonoBehaviour
         {
             if(locationString =="Mall")
             {
-                SceneManager.instance.LoadScene("G_Mall");
+				SceneManager.instance.LoadScene(SceneManager.SCENE_MALL);
             }
             if (locationString == "MainStreet")
             {
-                SceneManager.instance.LoadScene("G_MainStreetSmall");
+				SceneManager.instance.LoadScene(SceneManager.SCENE_MAINSTREET);
             }
             if (locationString == "House")
             {
-                SceneManager.instance.LoadScene("G_House");
+				SceneManager.instance.LoadScene(SceneManager.SCENE_HOUSE);
             }
             if (locationString == "Park")
             {
-                SceneManager.instance.LoadScene("G_Park");
+				SceneManager.instance.LoadScene(SceneManager.SCENE_PARK);
             }
             if (locationString == "PoliceStation")
             {
-                SceneManager.instance.LoadScene("G_PoliceStation");
+				SceneManager.instance.LoadScene(SceneManager.SCENE_POLICE);
             }
             if (locationString == "Apartment")
             {
-                SceneManager.instance.LoadScene("G_Apartment");
+				SceneManager.instance.LoadScene(SceneManager.SCENE_APARTMENT);
             }
             if (locationString == "Hospital")
             {
-                SceneManager.instance.LoadScene("G_Hospital");
+                SceneManager.instance.LoadScene(SceneManager.SCENE_HOSPITAL);
             }
             // Not on any location
             if (locationString =="")

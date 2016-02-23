@@ -52,7 +52,8 @@ public class DataLoader
     }
 
 	// temporarily making it public for hardcoding purposes
-    public Choice AddChoice(string text, ChoiceAction CA = ChoiceAction.NONE, int id = -1, int subID = -1, string setboolname = null, string checkboolname = null)
+    public Choice AddChoice(string text, ChoiceAction CA = ChoiceAction.NONE, int id = -1, int subID = -1, string setboolname = null, string checkboolname = null,
+                            string removeitemname = null)
     {
         ChoiceEventArgs CEA;
         if (CA == ChoiceAction.ITEM)
@@ -71,7 +72,7 @@ public class DataLoader
         {
             CEA = new ChoiceEventArgs();
         }
-        return new Choice(text, CEA, setboolname, checkboolname);
+        return new Choice(text, CEA, setboolname, checkboolname, removeitemname);
     }
 
 	protected void AddChoicesToDialogue(int ID, int dID, Choice[] choices)

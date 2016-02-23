@@ -215,7 +215,7 @@ public class PrologueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Application.LoadLevel(SCENE_MALL);
-        gameManager.IncreaseTime();
+        //gameManager.IncreaseTime(false);
         yield return new WaitForSeconds(1);
         gameManager.DBox(66, 2);
         yield return null; while (Pause()) { yield return null; }
@@ -240,7 +240,7 @@ public class PrologueManager : MonoBehaviour
     {
 		
         yield return new WaitForSeconds(1);
-        gameManager.SetTime(20);
+        //gameManager.SetTime(20);
         Application.LoadLevel(SCENE_MAIN_STREET);
   
         yield return new WaitForSeconds(1);
@@ -298,7 +298,7 @@ public class PrologueManager : MonoBehaviour
 		
         gameManager.Wait();
         yield return new WaitForSeconds(1);
-        gameManager.SetTime(22);
+        //gameManager.SetTime(22);
         Application.LoadLevel(SCENE_HOUSE);
         yield return new WaitForSeconds(1);
         gameManager.DBox(1, 3);
@@ -311,7 +311,7 @@ public class PrologueManager : MonoBehaviour
     //Need to fade to black:  Start of DAY 1
     public IEnumerator Home_1()
     {
-        gameManager.SetTime(6);
+        //gameManager.SetTime(6);
         gameManager.CreateMessage("The next day...");
         yield return null; while (Pause()) { yield return null; }
 
@@ -413,7 +413,7 @@ public class PrologueManager : MonoBehaviour
     {
 		
         yield return new WaitForSeconds(1);
-        gameManager.SetTime(20);
+        //gameManager.SetTime(20);
         Application.LoadLevel(SCENE_MAIN_STREET);
         yield return new WaitForSeconds(0);
         Destroy(GameObject.Find("Kelly"));

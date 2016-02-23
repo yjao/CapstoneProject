@@ -15,7 +15,7 @@ public class SceneManager : MonoBehaviour
 
 	public const string SCENE_HOUSE = "G_House";
 	public const string SCENE_CLASS = "G_Class";
-	public const string SCENE_MAINSTREET = "G_MainStreetSmall";
+	public const string SCENE_MAINSTREET = "G_MainStreet";
 	public const string SCENE_MALL = "G_Mall";
 	public const string SCENE_HOSPITAL = "G_Hospital";
 	public const string SCENE_PARK = "G_Park";

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="8" height="8" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="ParkTile" tilewidth="16" tileheight="16" tilecount="768">
+  <image source="../ParkTile.png" width="512" height="384"/>
+ </tileset>
+ <tileset firstgid="769" name="MDTileA4" tilewidth="16" tileheight="16" tilecount="960">
+  <image source="../MDTileA4.png" width="512" height="480"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="8" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxtyUcRgEAQRNGpYglGCEYIRghGCEaANUIwwoIM/hmmq96lf+6JFChR4buar0GLTuk934ARk9JnvgUrrNI3vh0HTqVffA43HqX7RiRAiMj8e8yXIEWm9BeRoA85
+  </data>
+ </layer>
+</map>

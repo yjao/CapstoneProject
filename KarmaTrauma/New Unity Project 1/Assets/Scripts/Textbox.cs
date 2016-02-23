@@ -275,7 +275,7 @@ public class Textbox : MonoBehaviour
         transform.Find("Message").GetComponent<Text>().text = message;
     }
 
-    public IEnumerator DrawTutorialBox(string message, int destroytimer, TutorialBoxPosition position = TutorialBoxPosition.MIDDLE)
+    public IEnumerator DrawTutorialBox(string message, int destroytimer = -1, TutorialBoxPosition position = TutorialBoxPosition.MIDDLE)
     {
         EventManager.OnSpaceBar -= SelfDestruct;
         tutorial_mode = true;
@@ -296,10 +296,10 @@ public class Textbox : MonoBehaviour
             transform.Find("Message").GetComponent<RectTransform>().anchorMax = new Vector2(.8f, .35f);
         }
         yield return null;
-        yield return new WaitForSeconds(destroytimer);
-        //gameManager.EnterDialogue();
-        gameObject.SetActive(false);
-        yield return null;
+        if (destroytimer == -1)
+        {
+            yield return new WaitForSeconds(destroytimer);
+        }
         GameObject.Destroy(gameObject);
     }
 

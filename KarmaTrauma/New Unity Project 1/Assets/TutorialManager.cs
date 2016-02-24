@@ -7,7 +7,7 @@ public class TutorialManager : MonoBehaviour
 {
     private GameManager gameManager;
     //private const string SCENE_HOUSE = "T_House";
-    //private const string SCENE_SCHOOL = "T_Class";
+    private const string SCENE_SCHOOL = "T_Class";
     //private const string SCENE_MALL = "T_Mall";
     //private const string SCENE_MAIN_STREET = "T_MainStreet";
 
@@ -49,7 +49,8 @@ public class TutorialManager : MonoBehaviour
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
 		//yield return StartCoroutine(Slide_Coroutine(slides[1]));
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
-        yield return StartCoroutine(Slide4_Coroutine());
+        //yield return StartCoroutine(Slide4_Coroutine());
+        //yield return StartCoroutine(Slide8_Coroutine());
         yield break;
     }
 
@@ -78,6 +79,18 @@ public class TutorialManager : MonoBehaviour
         yield break;
     }
 
+    IEnumerator Slide8_Coroutine()
+    {
+        //School Scene
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_SCHOOL));
+        gameManager = GameManager.instance;
+        gameManager.Wait();
+        yield return new WaitForSeconds(1f);
+        CreateDialogue("Mrs. Freewoman", "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the space bar to progress speech%.");
+
+        yield return null;
+    }
+
     IEnumerator LoadSceneCoroutine(string mapname)
     {
         Application.LoadLevel(mapname);
@@ -90,6 +103,13 @@ public class TutorialManager : MonoBehaviour
         GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
         StartCoroutine(dialog.GetComponent<Textbox>().DrawTutorialBox(message, destroyTimer, position));
         return dialog;
+    }
+
+    private void CreateDialogue(string name, string message)
+    {
+        Choice[] choices = null;
+        Dialogue d = new Dialogue(-1, message);
+        gameManager.CreateDialogue(name, d, -1);
     }
 
 	// Update is called once per frame

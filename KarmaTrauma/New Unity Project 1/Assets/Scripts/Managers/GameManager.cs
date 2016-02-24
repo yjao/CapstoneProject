@@ -209,7 +209,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CreateDialogue(string name, Dialogue message, int id)
+    public void CreateDialogue(string name, Dialogue message, int id = -1)
     {
      
         GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);

@@ -252,13 +252,22 @@ public class SceneManager : MonoBehaviour
         gameManager.gameMode = GameManager.GameMode.PLAYING;
     }
 
-    IEnumerator map_name()
+    public IEnumerator map_name(string day = null, float timer = 1f)
     {
+        string current_string;
+        if (day != null)
+        {
+            current_string = day;
+        }
+        else
+        {
+            current_string = scene_display_names[current_map];
+        }
         GameObject name = new GameObject();
         name.AddComponent<CanvasRenderer>();
         name.AddComponent<Text>();
         Text t = name.transform.GetComponent<Text>();
-        t.text = scene_display_names[current_map];
+        t.text = current_string;
         name.transform.SetParent(gameManager.transform.Find("Menu_layout"), false);
         t.rectTransform.anchorMin = new Vector2(0f, 0f);
         t.rectTransform.anchorMax = new Vector2(1f, 1f);
@@ -266,7 +275,7 @@ public class SceneManager : MonoBehaviour
         t.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
         t.resizeTextForBestFit = true;
         t.resizeTextMaxSize = 60;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(timer);
         GameObject.Destroy(name);
     }
 }

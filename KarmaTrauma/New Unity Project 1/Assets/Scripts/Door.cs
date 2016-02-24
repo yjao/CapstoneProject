@@ -25,7 +25,7 @@ public class Door : MonoBehaviour
 			bool midnight = false;
             if (increaseTime)
             {
-                midnight = gameManager.SetTime(GameManager.TimeType.INCREASE, delay:true);
+                midnight = gameManager.SetTime(GameManager.TimeType.INCREASE);//, delay:true);
                 //Debug.Log("gameClock : " + gameManager.GetTimeAsInt());
             }
             destination = SceneManager.SCENE_WORLDMAP;
@@ -38,8 +38,10 @@ public class Door : MonoBehaviour
             {
                 destination = SceneManager.SCENE_HOUSE;
             }
-            
-        SceneManager.instance.LoadScene(destination);
+            if (!midnight)
+            {
+                SceneManager.instance.LoadScene(destination);
+            }
         }
     }
 

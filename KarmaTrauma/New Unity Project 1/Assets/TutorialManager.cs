@@ -26,19 +26,16 @@ public class TutorialManager : MonoBehaviour
 	{
         slides = new List<Slide>()
         {
-            new Slide("Slide1", 5f, "Testing text")
+			new Slide("Slide1", 3f, "\"Hey Kelly! Help us out here!\"")
         };
         
-        StartCoroutine(Start_Slides());
+		StartCoroutine(Start_Tutorial());
 	}
 
-    IEnumerator Start_Slides()
+    IEnumerator Start_Tutorial()
     {
-        for (int i = 0; i < slides.Count; i++)
-        {
-            Slide current = slides[i];
-            yield return StartCoroutine(Slide_Coroutine(current));
-        }
+		yield return StartCoroutine(Slide_Coroutine(slides[0]));
+		yield return StartCoroutine(Slide_Coroutine(slides[0]));
     }
 
 	IEnumerator Slide_Coroutine(Slide slide)

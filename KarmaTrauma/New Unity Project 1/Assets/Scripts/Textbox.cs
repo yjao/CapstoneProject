@@ -346,8 +346,9 @@ public class Textbox : MonoBehaviour
         if (destroytimer != -1)
         {
             yield return new WaitForSeconds(destroytimer);
+            GameObject.Destroy(gameObject);
         }
-        GameObject.Destroy(gameObject);
+        //GameObject.Destroy(gameObject);
     }
 
     public void Choice(string name, string dialog, Choice[] options, int id)

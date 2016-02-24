@@ -22,6 +22,9 @@ public class Door : MonoBehaviour
     {
         if (colliding == true && Input.GetKeyDown(KeyCode.Space) && gameManager.gameMode != GameManager.GameMode.NONE)
         {
+			// Cooldown procedure
+			//if (!gameManager.CheckKeyCooldown()) { return; } else { gameManager.SetKeyCooldown(); }
+
 			bool midnight = false;
             if (increaseTime)
             {

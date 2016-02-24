@@ -49,7 +49,6 @@
      <Compile Include="Assets\OutcomeManager.cs" />
      <Compile Include="Assets\Packages\TileSprite\Scripts\TileSprite.cs" />
      <Compile Include="Assets\Scripts\Anim\CharacterAnimations.cs" />
-     <Compile Include="Assets\Scripts\Ball.cs" />
      <Compile Include="Assets\Scripts\Camera.cs" />
      <Compile Include="Assets\Scripts\ChoiceEventArgs.cs" />
      <Compile Include="Assets\Scripts\DataLoader.cs" />
@@ -95,6 +94,7 @@
      <Compile Include="Assets\Scripts\Stairs.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
      <Compile Include="Assets\Scripts\TileWindow.cs" />
+     <Compile Include="Assets\Scripts\TutorialSlide4Triggers.cs" />
      <Compile Include="Assets\ShortPrologue.cs" />
      <Compile Include="Assets\TutorialManager.cs" />
  <Reference Include="UnityEngine.UI">

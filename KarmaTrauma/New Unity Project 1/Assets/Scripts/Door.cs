@@ -20,7 +20,7 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if (colliding == true && Input.GetKeyDown(KeyCode.Space))
+        if (colliding == true && Input.GetKeyDown(KeyCode.Space) && gameManager.gameMode != GameManager.GameMode.NONE)
         {
 			bool midnight = false;
             if (increaseTime)

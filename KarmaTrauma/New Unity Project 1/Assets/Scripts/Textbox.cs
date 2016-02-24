@@ -35,6 +35,7 @@ public class Textbox : MonoBehaviour
 
     static string BuildIntoQuestList(string name, string message)
     {
+        bool addToLog =false;
         List<string> qvalue = new List<string>();
         string keyword = FindKeyword(message);
         string newMessage = AddKeywordToMessage(message, keyword);
@@ -43,16 +44,45 @@ public class Textbox : MonoBehaviour
             qvalue.Add(name);
             qvalue.Add(newMessage);
             Debug.Log("Time is" + GameManager.instance.GetTime());
-            qvalue.Add(GameManager.instance.GetTime());
-            qvalue.Add(Application.loadedLevelName);
+            addToLog = true;
 
             GameManager.instance.questList[keyword] = qvalue;
         }
-        else if(keyword != "" && GameManager.instance.questList.ContainsKey(keyword) && GameManager.instance.questList[keyword][3] != GameManager.instance.GetTime()){
+        else if (keyword != "" && GameManager.instance.questList.ContainsKey(keyword))
+        {
+            List<string> temp = new List<string>();
+            for(int i = 2; i < GameManager.instance.questList[keyword].Count; i+= 2){
+
+                temp.Add(GameManager.instance.questList[keyword][i]);
+           
+           }
+            
+            for (int k = 0; k < temp.Count; k++)
+            {
+                if (temp[k] == GameManager.instance.GetTime())
+                {
+                    addToLog = false;
+                }
+                else if (k == temp.Count - 1)
+                {
+                    if (temp[k] != GameManager.instance.GetTime())
+                    {
+                        addToLog = true;
+                    }
+                    else
+                    {
+                        addToLog = false;
+                    }
+                }
+            }
+
+    
+        }
+        if (addToLog)
+        {
             GameManager.instance.questList[keyword].Add(GameManager.instance.GetTime());
             GameManager.instance.questList[keyword].Add(Application.loadedLevelName);
         }
-        
         return newMessage;
     }
 

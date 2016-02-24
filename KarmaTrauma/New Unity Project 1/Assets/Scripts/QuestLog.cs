@@ -13,7 +13,7 @@ public class QuestLog : MonoBehaviour
 
     //index of
     private int q_l;
-
+    int timeLocationPanelCounter = 1;
     int pointer;
     private int max_page = 1;
     private int page_index = 0;
@@ -48,7 +48,7 @@ public class QuestLog : MonoBehaviour
         //transform.Find("Panel").gameObject.SetActive(false);
         //transform.Find("Text").gameObject.SetActive(false);
         //transform.Find("Pointer").gameObject.SetActive(false);
-        transform.Find("LocationTimePanel0").gameObject.SetActive(true);
+        transform.Find("LocationTimePanel0").gameObject.SetActive(false);
 
 
         for (int x = 0; x < 3; x++)
@@ -63,6 +63,7 @@ public class QuestLog : MonoBehaviour
                     z.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.36f + .25f * x), (.14f - .25f * y));
                     z.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.15f + .25f * x), (.02f - .25f * y));
                     z.name = "LocationTimePanel" + x;
+                    transform.Find("LocationTimePanel" + x).gameObject.SetActive(false);
 
                 }
             }
@@ -162,10 +163,16 @@ public class QuestLog : MonoBehaviour
             DrawDescription(NPCName, dialog, q_i);
         }
         else
+       
             HideDescription();
     }
 
-
+    void ClearLocationTimePanels()
+    {
+        transform.Find("LocationTimePanel0").gameObject.SetActive(false);
+        transform.Find("LocationTimePanel1").gameObject.SetActive(false);
+        transform.Find("LocationTimePanel2").gameObject.SetActive(false);
+    }
     void DrawDescription(string name, string description, int q_i)
     {
         transform.Find("DialogText").gameObject.SetActive(true);
@@ -176,14 +183,14 @@ public class QuestLog : MonoBehaviour
         transform.Find("NameText").transform.GetComponent<Text>().text = name;
         List<string> temp_list = gameManager.questList[q_log[q_i]];
         int j = 0;
+        ClearLocationTimePanels();
         for(int i = 2; i < temp_list.Count -1; i+=2){
-            Debug.Log("LocationTimePanel" + j);
             transform.Find("LocationTimePanel" + j).gameObject.SetActive(true);
             //transform.Find("LocationTimePanel" + j).transform.Find("LocationTimeText").GetComponent<Text>().text = "hi";
             transform.Find("LocationTimePanel" + j).transform.Find("LocationTimeText").GetComponent<Text>().text = temp_list[i] + "\n" + temp_list[i+1];
             j++;
         }
-
+      
         
     }
 
@@ -193,6 +200,10 @@ public class QuestLog : MonoBehaviour
         transform.Find("NameText").gameObject.SetActive(false);
         transform.Find("DialogTextPanel").gameObject.SetActive(false);
         transform.Find("NamePanel").gameObject.SetActive(false);
+        for (int i = 0; i < timeLocationPanelCounter; i++)
+        {
+            transform.Find("LocationTimePanel" + i).gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -201,11 +212,12 @@ public class QuestLog : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (pointer < 1)
+            if (pointer < 3)
             {
                 pointer += 1;
                 q_i += 1;
                 DrawSelect();
+                
             }
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))

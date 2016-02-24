@@ -7,6 +7,7 @@ public class Textbox : MonoBehaviour
 {
     private GameManager gameManager;
 
+   
     bool choice_mode;
     bool tutorial_mode;
     int cursor;
@@ -24,6 +25,7 @@ public class Textbox : MonoBehaviour
         if (GameManager.instance != null)
         {
             gameManager = GameManager.instance;
+
             gameManager.EnterDialogue();
         }
         choice_mode = false;
@@ -43,7 +45,6 @@ public class Textbox : MonoBehaviour
         {
             qvalue.Add(name);
             qvalue.Add(newMessage);
-            Debug.Log("Time is" + GameManager.instance.GetTime());
             addToLog = true;
 
             GameManager.instance.questList[keyword] = qvalue;
@@ -81,7 +82,7 @@ public class Textbox : MonoBehaviour
         if (addToLog)
         {
             GameManager.instance.questList[keyword].Add(GameManager.instance.GetTime());
-            GameManager.instance.questList[keyword].Add(Application.loadedLevelName);
+            GameManager.instance.questList[keyword].Add(SceneManager.instance.SceneName(Application.loadedLevelName));
         }
         return newMessage;
     }

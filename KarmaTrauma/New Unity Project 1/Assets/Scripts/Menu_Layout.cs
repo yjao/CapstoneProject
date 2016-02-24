@@ -124,6 +124,7 @@ public class Menu_Layout : MonoBehaviour
         gameManager.Wait();
 
         quest_log.display() ;
+        quest_log.DrawSelect();
         //gameManager.gameMode = GameManager.GameMode.LOG;
         //gameManager.prevMode = GameManager.GameMode.PLAYING;
     }

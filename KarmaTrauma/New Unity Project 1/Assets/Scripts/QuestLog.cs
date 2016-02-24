@@ -17,7 +17,7 @@ public class QuestLog : MonoBehaviour
     int pointer;
     private int max_page = 1;
     private int page_index = 0;
-    private int quest_per_page = 4;
+    private int quest_per_page = 2;
 
     private List<string> q_log;
     // Use this for initialization
@@ -116,14 +116,18 @@ public class QuestLog : MonoBehaviour
 
     public void display()
     {
-        Debug.Log("q_l" + q_l);
-       
+        //Debug.Log("q_l" + q_l);
+        q_l = page_index * quest_per_page;
+        q_i = page_index * quest_per_page;
         //Debug.Log("questlist count: " + gameManager.questList.Count);
         max_page = (gameManager.questList.Count / quest_per_page) + 1;
+
         if (gameManager.questList.Count % quest_per_page == 0)
         {
             max_page = gameManager.questList.Count / quest_per_page;
-        } 
+        }
+        transform.Find("PageIndex").gameObject.transform.Find("PageIndexText").GetComponent<Text>().text = (page_index + 1).ToString() + "/" + max_page.ToString();
+
         foreach (string key in gameManager.questList.Keys)
         {
             if (!(q_log.Contains(key)))
@@ -131,21 +135,23 @@ public class QuestLog : MonoBehaviour
                 q_log.Add(key);
             }
         }
-        Debug.Log("q_log " + q_log.Count);
+        //Debug.Log("q_log " + q_log.Count);
         if (gameManager.questList.Count != 0 && q_l < gameManager.questList.Count)
         {
             //transform.Find("QuestPanel" + q_l).transform.Find("QuestText").GetComponent<Text>().text = q_log[q_l];
             //++q_l;
-            Debug.Log("page index " + page_index);
-            for (int quest = page_index*quest_per_page; quest < gameManager.questList.Count && (quest - page_index) < quest_per_page; ++quest)
+           // Debug.Log("page index " + page_index);
+            for (int quest = page_index*quest_per_page; quest < gameManager.questList.Count && (quest - page_index*quest_per_page) < quest_per_page; ++quest)
             {
+                //Debug.Log("Quest name is: " + q_log[q_l]);
+                //Debug.Log("Math: " + q_l % quest_per_page);
                 transform.Find("QuestPanel" + q_l%quest_per_page).transform.Find("QuestText").GetComponent<Text>().text = q_log[q_l];
                 ++q_l;
             }
         }
     }
 
-    void DrawSelect()
+    public void DrawSelect()
     {
         transform.Find("QuestSelect").gameObject.SetActive(true);
    
@@ -173,6 +179,16 @@ public class QuestLog : MonoBehaviour
         transform.Find("LocationTimePanel1").gameObject.SetActive(false);
         transform.Find("LocationTimePanel2").gameObject.SetActive(false);
     }
+
+    void ClearQuestPanelTexts()
+    {
+        for (int i = 0; i < quest_per_page; i++)
+        {
+            transform.Find("QuestPanel" + i).transform.Find("QuestText").GetComponent<Text>().text = "";
+        }
+    }
+
+
     void DrawDescription(string name, string description, int q_i)
     {
         transform.Find("DialogText").gameObject.SetActive(true);
@@ -212,7 +228,7 @@ public class QuestLog : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (pointer < 3)
+            if (pointer < quest_per_page-1)
             {
                 pointer += 1;
                 q_i += 1;
@@ -234,10 +250,9 @@ public class QuestLog : MonoBehaviour
         {
             pointer = 0;
             page_index++;
-            q_l = page_index * quest_per_page;
-            q_i = page_index*quest_per_page;
             
-           
+
+            ClearQuestPanelTexts();
             display();
             DrawSelect();
         }
@@ -245,10 +260,11 @@ public class QuestLog : MonoBehaviour
         {
             pointer = 0;
             page_index--; ;
-            q_l = page_index * quest_per_page;
-            q_i = page_index*quest_per_page;
             
-           
+            //q_l = page_index * quest_per_page;
+            //q_i = page_index*quest_per_page;
+
+            ClearQuestPanelTexts();
             display();
             DrawSelect();
         }

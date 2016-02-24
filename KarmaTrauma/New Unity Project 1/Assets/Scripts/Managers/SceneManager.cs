@@ -68,7 +68,10 @@ public class SceneManager : MonoBehaviour
         };
         //gameManager.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
 	}
-
+    public string SceneName(string name)
+    {
+        return scene_display_names[name];
+    }
     public void LoadScene(string name=null)
     {
         current_map = name;

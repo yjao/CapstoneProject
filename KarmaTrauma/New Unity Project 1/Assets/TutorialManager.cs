@@ -52,9 +52,8 @@ public class TutorialManager : MonoBehaviour
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
         //yield return StartCoroutine(Slide4_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
-        yield return StartCoroutine(Slide4_Coroutine());
 
-		yield return StartCoroutine(Slide11_Coroutine());
+		//yield return StartCoroutine(Slide11_Coroutine());
         yield break;
     }
 
@@ -89,10 +88,41 @@ public class TutorialManager : MonoBehaviour
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_SCHOOL));
         gameManager = GameManager.instance;
         gameManager.Wait();
+        gameManager.transform.Find("Menu_layout").gameObject.SetActive(true);
+        gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/EventSystem").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Fast_forward").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Fast_forward").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/MapPanel").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/MapName").gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
         CreateDialogue("Mrs. Freewoman", "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the space bar to progress speech%.");
+        yield return null; while (Pause()) { yield return null; }
+        CreateDialogue("Mrs. Freewoman", "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today");
+        yield return null; while (Pause()) { yield return null; }
+        CreateDialogue("Kelly", "*Whispers* Psst, I hope she won’t go on about how great Jerry Faraday is, like how Ly does all the time. Ugh.");
+        yield return null; while (Pause()) { yield return null; }
+        CreateDialogue("Mrs. Freewoman", "Oh right, before I forget!");
+        yield return null; while (Pause()) { yield return null; }
+        CreateDialogue("Mrs. Freewoman", "I was at Jeney’s this morning and told her Moonlight. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
+        yield return null; while (Pause()) { yield return null; }
+        CreateDialogue("Kelly", "Oooooh… Yes…");
+        yield return null; while (Pause()) { yield return null; }
+        CreateDialogue("Mrs. Freewoman", "Anyways, Mr. Ly called this morning and said the discussion topic is up to me.");
+        yield return null; while (Pause()) { yield return null; }
+        CreateDialogue("Mrs. Freewoman", "So let me ask this, how many of you are into time travels?");
+        yield return null; while (Pause()) { yield return null; }
+        CreateDialogue("Mrs. Freewoman", "...I myself are a huge fan of it, and if I could, I’d go back to 2 years from today, right before I was hospitalized.");
+        yield return null; while (Pause()) { yield return null; }
+        CreateDialogue("Mrs. Freewoman", "What’s something you’d go back in time and change?");
+        yield return null; while (Pause()) { yield return null; }
 
-        yield return null;
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+        yield return StartCoroutine(gameManager.GradualClock(14, .25f));
     }
 
 	IEnumerator Slide11_Coroutine()

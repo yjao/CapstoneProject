@@ -153,6 +153,9 @@ public class InteractableObject : MonoBehaviour
     {
         if (colliding && Input.GetKeyDown(KeyCode.Space) && gameManager.gameMode == GameManager.GameMode.PLAYING)
         {
+			// Cooldown procedure
+			//if (!gameManager.CheckKeyCooldown()) { return; } else { gameManager.SetKeyCooldown(); }
+
             // colliding = false; //troublesome without this line...
             if (interactionType == InteractionType.DIALOG)
                 Interact();

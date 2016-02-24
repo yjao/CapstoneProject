@@ -277,8 +277,11 @@ public class Player : MonoBehaviour
         }
            
         // Entering World Map Location 
-        else if (Input.GetKey(KeyCode.Space))
+        else if (locationString != "" && Input.GetKey(KeyCode.Space))
         {
+			// Cooldown procedure
+			//if (!gameManager.CheckKeyCooldown()) { return; } else { gameManager.SetKeyCooldown(); }
+
             if(locationString =="Mall")
             {
 				SceneManager.instance.LoadScene(SceneManager.SCENE_MALL);
@@ -306,11 +309,6 @@ public class Player : MonoBehaviour
             if (locationString == "Hospital")
             {
                 SceneManager.instance.LoadScene(SceneManager.SCENE_HOSPITAL);
-            }
-            // Not on any location
-            if (locationString =="")
-            {
-
             }
         }
 

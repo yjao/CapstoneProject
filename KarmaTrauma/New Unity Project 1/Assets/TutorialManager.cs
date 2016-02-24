@@ -5,6 +5,14 @@ using System.Collections.Generic;
 
 public class TutorialManager : MonoBehaviour
 {
+    private GameManager gameManager;
+    //private const string SCENE_HOUSE = "T_House";
+    //private const string SCENE_SCHOOL = "T_Class";
+    //private const string SCENE_MALL = "T_Mall";
+    //private const string SCENE_MAIN_STREET = "T_MainStreet";
+
+    private const string SCENE_MINI_MAIN_STREET = "T_MiniMainStreet";
+
     public GameObject dialogueContainer;
     private List<Slide> slides;
 
@@ -24,18 +32,26 @@ public class TutorialManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+        DontDestroyOnLoad(this.gameObject);
+        //gameManager = GameManager.instance;
         slides = new List<Slide>()
         {
-			new Slide("Slide1", 3f, "\"Hey Kelly! Help us out here!\"")
+			new Slide("Slide1", 1f, "\"Hey Kelly! Help us out here!\""),
+            new Slide("Slide1", 1f, "\"Yeah Chelsey, go help 'em. I'm too lazy to go.\""),
+            new Slide("Slide1", 1f, "\"Alright...\"")
         };
-        
+
 		StartCoroutine(Start_Tutorial());
 	}
 
     IEnumerator Start_Tutorial()
     {
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
-		yield return StartCoroutine(Slide_Coroutine(slides[0]));
+		//yield return StartCoroutine(Slide_Coroutine(slides[1]));
+        //yield return StartCoroutine(Slide_Coroutine(slides[2]));
+        yield return StartCoroutine(LoadMiniMainStreet());
+        yield return StartCoroutine(Slide4_Coroutine());
+        yield break;
     }
 
 	IEnumerator Slide_Coroutine(Slide slide)
@@ -49,6 +65,25 @@ public class TutorialManager : MonoBehaviour
         }
         yield return new WaitForSeconds(slide.timer);
 	}
+
+    IEnumerator Slide4_Coroutine()
+    {
+        gameManager = GameManager.instance;
+        gameManager.Wait();
+        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(GameObject.Find("Invis").GetComponent<CharacterAnimations>().Move(1, -12.5f, CharacterAnimations.States.DOWN_WALK));
+
+        GameObject.Find("Invis").transform.parent = GameObject.Find("Player").transform;
+        gameManager.Play();
+        yield break;
+    }
+
+    IEnumerator LoadMiniMainStreet()
+    {
+        Application.LoadLevel(SCENE_MINI_MAIN_STREET);
+        yield return null;
+    }
+
 
     public GameObject CreateTutorialBox(string message, float destroyTimer = -1, Textbox.TutorialBoxPosition position = Textbox.TutorialBoxPosition.MIDDLE)
     {

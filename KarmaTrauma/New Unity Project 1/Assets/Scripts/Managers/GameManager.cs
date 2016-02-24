@@ -311,7 +311,8 @@ public class GameManager : MonoBehaviour
         }
         else if (gameClock >= 22)
         {
-            return "10 - 12AM";
+            SoundManager.instance.LoadSceneSound("WorldMapMidnight", .5f);
+            return "10 - <b><color=red>12AM</color></b>";
         }
         Debug.Log("lllllllllllllllll");
         return gameClockDisplay;
@@ -349,6 +350,7 @@ public class GameManager : MonoBehaviour
 			}
             transform.Find("Menu_layout/Inventory").GetComponent<Menu>().close();
             transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
+            SoundManager.instance.StopAllBackgroundSounds();
 			SceneManager.instance.LoadScene(SceneManager.SCENE_HOUSE);
             return true;
         }

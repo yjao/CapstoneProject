@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public List<OutcomeManager.outcome> outcomeList;
 
     private bool reset;
+	private int keyCooldown;
     public bool has_text_box;
    
 	#region CONSTANT VALUES
@@ -209,7 +210,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CreateDialogue(string name, Dialogue message, int id)
+    public void CreateDialogue(string name, Dialogue message, int id = -1)
     {
      
         GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
@@ -556,7 +557,27 @@ public class GameManager : MonoBehaviour
     {
         // For debug purposes (obviously)
         //Debug.Log (GameMode);
+
+		if (keyCooldown > 0)
+		{
+			keyCooldown -= 1;
+		}
     }
+
+
+	#region Key Cooldown
+	public void SetKeyCooldown(int cooldown = 5)
+	{
+		keyCooldown = cooldown;
+		Debug.Log("Cooldown SET");
+	}
+
+	public bool CheckKeyCooldown()
+	{
+		if (keyCooldown != 0) { Debug.Log("False"); }
+		return (keyCooldown == 0);
+	}
+	#endregion
 
     #region Game data Loading
 

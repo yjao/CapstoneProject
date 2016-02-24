@@ -49,7 +49,6 @@ public class TutorialManager : MonoBehaviour
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
 		//yield return StartCoroutine(Slide_Coroutine(slides[1]));
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
-        yield return StartCoroutine(LoadMiniMainStreet());
         yield return StartCoroutine(Slide4_Coroutine());
         yield break;
     }
@@ -68,6 +67,7 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator Slide4_Coroutine()
     {
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_MINI_MAIN_STREET));
         gameManager = GameManager.instance;
         gameManager.Wait();
         yield return new WaitForSeconds(2f);
@@ -78,9 +78,9 @@ public class TutorialManager : MonoBehaviour
         yield break;
     }
 
-    IEnumerator LoadMiniMainStreet()
+    IEnumerator LoadSceneCoroutine(string mapname)
     {
-        Application.LoadLevel(SCENE_MINI_MAIN_STREET);
+        Application.LoadLevel(mapname);
         yield return null;
     }
 

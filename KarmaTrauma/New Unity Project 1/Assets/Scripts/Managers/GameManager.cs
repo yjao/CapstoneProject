@@ -339,7 +339,9 @@ public class GameManager : MonoBehaviour
         //Debug.Log("gameClock : " + gameClock);
 		if (GetTimeAsInt() == END_DAY_HOUR)
         {
-            gameClock = START_DAY_HOUR;
+            //gameClock = START_DAY_HOUR;
+            StartCoroutine(MidnightFade());
+            /*
             dayData.Wipe();
             reset = true;
             playerData.WipeQuest();
@@ -351,11 +353,26 @@ public class GameManager : MonoBehaviour
             transform.Find("Menu_layout/Inventory").GetComponent<Menu>().close();
             transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
             SoundManager.instance.StopAllBackgroundSounds();
-			SceneManager.instance.LoadScene(SceneManager.SCENE_HOUSE);
+			SceneManager.instance.LoadScene(SceneManager.SCENE_HOUSE);*/
             return true;
         }
         reset = false;
         return false;
+    }
+
+    private IEnumerator MidnightFade()
+    {
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+        StartCoroutine(SceneManager.instance.map_name("Day " + (playerData.daysPassed + 1) + ".", 2.25f));
+        dayData.Wipe();
+        reset = true;
+        playerData.WipeQuest();
+        playerData.daysPassed++;
+        transform.Find("Menu_layout/Inventory").GetComponent<Menu>().close();
+        transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
+        yield return StartCoroutine(GradualClock(START_DAY_HOUR, .25f, true));
+        SoundManager.instance.StopAllBackgroundSounds();
+        SceneManager.instance.LoadScene(SceneManager.SCENE_HOUSE);
     }
 
     public bool SetTime(TimeType type, int time=0, bool delay=false)

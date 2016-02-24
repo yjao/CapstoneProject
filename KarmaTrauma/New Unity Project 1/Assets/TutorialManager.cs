@@ -12,6 +12,7 @@ public class TutorialManager : MonoBehaviour
     //private const string SCENE_MAIN_STREET = "T_MainStreet";
 
     private const string SCENE_MINI_MAIN_STREET = "T_MiniMainStreet";
+	private const string SCENE_DONUT_SHOP = "T_Mall";
 
     public GameObject dialogueContainer;
     private List<Slide> slides;
@@ -51,6 +52,9 @@ public class TutorialManager : MonoBehaviour
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
         //yield return StartCoroutine(Slide4_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
+        yield return StartCoroutine(Slide4_Coroutine());
+
+		yield return StartCoroutine(Slide11_Coroutine());
         yield break;
     }
 
@@ -91,12 +95,25 @@ public class TutorialManager : MonoBehaviour
         yield return null;
     }
 
+	IEnumerator Slide11_Coroutine()
+	{
+		/*yield return StartCoroutine(LoadSceneCoroutine(SCENE_DONUT_SHOP));
+		yield return new WaitForSeconds(1);
+		gameManager.CreateDialogue("Kelly", "");
+		yield return null; while (Pause()) { yield return null; }*/
+		yield break;
+	}
+
     IEnumerator LoadSceneCoroutine(string mapname)
     {
         Application.LoadLevel(mapname);
         yield return null;
     }
 
+	private bool Pause()
+	{
+		return gameManager.gameMode == GameManager.GameMode.DIALOGUE;
+	}
 
     public GameObject CreateTutorialBox(string message, float destroyTimer = -1, Textbox.TutorialBoxPosition position = Textbox.TutorialBoxPosition.MIDDLE)
     {

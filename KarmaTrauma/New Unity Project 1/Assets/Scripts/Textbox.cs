@@ -297,7 +297,10 @@ public class Textbox : MonoBehaviour
         }
         else
         {
-            gameManager.playerData.DialogueHistory.Add(id + "," + Dialog.iD, true);
+            if (id != -1)
+            {
+                gameManager.playerData.DialogueHistory.Add(id + "," + Dialog.iD, true);
+            }
         }
 		message = FormatMessage(message);
 

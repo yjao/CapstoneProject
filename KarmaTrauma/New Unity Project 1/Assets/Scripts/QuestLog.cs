@@ -33,11 +33,14 @@ public class QuestLog : MonoBehaviour
 
         this.tag = "Menu";
 
-        HideDescription();
+        
         instance = this;
 
-        Log();
+        
         LocationTime();
+        HideDescription();
+        Log();
+        
         DrawSelect();
 
      
@@ -118,7 +121,7 @@ public class QuestLog : MonoBehaviour
     {
         //Debug.Log("q_l" + q_l);
         q_l = page_index * quest_per_page;
-        q_i = page_index * quest_per_page;
+        //q_i = page_index * quest_per_page;
         //Debug.Log("questlist count: " + gameManager.questList.Count);
         max_page = (gameManager.questList.Count / quest_per_page) + 1;
 
@@ -135,42 +138,47 @@ public class QuestLog : MonoBehaviour
                 q_log.Add(key);
             }
         }
-        //Debug.Log("q_log " + q_log.Count);
+        Debug.Log("q_log has: " + q_log.Count);
         if (gameManager.questList.Count != 0 && q_l < gameManager.questList.Count)
         {
             //transform.Find("QuestPanel" + q_l).transform.Find("QuestText").GetComponent<Text>().text = q_log[q_l];
             //++q_l;
-           // Debug.Log("page index " + page_index);
+            Debug.Log("page index " + page_index);
             for (int quest = page_index*quest_per_page; quest < gameManager.questList.Count && (quest - page_index*quest_per_page) < quest_per_page; ++quest)
             {
-                //Debug.Log("Quest name is: " + q_log[q_l]);
-                //Debug.Log("Math: " + q_l % quest_per_page);
+                Debug.Log("Quest name is: " + q_log[q_l]);
+                Debug.Log("Math: " + q_l % quest_per_page);
                 transform.Find("QuestPanel" + q_l%quest_per_page).transform.Find("QuestText").GetComponent<Text>().text = q_log[q_l];
                 ++q_l;
             }
+            
         }
     }
 
     public void DrawSelect()
     {
+       
         transform.Find("QuestSelect").gameObject.SetActive(true);
    
         transform.Find("QuestSelect").transform.GetComponent<RectTransform>().anchorMax = new Vector2((.8f), (.95f - .13f * pointer));
         transform.Find("QuestSelect").transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f), (.84f - .13f * pointer));
         transform.Find("QuestSelect").SetAsLastSibling();
 
-        
+
         if (q_log.Count > q_i && gameManager.questList.Count != 0 && gameManager.questList.Count > q_i)
         {
             string NPCName = (gameManager.questList[q_log[q_i]])[0];
             string dialog = (gameManager.questList[q_log[q_i]])[1];
-            
-    
+
+
             DrawDescription(NPCName, dialog, q_i);
         }
         else
-       
+        {
             HideDescription();
+          
+            
+        }
     }
 
     void ClearLocationTimePanels()
@@ -212,14 +220,12 @@ public class QuestLog : MonoBehaviour
 
     void HideDescription()
     {
+        Debug.Log("I'm here");
         transform.Find("DialogText").gameObject.SetActive(false);
         transform.Find("NameText").gameObject.SetActive(false);
         transform.Find("DialogTextPanel").gameObject.SetActive(false);
         transform.Find("NamePanel").gameObject.SetActive(false);
-        for (int i = 0; i < timeLocationPanelCounter; i++)
-        {
-            transform.Find("LocationTimePanel" + i).gameObject.SetActive(false);
-        }
+        ClearLocationTimePanels();
     }
 
     // Update is called once per frame
@@ -250,7 +256,7 @@ public class QuestLog : MonoBehaviour
         {
             pointer = 0;
             page_index++;
-            
+            q_i = page_index * quest_per_page;
 
             ClearQuestPanelTexts();
             display();
@@ -259,8 +265,8 @@ public class QuestLog : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.LeftArrow) && page_index > 0)
         {
             pointer = 0;
-            page_index--; ;
-            
+            page_index--;
+            q_i = page_index * quest_per_page;
             //q_l = page_index * quest_per_page;
             //q_i = page_index*quest_per_page;
 

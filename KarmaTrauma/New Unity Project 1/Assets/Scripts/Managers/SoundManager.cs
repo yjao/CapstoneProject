@@ -6,12 +6,14 @@ public class SoundManager : MonoBehaviour {
 
     public AudioClip MainStreetMusic;
     public AudioClip MallMusic;
+    public AudioClip MidnightSound;
 
     private AudioSource currentSong;
 
     public static SoundManager instance;
 
     private Dictionary<string, AudioClip> mapSong;
+    public List<AudioSource> backgroundSounds;
 
 	// Use this for initialization
 	void Start () {
@@ -26,8 +28,11 @@ public class SoundManager : MonoBehaviour {
         mapSong = new Dictionary<string, AudioClip>()
 	    {
 			{ "G_MainStreetSmall", MainStreetMusic},
-            { "G_Mall", MallMusic}
+            { "G_Mall", MallMusic},
+            { "WorldMapMidnight", MidnightSound}
         };
+
+        backgroundSounds = new List<AudioSource>();
 
         currentSong = GetComponent<AudioSource>();
 	}
@@ -45,6 +50,25 @@ public class SoundManager : MonoBehaviour {
         currentSong.clip = mapSong[mapName];
         currentSong.loop = true;
         currentSong.Play();
+    }
+
+    public void LoadSceneSound(string mapName, float volume)
+    {
+        AudioSource tempsource = gameObject.AddComponent<AudioSource>();
+        tempsource.clip = mapSong[mapName];
+        tempsource.volume = volume;
+        tempsource.loop = true;
+        tempsource.Play();
+        backgroundSounds.Add(tempsource);
+    }
+
+    public void StopAllBackgroundSounds()
+    {
+        for (int i = 0; i < backgroundSounds.Count; i++)
+        {
+            GameObject.Destroy(backgroundSounds[i]);
+        }
+        backgroundSounds.Clear();
     }
 
     public void PauseSceneMusic()

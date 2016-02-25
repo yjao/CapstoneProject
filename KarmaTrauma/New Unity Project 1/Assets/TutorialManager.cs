@@ -69,7 +69,7 @@ public class TutorialManager : MonoBehaviour
         yield return StartCoroutine(Slide8_Coroutine());
         yield return StartCoroutine(Slide9_Coroutine());
 
-        yield return StartCoroutine(Slide8_Coroutine());
+        //yield return StartCoroutine(Slide8_Coroutine());
 		//yield return StartCoroutine(Slide10_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
         //yield break;

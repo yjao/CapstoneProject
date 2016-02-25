@@ -290,6 +290,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Slide12_Coroutine()
     {
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_MAIN_STREET));
+        yield return StartCoroutine(SceneManager.instance.fade_out());
         gameManager = GameManager.instance;
         gameManager.Wait();
 
@@ -303,9 +304,9 @@ public class TutorialManager : MonoBehaviour
 
         CreateChoice("Kelly", "Oh please, don’t tell me you liked her, with all that geeky sci-fi talk...", new Choice[]
         {
-            new Choice("Say nothing.", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[1]{"No? Well, I expected that you would have %talked to her after class% or something."}, TutorialDialogueCounter = 3 }),
-            new Choice("Yeah, I liked her.", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"Of course you would. I expected noooo less from you, Chels. I can totally see you two being friends.", "Hey, why didn’t you %talk to her after class%?"}, TutorialDialogueCounter = 3 }),
-            new Choice("Doesn't she look familiar to you?", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"No? You’re the one with photographic memory, not me! I couldn’t even remember the quadratic formula.", "But I dunno, if she looks familiar, maybe you %should have talked to her after class% about it? I don’t remember a thing."}, TutorialDialogueCounter = 3 })
+            new Choice("Say nothing.", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[1]{"No? Well, I expected that you would have #talked to her after class# or something."}, TutorialDialogueCounter = 3 }),
+            new Choice("Yeah, I liked her.", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"Of course you would. I expected noooo less from you, Chels. I can totally see you two being friends.", "Hey, why didn’t you #talk to her after class#?"}, TutorialDialogueCounter = 3 }),
+            new Choice("Doesn't she look familiar to you?", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"No? You’re the one with photographic memory, not me! I couldn’t even remember the quadratic formula.", "But I dunno, if she looks familiar, maybe you #should have talked to her after class# about it? I don’t remember a thing."}, TutorialDialogueCounter = 3 })
         });
         yield return null; while (Pause()) { yield return null; }
 
@@ -342,7 +343,7 @@ public class TutorialManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(SceneManager.instance.fade_black());
         yield return new WaitForSeconds(1f);
-        CreateDialogue("Chelsey", "If I could... if only I could go back in time...");
+        CreateDialogue("Megan Freewoman", "If I could... if only I could go back in time...");
         yield return null; while (Pause()) { yield return null; }
 
         endCondition = false;

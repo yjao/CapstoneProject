@@ -119,25 +119,29 @@ public class TutorialManager : MonoBehaviour
         gameManager.transform.Find("Menu_layout/MapPanel").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/MapName").gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
-        CreateDialogue("Mrs. Freewoman", "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the space bar to progress speech%.");
-        yield return null; while (Pause()) { yield return null; }
-        CreateDialogue("Mrs. Freewoman", "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today");
+        MultiDialogue("Mrs. Freewoman", new string[2]
+        {
+            "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the space bar to progress speech%.",
+            "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today"
+        });
         yield return null; while (Pause()) { yield return null; }
         CreateDialogue("Kelly", "*Whispers* Psst, I hope she won’t go on about how great Jerry Faraday is, like how Ly does all the time. Ugh.");
         yield return null; while (Pause()) { yield return null; }
-        CreateDialogue("Mrs. Freewoman", "Oh right, before I forget!");
-        yield return null; while (Pause()) { yield return null; }
-        CreateDialogue("Mrs. Freewoman", "I was at Jeney’s this morning and told her Moonlight. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
+        MultiDialogue("Mrs. Freewoman", new string[2]
+        {
+            "Oh right, before I forget!",
+            "I was at Jeney’s this morning and told her Moonlight. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?"
+        });
         yield return null; while (Pause()) { yield return null; }
         CreateDialogue("Kelly", "Oooooh… Yes…");
         yield return null; while (Pause()) { yield return null; }
-        CreateDialogue("Mrs. Freewoman", "Anyways, Mr. Ly called this morning and said the discussion topic is up to me.");
-        yield return null; while (Pause()) { yield return null; }
-        CreateDialogue("Mrs. Freewoman", "So let me ask this, how many of you are into time travels?");
-        yield return null; while (Pause()) { yield return null; }
-        CreateDialogue("Mrs. Freewoman", "...I myself are a huge fan of it, and if I could, I’d go back to 2 years from today, right before I was hospitalized.");
-        yield return null; while (Pause()) { yield return null; }
-        CreateDialogue("Mrs. Freewoman", "What’s something you’d go back in time and change?");
+        MultiDialogue("Mrs. Freewoman", new string[4]
+        {
+            "Anyways, Mr. Ly called this morning and said the discussion topic is up to me.",
+            "So let me ask this, how many of you are into time travels?",
+            "...I myself am a huge fan of it, and if I could, I’d go back to 2 years from today, right before I was hospitalized.",
+            "What’s something you’d go back in time and change?"
+        });
         yield return null; while (Pause()) { yield return null; }
 
         yield return new WaitForSeconds(1f);
@@ -180,6 +184,15 @@ public class TutorialManager : MonoBehaviour
     {
         Choice[] choices = null;
 		Dialogue d = new Dialogue(-1, Textbox.ColorTutorialKeyword(message));
+        gameManager.CreateDialogue(name, d, -1);
+    }
+
+    private void MultiDialogue(string name, string[] messages)
+    {
+        EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
+        Dialogue d = new Dialogue(-1, messages[0]);
+        d.CEA = new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = messages, TutorialDialogueCounter = messages.Length };
+        d.Action += d.CEA.ChoiceAction;
         gameManager.CreateDialogue(name, d, -1);
     }
 

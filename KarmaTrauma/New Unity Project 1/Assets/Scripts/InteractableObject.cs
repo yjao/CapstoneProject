@@ -179,6 +179,15 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
+    public static void HandleTutorial(object sender, GameEventArgs args)
+    {
+        EventManager.OnDialogChoiceMade -= HandleTutorial;
+        if (args.ChoiceAction != null)
+        {
+            args.ChoiceAction(args.DialogueBox, args);
+        }
+    }
+
     void Update()
     {
         CheckAndInteract();

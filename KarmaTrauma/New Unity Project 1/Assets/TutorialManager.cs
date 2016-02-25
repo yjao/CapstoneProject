@@ -103,7 +103,8 @@ public class TutorialManager : MonoBehaviour
 		yield return StartCoroutine(Slide_Coroutine(slides[7]));
         yield return StartCoroutine(Slide19_Coroutine());
 
-        Application.LoadLevel(SCENE_G_MAIN_STREET);
+        //Application.LoadLevel(SCENE_G_MAIN_STREET);
+        SceneManager.instance.LoadScene(SCENE_G_MAIN_STREET);
         yield return StartCoroutine(SceneManager.instance.fade_out());
         gameManager.Play();
         Destroy(this);
@@ -412,6 +413,7 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator Slide19_Coroutine()
     {
+        yield return new WaitForSeconds(10);
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_MAIN_STREET));
         Destroy(GameObject.Find("Kelly"));
         yield return StartCoroutine(SceneManager.instance.fade_out());

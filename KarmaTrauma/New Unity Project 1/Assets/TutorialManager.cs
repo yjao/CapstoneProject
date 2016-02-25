@@ -165,6 +165,7 @@ public class TutorialManager : MonoBehaviour
         //gameManager = GameManager.instance;
         
         gameManager = GameManager.instance;
+        gameManager.SetTime(GameManager.TimeType.SET, 8);
         gameManager.Wait();
         gameManager.transform.Find("Menu_layout").gameObject.SetActive(true);
         gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(false);

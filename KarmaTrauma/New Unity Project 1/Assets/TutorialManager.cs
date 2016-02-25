@@ -21,6 +21,8 @@ public class TutorialManager : MonoBehaviour
 	private const string SCENE_DONUT_SHOP = "T_Mall";
     private const string SCENE_WORLD_MAP = "T_WorldMap";
 
+    private const string SCENE_G_MAIN_STREET = "G_MainStreet";
+
     bool endCondition = false;
 
 
@@ -66,15 +68,15 @@ public class TutorialManager : MonoBehaviour
         //yield return StartCoroutine(Slide4_Coroutine());
         yield return StartCoroutine(Slide8_Coroutine());
         yield return StartCoroutine(Slide9_Coroutine());
-        //yield return StartCoroutine(Slide8_Coroutine());
 
-        yield return StartCoroutine(Slide8_Coroutine());
-		yield return StartCoroutine(Slide10_Coroutine());
+        //yield return StartCoroutine(Slide8_Coroutine());
+		//yield return StartCoroutine(Slide10_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
         //yield break;
 
 		//yield return StartCoroutine(Slide11_Coroutine());
         yield return StartCoroutine(Slide12_Coroutine());
+        yield return StartCoroutine(Slide19_Coroutine());
         yield break;
 
     }
@@ -143,7 +145,7 @@ public class TutorialManager : MonoBehaviour
         //
         MultiDialogue("Mrs. Freewoman", new string[2]
         {
-            "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the space bar to progress speech%.",
+            "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the Spacebar to progress speech%.",
             "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today"
         });
         yield return null; while (Pause()) { yield return null; }
@@ -158,6 +160,13 @@ public class TutorialManager : MonoBehaviour
             "Oh right, before I forget!",
             "I was at Jeney’s this morning and told her Moonlight. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?"
         });
+        CreateDialogue("Mrs. Freewoman", "Oh right, before I forget!");
+        yield return null; while (Pause()) { yield return null; }
+
+        Dialogue d = new Dialogue(-1, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
+        gameManager.CreateDialogue(name, d, -1);
+        
+        //CreateDialogue("Mrs. Freewoman", "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
         yield return null; while (Pause()) { yield return null; }
         CreateDialogue("Kelly", "Oooooh… Yes…");
         yield return null; while (Pause()) { yield return null; }
@@ -185,6 +194,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         CreateDialogue("Kelly", "To the Punxsu-- I mean %J.F. Mall%!");
         yield return null; while (Pause()) { yield return null; }
+        CreateTutorialBox("%Press Spacebar to enter a location%", Textbox.TutorialBoxPosition.TOP);
         gameManager.Play();
 
         while (true)
@@ -240,19 +250,27 @@ public class TutorialManager : MonoBehaviour
         gameManager.Wait();
 
         yield return new WaitForSeconds(2f);
-        MultiDialogue("Kelly", new string[3]
+        MultiDialogue("Kelly", new string[2]
         {
             "She’s still better than Mr. Ly fanboying over Faraday though…",
-            "But yeah, that Freewoman was so boring! I’d hate to have her again. She’s just so... scholarly.",
-            "Oh please, don’t tell me you liked her, with all that geeky sci-fi talk…"
+            "But yeah, that Freewoman was so boring! I’d hate to have her again. She’s just so... scholarly."
         });
         yield return null; while (Pause()) { yield return null; }
+
+        CreateChoice("Kelly", "Oh please, don’t tell me you liked her, with all that geeky sci-fi talk...", new Choice[]
+        {
+            new Choice("Say nothing.", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[1]{"No? Well, I expected that you would have %talked to her after class% or something."}, TutorialDialogueCounter = 3 }),
+            new Choice("Yeah, I liked her.", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"Of course you would. I expected noooo less from you, Chels. I can totally see you two being friends.", "Hey, why didn’t you %talk to her after class%?"}, TutorialDialogueCounter = 3 }),
+            new Choice("Doesn't she look familiar to you?", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"No? You’re the one with photographic memory, not me! I couldn’t even remember the quadratic formula.", "But I dunno, if she looks familiar, maybe you %should have talked to her after class% about it? I don’t remember a thing."}, TutorialDialogueCounter = 3 })
+        });
+        yield return null; while (Pause()) { yield return null; }
+
         CreateDialogue("Kelly", "Oh wow, I didn’t realize it was already %9 PM%! Daddy’s gonna be mad at me if I don’t go soon. Thanks for the hang! Gotta run, see ya tomorrow!");
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(3, 19.00f, CharacterAnimations.States.RIGHT_WALK, 0.04f));
         Destroy(GameObject.Find("Kelly"));
 
-        CreateDialogue("Tutorial", "You can move now. Press the %space bar% to close this box.");
+        CreateDialogue("Chelsey", "I should go home now.");
         yield return null; while (Pause()) { yield return null; }
         gameManager.Play();
 
@@ -260,6 +278,29 @@ public class TutorialManager : MonoBehaviour
         {
             yield return null;
         }
+        endCondition = false;
+        // SCREEN TURNS RED
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+    }
+
+    IEnumerator Slide19_Coroutine()
+    {
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_MAIN_STREET));
+        Destroy(GameObject.Find("Kelly"));
+        yield return StartCoroutine(SceneManager.instance.fade_out());
+        while (!endCondition)
+        {
+            yield return null;
+        }
+
+        // SCREEN TURNS RED
+        CreateDialogue("Chelsey", "Alfred...!");
+        yield return null; while (Pause()) { yield return null; }
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+        yield return new WaitForSeconds(1f);
+        CreateDialogue("Chelsey", "If I could... if only I could go back in time...");
+        yield return null; while (Pause()) { yield return null; }
+
         endCondition = false;
         yield break;
     }
@@ -285,7 +326,7 @@ public class TutorialManager : MonoBehaviour
             GameObject.Find("Main Camera").transform.parent = GameObject.Find("Alfred").transform;
             GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Alfred").transform.position.x, GameObject.Find("Alfred").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
             yield return StartCoroutine(GameObject.Find("Alfred").GetComponent<CharacterAnimations>().Move(2, -11.00f, CharacterAnimations.States.FALLEN, 0.15f));        
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1f);
             //GameObject.Find("Main Camera").transform.parent = GameObject.Find("Player").transform;
             //GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Player").transform.position.x, GameObject.Find("Player").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
             //gameManager.Play();
@@ -338,6 +379,15 @@ public class TutorialManager : MonoBehaviour
     private void MultiDialogue(string name, string[] messages)
     {
         EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
+    
+        for (int i = 0; i < messages.Length; i++)
+        {
+            messages[i] = Textbox.ColorTutorialKeyword(messages[i]);
+        }
+        //for (int j = 0; j < messages.Length; j++)
+        //{
+        //    Debug.Log(messages[j]);
+        //}
         Dialogue d = new Dialogue(-1, messages[0]);
         d.CEA = new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = messages, TutorialDialogueCounter = messages.Length };
         d.Action += d.CEA.ChoiceAction;

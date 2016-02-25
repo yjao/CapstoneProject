@@ -68,13 +68,13 @@ public class TutorialManager : MonoBehaviour
         //yield return StartCoroutine(Slide9_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
 
-        //yield return StartCoroutine(Slide8_Coroutine());
+        yield return StartCoroutine(Slide8_Coroutine());
 		//yield return StartCoroutine(Slide10_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
         //yield break;
 
 		//yield return StartCoroutine(Slide11_Coroutine());
-        yield return StartCoroutine(Slide12_Coroutine());
+        //yield return StartCoroutine(Slide12_Coroutine());
         yield break;
 
     }
@@ -114,7 +114,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Slide8_Coroutine()
     {
         //School Scene
-
+       
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_SCHOOL));
         //gameManager = GameManager.instance;
         
@@ -133,12 +133,12 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         //
         //EXAMPLE CODE TO BE REMOVED
-        CreateChoice("testperson", "teststring", new Choice[]
-        {
-            new Choice("testchoice1", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"testd1", "testd2"}, TutorialDialogueCounter = 3 }),
-            new Choice("testchoice2", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"testd3", "testd4"}, TutorialDialogueCounter = 3 })
-        });
-        yield return null; while (Pause()) { yield return null; }
+        //CreateChoice("testperson", "teststring", new Choice[]
+        //{
+        //    new Choice("testchoice1", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"testd1", "testd2"}, TutorialDialogueCounter = 3 }),
+        //    new Choice("testchoice2", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"testd3", "testd4"}, TutorialDialogueCounter = 3 })
+        //});
+        //yield return null; while (Pause()) { yield return null; }
         //
         //
         MultiDialogue("Mrs. Freewoman", new string[2]
@@ -146,19 +146,44 @@ public class TutorialManager : MonoBehaviour
             "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the Spacebar to progress speech%.",
             "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today"
         });
+        NPC kelly = GameObject.Find("Kelly").GetComponent<NPC>();
+        NPC stylishguy = GameObject.Find("Stylish_guy").GetComponent<NPC>();
+        NPC redhairguy = GameObject.Find("Red_guy").GetComponent<NPC>();
+        NPC girlindrama = GameObject.Find("Girl_in_drama").GetComponent<NPC>();
+        NPC pinkguy = GameObject.Find("Pink_hair_dude").GetComponent<NPC>();
+
         yield return null; while (Pause()) { yield return null; }
+        kelly.SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
+        girlindrama.SetAnimation(CharacterAnimations.States.UP_DANCE);
+        
         CreateDialogue("Kelly", "*Whispers* Psst, I hope she won’t go on about how great Jerry Faraday is, like how Ly does all the time. Ugh.");
         yield return null; while (Pause()) { yield return null; }
+        girlindrama.SetAnimation(CharacterAnimations.States.UP_IDLE);
+        kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
+       
         CreateDialogue("Mrs. Freewoman", "Oh right, before I forget!");
         yield return null; while (Pause()) { yield return null; }
 
         Dialogue d = new Dialogue(-1, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
         gameManager.CreateDialogue(name, d, -1);
-        
+        redhairguy.SetAnimation(CharacterAnimations.States.RIGHT_SWING);
+        stylishguy.SetAnimation(CharacterAnimations.States.LEFT_SWING);
         //CreateDialogue("Mrs. Freewoman", "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
         yield return null; while (Pause()) { yield return null; }
         CreateDialogue("Kelly", "Oooooh… Yes…");
+        //yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.LEFT_DANCE));
+
+        yield return StartCoroutine(kelly.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.LEFT_DANCE));
+        yield return StartCoroutine(kelly.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.RIGHT_DANCE));
+        redhairguy.SetAnimation(CharacterAnimations.States.UP_IDLE);
+        stylishguy.SetAnimation(CharacterAnimations.States.UP_IDLE);
+        //kelly.SetAnimation(CharacterAnimations.States.LEFT_DANCE);
+        //kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
         yield return null; while (Pause()) { yield return null; }
+        //yield return StartCoroutine(kelly.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.UP_IDLE));
+        kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
+        //red guy and stylish guy talking
+
         MultiDialogue("Mrs. Freewoman", new string[4]
         {
             "Anyways, Mr. Ly called this morning and said the discussion topic is up to me.",

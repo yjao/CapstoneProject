@@ -21,6 +21,8 @@ public class TutorialManager : MonoBehaviour
 	private const string SCENE_DONUT_SHOP = "T_Mall";
     private const string SCENE_WORLD_MAP = "T_WorldMap";
 
+    private const string SCENE_G_MAIN_STREET = "G_MainStreet";
+
     bool endCondition = false;
 
 
@@ -64,9 +66,8 @@ public class TutorialManager : MonoBehaviour
 		//yield return StartCoroutine(Slide_Coroutine(slides[1]));
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
         //yield return StartCoroutine(Slide4_Coroutine());
-        //yield return StartCoroutine(Slide8_Coroutine());
-        //yield return StartCoroutine(Slide9_Coroutine());
-        //yield return StartCoroutine(Slide8_Coroutine());
+        yield return StartCoroutine(Slide8_Coroutine());
+        yield return StartCoroutine(Slide9_Coroutine());
 
         yield return StartCoroutine(Slide8_Coroutine());
 		//yield return StartCoroutine(Slide10_Coroutine());
@@ -74,7 +75,12 @@ public class TutorialManager : MonoBehaviour
         //yield break;
 
 		//yield return StartCoroutine(Slide11_Coroutine());
+
         //yield return StartCoroutine(Slide12_Coroutine());
+
+        yield return StartCoroutine(Slide12_Coroutine());
+        yield return StartCoroutine(Slide19_Coroutine());
+
         yield break;
 
     }
@@ -153,6 +159,7 @@ public class TutorialManager : MonoBehaviour
         NPC pinkguy = GameObject.Find("Pink_hair_dude").GetComponent<NPC>();
 
         yield return null; while (Pause()) { yield return null; }
+
         kelly.SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
         girlindrama.SetAnimation(CharacterAnimations.States.UP_DANCE);
         
@@ -160,7 +167,19 @@ public class TutorialManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
         girlindrama.SetAnimation(CharacterAnimations.States.UP_IDLE);
         kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
-       
+
+        GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
+        yield return new WaitForSeconds(.25f); 
+        CreateDialogue("Kelly", "*Whispers* Psst, I hope she won’t go on about how great Jerry Faraday is, like how Ly does all the time. Ugh.");
+        yield return null; while (Pause()) { yield return null; }
+        yield return new WaitForSeconds(.25f); 
+        GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.UP_IDLE);
+        MultiDialogue("Mrs. Freewoman", new string[2]
+        {
+            "Oh right, before I forget!",
+            "I was at Jeney’s this morning and told her Moonlight. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?"
+        });
+
         CreateDialogue("Mrs. Freewoman", "Oh right, before I forget!");
         yield return null; while (Pause()) { yield return null; }
 
@@ -226,8 +245,13 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator Slide9_Coroutine()
     {
+        GameObject.Find("NPCS").gameObject.SetActive(false);
         yield return StartCoroutine(SceneManager.instance.fade_out());
+        gameManager.Wait();
         yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(3, -1.25f, CharacterAnimations.States.RIGHT_WALK));
+        GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
+        GameObject.Find("Player").GetComponent<CharacterAnimations>().AnimationState = CharacterAnimations.States.LEFT_IDLE;
         MultiDialogue("Kelly", new string[2]
         {
             "Phew, classes are finally over.",
@@ -288,6 +312,29 @@ public class TutorialManager : MonoBehaviour
             yield return null;
         }
         endCondition = false;
+        // SCREEN TURNS RED
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+    }
+
+    IEnumerator Slide19_Coroutine()
+    {
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_MAIN_STREET));
+        Destroy(GameObject.Find("Kelly"));
+        yield return StartCoroutine(SceneManager.instance.fade_out());
+        while (!endCondition)
+        {
+            yield return null;
+        }
+
+        // SCREEN TURNS RED
+        CreateDialogue("Chelsey", "Alfred...!");
+        yield return null; while (Pause()) { yield return null; }
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+        yield return new WaitForSeconds(1f);
+        CreateDialogue("Chelsey", "If I could... if only I could go back in time...");
+        yield return null; while (Pause()) { yield return null; }
+
+        endCondition = false;
         yield break;
     }
 
@@ -312,7 +359,7 @@ public class TutorialManager : MonoBehaviour
             GameObject.Find("Main Camera").transform.parent = GameObject.Find("Alfred").transform;
             GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Alfred").transform.position.x, GameObject.Find("Alfred").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
             yield return StartCoroutine(GameObject.Find("Alfred").GetComponent<CharacterAnimations>().Move(2, -11.00f, CharacterAnimations.States.FALLEN, 0.15f));        
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1f);
             //GameObject.Find("Main Camera").transform.parent = GameObject.Find("Player").transform;
             //GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Player").transform.position.x, GameObject.Find("Player").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
             //gameManager.Play();

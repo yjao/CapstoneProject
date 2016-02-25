@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="MDTileA4" tilewidth="16" tileheight="16" tilecount="960">
+  <image source="../MDTileA4.png" width="512" height="480"/>
+ </tileset>
+ <tileset firstgid="961" name="WoodenFloor" tilewidth="16" tileheight="16" tilecount="256">
+  <image source="../WoodenFloor.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="30" height="15">
+  <data encoding="base64" compression="zlib">
+   eJy9kU0KwkAMhafjXETxIq1Fz6EWXekNFGxF1/5coFp07c8FBE/iSXwDzaLtdCYFsfCRpDxeJknkCfFxMAYRQ8fVak0G+i0hBhbSXCelG46WNBN4Ty2QriPdcLSk2cB7a0Hr3iCQbsiTo7nA+2rhlfcdSTfkydGslBAxSMBaVWvSzZHPVDGW/9FuTFqK5LdDvgcHcFTVmnRL5AtVjOV/tBuTliL5pchP4AwyZagbzDvUO2bOe0N+Bw/wVNW6ybwe7qckb95f3reNnl35//v66Bky5+Xet+79hfuiZ8SYNwQxSCz08r51728adV/ux52XE5v0Ne0lKL3FZ+yO9vcFsbTSxw==
+  </data>
+ </layer>
+</map>

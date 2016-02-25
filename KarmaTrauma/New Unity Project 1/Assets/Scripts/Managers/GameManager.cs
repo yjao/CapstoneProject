@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour
 	public const string QUEST_KEYWORD_COLOR = "yellow";
 	public const bool QUEST_KEYWORD_BOLDED = true;
 
+	public const char TUTORIAL_KEYWORD = '%';
+	public const string TUTORIAL_KEYWORD_COLOR = "green";
+	public const bool TUTORIAL_KEYWORD_BOLDED = true;
+
 	private const bool PARSING_MODE = true;
 	private const int END_DAY_HOUR = 24;
 	private const int START_DAY_HOUR = 6;
@@ -212,10 +216,9 @@ public class GameManager : MonoBehaviour
 
     public void CreateDialogue(string name, Dialogue message, int id = -1)
     {
-     
         GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
         dialog.GetComponent<Textbox>().Dialog = message;
-        dialog.GetComponent<Textbox>().DrawBox(name, message.text, id);
+		dialog.GetComponent<Textbox>().DrawBox(name, message.text, id);
     }
 
     public void CreateChoice(string name, Dialogue dialogue, int id)

@@ -9,6 +9,9 @@
  <tileset firstgid="1473" name="MDTileA4" tilewidth="16" tileheight="16" tilecount="960">
   <image source="../MDTileA4.png" width="512" height="480"/>
  </tileset>
+ <tileset firstgid="2433" name="ParkTile" tilewidth="16" tileheight="16" tilecount="768">
+  <image source="../ParkTile.png" width="512" height="384"/>
+ </tileset>
  <layer name="Tile Layer 1" width="20" height="20">
   <data encoding="base64" compression="zlib">
    eJytk80NwjAMRhMqEAvwswCIDWASuMMMlVgEiUlgAhAjcC8gBvAAOCJVzUdcWpLDkxzFebKdZNEx5sAcEzBntsyJOUdyYXLvuzOPSJ7C182M6UXSzyrfhONpJDPhI5uG0lfYN2SruC3ouwnKNYk15hDEjh34SPERxFquq2+v1IcuCuSgH/uV89P6lXNu4iM4i/UW9nueofsg8P26S8zX3ktbtPcSqhFrDTma+Or6q+s/NL9//4Z8f6n+r/sfY2YZYMUMmav9ZCD2kRGzVtj4WaAv93saL9qQKTY=

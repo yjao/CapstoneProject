@@ -15,4 +15,6 @@ public class ChoiceEventArgs
     public int ShoveX { get; set; }
     public int IDNum { get; set; }
     public int DialogueID { get; set; }
+    public string[] TutorialDialogues { get; set; }
+    public int TutorialDialogueCounter { get; set; }
 }

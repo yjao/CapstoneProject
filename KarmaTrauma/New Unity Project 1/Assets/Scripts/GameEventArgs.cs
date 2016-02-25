@@ -18,6 +18,8 @@ public class GameEventArgs
     public int ShoveX { get; set; }
     public int IDNum { get; set; }
     public int DialogueID { get; set; }
+    public string[] TutorialDialogues { get; set; }
+    public int TutorialDialogueCounter { get; set; }
 
     public CharacterAnimations.States AnimationState { get; set; }
 
@@ -29,5 +31,7 @@ public class GameEventArgs
         IDNum = CEA.IDNum;
         DialogueID = CEA.DialogueID;
 		String = CEA.String;
+        TutorialDialogues = CEA.TutorialDialogues;
+        TutorialDialogueCounter = CEA.TutorialDialogueCounter;
     }
 }

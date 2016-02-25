@@ -172,8 +172,9 @@ public class Textbox : MonoBehaviour
                         g.DialogueBox = this;
                         Interactable.Action oldaction = Dialog.CEA.ChoiceAction;
                         EventManager.NotifyDialogChoiceMade(this, g);
-                        if (oldaction != continueDialogue)
+                        if (!(oldaction == continueDialogue || oldaction == ContinueTutorialDialogue))
                         {
+                            Debug.Log("and here");
                             EventManager.NotifySpaceBar(this, new GameEventArgs());
                         }
                     }
@@ -452,6 +453,22 @@ public class Textbox : MonoBehaviour
         if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice() || GameManager.instance.allObjects[args.IDNum].dialogues[args.DialogueID].Action != null)
         {
             EventManager.OnDialogChoiceMade += args.ThisGameObject.GetComponent<InteractableObject>().HandleOnDialogChoiceMade;
+        }
+    }
+
+    public static void ContinueTutorialDialogue(object sender, GameEventArgs args)
+    {
+        args.TutorialDialogueCounter -= 1;
+        args.DialogueBox.Dialog.CEA.TutorialDialogueCounter = args.TutorialDialogueCounter;
+        string name = args.DialogueBox.transform.Find("Name").GetComponent<Text>().text;
+        args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = args.TutorialDialogues[args.TutorialDialogues.Length - args.TutorialDialogueCounter];
+        if (args.TutorialDialogueCounter != 1)
+        {
+            EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
+        }
+        else
+        {
+            args.DialogueBox.Dialog.CEA = null;
         }
     }
 }

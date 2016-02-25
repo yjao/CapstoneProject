@@ -39,9 +39,9 @@ public class TutorialManager : MonoBehaviour
         //gameManager = GameManager.instance;
         slides = new List<Slide>()
         {
-			new Slide("Slide1", 1f, "\"Hey Kelly! Help us out here!\""),
-            new Slide("Slide1", 1f, "\"Yeah Chelsey, go help 'em. I'm too lazy to go.\""),
-            new Slide("Slide1", 1f, "\"Alright...\"")
+			new Slide("Slide1", 0, "\"Hey Kelly! Help us out here!\""),
+            new Slide("Slide1", 0, "\"Yeah Chelsey, go help 'em. I'm too lazy to go.\""),
+            new Slide("Slide1", 0, "\"Alright...\"")
         };
 
 		StartCoroutine(Start_Tutorial());

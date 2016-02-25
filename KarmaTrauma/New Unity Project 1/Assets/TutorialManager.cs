@@ -5,14 +5,17 @@ using System.Collections.Generic;
 
 public class TutorialManager : MonoBehaviour
 {
+    public static TutorialManager instance;
+
     private GameManager gameManager;
     //private const string SCENE_HOUSE = "T_House";
     private const string SCENE_SCHOOL = "T_Class";
-    //private const string SCENE_MALL = "T_Mall";
+    private const string SCENE_MALL = "T_Mall";
     //private const string SCENE_MAIN_STREET = "T_MainStreet";
 
     private const string SCENE_MINI_MAIN_STREET = "T_MiniMainStreet";
 	private const string SCENE_DONUT_SHOP = "T_Mall";
+    private const string SCENE_WORLD_MAP = "T_WorldMap";
 
     private GameObject activeTutorialBox;
 
@@ -35,6 +38,7 @@ public class TutorialManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+        instance = this;
         DontDestroyOnLoad(this.gameObject);
         //gameManager = GameManager.instance;
         slides = new List<Slide>()
@@ -54,9 +58,10 @@ public class TutorialManager : MonoBehaviour
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
         //yield return StartCoroutine(Slide4_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
-
-		//yield return StartCoroutine(Slide11_Coroutine());
-        yield break;
+        yield return StartCoroutine(Slide8_Coroutine());
+		yield return StartCoroutine(Slide10_Coroutine());
+        //yield return StartCoroutine(Slide8_Coroutine());
+        //yield break;
     }
 
 	IEnumerator Slide_Coroutine(Slide slide)
@@ -105,7 +110,10 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Slide8_Coroutine()
     {
         //School Scene
+
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_SCHOOL));
+        //gameManager = GameManager.instance;
+        
         gameManager = GameManager.instance;
         gameManager.Wait();
         gameManager.transform.Find("Menu_layout").gameObject.SetActive(true);
@@ -146,7 +154,32 @@ public class TutorialManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         yield return StartCoroutine(SceneManager.instance.fade_black());
-        yield return StartCoroutine(gameManager.GradualClock(14, .25f));
+        yield return StartCoroutine(gameManager.GradualClock(14, .1f));
+    }
+
+    IEnumerator Slide10_Coroutine()
+    {
+        
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_WORLD_MAP));
+        gameManager = GameManager.instance;
+        gameManager.Wait();
+        yield return StartCoroutine(SceneManager.instance.fade_out());
+        yield return new WaitForSeconds(1f);
+        CreateDialogue("Kelly", "To the Punxsu-- I mean %J.F. Mall%!");
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.Play();
+
+        while (true)
+        {
+            if (Application.loadedLevelName == SCENE_MALL)
+            {
+                yield return StartCoroutine(SceneManager.instance.fade_black());
+                yield return StartCoroutine(gameManager.GradualClock(16, .25f));
+                yield break;
+            }
+            yield return null;
+        }
+
     }
 
 	IEnumerator Slide11_Coroutine()
@@ -201,4 +234,7 @@ public class TutorialManager : MonoBehaviour
 	{
 	
 	}
+
+
+
 }

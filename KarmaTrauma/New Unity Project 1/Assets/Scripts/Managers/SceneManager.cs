@@ -279,4 +279,22 @@ public class SceneManager : MonoBehaviour
         yield return new WaitForSeconds(timer);
         GameObject.Destroy(name);
     }
+
+	public IEnumerator display_text(string text, float timer = 1f)
+	{
+		GameObject name = new GameObject();
+		name.AddComponent<CanvasRenderer>();
+		name.AddComponent<Text>();
+		Text t = name.transform.GetComponent<Text>();
+		t.text = text;
+		name.transform.SetParent(gameManager.transform.Find("Menu_layout"), false);
+		t.rectTransform.anchorMin = new Vector2(0f, 0f);
+		t.rectTransform.anchorMax = new Vector2(1f, 1f);
+		t.alignment = TextAnchor.MiddleCenter;
+		t.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+		t.resizeTextForBestFit = true;
+		t.resizeTextMaxSize = 60;
+		yield return new WaitForSeconds(timer);
+		GameObject.Destroy(name);
+	}
 }

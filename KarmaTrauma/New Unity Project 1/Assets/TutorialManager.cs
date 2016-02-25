@@ -52,9 +52,14 @@ public class TutorialManager : MonoBehaviour
         //gameManager = GameManager.instance;
         slides = new List<Slide>()
         {
-			new Slide("Slide1", 0, "\"Hey Kelly! Help us out here!\""),
-            new Slide("Slide1", 0, "\"Yeah Chelsey, go help 'em. I'm too lazy to go.\""),
-            new Slide("Slide1", 0, "\"Alright...\"")
+			/*0*/ new Slide("Slide1", 3, "\"Hey Kelly! Help us out here!\""),
+			/*1*/ new Slide("Slide2", 3, "\"Yeah Chelsey, go help 'em. I'm too lazy to go.\""),
+			/*2*/ new Slide("Slide3", 3, "\"Alright...\""),
+			/*3*/ new Slide("Slide5", 3, ""),
+			/*4*/ new Slide("Slide6", 3, ""),
+			/*5*/ new Slide("Slide7", 3, ""),
+			/*6*/ new Slide("Slide13", 3, "\"Alfred...!\nIf I could… if only I could go back in time…\""),
+			/*7*/ new Slide("Slide14", 3, "\"What... is going on...\nThis all seems too familiar...\"")
         };
 
 		StartCoroutine(Start_Tutorial());
@@ -63,14 +68,15 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Start_Tutorial()
     {
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
-		//yield return StartCoroutine(Slide_Coroutine(slides[1]));
-        //yield return StartCoroutine(Slide_Coroutine(slides[2]));
-        //yield return StartCoroutine(Slide4_Coroutine());
-        yield return StartCoroutine(Slide8_Coroutine());
+		yield return StartCoroutine(Slide_Coroutine(slides[1]));
+        yield return StartCoroutine(Slide_Coroutine(slides[2]));
+        yield return StartCoroutine(Slide4_Coroutine());
+		yield return StartCoroutine(Slide_Coroutine(slides[3]));
+		yield return StartCoroutine(Slide_Coroutine(slides[4]));
+		yield return StartCoroutine(Slide7_Coroutine());
+		yield return StartCoroutine(Slide8_Coroutine());
         yield return StartCoroutine(Slide9_Coroutine());
-
-        //yield return StartCoroutine(Slide8_Coroutine());
-		//yield return StartCoroutine(Slide10_Coroutine());
+		yield return StartCoroutine(Slide10_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
         //yield break;
 
@@ -79,6 +85,8 @@ public class TutorialManager : MonoBehaviour
         //yield return StartCoroutine(Slide12_Coroutine());
 
         yield return StartCoroutine(Slide12_Coroutine());
+		yield return StartCoroutine(Slide_Coroutine(slides[6]));
+		yield return StartCoroutine(Slide_Coroutine(slides[7]));
         yield return StartCoroutine(Slide19_Coroutine());
 
         yield break;
@@ -109,13 +117,19 @@ public class TutorialManager : MonoBehaviour
         CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move% your butt. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM);
         gameManager.Play();
 
-        while (!endCondition)
-        {
-            yield return null;
-        }
-        endCondition = false;
-        yield return StartCoroutine(SceneManager.instance.fade_black());
+		// Exit Condition
+        while (!endCondition) { yield return null; } endCondition = false;
+
+		//yield return StartCoroutine(SceneManager.instance.fade_black());
     }
+
+	IEnumerator Slide7_Coroutine()
+	{
+		yield return StartCoroutine(Slide_Coroutine(slides[5]));
+		yield return StartCoroutine(SceneManager.instance.display_text("2 years later..."));
+		gameManager.SetTime(GameManager.TimeType.SET, 6);
+		yield return StartCoroutine(gameManager.GradualClock(12, .1f));
+	}
 
     IEnumerator Slide8_Coroutine()
     {
@@ -147,6 +161,8 @@ public class TutorialManager : MonoBehaviour
         //yield return null; while (Pause()) { yield return null; }
         //
         //
+		yield return StartCoroutine(SceneManager.instance.fade_out());
+
         MultiDialogue("Mrs. Freewoman", new string[2]
         {
             "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the Spacebar to progress speech%.",

@@ -8,6 +8,8 @@ public class TutorialManager : MonoBehaviour
     public static TutorialManager instance;
 
     private GameManager gameManager;
+	private const string SCENE_TUTORIAL = "WP2_Tutorial";
+
     //private const string SCENE_HOUSE = "T_House";
     private const string SCENE_SCHOOL = "T_Class";
 
@@ -47,6 +49,11 @@ public class TutorialManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		if (instance != null)
+		{
+			Destroy(this.gameObject);
+			return;
+		}
         instance = this;
         DontDestroyOnLoad(this.gameObject);
         //gameManager = GameManager.instance;
@@ -57,7 +64,7 @@ public class TutorialManager : MonoBehaviour
 			/*2*/ new Slide("Slide3", 3, "\"Alright...\""),
 			/*3*/ new Slide("Slide5", 3, ""),
 			/*4*/ new Slide("Slide6", 3, ""),
-			/*5*/ new Slide("Slide7", 3, ""),
+			/*5*/ new Slide("Slide7(3)", 3, ""),
 			/*6*/ new Slide("Slide13", 3, "\"Alfred...!\nIf I could… if only I could go back in time…\""),
 			/*7*/ new Slide("Slide14", 3, "\"What... is going on...\nThis all seems too familiar...\"")
         };
@@ -70,10 +77,19 @@ public class TutorialManager : MonoBehaviour
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
 		//yield return StartCoroutine(Slide_Coroutine(slides[1]));
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
-        //yield return StartCoroutine(Slide4_Coroutine());
-		//yield return StartCoroutine(Slide_Coroutine(slides[3]));
-		//yield return StartCoroutine(Slide_Coroutine(slides[4]));
-		//yield return StartCoroutine(Slide7_Coroutine());
+		Destroy(GameManager.instance.gameObject);
+		yield return null;
+
+        yield return StartCoroutine(Slide4_Coroutine());
+		Destroy(GameManager.instance.gameObject);
+
+		// PICTURE SLIDE: Fallen Alfred and Book
+		yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
+		yield return StartCoroutine(Slide_Coroutine(slides[3]));
+		yield return StartCoroutine(Slide_Coroutine(slides[4]));
+		yield return StartCoroutine(Slide7_Coroutine());
+		Destroy(GameManager.instance.gameObject);
+
 		yield return StartCoroutine(Slide8_Coroutine());
         //yield return StartCoroutine(Slide9_Coroutine());
 		//yield return StartCoroutine(Slide10_Coroutine());
@@ -96,7 +112,7 @@ public class TutorialManager : MonoBehaviour
 	IEnumerator Slide_Coroutine(Slide slide)
 	{
         GameObject.Find("Canvas/Slide").gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(slide.imageName);
-        if (slide.text != null)
+        if (slide.text != null && slide.text != "")
         {
             yield return new WaitForSeconds(1f);
             CreateTutorialBox(slide.text, Textbox.TutorialBoxPosition.BOTTOM, slide.timer - 1f);
@@ -126,7 +142,14 @@ public class TutorialManager : MonoBehaviour
 	IEnumerator Slide7_Coroutine()
 	{
 		yield return StartCoroutine(Slide_Coroutine(slides[5]));
-		yield return StartCoroutine(SceneManager.instance.display_text("2 years later..."));
+
+		GameObject gameManagerObject = GameObject.Find("GameManager");
+		SceneManager sm = gameManagerObject.GetComponent<SceneManager>();
+		gameManager = gameManagerObject.GetComponent<GameManager>();
+		yield return StartCoroutine(sm.fade_black());
+		yield return StartCoroutine(sm.display_text("2 years later..."));
+		gameManager.transform.Find("Menu_layout/Clock_background").gameObject.SetActive(true);
+		gameManager.transform.Find("Menu_layout/Clock_display").gameObject.SetActive(true);
 		gameManager.SetTime(GameManager.TimeType.SET, 6);
 		yield return StartCoroutine(gameManager.GradualClock(12, .1f));
 	}

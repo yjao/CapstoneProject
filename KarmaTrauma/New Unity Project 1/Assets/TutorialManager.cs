@@ -68,19 +68,19 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Start_Tutorial()
     {
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
-		yield return StartCoroutine(Slide_Coroutine(slides[1]));
-        yield return StartCoroutine(Slide_Coroutine(slides[2]));
-        yield return StartCoroutine(Slide4_Coroutine());
-		yield return StartCoroutine(Slide_Coroutine(slides[3]));
-		yield return StartCoroutine(Slide_Coroutine(slides[4]));
-		yield return StartCoroutine(Slide7_Coroutine());
+		//yield return StartCoroutine(Slide_Coroutine(slides[1]));
+        //yield return StartCoroutine(Slide_Coroutine(slides[2]));
+        //yield return StartCoroutine(Slide4_Coroutine());
+		//yield return StartCoroutine(Slide_Coroutine(slides[3]));
+		//yield return StartCoroutine(Slide_Coroutine(slides[4]));
+		//yield return StartCoroutine(Slide7_Coroutine());
 		yield return StartCoroutine(Slide8_Coroutine());
-        yield return StartCoroutine(Slide9_Coroutine());
-		yield return StartCoroutine(Slide10_Coroutine());
+        //yield return StartCoroutine(Slide9_Coroutine());
+		//yield return StartCoroutine(Slide10_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
         //yield break;
 
-		//yield return StartCoroutine(Slide11_Coroutine());
+		yield return StartCoroutine(Slide11_Coroutine());
 
         //yield return StartCoroutine(Slide12_Coroutine());
 
@@ -227,6 +227,30 @@ public class TutorialManager : MonoBehaviour
         yield return StartCoroutine(SceneManager.instance.fade_black());
         yield return StartCoroutine(gameManager.GradualClock(14, .1f));
     }
+    IEnumerator Slide9_Coroutine()
+    {
+        GameObject.Find("NPCS").gameObject.SetActive(false);
+        yield return StartCoroutine(SceneManager.instance.fade_out());
+        gameManager.Wait();
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(3, -1.25f, CharacterAnimations.States.RIGHT_WALK));
+        GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
+        GameObject.Find("Player").GetComponent<CharacterAnimations>().AnimationState = CharacterAnimations.States.LEFT_IDLE;
+        MultiDialogue("Kelly", new string[2]
+        {
+            "Phew, classes are finally over.",
+            "Hey, why don’t we go to Punxsu--er I mean JF Mall! I’m craving Jeney’s donuts…"
+        });
+        yield return null; while (Pause()) { yield return null; }
+        yield return new WaitForSeconds(1f);
+        CreateDialogue("Kelly", "Alright, it’s decided! I really want those Strawberry Squishies.");
+        yield return null; while (Pause()) { yield return null; }
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+        yield return StartCoroutine(SceneManager.instance.map_name("World Map"));
+        yield return new WaitForSeconds(1f);
+    }
+
 
     IEnumerator Slide10_Coroutine()
     {
@@ -254,36 +278,60 @@ public class TutorialManager : MonoBehaviour
 
     }
 
-    IEnumerator Slide9_Coroutine()
-    {
-        GameObject.Find("NPCS").gameObject.SetActive(false);
-        yield return StartCoroutine(SceneManager.instance.fade_out());
-        gameManager.Wait();
-        yield return new WaitForSeconds(1f);
-        yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(3, -1.25f, CharacterAnimations.States.RIGHT_WALK));
-        GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
-        GameObject.Find("Player").GetComponent<CharacterAnimations>().AnimationState = CharacterAnimations.States.LEFT_IDLE;
-        MultiDialogue("Kelly", new string[2]
-        {
-            "Phew, classes are finally over.",
-            "Hey, why don’t we go to Punxsu--er I mean JF Mall! I’m craving Jeney’s donuts…"
-        });
-        yield return null; while (Pause()) { yield return null; }
-        yield return new WaitForSeconds(1f);
-        CreateDialogue("Kelly", "Alright, it’s decided! I really want those Strawberry Squishies.");
-        yield return null; while (Pause()) { yield return null; }
-        yield return new WaitForSeconds(1f);
-        yield return StartCoroutine(SceneManager.instance.fade_black());
-        yield return StartCoroutine(SceneManager.instance.map_name("World Map"));
-        yield return new WaitForSeconds(1f);
-    }
+   
 
 	IEnumerator Slide11_Coroutine()
 	{
-		/*yield return StartCoroutine(LoadSceneCoroutine(SCENE_DONUT_SHOP));
-		yield return new WaitForSeconds(1);
-		gameManager.CreateDialogue("Kelly", "");
-		yield return null; while (Pause()) { yield return null; }*/
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_DONUT_SHOP));
+        gameManager.Wait();
+        yield return StartCoroutine(SceneManager.instance.fade_out());
+        //yield return new WaitForSeconds(1);
+        MultiDialogue("Kelly", new string[3]
+        {
+            "Excuse me, I'd like some Strawberry Squishies.",
+            "Wait, wasn't there a coupon code Freewoman gave us in class?",
+            "What was it...do you remember, Chels?"
+        });
+        yield return null; while (Pause()) { yield return null; }
+        CreateTutorialBox("I know you have great memory! If you remember the %coupon word%, I'll but you a donut", Textbox.TutorialBoxPosition.BOTTOM, 2f);
+        //yield return new WaitForSeconds(1);
+        //CreateTutorialBox("Come on, Chels, think harder! %Press 'M'%, maybe you'll think of something.", Textbox.TutorialBoxPosition.BOTTOM, 2f);
+        gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(true);
+        while (!Input.GetKeyDown(KeyCode.M))
+        {
+            if (Input.GetKeyDown(KeyCode.M)){
+                if(Input.GetKeyDown(KeyCode.Space)){
+                     gameManager.Wait();
+                     break;
+                }
+               
+            }
+        }
+        
+        MultiDialogue("Kelly", new string[2]
+        {
+            "I knew you would remember!",
+            "Which one do you want? I'll buy as promised~",
+        });
+        yield return null; while (Pause()) { yield return null; }
+        //Maybe add walking animation here
+
+        MultiDialogue("Jeney", new string[3]
+        {
+            "Welcome to the Donut Hole! What can I get you today?",
+            "You can use %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select%",
+            "Our special today is the Donut Sprinklez!",
+        });
+        yield return null; while (Pause()) { yield return null; }
+        //CreateChoice("Jeney", "teststring", new Choice[]
+        //{
+        //    new Choice("Donut Hole Orignials", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"testd1", "testd2"}, TutorialDialogueCounter = 3 }),
+        //    new Choice("Donut Sprinklez", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"testd3", "testd4"}, TutorialDialogueCounter = 3 })
+        //});
+        yield return null; while (Pause()) { yield return null; }
+        
+        
+        yield return null; while (Pause()) { yield return null; }
 		yield break;
 	}
 

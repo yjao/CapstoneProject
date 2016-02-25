@@ -295,44 +295,48 @@ public class TutorialManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
         CreateTutorialBox("I know you have great memory! If you remember the %coupon word%, I'll but you a donut", Textbox.TutorialBoxPosition.BOTTOM, 2f);
         //yield return new WaitForSeconds(1);
-        //CreateTutorialBox("Come on, Chels, think harder! %Press 'M'%, maybe you'll think of something.", Textbox.TutorialBoxPosition.BOTTOM, 2f);
+        CreateTutorialBox("Come on, Chels, think harder! %Press 'M'%, maybe you'll think of something.", Textbox.TutorialBoxPosition.BOTTOM);
+        gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(true);
         gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(true);
-        while (!Input.GetKeyDown(KeyCode.M))
-        {
-            if (Input.GetKeyDown(KeyCode.M)){
-                if(Input.GetKeyDown(KeyCode.Space)){
-                     gameManager.Wait();
-                     break;
-                }
-               
-            }
-        }
-        
-        MultiDialogue("Kelly", new string[2]
-        {
-            "I knew you would remember!",
-            "Which one do you want? I'll buy as promised~",
-        });
+        //transform.Find("PageIndex").gameObject.transform.Find("PageIndexText").GetComponent<Text>().text
+        Menu_Layout menu_layout = GameObject.Find("GameManager").transform.Find("Menu_layout").GetComponent<Menu_Layout>();
+        while (!menu_layout.GetMemoryLogOpen()) { yield return null; }
+
+        CreateTutorialBox("I knew you would remember!", Textbox.TutorialBoxPosition.MIDDLE, 2f);
+        while (menu_layout.GetMemoryLogOpen()) { yield return null; }
+
+        CreateDialogue("Kelly", "Which one do you want? I'll buy as promised~");
+
         yield return null; while (Pause()) { yield return null; }
         //Maybe add walking animation here
 
-        MultiDialogue("Jeney", new string[3]
+        MultiDialogue("Jeney", new string[2]
         {
             "Welcome to the Donut Hole! What can I get you today?",
             "You can use %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select%",
-            "Our special today is the Donut Sprinklez!",
+          
+        });
+        string[] action = {"Here you go, I’ve put it inside your bag. %Press B to take a look%. Have a nice day!"};
+        action[0] = Textbox.ColorTutorialKeyword(action[0]);
+        yield return null; while (Pause()) { yield return null; }
+        CreateChoice("Jeney", "Our special today is the Donut Sprinklez!", new Choice[]
+        {
+            new Choice("Chocolate Crispies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 3 }),
+            new Choice("Cocodonut", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 3 }),
+            new Choice("Donut Hole Originals", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 3 }),
+            new Choice("Donut Sprinklez", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 3 }),
+            new Choice("Minty Muncies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 3 }),
+            new Choice("Potadonut Tots", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 3 }),
+            new Choice("Strawberry Squishies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 3 }),
+        
         });
         yield return null; while (Pause()) { yield return null; }
-        //CreateChoice("Jeney", "teststring", new Choice[]
-        //{
-        //    new Choice("Donut Hole Orignials", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"testd1", "testd2"}, TutorialDialogueCounter = 3 }),
-        //    new Choice("Donut Sprinklez", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"testd3", "testd4"}, TutorialDialogueCounter = 3 })
-        //});
-        yield return null; while (Pause()) { yield return null; }
+        gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(true);
+        gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(true);
+
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+        yield return StartCoroutine(gameManager.GradualClock(18, .25f));
         
-        
-        yield return null; while (Pause()) { yield return null; }
-		yield break;
 	}
 
     IEnumerator Slide12_Coroutine()
@@ -358,7 +362,7 @@ public class TutorialManager : MonoBehaviour
         });
         yield return null; while (Pause()) { yield return null; }
 
-        CreateDialogue("Kelly", "Oh wow, I didn’t realize it was already %9 PM%! Daddy’s gonna be mad at me if I don’t go soon. Thanks for the hang! Gotta run, see ya tomorrow!");
+        CreateDialogue("Kelly", "Oh wow, I didn’t realize it was already #9 PM#! Daddy’s gonna be mad at me if I don’t go soon. Thanks for the hang! Gotta run, see ya tomorrow!");
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(3, 19.00f, CharacterAnimations.States.RIGHT_WALK, 0.04f));
         Destroy(GameObject.Find("Kelly"));

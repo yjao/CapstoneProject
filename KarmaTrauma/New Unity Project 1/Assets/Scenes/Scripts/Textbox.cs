@@ -10,6 +10,7 @@ public class Textbox : MonoBehaviour
    
     bool choice_mode;
     bool tutorial_mode;
+    bool tutorial_choice;
     int cursor;
     public bool done;
     public string res;
@@ -96,7 +97,7 @@ public class Textbox : MonoBehaviour
 	void OnDestroy()
 	{
         EventManager.OnSpaceBar -= SelfDestruct;
-        if (!tutorial_mode)
+        if (!(tutorial_mode || tutorial_choice))
         {
             gameManager.ExitDialogue();
         }
@@ -146,10 +147,11 @@ public class Textbox : MonoBehaviour
                     if (choices[cursor].CEA != null)
                     {
                         g.ConvertChoiceEventArgs(choices[cursor].CEA);
+                        g.DialogueBox = this;
                         choice_mode = false;
                         Interactable.Action oldaction = g.ChoiceAction;
                         EventManager.NotifyDialogChoiceMade(this, g);
-                        if (oldaction != continueDialogue)
+                        if (!(oldaction == continueDialogue || oldaction == ContinueTutorialDialogue))
                         {
                             EventManager.NotifySpaceBar(this, new GameEventArgs());
                         }
@@ -174,7 +176,6 @@ public class Textbox : MonoBehaviour
                         EventManager.NotifyDialogChoiceMade(this, g);
                         if (!(oldaction == continueDialogue || oldaction == ContinueTutorialDialogue))
                         {
-                            Debug.Log("and here");
                             EventManager.NotifySpaceBar(this, new GameEventArgs());
                         }
                     }
@@ -482,16 +483,30 @@ public class Textbox : MonoBehaviour
     public static void ContinueTutorialDialogue(object sender, GameEventArgs args)
     {
         args.TutorialDialogueCounter -= 1;
-        args.DialogueBox.Dialog.CEA.TutorialDialogueCounter = args.TutorialDialogueCounter;
-        string name = args.DialogueBox.transform.Find("Name").GetComponent<Text>().text;
-        args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = args.TutorialDialogues[args.TutorialDialogues.Length - args.TutorialDialogueCounter];
-        if (args.TutorialDialogueCounter != 1)
+        if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
         {
             EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
+            Dialogue d = new Dialogue(-1, args.TutorialDialogues[0]);
+            d.CEA = new ChoiceEventArgs() { ChoiceAction = args.ChoiceAction, TutorialDialogues = args.TutorialDialogues, TutorialDialogueCounter = args.TutorialDialogueCounter };
+            d.Action += d.CEA.ChoiceAction;
+            GameManager.instance.CreateDialogue(args.DialogueBox.transform.Find("Name").GetComponent<Text>().text, d, -1);
+            args.DialogueBox.tutorial_choice = true;
+            args.DialogueBox.transform.Find("Pointer").gameObject.SetActive(false);
+            args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs()); ;
         }
         else
         {
-            args.DialogueBox.Dialog.CEA = null;
+            args.DialogueBox.Dialog.CEA.TutorialDialogueCounter -= 1;
+            string name = args.DialogueBox.transform.Find("Name").GetComponent<Text>().text;
+            args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = args.TutorialDialogues[args.TutorialDialogues.Length - args.TutorialDialogueCounter];
+            if (args.TutorialDialogueCounter != 1)
+            {
+                EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
+            }
+            else
+            {
+                args.DialogueBox.Dialog.CEA = null;
+            }
         }
     }
 }

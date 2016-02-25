@@ -65,12 +65,13 @@ public class TutorialManager : MonoBehaviour
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
         //yield return StartCoroutine(Slide4_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
+        //yield return StartCoroutine(Slide9_Coroutine());
+        //yield return StartCoroutine(Slide8_Coroutine());
 
-        yield return StartCoroutine(Slide8_Coroutine());
-		yield return StartCoroutine(Slide10_Coroutine());
+        //yield return StartCoroutine(Slide8_Coroutine());
+		//yield return StartCoroutine(Slide10_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
         //yield break;
-
 
 		//yield return StartCoroutine(Slide11_Coroutine());
         yield return StartCoroutine(Slide12_Coroutine());
@@ -130,6 +131,16 @@ public class TutorialManager : MonoBehaviour
         gameManager.transform.Find("Menu_layout/MapPanel").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/MapName").gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
+        //
+        //EXAMPLE CODE TO BE REMOVED
+        CreateChoice("testperson", "teststring", new Choice[]
+        {
+            new Choice("testchoice1", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"testd1", "testd2"}, TutorialDialogueCounter = 3 }),
+            new Choice("testchoice2", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"testd3", "testd4"}, TutorialDialogueCounter = 3 })
+        });
+        yield return null; while (Pause()) { yield return null; }
+        //
+        //
         MultiDialogue("Mrs. Freewoman", new string[2]
         {
             "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the Spacebar to progress speech%.",
@@ -188,6 +199,25 @@ public class TutorialManager : MonoBehaviour
 
     }
 
+    IEnumerator Slide9_Coroutine()
+    {
+        yield return StartCoroutine(SceneManager.instance.fade_out());
+        yield return new WaitForSeconds(1f);
+        MultiDialogue("Kelly", new string[2]
+        {
+            "Phew, classes are finally over.",
+            "Hey, why don’t we go to Punxsu--er I mean JF Mall! I’m craving Jeney’s donuts…"
+        });
+        yield return null; while (Pause()) { yield return null; }
+        yield return new WaitForSeconds(1f);
+        CreateDialogue("Kelly", "Alright, it’s decided! I really want those Strawberry Squishies.");
+        yield return null; while (Pause()) { yield return null; }
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+        yield return StartCoroutine(SceneManager.instance.map_name("World Map"));
+        yield return new WaitForSeconds(1f);
+    }
+
 	IEnumerator Slide11_Coroutine()
 	{
 		/*yield return StartCoroutine(LoadSceneCoroutine(SCENE_DONUT_SHOP));
@@ -204,19 +234,27 @@ public class TutorialManager : MonoBehaviour
         gameManager.Wait();
 
         yield return new WaitForSeconds(2f);
-        MultiDialogue("Kelly", new string[3]
+        MultiDialogue("Kelly", new string[2]
         {
             "She’s still better than Mr. Ly fanboying over Faraday though…",
-            "But yeah, that Freewoman was so boring! I’d hate to have her again. She’s just so... scholarly.",
-            "Oh please, don’t tell me you liked her, with all that geeky sci-fi talk…"
+            "But yeah, that Freewoman was so boring! I’d hate to have her again. She’s just so... scholarly."
         });
         yield return null; while (Pause()) { yield return null; }
+
+        CreateChoice("Kelly", "Oh please, don’t tell me you liked her, with all that geeky sci-fi talk...", new Choice[]
+        {
+            new Choice("Say nothing.", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[1]{"No? Well, I expected that you would have %talked to her after class% or something."}, TutorialDialogueCounter = 3 }),
+            new Choice("Yeah, I liked her.", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"Of course you would. I expected noooo less from you, Chels. I can totally see you two being friends.", "Hey, why didn’t you %talk to her after class%?"}, TutorialDialogueCounter = 3 }),
+            new Choice("Doesn't she look familiar to you?", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"No? You’re the one with photographic memory, not me! I couldn’t even remember the quadratic formula.", "But I dunno, if she looks familiar, maybe you %should have talked to her after class% about it? I don’t remember a thing."}, TutorialDialogueCounter = 3 })
+        });
+        yield return null; while (Pause()) { yield return null; }
+
         CreateDialogue("Kelly", "Oh wow, I didn’t realize it was already %9 PM%! Daddy’s gonna be mad at me if I don’t go soon. Thanks for the hang! Gotta run, see ya tomorrow!");
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(3, 19.00f, CharacterAnimations.States.RIGHT_WALK, 0.04f));
         Destroy(GameObject.Find("Kelly"));
 
-        CreateDialogue("Tutorial", "You can move now. Press the %space bar% to close this box.");
+        CreateDialogue("Chelsey", "I should go home now.");
         yield return null; while (Pause()) { yield return null; }
         gameManager.Play();
 
@@ -294,7 +332,7 @@ public class TutorialManager : MonoBehaviour
 
     private void CreateDialogue(string name, string message)
     {
-        Choice[] choices = null;
+        //Choice[] choices = null;
 		Dialogue d = new Dialogue(-1, Textbox.ColorTutorialKeyword(message));
         gameManager.CreateDialogue(name, d, -1);
     }
@@ -315,6 +353,14 @@ public class TutorialManager : MonoBehaviour
         d.CEA = new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = messages, TutorialDialogueCounter = messages.Length };
         d.Action += d.CEA.ChoiceAction;
         gameManager.CreateDialogue(name, d, -1);
+    }
+
+    private void CreateChoice(string name, string message, Choice[] choices)
+    {
+        EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
+        Dialogue d = new Dialogue(-1, message);
+        d.choices = choices;
+        gameManager.CreateChoice(name, d, -1);
     }
 
 	// Update is called once per frame

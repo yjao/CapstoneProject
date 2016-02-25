@@ -71,7 +71,8 @@ public class Choice
     public string setbool;
     public string checkbool;
     public string removeitem;
-    public Choice (string _option, ChoiceEventArgs _CEA = null, string setb = null, string checkb = null, string removeItem = null)
+    public string[] tutorialcontinue;
+    public Choice (string _option, ChoiceEventArgs _CEA = null, string setb = null, string checkb = null, string removeItem = null, string[] tutorialContinue = null)
     {
         option = _option;
         if (_CEA != null)
@@ -82,5 +83,6 @@ public class Choice
         setbool = setb;
         checkbool = checkb;
         removeitem = removeItem;
+        tutorialcontinue = tutorialContinue;
     }
 }

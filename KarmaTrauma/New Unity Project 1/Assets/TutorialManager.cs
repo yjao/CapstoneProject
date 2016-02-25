@@ -146,17 +146,19 @@ public class TutorialManager : MonoBehaviour
         //
         MultiDialogue("Mrs. Freewoman", new string[2]
         {
-            "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the space bar to progress speech%.",
+            "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the Spacebar to progress speech%.",
             "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today"
         });
         yield return null; while (Pause()) { yield return null; }
         CreateDialogue("Kelly", "*Whispers* Psst, I hope she won’t go on about how great Jerry Faraday is, like how Ly does all the time. Ugh.");
         yield return null; while (Pause()) { yield return null; }
-        MultiDialogue("Mrs. Freewoman", new string[2]
-        {
-            "Oh right, before I forget!",
-            "I was at Jeney’s this morning and told her Moonlight. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?"
-        });
+        CreateDialogue("Mrs. Freewoman", "Oh right, before I forget!");
+        yield return null; while (Pause()) { yield return null; }
+
+        Dialogue d = new Dialogue(-1, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
+        gameManager.CreateDialogue(name, d, -1);
+        
+        //CreateDialogue("Mrs. Freewoman", "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
         yield return null; while (Pause()) { yield return null; }
         CreateDialogue("Kelly", "Oooooh… Yes…");
         yield return null; while (Pause()) { yield return null; }
@@ -184,6 +186,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         CreateDialogue("Kelly", "To the Punxsu-- I mean %J.F. Mall%!");
         yield return null; while (Pause()) { yield return null; }
+        CreateTutorialBox("%Press Spacebar to enter a location%", Textbox.TutorialBoxPosition.TOP);
         gameManager.Play();
 
         while (true)
@@ -363,6 +366,15 @@ public class TutorialManager : MonoBehaviour
     private void MultiDialogue(string name, string[] messages)
     {
         EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
+    
+        for (int i = 0; i < messages.Length; i++)
+        {
+            messages[i] = Textbox.ColorTutorialKeyword(messages[i]);
+        }
+        //for (int j = 0; j < messages.Length; j++)
+        //{
+        //    Debug.Log(messages[j]);
+        //}
         Dialogue d = new Dialogue(-1, messages[0]);
         d.CEA = new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = messages, TutorialDialogueCounter = messages.Length };
         d.Action += d.CEA.ChoiceAction;

@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public CharacterAnimations characterAnimations;
     public string locationString;
     private AudioSource source;
+    private TutorialManager tutorialManager;
 
     public static Player Instance;
 
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
         Instance = this;
         walltop = FindObjectOfType(typeof(InvisibleWallTop)) as InvisibleWallTop;
         gameManager = GameManager.instance;
+        tutorialManager = TutorialManager.instance;
 		EventManager.OnNPC += HandleNPC;
         source = GetComponent<AudioSource>();
     }
@@ -183,35 +185,45 @@ public class Player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll)
     {
         //Debug.Log(coll);
-        if (coll.gameObject.name == "Mall")
+        if (coll.gameObject.tag == "Mall")
         {
             locationString = "Mall";
         }
-        if (coll.gameObject.name == "Hospital")
+        else if (coll.gameObject.tag == "Hospital")
         {
             locationString = "Hospital";
         }
-        if (coll.gameObject.tag == "MainStreet")
+        else if (coll.gameObject.tag == "MainStreet")
         {
             locationString = "MainStreet";
         }
-        if (coll.gameObject.tag == "House")
+        else if (coll.gameObject.tag == "House")
         {
             locationString = "House";
         }
-        if (coll.gameObject.tag == "Park")
+        else if (coll.gameObject.tag == "Park")
         {
             locationString = "Park";
         }
-        if (coll.gameObject.tag == "PoliceStation")
+        else if (coll.gameObject.tag == "PoliceStation")
         {
             locationString = "PoliceStation";
         }
-        if (coll.gameObject.tag == "Apartment")
+        else if (coll.gameObject.tag == "Apartment")
         {
             locationString = "Apartment";
         }
-
+        else if (coll.gameObject.tag == "TutorialMall")
+        {
+            //go to tutorial mall
+            locationString = "TutorialMall";
+        }
+        else if (coll.gameObject.tag == "Tutorial")
+        {
+            //pop up dialogue box;
+            locationString = "Tutorial";
+          
+        }
     }
     void OnTriggerExit2D(Collider2D coll)
     {
@@ -286,29 +298,37 @@ public class Player : MonoBehaviour
             {
 				SceneManager.instance.LoadScene(SceneManager.SCENE_MALL);
             }
-            if (locationString == "MainStreet")
+            else if (locationString == "MainStreet")
             {
 				SceneManager.instance.LoadScene(SceneManager.SCENE_MAINSTREET);
             }
-            if (locationString == "House")
+            else if (locationString == "House")
             {
 				SceneManager.instance.LoadScene(SceneManager.SCENE_HOUSE);
             }
-            if (locationString == "Park")
+            else if (locationString == "Park")
             {
 				SceneManager.instance.LoadScene(SceneManager.SCENE_PARK);
             }
-            if (locationString == "PoliceStation")
+            else if (locationString == "PoliceStation")
             {
 				SceneManager.instance.LoadScene(SceneManager.SCENE_POLICE);
             }
-            if (locationString == "Apartment")
+            else if (locationString == "Apartment")
             {
 				SceneManager.instance.LoadScene(SceneManager.SCENE_APARTMENT);
             }
-            if (locationString == "Hospital")
+            else if (locationString == "Hospital")
             {
                 SceneManager.instance.LoadScene(SceneManager.SCENE_HOSPITAL);
+            }
+            else if (locationString == "Tutorial")
+            {
+                tutorialManager.CreateTutorialBox("%J.F Mall% is over here Chels!", Textbox.TutorialBoxPosition.BOTTOM, 1f);
+            }
+            else if (locationString == "TutorialMall")
+            {
+                SceneManager.instance.LoadScene("T_Mall");
             }
         }
 

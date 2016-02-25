@@ -21,6 +21,8 @@ public class TutorialManager : MonoBehaviour
 	private const string SCENE_DONUT_SHOP = "T_Mall";
     private const string SCENE_WORLD_MAP = "T_WorldMap";
 
+    private const string SCENE_G_MAIN_STREET = "G_MainStreet";
+
     bool endCondition = false;
 
 
@@ -75,6 +77,7 @@ public class TutorialManager : MonoBehaviour
 
 		//yield return StartCoroutine(Slide11_Coroutine());
         yield return StartCoroutine(Slide12_Coroutine());
+        yield return StartCoroutine(Slide19_Coroutine());
         yield break;
 
     }
@@ -260,6 +263,29 @@ public class TutorialManager : MonoBehaviour
             yield return null;
         }
         endCondition = false;
+        // SCREEN TURNS RED
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+    }
+
+    IEnumerator Slide19_Coroutine()
+    {
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_MAIN_STREET));
+        Destroy(GameObject.Find("Kelly"));
+        yield return StartCoroutine(SceneManager.instance.fade_out());
+        while (!endCondition)
+        {
+            yield return null;
+        }
+
+        // SCREEN TURNS RED
+        CreateDialogue("Chelsey", "Alfred...!");
+        yield return null; while (Pause()) { yield return null; }
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+        yield return new WaitForSeconds(1f);
+        CreateDialogue("Chelsey", "If I could... if only I could go back in time...");
+        yield return null; while (Pause()) { yield return null; }
+
+        endCondition = false;
         yield break;
     }
 
@@ -284,7 +310,7 @@ public class TutorialManager : MonoBehaviour
             GameObject.Find("Main Camera").transform.parent = GameObject.Find("Alfred").transform;
             GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Alfred").transform.position.x, GameObject.Find("Alfred").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
             yield return StartCoroutine(GameObject.Find("Alfred").GetComponent<CharacterAnimations>().Move(2, -11.00f, CharacterAnimations.States.FALLEN, 0.15f));        
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1f);
             //GameObject.Find("Main Camera").transform.parent = GameObject.Find("Player").transform;
             //GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Player").transform.position.x, GameObject.Find("Player").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
             //gameManager.Play();

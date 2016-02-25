@@ -7,12 +7,14 @@ public class TutorialSlideTriggers : MonoBehaviour {
     
     public AudioClip carCrash;
     public AudioClip traffic;
+    public AudioClip thump;
     private AudioSource source;
 
     private bool moveTrigger = false;
     private bool KellyTrigger = false;
     private bool trafficTrigger = false;
     private bool fallTrigger = false;
+    private bool playThump = false;
 
 	// Use this for initialization
 	void Start () 
@@ -28,23 +30,32 @@ public class TutorialSlideTriggers : MonoBehaviour {
             car.transform.Translate(0.3f, 0f, 0f);
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Pause"));
         }
-        if (KellyTrigger) //&& Input.GetKey(KeyCode.Space))
+        else if (KellyTrigger)
         {
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Kelly"));
         }
-        if (trafficTrigger && Input.GetKey(KeyCode.Space))
+        else if (trafficTrigger && Input.GetKey(KeyCode.Space))
         {
             source.PlayOneShot(traffic, 1);
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Traffic"));
         }
-        if (car.transform.position.x >= 80)
+        else if (car.transform.position.x >= 80)
         {
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Done"));
         }
-        if (fallTrigger)
+        else if (fallTrigger)
         {
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Fall"));
             fallTrigger = false;
+            playThump = true;
+        }
+        
+        if (playThump && GameObject.Find("Alfred").transform.position.y < -11.00f)
+        {
+            Debug.Log("thump");
+            source.PlayOneShot(thump, 1);
+            Debug.Log("yay");
+            playThump = false;
         }
 	}
 

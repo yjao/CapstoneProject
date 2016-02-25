@@ -64,7 +64,8 @@ public class SceneManager : MonoBehaviour
             {SCENE_PARK, "Park"},
             {SCENE_POLICE, "Police Station"},
             {SCENE_APARTMENT, "Apartments"},
-            {SCENE_WORLDMAP, "World Map"}
+            {SCENE_WORLDMAP, "World Map"},
+            {"T_Class", "Classroom"}
         };
         //gameManager.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
 	}

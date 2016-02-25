@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 	#region CONSTANT VALUES
 
 	public const char QUEST_KEYWORD = '#';
-	public const string QUEST_KEYWORD_COLOR = "yellow";
+	public const string QUEST_KEYWORD_COLOR = "blue";
 	public const bool QUEST_KEYWORD_BOLDED = true;
 
 	public const char TUTORIAL_KEYWORD = '%';
@@ -216,6 +216,7 @@ public class GameManager : MonoBehaviour
 
     public void CreateDialogue(string name, Dialogue message, int id = -1)
     {
+        Debug.Log(message.text);
         GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
         dialog.GetComponent<Textbox>().Dialog = message;
 		dialog.GetComponent<Textbox>().DrawBox(name, message.text, id);

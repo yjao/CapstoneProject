@@ -184,4 +184,13 @@ public class Menu_Layout : MonoBehaviour
     
 	}
 
+	#region Getters & Setters
+
+	public bool GetMemoryLogOpen()
+	{
+		return diaryButton_show;
+	}
+
+	#endregion
+
 }

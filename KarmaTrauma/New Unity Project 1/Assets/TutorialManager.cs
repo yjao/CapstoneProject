@@ -54,6 +54,7 @@ public class TutorialManager : MonoBehaviour
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
         //yield return StartCoroutine(Slide4_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
+        //yield return StartCoroutine(Slide9_Coroutine());
 
 		//yield return StartCoroutine(Slide11_Coroutine());
         yield break;
@@ -119,6 +120,16 @@ public class TutorialManager : MonoBehaviour
         gameManager.transform.Find("Menu_layout/MapPanel").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/MapName").gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
+        //
+        //EXAMPLE CODE TO BE REMOVED
+        CreateChoice("testperson", "teststring", new Choice[]
+        {
+            new Choice("testchoice1", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"testd1", "testd2"}, TutorialDialogueCounter = 3 }),
+            new Choice("testchoice2", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = new string[2]{"testd3", "testd4"}, TutorialDialogueCounter = 3 })
+        });
+        yield return null; while (Pause()) { yield return null; }
+        //
+        //
         MultiDialogue("Mrs. Freewoman", new string[2]
         {
             "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the space bar to progress speech%.",
@@ -147,6 +158,25 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         yield return StartCoroutine(SceneManager.instance.fade_black());
         yield return StartCoroutine(gameManager.GradualClock(14, .25f));
+    }
+
+    IEnumerator Slide9_Coroutine()
+    {
+        yield return StartCoroutine(SceneManager.instance.fade_out());
+        yield return new WaitForSeconds(1f);
+        MultiDialogue("Kelly", new string[2]
+        {
+            "Phew, classes are finally over.",
+            "Hey, why don’t we go to Punxsu--er I mean JF Mall! I’m craving Jeney’s donuts…"
+        });
+        yield return null; while (Pause()) { yield return null; }
+        yield return new WaitForSeconds(1f);
+        CreateDialogue("Kelly", "Alright, it’s decided! I really want those Strawberry Squishies.");
+        yield return null; while (Pause()) { yield return null; }
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+        yield return StartCoroutine(SceneManager.instance.map_name("World Map"));
+        yield return new WaitForSeconds(1f);
     }
 
 	IEnumerator Slide11_Coroutine()
@@ -182,7 +212,7 @@ public class TutorialManager : MonoBehaviour
 
     private void CreateDialogue(string name, string message)
     {
-        Choice[] choices = null;
+        //Choice[] choices = null;
         Dialogue d = new Dialogue(-1, message);
         gameManager.CreateDialogue(name, d, -1);
     }
@@ -194,6 +224,14 @@ public class TutorialManager : MonoBehaviour
         d.CEA = new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = messages, TutorialDialogueCounter = messages.Length };
         d.Action += d.CEA.ChoiceAction;
         gameManager.CreateDialogue(name, d, -1);
+    }
+
+    private void CreateChoice(string name, string message, Choice[] choices)
+    {
+        EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
+        Dialogue d = new Dialogue(-1, message);
+        d.choices = choices;
+        gameManager.CreateChoice(name, d, -1);
     }
 
 	// Update is called once per frame

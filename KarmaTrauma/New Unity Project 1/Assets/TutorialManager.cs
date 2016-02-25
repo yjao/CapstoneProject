@@ -98,8 +98,6 @@ public class TutorialManager : MonoBehaviour
 
 		yield return StartCoroutine(Slide11_Coroutine());
 
-        //yield return StartCoroutine(Slide12_Coroutine());
-
         yield return StartCoroutine(Slide12_Coroutine());
 		yield return StartCoroutine(Slide_Coroutine(slides[6]));
 		yield return StartCoroutine(Slide_Coroutine(slides[7]));
@@ -130,7 +128,7 @@ public class TutorialManager : MonoBehaviour
         yield return StartCoroutine(GameObject.Find("Invis").GetComponent<CharacterAnimations>().Move(1, -12.5f, CharacterAnimations.States.DOWN_WALK));
 
         GameObject.Find("Invis").transform.parent = GameObject.Find("Player").transform;
-        CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move% your butt. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM);
+        CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move and hold Shift to run%. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM);
         gameManager.Play();
 
 		// Exit Condition
@@ -151,7 +149,7 @@ public class TutorialManager : MonoBehaviour
 		gameManager.transform.Find("Menu_layout/Clock_background").gameObject.SetActive(true);
 		gameManager.transform.Find("Menu_layout/Clock_display").gameObject.SetActive(true);
 		gameManager.SetTime(GameManager.TimeType.SET, 6);
-		yield return StartCoroutine(gameManager.GradualClock(12, .1f));
+		yield return StartCoroutine(gameManager.GradualClock(12, .2f));
 	}
 
     IEnumerator Slide8_Coroutine()
@@ -217,7 +215,7 @@ public class TutorialManager : MonoBehaviour
         CreateDialogue("Mrs. Freewoman", "Oh right, before I forget!");
         yield return null; while (Pause()) { yield return null; }
 
-        Dialogue d = new Dialogue(-1, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
+        Dialogue d = new Dialogue(2, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
         gameManager.CreateDialogue(name, d, -1);
         redhairguy.SetAnimation(CharacterAnimations.States.RIGHT_SWING);
         stylishguy.SetAnimation(CharacterAnimations.States.LEFT_SWING);

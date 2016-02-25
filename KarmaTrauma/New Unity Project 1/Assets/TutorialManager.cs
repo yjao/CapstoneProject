@@ -24,7 +24,7 @@ public class TutorialManager : MonoBehaviour
     private const string SCENE_WORLD_MAP = "T_WorldMap";
 
     private const string SCENE_G_MAIN_STREET = "G_MainStreet";
-
+    
     bool endCondition = false;
 
 
@@ -103,6 +103,10 @@ public class TutorialManager : MonoBehaviour
 		yield return StartCoroutine(Slide_Coroutine(slides[7]));
         yield return StartCoroutine(Slide19_Coroutine());
 
+        Application.LoadLevel(SCENE_G_MAIN_STREET);
+        yield return StartCoroutine(SceneManager.instance.fade_out());
+        gameManager.Play();
+        Destroy(this);
         yield break;
 
     }
@@ -356,7 +360,7 @@ public class TutorialManager : MonoBehaviour
         gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(true);
 
         yield return StartCoroutine(SceneManager.instance.fade_black());
-        yield return StartCoroutine(gameManager.GradualClock(18, .25f));
+        yield return StartCoroutine(gameManager.GradualClock(20, .25f));
         
 	}
 
@@ -399,6 +403,10 @@ public class TutorialManager : MonoBehaviour
         endCondition = false;
         // SCREEN TURNS RED
         yield return StartCoroutine(SceneManager.instance.fade_black());
+        GameObject gameManagerObject = GameObject.Find("GameManager");
+        SceneManager sm = gameManagerObject.GetComponent<SceneManager>();
+        yield return StartCoroutine(sm.fade_black());
+        yield return StartCoroutine(sm.display_text("You went to bed and woke up to go to class.  Same things keep on happening...The day is repeating itself.  You decided to go to Main Street to see if THAT incident is going to happen again."));
     }
 
     IEnumerator Slide19_Coroutine()

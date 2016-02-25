@@ -204,12 +204,12 @@ public class TutorialManager : MonoBehaviour
 
         kelly.SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
         girlindrama.SetAnimation(CharacterAnimations.States.UP_DANCE);
-        
+        /*
         CreateDialogue("Kelly", "*Whispers* Psst, I hope she won’t go on about how great Jerry Faraday is, like how Ly does all the time. Ugh.");
         yield return null; while (Pause()) { yield return null; }
         girlindrama.SetAnimation(CharacterAnimations.States.UP_IDLE);
         kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
-
+        */
         kelly.SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
         yield return new WaitForSeconds(.25f); 
         CreateDialogue("Kelly", "*Whispers* Psst, I hope she won’t go on about how great Jerry Faraday is, like how Ly does all the time. Ugh.");

@@ -75,15 +75,20 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Start_Tutorial()
     {
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
-		yield return StartCoroutine(Slide_Coroutine(slides[1]));
-        yield return StartCoroutine(Slide_Coroutine(slides[2]));
+		//yield return StartCoroutine(Slide_Coroutine(slides[1]));
+        //yield return StartCoroutine(Slide_Coroutine(slides[2]));
+		Destroy(GameManager.instance.gameObject);
+		yield return null;
+
         yield return StartCoroutine(Slide4_Coroutine());
+		Destroy(GameManager.instance.gameObject);
 
 		// PICTURE SLIDE: Fallen Alfred and Book
 		yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
 		yield return StartCoroutine(Slide_Coroutine(slides[3]));
 		yield return StartCoroutine(Slide_Coroutine(slides[4]));
 		yield return StartCoroutine(Slide7_Coroutine());
+		Destroy(GameManager.instance.gameObject);
 
 		yield return StartCoroutine(Slide8_Coroutine());
         //yield return StartCoroutine(Slide9_Coroutine());
@@ -137,7 +142,14 @@ public class TutorialManager : MonoBehaviour
 	IEnumerator Slide7_Coroutine()
 	{
 		yield return StartCoroutine(Slide_Coroutine(slides[5]));
-		yield return StartCoroutine(SceneManager.instance.display_text("2 years later..."));
+
+		GameObject gameManagerObject = GameObject.Find("GameManager");
+		SceneManager sm = gameManagerObject.GetComponent<SceneManager>();
+		gameManager = gameManagerObject.GetComponent<GameManager>();
+		yield return StartCoroutine(sm.fade_black());
+		yield return StartCoroutine(sm.display_text("2 years later..."));
+		gameManager.transform.Find("Menu_layout/Clock_background").gameObject.SetActive(true);
+		gameManager.transform.Find("Menu_layout/Clock_display").gameObject.SetActive(true);
 		gameManager.SetTime(GameManager.TimeType.SET, 6);
 		yield return StartCoroutine(gameManager.GradualClock(12, .1f));
 	}

@@ -196,21 +196,63 @@ public class Textbox : MonoBehaviour
 
 	#region DIALOG BOXES
 
-    private static string FindKeyword(string message)
-    {
-        GameManager gameManager = GameManager.instance;
+	public static string ColorTutorialKeyword(string message)
+	{
+		GameManager gameManager = GameManager.instance;
+		
+		string newMessage = "";
+		int tagOpened = 0;
+		for (int i = 0; i < message.Length; i++)
+		{
+			if (message[i] == GameManager.TUTORIAL_KEYWORD)
+			{
+				string tag = "";
+				if (GameManager.TUTORIAL_KEYWORD_BOLDED && tagOpened <= 1)
+				{
+					tag = "<b><color=" + GameManager.TUTORIAL_KEYWORD_COLOR + ">";
+					tagOpened = 2;
+				}
+				else if (GameManager.TUTORIAL_KEYWORD_BOLDED && tagOpened == 2)
+				{
+					tag = "</color></b>";
+					tagOpened = 1;
+				}
+				else if (tagOpened <= 1)
+				{
+					tag = "<color=" + GameManager.TUTORIAL_KEYWORD_COLOR + ">";
+					tagOpened = 2;
+				}
+				else if (tagOpened == 2)
+				{
+					tag = "</color>";
+					tagOpened = 1;
+				}
 
-        string newMessage = message;
-        while (true)
-        {
-            int keywordIndex = newMessage.IndexOf(GameManager.QUEST_KEYWORD);
-            if (keywordIndex < 0)
-            {
-                return "";
-            }
-
-            string keyword = "";
-            for (int i = keywordIndex + 1; i <= newMessage.Length; i++)
+				newMessage += tag;
+			}
+			else
+			{
+				newMessage += message[i];
+			}
+		}
+		return newMessage;
+	}
+	
+	private static string FindKeyword(string message)
+	{
+		GameManager gameManager = GameManager.instance;
+		
+		string newMessage = message;
+		while (true)
+		{
+			int keywordIndex = newMessage.IndexOf(GameManager.QUEST_KEYWORD);
+			if (keywordIndex < 0)
+			{
+				return "";
+			}
+			
+			string keyword = "";
+			for (int i = keywordIndex + 1; i <= newMessage.Length; i++)
             {
                 if (newMessage[i] == GameManager.QUEST_KEYWORD)
                 {
@@ -219,25 +261,6 @@ public class Textbox : MonoBehaviour
                 }
                 keyword += newMessage[i];
             }
-
-            //string newKeyword = keyword;
-            //if (gameManager.questTerms.ContainsKey(keyword))
-            //{
-            //    newKeyword = gameManager.questTerms[keyword];
-            //}
-
-            //if (GameManager.QUEST_KEYWORD_BOLDED)
-            //{
-            //    newKeyword = "<b><color=" + GameManager.QUEST_KEYWORD_COLOR + ">" + newKeyword + "</color></b>";
-            //    return newKeyword;
-                
-            //}
-            //else
-            //{
-            //    newKeyword = "<color=" + GameManager.QUEST_KEYWORD_COLOR + ">" + newKeyword + "</color>";
-            //    return newKeyword;
-            //}
-            //return newKeyword;
         }
     }
 

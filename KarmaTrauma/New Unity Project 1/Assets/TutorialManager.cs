@@ -52,7 +52,7 @@ public class TutorialManager : MonoBehaviour
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
 		//yield return StartCoroutine(Slide_Coroutine(slides[1]));
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
-        //yield return StartCoroutine(Slide4_Coroutine());
+        yield return StartCoroutine(Slide4_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
 
 		//yield return StartCoroutine(Slide11_Coroutine());
@@ -80,7 +80,7 @@ public class TutorialManager : MonoBehaviour
         yield return StartCoroutine(GameObject.Find("Invis").GetComponent<CharacterAnimations>().Move(1, -12.5f, CharacterAnimations.States.DOWN_WALK));
 
         GameObject.Find("Invis").transform.parent = GameObject.Find("Player").transform;
-        CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. #Use the arrow keys or WASD keys to move# your butt. Now go #get the ball#!", Textbox.TutorialBoxPosition.BOTTOM);
+        CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move% your butt. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM);
         gameManager.Play();
         yield break;
     }
@@ -89,15 +89,15 @@ public class TutorialManager : MonoBehaviour
     {
         if (tag == "TrafficLight")
         {
-            CreateTutorialBox("Um, yeah, you might want to hit the pedestrian light before crossing. What? Hey, are you spacing out again? #Space bar#, not space out! Press that and like, #interact with objects#.", Textbox.TutorialBoxPosition.BOTTOM);
+            CreateTutorialBox("Um, yeah, you might want to hit the pedestrian light before crossing. What? Hey, are you spacing out again? %Space bar%, not space out! Press that and like, %interact with objects%.", Textbox.TutorialBoxPosition.BOTTOM);
         }
         else if (tag == "Kelly")
         {
-            CreateTutorialBox("What is it? Come on, get your nose out of your book and go exercise a bit! Go, #get the ball#! For me!", Textbox.TutorialBoxPosition.BOTTOM);
+            CreateTutorialBox("What is it? Come on, get your nose out of your book and go exercise a bit! Go, %get the ball%! For me!", Textbox.TutorialBoxPosition.BOTTOM);
         }
         else if (tag == "traffic")
         {
-            CreateTutorialBox("Hrm… I guess it doesn’t work. Well it’s whatever, I don’t see any cops; just be careful! If I were you, I’d #move while holding shift key to run#. The cars are less likely to hit you if you run faster, right?", Textbox.TutorialBoxPosition.BOTTOM);
+            CreateTutorialBox("Hrm… I guess it doesn’t work. Well it’s whatever, I don’t see any cops; just be careful! If I were you, I’d %move while holding shift key to run%. The cars are less likely to hit you if you run faster, right?", Textbox.TutorialBoxPosition.BOTTOM);
         }
         yield break;
     }
@@ -172,14 +172,14 @@ public class TutorialManager : MonoBehaviour
             Destroy(activeTutorialBox);
         }
         GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
-        StartCoroutine(dialog.GetComponent<Textbox>().DrawTutorialBox(message, destroyTimer, position));
+		StartCoroutine(dialog.GetComponent<Textbox>().DrawTutorialBox(Textbox.ColorTutorialKeyword(message), destroyTimer, position));
         activeTutorialBox = dialog;
     }
 
     private void CreateDialogue(string name, string message)
     {
         Choice[] choices = null;
-        Dialogue d = new Dialogue(-1, message);
+		Dialogue d = new Dialogue(-1, Textbox.ColorTutorialKeyword(message));
         gameManager.CreateDialogue(name, d, -1);
     }
 

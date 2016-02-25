@@ -168,18 +168,13 @@ public class TutorialManager : MonoBehaviour
         girlindrama.SetAnimation(CharacterAnimations.States.UP_IDLE);
         kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
 
-        GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
+        kelly.SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
         yield return new WaitForSeconds(.25f); 
         CreateDialogue("Kelly", "*Whispers* Psst, I hope she won’t go on about how great Jerry Faraday is, like how Ly does all the time. Ugh.");
         yield return null; while (Pause()) { yield return null; }
         yield return new WaitForSeconds(.25f); 
-        GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.UP_IDLE);
-        MultiDialogue("Mrs. Freewoman", new string[2]
-        {
-            "Oh right, before I forget!",
-            "I was at Jeney’s this morning and told her Moonlight. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?"
-        });
-
+        kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
+     
         CreateDialogue("Mrs. Freewoman", "Oh right, before I forget!");
         yield return null; while (Pause()) { yield return null; }
 
@@ -200,7 +195,7 @@ public class TutorialManager : MonoBehaviour
         //kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
         yield return null; while (Pause()) { yield return null; }
         //yield return StartCoroutine(kelly.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.UP_IDLE));
-        kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
+        kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);     ///Not getting called for some reason...
         //red guy and stylish guy talking
 
         MultiDialogue("Mrs. Freewoman", new string[4]

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TutorialSlide4Triggers : MonoBehaviour {
+public class TutorialSlideTriggers : MonoBehaviour {
 
     public GameObject car;
     
@@ -12,6 +12,7 @@ public class TutorialSlide4Triggers : MonoBehaviour {
     private bool moveTrigger = false;
     private bool KellyTrigger = false;
     private bool trafficTrigger = false;
+    private bool fallTrigger = false;
 
 	// Use this for initialization
 	void Start () 
@@ -22,18 +23,28 @@ public class TutorialSlide4Triggers : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        if (moveTrigger && car.transform.position.x < 100)
+        if (moveTrigger && car.transform.position.x < 80)
         {
             car.transform.Translate(0.3f, 0f, 0f);
+            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Pause"));
         }
         if (KellyTrigger) //&& Input.GetKey(KeyCode.Space))
         {
-            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide4_Triggers_Coroutine("Kelly"));
+            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Kelly"));
         }
         if (trafficTrigger && Input.GetKey(KeyCode.Space))
         {
             source.PlayOneShot(traffic, 1);
-            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide4_Triggers_Coroutine("traffic"));
+            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Traffic"));
+        }
+        if (car.transform.position.x >= 80)
+        {
+            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Done"));
+        }
+        if (fallTrigger)
+        {
+            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Fall"));
+            fallTrigger = false;
         }
 	}
 
@@ -46,12 +57,16 @@ public class TutorialSlide4Triggers : MonoBehaviour {
         }
         else if (this.tag == "TrafficLight" && col.gameObject.tag == "Player")
         {
-            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide4_Triggers_Coroutine(this.tag));
+            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine(this.tag));
             trafficTrigger = true;
         }
         else if (this.tag == "Kelly" && col.gameObject.tag == "Player")
         {
             KellyTrigger = true;
+        }
+        else if (this.tag == "TriggerPanel" && col.gameObject.tag == "Player")
+        {
+            fallTrigger = true;
         }
     }
     void OnTriggerExit2D(Collider2D col)

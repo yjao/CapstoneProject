@@ -94,7 +94,7 @@
      <Compile Include="Assets\Scripts\Stairs.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
      <Compile Include="Assets\Scripts\TileWindow.cs" />
-     <Compile Include="Assets\Scripts\TutorialSlide4Triggers.cs" />
+     <Compile Include="Assets\Scripts\TutorialSlideTriggers.cs" />
      <Compile Include="Assets\ShortPrologue.cs" />
      <Compile Include="Assets\TutorialManager.cs" />
  <Reference Include="UnityEngine.UI">

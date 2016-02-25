@@ -9,10 +9,12 @@ public class TutorialManager : MonoBehaviour
     //private const string SCENE_HOUSE = "T_House";
     private const string SCENE_SCHOOL = "T_Class";
     //private const string SCENE_MALL = "T_Mall";
-    //private const string SCENE_MAIN_STREET = "T_MainStreet";
-
+    private const string SCENE_MAIN_STREET = "T_MainStreet";
     private const string SCENE_MINI_MAIN_STREET = "T_MiniMainStreet";
 	private const string SCENE_DONUT_SHOP = "T_Mall";
+
+    bool endCondition = false;
+
 
     private GameObject activeTutorialBox;
 
@@ -52,10 +54,11 @@ public class TutorialManager : MonoBehaviour
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
 		//yield return StartCoroutine(Slide_Coroutine(slides[1]));
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
-        yield return StartCoroutine(Slide4_Coroutine());
+        //yield return StartCoroutine(Slide4_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
 
 		//yield return StartCoroutine(Slide11_Coroutine());
+        yield return StartCoroutine(Slide12_Coroutine());
         yield break;
     }
 
@@ -82,24 +85,13 @@ public class TutorialManager : MonoBehaviour
         GameObject.Find("Invis").transform.parent = GameObject.Find("Player").transform;
         CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move% your butt. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM);
         gameManager.Play();
-        yield break;
-    }
 
-    public IEnumerator Slide4_Triggers_Coroutine(string tag)
-    {
-        if (tag == "TrafficLight")
+        while (!endCondition)
         {
-            CreateTutorialBox("Um, yeah, you might want to hit the pedestrian light before crossing. What? Hey, are you spacing out again? %Space bar%, not space out! Press that and like, %interact with objects%.", Textbox.TutorialBoxPosition.BOTTOM);
+            yield return null;
         }
-        else if (tag == "Kelly")
-        {
-            CreateTutorialBox("What is it? Come on, get your nose out of your book and go exercise a bit! Go, %get the ball%! For me!", Textbox.TutorialBoxPosition.BOTTOM);
-        }
-        else if (tag == "traffic")
-        {
-            CreateTutorialBox("Hrm… I guess it doesn’t work. Well it’s whatever, I don’t see any cops; just be careful! If I were you, I’d %move while holding shift key to run%. The cars are less likely to hit you if you run faster, right?", Textbox.TutorialBoxPosition.BOTTOM);
-        }
-        yield break;
+        endCondition = false;
+        yield return StartCoroutine(SceneManager.instance.fade_black());
     }
 
     IEnumerator Slide8_Coroutine()
@@ -157,6 +149,79 @@ public class TutorialManager : MonoBehaviour
 		yield return null; while (Pause()) { yield return null; }*/
 		yield break;
 	}
+
+    IEnumerator Slide12_Coroutine()
+    {
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_MAIN_STREET));
+        gameManager = GameManager.instance;
+        gameManager.Wait();
+
+        yield return new WaitForSeconds(2f);
+        MultiDialogue("Kelly", new string[3]
+        {
+            "She’s still better than Mr. Ly fanboying over Faraday though…",
+            "But yeah, that Freewoman was so boring! I’d hate to have her again. She’s just so... scholarly.",
+            "Oh please, don’t tell me you liked her, with all that geeky sci-fi talk…"
+        });
+        yield return null; while (Pause()) { yield return null; }
+        CreateDialogue("Kelly", "Oh wow, I didn’t realize it was already %9 PM%! Daddy’s gonna be mad at me if I don’t go soon. Thanks for the hang! Gotta run, see ya tomorrow!");
+        yield return null; while (Pause()) { yield return null; }
+        yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(3, 19.00f, CharacterAnimations.States.RIGHT_WALK, 0.04f));
+        Destroy(GameObject.Find("Kelly"));
+
+        CreateDialogue("Tutorial", "You can move now. Press the %space bar% to close this box.");
+        yield return null; while (Pause()) { yield return null; }
+        gameManager.Play();
+
+        while (!endCondition)
+        {
+            yield return null;
+        }
+        endCondition = false;
+        yield break;
+    }
+
+    public IEnumerator Slide_Triggers_Coroutine(string tag)
+    {
+        if (tag == "TrafficLight")
+        {
+            CreateTutorialBox("Um, yeah, you might want to hit the pedestrian light before crossing. What? Hey, are you spacing out again? %Space bar%, not space out! Press that and like, %interact with objects%.", Textbox.TutorialBoxPosition.BOTTOM);
+        }
+        else if (tag == "Kelly")
+        {
+            CreateTutorialBox("What is it? Come on, get your nose out of your book and go exercise a bit! Go, %get the ball%! For me!", Textbox.TutorialBoxPosition.BOTTOM);
+        }
+        else if (tag == "Traffic")
+        {
+            CreateTutorialBox("Hrm… I guess it doesn’t work. Well it’s whatever, I don’t see any cops; just be careful! If I were you, I’d %move while holding shift key to run%. The cars are less likely to hit you if you run faster, right?", Textbox.TutorialBoxPosition.BOTTOM);
+        }
+        else if (tag == "Fall")
+        {
+            gameManager = GameManager.instance;
+            gameManager.Wait();
+            GameObject.Find("Main Camera").transform.parent = GameObject.Find("Alfred").transform;
+            GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Alfred").transform.position.x, GameObject.Find("Alfred").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
+            yield return StartCoroutine(GameObject.Find("Alfred").GetComponent<CharacterAnimations>().Move(2, -11.00f, CharacterAnimations.States.FALLEN, 0.15f));        
+            yield return new WaitForSeconds(3f);
+            //GameObject.Find("Main Camera").transform.parent = GameObject.Find("Player").transform;
+            //GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Player").transform.position.x, GameObject.Find("Player").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
+            //gameManager.Play();
+            //yield return new WaitForSeconds(3f);
+            endCondition = true;
+        }
+        else if (tag == "Pause")
+        {
+            gameManager = GameManager.instance;
+            gameManager.Wait();
+            yield return new WaitForSeconds(3f);
+            gameManager.Play();
+        }
+        else if (tag == "Done")
+        {
+            endCondition = true;
+        }
+        yield break;
+    }
 
     IEnumerator LoadSceneCoroutine(string mapname)
     {

@@ -65,7 +65,7 @@ public class TutorialManager : MonoBehaviour
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
         //yield return StartCoroutine(Slide4_Coroutine());
         yield return StartCoroutine(Slide8_Coroutine());
-        //yield return StartCoroutine(Slide9_Coroutine());
+        yield return StartCoroutine(Slide9_Coroutine());
         //yield return StartCoroutine(Slide8_Coroutine());
 
         yield return StartCoroutine(Slide8_Coroutine());
@@ -147,8 +147,12 @@ public class TutorialManager : MonoBehaviour
             "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today"
         });
         yield return null; while (Pause()) { yield return null; }
+        GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
+        yield return new WaitForSeconds(.25f); 
         CreateDialogue("Kelly", "*Whispers* Psst, I hope she won’t go on about how great Jerry Faraday is, like how Ly does all the time. Ugh.");
         yield return null; while (Pause()) { yield return null; }
+        yield return new WaitForSeconds(.25f); 
+        GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.UP_IDLE);
         MultiDialogue("Mrs. Freewoman", new string[2]
         {
             "Oh right, before I forget!",
@@ -198,8 +202,13 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator Slide9_Coroutine()
     {
+        GameObject.Find("NPCS").gameObject.SetActive(false);
         yield return StartCoroutine(SceneManager.instance.fade_out());
+        gameManager.Wait();
         yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(3, -1.25f, CharacterAnimations.States.RIGHT_WALK));
+        GameObject.Find("Kelly").GetComponent<NPC>().SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
+        GameObject.Find("Player").GetComponent<CharacterAnimations>().AnimationState = CharacterAnimations.States.LEFT_IDLE;
         MultiDialogue("Kelly", new string[2]
         {
             "Phew, classes are finally over.",

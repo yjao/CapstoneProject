@@ -294,7 +294,7 @@ public class SceneManager : MonoBehaviour
 		t.alignment = TextAnchor.MiddleCenter;
 		t.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
 		t.resizeTextForBestFit = true;
-		t.resizeTextMaxSize = 60;
+		t.resizeTextMaxSize = 45;
 		yield return new WaitForSeconds(timer);
 		GameObject.Destroy(name);
 	}

@@ -408,12 +408,13 @@ public class TutorialManager : MonoBehaviour
         GameObject gameManagerObject = GameObject.Find("GameManager");
         SceneManager sm = gameManagerObject.GetComponent<SceneManager>();
         yield return StartCoroutine(sm.fade_black());
-        yield return StartCoroutine(sm.display_text("You went to bed and woke up to go to class.  Same things keep on happening...The day is repeating itself.  You decided to go to Main Street to see if THAT incident is going to happen again."));
+        yield return StartCoroutine(sm.display_text("You went to bed and woke up to go to class.  Same things keep on happening...The day is repeating itself.  You decided to go to Main Street to see if THAT incident is going to happen again.", 8f));
+        //yield return new WaitForSeconds(10);
     }
 
     IEnumerator Slide19_Coroutine()
     {
-        yield return new WaitForSeconds(10);
+        
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_MAIN_STREET));
         Destroy(GameObject.Find("Kelly"));
         yield return StartCoroutine(SceneManager.instance.fade_out());

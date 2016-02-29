@@ -232,7 +232,7 @@ public class QuestLog : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             if (pointer < quest_per_page-1)
             {
@@ -242,7 +242,7 @@ public class QuestLog : MonoBehaviour
                 
             }
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             if (pointer > 0)
             {
@@ -252,7 +252,7 @@ public class QuestLog : MonoBehaviour
             }
             Debug.Log(max_page);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && page_index < max_page-1)
+        else if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && page_index < max_page - 1)
         {
             pointer = 0;
             page_index++;
@@ -262,7 +262,7 @@ public class QuestLog : MonoBehaviour
             display();
             DrawSelect();
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && page_index > 0)
+        else if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && page_index > 0)
         {
             pointer = 0;
             page_index--;

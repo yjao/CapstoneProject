@@ -85,24 +85,24 @@ public class TutorialManager : MonoBehaviour
 		//Destroy(GameManager.instance.gameObject);
 		//yield return null;
 
-        yield return StartCoroutine(Slide4_Coroutine());
+        //yield return StartCoroutine(Slide4_Coroutine());
 		//Destroy(GameManager.instance.gameObject);
 
 		// PICTURE SLIDE: Fallen Alfred and Book
 		//yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
 		//yield return StartCoroutine(Slide_Coroutine(slides[3]));
 		//yield return StartCoroutine(Slide_Coroutine(slides[4]));
-		//yield return StartCoroutine(Slide7_Coroutine());
+		yield return StartCoroutine(Slide7_Coroutine());
 		//Destroy(GameManager.instance.gameObject);
 
 		yield return StartCoroutine(Slide8_Coroutine());
         yield return StartCoroutine(Slide9_Coroutine());
-		yield return StartCoroutine(Slide10_Coroutine());
+		//yield return StartCoroutine(Slide10_Coroutine());
         //yield break;
 
 		yield return StartCoroutine(Slide11_Coroutine());
 
-        yield return StartCoroutine(Slide12_Coroutine());
+        //yield return StartCoroutine(Slide12_Coroutine());
 		//yield return StartCoroutine(Slide_Coroutine(slides[6]));
 
         //yield return StartCoroutine(sm.fade_black());
@@ -111,11 +111,18 @@ public class TutorialManager : MonoBehaviour
 
         //yield return StartCoroutine(Slide19_Coroutine());
 
-        //Application.LoadLevel(SCENE_G_MAIN_STREET);
-        //SceneManager.instance.LoadScene(SCENE_G_MAIN_STREET);
-        //yield return StartCoroutine(SceneManager.instance.fade_out());
-        //gameManager.Play();
-        //Destroy(this);
+        Application.LoadLevel(SCENE_G_MAIN_STREET);
+        Debug.Log("loaded g main street" + Application.loadedLevel);
+        yield return null;
+        GameManager.instance.SetTime(GameManager.TimeType.SET, 20);
+        yield return null;
+
+        SceneManager.instance.LoadScene();
+        yield return null;
+        yield return StartCoroutine(SceneManager.instance.fade_out());
+
+        gameManager.Play();
+        Destroy(this);
         yield break;
 
     }
@@ -138,7 +145,6 @@ public class TutorialManager : MonoBehaviour
         gameManager.Wait();
         yield return new WaitForSeconds(2f);
         yield return StartCoroutine(GameObject.Find("Invis").GetComponent<CharacterAnimations>().Move(1, -12.5f, CharacterAnimations.States.DOWN_WALK));
-
         GameObject.Find("Invis").transform.parent = GameObject.Find("Player").transform;
         CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move and hold Shift to run%. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM);
         gameManager.Play();
@@ -164,13 +170,12 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Slide8_Coroutine()
     {
         //School Scene
-       
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_SCHOOL));
         //gameManager = GameManager.instance;
 
         gameManager.SetTime(GameManager.TimeType.SET, 8);
         gameManager.Wait();
-        gameManager.transform.Find("Menu_layout").gameObject.SetActive(true);
+        //gameManager.transform.Find("Menu_layout").gameObject.SetActive(true);
 
         yield return new WaitForSeconds(1f);
         //
@@ -217,7 +222,7 @@ public class TutorialManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
 
         Dialogue d = new Dialogue(2, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
-        gameManager.CreateDialogue(name, d, -1);
+        gameManager.CreateDialogue("Mrs. Freewoman", d, -1);
         redhairguy.SetAnimation(CharacterAnimations.States.RIGHT_SWING);
         stylishguy.SetAnimation(CharacterAnimations.States.LEFT_SWING);
         //CreateDialogue("Mrs. Freewoman", "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
@@ -304,6 +309,7 @@ public class TutorialManager : MonoBehaviour
 
 	IEnumerator Slide11_Coroutine()
 	{
+     
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_DONUT_SHOP));
         gameManager.Wait();
         yield return StartCoroutine(SceneManager.instance.fade_out());
@@ -321,7 +327,8 @@ public class TutorialManager : MonoBehaviour
         gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(true);
         gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(true);
         //transform.Find("PageIndex").gameObject.transform.Find("PageIndexText").GetComponent<Text>().text
-        Menu_Layout menu_layout = gameManager.transform.Find("Menu_layout").GetComponent<Menu_Layout>();
+        Menu_Layout menu_layout = GameObject.Find("GameManager").transform.Find("Menu_layout").GetComponent<Menu_Layout>();
+        //Menu_Layout menu_layout = gameManager.transform.Find("Menu_layout").GetComponent<Menu_Layout>();
         while (!menu_layout.GetMemoryLogOpen()) { yield return null; }
 
         CreateTutorialBox("I knew you would remember!", Textbox.TutorialBoxPosition.MIDDLE, 2f);
@@ -542,25 +549,83 @@ public class TutorialManager : MonoBehaviour
         Dialogue d = new Dialogue(-1, message);
         d.choices = choices;
         gameManager.CreateChoice(name, d, -1);
-    }
+    }    
 
     private void HideGameManager()
     {
-        gameManager.transform.Find("Menu_layout").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Clock_display").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Clock_background").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/EventSystem").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/Fast_forward").gameObject.SetActive(false);
+        //gameManager.transform.Find("Menu_layout/EventSystem").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/Fast_forward").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/MapPanel").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/MapName").gameObject.SetActive(false);
     }
+
+    public IEnumerator StartCutscene(bool instant)
+    {
+        gameManager.transform.Find("Menu_layout").gameObject.SetActive(true);
+        gameManager.transform.Find("Menu_layout/TopCinemaBar").gameObject.SetActive(true);
+        gameManager.transform.Find("Menu_layout/BottomCinemaBar").gameObject.SetActive(true);
+        Image top_bar = gameManager.transform.Find("Menu_layout/TopCinemaBar").GetComponent<Image>();
+        Image bottom_bar = gameManager.transform.Find("Menu_layout/BottomCinemaBar").GetComponent<Image>();
+        if (!instant)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                Debug.Log(bottom_bar.rectTransform.anchorMin.y);
+                top_bar.rectTransform.anchorMax = new Vector2(top_bar.rectTransform.anchorMax.x, top_bar.rectTransform.anchorMax.y - .01f);
+                top_bar.rectTransform.anchorMin = new Vector2(top_bar.rectTransform.anchorMin.x, top_bar.rectTransform.anchorMin.y - .01f);
+                bottom_bar.rectTransform.anchorMax = new Vector2(bottom_bar.rectTransform.anchorMax.x, bottom_bar.rectTransform.anchorMax.y + .01f);
+                bottom_bar.rectTransform.anchorMin = new Vector2(bottom_bar.rectTransform.anchorMin.x, bottom_bar.rectTransform.anchorMin.y + .01f);
+                yield return null;
+            }
+        }
+        else
+        {
+            top_bar.rectTransform.anchorMax = new Vector2(top_bar.rectTransform.anchorMax.x, 1f);
+            top_bar.rectTransform.anchorMin = new Vector2(top_bar.rectTransform.anchorMin.x, .85f);
+            bottom_bar.rectTransform.anchorMax = new Vector2(bottom_bar.rectTransform.anchorMax.x, .15f);
+            bottom_bar.rectTransform.anchorMin = new Vector2(bottom_bar.rectTransform.anchorMin.x, 0f);
+        }
+        yield return null;
+    }
+
+    public IEnumerator EndCutscene(bool instant)
+    {
+        Image top_bar = gameManager.transform.Find("Menu_layout/TopCinemaBar").GetComponent<Image>();
+        Image bottom_bar = gameManager.transform.Find("Menu_layout/BottomCinemaBar").GetComponent<Image>();
+        if (!instant)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                Debug.Log(bottom_bar.rectTransform.anchorMin.y);
+                top_bar.rectTransform.anchorMax = new Vector2(top_bar.rectTransform.anchorMax.x, top_bar.rectTransform.anchorMax.y + .01f);
+                top_bar.rectTransform.anchorMin = new Vector2(top_bar.rectTransform.anchorMin.x, top_bar.rectTransform.anchorMin.y + .01f);
+                bottom_bar.rectTransform.anchorMax = new Vector2(bottom_bar.rectTransform.anchorMax.x, bottom_bar.rectTransform.anchorMax.y - .01f);
+                bottom_bar.rectTransform.anchorMin = new Vector2(bottom_bar.rectTransform.anchorMin.x, bottom_bar.rectTransform.anchorMin.y - .01f);
+                yield return null;
+            }
+        }
+        else
+        {
+            top_bar.rectTransform.anchorMax = new Vector2(top_bar.rectTransform.anchorMax.x, 1.15f);
+            top_bar.rectTransform.anchorMin = new Vector2(top_bar.rectTransform.anchorMin.x, 1f);
+            bottom_bar.rectTransform.anchorMax = new Vector2(bottom_bar.rectTransform.anchorMax.x, 0f);
+            bottom_bar.rectTransform.anchorMin = new Vector2(bottom_bar.rectTransform.anchorMin.x, -.15f);
+        }
+        gameManager.transform.Find("Menu_layout/TopCinemaBar").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/BottomCinemaBar").gameObject.SetActive(false);
+        yield return null;
+    }
+
 	// Update is called once per frame
 	void Update()
 	{
-	
+	    
 	}
 
 

@@ -85,24 +85,24 @@ public class TutorialManager : MonoBehaviour
 		//Destroy(GameManager.instance.gameObject);
 		//yield return null;
 
-        yield return StartCoroutine(Slide4_Coroutine());
+        //yield return StartCoroutine(Slide4_Coroutine());
 		//Destroy(GameManager.instance.gameObject);
 
 		// PICTURE SLIDE: Fallen Alfred and Book
 		//yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
 		//yield return StartCoroutine(Slide_Coroutine(slides[3]));
 		//yield return StartCoroutine(Slide_Coroutine(slides[4]));
-		//yield return StartCoroutine(Slide7_Coroutine());
+		yield return StartCoroutine(Slide7_Coroutine());
 		//Destroy(GameManager.instance.gameObject);
 
 		yield return StartCoroutine(Slide8_Coroutine());
         yield return StartCoroutine(Slide9_Coroutine());
-		yield return StartCoroutine(Slide10_Coroutine());
+		//yield return StartCoroutine(Slide10_Coroutine());
         //yield break;
 
 		yield return StartCoroutine(Slide11_Coroutine());
 
-        yield return StartCoroutine(Slide12_Coroutine());
+        //yield return StartCoroutine(Slide12_Coroutine());
 		//yield return StartCoroutine(Slide_Coroutine(slides[6]));
 
         //yield return StartCoroutine(sm.fade_black());
@@ -111,11 +111,18 @@ public class TutorialManager : MonoBehaviour
 
         //yield return StartCoroutine(Slide19_Coroutine());
 
-        //Application.LoadLevel(SCENE_G_MAIN_STREET);
-        //SceneManager.instance.LoadScene(SCENE_G_MAIN_STREET);
-        //yield return StartCoroutine(SceneManager.instance.fade_out());
-        //gameManager.Play();
-        //Destroy(this);
+        Application.LoadLevel(SCENE_G_MAIN_STREET);
+        Debug.Log("loaded g main street" + Application.loadedLevel);
+        yield return null;
+        GameManager.instance.SetTime(GameManager.TimeType.SET, 20);
+        yield return null;
+
+        SceneManager.instance.LoadScene();
+        yield return null;
+        yield return StartCoroutine(SceneManager.instance.fade_out());
+
+        gameManager.Play();
+        Destroy(this);
         yield break;
 
     }

@@ -6,7 +6,8 @@ using System.Collections.Generic;
 public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager instance;
-
+    private GameObject gameManagerObject;
+    private SceneManager sm;
     private GameManager gameManager;
 	private const string SCENE_TUTORIAL = "WP2_Tutorial";
 
@@ -49,6 +50,7 @@ public class TutorialManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+      
 		if (instance != null)
 		{
 			Destroy(this.gameObject);
@@ -68,7 +70,10 @@ public class TutorialManager : MonoBehaviour
 			/*6*/ new Slide("Slide13", 3, "\"Alfred...!\nIf I could… if only I could go back in time…\""),
 			/*7*/ new Slide("Slide14", 3, "\"What... is going on...\nThis all seems too familiar...\"")
         };
-
+        gameManager = GameManager.instance;
+        HideGameManager();
+        gameManagerObject = GameObject.Find("GameManager");
+        sm = gameManagerObject.GetComponent<SceneManager>();
 		StartCoroutine(Start_Tutorial());
 	}
 
@@ -77,37 +82,40 @@ public class TutorialManager : MonoBehaviour
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
 		//yield return StartCoroutine(Slide_Coroutine(slides[1]));
         //yield return StartCoroutine(Slide_Coroutine(slides[2]));
-		Destroy(GameManager.instance.gameObject);
-		yield return null;
+		//Destroy(GameManager.instance.gameObject);
+		//yield return null;
 
         yield return StartCoroutine(Slide4_Coroutine());
-		Destroy(GameManager.instance.gameObject);
+		//Destroy(GameManager.instance.gameObject);
 
 		// PICTURE SLIDE: Fallen Alfred and Book
-		yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
-		yield return StartCoroutine(Slide_Coroutine(slides[3]));
-		yield return StartCoroutine(Slide_Coroutine(slides[4]));
-		yield return StartCoroutine(Slide7_Coroutine());
-		Destroy(GameManager.instance.gameObject);
+		//yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
+		//yield return StartCoroutine(Slide_Coroutine(slides[3]));
+		//yield return StartCoroutine(Slide_Coroutine(slides[4]));
+		//yield return StartCoroutine(Slide7_Coroutine());
+		//Destroy(GameManager.instance.gameObject);
 
 		yield return StartCoroutine(Slide8_Coroutine());
-        //yield return StartCoroutine(Slide9_Coroutine());
-		//yield return StartCoroutine(Slide10_Coroutine());
-        //yield return StartCoroutine(Slide8_Coroutine());
+        yield return StartCoroutine(Slide9_Coroutine());
+		yield return StartCoroutine(Slide10_Coroutine());
         //yield break;
 
 		yield return StartCoroutine(Slide11_Coroutine());
 
         yield return StartCoroutine(Slide12_Coroutine());
-		yield return StartCoroutine(Slide_Coroutine(slides[6]));
-		yield return StartCoroutine(Slide_Coroutine(slides[7]));
-        yield return StartCoroutine(Slide19_Coroutine());
+		//yield return StartCoroutine(Slide_Coroutine(slides[6]));
+
+        //yield return StartCoroutine(sm.fade_black());
+      
+        //yield return StartCoroutine(Slide14_Coroutine());
+
+        //yield return StartCoroutine(Slide19_Coroutine());
 
         //Application.LoadLevel(SCENE_G_MAIN_STREET);
-        SceneManager.instance.LoadScene(SCENE_G_MAIN_STREET);
-        yield return StartCoroutine(SceneManager.instance.fade_out());
-        gameManager.Play();
-        Destroy(this);
+        //SceneManager.instance.LoadScene(SCENE_G_MAIN_STREET);
+        //yield return StartCoroutine(SceneManager.instance.fade_out());
+        //gameManager.Play();
+        //Destroy(this);
         yield break;
 
     }
@@ -127,7 +135,6 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Slide4_Coroutine()
     {
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_MINI_MAIN_STREET));
-        gameManager = GameManager.instance;
         gameManager.Wait();
         yield return new WaitForSeconds(2f);
         yield return StartCoroutine(GameObject.Find("Invis").GetComponent<CharacterAnimations>().Move(1, -12.5f, CharacterAnimations.States.DOWN_WALK));
@@ -146,9 +153,6 @@ public class TutorialManager : MonoBehaviour
 	{
 		yield return StartCoroutine(Slide_Coroutine(slides[5]));
 
-		GameObject gameManagerObject = GameObject.Find("GameManager");
-		SceneManager sm = gameManagerObject.GetComponent<SceneManager>();
-		gameManager = gameManagerObject.GetComponent<GameManager>();
 		yield return StartCoroutine(sm.fade_black());
 		yield return StartCoroutine(sm.display_text("2 years later..."));
 		gameManager.transform.Find("Menu_layout/Clock_background").gameObject.SetActive(true);
@@ -163,20 +167,11 @@ public class TutorialManager : MonoBehaviour
        
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_SCHOOL));
         //gameManager = GameManager.instance;
-        
-        gameManager = GameManager.instance;
+
         gameManager.SetTime(GameManager.TimeType.SET, 8);
         gameManager.Wait();
         gameManager.transform.Find("Menu_layout").gameObject.SetActive(true);
-        gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/EventSystem").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/Fast_forward").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/Fast_forward").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/MapPanel").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/MapName").gameObject.SetActive(false);
+
         yield return new WaitForSeconds(1f);
         //
         //EXAMPLE CODE TO BE REMOVED
@@ -257,7 +252,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Slide9_Coroutine()
     {
         GameObject.Find("NPCS").gameObject.SetActive(false);
-        yield return StartCoroutine(SceneManager.instance.fade_out());
+        yield return StartCoroutine(sm.fade_out());
         gameManager.Wait();
         yield return new WaitForSeconds(1f);
         yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(3, -1.25f, CharacterAnimations.States.RIGHT_WALK));
@@ -283,7 +278,7 @@ public class TutorialManager : MonoBehaviour
     {
         
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_WORLD_MAP));
-        gameManager = GameManager.instance;
+
         gameManager.Wait();
         yield return StartCoroutine(SceneManager.instance.fade_out());
         yield return new WaitForSeconds(1f);
@@ -326,7 +321,7 @@ public class TutorialManager : MonoBehaviour
         gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(true);
         gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(true);
         //transform.Find("PageIndex").gameObject.transform.Find("PageIndexText").GetComponent<Text>().text
-        Menu_Layout menu_layout = GameObject.Find("GameManager").transform.Find("Menu_layout").GetComponent<Menu_Layout>();
+        Menu_Layout menu_layout = gameManager.transform.Find("Menu_layout").GetComponent<Menu_Layout>();
         while (!menu_layout.GetMemoryLogOpen()) { yield return null; }
 
         CreateTutorialBox("I knew you would remember!", Textbox.TutorialBoxPosition.MIDDLE, 2f);
@@ -370,7 +365,7 @@ public class TutorialManager : MonoBehaviour
     {
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_MAIN_STREET));
         yield return StartCoroutine(SceneManager.instance.fade_out());
-        gameManager = GameManager.instance;
+
         gameManager.Wait();
 
         yield return new WaitForSeconds(2f);
@@ -412,6 +407,23 @@ public class TutorialManager : MonoBehaviour
         //yield return new WaitForSeconds(10);
     }
 
+
+
+    IEnumerator Slide14_Coroutine()
+    {
+
+        yield return StartCoroutine(sm.fade_out());
+        yield return StartCoroutine(Slide_Coroutine(slides[7]));
+
+      
+        yield return StartCoroutine(sm.fade_black());
+        yield return StartCoroutine(sm.display_text("The next day...\n\n...?"));
+        gameManager.transform.Find("Menu_layout/Clock_background").gameObject.SetActive(true);
+        gameManager.transform.Find("Menu_layout/Clock_display").gameObject.SetActive(true);
+        gameManager.SetTime(GameManager.TimeType.SET, 6);
+        yield return StartCoroutine(gameManager.GradualClock(12, .1f));
+    }
+
     IEnumerator Slide19_Coroutine()
     {
         
@@ -451,7 +463,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (tag == "Fall")
         {
-            gameManager = GameManager.instance;
+        
             gameManager.Wait();
             GameObject.Find("Main Camera").transform.parent = GameObject.Find("Alfred").transform;
             GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Alfred").transform.position.x, GameObject.Find("Alfred").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
@@ -465,7 +477,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (tag == "Pause")
         {
-            gameManager = GameManager.instance;
+       
             gameManager.Wait();
             yield return new WaitForSeconds(3f);
             gameManager.Play();
@@ -532,6 +544,19 @@ public class TutorialManager : MonoBehaviour
         gameManager.CreateChoice(name, d, -1);
     }
 
+    private void HideGameManager()
+    {
+        gameManager.transform.Find("Menu_layout").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/EventSystem").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Fast_forward").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Fast_forward").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/MapPanel").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/MapName").gameObject.SetActive(false);
+    }
 	// Update is called once per frame
 	void Update()
 	{

@@ -122,7 +122,7 @@ public class Menu_Layout : MonoBehaviour
         diaryButton_show = true;
         open_menu = true;
         gameManager.Wait();
-
+        Debug.Log("quest log is null: " + (quest_log == null));
         quest_log.display() ;
         quest_log.DrawSelect();
         //gameManager.gameMode = GameManager.GameMode.LOG;

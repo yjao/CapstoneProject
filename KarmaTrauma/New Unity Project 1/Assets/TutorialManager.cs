@@ -163,13 +163,12 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Slide8_Coroutine()
     {
         //School Scene
-       
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_SCHOOL));
         //gameManager = GameManager.instance;
 
         gameManager.SetTime(GameManager.TimeType.SET, 8);
         gameManager.Wait();
-        gameManager.transform.Find("Menu_layout").gameObject.SetActive(true);
+        //gameManager.transform.Find("Menu_layout").gameObject.SetActive(true);
 
         yield return new WaitForSeconds(1f);
         //
@@ -216,7 +215,7 @@ public class TutorialManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
 
         Dialogue d = new Dialogue(2, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
-        gameManager.CreateDialogue(name, d, -1);
+        gameManager.CreateDialogue("Mrs. Freewoman", d, -1);
         redhairguy.SetAnimation(CharacterAnimations.States.RIGHT_SWING);
         stylishguy.SetAnimation(CharacterAnimations.States.LEFT_SWING);
         //CreateDialogue("Mrs. Freewoman", "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
@@ -303,6 +302,7 @@ public class TutorialManager : MonoBehaviour
 
 	IEnumerator Slide11_Coroutine()
 	{
+     
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_DONUT_SHOP));
         gameManager.Wait();
         yield return StartCoroutine(SceneManager.instance.fade_out());
@@ -320,7 +320,8 @@ public class TutorialManager : MonoBehaviour
         gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(true);
         gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(true);
         //transform.Find("PageIndex").gameObject.transform.Find("PageIndexText").GetComponent<Text>().text
-        Menu_Layout menu_layout = gameManager.transform.Find("Menu_layout").GetComponent<Menu_Layout>();
+        Menu_Layout menu_layout = GameObject.Find("GameManager").transform.Find("Menu_layout").GetComponent<Menu_Layout>();
+        //Menu_Layout menu_layout = gameManager.transform.Find("Menu_layout").GetComponent<Menu_Layout>();
         while (!menu_layout.GetMemoryLogOpen()) { yield return null; }
 
         CreateTutorialBox("I knew you would remember!", Textbox.TutorialBoxPosition.MIDDLE, 2f);
@@ -545,13 +546,13 @@ public class TutorialManager : MonoBehaviour
 
     private void HideGameManager()
     {
-        gameManager.transform.Find("Menu_layout").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Clock_display").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Clock_background").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/EventSystem").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/Fast_forward").gameObject.SetActive(false);
+        //gameManager.transform.Find("Menu_layout/EventSystem").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/Fast_forward").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/MapPanel").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/MapName").gameObject.SetActive(false);

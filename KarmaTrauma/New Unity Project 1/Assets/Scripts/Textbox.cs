@@ -109,7 +109,7 @@ public class Textbox : MonoBehaviour
         {
             if (choice_mode == true)
             {
-                if (Input.GetKeyDown(KeyCode.UpArrow))
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
                 {
                     if (cursor < choices.Length - 1)
                     {
@@ -118,7 +118,7 @@ public class Textbox : MonoBehaviour
                         transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
                     }
                 }
-                else if (Input.GetKeyDown(KeyCode.DownArrow))
+                else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
                 {
                     if (cursor > 0)
                     {

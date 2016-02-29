@@ -216,7 +216,7 @@ public class TutorialManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
 
         Dialogue d = new Dialogue(2, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
-        gameManager.CreateDialogue(name, d, -1);
+        gameManager.CreateDialogue("Mrs. Freewoman", d, -1);
         redhairguy.SetAnimation(CharacterAnimations.States.RIGHT_SWING);
         stylishguy.SetAnimation(CharacterAnimations.States.LEFT_SWING);
         //CreateDialogue("Mrs. Freewoman", "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");

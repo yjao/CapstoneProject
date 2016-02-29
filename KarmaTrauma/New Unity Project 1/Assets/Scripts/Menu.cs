@@ -159,7 +159,7 @@ public class Menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             if (pointer2 > 0)
             {
@@ -167,7 +167,7 @@ public class Menu : MonoBehaviour
                 DrawSelect();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             if (pointer2 < 2)
             {
@@ -175,7 +175,7 @@ public class Menu : MonoBehaviour
                 DrawSelect();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             if (pointer > 0)
             {
@@ -183,7 +183,7 @@ public class Menu : MonoBehaviour
                 DrawSelect();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             if (pointer < 2)
             {

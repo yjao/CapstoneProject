@@ -114,8 +114,8 @@ public class Textbox : MonoBehaviour
                     if (cursor < choices.Length - 1)
                     {
                         cursor += 1;
-                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
-                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
+                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.45f, .325f + .1f * cursor);
+                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.51f, .4f + .1f * cursor);
                     }
                 }
                 else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
@@ -123,8 +123,8 @@ public class Textbox : MonoBehaviour
                     if (cursor > 0)
                     {
                         cursor -= 1;
-                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
-                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
+                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.45f, .325f + .1f * cursor);
+                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.51f, .4f + .1f * cursor);
                     }
                 }
                 else if (Input.GetKeyDown(KeyCode.Space))
@@ -393,8 +393,8 @@ public class Textbox : MonoBehaviour
             transform.Find("Choice_Panel").gameObject.SetActive(false);
             transform.Find("Select").gameObject.SetActive(false);
             transform.Find("Pointer").gameObject.SetActive(true);
-            transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.62f, .325f + .1f * cursor);
-            transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.665f, .4f + .1f * cursor);
+            transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.45f, .325f + .1f * cursor);
+            transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.51f, .4f + .1f * cursor);
             choice_mode = true;
             choices = options;
         }
@@ -433,6 +433,10 @@ public class Textbox : MonoBehaviour
 
     Transform[,] MultipleChoice(Choice[] options)
     {
+        Vector2 choice_anchor_min = transform.Find("Choice_Panel").GetComponent<RectTransform>().anchorMin;
+        Vector2 choice_anchor_max = transform.Find("Choice_Panel").GetComponent<RectTransform>().anchorMax;
+        Vector2 text_anchor_min = transform.Find("Select").GetComponent<RectTransform>().anchorMin;
+        Vector2 text_anchor_max = transform.Find("Select").GetComponent<RectTransform>().anchorMax;
         Transform[,] g = new Transform[options.Length,2];
         transform.Find("Select").gameObject.SetActive(true);
         for (int i = 0; i < options.Length; i++)
@@ -441,10 +445,10 @@ public class Textbox : MonoBehaviour
             Transform c = (Instantiate(transform.Find("Select"), new Vector3(0, 1, 0), Quaternion.identity)) as Transform;
             box.transform.SetParent(transform, false);
             c.transform.SetParent(transform, false);
-            box.transform.GetComponent<RectTransform>().anchorMax = new Vector2(.9f, (.4f+.1f*i));
-            box.transform.GetComponent<RectTransform>().anchorMin = new Vector2(.66f, (.325f+.1f*i));
-            c.transform.GetComponent<RectTransform>().anchorMax = new Vector2(.895f, (.385f+.1f*i));
-            c.transform.GetComponent<RectTransform>().anchorMin = new Vector2(.665f, (.34f+.1f*i));
+            box.transform.GetComponent<RectTransform>().anchorMax = new Vector2(choice_anchor_max.x, (.4f+.1f*i));
+            box.transform.GetComponent<RectTransform>().anchorMin = new Vector2(choice_anchor_min.x, (.325f+.1f*i));
+            c.transform.GetComponent<RectTransform>().anchorMax = new Vector2(text_anchor_max.x, (.385f+.1f*i));
+            c.transform.GetComponent<RectTransform>().anchorMin = new Vector2(text_anchor_min.x, (.34f+.1f*i));
             c.transform.GetComponent<Text>().text = options[i].option;
             g[i, 0] = box;
             g[i, 1] = c;

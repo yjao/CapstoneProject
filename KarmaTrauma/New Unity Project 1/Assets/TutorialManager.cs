@@ -95,8 +95,8 @@ public class TutorialManager : MonoBehaviour
 		yield return StartCoroutine(Slide7_Coroutine());
 		//Destroy(GameManager.instance.gameObject);
 
-		yield return StartCoroutine(Slide8_Coroutine());
-        yield return StartCoroutine(Slide9_Coroutine());
+		//yield return StartCoroutine(Slide8_Coroutine());
+        //yield return StartCoroutine(Slide9_Coroutine());
 		//yield return StartCoroutine(Slide10_Coroutine());
         //yield break;
 
@@ -324,6 +324,7 @@ public class TutorialManager : MonoBehaviour
         CreateTutorialBox("I know you have great memory! If you remember the %coupon word%, I'll but you a donut", Textbox.TutorialBoxPosition.BOTTOM, 2f);
         //yield return new WaitForSeconds(1);
         CreateTutorialBox("Come on, Chels, think harder! %Press 'M'%, maybe you'll think of something.", Textbox.TutorialBoxPosition.BOTTOM);
+        gameManager.Wait();
         gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(true);
         gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(true);
         //transform.Find("PageIndex").gameObject.transform.Find("PageIndexText").GetComponent<Text>().text
@@ -333,7 +334,7 @@ public class TutorialManager : MonoBehaviour
 
         CreateTutorialBox("I knew you would remember!", Textbox.TutorialBoxPosition.MIDDLE, 2f);
         while (menu_layout.GetMemoryLogOpen()) { yield return null; }
-
+        gameManager.Wait();
         CreateDialogue("Kelly", "Which one do you want? I'll buy as promised~");
 
         yield return null; while (Pause()) { yield return null; }

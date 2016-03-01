@@ -328,7 +328,7 @@ public class Player : MonoBehaviour
             }
             else if (locationString == "TutorialMall")
             {
-                SceneManager.instance.LoadScene("T_Mall");
+                Application.LoadLevel("T_Mall");
             }
         }
 

@@ -41,6 +41,7 @@ public class TutorialSlideTriggers : MonoBehaviour {
         }
         else if (car.transform.position.x >= 80)
         {
+            //StartCoroutine(TutorialManager.instance.EndCutscene(false));
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Done"));
         }
         else if (fallTrigger)
@@ -55,6 +56,7 @@ public class TutorialSlideTriggers : MonoBehaviour {
             Debug.Log("thump");
             source.PlayOneShot(thump, 1);
             Debug.Log("yay");
+            StartCoroutine(TutorialManager.instance.EndCutscene(false));
             playThump = false;
         }
 	}
@@ -63,6 +65,7 @@ public class TutorialSlideTriggers : MonoBehaviour {
     {
         if (this.tag == "InvisCol" && col.gameObject.tag == "Player")
         {
+            StartCoroutine(TutorialManager.instance.StartCutscene(false));
             source.PlayOneShot(carCrash, 1);
             moveTrigger = true;
         }
@@ -77,6 +80,7 @@ public class TutorialSlideTriggers : MonoBehaviour {
         }
         else if (this.tag == "TriggerPanel" && col.gameObject.tag == "Player")
         {
+            StartCoroutine(TutorialManager.instance.StartCutscene(false));
             fallTrigger = true;
         }
     }

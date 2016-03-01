@@ -85,7 +85,7 @@ public class TutorialManager : MonoBehaviour
 		//Destroy(GameManager.instance.gameObject);
 		//yield return null;
 
-        //yield return StartCoroutine(Slide4_Coroutine());
+        yield return StartCoroutine(Slide4_Coroutine());
 		//Destroy(GameManager.instance.gameObject);
 
 		// PICTURE SLIDE: Fallen Alfred and Book
@@ -95,21 +95,21 @@ public class TutorialManager : MonoBehaviour
 		yield return StartCoroutine(Slide7_Coroutine());
 		//Destroy(GameManager.instance.gameObject);
 
-		//yield return StartCoroutine(Slide8_Coroutine());
-        //yield return StartCoroutine(Slide9_Coroutine());
-		//yield return StartCoroutine(Slide10_Coroutine());
+		yield return StartCoroutine(Slide8_Coroutine());
+        yield return StartCoroutine(Slide9_Coroutine());
+		yield return StartCoroutine(Slide10_Coroutine());
         //yield break;
 
 		yield return StartCoroutine(Slide11_Coroutine());
 
-        //yield return StartCoroutine(Slide12_Coroutine());
+        yield return StartCoroutine(Slide12_Coroutine());
 		//yield return StartCoroutine(Slide_Coroutine(slides[6]));
 
         //yield return StartCoroutine(sm.fade_black());
       
-        //yield return StartCoroutine(Slide14_Coroutine());
+        yield return StartCoroutine(Slide14_Coroutine());
 
-        //yield return StartCoroutine(Slide19_Coroutine());
+        yield return StartCoroutine(Slide19_Coroutine());
 
         Application.LoadLevel(SCENE_G_MAIN_STREET);
         Debug.Log("loaded g main street" + Application.loadedLevel);
@@ -141,10 +141,12 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator Slide4_Coroutine()
     {
+        StartCoroutine(StartCutscene(true));
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_MINI_MAIN_STREET));
         gameManager.Wait();
         yield return new WaitForSeconds(2f);
         yield return StartCoroutine(GameObject.Find("Invis").GetComponent<CharacterAnimations>().Move(1, -12.5f, CharacterAnimations.States.DOWN_WALK));
+        yield return StartCoroutine(EndCutscene(false));
         GameObject.Find("Invis").transform.parent = GameObject.Find("Player").transform;
         CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move and hold Shift to run%. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM);
         gameManager.Play();
@@ -152,6 +154,7 @@ public class TutorialManager : MonoBehaviour
 		// Exit Condition
         while (!endCondition) { yield return null; } endCondition = false;
 
+        //StartCoroutine(EndCutscene(true));
 		//yield return StartCoroutine(SceneManager.instance.fade_black());
     }
 
@@ -289,6 +292,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         CreateDialogue("Kelly", "To the Punxsu-- I mean %J.F. Mall%!");
         yield return null; while (Pause()) { yield return null; }
+        yield return StartCoroutine(EndCutscene(false));
         CreateTutorialBox("%Press Spacebar to enter a location%", Textbox.TutorialBoxPosition.TOP);
         gameManager.Play();
 
@@ -372,6 +376,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Slide12_Coroutine()
     {
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_MAIN_STREET));
+        StartCoroutine(StartCutscene(true));
         yield return StartCoroutine(SceneManager.instance.fade_out());
 
         gameManager.Wait();
@@ -399,6 +404,7 @@ public class TutorialManager : MonoBehaviour
 
         CreateDialogue("Chelsey", "I should go home now.");
         yield return null; while (Pause()) { yield return null; }
+        yield return StartCoroutine(EndCutscene(false));
         gameManager.Play();
 
         while (!endCondition)

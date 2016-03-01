@@ -490,7 +490,8 @@ public class Textbox : MonoBehaviour
         if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
         {
             EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
-            Dialogue d = new Dialogue(-1, args.TutorialDialogues[0]);
+            string text = Textbox.FormatMessage(args.TutorialDialogues[0]);
+            Dialogue d = new Dialogue(-1, Textbox.ColorTutorialKeyword(text));
             d.CEA = new ChoiceEventArgs() { ChoiceAction = args.ChoiceAction, TutorialDialogues = args.TutorialDialogues, TutorialDialogueCounter = args.TutorialDialogueCounter };
             d.Action += d.CEA.ChoiceAction;
             GameManager.instance.CreateDialogue(args.DialogueBox.transform.Find("Name").GetComponent<Text>().text, d, -1);
@@ -502,7 +503,8 @@ public class Textbox : MonoBehaviour
         {
             args.DialogueBox.Dialog.CEA.TutorialDialogueCounter -= 1;
             string name = args.DialogueBox.transform.Find("Name").GetComponent<Text>().text;
-            args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = args.TutorialDialogues[args.TutorialDialogues.Length - args.TutorialDialogueCounter];
+            string text = Textbox.FormatMessage(args.TutorialDialogues[args.TutorialDialogues.Length - args.TutorialDialogueCounter]);
+            args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = Textbox.ColorTutorialKeyword(text);
             if (args.TutorialDialogueCounter != 1)
             {
                 EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;

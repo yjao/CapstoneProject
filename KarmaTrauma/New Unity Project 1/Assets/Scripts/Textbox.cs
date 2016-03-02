@@ -321,7 +321,7 @@ public class Textbox : MonoBehaviour
         {
             if (gameManager.playerData.DialogueHistory[id + "," + Dialog.iD])
             {
-                transform.Find("Text_Panel").GetComponent<Image>().color = new Color((22f/255f), (22f/255f), (92f/255f), (150f/255f));
+                transform.Find("Text_Panel").GetComponent<Image>().color = new Color((255f/255f), (235f/255f), (199f/255f), (150f/255f));
             }
         }
         else
@@ -350,6 +350,7 @@ public class Textbox : MonoBehaviour
 
     public IEnumerator DrawTutorialBox(string message, float destroytimer = -1, TutorialBoxPosition position = TutorialBoxPosition.MIDDLE, bool transparent=false)
     {
+        play_open_sound();
         EventManager.OnSpaceBar -= SelfDestruct;
         tutorial_mode = true;
         if (gameManager != null)
@@ -470,7 +471,7 @@ public class Textbox : MonoBehaviour
             g[i, 1] = c;
             if (gameManager.playerData.DialogueHistory.ContainsKey(options[i].CEA.IDNum + "," + options[i].CEA.DialogueID + "," + i))
             {
-                box.transform.GetComponent<Image>().color = new Color(22 / 255f, 22 / 255f, 92 / 255f, 150 / 255f);
+                box.transform.GetComponent<Image>().color = new Color(255 / 255f, 235 / 255f, 199 / 255f, 150 / 255f);
             }
         }
         return g;

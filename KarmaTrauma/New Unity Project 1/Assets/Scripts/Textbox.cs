@@ -344,13 +344,25 @@ public class Textbox : MonoBehaviour
         transform.Find("Message").GetComponent<Text>().text = message;
     }
 
-    public IEnumerator DrawTutorialBox(string message, float destroytimer = -1, TutorialBoxPosition position = TutorialBoxPosition.MIDDLE)
+    public IEnumerator DrawTutorialBox(string message, float destroytimer = -1, TutorialBoxPosition position = TutorialBoxPosition.MIDDLE, bool transparent=false)
     {
         EventManager.OnSpaceBar -= SelfDestruct;
         tutorial_mode = true;
         if (gameManager != null)
         {
             gameManager.ExitDialogue();
+        }
+        if (transparent)
+        {
+            Color c = transform.Find("Message_Panel").GetComponent<Image>().color;
+            c.a = 160f/255;
+            transform.Find("Message_Panel").GetComponent<Image>().color = c;
+        }
+        else if (!transparent)
+        {
+            Color c = transform.Find("Message_Panel").GetComponent<Image>().color;
+            c.a = 255f/255;
+            transform.Find("Message_Panel").GetComponent<Image>().color = c;
         }
         DrawMessage(message);
         if (position == TutorialBoxPosition.TOP)

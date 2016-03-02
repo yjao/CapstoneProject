@@ -17,6 +17,11 @@ public class Menu_Layout : MonoBehaviour
     private bool open_menu = false;
     public int startTime;
 
+    private AudioClip bagSound;
+    private AudioClip logSound;
+    private AudioClip logSoundClose;
+    private AudioSource source;
+
     private int world_map_level = 17;
     private Texture2D inventory_texture;
     private Texture2D diary_texture;
@@ -29,6 +34,10 @@ public class Menu_Layout : MonoBehaviour
         gameManager = GameManager.instance;
         quest_log = QuestLog.instance;
         gameMenu = Menu.Instance;
+        bagSound = Resources.Load<AudioClip>("Zipper1");
+        logSound = Resources.Load<AudioClip>("MemoryLog");
+        logSoundClose = Resources.Load<AudioClip>("MemoryLogReverse");
+        source = gameObject.GetComponent<AudioSource>();
         //gameMenu = FindObjectOfType(typeof(Menu)) as Menu;
         //quest_log = QuestLog.Instance; 
         player = FindObjectOfType(typeof(Player)) as Player;
@@ -154,14 +163,16 @@ public class Menu_Layout : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
-                gameObject.GetComponent<AudioSource>().Play();
+                source.clip = bagSound;
+                source.Play();
                 M_Bag();
 
             }
 
             else if (Input.GetKeyDown(KeyCode.M))
             {
-                gameObject.GetComponent<AudioSource>().Play();
+                source.clip = logSound;
+                source.Play();
                 M_Diary();
 
             }
@@ -174,21 +185,27 @@ public class Menu_Layout : MonoBehaviour
         {
             if (invenButton_show)
             {
-                gameObject.GetComponent<AudioSource>().Play();
+                source.clip = bagSound;
+                source.Play();
                 Close_Bag();
             }
             if (diaryButton_show)
             {
-                gameObject.GetComponent<AudioSource>().Play();
+                source.clip = logSoundClose;
+                source.Play();
                 Close_Diary();
             }
         }
 
         else if (invenButton_show && Input.GetKeyDown(KeyCode.B))
         {
+            source.clip = bagSound;
+            source.Play();
             Close_Bag();
         }
         else if (diaryButton_show && Input.GetKeyDown(KeyCode.M)){
+            source.clip = logSoundClose;
+            source.Play();
             Close_Diary();
         }
 

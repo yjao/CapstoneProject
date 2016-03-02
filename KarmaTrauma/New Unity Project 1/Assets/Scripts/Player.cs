@@ -327,9 +327,15 @@ public class Player : MonoBehaviour
             {
                 SceneManager.instance.LoadScene(SceneManager.SCENE_HOSPITAL);
             }
+                // Class can only be entered at 8. otherwise, it will give the player message
+            else if (locationString == "Class"&& (gameManager.GetTimeAsInt()==8))
+            {
+                StartCoroutine(gameManager.ClassFade());
+                //SceneManager.instance.LoadScene(SceneManager.SCENE_CLASS);
+            }
             else if (locationString == "Class")
             {
-                SceneManager.instance.LoadScene(SceneManager.SCENE_CLASS);
+                gameManager.CreateMessage("It's too late to go to school.",false);
             }
             else if (locationString == "Tutorial")
             {

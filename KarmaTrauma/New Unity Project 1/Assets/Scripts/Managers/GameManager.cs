@@ -379,7 +379,13 @@ public class GameManager : MonoBehaviour
         SoundManager.instance.StopAllBackgroundSounds();
         SceneManager.instance.LoadScene(SceneManager.SCENE_HOUSE);
     }
-
+    public IEnumerator ClassFade()
+    {
+        yield return StartCoroutine(SceneManager.instance.fade_black());
+        yield return StartCoroutine(GradualClock(12, .1f, false));
+        SoundManager.instance.StopAllBackgroundSounds();
+        SceneManager.instance.LoadScene(SceneManager.SCENE_CLASS);
+    }
     public bool SetTime(TimeType type, int time=0, bool delay=false)
 	{
 		switch (type)

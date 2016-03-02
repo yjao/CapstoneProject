@@ -64,7 +64,7 @@ public class SoundManager : MonoBehaviour {
             tempsource.clip = Resources.Load<AudioClip>(mapName);
         }
         tempsource.volume = volume;
-        tempsource.loop = true;
+        tempsource.loop = loop;
         tempsource.Play();
         backgroundSounds.Add(tempsource);
     }

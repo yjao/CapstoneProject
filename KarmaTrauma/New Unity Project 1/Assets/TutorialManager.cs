@@ -347,7 +347,7 @@ public class TutorialManager : MonoBehaviour
         MultiDialogue("Jeney", new string[2]
         {
             "Welcome to the Donut Hole! What can I get you today?",
-            "You can use %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select%",
+            "You can %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select%",
           
         });
         string[] action = {"Here you go, I’ve put it inside your bag. %Press B to take a look%. Have a nice day!"};
@@ -471,17 +471,21 @@ public class TutorialManager : MonoBehaviour
         {
             CreateTutorialBox("What is it? Come on, get your nose out of your book and go exercise a bit! Go, %get the ball%! For me!", Textbox.TutorialBoxPosition.BOTTOM);
         }
+        else if (tag == "DefaultText")
+        {
+            CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move and hold Shift to run%. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM);
+        }
         else if (tag == "Traffic")
         {
             CreateTutorialBox("Hrm… I guess it doesn’t work. Well it’s whatever, I don’t see any cops; just be careful! If I were you, I’d %move while holding shift key to run%. The cars are less likely to hit you if you run faster, right?", Textbox.TutorialBoxPosition.BOTTOM);
         }
         else if (tag == "Fall")
         {
-        
+
             gameManager.Wait();
             GameObject.Find("Main Camera").transform.parent = GameObject.Find("Alfred").transform;
             GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Alfred").transform.position.x, GameObject.Find("Alfred").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
-            yield return StartCoroutine(GameObject.Find("Alfred").GetComponent<CharacterAnimations>().Move(2, -11.00f, CharacterAnimations.States.FALLEN, 0.15f));        
+            yield return StartCoroutine(GameObject.Find("Alfred").GetComponent<CharacterAnimations>().Move(2, -11.00f, CharacterAnimations.States.FALLEN, 0.15f));
             yield return new WaitForSeconds(1f);
             //GameObject.Find("Main Camera").transform.parent = GameObject.Find("Player").transform;
             //GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Player").transform.position.x, GameObject.Find("Player").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
@@ -491,7 +495,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (tag == "Pause")
         {
-       
+
             gameManager.Wait();
             yield return new WaitForSeconds(3f);
             gameManager.Play();

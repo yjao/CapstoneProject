@@ -372,17 +372,17 @@ public class Textbox : MonoBehaviour
         DrawMessage(message);
         if (position == TutorialBoxPosition.TOP)
         {
-            transform.Find("Message_Panel").GetComponent<RectTransform>().anchorMin = new Vector2(.2f, .65f);
-            transform.Find("Message_Panel").GetComponent<RectTransform>().anchorMax = new Vector2(.8f, .95f);
-            transform.Find("Message").GetComponent<RectTransform>().anchorMin = new Vector2(.2f, .65f);
-            transform.Find("Message").GetComponent<RectTransform>().anchorMax = new Vector2(.8f, .95f);
+            transform.Find("Message_Panel").GetComponent<RectTransform>().anchorMin = new Vector2(0.06f, 0.7218868f);
+            transform.Find("Message_Panel").GetComponent<RectTransform>().anchorMax = new Vector2(0.95f, 0.9503356f);
+            transform.Find("Message").GetComponent<RectTransform>().anchorMin = new Vector2(0.15f, 0.7653289f);
+            transform.Find("Message").GetComponent<RectTransform>().anchorMax = new Vector2(0.89f, 0.9053356f);
         }
         if (position == TutorialBoxPosition.BOTTOM)
         {
-            transform.Find("Message_Panel").GetComponent<RectTransform>().anchorMin = new Vector2(.2f, .05f);
-            transform.Find("Message_Panel").GetComponent<RectTransform>().anchorMax = new Vector2(.8f, .35f);
-            transform.Find("Message").GetComponent<RectTransform>().anchorMin = new Vector2(.2f, .05f);
-            transform.Find("Message").GetComponent<RectTransform>().anchorMax = new Vector2(.8f, .35f);
+            transform.Find("Message_Panel").GetComponent<RectTransform>().anchorMin = new Vector2(0.06f, 0.05f);
+            transform.Find("Message_Panel").GetComponent<RectTransform>().anchorMax = new Vector2(0.95f, 0.28f);
+            transform.Find("Message").GetComponent<RectTransform>().anchorMin = new Vector2(0.15f, 0.10f);
+            transform.Find("Message").GetComponent<RectTransform>().anchorMax = new Vector2(0.89f, 0.24f);
         }
         yield return null;
         if (destroytimer != -1)

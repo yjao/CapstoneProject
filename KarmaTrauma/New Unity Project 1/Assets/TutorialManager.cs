@@ -89,7 +89,7 @@ public class TutorialManager : MonoBehaviour
 
 
 
-   //     yield return StartCoroutine(Slide4_Coroutine());
+        yield return StartCoroutine(Slide4_Coroutine());
 
         // PICTURE SLIDE: Fallen Alfred and Book
  //       yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
@@ -97,7 +97,7 @@ public class TutorialManager : MonoBehaviour
  //       yield return StartCoroutine(Slide_Coroutine(slides[4]));
   //      yield return StartCoroutine(Slide7_Coroutine());
 
-  //      yield return StartCoroutine(Slide8_Coroutine());
+        //yield return StartCoroutine(Slide8_Coroutine());
   //      yield return StartCoroutine(Slide9_Coroutine());
   //      yield return StartCoroutine(Slide10_Coroutine());
         //yield break;
@@ -150,7 +150,7 @@ public class TutorialManager : MonoBehaviour
         yield return StartCoroutine(GameObject.Find("Invis").GetComponent<CharacterAnimations>().Move(1, -12.5f, CharacterAnimations.States.DOWN_WALK));
         yield return StartCoroutine(EndCutscene(false));
         GameObject.Find("Invis").transform.parent = GameObject.Find("Player").transform;
-        CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move and hold Shift to run%. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
+        CreateTutorialBox("What’s wrong? Have you forgotten how to walk?\nHaha, you’re so awkward Chels! It’s why I love ya. \n%Use the arrow keys or WASD keys to move and hold Shift to run%. \nNow go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         gameManager.Play();
 
 		// Exit Condition
@@ -198,7 +198,7 @@ public class TutorialManager : MonoBehaviour
         MultiDialogue("Mrs. Freewoman", new string[2]
         {
             "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the Spacebar to progress speech%.",
-            "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today"
+            "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today."
         });
         NPC kelly = GameObject.Find("Kelly").GetComponent<NPC>();
         NPC stylishguy = GameObject.Find("Stylish_guy").GetComponent<NPC>();
@@ -206,16 +206,17 @@ public class TutorialManager : MonoBehaviour
         NPC girlindrama = GameObject.Find("Girl_in_drama").GetComponent<NPC>();
         NPC pinkguy = GameObject.Find("Pink_hair_dude").GetComponent<NPC>();
 
+        //girlindrama.SetAnimation(CharacterAnimations.States.UP_DANCE);
         yield return null; while (Pause()) { yield return null; }
         gameManager.Wait();
         kelly.SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
-        girlindrama.SetAnimation(CharacterAnimations.States.UP_DANCE);
         /*
         CreateDialogue("Kelly", "*Whispers* Psst, I hope she won’t go on about how great Jerry Faraday is, like how Ly does all the time. Ugh.");
         yield return null; while (Pause()) { yield return null; }
         girlindrama.SetAnimation(CharacterAnimations.States.UP_IDLE);
         kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
         */
+        yield return StartCoroutine(girlindrama.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.UP_DANCE, true));
         kelly.SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
         yield return new WaitForSeconds(.25f); 
         CreateDialogue("Kelly", "*Whispers* Psst, I hope she won’t go on about how great Jerry Faraday is, like how Ly does all the time. Ugh.");
@@ -229,17 +230,22 @@ public class TutorialManager : MonoBehaviour
         gameManager.Wait();
         Dialogue d = new Dialogue(2, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
         gameManager.CreateDialogue("Mrs. Freewoman", d, -1);
-        redhairguy.SetAnimation(CharacterAnimations.States.RIGHT_SWING);
-        stylishguy.SetAnimation(CharacterAnimations.States.LEFT_SWING);
+        //girlindrama.SetAnimation(CharacterAnimations.States.UP_DANCE);
+        StartCoroutine(redhairguy.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.RIGHT_SWING, true));
+        yield return StartCoroutine(stylishguy.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.LEFT_SWING, true));
+        //redhairguy.SetAnimation(CharacterAnimations.States.RIGHT_SWING);
+        //stylishguy.SetAnimation(CharacterAnimations.States.LEFT_SWING);
         //CreateDialogue("Mrs. Freewoman", "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
         yield return null; while (Pause()) { yield return null; }
         CreateDialogue("Kelly", "Oooooh… Yes…");
         //yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.LEFT_DANCE));
 
         yield return StartCoroutine(kelly.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.LEFT_DANCE));
-        yield return StartCoroutine(kelly.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.RIGHT_DANCE));
-        redhairguy.SetAnimation(CharacterAnimations.States.UP_IDLE);
-        stylishguy.SetAnimation(CharacterAnimations.States.UP_IDLE);
+        yield return StartCoroutine(kelly.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.RIGHT_DANCE, true));
+        //kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
+        //redhairguy.SetAnimation(CharacterAnimations.States.UP_IDLE);
+        //stylishguy.SetAnimation(CharacterAnimations.States.UP_IDLE);
+        //girlindrama.SetAnimation(CharacterAnimations.States.UP_IDLE);
         //kelly.SetAnimation(CharacterAnimations.States.LEFT_DANCE);
         //kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
         yield return null; while (Pause()) { yield return null; }
@@ -499,7 +505,7 @@ public class TutorialManager : MonoBehaviour
 
     public IEnumerator Slide_Triggers_Coroutine(string tag)
     {
-        if (tag == "TrafficLight")
+        if (tag == "TriggerPanelMini")
         {
             CreateTutorialBox("Um, yeah, you might want to hit the pedestrian light before crossing. What? Hey, are you spacing out again? %Space bar%, not space out! Press that and like, %interact with objects%.", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         }
@@ -507,9 +513,13 @@ public class TutorialManager : MonoBehaviour
         {
             CreateTutorialBox("What is it? Come on, get your nose out of your book and go exercise a bit! Go, %get the ball%! For me!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         }
-        else if (tag == "DefaultText")
+        else if (tag == "FirstDefaultText")
         {
-            CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move and hold Shift to run%. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
+            CreateTutorialBox("What’s wrong? Have you forgotten how to walk?\nHaha, you’re so awkward Chels! It’s why I love ya. \n%Use the arrow keys or WASD keys to move and hold Shift to run%. \nNow go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
+        }
+        else if (tag == "SecondDefaultText")
+        {
+            CreateTutorialBox("If I were you, I’d %move while holding shift key to run%. The cars are less likely to hit you if you run faster, right? Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         }
         else if (tag == "Traffic")
         {

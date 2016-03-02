@@ -115,8 +115,8 @@ public class Textbox : MonoBehaviour
                     if (cursor < choices.Length - 1)
                     {
                         cursor += 1;
-                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.45f, .325f + .1f * cursor);
-                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.51f, .4f + .1f * cursor);
+                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.50f, .235f + .1f * cursor);
+                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.56f, .31f + .1f * cursor);
                     }
                 }
                 else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
@@ -124,8 +124,8 @@ public class Textbox : MonoBehaviour
                     if (cursor > 0)
                     {
                         cursor -= 1;
-                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.45f, .325f + .1f * cursor);
-                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.51f, .4f + .1f * cursor);
+                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.50f, .235f + .1f * cursor);
+                        transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.56f, .31f + .1f * cursor);
                     }
                 }
                 else if (Input.GetKeyDown(KeyCode.Space))
@@ -321,7 +321,7 @@ public class Textbox : MonoBehaviour
         {
             if (gameManager.playerData.DialogueHistory[id + "," + Dialog.iD])
             {
-                transform.Find("Text_Panel").GetComponent<Image>().color = new Color((22f/255f), (22f/255f), (92f/255f), (150f/255f));
+                transform.Find("Text_Panel").GetComponent<Image>().color = new Color((255f/255f), (235f/255f), (199f/255f), (150f/255f));
             }
         }
         else
@@ -350,6 +350,7 @@ public class Textbox : MonoBehaviour
 
     public IEnumerator DrawTutorialBox(string message, float destroytimer = -1, TutorialBoxPosition position = TutorialBoxPosition.MIDDLE, bool transparent=false)
     {
+        play_open_sound();
         EventManager.OnSpaceBar -= SelfDestruct;
         tutorial_mode = true;
         if (gameManager != null)
@@ -409,8 +410,8 @@ public class Textbox : MonoBehaviour
             transform.Find("Choice_Panel").gameObject.SetActive(false);
             transform.Find("Select").gameObject.SetActive(false);
             transform.Find("Pointer").gameObject.SetActive(true);
-            transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.45f, .325f + .1f * cursor);
-            transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.51f, .4f + .1f * cursor);
+            transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.50f, .235f + .1f * cursor);
+            transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.56f, .31f + .1f * cursor);
             choice_mode = true;
             choices = options;
         }
@@ -461,16 +462,16 @@ public class Textbox : MonoBehaviour
             Transform c = (Instantiate(transform.Find("Select"), new Vector3(0, 1, 0), Quaternion.identity)) as Transform;
             box.transform.SetParent(transform, false);
             c.transform.SetParent(transform, false);
-            box.transform.GetComponent<RectTransform>().anchorMax = new Vector2(choice_anchor_max.x, (.4f+.1f*i));
-            box.transform.GetComponent<RectTransform>().anchorMin = new Vector2(choice_anchor_min.x, (.325f+.1f*i));
-            c.transform.GetComponent<RectTransform>().anchorMax = new Vector2(text_anchor_max.x, (.385f+.1f*i));
-            c.transform.GetComponent<RectTransform>().anchorMin = new Vector2(text_anchor_min.x, (.34f+.1f*i));
+            box.transform.GetComponent<RectTransform>().anchorMax = new Vector2(choice_anchor_max.x, (.3f+.1f*i));
+            box.transform.GetComponent<RectTransform>().anchorMin = new Vector2(choice_anchor_min.x, (.225f+.1f*i));
+            c.transform.GetComponent<RectTransform>().anchorMax = new Vector2(text_anchor_max.x, (.285f+.1f*i));
+            c.transform.GetComponent<RectTransform>().anchorMin = new Vector2(text_anchor_min.x, (.24f+.1f*i));
             c.transform.GetComponent<Text>().text = options[i].option;
             g[i, 0] = box;
             g[i, 1] = c;
             if (gameManager.playerData.DialogueHistory.ContainsKey(options[i].CEA.IDNum + "," + options[i].CEA.DialogueID + "," + i))
             {
-                box.transform.GetComponent<Image>().color = new Color(22 / 255f, 22 / 255f, 92 / 255f, 150 / 255f);
+                box.transform.GetComponent<Image>().color = new Color(255 / 255f, 235 / 255f, 199 / 255f, 150 / 255f);
             }
         }
         return g;

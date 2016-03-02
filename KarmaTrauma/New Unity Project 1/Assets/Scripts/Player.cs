@@ -8,6 +8,7 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+    public bool t_mall = false;
     public static InvisibleWallTop walltop;
     private GameManager gameManager;
     public GameObject PlayerCamera;
@@ -213,6 +214,10 @@ public class Player : MonoBehaviour
         {
             locationString = "Apartment";
         }
+        else if (coll.gameObject.tag == "Class")
+        {
+            locationString = "Class";
+        }
         else if (coll.gameObject.tag == "TutorialMall")
         {
             //go to tutorial mall
@@ -322,13 +327,23 @@ public class Player : MonoBehaviour
             {
                 SceneManager.instance.LoadScene(SceneManager.SCENE_HOSPITAL);
             }
+                // Class can only be entered at 8. otherwise, it will give the player message
+            else if (locationString == "Class"&& (gameManager.GetTimeAsInt()==8))
+            {
+                StartCoroutine(gameManager.ClassFade());
+                //SceneManager.instance.LoadScene(SceneManager.SCENE_CLASS);
+            }
+            else if (locationString == "Class")
+            {
+                gameManager.CreateMessage("It's too late to go to school.",false);
+            }
             else if (locationString == "Tutorial")
             {
                 tutorialManager.CreateTutorialBox("%J.F Mall% is over here Chels!", Textbox.TutorialBoxPosition.BOTTOM, 1f);
             }
             else if (locationString == "TutorialMall")
             {
-                Application.LoadLevel("T_Mall");
+                t_mall = true;
             }
         }
 

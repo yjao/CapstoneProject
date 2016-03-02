@@ -90,13 +90,14 @@ public class Textbox : MonoBehaviour
 
     void SelfDestruct(object sender, GameEventArgs args)
     {
-        GameObject.Destroy(gameObject);
+        EventManager.OnSpaceBar -= SelfDestruct;
+        StartCoroutine(play_close_sound());
     }
 
 
 	void OnDestroy()
 	{
-        EventManager.OnSpaceBar -= SelfDestruct;
+        //EventManager.OnSpaceBar -= SelfDestruct;
         if (!(tutorial_mode || tutorial_choice))
         {
             gameManager.ExitDialogue();
@@ -153,6 +154,7 @@ public class Textbox : MonoBehaviour
                         EventManager.NotifyDialogChoiceMade(this, g);
                         if (!(oldaction == continueDialogue || oldaction == ContinueTutorialDialogue))
                         {
+                            gameObject.GetComponent<AudioSource>().enabled = true;
                             EventManager.NotifySpaceBar(this, new GameEventArgs());
                         }
                     }
@@ -176,6 +178,7 @@ public class Textbox : MonoBehaviour
                         EventManager.NotifyDialogChoiceMade(this, g);
                         if (!(oldaction == continueDialogue || oldaction == ContinueTutorialDialogue))
                         {
+                            gameObject.GetComponent<AudioSource>().enabled = true;
                             EventManager.NotifySpaceBar(this, new GameEventArgs());
                         }
                     }
@@ -312,6 +315,7 @@ public class Textbox : MonoBehaviour
 	
 	public void DrawBox(string name, string message, int id)
     {
+        play_open_sound();
         message = BuildIntoQuestList(name, message);
         if (gameManager.playerData.DialogueHistory.ContainsKey(id + "," + Dialog.iD))
         {
@@ -344,13 +348,25 @@ public class Textbox : MonoBehaviour
         transform.Find("Message").GetComponent<Text>().text = message;
     }
 
-    public IEnumerator DrawTutorialBox(string message, float destroytimer = -1, TutorialBoxPosition position = TutorialBoxPosition.MIDDLE)
+    public IEnumerator DrawTutorialBox(string message, float destroytimer = -1, TutorialBoxPosition position = TutorialBoxPosition.MIDDLE, bool transparent=false)
     {
         EventManager.OnSpaceBar -= SelfDestruct;
         tutorial_mode = true;
         if (gameManager != null)
         {
             gameManager.ExitDialogue();
+        }
+        if (transparent)
+        {
+            Color c = transform.Find("Message_Panel").GetComponent<Image>().color;
+            c.a = 160f/255;
+            transform.Find("Message_Panel").GetComponent<Image>().color = c;
+        }
+        else if (!transparent)
+        {
+            Color c = transform.Find("Message_Panel").GetComponent<Image>().color;
+            c.a = 255f/255;
+            transform.Find("Message_Panel").GetComponent<Image>().color = c;
         }
         DrawMessage(message);
         if (position == TutorialBoxPosition.TOP)
@@ -464,6 +480,7 @@ public class Textbox : MonoBehaviour
 
     public static void continueDialogue(object sender, GameEventArgs args)
     {
+        args.DialogueBox.GetComponent<AudioSource>().enabled = false;
         args.DialogueBox.Dialog = args.DialogueBox.gameManager.GetNextDialogue(args.IDNum, args.DialogueID);
         if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
         {
@@ -486,6 +503,7 @@ public class Textbox : MonoBehaviour
 
     public static void ContinueTutorialDialogue(object sender, GameEventArgs args)
     {
+        args.DialogueBox.GetComponent<AudioSource>().enabled = false;
         args.TutorialDialogueCounter -= 1;
         if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
         {
@@ -514,5 +532,44 @@ public class Textbox : MonoBehaviour
                 args.DialogueBox.Dialog.CEA = null;
             }
         }
+    }
+
+    private void play_open_sound()
+    {
+        AudioSource source = gameObject.GetComponent<AudioSource>();
+        if (!source.enabled)
+        {
+            source.enabled = true;
+        }
+        if (source.isPlaying)
+        {
+            source.Stop();
+        }
+        source.clip = Resources.Load<AudioClip>("Open");
+        source.time = .4f;
+        source.Play();
+    }
+    private IEnumerator play_close_sound()
+    {
+        AudioSource source = gameObject.GetComponent<AudioSource>();
+        if (source.enabled)
+        {
+            if (source.isPlaying)
+            {
+                source.Stop();
+            }
+            source.clip = Resources.Load<AudioClip>("Close");
+            source.time = 0;
+            source.Play();
+            source.SetScheduledEndTime(AudioSettings.dspTime + (.224f));
+            gameObject.GetComponent<Canvas>().enabled = false;
+            while (source.isPlaying)
+            {
+                yield return null;
+            }
+        }
+
+        GameObject.Destroy(gameObject);
+        yield return null;
     }
 }

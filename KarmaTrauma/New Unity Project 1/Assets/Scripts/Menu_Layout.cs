@@ -122,7 +122,6 @@ public class Menu_Layout : MonoBehaviour
         diaryButton_show = true;
         open_menu = true;
         gameManager.Wait();
-        Debug.Log("quest log is null: " + (quest_log == null));
         quest_log.display() ;
         quest_log.DrawSelect();
         //gameManager.gameMode = GameManager.GameMode.LOG;
@@ -155,12 +154,14 @@ public class Menu_Layout : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 M_Bag();
 
             }
 
             else if (Input.GetKeyDown(KeyCode.M))
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 M_Diary();
 
             }
@@ -169,16 +170,26 @@ public class Menu_Layout : MonoBehaviour
                 M_Fastforward();
             }
         }
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
+        else if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (invenButton_show)
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 Close_Bag();
             }
             if (diaryButton_show)
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 Close_Diary();
             }
+        }
+
+        else if (invenButton_show && Input.GetKeyDown(KeyCode.B))
+        {
+            Close_Bag();
+        }
+        else if (diaryButton_show && Input.GetKeyDown(KeyCode.M)){
+            Close_Diary();
         }
 
     

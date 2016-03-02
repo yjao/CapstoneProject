@@ -17,7 +17,7 @@ public class QuestLog : MonoBehaviour
     int pointer;
     private int max_page = 1;
     private int page_index = 0;
-    private int quest_per_page = 2;
+    private int quest_per_page = 4;
 
     private List<string> q_log;
     // Use this for initialization

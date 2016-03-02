@@ -68,7 +68,11 @@ public class TutorialManager : MonoBehaviour
 			/*4*/ new Slide("Slide6", 3, ""),
 			/*5*/ new Slide("Slide7(3)", 3, ""),
 			/*6*/ new Slide("Slide13", 3, "\"Alfred...!\nIf I could… if only I could go back in time…\""),
-			/*7*/ new Slide("Slide14", 3, "\"What... is going on...\nThis all seems too familiar...\"")
+			/*7*/ new Slide("Slide14", 3, "\"What... is going on...\nThis all seems too familiar...\""),
+            /*8*/ new Slide("Slide15", 5, "\"Happy Monday, class, my name is Megan Freewoman.  \nUnfortunately, Mr. Ly is out today, so I’ll be your literature sub for today\""),
+            /*9*/ new Slide("Slide16", 3, "\"I was at Jeney's this morning...you get an extra donut if you use it!  \nIsn't it wonderful?\""),
+            /*10*/new Slide("Slide17", 3, "\"Oooooh...Yes...\""),
+            /*11*/new Slide("Slide18", 5, "\"...So let me ask this, how many of you are into time travels?\n...if I could, I'd go back to 2 years from today, right before I was hospitalized.\""),
         };
         gameManager = GameManager.instance;
         HideGameManager();
@@ -80,39 +84,37 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Start_Tutorial()
     {
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
-		//yield return StartCoroutine(Slide_Coroutine(slides[1]));
-        //yield return StartCoroutine(Slide_Coroutine(slides[2]));
-		//Destroy(GameManager.instance.gameObject);
-		//yield return null;
+        yield return StartCoroutine(Slide_Coroutine(slides[1]));
+        yield return StartCoroutine(Slide_Coroutine(slides[2]));
+
+
 
         yield return StartCoroutine(Slide4_Coroutine());
-		//Destroy(GameManager.instance.gameObject);
 
-		// PICTURE SLIDE: Fallen Alfred and Book
-		//yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
-		//yield return StartCoroutine(Slide_Coroutine(slides[3]));
-		//yield return StartCoroutine(Slide_Coroutine(slides[4]));
-		yield return StartCoroutine(Slide7_Coroutine());
-		//Destroy(GameManager.instance.gameObject);
+        // PICTURE SLIDE: Fallen Alfred and Book
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
+        yield return StartCoroutine(Slide_Coroutine(slides[3]));
+        yield return StartCoroutine(Slide_Coroutine(slides[4]));
+        yield return StartCoroutine(Slide7_Coroutine());
 
-		yield return StartCoroutine(Slide8_Coroutine());
+        yield return StartCoroutine(Slide8_Coroutine());
         yield return StartCoroutine(Slide9_Coroutine());
-		yield return StartCoroutine(Slide10_Coroutine());
+        yield return StartCoroutine(Slide10_Coroutine());
         //yield break;
 
-		yield return StartCoroutine(Slide11_Coroutine());
+        yield return StartCoroutine(Slide11_Coroutine());
 
         yield return StartCoroutine(Slide12_Coroutine());
-		//yield return StartCoroutine(Slide_Coroutine(slides[6]));
-
-        //yield return StartCoroutine(sm.fade_black());
+        yield return StartCoroutine(Slide_Coroutine(slides[6]));
       
         yield return StartCoroutine(Slide14_Coroutine());
-
+        
+        yield return StartCoroutine(Slide15_Coroutine());      
+        
+        yield return StartCoroutine(Slide18_Coroutine());
         yield return StartCoroutine(Slide19_Coroutine());
 
         Application.LoadLevel(SCENE_G_MAIN_STREET);
-        Debug.Log("loaded g main street" + Application.loadedLevel);
         yield return null;
         GameManager.instance.SetTime(GameManager.TimeType.SET, 20);
         yield return null;
@@ -205,7 +207,7 @@ public class TutorialManager : MonoBehaviour
         NPC pinkguy = GameObject.Find("Pink_hair_dude").GetComponent<NPC>();
 
         yield return null; while (Pause()) { yield return null; }
-
+        gameManager.Wait();
         kelly.SetAnimation(CharacterAnimations.States.RIGHT_IDLE);
         girlindrama.SetAnimation(CharacterAnimations.States.UP_DANCE);
         /*
@@ -218,12 +220,13 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(.25f); 
         CreateDialogue("Kelly", "*Whispers* Psst, I hope she won’t go on about how great Jerry Faraday is, like how Ly does all the time. Ugh.");
         yield return null; while (Pause()) { yield return null; }
+        gameManager.Wait();
         yield return new WaitForSeconds(.25f); 
         kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
      
         CreateDialogue("Mrs. Freewoman", "Oh right, before I forget!");
         yield return null; while (Pause()) { yield return null; }
-
+        gameManager.Wait();
         Dialogue d = new Dialogue(2, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
         gameManager.CreateDialogue("Mrs. Freewoman", d, -1);
         redhairguy.SetAnimation(CharacterAnimations.States.RIGHT_SWING);
@@ -240,6 +243,7 @@ public class TutorialManager : MonoBehaviour
         //kelly.SetAnimation(CharacterAnimations.States.LEFT_DANCE);
         //kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
         yield return null; while (Pause()) { yield return null; }
+        gameManager.Wait();
         //yield return StartCoroutine(kelly.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.UP_IDLE));
         kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);     ///Not getting called for some reason...
         //red guy and stylish guy talking
@@ -252,7 +256,7 @@ public class TutorialManager : MonoBehaviour
             "What’s something you’d go back in time and change?"
         });
         yield return null; while (Pause()) { yield return null; }
-
+        gameManager.Wait();
         yield return new WaitForSeconds(1f);
         yield return StartCoroutine(SceneManager.instance.fade_black());
         yield return StartCoroutine(gameManager.GradualClock(14, .1f));
@@ -272,9 +276,11 @@ public class TutorialManager : MonoBehaviour
             "Hey, why don’t we go to Punxsu--er I mean JF Mall! I’m craving Jeney’s donuts…"
         });
         yield return null; while (Pause()) { yield return null; }
+        gameManager.Wait();
         yield return new WaitForSeconds(1f);
         CreateDialogue("Kelly", "Alright, it’s decided! I really want those Strawberry Squishies.");
         yield return null; while (Pause()) { yield return null; }
+        gameManager.Wait();
         yield return new WaitForSeconds(1f);
         yield return StartCoroutine(SceneManager.instance.fade_black());
         yield return StartCoroutine(SceneManager.instance.map_name("World Map"));
@@ -284,10 +290,10 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator Slide10_Coroutine()
     {
-        
-        yield return StartCoroutine(LoadSceneCoroutine(SCENE_WORLD_MAP));
-
         gameManager.Wait();
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_WORLD_MAP));
+        gameManager.Wait();
+        
         yield return StartCoroutine(SceneManager.instance.fade_out());
         yield return new WaitForSeconds(1f);
         CreateDialogue("Kelly", "To the Punxsu-- I mean %J.F. Mall%!");
@@ -298,7 +304,7 @@ public class TutorialManager : MonoBehaviour
 
         while (true)
         {
-            if (Application.loadedLevelName == SCENE_MALL)
+            if (Player.Instance.t_mall)
             {
                 yield return StartCoroutine(SceneManager.instance.fade_black());
                 yield return StartCoroutine(gameManager.GradualClock(16, .25f));
@@ -315,7 +321,6 @@ public class TutorialManager : MonoBehaviour
 	{
      
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_DONUT_SHOP));
-        gameManager.Wait();
         yield return StartCoroutine(SceneManager.instance.fade_out());
         //yield return new WaitForSeconds(1);
         MultiDialogue("Kelly", new string[3]
@@ -350,7 +355,7 @@ public class TutorialManager : MonoBehaviour
             "You can use %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select%",
           
         });
-        string[] action = {"Here you go, I’ve put it inside your bag. %Press B to take a look%. Have a nice day!"};
+        string[] action = {"Here you go, I’ve put it inside your bag. Have a nice day!"};
         action[0] = Textbox.ColorTutorialKeyword(action[0]);
         yield return null; while (Pause()) { yield return null; }
         CreateChoice("Jeney", "Our special today is the Donut Sprinklez!", new Choice[]
@@ -417,7 +422,6 @@ public class TutorialManager : MonoBehaviour
         GameObject gameManagerObject = GameObject.Find("GameManager");
         SceneManager sm = gameManagerObject.GetComponent<SceneManager>();
         yield return StartCoroutine(sm.fade_black());
-        yield return StartCoroutine(sm.display_text("You went to bed and woke up to go to class.  Same things keep on happening...The day is repeating itself.  You decided to go to Main Street to see if THAT incident is going to happen again.", 8f));
         //yield return new WaitForSeconds(10);
     }
 
@@ -432,18 +436,50 @@ public class TutorialManager : MonoBehaviour
       
         yield return StartCoroutine(sm.fade_black());
         yield return StartCoroutine(sm.display_text("The next day...\n\n...?"));
-        gameManager.transform.Find("Menu_layout/Clock_background").gameObject.SetActive(true);
-        gameManager.transform.Find("Menu_layout/Clock_display").gameObject.SetActive(true);
+        gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(false);
         gameManager.SetTime(GameManager.TimeType.SET, 6);
         yield return StartCoroutine(gameManager.GradualClock(12, .1f));
+        
+    }
+
+    IEnumerator Slide15_Coroutine()
+    {
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
+        StartCoroutine(sm.fade_out());
+        yield return StartCoroutine(Slide_Coroutine(slides[8]));
+        yield return StartCoroutine(Slide_Coroutine(slides[9]));
+        yield return StartCoroutine(Slide_Coroutine(slides[10]));
+    }
+
+
+    IEnumerator Slide18_Coroutine()
+    {
+        yield return StartCoroutine(Slide_Coroutine(slides[11]));
+        yield return StartCoroutine(sm.fade_black());
+        CreateTutorialBox("What's something you'd go back in time and change?", Textbox.TutorialBoxPosition.MIDDLE, 3);
+        yield return StartCoroutine(gameManager.GradualClock(14, .1f));
+        yield return new WaitForSeconds(3);
+        CreateDialogue("Chelsey", "Something is not right...Why did the same thing keep happening again?");
+        yield return null; while (Pause()) { yield return null; };
+        yield return StartCoroutine(gameManager.GradualClock(18, .1f));
+        CreateDialogue("Chelsey", "Before I assume anything, there's one more thing on this day I must check...");
+        yield return null; while (Pause()) { yield return null; };
     }
 
     IEnumerator Slide19_Coroutine()
     {
         
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_MAIN_STREET));
+        yield return StartCoroutine(gameManager.GradualClock(20, .1f));
         Destroy(GameObject.Find("Kelly"));
         yield return StartCoroutine(SceneManager.instance.fade_out());
+        gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(false);
         while (!endCondition)
         {
             yield return null;

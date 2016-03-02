@@ -8,6 +8,7 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+    public bool t_mall = false;
     public static InvisibleWallTop walltop;
     private GameManager gameManager;
     public GameObject PlayerCamera;
@@ -328,7 +329,7 @@ public class Player : MonoBehaviour
             }
             else if (locationString == "TutorialMall")
             {
-                Application.LoadLevel("T_Mall");
+                t_mall = true;
             }
         }
 

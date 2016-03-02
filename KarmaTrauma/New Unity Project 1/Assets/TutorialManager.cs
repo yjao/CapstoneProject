@@ -148,7 +148,7 @@ public class TutorialManager : MonoBehaviour
         yield return StartCoroutine(GameObject.Find("Invis").GetComponent<CharacterAnimations>().Move(1, -12.5f, CharacterAnimations.States.DOWN_WALK));
         yield return StartCoroutine(EndCutscene(false));
         GameObject.Find("Invis").transform.parent = GameObject.Find("Player").transform;
-        CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move and hold Shift to run%. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM);
+        CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move and hold Shift to run%. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         gameManager.Play();
 
 		// Exit Condition
@@ -293,7 +293,7 @@ public class TutorialManager : MonoBehaviour
         CreateDialogue("Kelly", "To the Punxsu-- I mean %J.F. Mall%!");
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(EndCutscene(false));
-        CreateTutorialBox("%Press Spacebar to enter a location%", Textbox.TutorialBoxPosition.TOP);
+        CreateTutorialBox("%Press Spacebar to enter a location%", Textbox.TutorialBoxPosition.TOP, -1, true);
         gameManager.Play();
 
         while (true)
@@ -325,9 +325,9 @@ public class TutorialManager : MonoBehaviour
             "What was it...do you remember, Chels?"
         });
         yield return null; while (Pause()) { yield return null; }
-        CreateTutorialBox("I know you have great memory! If you remember the %coupon word%, I'll but you a donut", Textbox.TutorialBoxPosition.BOTTOM, 2f);
+        CreateTutorialBox("I know you have great memory! If you remember the %coupon word%, I'll but you a donut", Textbox.TutorialBoxPosition.BOTTOM, 2f, true);
         //yield return new WaitForSeconds(1);
-        CreateTutorialBox("Come on, Chels, think harder! %Press 'M'%, maybe you'll think of something.", Textbox.TutorialBoxPosition.BOTTOM);
+        CreateTutorialBox("Come on, Chels, think harder! %Press 'M'%, maybe you'll think of something.", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         gameManager.Wait();
         gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(true);
         gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(true);
@@ -336,7 +336,7 @@ public class TutorialManager : MonoBehaviour
         //Menu_Layout menu_layout = gameManager.transform.Find("Menu_layout").GetComponent<Menu_Layout>();
         while (!menu_layout.GetMemoryLogOpen()) { yield return null; }
 
-        CreateTutorialBox("I knew you would remember!", Textbox.TutorialBoxPosition.MIDDLE, 2f);
+        CreateTutorialBox("I knew you would remember!", Textbox.TutorialBoxPosition.MIDDLE, 2f, true);
         while (menu_layout.GetMemoryLogOpen()) { yield return null; }
         gameManager.Wait();
         CreateDialogue("Kelly", "Which one do you want? I'll buy as promised~");
@@ -347,7 +347,7 @@ public class TutorialManager : MonoBehaviour
         MultiDialogue("Jeney", new string[2]
         {
             "Welcome to the Donut Hole! What can I get you today?",
-            "You can use %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select%",
+            "You can %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select%",
           
         });
         string[] action = {"Here you go, I’ve put it inside your bag. %Press B to take a look%. Have a nice day!"};
@@ -465,23 +465,27 @@ public class TutorialManager : MonoBehaviour
     {
         if (tag == "TrafficLight")
         {
-            CreateTutorialBox("Um, yeah, you might want to hit the pedestrian light before crossing. What? Hey, are you spacing out again? %Space bar%, not space out! Press that and like, %interact with objects%.", Textbox.TutorialBoxPosition.BOTTOM);
+            CreateTutorialBox("Um, yeah, you might want to hit the pedestrian light before crossing. What? Hey, are you spacing out again? %Space bar%, not space out! Press that and like, %interact with objects%.", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         }
         else if (tag == "Kelly")
         {
-            CreateTutorialBox("What is it? Come on, get your nose out of your book and go exercise a bit! Go, %get the ball%! For me!", Textbox.TutorialBoxPosition.BOTTOM);
+            CreateTutorialBox("What is it? Come on, get your nose out of your book and go exercise a bit! Go, %get the ball%! For me!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
+        }
+        else if (tag == "DefaultText")
+        {
+            CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move and hold Shift to run%. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         }
         else if (tag == "Traffic")
         {
-            CreateTutorialBox("Hrm… I guess it doesn’t work. Well it’s whatever, I don’t see any cops; just be careful! If I were you, I’d %move while holding shift key to run%. The cars are less likely to hit you if you run faster, right?", Textbox.TutorialBoxPosition.BOTTOM);
+            CreateTutorialBox("Hrm… I guess it doesn’t work. Well it’s whatever, I don’t see any cops; just be careful! If I were you, I’d %move while holding shift key to run%. The cars are less likely to hit you if you run faster, right?", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         }
         else if (tag == "Fall")
         {
-        
+
             gameManager.Wait();
             GameObject.Find("Main Camera").transform.parent = GameObject.Find("Alfred").transform;
             GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Alfred").transform.position.x, GameObject.Find("Alfred").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
-            yield return StartCoroutine(GameObject.Find("Alfred").GetComponent<CharacterAnimations>().Move(2, -11.00f, CharacterAnimations.States.FALLEN, 0.15f));        
+            yield return StartCoroutine(GameObject.Find("Alfred").GetComponent<CharacterAnimations>().Move(2, -11.00f, CharacterAnimations.States.FALLEN, 0.15f));
             yield return new WaitForSeconds(1f);
             //GameObject.Find("Main Camera").transform.parent = GameObject.Find("Player").transform;
             //GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Player").transform.position.x, GameObject.Find("Player").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
@@ -491,7 +495,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (tag == "Pause")
         {
-       
+
             gameManager.Wait();
             yield return new WaitForSeconds(3f);
             gameManager.Play();
@@ -514,14 +518,14 @@ public class TutorialManager : MonoBehaviour
 		return gameManager.gameMode == GameManager.GameMode.DIALOGUE;
 	}
 
-    public void CreateTutorialBox(string message, Textbox.TutorialBoxPosition position = Textbox.TutorialBoxPosition.MIDDLE, float destroyTimer = -1)
+    public void CreateTutorialBox(string message, Textbox.TutorialBoxPosition position = Textbox.TutorialBoxPosition.MIDDLE, float destroyTimer = -1, bool transparent=false)
     {
         if (activeTutorialBox != null)
         {
             Destroy(activeTutorialBox);
         }
         GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
-		StartCoroutine(dialog.GetComponent<Textbox>().DrawTutorialBox(Textbox.ColorTutorialKeyword(message), destroyTimer, position));
+		StartCoroutine(dialog.GetComponent<Textbox>().DrawTutorialBox(Textbox.ColorTutorialKeyword(message), destroyTimer, position, transparent));
         activeTutorialBox = dialog;
     }
 

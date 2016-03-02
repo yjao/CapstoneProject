@@ -15,6 +15,8 @@ public class TutorialSlideTriggers : MonoBehaviour {
     private bool trafficTrigger = false;
     private bool fallTrigger = false;
     private bool playThump = false;
+    private bool defaultTrigger = false;
+
 
 	// Use this for initialization
 	void Start () 
@@ -89,10 +91,12 @@ public class TutorialSlideTriggers : MonoBehaviour {
         if (this.tag == "Kelly")
         {
             KellyTrigger = false;
+            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("DefaultText"));
         }
         if (this.tag == "TrafficLight")
         {
             trafficTrigger = false;
+            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("DefaultText"));
         }
     }
 }

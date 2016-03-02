@@ -316,7 +316,7 @@ public class GameManager : MonoBehaviour
         }
         else if (gameClock >= 22)
         {
-            SoundManager.instance.LoadSceneSound("WorldMapMidnight", .5f);
+            SoundManager.instance.LoadSceneSound("WorldMapMidnight", .5f, true);
             return "10 - <b><color=red>12AM</color></b>";
         }
         Debug.Log("lllllllllllllllll");
@@ -382,8 +382,9 @@ public class GameManager : MonoBehaviour
     public IEnumerator ClassFade()
     {
         yield return StartCoroutine(SceneManager.instance.fade_black());
-        yield return StartCoroutine(GradualClock(12, .1f, false));
+        yield return StartCoroutine(GradualClock(12, 1f, false));
         SoundManager.instance.StopAllBackgroundSounds();
+        SoundManager.instance.LoadSceneSound("SchoolBellRing", 0.5f);
         SceneManager.instance.LoadScene(SceneManager.SCENE_CLASS);
     }
     public bool SetTime(TimeType type, int time=0, bool delay=false)

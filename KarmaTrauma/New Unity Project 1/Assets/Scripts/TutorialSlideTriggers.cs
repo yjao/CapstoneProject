@@ -94,7 +94,7 @@ public class TutorialSlideTriggers : MonoBehaviour {
     }
     void OnTriggerExit2D(Collider2D col)
     {
-        if (defaultTrigger)
+        if (defaultTrigger && this.tag != "Alfred")
         {
             KellyTrigger = false;
             trafficTrigger = false;

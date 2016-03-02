@@ -84,28 +84,25 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Start_Tutorial()
     {
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
-  //      yield return StartCoroutine(Slide_Coroutine(slides[1]));
-  //      yield return StartCoroutine(Slide_Coroutine(slides[2]));
-
-
+        yield return StartCoroutine(Slide_Coroutine(slides[1]));
+        yield return StartCoroutine(Slide_Coroutine(slides[2]));
 
         yield return StartCoroutine(Slide4_Coroutine());
 
         // PICTURE SLIDE: Fallen Alfred and Book
- //       yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
- //       yield return StartCoroutine(Slide_Coroutine(slides[3]));
- //       yield return StartCoroutine(Slide_Coroutine(slides[4]));
-  //      yield return StartCoroutine(Slide7_Coroutine());
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
+        yield return StartCoroutine(Slide_Coroutine(slides[3]));
+        yield return StartCoroutine(Slide_Coroutine(slides[4]));
+        yield return StartCoroutine(Slide7_Coroutine());
 
-        //yield return StartCoroutine(Slide8_Coroutine());
-  //      yield return StartCoroutine(Slide9_Coroutine());
-  //      yield return StartCoroutine(Slide10_Coroutine());
-        //yield break;
+        yield return StartCoroutine(Slide8_Coroutine());
+        yield return StartCoroutine(Slide9_Coroutine());
+        yield return StartCoroutine(Slide10_Coroutine());
 
         yield return StartCoroutine(Slide11_Coroutine());
 
         yield return StartCoroutine(Slide12_Coroutine());
-        yield return StartCoroutine(Slide_Coroutine(slides[6]));
+        yield return StartCoroutine(Slide13_Coroutine());      
       
         yield return StartCoroutine(Slide14_Coroutine());
         
@@ -305,7 +302,7 @@ public class TutorialManager : MonoBehaviour
         CreateDialogue("Kelly", "To the Punxsu-- I mean %J.F. Mall%!");
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(EndCutscene(false));
-        CreateTutorialBox("%Press Spacebar to enter a location%", Textbox.TutorialBoxPosition.TOP, -1, true);
+        CreateTutorialBox("%Press Spacebar to enter a location%", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         gameManager.Play();
 
         while (true)
@@ -336,7 +333,7 @@ public class TutorialManager : MonoBehaviour
             "What was it...do you remember, Chels?"
         });
         yield return null; while (Pause()) { yield return null; }
-        CreateTutorialBox("I know you have great memory! If you remember the %coupon word%, I'll but you a donut", Textbox.TutorialBoxPosition.BOTTOM, 2f, true);
+        CreateTutorialBox("I know you have great memory! If you remember the %coupon word%, I'll buy you a donut.", Textbox.TutorialBoxPosition.BOTTOM, 2f, true);
         //yield return new WaitForSeconds(1);
         CreateTutorialBox("Come on, Chels, think harder! %Press 'M'%, maybe you'll think of something.", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         gameManager.Wait();
@@ -358,7 +355,7 @@ public class TutorialManager : MonoBehaviour
         MultiDialogue("Jeney", new string[2]
         {
             "Welcome to the Donut Hole! What can I get you today?",
-            "You can %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select%",
+            "You can %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select.%",
           
         });
         string[] action = {"Here you go, I’ve put it inside your bag. Have a nice day!"};
@@ -381,11 +378,11 @@ public class TutorialManager : MonoBehaviour
 
         yield return StartCoroutine(SceneManager.instance.fade_black());
         yield return StartCoroutine(gameManager.GradualClock(20, .25f));
-        
 	}
 
     IEnumerator Slide12_Coroutine()
     {
+        endCondition = false;
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_MAIN_STREET));
         StartCoroutine(StartCutscene(true));
         yield return StartCoroutine(SceneManager.instance.fade_out());
@@ -417,7 +414,8 @@ public class TutorialManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(EndCutscene(false));
         gameManager.Play();
-
+        Debug.Log("Endcondition IS...");
+        Debug.Log(endCondition);
         while (!endCondition)
         {
             yield return null;
@@ -431,7 +429,13 @@ public class TutorialManager : MonoBehaviour
         //yield return new WaitForSeconds(10);
     }
 
-
+    IEnumerator Slide13_Coroutine()
+    {
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
+        StartCoroutine(sm.fade_out());
+        yield return StartCoroutine(Slide_Coroutine(slides[6]));
+        yield return StartCoroutine(Slide_Coroutine(slides[7]));
+    }
 
     IEnumerator Slide14_Coroutine()
     {

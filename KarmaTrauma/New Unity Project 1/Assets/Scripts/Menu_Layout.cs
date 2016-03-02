@@ -154,12 +154,14 @@ public class Menu_Layout : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.B))
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 M_Bag();
 
             }
 
             else if (Input.GetKeyDown(KeyCode.M))
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 M_Diary();
 
             }
@@ -172,10 +174,12 @@ public class Menu_Layout : MonoBehaviour
         {
             if (invenButton_show)
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 Close_Bag();
             }
             if (diaryButton_show)
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 Close_Diary();
             }
         }

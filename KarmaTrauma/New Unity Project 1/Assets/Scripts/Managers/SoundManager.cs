@@ -52,10 +52,17 @@ public class SoundManager : MonoBehaviour {
         currentSong.Play();
     }
 
-    public void LoadSceneSound(string mapName, float volume)
+    public void LoadSceneSound(string mapName, float volume, bool loop = false)
     {
         AudioSource tempsource = gameObject.AddComponent<AudioSource>();
-        tempsource.clip = mapSong[mapName];
+        if (mapSong.ContainsKey(mapName))
+        {
+            tempsource.clip = mapSong[mapName];
+        }
+        else
+        {
+            tempsource.clip = Resources.Load<AudioClip>(mapName);
+        }
         tempsource.volume = volume;
         tempsource.loop = true;
         tempsource.Play();

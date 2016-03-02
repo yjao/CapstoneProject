@@ -57,7 +57,7 @@ public class SceneManager : MonoBehaviour
         scene_display_names = new Dictionary<string, string>()
         {
             {SCENE_HOUSE, "Home"},
-	        {SCENE_CLASS, "Classroom"},
+	        {SCENE_CLASS, "Class"},
 	        {SCENE_MAINSTREET, "Main Street"},
 	        {SCENE_MALL, "Mall"},
 	        {SCENE_HOSPITAL, "Hospital"},

@@ -214,6 +214,10 @@ public class Player : MonoBehaviour
         {
             locationString = "Apartment";
         }
+        else if (coll.gameObject.tag == "Class")
+        {
+            locationString = "Class";
+        }
         else if (coll.gameObject.tag == "TutorialMall")
         {
             //go to tutorial mall
@@ -322,6 +326,10 @@ public class Player : MonoBehaviour
             else if (locationString == "Hospital")
             {
                 SceneManager.instance.LoadScene(SceneManager.SCENE_HOSPITAL);
+            }
+            else if (locationString == "Class")
+            {
+                SceneManager.instance.LoadScene(SceneManager.SCENE_CLASS);
             }
             else if (locationString == "Tutorial")
             {

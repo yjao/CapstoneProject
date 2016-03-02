@@ -89,7 +89,7 @@ public class TutorialManager : MonoBehaviour
 
 
 
-   //     yield return StartCoroutine(Slide4_Coroutine());
+        yield return StartCoroutine(Slide4_Coroutine());
 
         // PICTURE SLIDE: Fallen Alfred and Book
  //       yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
@@ -150,7 +150,7 @@ public class TutorialManager : MonoBehaviour
         yield return StartCoroutine(GameObject.Find("Invis").GetComponent<CharacterAnimations>().Move(1, -12.5f, CharacterAnimations.States.DOWN_WALK));
         yield return StartCoroutine(EndCutscene(false));
         GameObject.Find("Invis").transform.parent = GameObject.Find("Player").transform;
-        CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move and hold Shift to run%. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
+        CreateTutorialBox("What’s wrong? Have you forgotten how to walk?\nHaha, you’re so awkward Chels! It’s why I love ya. \n%Use the arrow keys or WASD keys to move and hold Shift to run%. \nNow go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         gameManager.Play();
 
 		// Exit Condition
@@ -499,7 +499,7 @@ public class TutorialManager : MonoBehaviour
 
     public IEnumerator Slide_Triggers_Coroutine(string tag)
     {
-        if (tag == "TrafficLight")
+        if (tag == "TriggerPanelMini")
         {
             CreateTutorialBox("Um, yeah, you might want to hit the pedestrian light before crossing. What? Hey, are you spacing out again? %Space bar%, not space out! Press that and like, %interact with objects%.", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         }
@@ -507,9 +507,13 @@ public class TutorialManager : MonoBehaviour
         {
             CreateTutorialBox("What is it? Come on, get your nose out of your book and go exercise a bit! Go, %get the ball%! For me!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         }
-        else if (tag == "DefaultText")
+        else if (tag == "FirstDefaultText")
         {
-            CreateTutorialBox("What’s wrong? Have you forgotten how to walk? Haha, you’re so awkward Chels! It’s why I love ya. %Use the arrow keys or WASD keys to move and hold Shift to run%. Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
+            CreateTutorialBox("What’s wrong? Have you forgotten how to walk?\nHaha, you’re so awkward Chels! It’s why I love ya. \n%Use the arrow keys or WASD keys to move and hold Shift to run%. \nNow go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
+        }
+        else if (tag == "SecondDefaultText")
+        {
+            CreateTutorialBox("If I were you, I’d %move while holding shift key to run%. The cars are less likely to hit you if you run faster, right? Now go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         }
         else if (tag == "Traffic")
         {

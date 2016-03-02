@@ -15,7 +15,7 @@ public class TutorialSlideTriggers : MonoBehaviour {
     private bool trafficTrigger = false;
     private bool fallTrigger = false;
     private bool playThump = false;
-    private bool defaultTrigger = false;
+    public static bool defaultTrigger = false;
 
 
 	// Use this for initialization
@@ -40,6 +40,9 @@ public class TutorialSlideTriggers : MonoBehaviour {
         {
             source.PlayOneShot(traffic, 1);
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Traffic"));
+            Destroy(GameObject.Find("TempWall"));
+            Destroy(GameObject.Find("TriggerPanelMini"));
+            defaultTrigger = true;
         }
         else if (car.transform.position.x >= 80)
         {
@@ -71,9 +74,12 @@ public class TutorialSlideTriggers : MonoBehaviour {
             source.PlayOneShot(carCrash, 1);
             moveTrigger = true;
         }
-        else if (this.tag == "TrafficLight" && col.gameObject.tag == "Player")
+        else if (this.tag == "TriggerPanelMini" && col.gameObject.tag == "Player")
         {
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine(this.tag));
+        }
+        else if (this.tag == "TrafficLight" && col.gameObject.tag == "Player")
+        {
             trafficTrigger = true;
         }
         else if (this.tag == "Kelly" && col.gameObject.tag == "Player")
@@ -88,15 +94,24 @@ public class TutorialSlideTriggers : MonoBehaviour {
     }
     void OnTriggerExit2D(Collider2D col)
     {
-        if (this.tag == "Kelly")
+        if (defaultTrigger)
         {
             KellyTrigger = false;
-            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("DefaultText"));
+            trafficTrigger = false;
+            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("SecondDefaultText"));
         }
-        if (this.tag == "TrafficLight")
+        else if (this.tag == "Kelly")
+        {
+            KellyTrigger = false;
+            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("FirstDefaultText"));
+        }
+        else if (this.tag == "TriggerPanelMini")
+        {
+            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("FirstDefaultText"));
+        }
+        else if (this.tag == "TrafficLight")
         {
             trafficTrigger = false;
-            StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("DefaultText"));
         }
     }
 }

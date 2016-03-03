@@ -250,7 +250,7 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 8, 10 },
+            timeBlocks = new List<int>() { 8, 10},
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
@@ -279,7 +279,7 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 8 },
+            timeBlocks = new List<int>() { 8, 10 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
@@ -296,7 +296,7 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 12, 14 },
+            timeBlocks = new List<int>() { 14 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
@@ -337,6 +337,19 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 7,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 11
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 22 },
 
             // InteractableObject dialogue information
@@ -348,6 +361,164 @@ public class Data_GameDay : DataLoader
             NpcID = 11
         });
 
+        // ======================== MEGAN ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 8 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 2,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 3
+        });
+
+        // ======================== BOB ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 8 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 2,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 13
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 10 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 2,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 13
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 12 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 2,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 13
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 14 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 2,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 13
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 16 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 2,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 13
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 22 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 2,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 13
+        });
+
+        // ======================== FAYE ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 14 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 27
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 16 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 27
+        });
+
+        // ======================== DAE ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 22 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
 
         sceneName = SceneManager.SCENE_MAINSTREET;
 
@@ -397,24 +568,6 @@ public class Data_GameDay : DataLoader
             NpcID = 23
         });
 
-        // ======================== HANK ======================== //
-        AddParameters(sceneName, new InteractableObject.Parameters()
-        {
-            // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 20 },
-
-            // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 6,
-
-            // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.UP_IDLE,
-
-            // Getter/Setter variables, NpcID is required
-            Summary = "",
-            NpcID = 11
-        });
-
         // ======================== JENEY ======================== //
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
@@ -451,6 +604,23 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 18 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDMin = 7,
+            dialogueIDMax = 9,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.FALLEN,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 2
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 20 },
 
             // InteractableObject dialogue information
@@ -470,6 +640,22 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 16 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 2,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 3
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 20 },
 
             // InteractableObject dialogue information
@@ -482,6 +668,117 @@ public class Data_GameDay : DataLoader
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 3
+        });
+
+        // ======================== BOB ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 18 },
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 13
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 13
+        });
+
+        // ======================== FAYE ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 10 },
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 27
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 12 },
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 27
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 18 },
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 27
+        });
+
+        // ======================== PATRICIA ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 18 },
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 66
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 66
+        });
+
+        // ======================== DAE ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 18 },
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
+
+        // ======================== PERRY ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 99
+        });
+
+        // ======================== KELLY ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 18 },
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 40
         });
 
         // ======================== CONES ======================== //

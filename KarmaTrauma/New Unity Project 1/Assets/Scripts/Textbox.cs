@@ -137,9 +137,12 @@ public class Textbox : MonoBehaviour
                     {
                         gameManager.SetData(choices[cursor].setbool, true);
                     }
-                    if (!gameManager.playerData.DialogueHistory.ContainsKey(choices[cursor].CEA.IDNum + "," + choices[cursor].CEA.DialogueID + "," + cursor))
+                    if (choices[cursor].CEA.ChoiceAction != ContinueTutorialDialogue)
                     {
-                        gameManager.playerData.DialogueHistory.Add(choices[cursor].CEA.IDNum + "," + choices[cursor].CEA.DialogueID + "," + cursor, true);
+                        if (!gameManager.playerData.DialogueHistory.ContainsKey(choices[cursor].CEA.IDNum + "," + choices[cursor].CEA.DialogueID + "," + cursor))
+                        {
+                            gameManager.playerData.DialogueHistory.Add(choices[cursor].CEA.IDNum + "," + choices[cursor].CEA.DialogueID + "," + cursor, true);
+                        }
                     }
                     if (choices[cursor].removeitem != null)
                     {
@@ -511,6 +514,10 @@ public class Textbox : MonoBehaviour
             EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
             string text = Textbox.FormatMessage(args.TutorialDialogues[0]);
             Dialogue d = new Dialogue(-1, Textbox.ColorTutorialKeyword(text));
+            if (args.TutorialDialogues.Length == 1)
+            {
+                args.ChoiceAction = null;
+            }
             d.CEA = new ChoiceEventArgs() { ChoiceAction = args.ChoiceAction, TutorialDialogues = args.TutorialDialogues, TutorialDialogueCounter = args.TutorialDialogueCounter };
             d.Action += d.CEA.ChoiceAction;
             GameManager.instance.CreateDialogue(args.DialogueBox.transform.Find("Name").GetComponent<Text>().text, d, -1);

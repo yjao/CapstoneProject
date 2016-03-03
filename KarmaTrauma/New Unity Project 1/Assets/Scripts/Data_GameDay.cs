@@ -243,7 +243,7 @@ public class Data_GameDay : DataLoader
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
-            NpcID = 24
+            NpcID = 105
         });
 
         // ======================== RAE ======================== //
@@ -534,7 +534,7 @@ public class Data_GameDay : DataLoader
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
-            NpcID = 24
+            NpcID = 105
         });
 
         // ======================== RAE ======================== //
@@ -781,6 +781,21 @@ public class Data_GameDay : DataLoader
             NpcID = 40
         });
 
+        // ======================== ALEX ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 8 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 4
+        });
+
         // ======================== CONES ======================== //
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
@@ -807,7 +822,7 @@ public class Data_GameDay : DataLoader
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
-            NpcID = 24
+            NpcID = 105
         });
 
         // ======================== RAE ======================== //
@@ -818,12 +833,12 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 4,
-            dialogueIDMax = 5,
+            dialogueIDMin = 0,
+            dialogueIDMax = 0,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
-            NpcID = -1
+            NpcID = 23
         });
 
         // ======================== JENEY ======================== //
@@ -988,20 +1003,7 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 8 },
-
-            // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
-
-            // Getter/Setter variables, NpcID is required
-            Summary = "",
-            NpcID = 4
-        });
-        AddParameters(sceneName, new InteractableObject.Parameters()
-        {
-            // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 16 },
+            timeBlocks = new List<int>() { 14 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
@@ -1278,6 +1280,34 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 10 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDMin = 0,
+            dialogueIDMax = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 4
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 12 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDMin = 0,
+            dialogueIDMax = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 4
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 18 },
 
             // InteractableObject dialogue information
@@ -1365,36 +1395,6 @@ public class Data_GameDay : DataLoader
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 40
-        });
-
-        // ======================== ALEX ======================== //
-        AddParameters(sceneName, new InteractableObject.Parameters()
-        {
-            // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 10, 12 },
-
-            // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 0,
-            dialogueIDMax = 0,
-
-            // Getter/Setter variables, NpcID is required
-            Summary = "",
-            NpcID = 4
-        });
-        AddParameters(sceneName, new InteractableObject.Parameters()
-        {
-            // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 14 },
-
-            // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 0,
-            dialogueIDMax = 0,
-
-            // Getter/Setter variables, NpcID is required
-            Summary = "",
-            NpcID = 4
         });
 
     }

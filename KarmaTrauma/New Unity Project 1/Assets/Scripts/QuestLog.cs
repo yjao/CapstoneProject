@@ -232,7 +232,7 @@ public class QuestLog : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             if (pointer < quest_per_page-1)
             {
@@ -242,7 +242,7 @@ public class QuestLog : MonoBehaviour
                 
             }
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             if (pointer > 0)
             {

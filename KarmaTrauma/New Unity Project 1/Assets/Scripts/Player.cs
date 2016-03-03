@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     //public List<int> CollidingWithID;
 
 	public const bool SPEED_BOOST_ALLOWED = true;
-	private const float SPEED_BOOST = 0.1f;
+	private const float SPEED_BOOST = 4f;
 
     private bool speeding = false;
 
@@ -242,6 +242,7 @@ public class Player : MonoBehaviour
 
         if (gameManager.gameMode != GameManager.GameMode.PLAYING)
         {
+            transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
 			characterAnimations.SetIdle();
             return;
         }
@@ -254,7 +255,8 @@ public class Player : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
-            transform.Translate(0, speed, 0);
+            //transform.Translate(0, speed, 0);
+            transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
             //animator.SetInteger(animationState, up);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.UP_WALK);
             if (!source.isPlaying)
@@ -264,7 +266,8 @@ public class Player : MonoBehaviour
         }
 		else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
-            transform.Translate(0, -speed, 0);
+            //transform.Translate(0, -speed, 0);
+            transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed);
             //animator.SetInteger(animationState, down);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.DOWN_WALK);
             if (!source.isPlaying)
@@ -274,7 +277,8 @@ public class Player : MonoBehaviour
         }
 		else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            transform.Translate(speed, 0, 0);
+            //transform.Translate(speed, 0, 0);
+            transform.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
             //animator.SetInteger(animationState, right);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.RIGHT_WALK);
             if (!source.isPlaying)
@@ -284,7 +288,8 @@ public class Player : MonoBehaviour
         }
 		else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-speed, 0, 0);
+            //transform.Translate(-speed, 0, 0);
+            transform.GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, 0);
             //animator.SetInteger(animationState, left);
             this.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_WALK);
             if (!source.isPlaying)
@@ -298,7 +303,7 @@ public class Player : MonoBehaviour
         {
 			// Cooldown procedure
 			//if (!gameManager.CheckKeyCooldown()) { return; } else { gameManager.SetKeyCooldown(); }
-
+            transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             if(locationString =="Mall")
             {
 				SceneManager.instance.LoadScene(SceneManager.SCENE_MALL);
@@ -365,6 +370,7 @@ public class Player : MonoBehaviour
 
         else
         {
+            transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             characterAnimations.SetIdle();
             if (source.isPlaying)
             {
@@ -382,7 +388,7 @@ public class Player : MonoBehaviour
 			{
 				speeding = true;
 				speed += SPEED_BOOST;
-				characterAnimations.animationSpeed -= SPEED_BOOST;
+				characterAnimations.animationSpeed -= .1f;
                 source.pitch += .3f;
 			}
 		}
@@ -392,7 +398,7 @@ public class Player : MonoBehaviour
 			{
 				speeding = false;
 				speed -= SPEED_BOOST;
-				characterAnimations.animationSpeed += SPEED_BOOST;
+				characterAnimations.animationSpeed += .1f;
                 source.pitch -= .3f;
 			}
 		}

@@ -9,7 +9,7 @@ public class TutorialManager : MonoBehaviour
     private GameObject gameManagerObject;
     private SceneManager sm;
     private GameManager gameManager;
-	private const string SCENE_TUTORIAL = "WP2_Tutorial";
+	private const string SCENE_TUTORIAL = "T_Main";
 
     //private const string SCENE_HOUSE = "T_House";
     private const string SCENE_SCHOOL = "T_Class";

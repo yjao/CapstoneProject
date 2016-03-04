@@ -137,7 +137,7 @@ public class SceneManager : MonoBehaviour
 				if (IO == null)
 				{
 					continue; //<-- should this be "continue" (i.e. next item in for loop) instead of break?
-				}
+				}/*
 				if ((IO.iD >= 100) && (IO.iD < 200))
                 //if (IO.interactionType == InteractableObject.InteractionType.ITEM)
                 {
@@ -155,7 +155,7 @@ public class SceneManager : MonoBehaviour
                         continue;
                     }
                 }
-                else if (gameManager.GetData(IO.disableBool))
+                else */if (gameManager.GetData(IO.disableBool))
                 {
                     isActive = false;
                 }

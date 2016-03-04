@@ -15,8 +15,10 @@ public class Data_GameDay : DataLoader
 
     private void LoadNpcData()
     {
-        int id = 2;
+        int id = -1;
+        
         // ================ ALFRED ================ //
+        id = 2;
         string[] alfred = new string[]
         {
             /*0*/ "\"Good morning! The donuts here are tasty. You should try some. I recommend the Cocodonut.\"",
@@ -421,7 +423,7 @@ public class Data_GameDay : DataLoader
         id = 52;
         string[] susan = new string[]
         {
-            /*0*/ "\"On Wednesday, we wear pink.\"",       
+            /*0*/ "\"On Wednesday, we wear blue\"",       
             /*1*/ "\"Ew look at them running and and sweating. Boys.\"",
             /*2*/ "\"I don't know where she is.  Her mom is rarely home so she gets to go out and do whatever she wants.\"",
             /*3*/ "\"Oh no, I'm late for my massage appointment. Oh well, I'll visit #Yoona# another time.\"",

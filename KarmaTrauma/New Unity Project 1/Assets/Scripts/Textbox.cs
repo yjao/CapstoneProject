@@ -425,12 +425,24 @@ public class Textbox : MonoBehaviour
         int counter = 0;
         for (int i = 0; i < options.Length; i++)
         {
+            bool remove = false;
             if (options[i].checkbool != null)
             {
-                if (gameManager.GetData(options[i].checkbool) == false && gameManager.HasItem(options[i].checkbool) == false)
+                if (gameManager.GetData(options[i].checkbool) == false)
                 {
-                    counter += 1;
+                    remove = true;
                 }
+            }
+            if (options[i].checkitem != null)
+            {
+                if (gameManager.HasItem(options[i].checkitem) == false)
+                {
+                    remove = true;
+                }
+            }
+            if (remove == true)
+            {
+                counter += 1;
             }
         }
         if (counter == options.Length)
@@ -441,7 +453,22 @@ public class Textbox : MonoBehaviour
         counter = 0;
         for (int i = 0; i < options.Length; i++)
         {
-            if (options[i].checkbool == null || gameManager.GetData(options[i].checkbool) == true)
+            bool show = true;
+            if (options[i].checkbool != null)
+            {
+                if (gameManager.GetData(options[i].checkbool) == false)
+                {
+                    show = false;
+                }
+            }
+            if (options[i].checkitem != null)
+            {
+                if (gameManager.HasItem(options[i].checkitem) == false)
+                {
+                    show = false;
+                }
+            }
+            if (show)
             {
                 result[counter] = options[i];
                 counter += 1;
@@ -512,7 +539,8 @@ public class Textbox : MonoBehaviour
         if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
         {
             EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
-            string text = Textbox.FormatMessage(args.TutorialDialogues[0]);
+            string text = Textbox.BuildIntoQuestList(args.DialogueBox.transform.Find("Name").GetComponent<Text>().text, args.TutorialDialogues[0]);
+            text = Textbox.FormatMessage(text);
             Dialogue d = new Dialogue(-1, Textbox.ColorTutorialKeyword(text));
             if (args.TutorialDialogues.Length == 1)
             {
@@ -529,7 +557,8 @@ public class Textbox : MonoBehaviour
         {
             args.DialogueBox.Dialog.CEA.TutorialDialogueCounter -= 1;
             string name = args.DialogueBox.transform.Find("Name").GetComponent<Text>().text;
-            string text = Textbox.FormatMessage(args.TutorialDialogues[args.TutorialDialogues.Length - args.TutorialDialogueCounter]);
+            string text = Textbox.BuildIntoQuestList(name, args.TutorialDialogues[args.TutorialDialogues.Length - args.TutorialDialogueCounter]);
+            text = Textbox.FormatMessage(text);
             args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = Textbox.ColorTutorialKeyword(text);
             if (args.TutorialDialogueCounter != 1)
             {

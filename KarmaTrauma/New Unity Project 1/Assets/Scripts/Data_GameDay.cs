@@ -43,6 +43,7 @@ public class Data_GameDay : DataLoader
         AddNpc(id, "Alfred", "Alfred", alfred);
 
         //Check if Cocodonut is in the bag.  Can give Cocodonut to Alfred any time.
+<<<<<<< HEAD
         //gameManager.allObjects[2].dialogues[0].choices = new Choice[]
         //{
         //    AddChoice("Offer Cocodonut", checkboolname: "AlfredCocodonut")
@@ -50,7 +51,27 @@ public class Data_GameDay : DataLoader
         //AddToDialogue(2, 0, ChoiceContinueDialog(2, 12));
         //AddToDialogue(7, 12, ChoiceContinueDialog(id, 3));
         //AddToDialogue(7, 3, ChoiceContinueDialog(id, 13));
+=======
+        gameManager.allObjects[2].dialogues[5].choices = new Choice[]
+        {
+            AddChoice("Offer Cocodonut", ChoiceAction.CONTINUE, 2, 5, checkboolname: "AlfredCocodonut", checkitemname: "Cocodonut")
+        };
+        AddToDialogue(2, 5, ChoiceContinueDialog(2, 12));
+        AddToDialogue(2, 12, ChoiceContinueDialog(2, 13));
+        AddToDialogue(2, 3, ChoiceContinueDialog(2, 14));
+>>>>>>> 098ff3931bf86aa100e6211df9548d1aca184dec
 
+        gameManager.allObjects[2].dialogues[4].choices = new Choice[]
+        {
+            AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkboolname: "AlfredBox", checkitemname: "Box")
+        };
+        AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
+
+        gameManager.allObjects[2].dialogues[5].choices = new Choice[]
+        {
+            AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkboolname: "AlfredBox", checkitemname: "Box")
+        };
+        AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
 
         // ================ MEGAN ================ //
         id = 3;
@@ -229,7 +250,7 @@ public class Data_GameDay : DataLoader
             /*17*/ "\"You see, I'm a man without food or shelter.\"",
             /*18*/ "\"Somebody offered me money if I help him with something dirty... I don't know what to think of it.\"",
             /*19*/ "\"If I can get out of here, I can start a new life!\"",
-        
+            /*20*/ "\"Thanks, but I can't leave now. It's too late for me to start a new life when I've ruined another one's life.\"",
         
         
         };
@@ -243,13 +264,25 @@ public class Data_GameDay : DataLoader
         AddToDialogue(id, 18, ChoiceContinueDialog(id, 19));
 
         //Same problem as Alfred.  Can give ticket to hobo any time.
-        //gameManager.allObjects[13].dialogues[0].choices = new Choice[]
-        //{
-        //    AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 8)
-        //};
-        //AddToDialogue(13, 8, ChoiceContinueDialog(13, 17));
-        //AddToDialogue(13, 17, ChoiceContinueDialog(13, 18));
-        //AddToDialogue(13, 18, ChoiceContinueDialog(13, 19));
+        gameManager.allObjects[13].dialogues[4].choices = new Choice[]
+        {
+            AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobTrainTicket", checkitemname: "TrainTicket")
+        };
+        AddToDialogue(13, 13, ChoiceContinueDialog(13, 14));
+        AddToDialogue(13, 14, ChoiceContinueDialog(13, 15));
+        AddToDialogue(13, 15, ChoiceContinueDialog(13, 16));
+
+        gameManager.allObjects[13].dialogues[0].choices = new Choice[]
+        {
+            AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobTrainTicket", checkitemname: "TrainTicket")
+        };
+
+
+        gameManager.allObjects[13].dialogues[1].choices = new Choice[]
+        {
+            AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobTrainTicket", checkitemname: "TrainTicket")
+        };
+ 
 
 
         // ================ RAE ================ //
@@ -527,6 +560,12 @@ public class Data_GameDay : DataLoader
         };
         AddNpc(id, "Perry", "Perry", perry);
         //Give box to Perry add choice here.
+
+        gameManager.allObjects[99].dialogues[0].choices = new Choice[]
+		{
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 1, checkboolname: "PerryBox", checkitemname: "Box")
+        };
+        AddToDialogue(99, 1, ChoiceContinueDialog(99, 2));
 
         // ================ DOGE ================ //
         id = 123;

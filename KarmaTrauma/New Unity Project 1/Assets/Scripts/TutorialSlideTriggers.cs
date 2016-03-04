@@ -15,6 +15,7 @@ public class TutorialSlideTriggers : MonoBehaviour {
     private bool trafficTrigger = false;
     private bool fallTrigger = false;
     private bool playThump = false;
+    private bool once = true;
     public static bool defaultTrigger = false;
 
 
@@ -32,11 +33,12 @@ public class TutorialSlideTriggers : MonoBehaviour {
             car.transform.Translate(0.3f, 0f, 0f);
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Pause"));
         }
-        else if (KellyTrigger)
+        else if (KellyTrigger && once)
         {
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Kelly"));
+            once = false;
         }
-        else if (trafficTrigger && Input.GetKey(KeyCode.Space))
+        else if (trafficTrigger && Input.GetKeyDown(KeyCode.Space))
         {
             source.PlayOneShot(traffic, 1);
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Traffic"));
@@ -94,8 +96,9 @@ public class TutorialSlideTriggers : MonoBehaviour {
     }
     void OnTriggerExit2D(Collider2D col)
     {
-        if (defaultTrigger && this.tag != "Alfred")
+        if (defaultTrigger && this.tag != "Alfred" && this.tag != "TriggerPanel")
         {
+            Debug.Log(this.tag);
             KellyTrigger = false;
             trafficTrigger = false;
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("SecondDefaultText"));
@@ -103,6 +106,7 @@ public class TutorialSlideTriggers : MonoBehaviour {
         else if (this.tag == "Kelly")
         {
             KellyTrigger = false;
+            once = true;
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("FirstDefaultText"));
         }
         else if (this.tag == "TriggerPanelMini")

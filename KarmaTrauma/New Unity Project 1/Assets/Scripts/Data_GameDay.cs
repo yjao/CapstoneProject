@@ -15,6 +15,7 @@ public class Data_GameDay : DataLoader
 
     private void LoadNpcData()
     {
+        int id = 2;
         // ================ ALFRED ================ //
         string[] alfred = new string[]
         {
@@ -37,7 +38,7 @@ public class Data_GameDay : DataLoader
             /*16*/ "\"With this, I can finally make Faraday pay for all his wrongdoings.\"",  
 
         };
-        AddNpc(2, "Alfred", "Alfred", alfred);
+        AddNpc(id, "Alfred", "Alfred", alfred);
 
         //Check if Cocodonut is in the bag.  Can give Cocodonut to Alfred any time.
         //gameManager.allObjects[2].dialogues[0].choices = new Choice[]
@@ -45,11 +46,12 @@ public class Data_GameDay : DataLoader
         //    AddChoice("Offer Cocodonut", checkboolname: "AlfredCocodonut")
         //};
         //AddToDialogue(2, 0, ChoiceContinueDialog(2, 12));
-        //AddToDialogue(7, 12, ChoiceContinueDialog(7, 3));
-        //AddToDialogue(7, 3, ChoiceContinueDialog(7, 13));
+        //AddToDialogue(7, 12, ChoiceContinueDialog(id, 3));
+        //AddToDialogue(7, 3, ChoiceContinueDialog(id, 13));
 
 
         // ================ MEGAN ================ //
+        id = 3;
         string[] megan = new string[]
         {
             /*0*/ "\"Alfred...!\"",       
@@ -64,10 +66,11 @@ public class Data_GameDay : DataLoader
             /*9*/"\"Oh! And for the coupon, I'd like a #Cocodonut for Alfred#. He goes loco for them Cocodonuts *Teehee*.\"",
             
         };
-        AddNpc(3, "Megan", "Megan", megan);
+        AddNpc(id, "Megan", "Megan", megan);
 
 
         // ================ Alex ================ //
+        id = 4;
         string[] alex = new string[]
 		{
 			/*0*/ "\"I told dad I'll be in class soon. But he doesn't know I'm skipping class again. Shh, you won't tell anyone, right? I'm doing this for Yoona.\"",
@@ -93,45 +96,46 @@ public class Data_GameDay : DataLoader
         
         
         };
-        AddNpc(4, "Alex", "Kid", alex);
+        AddNpc(id, "Alex", "Kid", alex);
 
-        gameManager.allObjects[4].dialogues[0].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[0].choices = new Choice[]
 		{
-            AddChoice("I'm telling your dad", ChoiceAction.CONTINUE, 4, 1),
-            AddChoice("Who's Yoona?", ChoiceAction.CONTINUE, 4, 2)
+            AddChoice("I'm telling your dad", ChoiceAction.CONTINUE, id, 1),
+            AddChoice("Who's Yoona?", ChoiceAction.CONTINUE, id, 2)
 
         };
-        AddToDialogue(4, 2, ChoiceContinueDialog(4, 3));
+        AddToDialogue(id, 2, ChoiceContinueDialog(id, 3));
 
-        gameManager.allObjects[4].dialogues[3].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[3].choices = new Choice[]
 		{
-            AddChoice("What happened to her?", ChoiceAction.CONTINUE, 4, 4),
+            AddChoice("What happened to her?", ChoiceAction.CONTINUE, id, 4),
 
         };
-        AddToDialogue(4, 4, ChoiceContinueDialog(4, 5));
-        AddToDialogue(4, 5, ChoiceContinueDialog(4, 6));
+        AddToDialogue(id, 4, ChoiceContinueDialog(id, 5));
+        AddToDialogue(id, 5, ChoiceContinueDialog(id, 6));
 
-        gameManager.allObjects[4].dialogues[9].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[9].choices = new Choice[]
 		{
-            AddChoice("Say nothing", ChoiceAction.CONTINUE, 4, 10),
-            AddChoice("Sure", ChoiceAction.CONTINUE, 4, 9)
+            AddChoice("Say nothing", ChoiceAction.CONTINUE, id, 10),
+            AddChoice("Sure", ChoiceAction.CONTINUE, id, 9)
         };
 
-        gameManager.allObjects[4].dialogues[12].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[12].choices = new Choice[]
 		{
-            AddChoice("Who?", ChoiceAction.CONTINUE, 4, 13),
+            AddChoice("Who?", ChoiceAction.CONTINUE, id, 13),
 
         };
 
-        gameManager.allObjects[4].dialogues[14].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[14].choices = new Choice[]
 		{
-            AddChoice("Mrs. Freewoman was our sub today.", ChoiceAction.CONTINUE, 4, 16),
+            AddChoice("Mrs. Freewoman was our sub today.", ChoiceAction.CONTINUE, id, 16),
 
         };
-        AddToDialogue(4, 16, ChoiceContinueDialog(4, 17));
-        AddToDialogue(4, 5, ChoiceContinueDialog(4, 6));
+        AddToDialogue(id, 16, ChoiceContinueDialog(id, 17));
+        AddToDialogue(id, 5, ChoiceContinueDialog(id, 6));
 
         // ================ JENEY ================ //
+        id = 7;
         string[] jeney = new string[]
 		{
 			/*0*/ "\"Welcome to the Donut Hole! Today's special is the Donot Sprinklez~\"",
@@ -153,24 +157,25 @@ public class Data_GameDay : DataLoader
         };
         AddNpc(7, "Jeney", "Jeney", jeney);
 
-        gameManager.allObjects[7].dialogues[2].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[2].choices = new Choice[]
 		{
-            AddChoice("What happened?", ChoiceAction.CONTINUE, 7, 12)
+            AddChoice("What happened?", ChoiceAction.CONTINUE, id, 12)
         };
-        AddToDialogue(7, 12, ChoiceContinueDialog(7, 3));
-        AddToDialogue(7, 3, ChoiceContinueDialog(7, 13));
+       AddToDialogue(id, 12, ChoiceContinueDialog(id, 3));
+       AddToDialogue(id, 3, ChoiceContinueDialog(id, 13));
 
 
         gameManager.allObjects[7].dialogues[0].choices = new Choice[]
 		{
             AddChoice("What happened?", ChoiceAction.CONTINUE, 7, 7)
         };
-        AddToDialogue(7, 7, ChoiceContinueDialog(7, 8));
-        AddToDialogue(7, 8, ChoiceContinueDialog(7, 9));
-        AddToDialogue(7, 9, ChoiceContinueDialog(7, 10));
-        AddToDialogue(7, 10, ChoiceContinueDialog(7, 11));
+       AddToDialogue(id, 7, ChoiceContinueDialog(id, 8));
+       AddToDialogue(id, 8, ChoiceContinueDialog(id, 9));
+       AddToDialogue(id, 9, ChoiceContinueDialog(id, 10));
+       AddToDialogue(id, 10, ChoiceContinueDialog(id, 11));
 
         // ================ HANK ================ //
+        id = 11;
         string[] hank = new string[]
 		{
 			/*0*/ "(Ugh I'm so sleepy. I hate this job.)",
@@ -186,19 +191,20 @@ public class Data_GameDay : DataLoader
             
         
         };
-        AddNpc(11, "Hank", "Hank", hank);
-        AddBooleanToDialogue(11, 1, "LostDog");
-        AddBooleanToDialogue(11, 3, "DogCanDig");
+        AddNpc(id, "Hank", "Hank", hank);
+        AddBooleanToDialogue(id, 1, "LostDog");
+        AddBooleanToDialogue(id, 3, "DogCanDig");
 
-        gameManager.allObjects[7].dialogues[4].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[4].choices = new Choice[]
 		{
-            AddChoice("What's going on?", ChoiceAction.CONTINUE, 11, 3)
+            AddChoice("What's going on?", ChoiceAction.CONTINUE, id, 3)
         };
-        AddToDialogue(11, 3, ChoiceContinueDialog(11, 8));
-        AddToDialogue(11, 8, ChoiceContinueDialog(11, 6));
+        AddToDialogue(id, 3, ChoiceContinueDialog(11, 8));
+        AddToDialogue(id, 8, ChoiceContinueDialog(11, 6));
 
 
         // ================ BOB ================ //
+        id = 13;
         string[] bob = new string[]
 		{
 			/*0*/ "\"...\"",
@@ -225,14 +231,14 @@ public class Data_GameDay : DataLoader
         
         
         };
-        AddNpc(13, "Bob", "Hobo master race", bob);
+        AddNpc(id, "Bob", "Hobo master race", bob);
 
-        gameManager.allObjects[13].dialogues[8].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[8].choices = new Choice[]
 		{
-            AddChoice("Why do you need one?", ChoiceAction.CONTINUE, 13, 17)
+            AddChoice("Why do you need one?", ChoiceAction.CONTINUE, id, 17)
         };
-        AddToDialogue(13, 17, ChoiceContinueDialog(13, 18));
-        AddToDialogue(13, 18, ChoiceContinueDialog(13, 19));
+        AddToDialogue(id, 17, ChoiceContinueDialog(id, 18));
+        AddToDialogue(id, 18, ChoiceContinueDialog(id, 19));
 
         //Same problem as Alfred.  Can give ticket to hobo any time.
         //gameManager.allObjects[13].dialogues[0].choices = new Choice[]
@@ -245,6 +251,7 @@ public class Data_GameDay : DataLoader
 
 
         // ================ RAE ================ //
+        id = 23;
         string[] rae = new string[]
 		{
 			/*0*/ "*Sob*\"I #lost my dog# today...\"",
@@ -263,19 +270,20 @@ public class Data_GameDay : DataLoader
 			/*13*/ "\"Tomo! Thank you for finding my dog.\"",
 			/*14*/"\"I guess this train ticket is useless now since I still haven't packed up because I was out looking for him.  Here, you can have it.\"",
 		};
-        AddNpc(23, "Rae", "Rae", rae);
-        AddBooleanToDialogue(23, 0, "LostDog");
-        AddBooleanToDialogue(23, 6, "LostDog");
-        AddBooleanToDialogue(23, 8, "LostDog");
+        AddNpc(id, "Rae", "Rae", rae);
+        AddBooleanToDialogue(id, 0, "LostDog");
+        AddBooleanToDialogue(id, 6, "LostDog");
+        AddBooleanToDialogue(id, 8, "LostDog");
 
-        gameManager.allObjects[23].dialogues[0].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[0].choices = new Choice[]
 		{
-            AddChoice("What happened?", ChoiceAction.CONTINUE, 23, 1)
+            AddChoice("What happened?", ChoiceAction.CONTINUE, id, 1)
         };
-        AddToDialogue(23, 1, ChoiceContinueDialog(23, 2));
-        AddToDialogue(23, 2, ChoiceContinueDialog(23, 3));
+        AddToDialogue(id, 1, ChoiceContinueDialog(id, 2));
+        AddToDialogue(id, 2, ChoiceContinueDialog(id, 3));
 
         // ================ FAYE ================ //
+        id = 27;
         string[] faye = new string[]
         {
             /*0*/ "\"I hear sirens out there. I wonder #what's up on Main Street#.\"",       
@@ -303,17 +311,18 @@ public class Data_GameDay : DataLoader
             /*22*/ "\"Maybe I should take a stroll in the park.\"",
             
         };
-        AddNpc(27, "Faye", "Faye", faye);
+        AddNpc(id, "Faye", "Faye", faye);
 
-        gameManager.allObjects[27].dialogues[9].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[9].choices = new Choice[]
 		{
-            AddChoice("What's wrong?", ChoiceAction.CONTINUE, 27, 21)
+            AddChoice("What's wrong?", ChoiceAction.CONTINUE, id, 21)
         };
-        AddToDialogue(27, 21, ChoiceContinueDialog(27, 20));
-        AddToDialogue(27, 20, ChoiceContinueDialog(27, 22));
+        AddToDialogue(id, 21, ChoiceContinueDialog(id, 20));
+        AddToDialogue(id, 20, ChoiceContinueDialog(id, 22));
 
 
         // ================ DAE ================ //
+        id = 36;
         string[] dae = new string[]
         {
             /*0*/ "\"Good morning. The Chocolate Crispies here are so good.\"",       
@@ -330,7 +339,7 @@ public class Data_GameDay : DataLoader
             /*11*/"\"Thanks, kid. I have been looking for this.\"",
             /*12*/"(With this, Faraday will give me enough money for Yoona's treatment.)",
         };
-        AddNpc(36, "Dae", "Dae", dae);
+        AddNpc(id, "Dae", "Dae", dae);
 
 
         //Give box to Dae any time.
@@ -344,6 +353,7 @@ public class Data_GameDay : DataLoader
 
 
         // ================ YOONA ================ //
+        id = 37;
         string[] yoona = new string[]
         {
             /*0*/ "(Daddy... I miss you.)",       
@@ -359,23 +369,24 @@ public class Data_GameDay : DataLoader
             /*10*/"\"Isn't that Alex's dad? I hope he's okay...\"",
             
         };
-        AddNpc(37, "Yoona", "Yoona", yoona);
+        AddNpc(id, "Yoona", "Yoona", yoona);
 
-        gameManager.allObjects[37].dialogues[1].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[1].choices = new Choice[]
 		{
-            AddChoice("What happened to you?", ChoiceAction.CONTINUE, 37, 2),
+            AddChoice("What happened to you?", ChoiceAction.CONTINUE, id, 2),
         };
-        AddToDialogue(37, 2, ChoiceContinueDialog(37, 3));
-        AddToDialogue(37, 3, ChoiceContinueDialog(37, 4));
+        AddToDialogue(id, 2, ChoiceContinueDialog(id, 3));
+        AddToDialogue(id, 3, ChoiceContinueDialog(id, 4));
 
-        gameManager.allObjects[37].dialogues[4].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[4].choices = new Choice[]
 		{
-            AddChoice("Your dad?", ChoiceAction.CONTINUE, 37, 5),
+            AddChoice("Your dad?", ChoiceAction.CONTINUE, id, 5),
         };
    
 
 
         // ================ KYLE ================ //
+        id = 50;
         string[] kyle = new string[]
         {
             /*0*/ "\"Have you seen #Alex#? I haven't seen him these past few days.\"",       
@@ -386,10 +397,11 @@ public class Data_GameDay : DataLoader
            
             
         };
-        AddNpc(50, "Kyle", "Kyle", kyle);
+        AddNpc(id, "Kyle", "Kyle", kyle);
 
 
         // ================ ANNA ================ //
+        id = 51;
         string[] anna = new string[]
         {
             /*0*/ "\"Did you hear about Yoona?  She has a heart disease so that's why she hasn't been coming to school lately.  Maybe I should go visit her.\"",       
@@ -398,14 +410,15 @@ public class Data_GameDay : DataLoader
             /*3*/ "\"Oh no, I missed the basketball game...\"",
           
         };
-        AddNpc(51, "Anna", "Anna", anna);
+        AddNpc(id, "Anna", "Anna", anna);
 
-        gameManager.allObjects[51].dialogues[1].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[1].choices = new Choice[]
 		{
-            AddChoice("Why?", ChoiceAction.CONTINUE, 51, 2),
+            AddChoice("Why?", ChoiceAction.CONTINUE, id, 2),
         };
 
         // ================ SUSAN ================ //
+        id = 52;
         string[] susan = new string[]
         {
             /*0*/ "\"On Wednesday, we wear pink.\"",       
@@ -414,14 +427,15 @@ public class Data_GameDay : DataLoader
             /*3*/ "\"Oh no, I'm late for my massage appointment. Oh well, I'll visit #Yoona# another time.\"",
           
         };
-        AddNpc(52, "Susan", "Susan", susan);
+        AddNpc(id, "Susan", "Susan", susan);
 
-        gameManager.allObjects[52].dialogues[1].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[1].choices = new Choice[]
 		{
-            AddChoice("Kelly?", ChoiceAction.CONTINUE, 52, 2),
+            AddChoice("Kelly?", ChoiceAction.CONTINUE, id, 2),
         };
 
         // ================ APRIL ================ //
+        id = 53;
         string[] april = new string[]
         {
             /*0*/ "\"Good morning! Are you here to excercise too? It's good for your health.\"",       
@@ -431,14 +445,15 @@ public class Data_GameDay : DataLoader
             /*4*/ "\"The Donut Hole Original is the best. Don't you agree?\"",       
 
         };
-        AddNpc(53, "April", "April", april);
+        AddNpc(id, "April", "April", april);
 
-        gameManager.allObjects[53].dialogues[4].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[4].choices = new Choice[]
 		{
-            AddChoice("Patricia?", ChoiceAction.CONTINUE, 37, 1),
+            AddChoice("Patricia?", ChoiceAction.CONTINUE, id, 1),
         };
 
         // ================ PATRICIA ================ //
+        id = 66;
         string[] patricia = new string[]
         {
             /*0*/ "\"Did you see the look on her face? Priceless!\"",       
@@ -459,25 +474,26 @@ public class Data_GameDay : DataLoader
             /*15*/"\"Oops, am I supposed to not tell you this?\"",
 
         };
-        AddNpc(66, "Patricia", "Patricia", patricia);
+        AddNpc(id, "Patricia", "Patricia", patricia);
 
 
-        gameManager.allObjects[66].dialogues[4].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[4].choices = new Choice[]
 		{
-            AddChoice("Who are you?", ChoiceAction.CONTINUE, 66, 14)
+            AddChoice("Who are you?", ChoiceAction.CONTINUE, id, 14)
         };
-        AddToDialogue(66, 17, ChoiceContinueDialog(66, 15));
+        AddToDialogue(id, 14, ChoiceContinueDialog(id, 15));
 
 
-        gameManager.allObjects[66].dialogues[5].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[5].choices = new Choice[]
 		{
-            AddChoice("You know Megan?", ChoiceAction.CONTINUE, 66, 13)
+            AddChoice("You know Megan?", ChoiceAction.CONTINUE, id, 13)
         };
-        AddToDialogue(66, 13, ChoiceContinueDialog(66, 6));
+        AddToDialogue(id, 13, ChoiceContinueDialog(id, 6));
 
 
 
         // ================ KELLY ================ //
+        id = 67;
         string[] kelly = new string[]
         {
             /*0*/ "\"Phew, classes are finally over.\"",       
@@ -491,14 +507,15 @@ public class Data_GameDay : DataLoader
           
             
         };
-        AddNpc(67, "Kelly", "Kelly", kelly);
+        AddNpc(id, "Kelly", "Kelly", kelly);
 
-        gameManager.allObjects[67].dialogues[1].choices = new Choice[]
+        gameManager.allObjects[id].dialogues[1].choices = new Choice[]
 		{
-            AddChoice("Hold on.", ChoiceAction.CONTINUE, 67, 2)
+            AddChoice("Hold on.", ChoiceAction.CONTINUE, id, 2)
         };
 
         // ================ PERRY ================ //
+        id = 99;
         string[] perry = new string[]
         {
             /*0*/ "\"...\"",       
@@ -506,44 +523,46 @@ public class Data_GameDay : DataLoader
             /*2*/ "\"Thanks, I'll take a look at it.\"",
           
         };
-        AddNpc(99, "Perry", "Perry", perry);
+        AddNpc(id, "Perry", "Perry", perry);
         //Give box to Perry add choice here.
 
         // ================ DOGE ================ //
+        id = 123;
         string[] dog = new string[]
 		{
             /*0*/ "\"Woof\"",
             /*1*/ "(You give the dog some bacon)",
             /*2*/ "(The dog appears to be following you)"
         };
-        AddNpc(123, "Dog", "Dog", dog);
-        gameManager.allObjects[24].dialogues[0].choices = new Choice[]
+        AddNpc(id, "Dog", "Dog", dog);
+        gameManager.allObjects[id].dialogues[0].choices = new Choice[]
 		{
-            AddChoice("Feed the dog bacon", ChoiceAction.CONTINUE, 24, 1, checkboolname: "Bacon")
+            AddChoice("Feed the dog bacon", ChoiceAction.CONTINUE, id, 1, checkboolname: "Bacon")
         };
-        AddToDialogue(24, 1, ChoiceContinueDialog(24, 2));
-        AddToDialogue(24, 2, ChoiceInteractItem(24));
+        AddToDialogue(id, 1, ChoiceContinueDialog(id, 2));
+        AddToDialogue(id, 2, ChoiceInteractItem(id));
 
 
         // ================ ITEMS & OBJECTS ================ //
-
+        id = 110;
         string[] bacon = new string[]
         {
             /*0*/ "Mom left some bacon here. It doesn't look very appetizing."
         };
-        AddNpc(110, "Bacon", "Bacon", bacon);
-        gameManager.allObjects[110].dialogues[0].choices = new Choice[]
+        AddNpc(id, "Bacon", "Bacon", bacon);
+        gameManager.allObjects[id].dialogues[0].choices = new Choice[]
         {
             AddChoice("Leave it alone"),
-            AddChoice("Take the bacon", ChoiceAction.ITEM, 110)
+            AddChoice("Take the bacon", ChoiceAction.ITEM, id)
         };
 
+        id = 100;
         string[] bed = new string[]
 		{
 			/*0*/ "\"Sleep and end the day?\""
 		};
-        AddNpc(100, "Bed", "Bed", bed);
-        gameManager.allObjects[100].dialogues[0].choices = new Choice[]
+        AddNpc(id, "Bed", "Bed", bed);
+        gameManager.allObjects[id].dialogues[0].choices = new Choice[]
 		{
 			new Choice("Good Night!", new ChoiceEventArgs() { ChoiceAction = GameManager.UseBed }),
 			AddChoice("I ain't weak!")
@@ -1801,7 +1820,7 @@ public class Data_GameDay : DataLoader
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
-            NpcID = 40
+            NpcID = 67
         });
 
     }

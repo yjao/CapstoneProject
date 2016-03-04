@@ -208,6 +208,7 @@ public class InteractableObject : MonoBehaviour
 
 		[Header("NPC CharacterAnimations")]
         public CharacterAnimations.States startingAnimationState;
+        public bool turnOnInteract = true;
 		public float animationSpeed;
         public float wanderDistanceX;
         public int wanderDirectionX;

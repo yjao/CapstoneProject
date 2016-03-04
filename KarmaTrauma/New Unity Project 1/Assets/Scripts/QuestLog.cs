@@ -220,7 +220,6 @@ public class QuestLog : MonoBehaviour
 
     void HideDescription()
     {
-        Debug.Log("I'm here");
         transform.Find("DialogText").gameObject.SetActive(false);
         transform.Find("NameText").gameObject.SetActive(false);
         transform.Find("DialogTextPanel").gameObject.SetActive(false);

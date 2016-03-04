@@ -103,6 +103,10 @@ public class SceneManager : MonoBehaviour
             npc.wanderDirectionX = parameter.wanderDirectionX;
             npc.wanderDistanceY = parameter.wanderDistanceY;
             npc.wanderDirectionY = parameter.wanderDirectionY;
+            if (!parameter.turnOnInteract)
+            {
+                npc.characterAnimations.facePlayerOnInteraction = false;
+            }
         }
     }
 

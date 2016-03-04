@@ -38,15 +38,15 @@ public class Menu : MonoBehaviour
         //transform.Find("Pointer").gameObject.SetActive(false);
         transform.Find("ItemPanel0").gameObject.SetActive(true);
 
-        
+
         for (int x = 0; x < 3; x++)
         {
             for (int y = 0; y < 3; y++)
             {
                 if (!(x == 0 && y == 0))
                 {
-                   Transform z = (Instantiate(transform.Find("ItemPanel0"), new Vector3(0, 1, 0), Quaternion.identity)) as Transform;
-                    z.transform.Translate(new Vector2(0.1f,0.2f));
+                    Transform z = (Instantiate(transform.Find("ItemPanel0"), new Vector3(0, 1, 0), Quaternion.identity)) as Transform;
+                    z.transform.Translate(new Vector2(0.1f, 0.2f));
                     z.transform.SetParent(transform, false);
                     z.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.3775f + .14f * x), (.95f - .25f * y));
                     z.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f + .14f * x), (.695f - .25f * y));
@@ -55,7 +55,7 @@ public class Menu : MonoBehaviour
                 }
             }
         }
-    
+
         pointer = 0;
         pointer2 = 0;
         DrawSelect();
@@ -193,7 +193,7 @@ public class Menu : MonoBehaviour
         }
     }
 
-    
+
     //void OnClick()
     //{
     //    //Still need to fix the math...
@@ -217,7 +217,7 @@ public class Menu : MonoBehaviour
     //                }
     //            }
     //        }
-               
-        
+
+
     //}
 }

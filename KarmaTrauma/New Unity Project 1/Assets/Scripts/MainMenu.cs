@@ -67,6 +67,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadDemoScene()
     {
+		Debug.Log ("You're not supposed to be here.");
         Application.LoadLevel(SceneManager.SCENE_MAINSTREET);
         yield return null;
 		GameManager.instance.SetTime(GameManager.TimeType.SET, 20);

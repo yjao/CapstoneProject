@@ -43,35 +43,21 @@ public class Data_GameDay : DataLoader
         AddNpc(id, "Alfred", "Alfred", alfred);
 
         //Check if Cocodonut is in the bag.  Can give Cocodonut to Alfred any time.
-<<<<<<< HEAD
-        //gameManager.allObjects[2].dialogues[0].choices = new Choice[]
-        //{
-        //    AddChoice("Offer Cocodonut", checkboolname: "AlfredCocodonut")
-        //};
-        //AddToDialogue(2, 0, ChoiceContinueDialog(2, 12));
-        //AddToDialogue(7, 12, ChoiceContinueDialog(id, 3));
-        //AddToDialogue(7, 3, ChoiceContinueDialog(id, 13));
-=======
         gameManager.allObjects[2].dialogues[5].choices = new Choice[]
         {
+			AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkboolname: "AlfredBox", checkitemname: "Box"),
             AddChoice("Offer Cocodonut", ChoiceAction.CONTINUE, 2, 5, checkboolname: "AlfredCocodonut", checkitemname: "Cocodonut")
         };
         AddToDialogue(2, 5, ChoiceContinueDialog(2, 12));
         AddToDialogue(2, 12, ChoiceContinueDialog(2, 13));
         AddToDialogue(2, 3, ChoiceContinueDialog(2, 14));
->>>>>>> 098ff3931bf86aa100e6211df9548d1aca184dec
+		AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
 
         gameManager.allObjects[2].dialogues[4].choices = new Choice[]
         {
             AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkboolname: "AlfredBox", checkitemname: "Box")
         };
-        AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
-
-        gameManager.allObjects[2].dialogues[5].choices = new Choice[]
-        {
-            AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkboolname: "AlfredBox", checkitemname: "Box")
-        };
-        AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
+        
 
         // ================ MEGAN ================ //
         id = 3;
@@ -116,8 +102,6 @@ public class Data_GameDay : DataLoader
             /*17*/ "\"Man... I hope she doesn't remember I was supposed to be in that class.\"", 
             /*18*/ "\"I better head home soon or my parents will yell at me.\"", 
             /*19*/ "*Sob* Dad, don't leave me.", 
-        
-        
         };
         AddNpc(id, "Alex", "Kid", alex);
 

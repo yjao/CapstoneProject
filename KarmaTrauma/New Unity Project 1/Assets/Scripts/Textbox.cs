@@ -539,7 +539,8 @@ public class Textbox : MonoBehaviour
         if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
         {
             EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
-            string text = Textbox.FormatMessage(args.TutorialDialogues[0]);
+            string text = Textbox.BuildIntoQuestList(args.DialogueBox.transform.Find("Name").GetComponent<Text>().text, args.TutorialDialogues[0]);
+            text = Textbox.FormatMessage(text);
             Dialogue d = new Dialogue(-1, Textbox.ColorTutorialKeyword(text));
             if (args.TutorialDialogues.Length == 1)
             {
@@ -556,7 +557,8 @@ public class Textbox : MonoBehaviour
         {
             args.DialogueBox.Dialog.CEA.TutorialDialogueCounter -= 1;
             string name = args.DialogueBox.transform.Find("Name").GetComponent<Text>().text;
-            string text = Textbox.FormatMessage(args.TutorialDialogues[args.TutorialDialogues.Length - args.TutorialDialogueCounter]);
+            string text = Textbox.BuildIntoQuestList(name, args.TutorialDialogues[args.TutorialDialogues.Length - args.TutorialDialogueCounter]);
+            text = Textbox.FormatMessage(text);
             args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = Textbox.ColorTutorialKeyword(text);
             if (args.TutorialDialogueCounter != 1)
             {

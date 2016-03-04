@@ -146,7 +146,7 @@ public class Data_GameDay : DataLoader
         string[] jeney = new string[]
 		{
 			/*0*/ "\"Welcome to the Donut Hole! Today's special is the Donot Sprinklez~\"",
-			/*1*/ "(Come by the Donut Hole when you have time. We sell really tasty donuts.)",
+			/*1*/ "(Come here doggie! I'll give you a tasty Donut Bone.)",
             /*2*/ "\"Oh no...my friend's #dog was here at 4 PM#.\"",
             /*3*/ "\"I should have offered him #bacon# instead.\"",
             /*4*/ "\"Poor man...he was a really #nice cop# who comes by my store often.\"",

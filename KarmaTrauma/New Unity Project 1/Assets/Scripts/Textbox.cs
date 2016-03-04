@@ -425,12 +425,24 @@ public class Textbox : MonoBehaviour
         int counter = 0;
         for (int i = 0; i < options.Length; i++)
         {
+            bool remove = false;
             if (options[i].checkbool != null)
             {
-                if (gameManager.GetData(options[i].checkbool) == false && gameManager.HasItem(options[i].checkbool) == false)
+                if (gameManager.GetData(options[i].checkbool) == false)
                 {
-                    counter += 1;
+                    remove = true;
                 }
+            }
+            if (options[i].checkitem != null)
+            {
+                if (gameManager.HasItem(options[i].checkitem) == false)
+                {
+                    remove = true;
+                }
+            }
+            if (remove == true)
+            {
+                counter += 1;
             }
         }
         if (counter == options.Length)
@@ -441,7 +453,22 @@ public class Textbox : MonoBehaviour
         counter = 0;
         for (int i = 0; i < options.Length; i++)
         {
-            if (options[i].checkbool == null || gameManager.GetData(options[i].checkbool) == true)
+            bool show = true;
+            if (options[i].checkbool != null)
+            {
+                if (gameManager.GetData(options[i].checkbool) == false)
+                {
+                    show = false;
+                }
+            }
+            if (options[i].checkitem != null)
+            {
+                if (gameManager.HasItem(options[i].checkitem) == false)
+                {
+                    show = false;
+                }
+            }
+            if (show)
             {
                 result[counter] = options[i];
                 counter += 1;

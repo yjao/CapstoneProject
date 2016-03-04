@@ -19,63 +19,230 @@ public class Data_GameDay : DataLoader
         string[] alfred = new string[]
         {
             /*0*/ "\"Good morning! The donuts here are tasty. You should try some. I recommend the Cocodonut.\"",
-            /*1*/ "\"Today is a big day. I need that #box# soon. That filthy man will get what he deserves...\"",
-            /*2*/ "\"Oh, hello there. Are you lost? Better hurry before you're late to class!\"",
+            /*1*/ "(Today is a big day. I need that #box# soon. That filthy man will get what he deserves...)",
+            /*2*/ "\"I hope Jeney will still let me have one. I need my daily fix.\"",
             /*3*/ "\"Is there something wrong? No class today?\"",
-            /*4*/ "\"Work just doesn't feel right when he's still running about, but it'll be over soon. He'll get what he deserves.\"",
-            /*5*/ "\"Hey there! I need to go grab some clothes for my wife at the hospital.\"",
-            /*6*/ "\"Sorry I'm not up for a chat.  Stay safe out there!\"",
+            /*4*/ "(If only I didn't accept his dirty money...)",
+            /*5*/ "\"Oh, I forgot my wallet today! I should go back to get it after I get out of work at 7 PM.\"",
+            /*6*/ "(I guess it's time that I own up to my actions and put Faraday to jail)",
             /*7*/ "\"Oh Megan...I'm so sorry...\"",
-            /*8*/ "\"Had I reach the park in time...\"",
-            /*9*/ "\"Faraday...you will regret this.\"",
-            /*10*/ "\"...\"",
+            /*8*/ "(Had I reach the park in time...\"",
+            /*9*/ "(#Jerry Faraday#...you will regret this.)",
+            /*10*/"\"Got out early from classes today, huh?\"",
+            /*11*/"\"Better get to class soon!\"",
+            /*12*/"\"Oh! How did you know this was my favorite? Thank you, you're so sweet, just like my son.\"",
+            /*13*/"\"I remember when he was little, I would #hide things underground# and we'd play scavenger hunt together. Good old times.\"",
+            /*14*/"\"But we always had to watch out for #Hank, who gets mad if he sees you# do it!\"",
+            /*15*/ "\"This box...Thanks, kid.\"",  
+            /*16*/ "\"With this, I can finally make Faraday pay for all his wrongdoings.\"",  
 
         };
-        AddNpc(2, "Police Man", "Alfred", alfred);
+        AddNpc(2, "Alfred", "Alfred", alfred);
+
+        //Check if Cocodonut is in the bag.  Can give Cocodonut to Alfred any time.
+        //gameManager.allObjects[2].dialogues[0].choices = new Choice[]
+        //{
+        //    AddChoice("Offer Cocodonut", checkboolname: "AlfredCocodonut")
+        //};
+        //AddToDialogue(2, 0, ChoiceContinueDialog(2, 12));
+        //AddToDialogue(7, 12, ChoiceContinueDialog(7, 3));
+        //AddToDialogue(7, 3, ChoiceContinueDialog(7, 13));
 
 
         // ================ MEGAN ================ //
         string[] megan = new string[]
         {
-            /*0*/ "\"Hello there. I'm waiting for my husband to get here with my clothes.\"",       
-            /*1*/ "\"He should be here any minute now. What's taking him so long?\"",
-            /*2*/ "\"If only I knew that #someone was out to get him#.\"",
-            /*3*/ "*Sob* \"He was going to get something from home to deliver to me here.\"",
+            /*0*/ "\"Alfred...!\"",       
+            /*1*/ "(If I could...if only I could go back in time...)",
+            /*2*/ "(If only I knew that #someone was out to get him#.)",
+            /*3*/ "*Sob* He was going to get his wallet at our apartment then meet me for dinner...\"",
             /*4*/ "\"If I haven't been hospitalize at all, this wouldn't have happened.\"",
             /*5*/ "\"Oh Alfred, please hang in there!\"*Sob*",
+            /*6*/"\"Good morning. Just taking my morning stroll in the park.\"",
+            /*7*/"\"Sweetie, there's school today. Do you go to Punxsu High? My son also goes there.\"",
+            /*8*/"\"Jeney, I'd like a Minty Munchies please!\"",
+            /*9*/"\"Oh! And for the coupon, I'd like a #Cocodonut for Alfred#. He goes loco for them Cocodonuts *Teehee*.\"",
+            
         };
-        AddNpc(3, "Nice Woman", "Megan", megan);
+        AddNpc(3, "Megan", "Megan", megan);
 
+
+        // ================ Alex ================ //
+        string[] alex = new string[]
+		{
+			/*0*/ "\"I told dad I'll be in class soon. But he doesn't know I'm skipping class again. Shh, you won't tell anyone, right? I'm doing this for Yoona.\"",
+			/*1*/ "\"...You're kidding me, right??\"",
+			/*2*/ "\"You don't know Yoona? She's in our class!...Well, SUPPOSED to be in our class...\"", 
+			/*3*/ "\"She has been hospitalized since the beginning of the year, so she was never in class.\"",
+			/*4*/ "\"Yoona got a heart disease some time last year...\"",
+			/*5*/ "\"I promised to take her to the zoo once she gets better.\"",
+		    /*6*/ "\"...Whenever that may be, anyways. But I believe in her.\"",
+            /*7*/ "\"Yoona's not looking so great today. I really hope she gets better.\"",
+            /*8*/ "\"Yoona didn't want to eat lunch. Maybe she'll enjoy a donut?\"",
+            /*9*/ "\"Hey, can you watch over her for me while I run to Jeney's?\"",
+            /*10*/ "\"...Whatever. I'll be right back anyways.\"", 
+            /*11*/ "\"Thanks, Chels!\"", 
+            /*12*/ "(I should hurry. She must be waiting for me.)", 
+            /*13*/ "\"Yoona. She's waiting for me at the hospital.\"", 
+            /*14*/ "\"Hey Chelsey, got out of class? How was it?\"", 
+            /*15*/ "\"Don't feel like talking? Hey I mean, that's fine.\"", 
+            /*16*/ "\"Aw crap, she's my mom...!\"", 
+            /*17*/ "\"Man... I hope she doesn't remember I was supposed to be in that class.\"", 
+            /*18*/ "\"I better head home soon or my parents will yell at me.\"", 
+            /*19*/ "*Sob* Dad, don't leave me.", 
+        
+        
+        };
+        AddNpc(4, "Alex", "Kid", alex);
+
+        gameManager.allObjects[4].dialogues[0].choices = new Choice[]
+		{
+            AddChoice("I'm telling your dad", ChoiceAction.CONTINUE, 4, 1),
+            AddChoice("Who's Yoona?", ChoiceAction.CONTINUE, 4, 2)
+
+        };
+        AddToDialogue(4, 2, ChoiceContinueDialog(4, 3));
+
+        gameManager.allObjects[4].dialogues[3].choices = new Choice[]
+		{
+            AddChoice("What happened to her?", ChoiceAction.CONTINUE, 4, 4),
+
+        };
+        AddToDialogue(4, 4, ChoiceContinueDialog(4, 5));
+        AddToDialogue(4, 5, ChoiceContinueDialog(4, 6));
+
+        gameManager.allObjects[4].dialogues[9].choices = new Choice[]
+		{
+            AddChoice("Say nothing", ChoiceAction.CONTINUE, 4, 10),
+            AddChoice("Sure", ChoiceAction.CONTINUE, 4, 9)
+        };
+
+        gameManager.allObjects[4].dialogues[12].choices = new Choice[]
+		{
+            AddChoice("Who?", ChoiceAction.CONTINUE, 4, 13),
+
+        };
+
+        gameManager.allObjects[4].dialogues[14].choices = new Choice[]
+		{
+            AddChoice("Mrs. Freewoman was our sub today.", ChoiceAction.CONTINUE, 4, 16),
+
+        };
+        AddToDialogue(4, 16, ChoiceContinueDialog(4, 17));
+        AddToDialogue(4, 5, ChoiceContinueDialog(4, 6));
 
         // ================ JENEY ================ //
         string[] jeney = new string[]
 		{
 			/*0*/ "\"Welcome to the Donut Hole! Today's special is the Donot Sprinklez~\"",
-			/*1*/ "\"Come by the Donut Hole when you have time. We sell really tasty donuts.\"",
-            /*2*/ "\"Oh no...my friend's #dog was here at 4 PM#.  I tried catching him by feeding him a donut, but he ran off.\"",
-            /*3*/ "\"Dogs like meat; maybe he'll stay if there's #bacon#? I hope that he returned home safely.\"",
+			/*1*/ "(Come by the Donut Hole when you have time. We sell really tasty donuts.)",
+            /*2*/ "\"Oh no...my friend's #dog was here at 4 PM#.\"",
+            /*3*/ "\"I should have offered him #bacon# instead.\"",
             /*4*/ "\"Poor man...he was a really #nice cop# who comes by my store often.\"",
-            /*5*/ "\"He always tell me that our Cocodonut tastes the best.\"",
-            /*6*/ "\"Whew...what a long day.  So many things happened.\"",
-        };
-        AddNpc(7, "Donut Shop Owner", "Jeney", jeney);
+            /*5*/ "\"He always tell me that our #Cocodonut# tastes the best.\"",
+            /*6*/ "(Whew...what a long day. So many things happened.)",
+            /*7*/ "\"It's a shame. Punxsutown used to be so much better before it all happened.\"",
+            /*8*/ "\"2 years ago, Jerry Faraday was elected mayor of town. He seemed great at first...\"",
+            /*9*/ "\"But over the years, he had kicked out all these vendors. It's why you barely see anyone anymore.\"",
+            /*10*/"\"Some were really nice family businesses that’s been there for a long time...How could he do such a thing?\"",
+            /*11*/"\"Well, I hope the Donut Hole will be fine. We have so many loyal customers.\"",
+            /*12*/"\"I tried catching him by feeding him a donut, but he ran off.\"",
+            /*13*/"\"I hope that he returned home safely.\"",
 
+
+        };
+        AddNpc(7, "Jeney", "Jeney", jeney);
+
+        gameManager.allObjects[7].dialogues[2].choices = new Choice[]
+		{
+            AddChoice("What happened?", ChoiceAction.CONTINUE, 7, 12)
+        };
+        AddToDialogue(7, 12, ChoiceContinueDialog(7, 3));
+        AddToDialogue(7, 3, ChoiceContinueDialog(7, 13));
+
+
+        gameManager.allObjects[7].dialogues[0].choices = new Choice[]
+		{
+            AddChoice("What happened?", ChoiceAction.CONTINUE, 7, 7)
+        };
+        AddToDialogue(7, 7, ChoiceContinueDialog(7, 8));
+        AddToDialogue(7, 8, ChoiceContinueDialog(7, 9));
+        AddToDialogue(7, 9, ChoiceContinueDialog(7, 10));
+        AddToDialogue(7, 10, ChoiceContinueDialog(7, 11));
 
         // ================ HANK ================ //
         string[] hank = new string[]
 		{
-			/*0*/ "\"Ugh I'm so sleepy. I hate this job.\"",
-			/*1*/ "\"That ugly dog belongs to this girl name Rae. She was at the #park until noon# looking for the dog while crying.\"",
-			/*2*/ "\"So annoying ugh...\"", 
-			/*3*/ "\"I was enjoying my nap when that stupid #dog started digging# all over the park at 2 PM.\"",
-			/*4*/ "\"I had to go and fill all the holes that he dug up. Now go away and stop bothering me.\"",
-			/*5*/ "\"Ugh...I'm hungry. I don't get paid enough for this.\"",
-		    /*6*/ "\"I see him sometimes at the park. I guess it must be his time to go.\"",
+			/*0*/ "(Ugh I'm so sleepy. I hate this job.)",
+			/*1*/ "\"That ugly dog belongs to this girl name Rae. She was at the #park until 11:30 PM# looking for the dog while crying.\"",
+			/*2*/ "(So annoying ugh...)", 
+			/*3*/ "\"Because I took a #nap, that stupid dog started digging# all over the park at 1 PM.\"",
+			/*4*/ "\"Ugh! Now I have to go and fill all the holes that he dug up. Go away and stop bothering me.\"",
+			/*5*/ "(Ugh...I'm hungry. I don't get paid enough for this.)",
+		    /*6*/ "\"Now go away and stop bothering me. I got to fill up these stupid holes.\"",
             /*7*/ "\"Ugh...Go away, kid. Don't you see that I'm about to go to bed?\"",
+            /*8*/ "(Maybe some stupid visitor fed him bacon or something. Dogs always get excited over #stupid bacon#.)",
+            /*9*/ "\"#Rae was here at 5 PM# and went to the police station just now. About time she moves on and stop pestering me.\"",
+            
+        
         };
-        AddNpc(11, "Park Ranger", "Hank", hank);
+        AddNpc(11, "Hank", "Hank", hank);
         AddBooleanToDialogue(11, 1, "LostDog");
         AddBooleanToDialogue(11, 3, "DogCanDig");
+
+        gameManager.allObjects[7].dialogues[4].choices = new Choice[]
+		{
+            AddChoice("What's going on?", ChoiceAction.CONTINUE, 11, 3)
+        };
+        AddToDialogue(11, 3, ChoiceContinueDialog(11, 8));
+        AddToDialogue(11, 8, ChoiceContinueDialog(11, 6));
+
+
+        // ================ BOB ================ //
+        string[] bob = new string[]
+		{
+			/*0*/ "\"...\"",
+			/*1*/ "(#If I had left Punxsutown#, this wouldn't have happened...)",
+			/*2*/ "(What am I supposed to do after #what I've done#?)",
+			/*3*/ "(*Sigh* It's sure going to be a sleepless night...)",
+			/*4*/ "(It's almost time. I feel anxious...)",
+			/*5*/ "(I #want to leave# this place...)"  ,
+			/*6*/ "(When a man's got no food or shelter, he might make #extreme decisions#...)"  ,
+			/*7*/ "\"Hi there, got some money to spare?\"" , 
+			/*8*/ "\"I need money to buy #a train ticket#. I could really use one...\"",
+            /*9*/ "(*Mumble in sleep* Should I really #do it for Faraday#...?)"  ,
+			/*10*/ "\"I woke up to some girl crying. I think she's #looking for her dog#.\""  ,
+			/*11*/ "\"I #tossed the dog some bacon# bits and look at what happened!\""  ,
+			/*12*/ "\"At first, he followed me, but I told him to go #dig some holes# to mess with cranky ol' Hank. Ha!\"",
+			/*13*/ "\"Oh my goodness, you do have one! Can I really have this?\"",
+			/*14*/"\"Thank you so much. I can have a much better life leaving Punxsutown.\"",
+		    /*15*/ "\"I don't need to become some murderer, and I can start a new life elsewhere.\"",    
+            /*16*/ "\"I'll remember you forever, Chelsey.\"",
+            /*17*/ "\"You see, I'm a man without food or shelter.\"",
+            /*18*/ "\"Somebody offered me money if I help him with something dirty... I don't know what to think of it.\"",
+            /*19*/ "\"If I can get out of here, I can start a new life!\"",
+        
+        
+        
+        };
+        AddNpc(13, "Bob", "Hobo master race", bob);
+
+        gameManager.allObjects[13].dialogues[8].choices = new Choice[]
+		{
+            AddChoice("Why do you need one?", ChoiceAction.CONTINUE, 13, 17)
+        };
+        AddToDialogue(13, 17, ChoiceContinueDialog(13, 18));
+        AddToDialogue(13, 18, ChoiceContinueDialog(13, 19));
+
+        //Same problem as Alfred.  Can give ticket to hobo any time.
+        //gameManager.allObjects[13].dialogues[0].choices = new Choice[]
+        //{
+        //    AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 8)
+        //};
+        //AddToDialogue(13, 8, ChoiceContinueDialog(13, 17));
+        //AddToDialogue(13, 17, ChoiceContinueDialog(13, 18));
+        //AddToDialogue(13, 18, ChoiceContinueDialog(13, 19));
+
 
         // ================ RAE ================ //
         string[] rae = new string[]
@@ -86,21 +253,261 @@ public class Data_GameDay : DataLoader
 			/*3*/ "\"What should I do...\"*Sob*",
 			/*4*/ "\"Jeney is my friend from middle school. She now owns this successful donut shop chain.\"",
 			/*5*/ "\"All the cops in this town loves this store and comes by often. You should try some.\"",
-			/*6*/ "\"Have you seen my dog? I've been looking everywhere for him.\""  ,
+			/*6*/ "\"#Have you seen my dog?# I've been looking everywhere for him.\""  ,
 			/*7*/ "\"I was hoping that he will at the park since it's his #favorite spot#.\""  ,
 			/*8*/ "\"It's been 12 hours since I lost my dog. I don't know what to do.\"" , 
-			/*9*/ "\"I hope someone finds him and returns him to me.\""  ,
-			/*10*/ "\"I guess this #train ticket# is useless now since I can't leave town without him.\""  ,
-			/*11*/ "\"Poor guy...I hope he rests in peace.\""  ,
-
-			/*12*/ "\"Omg! Thank you for finding my dog!!\"",
-			/*13*/ "\"You're the best.\""
-			
+			/*9*/ "\"I hope someone #finds him and returns him to me#.\""  ,
+			/*10*/ "(I guess this #train ticket# is useless now since I can't leave town without him.)"  ,
+			/*11*/ "(Poor guy...I hope he rests in peace.)"  ,
+			/*12*/ "\"Omg! Thank you for finding my dog!!I came to ask her to keep an eye out for #my lost dog#. Have you seen him?\"",
+			/*13*/ "\"Tomo! Thank you for finding my dog.\"",
+			/*14*/"\"I guess this train ticket is useless now since I still haven't packed up because I was out looking for him.  Here, you can have it.\"",
 		};
-        AddNpc(23, "Crying Girl", "Rae", rae);
+        AddNpc(23, "Rae", "Rae", rae);
         AddBooleanToDialogue(23, 0, "LostDog");
         AddBooleanToDialogue(23, 6, "LostDog");
         AddBooleanToDialogue(23, 8, "LostDog");
+
+        gameManager.allObjects[23].dialogues[0].choices = new Choice[]
+		{
+            AddChoice("What happened?", ChoiceAction.CONTINUE, 23, 1)
+        };
+        AddToDialogue(23, 1, ChoiceContinueDialog(23, 2));
+        AddToDialogue(23, 2, ChoiceContinueDialog(23, 3));
+
+        // ================ FAYE ================ //
+        string[] faye = new string[]
+        {
+            /*0*/ "\"I hear sirens out there. I wonder #what's up on Main Street#.\"",       
+            /*1*/ "(Should I go check? Nah, curiosity kills the cat. But I'm not a cat...)",
+            /*2*/ "(Wait, if all the cops are over there, does that mean I get to take a break?)",
+            /*3*/ "\"I heard that someone fell off a building at 9 PM on Main Street.\"",
+            /*4*/ "\"You should #check out the hospital# for me to see what's going on.\"",
+            /*5*/ "\"Did you hear that ticking? Maybe it's time for you to go home.\"",
+            /*6*/"\"Oh, cute dog. I wonder if #somebody lost it#?\"",
+            /*7*/"(I remember when I lost my dog... it really sucked. But I still had 5 left...)",
+            /*8*/"(Should I help? Maybe the owner is nearby?)",
+            /*9*/"\"Hi, I just woke up. Wow, I'm sleepy...\"",
+            /*10*/ "\"I run night shifts at Jeney's Donut Hole, starting around 9 PM or whenever Jeney leaves I guess.\"",
+            /*11*/ "\"Jeney's cool. But you know what's cooler? Their Potadonut Tots!\"",
+            /*12*/ "\"It's the only reason I work there. Just kidding. I'm a broke college student so I'm just doing what I can.\"",
+            /*13*/ "\"Hey, it's Monday, are you ditching class?\"",
+            /*14*/ "\"I'm not the one to talk as overslept my morning class...\"",
+            /*15*/ "\"But wait, you're not in college...?\"",
+            /*16*/ "(Is it just me or I kept seeing that dog everywhere?)",
+            /*17*/ "(I saw a #dog on Main Street around 11 PM#.)",
+            /*18*/ "(Then, I saw another #dog at the Park around 3 PM#.)",
+            /*19*/ "(Maybe I'm just seeing things...)",
+            /*20*/ "\"Also, I stayed up all night last night programming KT, a game project.\"",
+            /*21*/ "\"I'm just not a morning person.\"",
+            /*22*/ "\"Maybe I should take a stroll in the park.\"",
+            
+        };
+        AddNpc(27, "Faye", "Faye", faye);
+
+        gameManager.allObjects[27].dialogues[9].choices = new Choice[]
+		{
+            AddChoice("What's wrong?", ChoiceAction.CONTINUE, 27, 21)
+        };
+        AddToDialogue(27, 21, ChoiceContinueDialog(27, 20));
+        AddToDialogue(27, 20, ChoiceContinueDialog(27, 22));
+
+
+        // ================ DAE ================ //
+        string[] dae = new string[]
+        {
+            /*0*/ "\"Good morning. The Chocolate Crispies here are so good.\"",       
+            /*1*/ "\"Alfred's been mumbling all day about #a box and the mayor#.\"",
+            /*2*/ "\"I thought the #charges against Faraday# were dropped?\"",
+            /*3*/ "(Oh well, young people won't understand anyways.)",
+            /*4*/ "\"Poor guy... It must be hard for Alfred and his wife Megan.\"",
+            /*5*/ "\"Alfred wouldn't ever have jumped. Someone must have murdered him.\"",
+            /*6*/ "\"Did you see anyone supicious around here?\"",
+            /*7*/"\"Stay back. The #murderer might still be around# here.\"",
+            /*8*/"\"I was going to go home, but after seeing what happened to Alfred, I must stay.\"",
+            /*9*/"\"Punxsu needs me!\"",
+            /*10*/"\"It's getting really late. You need to go home right now.\"",
+            /*11*/"\"Thanks, kid. I have been looking for this.\"",
+            /*12*/"(With this, Faraday will give me enough money for Yoona's treatment.)",
+        };
+        AddNpc(36, "Dae", "Dae", dae);
+
+
+        //Give box to Dae any time.
+        //gameManager.allObjects[36].dialogues[0].choices = new Choice[]
+        //{
+        //    AddChoice("Give box", ChoiceAction.CONTINUE, 27, 9)
+        //};
+        //AddToDialogue(27, 9, ChoiceContinueDialog(27, 21));
+        //AddToDialogue(27, 21, ChoiceContinueDialog(27, 20));
+        //AddToDialogue(27, 20, ChoiceContinueDialog(27, 22));
+
+
+        // ================ YOONA ================ //
+        string[] yoona = new string[]
+        {
+            /*0*/ "(Daddy... I miss you.)",       
+            /*1*/ "\"Good morning. Are you here to visit me too? How sweet!\"",
+            /*2*/ "\"Oh... I got a heart disease about a year ago.\"",
+            /*3*/ "\"Alex's also here to visit.  He's my childhood friend.  *Heehee*\"",
+            /*4*/ "\"My dad used to visit me often, but he stopped coming lately. I guess he'd been busy with work.\"",
+            /*5*/ "\"Oh! My dad is a cop.  He's like a superhero for the town!\"",
+            /*6*/ "\"Aren't you supposed to be in class?....I miss going to school and hanging out with my friends.\"",
+            /*7*/"\"When is Alex getting back? I'm bored...\"",
+            /*8*/"\"There's nothing to do at the hospital.  I'm so bored, but at least Alex comes here often to hang out with me.\"",
+            /*9*/"*zzz*",
+            /*10*/"\"Isn't that Alex's dad? I hope he's okay...\"",
+            
+        };
+        AddNpc(37, "Yoona", "Yoona", yoona);
+
+        gameManager.allObjects[37].dialogues[1].choices = new Choice[]
+		{
+            AddChoice("What happened to you?", ChoiceAction.CONTINUE, 37, 2),
+        };
+        AddToDialogue(37, 2, ChoiceContinueDialog(37, 3));
+        AddToDialogue(37, 3, ChoiceContinueDialog(37, 4));
+
+        gameManager.allObjects[37].dialogues[4].choices = new Choice[]
+		{
+            AddChoice("Your dad?", ChoiceAction.CONTINUE, 37, 5),
+        };
+   
+
+
+        // ================ KYLE ================ //
+        string[] kyle = new string[]
+        {
+            /*0*/ "\"Have you seen #Alex#? I haven't seen him these past few days.\"",       
+            /*1*/ "\"Maybe I should go to the police station and tell his dad that he'd been ditching class.\"",
+            /*2*/ "\"Hey, what's up?\"",
+            /*3*/ "\"Ugh...we lost the game.\"",
+            /*4*/ "\"Oh it's Alex's dad! Maybe I should go talk to him about Alex.\"",
+           
+            
+        };
+        AddNpc(50, "Kyle", "Kyle", kyle);
+
+
+        // ================ ANNA ================ //
+        string[] anna = new string[]
+        {
+            /*0*/ "\"Did you hear about Yoona?  She has a heart disease so that's why she hasn't been coming to school lately.  Maybe I should go visit her.\"",       
+            /*1*/ "\"Shh Kelly's mom is here.  Don't tell Kelly this, but I don't like her mom.\"",
+            /*2*/ "\"Her mom works for Faraday. My dad's business is going down because of him. They're shady I'm telling you.\"",
+            /*3*/ "\"Oh no, I missed the basketball game...\"",
+          
+        };
+        AddNpc(51, "Anna", "Anna", anna);
+
+        gameManager.allObjects[51].dialogues[1].choices = new Choice[]
+		{
+            AddChoice("Why?", ChoiceAction.CONTINUE, 51, 2),
+        };
+
+        // ================ SUSAN ================ //
+        string[] susan = new string[]
+        {
+            /*0*/ "\"On Wednesday, we wear pink.\"",       
+            /*1*/ "\"Ew look at them running and and sweating. Boys.\"",
+            /*2*/ "\"I don't know where she is.  Her mom is rarely home so she gets to go out and do whatever she wants.\"",
+            /*3*/ "\"Oh no, I'm late for my massage appointment. Oh well, I'll visit #Yoona# another time.\"",
+          
+        };
+        AddNpc(52, "Susan", "Susan", susan);
+
+        gameManager.allObjects[52].dialogues[1].choices = new Choice[]
+		{
+            AddChoice("Kelly?", ChoiceAction.CONTINUE, 52, 2),
+        };
+
+        // ================ APRIL ================ //
+        string[] april = new string[]
+        {
+            /*0*/ "\"Good morning! Are you here to excercise too? It's good for your health.\"",       
+            /*1*/ "\"She used to be Megan's roommate in college.  I don't really know what happened, but I heard they fought.\"",
+            /*2*/ "\"There's this #hobo in the park# and he smells.  I finally reported him.  Ugh I hope he goes away and stop ruining my mood the morning.\"",
+            /*3*/ "\"Oh it's Dae. It must be hard for him to raise a daughter all by himself.  He's such a good father. It seems like he will do anything for her.\"",
+            /*4*/ "\"The Donut Hole Original is the best. Don't you agree?\"",       
+
+        };
+        AddNpc(53, "April", "April", april);
+
+        gameManager.allObjects[53].dialogues[4].choices = new Choice[]
+		{
+            AddChoice("Patricia?", ChoiceAction.CONTINUE, 37, 1),
+        };
+
+        // ================ PATRICIA ================ //
+        string[] patricia = new string[]
+        {
+            /*0*/ "\"Did you see the look on her face? Priceless!\"",       
+            /*1*/ "(So this #hobo# didn't do so terribly, after all.)",
+            /*2*/ "(Well, time to report back to Jerry. Heh heh...)",
+            /*3*/ "\"What's up with kids and ditching school nowadays?\"",
+            /*4*/ "\"Wait, that was me. You remind me of my younger self. Ha!\"",
+            /*5*/ "\"Only some overachiever like Megan would get perfect attendance since preschool.\"",
+            /*6*/ "\"She makes me sick. Living with her in college was the worst year of my life.\"",
+            /*7*/ "(The show should start soon...)",
+            /*8*/ "(I should head over to #Main Street at 7 PM# and wait there.)",
+            /*9*/ "(I hope this #Bob# knows what he's doing.)",
+            /*10*/"(Yuck, why is there a dog in here?)",
+            /*11*/"\"The donut here is good, no doubt, but their coffee sucks. I'm picky with my coffee.\"",
+            /*12*/"(I'll just tell Jerry to get rid of this place, like the rest of them...)",
+            /*13*/"\"Oh, you're still here? Go away.\"",
+            /*14*/"\"Me? I'm #Faraday's secretary#. He lets me take breaks whenever I want.\"",
+            /*15*/"\"Oops, am I supposed to not tell you this?\"",
+
+        };
+        AddNpc(66, "Patricia", "Patricia", patricia);
+
+
+        gameManager.allObjects[66].dialogues[4].choices = new Choice[]
+		{
+            AddChoice("Who are you?", ChoiceAction.CONTINUE, 66, 14)
+        };
+        AddToDialogue(66, 17, ChoiceContinueDialog(66, 15));
+
+
+        gameManager.allObjects[66].dialogues[5].choices = new Choice[]
+		{
+            AddChoice("You know Megan?", ChoiceAction.CONTINUE, 66, 13)
+        };
+        AddToDialogue(66, 13, ChoiceContinueDialog(66, 6));
+
+
+
+        // ================ KELLY ================ //
+        string[] kelly = new string[]
+        {
+            /*0*/ "\"Phew, classes are finally over.\"",       
+            /*1*/ "\"Hey, why don’t we go hang out? I’m craving Jeney’s donuts…\"",
+            /*2*/ "\"What is it? Okay, I'll wait a bit, but not for long! Or I can meet you there, too.\"",
+            /*3*/ "\"Yesterday I overheard my mom and Faraday talking about #a box#.  It looks serious because a cop was there.\"",
+            /*4*/ "\"Hey, you don't think that #cop guy works with Faraday#, do you?\"",
+            /*5*/ "\"Shh, my mom's sitting over there...\"",
+            /*6*/"\"Ugh that slimeball Faraday's pictures are everywhere.  I don't get what my mom sees in him.\"",
+            /*7*/"\"I want my mom to realize what she's doing is wrong, but I don't want her to be taken away from me.  After all, she's still my mom and she's the only one I have.\"",
+          
+            
+        };
+        AddNpc(67, "Kelly", "Kelly", kelly);
+
+        gameManager.allObjects[67].dialogues[1].choices = new Choice[]
+		{
+            AddChoice("Hold on.", ChoiceAction.CONTINUE, 67, 2)
+        };
+
+        // ================ PERRY ================ //
+        string[] perry = new string[]
+        {
+            /*0*/ "\"...\"",       
+            /*1*/ "\"....?\"",
+            /*2*/ "\"Thanks, I'll take a look at it.\"",
+          
+        };
+        AddNpc(99, "Perry", "Perry", perry);
+        //Give box to Perry add choice here.
 
         // ================ DOGE ================ //
         string[] dog = new string[]
@@ -109,7 +516,7 @@ public class Data_GameDay : DataLoader
             /*1*/ "(You give the dog some bacon)",
             /*2*/ "(The dog appears to be following you)"
         };
-        AddNpc(24, "Dog", "Dog", dog);
+        AddNpc(123, "Dog", "Dog", dog);
         gameManager.allObjects[24].dialogues[0].choices = new Choice[]
 		{
             AddChoice("Feed the dog bacon", ChoiceAction.CONTINUE, 24, 1, checkboolname: "Bacon")
@@ -243,7 +650,7 @@ public class Data_GameDay : DataLoader
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
-            NpcID = 105
+            NpcID = 123
         });
 
         // ======================== RAE ======================== //
@@ -778,7 +1185,7 @@ public class Data_GameDay : DataLoader
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
-            NpcID = 40
+            NpcID = 67
         });
 
         // ======================== ALEX ======================== //
@@ -822,7 +1229,7 @@ public class Data_GameDay : DataLoader
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
-            NpcID = 105
+            NpcID = 123
         });
 
         // ======================== RAE ======================== //
@@ -996,7 +1403,7 @@ public class Data_GameDay : DataLoader
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
-            NpcID = 40
+            NpcID = 67
         });
 
         // ======================== ALEX ======================== //
@@ -1380,7 +1787,7 @@ public class Data_GameDay : DataLoader
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
-            NpcID = 40
+            NpcID = 67
         });
         AddParameters(sceneName, new InteractableObject.Parameters()
         {

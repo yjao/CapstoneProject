@@ -21,7 +21,7 @@ public class SceneManager : MonoBehaviour
 	public const string SCENE_PARK = "G_Park";
 	public const string SCENE_POLICE = "G_PoliceStation";
 	public const string SCENE_APARTMENT = "G_Apartment";
-	public const string SCENE_WORLDMAP = "WorldMapFallDemo";
+	public const string SCENE_WORLDMAP = "G_WorldMap";
 
 	#endregion
 
@@ -103,6 +103,10 @@ public class SceneManager : MonoBehaviour
             npc.wanderDirectionX = parameter.wanderDirectionX;
             npc.wanderDistanceY = parameter.wanderDistanceY;
             npc.wanderDirectionY = parameter.wanderDirectionY;
+            if (!parameter.turnOnInteract)
+            {
+                npc.characterAnimations.facePlayerOnInteraction = false;
+            }
         }
     }
 

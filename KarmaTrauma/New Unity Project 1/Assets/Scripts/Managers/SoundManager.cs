@@ -54,19 +54,30 @@ public class SoundManager : MonoBehaviour {
 
     public void LoadSceneSound(string mapName, float volume, bool loop = false)
     {
-        AudioSource tempsource = gameObject.AddComponent<AudioSource>();
-        if (mapSong.ContainsKey(mapName))
+        bool isplaying = false;
+        for (int i = 0; i < backgroundSounds.Count; i++)
         {
-            tempsource.clip = mapSong[mapName];
+            if (backgroundSounds[i].clip == mapSong[mapName] || backgroundSounds[i].clip == Resources.Load<AudioClip>(mapName))
+            {
+                isplaying = true;
+            }
         }
-        else
+        if (!isplaying)
         {
-            tempsource.clip = Resources.Load<AudioClip>(mapName);
+            AudioSource tempsource = gameObject.AddComponent<AudioSource>();
+            if (mapSong.ContainsKey(mapName))
+            {
+                tempsource.clip = mapSong[mapName];
+            }
+            else
+            {
+                tempsource.clip = Resources.Load<AudioClip>(mapName);
+            }
+            tempsource.volume = volume;
+            tempsource.loop = loop;
+            tempsource.Play();
+            backgroundSounds.Add(tempsource);
         }
-        tempsource.volume = volume;
-        tempsource.loop = loop;
-        tempsource.Play();
-        backgroundSounds.Add(tempsource);
     }
 
     public void StopAllBackgroundSounds()

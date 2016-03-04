@@ -432,7 +432,12 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Slide13_Coroutine()
     {
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
+        gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(false);
+        gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(false);
         StartCoroutine(sm.fade_out());
+
         yield return StartCoroutine(Slide_Coroutine(slides[6]));
         yield return StartCoroutine(Slide_Coroutine(slides[7]));
     }
@@ -446,10 +451,6 @@ public class TutorialManager : MonoBehaviour
       
         yield return StartCoroutine(sm.fade_black());
         yield return StartCoroutine(sm.display_text("The next day...\n\n...?"));
-        gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(false);
-        gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(false);
         gameManager.SetTime(GameManager.TimeType.SET, 6);
         yield return StartCoroutine(gameManager.GradualClock(12, .1f));
         

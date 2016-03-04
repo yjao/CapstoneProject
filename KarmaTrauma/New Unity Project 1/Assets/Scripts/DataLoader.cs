@@ -34,7 +34,8 @@ public class DataLoader
 
 		// Put in your test Data_ scripts here. Comment out the ones you don't need.
 		//var d1 = new Data_FallDemo();
-        var d2 = new Data_WinterPlayTest();
+        //var d2 = new Data_WinterPlayTest();
+        var d3 = new Data_GameDay();
 		Debug.Log("Loading Complete");
 		gameManager.SaveGameData();
 	}

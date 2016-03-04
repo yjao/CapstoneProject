@@ -84,22 +84,22 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Start_Tutorial()
     {
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
-        yield return StartCoroutine(Slide_Coroutine(slides[1]));
-        yield return StartCoroutine(Slide_Coroutine(slides[2]));
+        //yield return StartCoroutine(Slide_Coroutine(slides[1]));
+        //yield return StartCoroutine(Slide_Coroutine(slides[2]));
 
-        yield return StartCoroutine(Slide4_Coroutine());
+        //yield return StartCoroutine(Slide4_Coroutine());
 
-        // PICTURE SLIDE: Fallen Alfred and Book
-        yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
-        yield return StartCoroutine(Slide_Coroutine(slides[3]));
-        yield return StartCoroutine(Slide_Coroutine(slides[4]));
-        yield return StartCoroutine(Slide7_Coroutine());
+        //// PICTURE SLIDE: Fallen Alfred and Book
+        //yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
+        //yield return StartCoroutine(Slide_Coroutine(slides[3]));
+        //yield return StartCoroutine(Slide_Coroutine(slides[4]));
+        //yield return StartCoroutine(Slide7_Coroutine());
 
-        yield return StartCoroutine(Slide8_Coroutine());
-        yield return StartCoroutine(Slide9_Coroutine());
-        yield return StartCoroutine(Slide10_Coroutine());
+        //yield return StartCoroutine(Slide8_Coroutine());
+        //yield return StartCoroutine(Slide9_Coroutine());
+        //yield return StartCoroutine(Slide10_Coroutine());
 
-        yield return StartCoroutine(Slide11_Coroutine());
+        //yield return StartCoroutine(Slide11_Coroutine());
 
         yield return StartCoroutine(Slide12_Coroutine());
         yield return StartCoroutine(Slide13_Coroutine());      

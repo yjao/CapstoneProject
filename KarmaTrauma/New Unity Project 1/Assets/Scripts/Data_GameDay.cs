@@ -40,13 +40,13 @@ public class Data_GameDay : DataLoader
         AddNpc(2, "Alfred", "Alfred", alfred);
 
         //Check if Cocodonut is in the bag.  Can give Cocodonut to Alfred any time.
-        //gameManager.allObjects[2].dialogues[0].choices = new Choice[]
-        //{
-        //    AddChoice("Offer Cocodonut", checkboolname: "AlfredCocodonut")
-        //};
-        //AddToDialogue(2, 0, ChoiceContinueDialog(2, 12));
-        //AddToDialogue(7, 12, ChoiceContinueDialog(7, 3));
-        //AddToDialogue(7, 3, ChoiceContinueDialog(7, 13));
+        gameManager.allObjects[2].dialogues[0].choices = new Choice[]
+        {
+            AddChoice("Offer Cocodonut", checkboolname: "AlfredCocodonut")
+        };
+        AddToDialogue(2, 0, ChoiceContinueDialog(2, 12));
+        AddToDialogue(7, 12, ChoiceContinueDialog(7, 3));
+        AddToDialogue(7, 3, ChoiceContinueDialog(7, 13));
 
 
         // ================ MEGAN ================ //
@@ -408,7 +408,7 @@ public class Data_GameDay : DataLoader
         // ================ SUSAN ================ //
         string[] susan = new string[]
         {
-            /*0*/ "\"On Wednesday, we wear pink.\"",       
+            /*0*/ "\"On Wednesday, we wear blue\"",       
             /*1*/ "\"Ew look at them running and and sweating. Boys.\"",
             /*2*/ "\"I don't know where she is.  Her mom is rarely home so she gets to go out and do whatever she wants.\"",
             /*3*/ "\"Oh no, I'm late for my massage appointment. Oh well, I'll visit #Yoona# another time.\"",

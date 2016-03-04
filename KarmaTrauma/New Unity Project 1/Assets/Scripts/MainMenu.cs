@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
     public Canvas quitMenu;
     public Button startText;
     public Button exitText;
+    public string startScene;
 
     void Start()
     {
@@ -66,6 +67,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadDemoScene()
     {
+		Debug.Log ("You're not supposed to be here.");
         Application.LoadLevel(SceneManager.SCENE_MAINSTREET);
         yield return null;
 		GameManager.instance.SetTime(GameManager.TimeType.SET, 20);
@@ -77,13 +79,18 @@ public class MainMenu : MonoBehaviour
 
 	IEnumerator ExitPrologue()
 	{
-		Application.LoadLevel(SceneManager.SCENE_MAINSTREET);
+        string sceneName = SceneManager.SCENE_MAINSTREET;
+        if (startScene != null)
+        {
+            sceneName = startScene;
+        }
+		Application.LoadLevel(sceneName);
 		yield return null;
 
 		GameManager.instance.SetTime(GameManager.TimeType.SET, 20);
 		yield return null;
 
-		SceneManager.instance.LoadScene(SceneManager.SCENE_MAINSTREET);
+		SceneManager.instance.LoadScene(sceneName);
 		yield return null;
 
 		Destroy(this);

@@ -461,7 +461,7 @@ public class Data_GameDay : DataLoader
         id = 53;
         string[] april = new string[]
         {
-            /*0*/ "\"Good morning! Are you here to excercise too? It's good for your health.\"",       
+            /*0*/ "\"Good morning! Are you here to exercise too? It's good for your health.\"",       
             /*1*/ "\"She used to be Megan's roommate in college.  I don't really know what happened, but I heard they fought.\"",
             /*2*/ "\"There's this #hobo in the park# and he smells.  I finally reported him.  Ugh I hope he goes away and stop ruining my mood the morning.\"",
             /*3*/ "\"Oh it's Dae. It must be hard for him to raise a daughter all by himself.  He's such a good father. It seems like he will do anything for her.\"",
@@ -1670,12 +1670,53 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 10, 12, 14, 16 },
+            timeBlocks = new List<int>() { 10 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 0,
-            dialogueIDMax = 0,
+            dialogueIDMin = 13,
+            dialogueIDMax = 14,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 12 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 1,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 14 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDMin = 2,
+            dialogueIDMax = 3,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 16 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDMin = 15,
+            dialogueIDMax = 16,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1722,7 +1763,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 2,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

@@ -357,6 +357,10 @@ public class Data_GameDay : DataLoader
             /*10*/"\"It's getting really late. You need to go home right now.\"",
             /*11*/"\"Thanks, kid. I have been looking for this.\"",
             /*12*/"(With this, Faraday will give me enough money for Yoona's treatment.)",
+            /*13*/"(I wonder how she's been doing. I hope she's not mad at me for not visiting her lately.)",
+            /*14*/"(I'll give her a surprise visit tomorrow!)",
+            /*15*/"\"That guy Perry is suspicious. He's been going around town asking people about Faraday.\"",
+            /*16*/"\"Even thought he's my superior, I still don't trust that guy.\"",
         };
         AddNpc(id, "Dae", "Dae", dae);
 

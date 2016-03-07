@@ -6,7 +6,7 @@ public class DataLoader
 {
 	protected GameManager gameManager;
 
-    public enum ChoiceAction{ITEM, MOVE, CONTINUE, DESTROY, NONE}
+    public enum ChoiceAction{ITEM, MOVE, CONTINUE, DESTROY, COROUTINE, NONE}
 
 	// temporary
 	public static DataLoader Instance;
@@ -54,7 +54,7 @@ public class DataLoader
 
 	// temporarily making it public for hardcoding purposes
     public Choice AddChoice(string text, ChoiceAction CA = ChoiceAction.NONE, int id = -1, int subID = -1, string setboolname = null, string checkboolname = null,
-                            string checkitemname = null, string removeitemname = null)
+                            string checkitemname = null, string removeitemname = null, string coroutinename = null)
     {
         ChoiceEventArgs CEA;
         if (CA == ChoiceAction.ITEM)
@@ -68,6 +68,10 @@ public class DataLoader
         else if (CA == ChoiceAction.DESTROY)
         {
             CEA = new ChoiceEventArgs() { ChoiceAction = InteractableObject.InteractDestroy };
+        }
+        else if (CA == ChoiceAction.COROUTINE)
+        {
+            CEA = new ChoiceEventArgs() { ChoiceAction = TutorialManager.CallCoroutineEvent, CoroutineName = coroutinename };
         }
         else
         {

@@ -37,7 +37,6 @@ public class MainMenu : MonoBehaviour
 
 	void Update()
 	{
-		Debug.Log (screenState);
 		switch (screenState)
 		{
 		case ScreenState.MAIN:

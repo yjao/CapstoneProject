@@ -102,6 +102,7 @@ public class Data_GameDay : DataLoader
             
         };
         AddNpc(id, "Megan", "Megan", megan);
+        AddToDialogue(id, 6, ChoiceContinueDialog(id, 7));
 
 
         // ================ Alex ================ //
@@ -168,7 +169,7 @@ public class Data_GameDay : DataLoader
         AddToDialogue(id, 5, ChoiceContinueDialog(id, 6));
 
 
-        // ================ MEGAN ================ //
+        // ================ MOM ================ //
         id = 5;
         string[] mom = new string[]
         {
@@ -253,9 +254,8 @@ public class Data_GameDay : DataLoader
 		{
             AddChoice("What's going on?", ChoiceAction.CONTINUE, id, 3)
         };
-        AddToDialogue(id, 3, ChoiceContinueDialog(11, 8));
-        AddToDialogue(id, 8, ChoiceContinueDialog(11, 6));
-
+        LinkContinueDialogues(id, new int[3] { 3, 8, 6 });
+        LinkContinueDialogues(id, new int[3] { 1, 9, 2 });
 
         // ================ BOB ================ //
         id = 13;
@@ -314,7 +314,10 @@ public class Data_GameDay : DataLoader
             AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobTrainTicket", checkitemname: "TrainTicket")
         };
  
-
+        LinkContinueDialogues(id, new int[3]{7,8,10});
+        AddToDialogue(id, 11, ChoiceContinueDialog(id, 12));
+        LinkContinueDialogues(id, new int[3] { 4, 5, 6 });
+        LinkContinueDialogues(id, new int[3] { 1, 2, 3 });
 
         // ================ RAE ================ //
         id = 23;
@@ -347,6 +350,7 @@ public class Data_GameDay : DataLoader
         };
         AddToDialogue(id, 1, ChoiceContinueDialog(id, 2));
         AddToDialogue(id, 2, ChoiceContinueDialog(id, 3));
+        AddToDialogue(id, 6, ChoiceContinueDialog(id, 7));
 
         // ================ FAYE ================ //
         id = 27;
@@ -385,7 +389,8 @@ public class Data_GameDay : DataLoader
         };
         AddToDialogue(id, 21, ChoiceContinueDialog(id, 20));
         AddToDialogue(id, 20, ChoiceContinueDialog(id, 22));
-
+        LinkContinueDialogues(id, new int[3]{6,7,8});
+        LinkContinueDialogues(id, new int[3] { 10, 11, 12 });
 
         // ================ DAE ================ //
         id = 36;
@@ -408,6 +413,8 @@ public class Data_GameDay : DataLoader
             /*14*/"(I'll give her a surprise visit tomorrow!)",
             /*15*/"\"That guy Perry is suspicious. He's been going around town asking people about Faraday.\"",
             /*16*/"\"Even thought he's my superior, I still don't trust that guy.\"",
+            /*17*/"\"!!!!!\"",
+            /*18*/"\"Kid, what are you doing at this hour? You shouldn't be here. Go home now!\"",
         };
         AddNpc(id, "Dae", "Dae", dae);
 
@@ -421,6 +428,7 @@ public class Data_GameDay : DataLoader
         //AddToDialogue(27, 21, ChoiceContinueDialog(27, 20));
         //AddToDialogue(27, 20, ChoiceContinueDialog(27, 22));
 
+        LinkContinueDialogues(id, new int[2] { 17, 18 });
 
         // ================ YOONA ================ //
         id = 37;
@@ -717,6 +725,7 @@ public class Data_GameDay : DataLoader
 
         #endregion
 
+#region SCENE_HOUSE
         sceneName = SceneManager.SCENE_HOUSE;
 
         // ======================== BACON ======================== //
@@ -800,6 +809,8 @@ public class Data_GameDay : DataLoader
             Summary = "",
             NpcID = 5
         });
+#endregion
+#region SCENE_PARK
 
         sceneName = SceneManager.SCENE_PARK;
 
@@ -822,12 +833,12 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 8, 10},
+            timeBlocks = new List<int>() { 8, 10 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.MULTI_DIALOGUE_ID,
-            dialogueIDMulti = {0,3}, 
-            
+            dialogueIDMulti = new List<int>() { 0, 3 },
+
 
             // Getter/Setter variables, NpcID is required
             Summary = "Rae looking for dog",
@@ -840,7 +851,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 7,
+            dialogueIDSingle = 6,
 
             // Getter/Setter variables, NpcID is required
             Summary = "favorite spot",
@@ -871,9 +882,8 @@ public class Data_GameDay : DataLoader
             timeBlocks = new List<int>() { 14 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 1,
-            dialogueIDMax = 2,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 4,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -885,9 +895,8 @@ public class Data_GameDay : DataLoader
             timeBlocks = new List<int>() { 16 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 3,
-            dialogueIDMax = 4,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 5,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -900,7 +909,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 5,
+            dialogueIDSingle = 1,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -941,8 +950,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 2,
-
+            dialogueIDSingle = 6,
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
 
@@ -959,7 +967,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 2,
+            dialogueIDSingle = 9,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
@@ -975,7 +983,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 2,
+            dialogueIDSingle = 7,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
@@ -991,7 +999,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 2,
+            dialogueIDSingle = 11,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
@@ -1007,7 +1015,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 2,
+            dialogueIDSingle = 7,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
@@ -1023,7 +1031,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 2,
+            dialogueIDSingle = 4,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
@@ -1039,7 +1047,8 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 2,
+            dialogueIDSingle = 1,
+
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
@@ -1057,7 +1066,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 6,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1070,7 +1079,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 10,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1085,7 +1094,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 17,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1100,7 +1109,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 3,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1115,7 +1124,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 3,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1130,7 +1139,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 1,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1152,6 +1161,9 @@ public class Data_GameDay : DataLoader
             NpcID = 53
         });
 
+#endregion
+
+#region SCENE_MAINSTREET
         sceneName = SceneManager.SCENE_MAINSTREET;
 
         // ======================== DOG ======================== //
@@ -1497,7 +1509,9 @@ public class Data_GameDay : DataLoader
             Summary = "",
             NpcID = 220
         });
+#endregion
 
+#region SCENE_MALL
 
         sceneName = SceneManager.SCENE_MALL;
 
@@ -1734,7 +1748,9 @@ public class Data_GameDay : DataLoader
             Summary = "",
             NpcID = 53
         });
+#endregion
 
+#region SCENE_POLICE
         sceneName = SceneManager.SCENE_POLICE;
 
         // ======================== RAE ======================== //
@@ -1886,7 +1902,9 @@ public class Data_GameDay : DataLoader
             Summary = "",
             NpcID = 53
         });
+#endregion
 
+#region SCENE_HOSPITAL
         sceneName = SceneManager.SCENE_HOSPITAL;
 
         // ======================== ALFRED ======================== //
@@ -2111,7 +2129,9 @@ public class Data_GameDay : DataLoader
             NpcID = 4
         });
 
+#endregion
 
+#region SCENE_CLASS
 
 
         sceneName = SceneManager.SCENE_CLASS;
@@ -2267,6 +2287,7 @@ public class Data_GameDay : DataLoader
         });
     }
 
+#endregion
     private void LoadOutcomeData()
     {
         #region EMPTY_TEMPLATE

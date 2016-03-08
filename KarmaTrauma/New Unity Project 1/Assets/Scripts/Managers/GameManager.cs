@@ -421,7 +421,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-			ApplyTint();
+			//ApplyTint();
             gameClockDisplay = newDisplay;
         }
     }
@@ -430,7 +430,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         gameClockDisplay = display;
-		ApplyTint();
+		//ApplyTint();
         yield break;       
     }
 

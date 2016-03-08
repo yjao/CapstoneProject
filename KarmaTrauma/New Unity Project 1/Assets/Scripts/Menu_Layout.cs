@@ -102,6 +102,7 @@ public class Menu_Layout : MonoBehaviour
         if (gameManager.GetTimeAsInt() < 22)
         {
             gameManager.SetTime(GameManager.TimeType.INCREASE);
+            SceneManager.instance.tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());
         }
     }
 

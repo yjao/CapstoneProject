@@ -13,6 +13,10 @@ public class SceneManager : MonoBehaviour
 
 	#region SCENE CONSTANTS
 
+	public const string SCENE_TITLESCREEN = "KarmaTrauma";
+	public const string SCENE_CREDITS = "E_Credits";
+	public const string SCENE_TUTORIAL = "T_Main";
+
 	public const string SCENE_HOUSE = "G_House";
 	public const string SCENE_CLASS = "G_Class";
 	public const string SCENE_MAINSTREET = "G_MainStreet";
@@ -57,16 +61,16 @@ public class SceneManager : MonoBehaviour
         scene_display_names = new Dictionary<string, string>()
         {
             {SCENE_HOUSE, "Home"},
-	        {SCENE_CLASS, "Class"},
+	        {SCENE_CLASS, "School"},
 	        {SCENE_MAINSTREET, "Main Street"},
-	        {SCENE_MALL, "Mall"},
-	        {SCENE_HOSPITAL, "Hospital"},
-            {SCENE_PARK, "Park"},
+	        {SCENE_MALL, "The Donut Hole"},
+	        {SCENE_HOSPITAL, "Punxsu Hospital"},
+            {SCENE_PARK, "Punxsu Park"},
             {SCENE_POLICE, "Police Station"},
-            {SCENE_APARTMENT, "Apartments"},
             {SCENE_WORLDMAP, "World Map"},
             {"T_Class", "Classroom"},
             {"T_MainStreet", "Main Street"},
+			{SCENE_CREDITS, "Meet the Team!"}
         };
         //gameManager.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
 	}

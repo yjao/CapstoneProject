@@ -4,102 +4,105 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour
 {
-    public Canvas quitMenu;
-    public Button startText;
-    public Button exitText;
+	public static MainMenu instance;
     public string startScene;
+	public int startTime;
+	public enum ScreenState
+	{
+		MAIN, CREDITS
+	};
+	ScreenState screenState = ScreenState.MAIN;
 
     void Start()
     {
-        //quitMenu = quitMenu.GetComponent<Canvas>();
-        startText = startText.GetComponent<Button>();
-        //exitText = exitText.GetComponent<Button>();
-    //    quitMenu.enabled = false;
+		if (instance != null)
+		{
+			instance.screenState = ScreenState.MAIN;
+			Destroy(this.gameObject);
+		}
+
+		instance = this;
         DontDestroyOnLoad(this);
 		Cursor.visible = false;
+
+		if (startScene == null)
+		{
+			startScene = SceneManager.SCENE_MAINSTREET;
+		}
+		if (startTime == 0)
+		{
+			startTime = 20;
+		}
     }
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		Debug.Log (screenState);
+		switch (screenState)
 		{
-			MainGameDemo();
+		case ScreenState.MAIN:
+			if (Input.GetKeyDown(KeyCode.Space))
+			{
+				StartTutorial();
+			}
+			else if (Input.GetKeyDown(KeyCode.C))
+			{
+				StartCredits();
+			}
+			else if (Input.GetKeyDown(KeyCode.D))
+			{
+				StartGame();
+			}
+			break;
+		case ScreenState.CREDITS:
+
+			break;
+		default:
+			break;
 		}
 	}
 
-    public void ExitPress() //this function will be used on our Exit button
-    {
-      //  quitMenu.enabled = true; //enable the Quit menu when we click the Exit button
-        startText.enabled = false; //then disable the Play and Exit buttons so they cannot be clicked
-        //exitText.enabled = false;
-
-    }
-
-    public void NoPress() //this function will be used for our "NO" button in our Quit Menu
-    {
-    //    quitMenu.enabled = false; //we'll disable the quit menu, meaning it won't be visible anymore
-        startText.enabled = true; //enable the Play and Exit buttons again so they can be clicked
-      //  exitText.enabled = true;
-
-    }
-
-    public void StartLevel() //this function will be used on our Play button
-    {
-        Application.LoadLevel("prologue"); //this will load our first level from our build settings. "1" is the second scene in our game
-
-    }
-    public void LoadLevel()
-    {
-        // This will require some serious coding 
-
-    }
-
-    public void ShortPrologueDemo()
-    {
-        Application.LoadLevel("ShortPrologue");
-    }
-
-    public void MainGameDemo()
-    {
-        //StartCoroutine("LoadDemoScene");
-		StartCoroutine("ExitPrologue");
-    }
-
-    IEnumerator LoadDemoScene()
-    {
-		Debug.Log ("You're not supposed to be here.");
-        Application.LoadLevel(SceneManager.SCENE_MAINSTREET);
-        yield return null;
-		GameManager.instance.SetTime(GameManager.TimeType.SET, 20);
-		yield return null;
-		SceneManager.instance.LoadScene();
-		yield return null;
-        Destroy(this);
-    }
-
-	IEnumerator ExitPrologue()
+	public void StartTutorial()
 	{
-        string sceneName = SceneManager.SCENE_MAINSTREET;
-        if (startScene != null)
-        {
-            sceneName = startScene;
-        }
-		Application.LoadLevel(sceneName);
-		yield return null;
+		StartCoroutine(EnterTutorialCoroutine());
+	}
 
-		GameManager.instance.SetTime(GameManager.TimeType.SET, 20);
-		yield return null;
+    public void StartGame()
+    {
+		StartCoroutine(EnterGameCoroutine());
+    }
 
-		SceneManager.instance.LoadScene(sceneName);
-		yield return null;
+	public void StartCredits()
+	{
+		StartCoroutine(EnterCreditsCoroutine());
+	}
+
+	IEnumerator EnterTutorialCoroutine()
+	{
+		SceneManager.instance.fade_black();
+		SceneManager.instance.LoadScene(SceneManager.SCENE_TUTORIAL);
+		
+		Destroy(this);
+		yield break;
+	}
+
+	IEnumerator EnterGameCoroutine()
+	{
+		SceneManager.instance.fade_black();
+		GameManager.instance.SetTime(GameManager.TimeType.SET, startTime);
+		GameManager.instance.MenuLayout.SetActive(true);
+		SceneManager.instance.LoadScene(startScene);
 
 		Destroy(this);
 		yield break;
 	}
 
-    public void ExitGame() //This function will be used on our "Yes" button in our Quit menu
-    {
-        Application.Quit(); //this will quit our game. Note this will only work after building the game
-    }
-
+	IEnumerator EnterCreditsCoroutine()
+	{
+		screenState = ScreenState.CREDITS;
+		SceneManager.instance.LoadScene(SceneManager.SCENE_CREDITS);
+		yield return null;
+		GameManager.instance.Play();
+		yield break;
+	}
 }

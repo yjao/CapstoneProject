@@ -6,12 +6,38 @@ public class Data_GameDay : DataLoader
 {
     public Data_GameDay()
     {
+		LoadCreditsData();
+
         LoadNpcData();
         LoadQuestTerms();
         LoadQuestData();
         LoadSceneData();
         LoadOutcomeData();
     }
+
+	private void LoadCreditsData()
+	{
+		int id = -1;
+		
+		// ================ DAE ================ //
+		id = 1001;
+		string[] dae = new string[]
+		{
+			/*0*/ "\"Hi I'm Dae.\"",
+			/*1*/ "\"I love my daughter.\""
+		};
+		AddNpc(id, "Dae Kim", "", dae);
+
+		// ================ FAYE ================ //
+		id = 1002;
+		string[] faye = new string[]
+		{
+			/*0*/ "\"Hey guys, I'm Faye. I'm the producer and project manager of this game.\"",
+			/*1*/ "\"In the game, my role is a side character, a broke college student. Come visit me in-game!\"",
+			/*2*/ "\"I'm not entirely sure if Potadonut is even a thing...\""
+		};
+		AddNpc(id, "Faye Jao", "", faye);
+	}
 
     private void LoadNpcData()
     {

@@ -7,7 +7,7 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-
+	public GameObject MenuLayout;
     public PlayerData playerData = new PlayerData();
     public DayData dayData = new DayData();
     public static GameManager instance;

@@ -525,7 +525,16 @@ public class Textbox : MonoBehaviour
         }
         string name = args.DialogueBox.transform.Find("Name").GetComponent<Text>().text;
         string message = BuildIntoQuestList(name, args.DialogueBox.Dialog.text);
-		args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = message;
+        if (args.DialogueBox.Dialog.choices != null)
+        {
+            args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID);
+            args.DialogueBox.gameManager.ExitDialogue();
+            args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs()); ;
+        }
+        else
+        {
+            args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = message;
+        }
         if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice() || GameManager.instance.allObjects[args.IDNum].dialogues[args.DialogueID].Action != null)
         {
             EventManager.OnDialogChoiceMade += args.ThisGameObject.GetComponent<InteractableObject>().HandleOnDialogChoiceMade;

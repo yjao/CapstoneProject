@@ -5,7 +5,6 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
 	public static MainMenu instance;
-	public AudioSource soundtrack;
 	public string startScene;
 	public int startTime;
 	public enum ScreenState
@@ -13,6 +12,11 @@ public class MainMenu : MonoBehaviour
 		MAIN, CREDITS
 	};
 	ScreenState screenState = ScreenState.MAIN;
+
+	private AudioSource soundtrack()
+	{
+		return GameObject.Find("Main Camera").GetComponent<AudioSource>();
+	}
 
     void Start()
     {
@@ -89,7 +93,7 @@ public class MainMenu : MonoBehaviour
 	IEnumerator EnterGameCoroutine()
 	{
 		GameManager.instance.SetTime(GameManager.TimeType.SET, startTime);
-		StartCoroutine(SoundManager.instance.FadeOutAudioSource(soundtrack, rate: 0.1f));
+		StartCoroutine(SoundManager.instance.FadeOutAudioSource(soundtrack(), rate: 0.1f));
 		yield return StartCoroutine(SceneManager.instance.LoadSceneCoroutine(startScene));
 		GameManager.instance.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
 
@@ -101,7 +105,7 @@ public class MainMenu : MonoBehaviour
 	{
 		screenState = ScreenState.CREDITS;
 		yield return StartCoroutine(SceneManager.instance.fade_black());
-		yield return StartCoroutine(SoundManager.instance.FadeOutAudioSource(soundtrack, rate: 0.1f));
+		yield return StartCoroutine(SoundManager.instance.FadeOutAudioSource(soundtrack(), rate: 0.1f));
 		Application.LoadLevel(SceneManager.SCENE_CREDITS);
 		yield return StartCoroutine(SceneManager.instance.fade_out());
 		yield return null;

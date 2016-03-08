@@ -5,7 +5,8 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
 	public static MainMenu instance;
-    public string startScene;
+	public AudioSource soundtrack;
+	public string startScene;
 	public int startTime;
 	public enum ScreenState
 	{
@@ -89,8 +90,9 @@ public class MainMenu : MonoBehaviour
 	{
 		SceneManager.instance.fade_black();
 		GameManager.instance.SetTime(GameManager.TimeType.SET, startTime);
-		GameManager.instance.MenuLayout.SetActive(true);
-		SceneManager.instance.LoadScene(startScene);
+		StartCoroutine(SoundManager.instance.FadeOutAudioSource(soundtrack, rate: 0.1f));
+		yield return StartCoroutine(SceneManager.instance.LoadSceneCoroutine(startScene));
+		GameManager.instance.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
 
 		Destroy(this);
 		yield break;

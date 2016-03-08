@@ -6,11 +6,22 @@ using System.Collections.Generic;
 
 public class Menu_Layout : MonoBehaviour
 {
-
     GameManager gameManager;
     QuestLog quest_log;
     Menu gameMenu;
     Player player;
+
+	public GameObject mapPanel;
+	public GameObject mapText;
+	public GameObject bagPanel;
+	public GameObject bagText;
+	public GameObject memoryPanel;
+	public GameObject memoryText;
+	public GameObject fastForwardPanel;
+	public GameObject clockPanel;
+	public GameObject clockText;
+	public GameObject timeTint;
+
     private bool timeButton_show = false;
     private bool invenButton_show = false;
     private bool diaryButton_show = false;
@@ -25,12 +36,11 @@ public class Menu_Layout : MonoBehaviour
     private int world_map_level = 17;
     private Texture2D inventory_texture;
     private Texture2D diary_texture;
-    // public GUIContent inventory_content;
+    
 
     // Use this for initialization
     void Start()
     {
-
         gameManager = GameManager.instance;
         quest_log = QuestLog.instance;
         gameMenu = Menu.Instance;
@@ -51,46 +61,8 @@ public class Menu_Layout : MonoBehaviour
 
         transform.FindChild("QuestBook").gameObject.SetActive(false);
         transform.FindChild("Inventory").gameObject.SetActive(false);
-
     }
 
-    //void OnGUI()
-    //{
-    //    GUI.backgroundColor = Color.clear;
-
-    //    string time = gameManager.GetTime();
-
-    //    bool open_menu = GameObject.FindGameObjectWithTag("Menu");
-    //    //GUI.skin.button.normal.background = inventory_texture;
-    //    //GUI.skin.toggle.hover.background = inventory_texture;
-    //    //GUI.skin.toggle.active.background = inventory_texture;
-
-    //    timeButton_show = GUI.Button(new Rect(0,0,100,40), time);
-
-    //    invenButton_show = GUI.Button(new Rect(0, 40, 40, 40), inventory_texture);
-
-    //    if (invenButton_show && !open_menu)
-    //    {
-    //        player.InvenButton();
-    //        invenButton_show = false;
-    //    }
-
-    //    diaryButton_show = GUI.Button(new Rect(0, 80, 40, 40), "Diary");
-
-    //    //Find a place to put this:  Dataloader
-
-
-    //    if (diaryButton_show && !open_menu)
-    //    {
-    //        //Insert open diary function here
-    //        player.QuestButton();
-    //        diaryButton_show = false;
-
-    //    }
-
-
-
-    //}
     void M_Clock()
     {
         //Debug.Log(transform.FindChild("Clock_display").GetComponent<Text>().text);
@@ -218,6 +190,18 @@ public class Menu_Layout : MonoBehaviour
 	public bool GetMemoryLogOpen()
 	{
 		return diaryButton_show;
+	}
+
+	public void GameMenus(bool setActive)
+	{
+		mapPanel.SetActive(setActive);
+		mapText.SetActive(setActive);
+		bagPanel.SetActive(setActive);
+		bagText.SetActive(setActive);
+		memoryPanel.SetActive(setActive);
+		memoryText.SetActive(setActive);
+		clockPanel.SetActive(setActive);
+		clockText.SetActive(setActive);
 	}
 
 	#endregion

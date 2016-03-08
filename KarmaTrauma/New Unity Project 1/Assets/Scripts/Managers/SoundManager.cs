@@ -136,7 +136,7 @@ public class SoundManager : MonoBehaviour {
             yield return null;
         }
     }
-    public IEnumerator FadeOutAudioSource(AudioSource source, bool stopMusicLoop = false)
+    public IEnumerator FadeOutAudioSource(AudioSource source, bool stopMusicLoop = false, float rate=0.01f)
     {
         if (source.volume > 0)
         {
@@ -145,7 +145,7 @@ public class SoundManager : MonoBehaviour {
         while (source.volume > 0)
         {
             yield return new WaitForSeconds(.05f);
-            source.volume -= .01f;
+			source.volume -= rate;
             if (source.volume <= 0)
             {
                 if (stopMusicLoop)

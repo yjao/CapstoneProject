@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
     public Dictionary<string,List<string>> questList;
     public List<OutcomeManager.outcome> outcomeList;
 
-    private bool reset;
 	private int keyCooldown;
     public bool has_text_box;
    
@@ -124,9 +123,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+		Debug.Log ("START");
         gameClockDisplay = gameClock.ToString() + " - " +  (gameClock+2).ToString() + "PM";
-
-        reset = true;
     }
     void OnDestroy()
     {
@@ -334,35 +332,15 @@ public class GameManager : MonoBehaviour
         return gameClock;
     }
 
-    public bool MN_call()
-    {
-        return reset;
-    }
-
-    private bool Midnight(bool createMessage=true)
+    public bool Midnight(bool forceSetMidnight=false)
     {
         //Debug.Log("data is null: " + (playerData == null));
         //Debug.Log("gameClock : " + gameClock);
-		if (GetTimeAsInt() == END_DAY_HOUR)
+		if (GetTimeAsInt() == END_DAY_HOUR || forceSetMidnight)
         {
-            //gameClock = START_DAY_HOUR;
             StartCoroutine(MidnightFade());
-            /*
-            dayData.Wipe();
-            reset = true;
-            playerData.WipeQuest();
-            playerData.daysPassed++;
-			if (createMessage)
-			{
-	            CreateMessage("Day "+(playerData.daysPassed+1)+".", true);
-			}
-            transform.Find("Menu_layout/Inventory").GetComponent<Menu>().close();
-            transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
-            SoundManager.instance.StopAllBackgroundSounds();
-			SceneManager.instance.LoadScene(SceneManager.SCENE_HOUSE);*/
             return true;
         }
-        reset = false;
         return false;
     }
 
@@ -371,7 +349,6 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine(SceneManager.instance.fade_black());
         StartCoroutine(SceneManager.instance.map_name("Day " + (playerData.daysPassed + 1) + ".", 2.25f));
         dayData.Wipe();
-        reset = true;
         playerData.WipeQuest();
         playerData.daysPassed++;
         transform.Find("Menu_layout/Inventory").GetComponent<Menu>().close();
@@ -619,7 +596,7 @@ public class GameManager : MonoBehaviour
 
 	public static void UseBed(object sender, GameEventArgs args)
 	{
-		instance.SetTime(TimeType.END_DAY, delay:true);
+		instance.Midnight(true);
 	}
 
 	public static void UnlockDoor(object sender, GameEventArgs args)

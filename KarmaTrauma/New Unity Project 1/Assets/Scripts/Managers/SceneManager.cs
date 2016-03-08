@@ -74,7 +74,9 @@ public class SceneManager : MonoBehaviour
             {SCENE_WORLDMAP, "World Map"},
             {"T_Class", "Classroom"},
             {"T_MainStreet", "Main Street"},
-			{SCENE_CREDITS, "Meet the Team!"}
+			{SCENE_CREDITS, "Meet the Team!"},
+			{SCENE_TITLESCREEN, ""},
+			{SCENE_TUTORIAL, ""}
         };
         //gameManager.transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
 	}
@@ -86,7 +88,7 @@ public class SceneManager : MonoBehaviour
     {
         prev_map = current_map;
         current_map = name;
-        StartCoroutine("LoadSceneCoroutine");
+        StartCoroutine(LoadSceneCoroutine());
         //SoundManager.instance.LoadSceneMusic(name);
     }
 
@@ -119,8 +121,13 @@ public class SceneManager : MonoBehaviour
         }
     }
 
-    IEnumerator LoadSceneCoroutine()
+    public IEnumerator LoadSceneCoroutine(string mapName=null)
     {
+		if (mapName != null)
+		{
+			current_map = mapName;
+		}
+
         yield return null;
         yield return StartCoroutine(fade_black());
         if (current_map != null)

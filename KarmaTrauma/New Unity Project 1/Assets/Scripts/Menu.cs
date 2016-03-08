@@ -64,12 +64,6 @@ public class Menu : MonoBehaviour
 
     public void display()
     {
-        /*
-        if (gameManager.MN_call())
-        {
-            close();
-            return;
-        }*/
         for (int i = 0; i < gameManager.GetItemAmount(); ++i)
         {
             if (transform.Find(gameManager.GetItemData()[i].Filename) == null)

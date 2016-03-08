@@ -87,7 +87,7 @@ public class DataLoader
 
 	protected void AddToDialogue(int ID, int dID, ChoiceEventArgs cea)
     {
-        Debug.Log(ID + "; " + dID);
+        //Debug.Log(ID + "; " + dID);
 		gameManager.allObjects[ID].dialogues[dID].CEA = cea;
         gameManager.allObjects[ID].dialogues[dID].Action += cea.ChoiceAction;
 	}

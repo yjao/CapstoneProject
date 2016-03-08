@@ -83,7 +83,11 @@ public class Data_GameDay : DataLoader
         {
             AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkboolname: "AlfredBox", checkitemname: "Box")
         };
-        
+
+
+
+        LinkContinueDialogues(id, new int[3] { 0, 5, 2});
+
 
         // ================ MEGAN ================ //
         id = 3;
@@ -103,7 +107,7 @@ public class Data_GameDay : DataLoader
         };
         AddNpc(id, "Megan", "Megan", megan);
         AddToDialogue(id, 6, ChoiceContinueDialog(id, 7));
-
+        
 
         // ================ Alex ================ //
         id = 4;
@@ -222,14 +226,13 @@ public class Data_GameDay : DataLoader
        AddToDialogue(id, 3, ChoiceContinueDialog(id, 13));
 
 
-        gameManager.allObjects[7].dialogues[0].choices = new Choice[]
+        gameManager.allObjects[7].dialogues[7].choices = new Choice[]
 		{
-            AddChoice("What happened?", ChoiceAction.CONTINUE, 7, 7)
+            AddChoice("What happened?", ChoiceAction.CONTINUE, 7, 8)
         };
-       AddToDialogue(id, 7, ChoiceContinueDialog(id, 8));
-       AddToDialogue(id, 8, ChoiceContinueDialog(id, 9));
-       AddToDialogue(id, 9, ChoiceContinueDialog(id, 10));
-       AddToDialogue(id, 10, ChoiceContinueDialog(id, 11));
+       LinkContinueDialogues(id, new int[4]{8,9,10,11});
+
+       
 
         // ================ HANK ================ //
         id = 11;
@@ -337,7 +340,7 @@ public class Data_GameDay : DataLoader
 			/*9*/ "\"I hope someone #finds him and returns him to me#.\""  ,
 			/*10*/ "(I guess this #train ticket# is useless now since I can't leave town without him.)"  ,
 			/*11*/ "(Poor guy...I hope he rests in peace.)"  ,
-			/*12*/ "\"Omg! Thank you for finding my dog!!I came to ask her to keep an eye out for #my lost dog#. Have you seen him?\"",
+			/*12*/ "\"I came to ask her to keep an eye out for #my lost dog#. Have you seen him?\"",
 			/*13*/ "\"Tomo! Thank you for finding my dog.\"",
 			/*14*/"\"I guess this train ticket is useless now since I still haven't packed up because I was out looking for him.  Here, you can have it.\"",
 		};
@@ -354,6 +357,7 @@ public class Data_GameDay : DataLoader
         AddToDialogue(id, 2, ChoiceContinueDialog(id, 3));
         AddToDialogue(id, 6, ChoiceContinueDialog(id, 7));
 
+        LinkContinueDialogues(id, new int[2] { 4, 12 });
         // ================ FAYE ================ //
         id = 27;
         string[] faye = new string[]
@@ -393,6 +397,8 @@ public class Data_GameDay : DataLoader
         AddToDialogue(id, 20, ChoiceContinueDialog(id, 22));
         LinkContinueDialogues(id, new int[3]{6,7,8});
         LinkContinueDialogues(id, new int[3] { 10, 11, 12 });
+        LinkContinueDialogues(id, new int[3] { 0, 1, 2 });
+        LinkContinueDialogues(id, new int[3] { 3, 4, 5 });
 
         // ================ DAE ================ //
         id = 36;
@@ -417,6 +423,7 @@ public class Data_GameDay : DataLoader
             /*16*/"\"Even thought he's my superior, I still don't trust that guy.\"",
             /*17*/"\"!!!!!\"",
             /*18*/"\"Kid, what are you doing at this hour? You shouldn't be here. Go home now!\"",
+            /*19*/"\"My daughter also loves the donuts from this store. You should try some.\"",
         };
         AddNpc(id, "Dae", "Dae", dae);
 
@@ -431,6 +438,7 @@ public class Data_GameDay : DataLoader
         //AddToDialogue(27, 20, ChoiceContinueDialog(27, 22));
 
         LinkContinueDialogues(id, new int[2] { 17, 18 });
+        LinkContinueDialogues(id, new int[2] { 0, 19 });
 
         // ================ YOONA ================ //
         id = 37;
@@ -529,8 +537,9 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[id].dialogues[4].choices = new Choice[]
 		{
-            AddChoice("Patricia?", ChoiceAction.CONTINUE, id, 1),
+            AddChoice("Who's Patricia?", ChoiceAction.CONTINUE, id, 1),
         };
+        AddToDialogue(id, 1, ChoiceContinueDialog(id, 2));
 
         // ================ PATRICIA ================ //
         id = 66;
@@ -556,6 +565,7 @@ public class Data_GameDay : DataLoader
         };
         AddNpc(id, "Patricia", "Patricia", patricia);
 
+        LinkContinueDialogues(id, new int[3] { 3, 4, 5 });
 
         gameManager.allObjects[id].dialogues[4].choices = new Choice[]
 		{
@@ -570,7 +580,7 @@ public class Data_GameDay : DataLoader
         };
         AddToDialogue(id, 13, ChoiceContinueDialog(id, 6));
 
-
+        LinkContinueDialogues(id, new int[3] { 7, 8, 10 });
 
         // ================ KELLY ================ //
         id = 67;
@@ -593,6 +603,8 @@ public class Data_GameDay : DataLoader
 		{
             AddChoice("Hold on.", ChoiceAction.CONTINUE, id, 2)
         };
+
+        LinkContinueDialogues(id, new int[3] { 3, 4, 5 });
 
         // ================ PERRY ================ //
         id = 99;
@@ -1548,9 +1560,8 @@ public class Data_GameDay : DataLoader
             timeBlocks = new List<int>() { 12 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 0,
-            dialogueIDMax = 0,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 4,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1561,7 +1572,7 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 8, 10, 12, 14 },
+            timeBlocks = new List<int>() { 8, 10, 14 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
@@ -1571,6 +1582,21 @@ public class Data_GameDay : DataLoader
             Summary = "",
             NpcID = 7
         });
+
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 12 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 7,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 7
+        });
+
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
@@ -1590,9 +1616,8 @@ public class Data_GameDay : DataLoader
             timeBlocks = new List<int>() { 18 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 2,
-            dialogueIDMax = 3,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 2,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1622,7 +1647,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 9,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1650,7 +1675,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 3,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1665,7 +1690,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 3,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1678,7 +1703,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 7,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1708,7 +1733,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 3,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1723,7 +1748,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 12,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1738,7 +1763,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 1,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1753,7 +1778,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 4,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

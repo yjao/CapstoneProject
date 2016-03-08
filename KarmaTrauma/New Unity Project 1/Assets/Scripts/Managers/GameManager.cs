@@ -316,6 +316,7 @@ public class GameManager : MonoBehaviour
         }
         else if (gameClock >= 22)
         {
+            SoundManager.instance.StartCoroutine(SoundManager.instance.FadeOutAudioSource(SoundManager.instance.currentSong, true));
             SoundManager.instance.LoadSceneSound("WorldMapMidnight", .5f, true);
             return "10 - <b><color=red>12AM</color></b>";
         }

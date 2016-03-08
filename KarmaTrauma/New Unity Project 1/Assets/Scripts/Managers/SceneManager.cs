@@ -194,6 +194,7 @@ public class SceneManager : MonoBehaviour
         }
         //tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());
         yield return StartCoroutine(fade_out());
+        StartCoroutine(SoundManager.instance.LoadSceneMusic());
         yield return null;
         yield break;
     }

@@ -729,9 +729,9 @@ public class Data_GameDay : DataLoader
             timeBlocks = new List<int>() { 8, 10},
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 0,
-            dialogueIDMax = 3,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.MULTI_DIALOGUE_ID,
+            dialogueIDMulti = {0,3}, 
+            
 
             // Getter/Setter variables, NpcID is required
             Summary = "Rae looking for dog",

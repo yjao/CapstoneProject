@@ -42,7 +42,7 @@ public class Data_GameDay : DataLoader
 		id = 1003;
 		string[] perry = new string[]
 		{
-			/*0*/ "\"Hi, I'm Perry. I programmed various systems for the game such as the dialog\""
+			/*0*/ "\"Hi, I'm Perry. I programmed various systems for the game such as the dialog.\""
 		};
 		AddNpc(id, "Perry To", "", perry);
 
@@ -58,7 +58,9 @@ public class Data_GameDay : DataLoader
 		id = 1005;
 		string[] jeney = new string[]
 		{
-			/*0*/ "\"Hi, I'm Jeney. I program most of the animations as well as dealing with sprites in scenes such as positioning them where and where.\""
+			/*0*/ "\"Hi, I'm Jeney. I program most of the animations as well as dealing with sprites in general.\"",
+            /*1*/ "\"In each scene, I make sure that the sprites are where they should be as well as appearing at the correct time.\"",
+            /*2*/ "\"In the game, my character is a donut shop owner. :)\""
 		};
 		AddNpc(id, "Jeney Lao", "", jeney);
 

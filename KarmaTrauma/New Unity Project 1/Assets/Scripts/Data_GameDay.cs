@@ -790,15 +790,15 @@ public class Data_GameDay : DataLoader
         sceneName = SceneManager.SCENE_HOUSE;
 
         // ======================== BACON ======================== //
-        /*AddParameters(sceneName, new InteractableObject.Parameters()
+        AddParameters(sceneName, new InteractableObject.Parameters()
             {
                 // Specify the time frames that this set takes effect
-                timeBlocks = new List<int>() { 8, 10, 12, 14, 16, 18, 20, 22 },
+                timeBlocks = new List<int>() { 6, 8, 10, 12, 14, 16, 18, 20, 22 },
 				
                 // Getter/Setter variables, NpcID is required
                 Summary = "",
                 NpcID = 110
-            });*/
+            });
         // ======================== MOM ======================== //
         AddParameters(sceneName, new InteractableObject.Parameters()
         {

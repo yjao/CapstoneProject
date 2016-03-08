@@ -441,16 +441,14 @@ public class TutorialManager : MonoBehaviour
         StartCoroutine(sm.fade_out());
 
         yield return StartCoroutine(Slide_Coroutine(slides[6]));
-        yield return StartCoroutine(Slide_Coroutine(slides[7]));
+        yield return StartCoroutine(sm.fade_black());
     }
 
     IEnumerator Slide14_Coroutine()
     {
-
+        StartCoroutine(Slide_Coroutine(slides[7]));
         yield return StartCoroutine(sm.fade_out());
-        yield return StartCoroutine(Slide_Coroutine(slides[7]));
-
-      
+        yield return new WaitForSeconds(3f);
         yield return StartCoroutine(sm.fade_black());
         yield return StartCoroutine(sm.display_text("The next day...\n\n...?"));
         gameManager.SetTime(GameManager.TimeType.SET, 6);

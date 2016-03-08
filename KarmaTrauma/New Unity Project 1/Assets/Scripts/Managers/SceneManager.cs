@@ -202,7 +202,6 @@ public class SceneManager : MonoBehaviour
 
     public void tint_screen(string scene, int time)
     {
-        Debug.Log("tinting:" + scene + ":" + time);
         if (outdoors.ContainsKey(scene))
         {
             if (time == 18)

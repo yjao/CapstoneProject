@@ -13,6 +13,7 @@ public class TutorialManager : MonoBehaviour
 
     //private const string SCENE_HOUSE = "T_House";
     private const string SCENE_SCHOOL = "T_Class";
+    private const string SCENE_SCHOOL2 = "T_Class2";
 
     private const string SCENE_MALL = "T_Mall";
     //private const string SCENE_MAIN_STREET = "T_MainStreet";
@@ -200,7 +201,7 @@ public class TutorialManager : MonoBehaviour
             "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today."
         });
         NPC kelly = GameObject.Find("Kelly").GetComponent<NPC>();
-        NPC stylishguy = GameObject.Find("Stylish_guy").GetComponent<NPC>();
+        NPC anna = GameObject.Find("Anna").GetComponent<NPC>();
         NPC redhairguy = GameObject.Find("Red_guy").GetComponent<NPC>();
         NPC girlindrama = GameObject.Find("Girl_in_drama").GetComponent<NPC>();
         NPC pinkguy = GameObject.Find("Pink_hair_dude").GetComponent<NPC>();
@@ -231,7 +232,7 @@ public class TutorialManager : MonoBehaviour
         gameManager.CreateDialogue("Mrs. Freewoman", d, -1);
         //girlindrama.SetAnimation(CharacterAnimations.States.UP_DANCE);
         StartCoroutine(redhairguy.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.RIGHT_SWING, true));
-        yield return StartCoroutine(stylishguy.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.LEFT_SWING, true));
+        yield return StartCoroutine(anna.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.LEFT_SWING, true));
         //redhairguy.SetAnimation(CharacterAnimations.States.RIGHT_SWING);
         //stylishguy.SetAnimation(CharacterAnimations.States.LEFT_SWING);
         //CreateDialogue("Mrs. Freewoman", "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
@@ -268,7 +269,7 @@ public class TutorialManager : MonoBehaviour
     }
     IEnumerator Slide9_Coroutine()
     {
-        GameObject.Find("NPCS").gameObject.SetActive(false);
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_SCHOOL2));
         yield return StartCoroutine(sm.fade_out());
         gameManager.Wait();
         yield return new WaitForSeconds(1f);

@@ -44,7 +44,7 @@ public class Data_GameDay : DataLoader
 		id = 1003;
 		string[] perry = new string[]
 		{
-			/*0*/ "\"...\""
+			/*0*/ "\"Hi, I'm Perry. I programmed various systems for the game such as the dialog.\""
 		};
 		AddNpc(id, "Perry To", "", perry);
 
@@ -60,7 +60,9 @@ public class Data_GameDay : DataLoader
 		id = 1005;
 		string[] jeney = new string[]
 		{
-			/*0*/ "\"Hi, I'm Jeney. I program most of the animations as well as dealing with sprites in scenes such as positioning them where and where.\""
+			/*0*/ "\"Hi, I'm Jeney. I program most of the animations as well as dealing with sprites in general.\"",
+            /*1*/ "\"In each scene, I make sure that the sprites are where they should be as well as appearing at the correct time.\"",
+            /*2*/ "\"In the game, my character is a donut shop owner. :)\""
 		};
 		AddNpc(id, "Jeney Lao", "", jeney);
 
@@ -794,15 +796,15 @@ public class Data_GameDay : DataLoader
         sceneName = SceneManager.SCENE_HOUSE;
 
         // ======================== BACON ======================== //
-        /*AddParameters(sceneName, new InteractableObject.Parameters()
+        AddParameters(sceneName, new InteractableObject.Parameters()
             {
                 // Specify the time frames that this set takes effect
-                timeBlocks = new List<int>() { 8, 10, 12, 14, 16, 18, 20, 22 },
+                timeBlocks = new List<int>() { 6, 8, 10, 12, 14, 16, 18, 20, 22 },
 				
                 // Getter/Setter variables, NpcID is required
                 Summary = "",
                 NpcID = 110
-            });*/
+            });
         // ======================== MOM ======================== //
         AddParameters(sceneName, new InteractableObject.Parameters()
         {

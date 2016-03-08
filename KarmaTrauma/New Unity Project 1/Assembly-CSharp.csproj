@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Anim\CharacterAnimations.cs" />
      <Compile Include="Assets\Scripts\Camera.cs" />
      <Compile Include="Assets\Scripts\ChoiceEventArgs.cs" />
+     <Compile Include="Assets\Scripts\CreditsDoor.cs" />
      <Compile Include="Assets\Scripts\DataLoader.cs" />
      <Compile Include="Assets\Scripts\Data_FallDemo.cs" />
      <Compile Include="Assets\Scripts\Data_GameDay.cs" />

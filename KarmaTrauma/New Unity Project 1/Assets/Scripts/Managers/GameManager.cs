@@ -332,19 +332,19 @@ public class GameManager : MonoBehaviour
         return gameClock;
     }
 
-    public bool Midnight(bool forceSetMidnight=false)
+    public bool Midnight(bool forceSetMidnight=false, float delay = -1)
     {
         //Debug.Log("data is null: " + (playerData == null));
         //Debug.Log("gameClock : " + gameClock);
 		if (GetTimeAsInt() == END_DAY_HOUR || forceSetMidnight)
         {
-            StartCoroutine(MidnightFade());
+            StartCoroutine(MidnightFade(delay));
             return true;
         }
         return false;
     }
 
-    private IEnumerator MidnightFade()
+    private IEnumerator MidnightFade(float delay = -1)
     {
         yield return StartCoroutine(SceneManager.instance.fade_black());
         StartCoroutine(SceneManager.instance.map_name("Day " + (playerData.daysPassed + 1) + ".", 2.25f));
@@ -354,6 +354,10 @@ public class GameManager : MonoBehaviour
         transform.Find("Menu_layout/Inventory").GetComponent<Menu>().close();
         transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
         yield return StartCoroutine(GradualClock(START_DAY_HOUR, .25f, true));
+        if (delay != -1)
+        {
+            yield return new WaitForSeconds(delay);
+        }
         SoundManager.instance.StopAllBackgroundSounds();
         SceneManager.instance.LoadScene(SceneManager.SCENE_HOUSE);
     }
@@ -596,7 +600,7 @@ public class GameManager : MonoBehaviour
 
 	public static void UseBed(object sender, GameEventArgs args)
 	{
-		instance.Midnight(true);
+		instance.Midnight(true, 3f);
 	}
 
 	public static void UnlockDoor(object sender, GameEventArgs args)

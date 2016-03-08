@@ -42,7 +42,7 @@ public class Data_GameDay : DataLoader
 		id = 1003;
 		string[] perry = new string[]
 		{
-			/*0*/ "\"...\""
+			/*0*/ "\"Hi, I'm Perry. I programmed various systems for the game such as the dialog\""
 		};
 		AddNpc(id, "Perry To", "", perry);
 

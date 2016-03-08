@@ -84,22 +84,22 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Start_Tutorial()
     {
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
-        //yield return StartCoroutine(Slide_Coroutine(slides[1]));
-        //yield return StartCoroutine(Slide_Coroutine(slides[2]));
+        yield return StartCoroutine(Slide_Coroutine(slides[1]));
+        yield return StartCoroutine(Slide_Coroutine(slides[2]));
 
-        //yield return StartCoroutine(Slide4_Coroutine());
+        yield return StartCoroutine(Slide4_Coroutine());
 
         //// PICTURE SLIDE: Fallen Alfred and Book
-        //yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
-        //yield return StartCoroutine(Slide_Coroutine(slides[3]));
-        //yield return StartCoroutine(Slide_Coroutine(slides[4]));
-        //yield return StartCoroutine(Slide7_Coroutine());
+        yield return StartCoroutine(LoadSceneCoroutine(SCENE_TUTORIAL));
+        yield return StartCoroutine(Slide_Coroutine(slides[3]));
+        yield return StartCoroutine(Slide_Coroutine(slides[4]));
+        yield return StartCoroutine(Slide7_Coroutine());
 
-        //yield return StartCoroutine(Slide8_Coroutine());
-        //yield return StartCoroutine(Slide9_Coroutine());
-        //yield return StartCoroutine(Slide10_Coroutine());
+        yield return StartCoroutine(Slide8_Coroutine());
+        yield return StartCoroutine(Slide9_Coroutine());
+        yield return StartCoroutine(Slide10_Coroutine());
 
-        //yield return StartCoroutine(Slide11_Coroutine());
+        yield return StartCoroutine(Slide11_Coroutine());
 
         yield return StartCoroutine(Slide12_Coroutine());
         yield return StartCoroutine(Slide13_Coroutine());      
@@ -121,7 +121,8 @@ public class TutorialManager : MonoBehaviour
         yield return StartCoroutine(SceneManager.instance.fade_out());
 
         gameManager.Play();
-        Destroy(this);
+        //Destroy(this);
+        this.gameObject.SetActive(false);
         yield break;
 
     }
@@ -138,6 +139,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(slide.timer);
 	}
 
+    #region TUTORIAL_COROUTINES
     IEnumerator Slide4_Coroutine()
     {
         StartCoroutine(StartCutscene(true));
@@ -507,6 +509,7 @@ public class TutorialManager : MonoBehaviour
         endCondition = false;
         yield break;
     }
+    #endregion
 
     public IEnumerator Slide_Triggers_Coroutine(string tag)
     {
@@ -558,6 +561,7 @@ public class TutorialManager : MonoBehaviour
         yield break;
     }
 
+    #region HELPER_FUNCTIONS
     IEnumerator LoadSceneCoroutine(string mapname)
     {
         Application.LoadLevel(mapname);
@@ -682,6 +686,13 @@ public class TutorialManager : MonoBehaviour
         gameManager.transform.Find("Menu_layout/TopCinemaBar").gameObject.SetActive(false);
         gameManager.transform.Find("Menu_layout/BottomCinemaBar").gameObject.SetActive(false);
         yield return null;
+    }
+    #endregion
+
+    public static void CallCoroutineEvent(object sender, GameEventArgs args)
+    {
+        TutorialManager.instance.gameObject.SetActive(true);
+        TutorialManager.instance.StartCoroutine(args.CoroutineName);
     }
 
 	// Update is called once per frame

@@ -20,6 +20,7 @@ public class GameEventArgs
     public int DialogueID { get; set; }
     public string[] TutorialDialogues { get; set; }
     public int TutorialDialogueCounter { get; set; }
+    public string CoroutineName { get; set; }
 
     public CharacterAnimations.States AnimationState { get; set; }
 
@@ -33,5 +34,6 @@ public class GameEventArgs
 		String = CEA.String;
         TutorialDialogues = CEA.TutorialDialogues;
         TutorialDialogueCounter = CEA.TutorialDialogueCounter;
+        CoroutineName = CEA.CoroutineName;
     }
 }

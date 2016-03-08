@@ -17,4 +17,5 @@ public class ChoiceEventArgs
     public int DialogueID { get; set; }
     public string[] TutorialDialogues { get; set; }
     public int TutorialDialogueCounter { get; set; }
+    public string CoroutineName { get; set; }
 }

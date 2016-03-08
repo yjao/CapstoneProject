@@ -51,7 +51,8 @@ public class SceneManager : MonoBehaviour
         {
             {SCENE_MAINSTREET, true},
             {SCENE_PARK, true},
-            {SCENE_WORLDMAP, true}
+            {SCENE_WORLDMAP, true},
+            {"T_MainStreet", true}
         };
 
         scene_display_names = new Dictionary<string, string>()
@@ -201,6 +202,7 @@ public class SceneManager : MonoBehaviour
 
     public void tint_screen(string scene, int time)
     {
+        Debug.Log("tinting:" + scene + ":" + time);
         if (outdoors.ContainsKey(scene))
         {
             if (time == 18)

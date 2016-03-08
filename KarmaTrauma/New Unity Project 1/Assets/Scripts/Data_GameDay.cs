@@ -141,6 +141,27 @@ public class Data_GameDay : DataLoader
         AddToDialogue(id, 16, ChoiceContinueDialog(id, 17));
         AddToDialogue(id, 5, ChoiceContinueDialog(id, 6));
 
+
+        // ================ MEGAN ================ //
+        id = 5;
+        string[] mom = new string[]
+        {
+            /*0*/ "\"Don't be late for class! I made breakfast for you. Today's menu is #bacon and eggs#.\"",       
+            /*1*/ "(What should I make for dinner?)",
+            /*2*/"\"Anything interesting happened today?\"",
+            /*3*/"\"I made dinner for you.\"",
+            /*4*/"\"Did you do your homework yet?\"",
+            /*5*/"\"You should do your homework and go to bed.\"",
+            /*6*/"\"It's late! Where have you been?\"",
+            /*7*/"\" Go to bed now!\"",
+            
+        };
+        AddNpc(id, "Mom", "Mom", mom);
+
+
+
+
+
         // ================ JENEY ================ //
         id = 7;
         string[] jeney = new string[]

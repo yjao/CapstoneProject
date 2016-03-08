@@ -174,18 +174,20 @@ public class Data_GameDay : DataLoader
         string[] mom = new string[]
         {
             /*0*/ "\"Don't be late for class! I made breakfast for you. Today's menu is #bacon and eggs#.\"",       
-            /*1*/ "(What should I make for dinner?)",
-            /*2*/"\"Anything interesting happened today?\"",
-            /*3*/"\"I made dinner for you.\"",
-            /*4*/"\"Did you do your homework yet?\"",
-            /*5*/"\"You should do your homework and go to bed.\"",
-            /*6*/"\"It's late! Where have you been?\"",
-            /*7*/"\" Go to bed now!\"",
+            /*1*/"\"How was school today?\"",
+            /*2*/ "(What should I make for dinner?)",
+            /*3*/"\"Anything interesting happened today?\"",
+            /*4*/"\"I made dinner for you.\"",
+            /*5*/"\"Did you do your homework yet?\"",
+            /*6*/"\"You should do your homework and go to bed.\"",
+            /*7*/"\"It's late! Where have you been?\"",
+            /*8*/"\" Go to bed now!\"",
             
         };
         AddNpc(id, "Mom", "Mom", mom);
-
-
+        LinkContinueDialogues(id, new int[2] { 3, 4 });
+        LinkContinueDialogues(id, new int[2] { 5, 6 });
+        LinkContinueDialogues(id, new int[2] { 7, 8 });
 
 
 
@@ -742,12 +744,25 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 6 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 5
+        });
+        
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 14 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 0,
-            dialogueIDMax = 0,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 1,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -759,9 +774,8 @@ public class Data_GameDay : DataLoader
             timeBlocks = new List<int>() { 16 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 0,
-            dialogueIDMax = 0,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 2,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -773,9 +787,8 @@ public class Data_GameDay : DataLoader
             timeBlocks = new List<int>() { 18 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 0,
-            dialogueIDMax = 0,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 3,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -787,9 +800,8 @@ public class Data_GameDay : DataLoader
             timeBlocks = new List<int>() { 20 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 0,
-            dialogueIDMax = 0,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 5,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -801,9 +813,8 @@ public class Data_GameDay : DataLoader
             timeBlocks = new List<int>() { 22 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
-            dialogueIDMin = 0,
-            dialogueIDMax = 0,
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 7,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

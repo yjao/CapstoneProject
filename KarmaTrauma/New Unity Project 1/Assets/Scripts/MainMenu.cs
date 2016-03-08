@@ -88,7 +88,6 @@ public class MainMenu : MonoBehaviour
 
 	IEnumerator EnterGameCoroutine()
 	{
-		SceneManager.instance.fade_black();
 		GameManager.instance.SetTime(GameManager.TimeType.SET, startTime);
 		StartCoroutine(SoundManager.instance.FadeOutAudioSource(soundtrack, rate: 0.1f));
 		yield return StartCoroutine(SceneManager.instance.LoadSceneCoroutine(startScene));
@@ -101,7 +100,10 @@ public class MainMenu : MonoBehaviour
 	IEnumerator EnterCreditsCoroutine()
 	{
 		screenState = ScreenState.CREDITS;
-		SceneManager.instance.LoadScene(SceneManager.SCENE_CREDITS);
+		yield return StartCoroutine(SceneManager.instance.fade_black());
+		yield return StartCoroutine(SoundManager.instance.FadeOutAudioSource(soundtrack, rate: 0.1f));
+		Application.LoadLevel(SceneManager.SCENE_CREDITS);
+		yield return StartCoroutine(SceneManager.instance.fade_out());
 		yield return null;
 		GameManager.instance.Play();
 		yield break;

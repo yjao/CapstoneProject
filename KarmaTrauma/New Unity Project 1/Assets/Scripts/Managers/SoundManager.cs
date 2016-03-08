@@ -4,11 +4,13 @@ using System.Collections.Generic;
 
 public class SoundManager : MonoBehaviour {
 
-    public AudioClip MainStreetMusic;
-    public AudioClip MallMusic;
+    public AudioClip[] BGMs;
+    public bool playMusic;
+    public int musicVolume;
+    private bool fadeOut;
     public AudioClip MidnightSound;
 
-    private AudioSource currentSong;
+    public AudioSource currentSong;
 
     public static SoundManager instance;
 
@@ -25,10 +27,9 @@ public class SoundManager : MonoBehaviour {
         instance = this;
         DontDestroyOnLoad(this);
 
+        playMusic = false;
         mapSong = new Dictionary<string, AudioClip>()
 	    {
-			{ "G_MainStreetSmall", MainStreetMusic},
-            { "G_Mall", MallMusic},
             { "WorldMapMidnight", MidnightSound}
         };
 
@@ -41,15 +42,32 @@ public class SoundManager : MonoBehaviour {
 	void Update () {
 	}
 
-    public void LoadSceneMusic(string mapName)
+    public IEnumerator LoadSceneMusic()
     {
-        if (currentSong.isPlaying)
+        if (currentSong.isPlaying || GameManager.instance.GetTimeAsInt() >= 22)
         {
-            currentSong.Stop();
+            yield break;
         }
-        currentSong.clip = mapSong[mapName];
-        currentSong.loop = true;
-        currentSong.Play();
+        playMusic = true;
+        while (playMusic)
+        {
+            if (!currentSong.isPlaying)
+            {
+                int x = Random.Range(0, BGMs.Length);
+                while(currentSong.clip == BGMs[x])
+                {
+                    x = Random.Range(0, BGMs.Length);
+                }
+                currentSong.clip = BGMs[x];
+                StartCoroutine(FadeInAudioSource(currentSong));
+                currentSong.Play();
+            }
+            if ((currentSong.clip.length - currentSong.time) < 10f && !fadeOut)
+            {
+                StartCoroutine(FadeOutAudioSource(currentSong));
+            }
+            yield return null;
+        }
     }
 
     public void LoadSceneSound(string mapName, float volume, bool loop = false)
@@ -102,6 +120,43 @@ public class SoundManager : MonoBehaviour {
         if (!currentSong.isPlaying)
         {
             currentSong.Play();
+        }
+    }
+
+    public IEnumerator FadeInAudioSource(AudioSource source)
+    {
+        while (source.volume < musicVolume)
+        {
+            if (fadeOut)
+            {
+                yield break;
+            }
+            yield return new WaitForSeconds(.05f);
+            source.volume += .01f;
+            yield return null;
+        }
+    }
+    public IEnumerator FadeOutAudioSource(AudioSource source, bool stopMusicLoop = false)
+    {
+        if (source.volume > 0)
+        {
+            fadeOut = true;
+        }
+        while (source.volume > 0)
+        {
+            yield return new WaitForSeconds(.05f);
+            source.volume -= .01f;
+            if (source.volume <= 0)
+            {
+                if (stopMusicLoop)
+                {
+                    playMusic = false;
+                }
+                fadeOut = false;
+                source.Stop();
+                yield break;
+            }
+            yield return null;
         }
     }
 }

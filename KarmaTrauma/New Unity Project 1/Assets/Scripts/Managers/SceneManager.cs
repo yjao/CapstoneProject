@@ -9,6 +9,8 @@ public class SceneManager : MonoBehaviour
 
 	private GameManager gameManager;
 
+    private string prev_map;
+
     private string current_map;
 
 	#region SCENE CONSTANTS
@@ -40,6 +42,7 @@ public class SceneManager : MonoBehaviour
 	{
 		gameManager = GameManager.instance;
 
+
         if ((instance != null) && (instance != this))
         {
             Destroy(gameObject);
@@ -51,7 +54,8 @@ public class SceneManager : MonoBehaviour
         {
             {SCENE_MAINSTREET, true},
             {SCENE_PARK, true},
-            {SCENE_WORLDMAP, true}
+            {SCENE_WORLDMAP, true},
+            {"T_MainStreet", true}
         };
 
         scene_display_names = new Dictionary<string, string>()
@@ -76,6 +80,7 @@ public class SceneManager : MonoBehaviour
     }
     public void LoadScene(string name=null)
     {
+        prev_map = current_map;
         current_map = name;
         StartCoroutine("LoadSceneCoroutine");
         //SoundManager.instance.LoadSceneMusic(name);
@@ -121,10 +126,6 @@ public class SceneManager : MonoBehaviour
             gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(false);
         }
 
-        if (current_map == SCENE_WORLDMAP)
-        {
-            gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(true);
-        }
         yield return null;
         yield return StartCoroutine(map_name());
 		GameObject interactableList = GameObject.Find("InteractableList");
@@ -192,8 +193,47 @@ public class SceneManager : MonoBehaviour
                 child.gameObject.SetActive(isActive);
             }
         }
-        //tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());
+
+        // This if block was below "if (current_map != null)" block but moved here for player's world map position.
+        if (current_map == SCENE_WORLDMAP)
+        {
+            Vector3 temp = new Vector3(-4, -2, 4);
+            GameObject playerChar = GameObject.Find("Player");
+            gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(true);
+            if (prev_map == "G_House")
+            {
+                temp = new Vector3(-4, -2, 4);
+            }
+            if (prev_map == "G_Class")
+            {
+                temp = new Vector3(-.5f, 2.7f, 4);
+            } 
+            if (prev_map == "G_Park")
+            {
+                temp = new Vector3(4.56f, 2.56f, 4);
+            }
+            if (prev_map == "G_Hospital")
+            {
+                temp = new Vector3(4.75f, -2.29f, 4);
+            }
+            if (prev_map == "G_Mall")
+            {
+                temp = new Vector3(2.05f, -0.33f, 4);
+            }
+            if (prev_map == "G_MainStreet")
+            {
+                temp = new Vector3(-1.35f, -1.56f, 4);
+            }
+            if (prev_map == "G_PoliceStation")
+            {
+                temp = new Vector3(1.74f, -3.15f, 4);
+            }
+            playerChar.transform.position = temp;
+        }
+
+        tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());
         yield return StartCoroutine(fade_out());
+        StartCoroutine(SoundManager.instance.LoadSceneMusic());
         yield return null;
         yield break;
     }

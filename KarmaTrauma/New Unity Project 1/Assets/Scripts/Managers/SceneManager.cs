@@ -192,7 +192,7 @@ public class SceneManager : MonoBehaviour
                 child.gameObject.SetActive(isActive);
             }
         }
-        //tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());
+        tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());
         yield return StartCoroutine(fade_out());
         StartCoroutine(SoundManager.instance.LoadSceneMusic());
         yield return null;

@@ -62,7 +62,7 @@ public class SoundManager : MonoBehaviour {
                 StartCoroutine(FadeInAudioSource(currentSong));
                 currentSong.Play();
             }
-            if ((currentSong.clip.length - currentSong.time) < 100f && !fadeOut)
+            if ((currentSong.clip.length - currentSong.time) < 10f && !fadeOut)
             {
                 StartCoroutine(FadeOutAudioSource(currentSong));
             }

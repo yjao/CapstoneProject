@@ -509,7 +509,7 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[id].dialogues[1].choices = new Choice[]
 		{
-            AddChoice("Kelly?", ChoiceAction.CONTINUE, id, 2),
+            AddChoice("Where's Kelly?", ChoiceAction.CONTINUE, id, 2),
         };
 
         // ================ APRIL ================ //
@@ -836,8 +836,8 @@ public class Data_GameDay : DataLoader
             timeBlocks = new List<int>() { 8, 10 },
 
             // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.MULTI_DIALOGUE_ID,
-            dialogueIDMulti = new List<int>() { 0, 3 },
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
 
 
             // Getter/Setter variables, NpcID is required

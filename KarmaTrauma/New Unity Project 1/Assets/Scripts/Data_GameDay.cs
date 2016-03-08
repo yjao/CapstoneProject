@@ -703,7 +703,77 @@ public class Data_GameDay : DataLoader
                 Summary = "",
                 NpcID = 110
             });*/
+        // ======================== MOM ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 14 },
 
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDMin = 0,
+            dialogueIDMax = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 5
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 16 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDMin = 0,
+            dialogueIDMax = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 5
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 18 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDMin = 0,
+            dialogueIDMax = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 5
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDMin = 0,
+            dialogueIDMax = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 5
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 22 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.DIALOGUE_MIN_MAX,
+            dialogueIDMin = 0,
+            dialogueIDMax = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 5
+        });
 
         sceneName = SceneManager.SCENE_PARK;
 

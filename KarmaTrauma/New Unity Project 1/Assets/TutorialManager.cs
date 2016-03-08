@@ -441,16 +441,14 @@ public class TutorialManager : MonoBehaviour
         StartCoroutine(sm.fade_out());
 
         yield return StartCoroutine(Slide_Coroutine(slides[6]));
-        yield return StartCoroutine(Slide_Coroutine(slides[7]));
+        yield return StartCoroutine(sm.fade_black());
     }
 
     IEnumerator Slide14_Coroutine()
     {
-
+        StartCoroutine(Slide_Coroutine(slides[7]));
         yield return StartCoroutine(sm.fade_out());
-        yield return StartCoroutine(Slide_Coroutine(slides[7]));
-
-      
+        yield return new WaitForSeconds(3f);
         yield return StartCoroutine(sm.fade_black());
         yield return StartCoroutine(sm.display_text("The next day...\n\n...?"));
         gameManager.SetTime(GameManager.TimeType.SET, 6);
@@ -480,13 +478,14 @@ public class TutorialManager : MonoBehaviour
         yield return StartCoroutine(gameManager.GradualClock(18, .1f));
         CreateDialogue("Chelsey", "Before I assume anything, there's one more thing on this day I must check...");
         yield return null; while (Pause()) { yield return null; };
+        yield return StartCoroutine(gameManager.GradualClock(20, .1f));
+        yield return null;
     }
 
     IEnumerator Slide19_Coroutine()
     {
         
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_MAIN_STREET));
-        yield return StartCoroutine(gameManager.GradualClock(20, .1f));
         Destroy(GameObject.Find("Kelly"));
         yield return StartCoroutine(SceneManager.instance.fade_out());
         gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(false);
@@ -565,6 +564,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator LoadSceneCoroutine(string mapname)
     {
         Application.LoadLevel(mapname);
+        SceneManager.instance.tint_screen(mapname, gameManager.GetTimeAsInt());
         yield return null;
     }
 

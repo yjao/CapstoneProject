@@ -51,7 +51,8 @@ public class SceneManager : MonoBehaviour
         {
             {SCENE_MAINSTREET, true},
             {SCENE_PARK, true},
-            {SCENE_WORLDMAP, true}
+            {SCENE_WORLDMAP, true},
+            {"T_MainStreet", true}
         };
 
         scene_display_names = new Dictionary<string, string>()

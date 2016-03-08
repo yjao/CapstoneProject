@@ -37,6 +37,38 @@ public class Data_GameDay : DataLoader
 			/*2*/ "\"I'm not entirely sure if Potadonut is even a thing...\""
 		};
 		AddNpc(id, "Faye Jao", "", faye);
+
+		// ================ PERRY ================ //
+		id = 1003;
+		string[] perry = new string[]
+		{
+			/*0*/ "\"...\""
+		};
+		AddNpc(id, "Perry To", "", perry);
+
+		// ================ RAE ================ //
+		id = 1004;
+		string[] rae = new string[]
+		{
+			/*0*/ "\"Hi, I'm Rae.  I do the programming for all the UI in the game.\""
+		};
+		AddNpc(id, "Rae Tran", "", rae);
+
+		// ================ JENEY ================ //
+		id = 1005;
+		string[] jeney = new string[]
+		{
+			/*0*/ "\"Hi, I'm Jeney. I program most of the animations as well as dealing with sprites in scenes such as positioning them where and where.\""
+		};
+		AddNpc(id, "Jeney Lao", "", jeney);
+
+		// ================ DOGE ================ //
+		id = 1006;
+		string[] doge = new string[]
+		{
+			/*0*/ "\"Wow. Much cool!\""
+		};
+		AddNpc(id, "Doge", "", doge);
 	}
 
     private void LoadNpcData()

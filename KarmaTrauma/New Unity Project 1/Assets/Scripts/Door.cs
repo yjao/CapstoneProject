@@ -20,7 +20,7 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if (colliding == true && Input.GetKeyDown(KeyCode.Space) && gameManager.gameMode != GameManager.GameMode.NONE)
+        if (colliding == true && Input.GetKeyDown(KeyCode.Space) && gameManager.gameMode == GameManager.GameMode.PLAYING)
         {
 			// Cooldown procedure
 			//if (!gameManager.CheckKeyCooldown()) { return; } else { gameManager.SetKeyCooldown(); }

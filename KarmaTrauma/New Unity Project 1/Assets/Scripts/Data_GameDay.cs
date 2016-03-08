@@ -23,7 +23,7 @@ public class Data_GameDay : DataLoader
 		id = 1001;
 		string[] dae = new string[]
 		{
-			/*0*/ "\"Hi I'm Dae.\"",
+			/*0*/ "\"Hi I'm Dae. I've done mostly game design for the team.\"",
 			/*1*/ "\"I love my daughter.\""
 		};
 		AddNpc(id, "Dae Kim", "", dae);
@@ -33,10 +33,12 @@ public class Data_GameDay : DataLoader
 		string[] faye = new string[]
 		{
 			/*0*/ "\"Hey guys, I'm Faye. I'm the producer and project manager of this game.\"",
-			/*1*/ "\"In the game, my role is a side character, a broke college student. Come visit me in-game!\"",
-			/*2*/ "\"I'm not entirely sure if Potadonut is even a thing...\""
+			/*2*/ "\"I've also done a bit of everything else, including story, programming, and art.\"",
+			/*2*/ "\"In the game, my role is a side character, a broke college student. Come visit me in-game!\"",
+			/*3*/ "\"I'm not entirely sure if Potadonut is even a thing...\""
 		};
 		AddNpc(id, "Faye Jao", "", faye);
+		AddToDialogue(id, 0, ChoiceContinueDialog(id, 1));
 
 		// ================ PERRY ================ //
 		id = 1003;
@@ -58,7 +60,9 @@ public class Data_GameDay : DataLoader
 		id = 1005;
 		string[] jeney = new string[]
 		{
-			/*0*/ "\"Hi, I'm Jeney. I program most of the animations as well as dealing with sprites in scenes such as positioning them where and where.\""
+			/*0*/ "\"Hi, I'm Jeney. I program most of the animations as well as dealing with sprites in general.\"",
+            /*1*/ "\"In each scene, I make sure that the sprites are where they should be as well as appearing at the correct time.\"",
+            /*2*/ "\"In the game, my character is a donut shop owner. :)\""
 		};
 		AddNpc(id, "Jeney Lao", "", jeney);
 
@@ -66,9 +70,11 @@ public class Data_GameDay : DataLoader
 		id = 1006;
 		string[] doge = new string[]
 		{
-			/*0*/ "\"Wow. Much cool!\""
+			/*0*/ "\"All cats have 4 legs. I have 4 legs. Therefore, I am a cat! Meow!!\"",
+			/*1*/ "\"By the way, I don't talk in game.\""
 		};
 		AddNpc(id, "Doge", "", doge);
+		AddToDialogue(id, 0, ChoiceContinueDialog(id, 1));
 	}
 
     private void LoadNpcData()

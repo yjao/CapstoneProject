@@ -200,7 +200,7 @@ public class TutorialManager : MonoBehaviour
 
         MultiDialogue("Mrs. Freewoman", new string[2]
         {
-            "Happy Monday, class, my name is Megan Freewoman. As a reminder, %use the Spacebar to progress speech%.",
+            "Happy Monday, class, my name is Megan. As a reminder, %use the Spacebar to progress speech%.",
             "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today."
         });
         NPC kelly = GameObject.Find("Kelly").GetComponent<NPC>();
@@ -374,7 +374,7 @@ public class TutorialManager : MonoBehaviour
             new Choice("Cocodonut", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
             new Choice("Donut Hole Originals", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
             new Choice("Donut Sprinklez", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Minty Muncies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
+            new Choice("Minty Munchies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
             new Choice("Potadonut Tots", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
             new Choice("Strawberry Squishies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
         
@@ -412,7 +412,7 @@ public class TutorialManager : MonoBehaviour
         });
         yield return null; while (Pause()) { yield return null; }
 
-        CreateDialogue("Kelly", "Oh wow, I didn’t realize it was already #9 PM#! Daddy’s gonna be mad at me if I don’t go soon. Thanks for the hang! Gotta run, see ya tomorrow!");
+        CreateDialogue("Kelly", "Oh wow, I didn’t realize it was already #9 PM#! Thanks for the hang! Gotta run, see ya tomorrow!");
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(3, 19.00f, CharacterAnimations.States.RIGHT_WALK, 0.04f));
         Destroy(GameObject.Find("Kelly"));
@@ -478,7 +478,7 @@ public class TutorialManager : MonoBehaviour
         CreateTutorialBox("What's something you'd go back in time and change?", Textbox.TutorialBoxPosition.MIDDLE, 3);
         yield return StartCoroutine(gameManager.GradualClock(14, .1f));
         yield return new WaitForSeconds(3);
-        CreateDialogue("Chelsey", "Something is not right...Why did the same thing happen again?");
+        CreateDialogue("Chelsey", "Something is not right...Why did the same thing happen?");
         yield return null; while (Pause()) { yield return null; };
         yield return StartCoroutine(gameManager.GradualClock(18, .1f));
         CreateDialogue("Chelsey", "Before I assume anything, there's one more thing on this day I must check...");
@@ -503,11 +503,11 @@ public class TutorialManager : MonoBehaviour
         }
 
         // SCREEN TURNS RED
-        CreateDialogue("Megan Freewoman", "Alfred...!");
+        CreateDialogue("Megan", "Alfred...!");
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(SceneManager.instance.fade_black());
         yield return new WaitForSeconds(1f);
-        CreateDialogue("Megan Freewoman", "If I could... if only I could go back in time...");
+        CreateDialogue("Megan", "If I could... if only I could go back in time...");
         yield return null; while (Pause()) { yield return null; }
 
         endCondition = false;

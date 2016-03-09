@@ -98,8 +98,8 @@ public class GameManager : MonoBehaviour
 	    {
             { 123, new Item("Lost Dog", "A lost dog. It seems to really like bacon.", "RaesDog")},
 			{ 150, new Item("Jewel", "Quit stealing jewels already", "jewel")},
-            { 151, new Item("TestJewel", "IM NOT EVEN AN ITEM", "jewel")},
             { 110, new Item("Bacon", "Maybe you could feed this to someone", "baconAndEggs")},
+            { 111, new Item("Box", "A mysterious box. Maybe it belongs to someone?", "jewel")},
             { 152, new Item("Alfred's Jewel", "This was a gift from his son.", "alfredsjewel")}
         };
 
@@ -200,7 +200,7 @@ public class GameManager : MonoBehaviour
 		Dialogue dialogue = ch.dialogues[ch.lastDialogueDisplayed];
 		if (dialogue.setbool != null)
         {
-			dayData.SetBool(dialogue.setbool);
+			playerData.SetBool(dialogue.setbool);
         }
         if (dialogue.TypeIsChoice())
         {

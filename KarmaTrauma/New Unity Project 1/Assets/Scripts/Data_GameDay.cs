@@ -712,6 +712,24 @@ public class Data_GameDay : DataLoader
 			new Choice("Good Night!", new ChoiceEventArgs() { ChoiceAction = GameManager.UseBed }),
 			AddChoice("I ain't weak!")
 		};
+
+        id = 111;
+        string[] box = new string[]
+        {
+            /*0*/ "(There is a suspicious mound of dirt.)",
+            /*1*/ "(The dog digs up a mysterious box.)",
+            /*2*/ "(There is a suspicious mound of dirt.)",
+            /*3*/ "(You notice the park ranger glaring at you so you decide to stop for now.)"
+        };
+        AddNpc(id, "Dirt", "Dirt", box);
+        gameManager.allObjects[id].dialogues[0].choices = new Choice[]
+        {
+            AddChoice("Direct the dog to the dirt", ChoiceAction.ITEM, id, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
+        };
+        gameManager.allObjects[id].dialogues[2].choices = new Choice[]
+        {
+            AddChoice("Direct the dog to the dirt", ChoiceAction.CONTINUE, id, subID:3, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
+        };
     }
 
     private void LoadQuestTerms()
@@ -897,6 +915,34 @@ public class Data_GameDay : DataLoader
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 123
+        });
+
+        // ======================== BOX ======================== //
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 12 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 0,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 111
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 8, 10, 14, 16, 18, 20, 22 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 2,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 111
         });
 
         // ======================== RAE ======================== //

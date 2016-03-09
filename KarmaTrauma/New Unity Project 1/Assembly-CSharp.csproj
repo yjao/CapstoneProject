@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ClassSceneManager.cs" />
-     <Compile Include="Assets\LocationArrow.cs" />
      <Compile Include="Assets\OutcomeManager.cs" />
      <Compile Include="Assets\Packages\TileSprite\Scripts\TileSprite.cs" />
      <Compile Include="Assets\Scripts\Anim\CharacterAnimations.cs" />
@@ -68,12 +67,15 @@
      <Compile Include="Assets\Scripts\InvisibleWall.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Managers\EndingManager.cs" />
      <Compile Include="Assets\Scripts\Managers\EventManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PrologueManager.cs" />
      <Compile Include="Assets\Scripts\Managers\QuestManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SceneManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\TutorialManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\WorldMapManager.cs" />
      <Compile Include="Assets\Scripts\MapLocation.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Menu_Layout.cs" />
@@ -85,6 +87,7 @@
      <Compile Include="Assets\Scripts\Old Scripts\InvisibleWallRight.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\InvisibleWallTop.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\Kelly.cs" />
+     <Compile Include="Assets\Scripts\Old Scripts\LocationArrow.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\Mom.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\Move.cs" />
      <Compile Include="Assets\Scripts\Old Scripts\NPCMovements.cs" />
@@ -99,7 +102,6 @@
      <Compile Include="Assets\Scripts\TileWindow.cs" />
      <Compile Include="Assets\Scripts\TutorialSlideTriggers.cs" />
      <Compile Include="Assets\ShortPrologue.cs" />
-     <Compile Include="Assets\TutorialManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

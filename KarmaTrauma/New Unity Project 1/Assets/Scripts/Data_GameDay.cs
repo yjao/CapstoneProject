@@ -106,22 +106,30 @@ public class Data_GameDay : DataLoader
             /*18*/ "\"Sorry I'm not up for a chat. I'm in a hurry to meet up with my wife. Today is our anniversary~\"",
             /*19*/ "\"A few weeks ago, we got a new chief. He doesn't really talk much so we don't really know about him too well.\"",
             /*20*/ "\"Speaking of which, he left the office just now. He should be #back around 7 PM#.\"",
+            /*21*/ "\"Ok, let me know if you need help with anything.\"",  
         };
         AddNpc(id, "Alfred", "Alfred", alfred);
 
         //Check if Cocodonut is in the bag.  Can give Cocodonut to Alfred any time.
         gameManager.allObjects[2].dialogues[5].choices = new Choice[]
         {
-			AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkboolname: "AlfredBox", checkitemname: "Box"),
-            AddChoice("Offer Cocodonut", ChoiceAction.CONTINUE, 2, 5, checkboolname: "AlfredCocodonut", checkitemname: "Cocodonut")
+            AddChoice("Offer Cocodonut.", ChoiceAction.CONTINUE, 2, 5, checkboolname: "AlfredCocodonut", checkitemname: "Cocodonut")
         };
         AddToDialogue(2, 5, ChoiceContinueDialog(2, 12));
         AddToDialogue(2, 12, ChoiceContinueDialog(2, 13));
-		AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
+		
+        AddToDialogue(2, 16, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "AlfredEnding" });
 
-        gameManager.allObjects[2].dialogues[4].choices = new Choice[]
+        gameManager.allObjects[2].dialogues[10].choices = new Choice[]
         {
-            AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkboolname: "AlfredBox", checkitemname: "Box")
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
+        };
+
+        gameManager.allObjects[2].dialogues[18].choices = new Choice[]
+        {
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
         };
 
         LinkContinueDialogues(id, new int[2] { 4, 10 });
@@ -130,6 +138,8 @@ public class Data_GameDay : DataLoader
             AddChoice("Ask about the station.", ChoiceAction.CONTINUE, id, 19),
         };
         AddToDialogue(id, 19, ChoiceContinueDialog(id, 20));
+        AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
+
         LinkContinueDialogues(id, new int[3] { 0, 5, 2});
        
         LinkContinueDialogues(id, new int[2] { 1, 3 });
@@ -391,6 +401,9 @@ public class Data_GameDay : DataLoader
 		AddBooleanToDialogue(id, 5, "BobWantsToLeave");
 		AddBooleanToDialogue(id, 8, "BobWantsToLeave");
 
+        AddBooleanToDialogue(id, 11, "LikesBacon");
+        AddBooleanToDialogue(id, 12, "DogCanDig");
+
         gameManager.allObjects[id].dialogues[8].choices = new Choice[]
 		{
             AddChoice("Why do you need one?", ChoiceAction.CONTINUE, id, 17)
@@ -403,9 +416,7 @@ public class Data_GameDay : DataLoader
         {
 			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
         };
-        AddToDialogue(13, 13, ChoiceContinueDialog(13, 14));
-        AddToDialogue(13, 14, ChoiceContinueDialog(13, 15));
-        AddToDialogue(13, 15, ChoiceContinueDialog(13, 16));
+       
 
         gameManager.allObjects[13].dialogues[0].choices = new Choice[]
         {
@@ -417,7 +428,21 @@ public class Data_GameDay : DataLoader
         {
 			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
         };
- 
+
+        gameManager.allObjects[13].dialogues[19].choices = new Choice[]
+        {
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
+        };
+
+        gameManager.allObjects[13].dialogues[12].choices = new Choice[]
+        {
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
+        };
+
+        AddToDialogue(13, 13, ChoiceContinueDialog(13, 14));
+        AddToDialogue(13, 14, ChoiceContinueDialog(13, 15));
+        AddToDialogue(13, 15, ChoiceContinueDialog(13, 16));
+
         LinkContinueDialogues(id, new int[3]{7,8,10});
         AddToDialogue(id, 11, ChoiceContinueDialog(id, 12));
         LinkContinueDialogues(id, new int[3] { 4, 5, 6 });
@@ -544,27 +569,56 @@ public class Data_GameDay : DataLoader
             /*19*/"\"My daughter also loves the donuts from this store. You should try some.\"",
             /*20*/"\"Shh...go away kid, I'm busy.\"",
             /*21*/"\"(I should follow him and see what that's all about...\"",
-            /*20*/"\"(Hm...Perry is gone again. Whew, it's tiring with him around.\"",
+            /*22*/"\"(Hm...Perry is gone again. Whew, it's tiring with him around.)\"",
+            /*23*/"\"Ok, come to me if you need help.\"",
         };
         AddNpc(id, "Dae", "Dae", dae);
 
 
         //Give box to Dae any time.
-        //gameManager.allObjects[36].dialogues[0].choices = new Choice[]
-        //{
-        //    AddChoice("Give box", ChoiceAction.CONTINUE, 27, 9)
-        //};
-        //AddToDialogue(27, 9, ChoiceContinueDialog(27, 21));
-        //AddToDialogue(27, 21, ChoiceContinueDialog(27, 20));
-        //AddToDialogue(27, 20, ChoiceContinueDialog(27, 22));
+        gameManager.allObjects[id].dialogues[22].choices = new Choice[]
+        {
+              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
+        };
+        
+        
+
+        AddToDialogue(id, 9, ChoiceContinueDialog(id, 21));
+        AddToDialogue(id, 21, ChoiceContinueDialog(id, 20));
+        AddToDialogue(id, 20, ChoiceContinueDialog(id, 22));
    
         LinkContinueDialogues(id, new int[2] { 17, 18 });
         LinkContinueDialogues(id, new int[2] { 0, 19 });
         LinkContinueDialogues(id, new int[2] { 13, 14 });
         LinkContinueDialogues(id, new int[4] { 1, 2, 3, 21 });
         LinkContinueDialogues(id, new int[2] { 15, 16 });
-        LinkContinueDialogues(id, new int[4] { 4, 5, 6, 7 });
+        gameManager.allObjects[id].dialogues[16].choices = new Choice[]
+        {
+              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
+        };
+        gameManager.allObjects[id].dialogues[20].choices = new Choice[]
+        {
+              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
+        };
 
+        LinkContinueDialogues(id, new int[4] { 4, 5, 6, 7 });
+        gameManager.allObjects[id].dialogues[7].choices = new Choice[]  //Day just restart
+        {
+              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
+        };
+
+        gameManager.allObjects[id].dialogues[18].choices = new Choice[]  //Day just restart
+        {
+              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
+        };
+
+
+        LinkContinueDialogues(id, new int[2] { 11, 12 });
         // ================ YOONA ================ //
         id = 37;
         string[] yoona = new string[]
@@ -759,14 +813,16 @@ public class Data_GameDay : DataLoader
             /*0*/ "\"...\"",       
             /*1*/ "\"....?\"",
             /*2*/ "\"Thanks, I'll take a look at it.\"",
+            /*3*/ "\"...Ok\"", 
           
         };
         AddNpc(id, "Perry", "Perry", perry);
         //Give box to Perry add choice here.
-
+        //Can't give box to Perry after 8 (when Alfred falls)//Day will restart.
         gameManager.allObjects[99].dialogues[0].choices = new Choice[]
 		{
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 1, checkboolname: "PerryBox", checkitemname: "Box")
+            AddChoice("Give box.", ChoiceAction.CONTINUE, id, 1, checkitemname: "Box"),
+            AddChoice("Do nothing.", ChoiceAction.CONTINUE, id, 3, checkitemname: "Box") 
         };
         AddToDialogue(99, 1, ChoiceContinueDialog(99, 2));
 
@@ -775,13 +831,13 @@ public class Data_GameDay : DataLoader
         string[] dog = new string[]
 		{
             /*0*/ "\"Woof\"",
-            /*1*/ "(You give the dog some bacon)",
-            /*2*/ "(The dog appears to be following you)"
+            /*1*/ "(You give the dog some bacon.)",
+            /*2*/ "(The dog appears to be following you.)"
         };
         AddNpc(id, "Dog", "Dog", dog);
         gameManager.allObjects[id].dialogues[0].choices = new Choice[]
 		{
-			AddChoice("Feed the dog bacon", ChoiceAction.CONTINUE, id, 1, checkboolname: "Bacon", removeitemname: "Bacon")
+			AddChoice("Feed the dog bacon.", ChoiceAction.CONTINUE, id, 1, checkboolname: "Bacon", removeitemname: "Bacon")
         };
         AddToDialogue(id, 1, ChoiceContinueDialog(id, 2));
         AddToDialogue(id, 2, ChoiceInteractItem(id));
@@ -796,8 +852,8 @@ public class Data_GameDay : DataLoader
         AddNpc(id, "Bacon", "Bacon", bacon);
         gameManager.allObjects[id].dialogues[0].choices = new Choice[]
         {
-            AddChoice("Leave it alone"),
-            AddChoice("Take the bacon", ChoiceAction.ITEM, id)
+            AddChoice("Leave it alone."),
+            AddChoice("Take the bacon.", ChoiceAction.ITEM, id)
         };
 
         id = 100;
@@ -816,18 +872,19 @@ public class Data_GameDay : DataLoader
         string[] box = new string[]
         {
             /*0*/ "(There is a suspicious mound of dirt.)",
-            /*1*/ "(The dog digs up a mysterious box.)",
+            /*1*/ "(The dog digs up a mysterious box. You decide to take it with you.)",
             /*2*/ "(There is a suspicious mound of dirt.)",
             /*3*/ "(You notice the park ranger glaring at you so you decide to stop for now.)"
         };
         AddNpc(id, "Dirt", "Dirt", box);
         gameManager.allObjects[id].dialogues[0].choices = new Choice[]
         {
-            AddChoice("Direct the dog to the dirt", ChoiceAction.ITEM, id, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
+            AddChoice("Direct the dog to the dirt.", ChoiceAction.CONTINUE, id, subID:1)
         };
+        AddToDialogue(id, 1, ChoiceInteractItem(id));
         gameManager.allObjects[id].dialogues[2].choices = new Choice[]
         {
-            AddChoice("Direct the dog to the dirt", ChoiceAction.CONTINUE, id, subID:3, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
+            AddChoice("Direct the dog to the dirt.", ChoiceAction.CONTINUE, id, subID:3, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
         };
     }
 
@@ -952,6 +1009,8 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 2,
+
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1351,6 +1410,7 @@ public class Data_GameDay : DataLoader
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.RIGHT_STRETCH,
+            animationSpeed = 0.2f,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1405,6 +1465,7 @@ public class Data_GameDay : DataLoader
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.RIGHT_STRETCH,
+            animationSpeed = 0.2f,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1459,6 +1520,8 @@ public class Data_GameDay : DataLoader
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
 
+            turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 23
@@ -1477,6 +1540,8 @@ public class Data_GameDay : DataLoader
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
 
+            turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 7
@@ -1489,6 +1554,8 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 6,
+
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1520,6 +1587,7 @@ public class Data_GameDay : DataLoader
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.FALLEN,
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1566,6 +1634,8 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
 
+            turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 3
@@ -1591,6 +1661,11 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
             // Getter/Setter variables, NpcID is required
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
+            turnOnInteract = false,
+
             Summary = "",
             NpcID = 13
         });
@@ -1687,6 +1762,8 @@ public class Data_GameDay : DataLoader
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
+            turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 99
@@ -1731,7 +1808,7 @@ public class Data_GameDay : DataLoader
             dialogueIDSingle = 2,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1780,7 +1857,7 @@ public class Data_GameDay : DataLoader
             dialogueIDSingle = 3,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1923,6 +2000,7 @@ public class Data_GameDay : DataLoader
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.UP_IDLE,
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1967,6 +2045,8 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 3,
 
+            turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 66
@@ -1981,6 +2061,8 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 17,
+
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

@@ -513,7 +513,7 @@ public class Textbox : MonoBehaviour
             g[i, 1] = c;
             if (gameManager.playerData.DialogueHistory.ContainsKey(options[i].CEA.IDNum + "," + options[i].CEA.DialogueID + "," + i))
             {
-                box.transform.GetComponent<Image>().color = new Color(255 / 255f, 235 / 255f, 199 / 255f, 255 / 255f);
+                box.transform.GetComponent<Image>().color = new Color((136f / 255f), (154f / 255f), (173f / 255f), (255f / 255f));
             }
         }
         return g;
@@ -545,6 +545,10 @@ public class Textbox : MonoBehaviour
         }
         else
         {
+            if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].setbool != null)
+            {
+                args.DialogueBox.gameManager.playerData.SetBool(args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].setbool);
+            }
             args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = message;
         }
         if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice() || GameManager.instance.allObjects[args.IDNum].dialogues[args.DialogueID].Action != null)

@@ -102,7 +102,14 @@ public class GameManager : MonoBehaviour
             { 110, new Item("Bacon", "Maybe you could feed this to someone", "baconAndEggs")},
             { 111, new Item("Box", "A mysterious box. Maybe it belongs to someone?", "Box")},
             { 23, new Item("Train Ticket", "A train ticket out of town. You don't need to go anywhere but maybe the ticket will have a use.", "Ticket")},
-            { 152, new Item("Alfred's Jewel", "This was a gift from his son.", "alfredsjewel")}
+            { 152, new Item("Alfred's Jewel", "This was a gift from his son.", "alfredsjewel")},
+            { 170, new Item("Cocodonut", "A donut covered in coconut shavings.", "Cocodonut")},
+            { 171, new Item("Donut Sprinklez", "A rainbow donut. Not sure if this is edible.", "DonutSprinklez")},
+            { 172, new Item("Chocoloate Crispies", "Donut holes dipped in chocolate. Yum.", "ChocolateCrispies")},
+            { 173, new Item("Minty Munchies", "Donut holes with a mint flavor. How did they do that?", "MintyMunchies")},
+            { 174, new Item("Strawberry Squishies", "Donut holes with a strawberry flavor. Looks delicious.", "StrawberrySquishies")},
+            { 175, new Item("Potadonut Tots", "Are these donuts or potatoes?", "PotadonutTots")},
+            { 176, new Item("Donut Holes Original", "Just your regular donut hole.", "DonutHolesOriginal")},
         };
         itemIDs = new Dictionary<string, int>()
         {
@@ -111,7 +118,14 @@ public class GameManager : MonoBehaviour
             {"Bacon", 110},
             {"Box", 111},
             {"Train Ticket", 23},
-            {"Alfred's Jewel", 152}
+            {"Alfred's Jewel", 152},
+            {"Cocodonut", 170},
+            {"DonutSprinklez", 171},
+            {"ChocolateCrispies", 172},
+            {"MintyMunchies", 173},
+            {"StrawberrySquishies", 174},
+            {"PotadonutTots", 175},
+            {"DonutHolesOriginal", 176}
         };
 
         dayData.Inventory = new List<Item>(new Item[9]);

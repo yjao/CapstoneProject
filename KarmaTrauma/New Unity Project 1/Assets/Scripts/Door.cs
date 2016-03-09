@@ -6,6 +6,7 @@ public class Door : MonoBehaviour
 	private GameManager gameManager;
     private AudioSource source;
     public AudioClip leaveArea;
+    public AudioClip openDoor;
 
 	public string AltDestination;
 	public bool increaseTime = true;

@@ -344,7 +344,7 @@ public class Player : MonoBehaviour
             }
             else if (locationString == "Tutorial")
             {
-                tutorialManager.CreateTutorialBox("%J.F Mall% is over here Chels!", Textbox.TutorialBoxPosition.BOTTOM, 1f);
+                tutorialManager.CreateTutorialBox("Donut Hole is over here Chels!", Textbox.TutorialBoxPosition.BOTTOM, 1f);
             }
             else if (locationString == "TutorialMall")
             {

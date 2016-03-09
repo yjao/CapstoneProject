@@ -8,6 +8,8 @@ public class Menu : MonoBehaviour
     private GameManager gameManager;
     public static Menu Instance;
 
+    AudioSource source;
+    public AudioClip choose;
     int pointer;
     int pointer2;
     public List<string> item_list;
@@ -15,6 +17,8 @@ public class Menu : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        source = GetComponent<AudioSource>();
+
         item_list = new List<string>();
         pointer = 0;
         pointer2 = 0;
@@ -170,6 +174,8 @@ public class Menu : MonoBehaviour
         {
             if (pointer2 > 0)
             {
+                source.PlayOneShot(choose, 0.6f);
+
                 pointer2 -= 1;
                 DrawSelect();
             }
@@ -178,6 +184,8 @@ public class Menu : MonoBehaviour
         {
             if (pointer2 < 2)
             {
+                source.PlayOneShot(choose, 0.6f);
+
                 pointer2 += 1;
                 DrawSelect();
             }
@@ -186,6 +194,8 @@ public class Menu : MonoBehaviour
         {
             if (pointer > 0)
             {
+                source.PlayOneShot(choose, 0.6f);
+
                 pointer -= 1;
                 DrawSelect();
             }
@@ -194,6 +204,8 @@ public class Menu : MonoBehaviour
         {
             if (pointer < 2)
             {
+                source.PlayOneShot(choose, 0.6f);
+
                 pointer += 1;
                 DrawSelect();
             }

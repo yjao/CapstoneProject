@@ -70,8 +70,8 @@ public class TutorialManager : MonoBehaviour
 			/*5*/ new Slide("Slide7(3)", 3, ""),
 			/*6*/ new Slide("Slide13", 3, "\"Alfred...!\nIf I could… if only I could go back in time…\""),
 			/*7*/ new Slide("Slide14", 3, "\"What... is going on...\nThis all seems too familiar...\""),
-            /*8*/ new Slide("Slide15", 5, "\"Happy Monday, class, my name is Megan Freewoman.  \nUnfortunately, Mr. Ly is out today, so I’ll be your literature sub for today\""),
-            /*9*/ new Slide("Slide16", 3, "\"I was at Jeney's this morning...you get an extra donut if you use it!  \nIsn't it wonderful?\""),
+            /*8*/ new Slide("Slide15", 5, "\"Happy Monday, class, my name is Megan Freewoman.  \nUnfortunately, Mr. Ly is out today, so I’ll be your literature sub for today.\""),
+            /*9*/ new Slide("Slide16", 3, "\"I was at Jeney's this morning...you get an extra donut if you use it!\""),
             /*10*/new Slide("Slide17", 3, "\"Oooooh...Yes...\""),
             /*11*/new Slide("Slide18", 5, "\"...So let me ask this, how many of you are into time travels?\n...if I could, I'd go back to 2 years from today, right before I was hospitalized.\""),
         };
@@ -228,7 +228,7 @@ public class TutorialManager : MonoBehaviour
         CreateDialogue("Mrs. Freewoman", "Oh right, before I forget!");
         yield return null; while (Pause()) { yield return null; }
         gameManager.Wait();
-        Dialogue d = new Dialogue(2, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
+        Dialogue d = new Dialogue(2, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it!");
         gameManager.CreateDialogue("Mrs. Freewoman", d, -1);
         //girlindrama.SetAnimation(CharacterAnimations.States.UP_DANCE);
         StartCoroutine(redhairguy.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.RIGHT_SWING, true));
@@ -305,7 +305,7 @@ public class TutorialManager : MonoBehaviour
         CreateDialogue("Kelly", "To the Punxsu-- I mean %J.F. Mall%!");
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(EndCutscene(false));
-        CreateTutorialBox("%Press Spacebar to enter a location%", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
+        CreateTutorialBox("%Press Spacebar to enter a location.%", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         gameManager.Play();
 
         while (true)
@@ -474,7 +474,7 @@ public class TutorialManager : MonoBehaviour
         CreateTutorialBox("What's something you'd go back in time and change?", Textbox.TutorialBoxPosition.MIDDLE, 3);
         yield return StartCoroutine(gameManager.GradualClock(14, .1f));
         yield return new WaitForSeconds(3);
-        CreateDialogue("Chelsey", "Something is not right...Why did the same thing keep happening again?");
+        CreateDialogue("Chelsey", "Something is not right...Why did the same thing happen again?");
         yield return null; while (Pause()) { yield return null; };
         yield return StartCoroutine(gameManager.GradualClock(18, .1f));
         CreateDialogue("Chelsey", "Before I assume anything, there's one more thing on this day I must check...");
@@ -499,7 +499,7 @@ public class TutorialManager : MonoBehaviour
         }
 
         // SCREEN TURNS RED
-        CreateDialogue("Chelsey", "Alfred...!");
+        CreateDialogue("Megan Freewoman", "Alfred...!");
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(SceneManager.instance.fade_black());
         yield return new WaitForSeconds(1f);

@@ -118,6 +118,7 @@ public class Data_GameDay : DataLoader
         AddToDialogue(2, 5, ChoiceContinueDialog(2, 12));
         AddToDialogue(2, 12, ChoiceContinueDialog(2, 13));
 		AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
+        AddToDialogue(2, 16, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "AlfredEnding" });
 
         gameManager.allObjects[2].dialogues[4].choices = new Choice[]
         {
@@ -791,6 +792,7 @@ public class Data_GameDay : DataLoader
             /*0*/ "\"...\"",       
             /*1*/ "\"....?\"",
             /*2*/ "\"Thanks, I'll take a look at it.\"",
+            /*3*/ "\"...Ok\"", 
           
         };
         AddNpc(id, "Perry", "Perry", perry);
@@ -799,7 +801,7 @@ public class Data_GameDay : DataLoader
         gameManager.allObjects[99].dialogues[0].choices = new Choice[]
 		{
             AddChoice("Give box.", ChoiceAction.CONTINUE, id, 1, checkitemname: "Box"),
-            AddChoice("Do nothing.", ChoiceAction.CONTINUE, id, 0, checkitemname: "Box") 
+            AddChoice("Do nothing.", ChoiceAction.CONTINUE, id, 3, checkitemname: "Box") 
         };
         AddToDialogue(99, 1, ChoiceContinueDialog(99, 2));
 
@@ -986,6 +988,8 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 2,
+
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

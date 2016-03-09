@@ -67,7 +67,7 @@ public class TutorialManager : MonoBehaviour
 			/*2*/ new Slide("Slide3", 3, "\"Alright...\""),
 			/*3*/ new Slide("Slide5", 3, ""),
 			/*4*/ new Slide("Slide6", 3, ""),
-			/*5*/ new Slide("Slide7(3)", 3, ""),
+			/*5*/ new Slide("Slide7", 3, ""),
 			/*6*/ new Slide("Slide13", 3, "\"Alfred...!\nIf I could… if only I could go back in time…\""),
 			/*7*/ new Slide("Slide14", 3, "\"What... is going on...\nThis all seems too familiar...\""),
             /*8*/ new Slide("Slide15", 5, "\"Happy Monday, class, my name is Megan Freewoman.  \nUnfortunately, Mr. Ly is out today, so I’ll be your literature sub for today.\""),

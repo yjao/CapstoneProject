@@ -416,9 +416,7 @@ public class Data_GameDay : DataLoader
         {
 			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
         };
-        AddToDialogue(13, 13, ChoiceContinueDialog(13, 14));
-        AddToDialogue(13, 14, ChoiceContinueDialog(13, 15));
-        AddToDialogue(13, 15, ChoiceContinueDialog(13, 16));
+       
 
         gameManager.allObjects[13].dialogues[0].choices = new Choice[]
         {
@@ -430,7 +428,21 @@ public class Data_GameDay : DataLoader
         {
 			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
         };
- 
+
+        gameManager.allObjects[13].dialogues[19].choices = new Choice[]
+        {
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
+        };
+
+        gameManager.allObjects[13].dialogues[12].choices = new Choice[]
+        {
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
+        };
+
+        AddToDialogue(13, 13, ChoiceContinueDialog(13, 14));
+        AddToDialogue(13, 14, ChoiceContinueDialog(13, 15));
+        AddToDialogue(13, 15, ChoiceContinueDialog(13, 16));
+
         LinkContinueDialogues(id, new int[3]{7,8,10});
         AddToDialogue(id, 11, ChoiceContinueDialog(id, 12));
         LinkContinueDialogues(id, new int[3] { 4, 5, 6 });

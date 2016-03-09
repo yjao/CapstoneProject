@@ -295,10 +295,10 @@ public class Data_GameDay : DataLoader
 			/*0*/ "(Ugh I'm so sleepy. I hate this job.)",
 			/*1*/ "\"That ugly dog belongs to this girl name Rae. She was at the #park until 11:30 PM# looking for the dog while crying.\"",
 			/*2*/ "(So annoying ugh...)", 
-			/*3*/ "\"Because I took a #nap, that stupid dog started digging# all over the park at 1 PM.\"",
-			/*4*/ "\"Ugh! Now I have to go and fill all the holes that he dug up. Now go away and stop bothering me.\"",
+			/*3*/ "\"Yesterday, that stupid #dog started digging# all over the park.\"",
+			/*4*/ "\"I'm glad my nap today went ok. Unlike yesterday...\"",
 			/*5*/ "(Ugh...I'm hungry. I don't get paid enough for this.)",
-		    /*6*/ "\"Now go away and stop bothering me. I got to fill up these stupid holes.\"",
+		    /*6*/ "\"Now go away and stop bothering me. Time to go fill up the rest of those stupid holes.\"",
             /*7*/ "\"Ugh...Go away, kid. Don't you see that I'm about to go to bed?\"",
             /*8*/ "(Maybe some stupid visitor fed him bacon or something. Dogs always get excited over #stupid bacon#.)",
             /*9*/ "\"#Rae was here at 5 PM# and went to the police station just now. About time she moves on and stop pestering me.\"",
@@ -331,7 +331,7 @@ public class Data_GameDay : DataLoader
 			/*8*/ "\"I need money to buy #a train ticket#. I could really use one...\"",
             /*9*/ "(*Mumble in sleep* Should I really #do it for Faraday#...?)"  ,
 			/*10*/ "\"I woke up to some girl crying. I think she's #looking for her dog#.\""  ,
-			/*11*/ "\"I #tossed the dog some bacon# bits and look at what happened!\""  ,
+			/*11*/ "\"Man, I wish I had some bacon today. Yesterday, I #tossed the dog some bacon# bits.\""  ,
 			/*12*/ "\"At first, he followed me, but I told him to go #dig some holes# to mess with cranky ol' Hank. Ha!\"",
 			/*13*/ "\"Oh my goodness, you do have one! Can I really have this?\"",
 			/*14*/"\"Thank you so much. I can have a much better life leaving Punxsutown.\"",
@@ -716,7 +716,7 @@ public class Data_GameDay : DataLoader
         AddNpc(id, "Dog", "Dog", dog);
         gameManager.allObjects[id].dialogues[0].choices = new Choice[]
 		{
-            AddChoice("Feed the dog bacon", ChoiceAction.CONTINUE, id, 1, checkboolname: "Bacon")
+			AddChoice("Feed the dog bacon", ChoiceAction.CONTINUE, id, 1, checkboolname: "Bacon", removeitemname: "Bacon")
         };
         AddToDialogue(id, 1, ChoiceContinueDialog(id, 2));
         AddToDialogue(id, 2, ChoiceInteractItem(id));

@@ -10,7 +10,7 @@ public class TutorialSlideTriggers : MonoBehaviour {
     public AudioClip thump;
     private AudioSource source;
 
-    private bool tutorialBadMusicTrigger = true;
+    private bool tutorialBadMusicTrigger;
     private bool moveTrigger = false;
     private bool KellyTrigger = false;
     private bool trafficTrigger = false;
@@ -26,6 +26,7 @@ public class TutorialSlideTriggers : MonoBehaviour {
         source = GetComponent<AudioSource>();	
         SoundManager = GameObject.Find("SoundManager");
         sm = SoundManager.GetComponent<SoundManager>();
+        tutorialBadMusicTrigger = true;
 	}
 	
 	// Update is called once per frame

@@ -11,6 +11,7 @@ public class Menu_Layout : MonoBehaviour
     Menu gameMenu;
     Player player;
     private const string SCENE_WORLD_MAP = "G_WorldMap";
+    private const string SCENE_MAIN_MENU = "KarmaTrauma";
 
 	public GameObject mapPanel;
 	public GameObject mapText;
@@ -140,7 +141,7 @@ public class Menu_Layout : MonoBehaviour
         M_Clock();
         if (!open_menu && !gameManager.has_text_box && gameManager.gameMode != GameManager.GameMode.NONE)
         {
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.B) && Application.loadedLevelName != SCENE_MAIN_MENU)
             {
                 source.clip = bagSound;
                 source.Play();
@@ -148,7 +149,7 @@ public class Menu_Layout : MonoBehaviour
 
             }
 
-            else if (Input.GetKeyDown(KeyCode.M))
+            else if (Input.GetKeyDown(KeyCode.M) && Application.loadedLevelName != SCENE_MAIN_MENU)
             {
                 source.clip = logSound;
                 source.Play();

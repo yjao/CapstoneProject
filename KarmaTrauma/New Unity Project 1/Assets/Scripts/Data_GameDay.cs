@@ -257,7 +257,7 @@ public class Data_GameDay : DataLoader
 			/*1*/ "(Come here doggie! I'll give you a tasty Donut Bone.)",
             /*2*/ "\"Oh no...my friend's #dog was here at 4 PM#.\"",
             /*3*/ "\"I should have offered him #bacon# instead.\"",
-            /*4*/ "\"Poor man...he was a really #nice cop# who comes by my store often.\"",
+            /*4*/ "\"Poor man...he was a really nice cop who comes by my store often.\"",
             /*5*/ "\"He always tell me that our #Cocodonut# tastes the best.\"",
             /*6*/ "(Whew...what a long day. So many things happened.)",
             /*7*/ "\"It's a shame. Punxsutown used to be so much better before it all happened.\"",

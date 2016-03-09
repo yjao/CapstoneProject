@@ -10,7 +10,7 @@ public class Menu : MonoBehaviour
 
     int pointer;
     int pointer2;
-    private List<string> item_list;
+    public List<string> item_list;
 
     // Use this for initialization
     void Start()
@@ -74,6 +74,19 @@ public class Menu : MonoBehaviour
                     int p1 = i / 3;
                     DrawItem(gameManager.GetItemData()[i].Filename, p, p1);
                     item_list.Add(gameManager.GetItemData()[i].Filename);
+                }
+            }
+            else
+            {
+                if (transform.Find(gameManager.GetItemData()[i].Filename) != null)
+                {
+                    GameObject.Destroy(transform.Find(gameManager.GetItemData()[i].Filename).gameObject);
+                }
+                if (gameManager.GetItemData()[i] != null)
+                {
+                    int p = i % 3;
+                    int p1 = i / 3;
+                    DrawItem(gameManager.GetItemData()[i].Filename, p, p1);
                 }
             }
         }

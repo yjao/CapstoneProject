@@ -10,6 +10,8 @@ public class Menu_Layout : MonoBehaviour
     QuestLog quest_log;
     Menu gameMenu;
     Player player;
+    private const string SCENE_WORLD_MAP = "G_WorldMap";
+    private const string SCENE_MAIN_MENU = "KarmaTrauma";
 
 	public GameObject mapPanel;
 	public GameObject mapText;
@@ -18,6 +20,7 @@ public class Menu_Layout : MonoBehaviour
 	public GameObject memoryPanel;
 	public GameObject memoryText;
 	public GameObject fastForwardPanel;
+    public GameObject fastForwardPicture;
 	public GameObject clockPanel;
 	public GameObject clockText;
 	public GameObject timeTint;
@@ -128,10 +131,12 @@ public class Menu_Layout : MonoBehaviour
         if (setToTrue)
         {
             transform.FindChild("Fast_forward").gameObject.SetActive(true);
+            transform.FindChild("Fast_forward_background").gameObject.SetActive(true);
         }
         else
         {
             transform.FindChild("Fast_forward").gameObject.SetActive(false);
+            transform.FindChild("Fast_forward_background").gameObject.SetActive(false);
         }
     }
     // Update is called once per frame
@@ -139,7 +144,7 @@ public class Menu_Layout : MonoBehaviour
         M_Clock();
         if (!open_menu && !gameManager.has_text_box && gameManager.gameMode != GameManager.GameMode.NONE)
         {
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.B) && Application.loadedLevelName != SCENE_MAIN_MENU)
             {
                 source.clip = bagSound;
                 source.Play();
@@ -147,14 +152,14 @@ public class Menu_Layout : MonoBehaviour
 
             }
 
-            else if (Input.GetKeyDown(KeyCode.M))
+            else if (Input.GetKeyDown(KeyCode.M) && Application.loadedLevelName != SCENE_MAIN_MENU)
             {
                 source.clip = logSound;
                 source.Play();
                 M_Diary();
 
             }
-            else if (Input.GetKeyDown(KeyCode.F))
+            else if (Input.GetKeyDown(KeyCode.F) && (Application.loadedLevelName == SCENE_WORLD_MAP))
             {
                 M_Fastforward();
             }

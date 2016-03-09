@@ -31,7 +31,7 @@ public class EndingManager : MonoBehaviour {
     {
         Application.LoadLevel("Ending");
         yield return SceneManager.instance.fade_black();
-        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide5", 5, "Jerry Faraday: Thank you, thank you everybody! I'll make our county a much, much better place, turning this land into a wealthy land of gold!")));
+        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide33(2)", 20, "Jerry Faraday: Thank you, thank you everybody! I'll make our county a much, much better place, turning this land into a wealthy land of gold!")));
         yield return null;
     }
 
@@ -39,8 +39,8 @@ public class EndingManager : MonoBehaviour {
     {
         Application.LoadLevel("Ending");
         yield return SceneManager.instance.fade_black();
-        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide5", 5, "Alfred: Hey, Dae! What's up, buddy?")));
-        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide5", 5, "Dae: Sorry buddy... I didn't have a choice...")));
+        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide31", 5, "Alfred: Hey, Dae! What's up, buddy?")));
+        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide32", 20, "Dae: Sorry buddy... I didn't have a choice...")));
         yield return null;
     }
 
@@ -48,7 +48,7 @@ public class EndingManager : MonoBehaviour {
     {
         Application.LoadLevel("Ending");
         yield return SceneManager.instance.fade_black();
-        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide5", 5, "Patricia: No! Get your hands off me! Jerry won't forgive you for this!")));
+        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide37", 20, "Patricia: No! Get your hands off me! Jerry won't forgive you for this!")));
         yield return null;
     }
 

@@ -4,6 +4,9 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour
 {
+    public AudioClip select;
+    private AudioSource source;
+
 	public static MainMenu instance;
 	public string startScene;
 	public int startTime;
@@ -20,6 +23,8 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
+
 		if (instance != null)
 		{
 			instance.screenState = ScreenState.MAIN;
@@ -47,14 +52,17 @@ public class MainMenu : MonoBehaviour
 		case ScreenState.MAIN:
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
+                source.PlayOneShot(select, 1);
 				StartTutorial();
 			}
 			else if (Input.GetKeyDown(KeyCode.C))
 			{
+                source.PlayOneShot(select, 1);
 				StartCredits();
 			}
 			else if (Input.GetKeyDown(KeyCode.D))
 			{
+                source.PlayOneShot(select, 1);
 				StartGame();
 			}
 			break;
@@ -84,7 +92,8 @@ public class MainMenu : MonoBehaviour
 	IEnumerator EnterTutorialCoroutine()
 	{
 		SceneManager.instance.fade_black();
-		SceneManager.instance.LoadScene(SceneManager.SCENE_TUTORIAL);
+        yield return new WaitForSeconds(0.25f);
+        SceneManager.instance.LoadScene(SceneManager.SCENE_TUTORIAL);
 		
 		Destroy(this.gameObject);
 		yield break;

@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class DayData
 {
-    public Item[] Inventory = new Item[9];
+    //public Item[] Inventory = new Item[9];
+    public List<Item> Inventory = new List<Item>();
     public int ItemAmount = 0;
 
 	public Dictionary<string, bool> QuestComplete = new Dictionary<string, bool>()
@@ -69,15 +70,17 @@ public class DayData
 
     public void removeItem(string itemName)
     {
-        for (int i = 0; i < ItemAmount; i++)
+        if (Inventory.Contains(GameManager.instance.allItems[GameManager.instance.itemIDs[itemName]]))
         {
-            if (Inventory[i].Name == itemName)
+            if (GameManager.instance.transform.Find("Menu_layout/Inventory/" + (GameManager.instance.allItems[GameManager.instance.itemIDs[itemName]].Filename)) != null)
             {
-                Transform.Destroy(GameManager.instance.transform.Find("Menu_layout/Inventory/" + Inventory[i].Filename));
-                Inventory[i] = null;
-                ItemAmount -= 1;
-                return;
+                GameObject.Destroy(GameManager.instance.transform.Find("Menu_layout/Inventory/" + GameManager.instance.allItems[GameManager.instance.itemIDs[itemName]].Filename).gameObject);
             }
+            Inventory.Remove(GameManager.instance.allItems[GameManager.instance.itemIDs[itemName]]);
+            Inventory.Add(null);
+            ItemAmount -= 1;
+            GameManager.instance.transform.Find("Menu_layout/Inventory").GetComponent<Menu>().item_list.Remove(GameManager.instance.allItems[GameManager.instance.itemIDs[itemName]].Filename);
+            return;
         }
     }
 
@@ -97,8 +100,8 @@ public class DayData
 		}
 		DataDictionary = newBools;
 
-		Inventory = new Item[9];
         ItemAmount = 0;
+        Inventory = new List<Item>(new Item[9]);
 		//temp
 //		QuestManager.Instance.quest_log = new ArrayList();
 	}

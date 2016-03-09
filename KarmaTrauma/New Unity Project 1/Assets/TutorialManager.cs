@@ -181,7 +181,7 @@ public class TutorialManager : MonoBehaviour
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_SCHOOL));
         //gameManager = GameManager.instance;
 
-        gameManager.SetTime(GameManager.TimeType.SET, 8);
+        gameManager.SetTime(GameManager.TimeType.SET, 12);
         gameManager.Wait();
         //gameManager.transform.Find("Menu_layout").gameObject.SetActive(true);
 
@@ -273,6 +273,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Slide9_Coroutine()
     {
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_SCHOOL2));
+        gameManager.SetTime(GameManager.TimeType.SET, 12);
         yield return StartCoroutine(sm.fade_out());
         gameManager.Wait();
         yield return new WaitForSeconds(1f);
@@ -301,6 +302,7 @@ public class TutorialManager : MonoBehaviour
     {
         gameManager.Wait();
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_WORLD_MAP));
+        gameManager.SetTime(GameManager.TimeType.SET, 14);
         gameManager.Wait();
         
         yield return StartCoroutine(SceneManager.instance.fade_out());
@@ -334,6 +336,7 @@ public class TutorialManager : MonoBehaviour
 	{
      
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_DONUT_SHOP));
+        gameManager.SetTime(GameManager.TimeType.SET, 14);
         yield return StartCoroutine(SceneManager.instance.fade_out());
         //yield return new WaitForSeconds(1);
         MultiDialogue("Kelly", new string[3]

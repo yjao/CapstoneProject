@@ -379,7 +379,7 @@ public class TutorialManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
 		CreateChoice("Jeney", "You can %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select.%", new Choice[]
         {
-            new Choice("Chocolate Crispies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
+            new Choice("Chocolate Crispies", TutorialItem(150, false)),
             new Choice("Cocodonut", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
             new Choice("Donut Hole Originals", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
             new Choice("Donut Sprinklez", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
@@ -388,6 +388,7 @@ public class TutorialManager : MonoBehaviour
             new Choice("Strawberry Squishies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
         
         });
+        CreateDialogue("Jeney", action[0]);
         yield return null; while (Pause()) { yield return null; }
         gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(true);
         gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(true);
@@ -636,7 +637,13 @@ public class TutorialManager : MonoBehaviour
         Dialogue d = new Dialogue(-1, Textbox.ColorTutorialKeyword(message));
         d.choices = choices;
         gameManager.CreateChoice(name, d, -1);
-    }    
+    }
+
+    private ChoiceEventArgs TutorialItem(int id, bool removeInteractable = true)
+    {
+        ChoiceEventArgs CEA = new ChoiceEventArgs() { ChoiceAction = InteractableObject.InteractItem, IDNum = id, DestroyItem = removeInteractable };
+        return CEA;
+    }
 
     private void HideGameManager()
     {

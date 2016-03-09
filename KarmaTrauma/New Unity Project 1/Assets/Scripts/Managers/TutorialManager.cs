@@ -35,7 +35,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject dialogueContainer;
     private List<Slide> slides;
 
-    private class Slide
+    public class Slide
     {
         public string imageName;
         public float timer;

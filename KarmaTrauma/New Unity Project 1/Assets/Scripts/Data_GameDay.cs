@@ -118,6 +118,7 @@ public class Data_GameDay : DataLoader
         AddToDialogue(2, 5, ChoiceContinueDialog(2, 12));
         AddToDialogue(2, 12, ChoiceContinueDialog(2, 13));
 		AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
+        AddToDialogue(2, 16, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "AlfredEnding" });
 
         gameManager.allObjects[2].dialogues[4].choices = new Choice[]
         {

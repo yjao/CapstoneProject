@@ -99,8 +99,8 @@ public class GameManager : MonoBehaviour
             { 123, new Item("Lost Dog", "A lost dog. It seems to really like bacon.", "RaesDog")},
 			{ 150, new Item("Jewel", "Quit stealing jewels already", "jewel")},
             { 110, new Item("Bacon", "Maybe you could feed this to someone", "baconAndEggs")},
-            { 111, new Item("Box", "A mysterious box. Maybe it belongs to someone?", "jewel")},
-            { 23, new Item("Train Ticket", "A train ticket out of town. You don't need to go anywhere but maybe the ticket will have a use.", "sprite1")},
+            { 111, new Item("Box", "A mysterious box. Maybe it belongs to someone?", "Box")},
+            { 23, new Item("Train Ticket", "A train ticket out of town. You don't need to go anywhere but maybe the ticket will have a use.", "Ticket")},
             { 152, new Item("Alfred's Jewel", "This was a gift from his son.", "alfredsjewel")}
         };
 

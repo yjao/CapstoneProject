@@ -958,6 +958,8 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 2,
 
+            turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 5

@@ -208,7 +208,7 @@ public class SceneManager : MonoBehaviour
         // This if block was below "if (current_map != null)" block but moved here for player's world map position.
         if (current_map == SCENE_WORLDMAP)
         {
-            Vector3 temp = new Vector3(-4, -2, 4);
+            Vector3 temp = new Vector3(-1.35f, -1.56f, 4);
             GameObject playerChar = GameObject.Find("Player");
             gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(true);
             if (prev_map == "G_House")

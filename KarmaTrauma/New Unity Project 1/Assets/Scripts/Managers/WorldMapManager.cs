@@ -87,7 +87,7 @@ public class WorldMapManager : MonoBehaviour
 			tutorialManager.endCondition = true;
 			break;
 		case SceneManager.SCENE_CLASS:
-			if (gameManager.GetTimeAsInt() == 8)
+			if (gameManager.GetTimeAsInt() != 8)
 			{
 				gameManager.CreateMessage("It's too late to go to school.", false);
 			}

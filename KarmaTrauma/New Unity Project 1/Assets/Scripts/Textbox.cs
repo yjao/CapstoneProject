@@ -295,7 +295,6 @@ public class Textbox : MonoBehaviour
         {
             newKeyword = "<b><color=" + GameManager.QUEST_KEYWORD_COLOR + ">" + newKeyword + "</color></b>";
             return newKeyword;
-
         }
         else
         {
@@ -334,7 +333,7 @@ public class Textbox : MonoBehaviour
         {
             if (gameManager.playerData.DialogueHistory[id + "," + Dialog.iD])
             {
-                transform.Find("Text_Panel").GetComponent<Image>().color = new Color((255f/255f), (235f/255f), (199f/255f), (255f/255f));
+                transform.Find("Text_Panel").GetComponent<Image>().color = new Color((136f/255f), (154f/255f), (173f/255f), (255f/255f));
             }
         }
         else
@@ -401,7 +400,10 @@ public class Textbox : MonoBehaviour
         if (destroytimer != -1)
         {
             yield return new WaitForSeconds(destroytimer);
-            GameObject.Destroy(gameObject);
+            if (gameObject != null)
+            {
+                GameObject.Destroy(gameObject);
+            }
         }
         //GameObject.Destroy(gameObject);
     }

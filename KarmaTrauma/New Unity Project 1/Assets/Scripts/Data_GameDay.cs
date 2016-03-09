@@ -106,23 +106,30 @@ public class Data_GameDay : DataLoader
             /*18*/ "\"Sorry I'm not up for a chat. I'm in a hurry to meet up with my wife. Today is our anniversary~\"",
             /*19*/ "\"A few weeks ago, we got a new chief. He doesn't really talk much so we don't really know about him too well.\"",
             /*20*/ "\"Speaking of which, he left the office just now. He should be #back around 7 PM#.\"",
+            /*21*/ "\"Ok, let me know if you need help with anything.\"",  
         };
         AddNpc(id, "Alfred", "Alfred", alfred);
 
         //Check if Cocodonut is in the bag.  Can give Cocodonut to Alfred any time.
         gameManager.allObjects[2].dialogues[5].choices = new Choice[]
         {
-			AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box"),
-            AddChoice("Offer Cocodonut", ChoiceAction.CONTINUE, 2, 5, checkboolname: "AlfredCocodonut", checkitemname: "Cocodonut")
+            AddChoice("Offer Cocodonut.", ChoiceAction.CONTINUE, 2, 5, checkboolname: "AlfredCocodonut", checkitemname: "Cocodonut")
         };
         AddToDialogue(2, 5, ChoiceContinueDialog(2, 12));
         AddToDialogue(2, 12, ChoiceContinueDialog(2, 13));
-		AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
+		
         AddToDialogue(2, 16, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "AlfredEnding" });
 
-        gameManager.allObjects[2].dialogues[4].choices = new Choice[]
+        gameManager.allObjects[2].dialogues[10].choices = new Choice[]
         {
-            AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box")
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
+        };
+
+        gameManager.allObjects[2].dialogues[18].choices = new Choice[]
+        {
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
         };
 
         LinkContinueDialogues(id, new int[2] { 4, 10 });
@@ -131,6 +138,8 @@ public class Data_GameDay : DataLoader
             AddChoice("Ask about the station.", ChoiceAction.CONTINUE, id, 19),
         };
         AddToDialogue(id, 19, ChoiceContinueDialog(id, 20));
+        AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
+
         LinkContinueDialogues(id, new int[3] { 0, 5, 2});
        
         LinkContinueDialogues(id, new int[2] { 1, 3 });

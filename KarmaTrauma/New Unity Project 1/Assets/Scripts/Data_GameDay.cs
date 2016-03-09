@@ -2033,6 +2033,8 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 3,
 
+            turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 66
@@ -2047,6 +2049,8 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 17,
+
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

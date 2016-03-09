@@ -1520,6 +1520,7 @@ public class Data_GameDay : DataLoader
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.FALLEN,
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1591,6 +1592,11 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
             // Getter/Setter variables, NpcID is required
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
+            turnOnInteract = false,
+
             Summary = "",
             NpcID = 13
         });
@@ -1923,6 +1929,7 @@ public class Data_GameDay : DataLoader
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.UP_IDLE,
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

@@ -71,7 +71,7 @@ public class TutorialManager : MonoBehaviour
 			/*6*/ new Slide("Slide13", 3, "\"Alfred...!\nIf I could… if only I could go back in time…\""),
 			/*7*/ new Slide("Slide14", 3, "\"What... is going on...\nThis all seems too familiar...\""),
             /*8*/ new Slide("Slide15", 5, "\"Happy Monday, class, my name is Megan Freewoman.  \nUnfortunately, Mr. Ly is out today, so I’ll be your literature sub for today.\""),
-            /*9*/ new Slide("Slide16", 3, "\"I was at Jeney's this morning...if you buy one, you'll get another one free!\""),
+            /*9*/ new Slide("Slide16", 3, "\"I was at Jeney's this morning...\nif you buy one, you'll get another one free!\""),
             /*10*/new Slide("Slide17", 3, "\"Oooooh...Yes...\""),
             /*11*/new Slide("Slide18", 5, "\"...So let me ask this, how many of you are into time travels?\n...if I could, I'd go back to 2 years from today, right before I was hospitalized.\""),
         };
@@ -152,7 +152,7 @@ public class TutorialManager : MonoBehaviour
         yield return StartCoroutine(GameObject.Find("Invis").GetComponent<CharacterAnimations>().Move(1, -12.5f, CharacterAnimations.States.DOWN_WALK));
         yield return StartCoroutine(EndCutscene(false));
         GameObject.Find("Invis").transform.parent = GameObject.Find("Player").transform;
-        CreateTutorialBox("What’s wrong? Have you forgotten how to walk?\nHaha, you’re so awkward Chels! It’s why I love ya. \n%Use the arrow keys or WASD keys to move and hold Shift to run%. \nNow go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
+		CreateTutorialBox("What’s wrong? Have you forgotten how to walk?\nHaha, you’re so awkward Chels! It’s why I love ya. \n%Use the arrow keys or WASD keys to move and hold Shift to run%.\nNow go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         gameManager.Play();
 
 		// Exit Condition
@@ -198,7 +198,7 @@ public class TutorialManager : MonoBehaviour
         //
 		yield return StartCoroutine(SceneManager.instance.fade_out());
 
-        MultiDialogue("Mrs. Freewoman", new string[2]
+        MultiDialogue("Megan", new string[2]
         {
             "Happy Monday, class, my name is Megan. As a reminder, %use the Spacebar to progress speech%.",
             "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today."
@@ -228,17 +228,17 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(.25f); 
         kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);
      
-        CreateDialogue("Mrs. Freewoman", "Oh right, before I forget!");
+        CreateDialogue("Megan", "Oh right, before I forget!");
         yield return null; while (Pause()) { yield return null; }
         gameManager.Wait();
         Dialogue d = new Dialogue(2, "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, if you buy one, you'll get another one free!");
-        gameManager.CreateDialogue("Mrs. Freewoman", d, -1);
+        gameManager.CreateDialogue("Megan", d, -1);
         //girlindrama.SetAnimation(CharacterAnimations.States.UP_DANCE);
         StartCoroutine(redhairguy.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.RIGHT_SWING, true));
         yield return StartCoroutine(anna.GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.LEFT_SWING, true));
         //redhairguy.SetAnimation(CharacterAnimations.States.RIGHT_SWING);
         //stylishguy.SetAnimation(CharacterAnimations.States.LEFT_SWING);
-        //CreateDialogue("Mrs. Freewoman", "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
+        //CreateDialogue("Megan", "I was at Jeney’s this morning and told her #Moonlight#. It’s the coupon code that expires today, and you get an extra donut if you use it! Isn’t it wonderful?");
         yield return null; while (Pause()) { yield return null; }
         CreateDialogue("Kelly", "Oooooh… Yes…");
         //yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().PlayAnimation(CharacterAnimations.States.LEFT_DANCE));
@@ -257,7 +257,7 @@ public class TutorialManager : MonoBehaviour
         kelly.SetAnimation(CharacterAnimations.States.UP_IDLE);     ///Not getting called for some reason...
         //red guy and stylish guy talking
 
-        MultiDialogue("Mrs. Freewoman", new string[4]
+        MultiDialogue("Megan", new string[4]
         {
             "Anyways, Mr. Ly called this morning and said the discussion topic is up to me.",
             "So let me ask this, how many of you are into time travels?",
@@ -347,10 +347,10 @@ public class TutorialManager : MonoBehaviour
             "What was it...do you remember, Chels?"
         });
         yield return null; while (Pause()) { yield return null; }
-        GameObject d1 = CreateTutorialBox("I know you have great memory! If you remember the %coupon word%, I'll buy you a donut.", Textbox.TutorialBoxPosition.TOP, -1, false, true);
+		gameManager.Wait();
+		GameObject d1 = CreateTutorialBox("I know you have great memory! If you remember the %coupon word%, I'll buy you a donut.", Textbox.TutorialBoxPosition.TOP, -1, false, true);
         yield return new WaitForSeconds(2);
-		GameObject d2 = CreateTutorialBox("Come on, Chels, think harder! %Press 'M'%, maybe you'll think of something.", Textbox.TutorialBoxPosition.BOTTOM, -1, false, true);
-        gameManager.Wait();
+		GameObject d2 = CreateTutorialBox("Come on, Chels, think harder! %Press 'M'%, maybe you'll think of something.", Textbox.TutorialBoxPosition.BOTTOM, -1, false, true);        
         gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(true);
         gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(true);
         //transform.Find("PageIndex").gameObject.transform.Find("PageIndexText").GetComponent<Text>().text
@@ -371,13 +371,13 @@ public class TutorialManager : MonoBehaviour
         MultiDialogue("Jeney", new string[2]
         {
             "Welcome to the Donut Hole! What can I get you today?",
-            "You can %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select.%",
+			"Our special today is the Donut Sprinklez!",
           
         });
         string[] action = {"Here you go, I’ve put it inside your bag. Have a nice day!"};
         action[0] = Textbox.ColorTutorialKeyword(action[0]);
         yield return null; while (Pause()) { yield return null; }
-        CreateChoice("Jeney", "Our special today is the Donut Sprinklez!", new Choice[]
+		CreateChoice("Jeney", "You can %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select.%", new Choice[]
         {
             new Choice("Chocolate Crispies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
             new Choice("Cocodonut", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
@@ -536,7 +536,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (tag == "FirstDefaultText")
         {
-            CreateTutorialBox("What’s wrong? Have you forgotten how to walk?\nHaha, you’re so awkward Chels! It’s why I love ya. \n%Use the arrow keys or WASD keys to move and hold Shift to run%. \nNow go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
+			CreateTutorialBox("What’s wrong? Have you forgotten how to walk?\nHaha, you’re so awkward Chels! It’s why I love ya. \n%Use the arrow keys or WASD keys to move%.\nNow go %get the ball%!", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         }
         else if (tag == "SecondDefaultText")
         {

@@ -66,12 +66,10 @@ public class Menu : MonoBehaviour
     {
         for (int i = 0; i < gameManager.GetItemAmount(); ++i)
         {
-            Debug.Log(i);
             if (transform.Find(gameManager.GetItemData()[i].Filename) == null)
             {
                 if (gameManager.GetItemData()[i] != null)
                 {
-                    Debug.Log("drawing:" + gameManager.GetItemData()[i].Filename);
                     int p = i % 3;
                     int p1 = i / 3;
                     DrawItem(gameManager.GetItemData()[i].Filename, p, p1);
@@ -80,10 +78,8 @@ public class Menu : MonoBehaviour
             }
             else
             {
-                Debug.Log("else");
                 if (transform.Find(gameManager.GetItemData()[i].Filename) != null)
                 {
-                    Debug.Log("destroy:" + gameManager.GetItemData()[i].Filename);
                     GameObject.Destroy(transform.Find(gameManager.GetItemData()[i].Filename).gameObject);
                 }
                 if (gameManager.GetItemData()[i] != null)

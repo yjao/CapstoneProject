@@ -285,6 +285,10 @@ public class GameManager : MonoBehaviour
         gameMode = prevMode;
         prevMode = oldGameMode;
         has_text_box = false;
+        if (gameMode == GameMode.DIALOGUE)
+        {
+            has_text_box = true;
+        }
     }
 
     #endregion

@@ -124,6 +124,8 @@ public class TutorialManager : MonoBehaviour
         gameManager.Play();
         //Destroy(this);
         this.gameObject.SetActive(false);
+        GameManager.instance.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
+        Destroy(this);
         yield break;
 
     }

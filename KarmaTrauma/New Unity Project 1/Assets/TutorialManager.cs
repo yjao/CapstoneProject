@@ -279,7 +279,7 @@ public class TutorialManager : MonoBehaviour
         MultiDialogue("Kelly", new string[2]
         {
             "Phew, classes are finally over.",
-            "Hey, why don’t we go to Punxsu--er I mean JF Mall! I’m craving Jeney’s donuts…"
+            "Hey, why don’t we go to the Donut Hole! I’m craving Jeney’s donuts…"
         });
         yield return null; while (Pause()) { yield return null; }
         gameManager.Wait();
@@ -302,7 +302,7 @@ public class TutorialManager : MonoBehaviour
         
         yield return StartCoroutine(SceneManager.instance.fade_out());
         yield return new WaitForSeconds(1f);
-        CreateDialogue("Kelly", "To the Punxsu-- I mean %J.F. Mall%!");
+        CreateDialogue("Kelly", "To the Donut Hole!");
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(EndCutscene(false));
         CreateTutorialBox("%Press Spacebar to enter a location.%", Textbox.TutorialBoxPosition.BOTTOM, -1, true);

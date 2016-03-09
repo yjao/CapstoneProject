@@ -633,7 +633,7 @@ public class TutorialManager : MonoBehaviour
     private void CreateChoice(string name, string message, Choice[] choices)
     {
         EventManager.OnDialogChoiceMade += InteractableObject.HandleTutorial;
-        Dialogue d = new Dialogue(-1, message);
+        Dialogue d = new Dialogue(-1, Textbox.ColorTutorialKeyword(message));
         d.choices = choices;
         gameManager.CreateChoice(name, d, -1);
     }    

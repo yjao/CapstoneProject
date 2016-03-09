@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public string locationString;
     private AudioSource source;
     private TutorialManager tutorialManager;
-
+    public float WalkVolume;
     public static Player Instance;
 
     // might be useful later on, can change to List<GameObject>?
@@ -54,6 +54,9 @@ public class Player : MonoBehaviour
         tutorialManager = TutorialManager.instance;
 		EventManager.OnNPC += HandleNPC;
         source = GetComponent<AudioSource>();
+        source.volume = WalkVolume;
+        if (source.volume == 0)
+            source.volume = 0.5f;
     }
 
     void OnDestroy()

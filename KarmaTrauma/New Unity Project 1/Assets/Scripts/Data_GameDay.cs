@@ -826,12 +826,12 @@ public class Data_GameDay : DataLoader
         AddNpc(id, "Dirt", "Dirt", box);
         gameManager.allObjects[id].dialogues[0].choices = new Choice[]
         {
-            AddChoice("Direct the dog to the dirt", ChoiceAction.CONTINUE, id, subID:1)
+            AddChoice("Direct the dog to the dirt.", ChoiceAction.CONTINUE, id, subID:1)
         };
         AddToDialogue(id, 1, ChoiceInteractItem(id));
         gameManager.allObjects[id].dialogues[2].choices = new Choice[]
         {
-            AddChoice("Direct the dog to the dirt", ChoiceAction.CONTINUE, id, subID:3, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
+            AddChoice("Direct the dog to the dirt.", ChoiceAction.CONTINUE, id, subID:3, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
         };
     }
 
@@ -1524,6 +1524,7 @@ public class Data_GameDay : DataLoader
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.FALLEN,
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1595,6 +1596,11 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
             // Getter/Setter variables, NpcID is required
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
+            turnOnInteract = false,
+
             Summary = "",
             NpcID = 13
         });
@@ -1927,6 +1933,7 @@ public class Data_GameDay : DataLoader
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.UP_IDLE,
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

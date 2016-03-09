@@ -102,7 +102,8 @@ public class GameManager : MonoBehaviour
             { 110, new Item("Bacon", "Maybe you could feed this to someone", "baconAndEggs")},
             { 111, new Item("Box", "A mysterious box. Maybe it belongs to someone?", "Box")},
             { 23, new Item("Train Ticket", "A train ticket out of town. You don't need to go anywhere but maybe the ticket will have a use.", "Ticket")},
-            { 152, new Item("Alfred's Jewel", "This was a gift from his son.", "alfredsjewel")}
+            { 152, new Item("Alfred's Jewel", "This was a gift from his son.", "alfredsjewel")},
+            { 170, new Item("Cocodonut", "A donut covered in coconut shavings.", "Cocodonut")}
         };
         itemIDs = new Dictionary<string, int>()
         {
@@ -111,7 +112,8 @@ public class GameManager : MonoBehaviour
             {"Bacon", 110},
             {"Box", 111},
             {"Train Ticket", 23},
-            {"Alfred's Jewel", 152}
+            {"Alfred's Jewel", 152},
+            {"Cocodonut", 170}
         };
 
         dayData.Inventory = new List<Item>(new Item[9]);

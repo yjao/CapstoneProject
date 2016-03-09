@@ -569,8 +569,8 @@ public class Data_GameDay : DataLoader
               AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
         };
-        
-        
+
+        AddToDialogue(id, 12, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "DaeEnding" });
 
         AddToDialogue(id, 9, ChoiceContinueDialog(id, 21));
         AddToDialogue(id, 21, ChoiceContinueDialog(id, 20));
@@ -802,6 +802,9 @@ public class Data_GameDay : DataLoader
             /*1*/ "\"....?\"",
             /*2*/ "\"Thanks, I'll take a look at it.\"",
             /*3*/ "\"...Ok\"", 
+            /*4*/ "\"...\"", /*ENDINGVERSION*/
+            /*5*/ "\"....?\"", /*ENDINGVERSION*/
+            /*6*/ "\"Thanks, I'll take a look at it.\"" /*ENDINGVERSION*/
           
         };
         AddNpc(id, "Perry", "Perry", perry);
@@ -812,7 +815,14 @@ public class Data_GameDay : DataLoader
             AddChoice("Give box.", ChoiceAction.CONTINUE, id, 1, checkitemname: "Box"),
             AddChoice("Do nothing.", ChoiceAction.CONTINUE, id, 3, checkitemname: "Box") 
         };
+        gameManager.allObjects[99].dialogues[4].choices = new Choice[]
+		{
+            AddChoice("Give box.", ChoiceAction.CONTINUE, id, 5, checkitemname: "Box"),
+            AddChoice("Do nothing.", ChoiceAction.CONTINUE, id, 3, checkitemname: "Box") 
+        };
+        AddToDialogue(99, 5, ChoiceContinueDialog(99, 6));
         AddToDialogue(99, 1, ChoiceContinueDialog(99, 2));
+        AddToDialogue(99, 6, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "PerryEnding" });
 
         // ================ DOGE ================ //
         id = 123;
@@ -2285,7 +2295,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 0,
+            dialogueIDSingle = 4,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

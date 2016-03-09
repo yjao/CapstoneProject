@@ -20,9 +20,14 @@ public class QuestLog : MonoBehaviour
     private int quest_per_page = 4;
 
     private List<string> q_log;
+
+    AudioSource source;
+    public AudioClip choose;
+
     // Use this for initialization
     void Start()
     {
+        source = GetComponent<AudioSource>();
 
         pointer = 0;
         q_i = 0;
@@ -42,8 +47,6 @@ public class QuestLog : MonoBehaviour
         Log();
         
         DrawSelect();
-
-     
     }
 
     void LocationTime()
@@ -230,11 +233,12 @@ public class QuestLog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             if (pointer < quest_per_page-1)
-            {
+            {                        
+                source.PlayOneShot(choose, 1);
+
                 pointer += 1;
                 q_i += 1;
                 DrawSelect();
@@ -245,6 +249,8 @@ public class QuestLog : MonoBehaviour
         {
             if (pointer > 0)
             {
+                source.PlayOneShot(choose, 1);
+
                 q_i -= 1;
                 pointer -= 1;
                 DrawSelect();

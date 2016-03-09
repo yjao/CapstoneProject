@@ -299,7 +299,7 @@ public class Player : MonoBehaviour
         }
            
         // Entering World Map Location 
-        else if (locationString != "" && Input.GetKey(KeyCode.Space))
+        else if (locationString != "" && Input.GetKeyDown(KeyCode.Space))
         {
 			// Cooldown procedure
 			//if (!gameManager.CheckKeyCooldown()) { return; } else { gameManager.SetKeyCooldown(); }

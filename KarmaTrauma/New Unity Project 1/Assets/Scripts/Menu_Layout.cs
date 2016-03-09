@@ -20,6 +20,7 @@ public class Menu_Layout : MonoBehaviour
 	public GameObject memoryPanel;
 	public GameObject memoryText;
 	public GameObject fastForwardPanel;
+    public GameObject fastForwardPicture;
 	public GameObject clockPanel;
 	public GameObject clockText;
 	public GameObject timeTint;
@@ -130,10 +131,12 @@ public class Menu_Layout : MonoBehaviour
         if (setToTrue)
         {
             transform.FindChild("Fast_forward").gameObject.SetActive(true);
+            transform.FindChild("Fast_forward_background").gameObject.SetActive(true);
         }
         else
         {
             transform.FindChild("Fast_forward").gameObject.SetActive(false);
+            transform.FindChild("Fast_forward_background").gameObject.SetActive(false);
         }
     }
     // Update is called once per frame

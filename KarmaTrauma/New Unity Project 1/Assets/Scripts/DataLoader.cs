@@ -71,7 +71,7 @@ public class DataLoader
         }
         else if (CA == ChoiceAction.COROUTINE)
         {
-            CEA = new ChoiceEventArgs() { ChoiceAction = TutorialManager.CallCoroutineEvent, CoroutineName = coroutinename };
+            CEA = new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = coroutinename };
         }
         else
         {

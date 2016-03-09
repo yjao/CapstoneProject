@@ -415,6 +415,19 @@ public class Data_GameDay : DataLoader
 
         LinkContinueDialogues(id, new int[2] { 4, 12 });
         LinkContinueDialogues(id, new int[3] { 8, 9, 10 });
+
+        Choice[] turn_in_dog = new Choice[]
+		{
+            AddChoice("Is this your dog?", ChoiceAction.CONTINUE, id, 13, checkitemname:"Lost Dog", removeitemname:"Lost Dog")
+        };
+        LinkContinueDialogues(id, new int[2] { 13, 14 });
+        AddToDialogue(id, 14, ChoiceInteractItem(id));
+        gameManager.allObjects[id].dialogues[3].choices = turn_in_dog;
+        gameManager.allObjects[id].dialogues[12].choices = turn_in_dog;
+        gameManager.allObjects[id].dialogues[7].choices = turn_in_dog;
+        gameManager.allObjects[id].dialogues[10].choices = turn_in_dog;
+        gameManager.allObjects[id].dialogues[11].choices = turn_in_dog;
+
         // ================ FAYE ================ //
         id = 27;
         string[] faye = new string[]
@@ -789,7 +802,7 @@ public class Data_GameDay : DataLoader
         //ql.AddQuest(11, 1, 1, "none", "LostDog", "none", "HankMorning", new List<int> { 12, 14 });
         //ql.AddQuest(11, 3, 3, "none", "DogCanDig", "none", "HankAfternoon", new List<int> { 16 });
 
-        ql.AddQuest(23, 12, 13, "none", "FoundDog", "Lost Dog", "ReturnDogToRae", new List<int> { 8, 10, 12, 14, 16, 18, 20, 22 });
+        //ql.AddQuest(23, 12, 13, "none", "FoundDog", "Lost Dog", "ReturnDogToRae", new List<int> { 8, 10, 12, 14, 16, 18, 20, 22 });
 
     }
 
@@ -1315,7 +1328,7 @@ public class Data_GameDay : DataLoader
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
-            NpcID = 105
+            NpcID = 123
         });
 
         // ======================== RAE ======================== //

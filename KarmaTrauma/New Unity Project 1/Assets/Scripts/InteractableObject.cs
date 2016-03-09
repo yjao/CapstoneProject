@@ -136,7 +136,13 @@ public class InteractableObject : MonoBehaviour
     {
 		if (args.Testing != null) {Debug.Log(args.Testing);}
         EventManager.NotifyItemTaken(sender, args);
-        GameObject.Destroy(args.ThisGameObject);
+        if (args.DestroyItem != null)
+        {
+            if (args.DestroyItem)
+            {
+                GameObject.Destroy(args.ThisGameObject);
+            }
+        }
     }
 
     public static void InteractMove(object sender, GameEventArgs args)

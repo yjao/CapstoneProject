@@ -393,7 +393,7 @@ public class TutorialManager : MonoBehaviour
 
         gameManager.Wait();
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         MultiDialogue("Kelly", new string[2]
         {
             "She’s still better than Mr. Ly fanboying over Faraday though…",

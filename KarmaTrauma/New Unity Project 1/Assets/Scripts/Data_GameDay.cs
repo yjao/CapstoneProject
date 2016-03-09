@@ -1498,6 +1498,8 @@ public class Data_GameDay : DataLoader
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
 
+            turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 23
@@ -1516,6 +1518,8 @@ public class Data_GameDay : DataLoader
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
 
+            turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 7
@@ -1528,6 +1532,8 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 6,
+
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1605,6 +1611,8 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
+
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1732,6 +1740,8 @@ public class Data_GameDay : DataLoader
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
+            turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 99
@@ -1776,7 +1786,7 @@ public class Data_GameDay : DataLoader
             dialogueIDSingle = 2,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

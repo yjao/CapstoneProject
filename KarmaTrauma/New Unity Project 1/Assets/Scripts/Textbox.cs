@@ -545,6 +545,10 @@ public class Textbox : MonoBehaviour
         }
         else
         {
+            if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].setbool != null)
+            {
+                args.DialogueBox.gameManager.playerData.SetBool(args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].setbool);
+            }
             args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = message;
         }
         if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice() || GameManager.instance.allObjects[args.IDNum].dialogues[args.DialogueID].Action != null)

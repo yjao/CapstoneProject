@@ -391,6 +391,9 @@ public class Data_GameDay : DataLoader
 		AddBooleanToDialogue(id, 5, "BobWantsToLeave");
 		AddBooleanToDialogue(id, 8, "BobWantsToLeave");
 
+        AddBooleanToDialogue(id, 11, "LikesBacon");
+        AddBooleanToDialogue(id, 12, "DogCanDig");
+
         gameManager.allObjects[id].dialogues[8].choices = new Choice[]
 		{
             AddChoice("Why do you need one?", ChoiceAction.CONTINUE, id, 17)
@@ -816,15 +819,16 @@ public class Data_GameDay : DataLoader
         string[] box = new string[]
         {
             /*0*/ "(There is a suspicious mound of dirt.)",
-            /*1*/ "(The dog digs up a mysterious box.)",
+            /*1*/ "(The dog digs up a mysterious box. You decide to take it with you.)",
             /*2*/ "(There is a suspicious mound of dirt.)",
             /*3*/ "(You notice the park ranger glaring at you so you decide to stop for now.)"
         };
         AddNpc(id, "Dirt", "Dirt", box);
         gameManager.allObjects[id].dialogues[0].choices = new Choice[]
         {
-            AddChoice("Direct the dog to the dirt", ChoiceAction.ITEM, id, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
+            AddChoice("Direct the dog to the dirt", ChoiceAction.CONTINUE, id, subID:1)
         };
+        AddToDialogue(id, 1, ChoiceInteractItem(id));
         gameManager.allObjects[id].dialogues[2].choices = new Choice[]
         {
             AddChoice("Direct the dog to the dirt", ChoiceAction.CONTINUE, id, subID:3, checkboolname:"DogCanDig", checkitemname:"Lost Dog")

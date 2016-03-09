@@ -7,7 +7,8 @@ public class Textbox : MonoBehaviour
 {
     private GameManager gameManager;
 
-   
+    public AudioClip choose;
+
     bool choice_mode;
     bool tutorial_mode;
     bool tutorial_choice;
@@ -16,6 +17,7 @@ public class Textbox : MonoBehaviour
     public string res;
     private Choice[] choices;
     public Dialogue Dialog;
+    private AudioSource source;
 
     public enum TutorialBoxPosition
     {
@@ -34,6 +36,10 @@ public class Textbox : MonoBehaviour
         
 
         EventManager.OnSpaceBar += SelfDestruct;
+    }
+    void Start()
+    {
+        source = GetComponent<AudioSource>();
     }
 
     static string BuildIntoQuestList(string name, string message)
@@ -114,6 +120,8 @@ public class Textbox : MonoBehaviour
                 {
                     if (cursor < choices.Length - 1)
                     {
+                        source.PlayOneShot(choose, 1);
+                        
                         cursor += 1;
                         transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.50f, .235f + .1f * cursor);
                         transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.56f, .31f + .1f * cursor);
@@ -123,6 +131,8 @@ public class Textbox : MonoBehaviour
                 {
                     if (cursor > 0)
                     {
+                        source.PlayOneShot(choose, 1);
+
                         cursor -= 1;
                         transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMin = new Vector2(.50f, .235f + .1f * cursor);
                         transform.Find("Pointer").transform.GetComponent<RectTransform>().anchorMax = new Vector2(.56f, .31f + .1f * cursor);

@@ -75,6 +75,10 @@ public class SoundManager : MonoBehaviour {
 
     public void PlayOtherSong(string name)
     {
+        if (currentSong.clip == mapSong[name])
+        {
+            return;
+        }
         if (currentSong.isPlaying)
         {
             playMusic = false;

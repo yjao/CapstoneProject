@@ -40,9 +40,9 @@ public class DataLoader
 		gameManager.SaveGameData();
 	}
 
-	protected ChoiceEventArgs ChoiceInteractItem(int id)
+	protected ChoiceEventArgs ChoiceInteractItem(int id, bool removeInteractable = true)
     {
-        ChoiceEventArgs CEA = new ChoiceEventArgs() { ChoiceAction = InteractableObject.InteractItem, IDNum = id };
+        ChoiceEventArgs CEA = new ChoiceEventArgs() { ChoiceAction = InteractableObject.InteractItem, IDNum = id, DestroyItem = removeInteractable };
         return CEA;
     }
 

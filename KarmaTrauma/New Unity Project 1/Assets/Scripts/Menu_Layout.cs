@@ -74,6 +74,10 @@ public class Menu_Layout : MonoBehaviour
         if (gameManager.GetTimeAsInt() < 22)
         {
             gameManager.SetTime(GameManager.TimeType.INCREASE);
+            if (gameManager.GetTimeAsInt() >= 20)
+            {
+                SoundManager.instance.PlayOtherSong("BadThingMusic");
+            }
             SceneManager.instance.tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());
         }
     }

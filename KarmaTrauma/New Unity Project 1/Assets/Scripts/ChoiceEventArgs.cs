@@ -18,4 +18,5 @@ public class ChoiceEventArgs
     public string[] TutorialDialogues { get; set; }
     public int TutorialDialogueCounter { get; set; }
     public string CoroutineName { get; set; }
+    public bool DestroyItem { get; set; }
 }

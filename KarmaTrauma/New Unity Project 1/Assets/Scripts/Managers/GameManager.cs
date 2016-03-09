@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
 			{ 150, new Item("Jewel", "Quit stealing jewels already", "jewel")},
             { 110, new Item("Bacon", "Maybe you could feed this to someone", "baconAndEggs")},
             { 111, new Item("Box", "A mysterious box. Maybe it belongs to someone?", "jewel")},
+            { 23, new Item("Train Ticket", "A train ticket out of town. You don't need to go anywhere but maybe the ticket will have a use.", "sprite1")},
             { 152, new Item("Alfred's Jewel", "This was a gift from his son.", "alfredsjewel")}
         };
 
@@ -314,7 +315,6 @@ public class GameManager : MonoBehaviour
         }
         else if (gameClock >= 22)
         {
-            SoundManager.instance.StartCoroutine(SoundManager.instance.FadeOutAudioSource(SoundManager.instance.currentSong, true));
             SoundManager.instance.LoadSceneSound("WorldMapMidnight", .5f, true);
             return "10 - <b><color=red>12AM</color></b>";
         }
@@ -348,6 +348,7 @@ public class GameManager : MonoBehaviour
     {
         yield return StartCoroutine(SceneManager.instance.fade_black());
         StartCoroutine(SceneManager.instance.map_name("Day " + (playerData.daysPassed + 1) + ".", 2.25f));
+        StartCoroutine(SoundManager.instance.FadeOutAudioSource(SoundManager.instance.currentSong, true));
         dayData.Wipe();
         playerData.WipeQuest();
         playerData.daysPassed++;

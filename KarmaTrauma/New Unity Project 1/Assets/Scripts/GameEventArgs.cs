@@ -21,6 +21,7 @@ public class GameEventArgs
     public string[] TutorialDialogues { get; set; }
     public int TutorialDialogueCounter { get; set; }
     public string CoroutineName { get; set; }
+    public bool DestroyItem { get; set; }
 
     public CharacterAnimations.States AnimationState { get; set; }
 
@@ -35,5 +36,6 @@ public class GameEventArgs
         TutorialDialogues = CEA.TutorialDialogues;
         TutorialDialogueCounter = CEA.TutorialDialogueCounter;
         CoroutineName = CEA.CoroutineName;
+        DestroyItem = CEA.DestroyItem;
     }
 }

@@ -175,6 +175,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator Slide8_Coroutine()
     {
         //School Scene
+        StartCoroutine(SoundManager.instance.ResumeSceneMusic());
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_SCHOOL));
         //gameManager = GameManager.instance;
 

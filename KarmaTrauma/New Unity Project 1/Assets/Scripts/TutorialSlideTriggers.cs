@@ -74,7 +74,8 @@ public class TutorialSlideTriggers : MonoBehaviour {
     {
         if (this.tag == "InvisCol" && col.gameObject.tag == "Player")
         {
-            sm.PauseSceneMusic();
+            //sm.PauseSceneMusic();
+            sm.PlayOtherSong("BadThingMusic");
             Debug.Log(sm + " Sound Manager");
             StartCoroutine(TutorialManager.instance.StartCutscene(false));
             source.PlayOneShot(carCrash, 1);

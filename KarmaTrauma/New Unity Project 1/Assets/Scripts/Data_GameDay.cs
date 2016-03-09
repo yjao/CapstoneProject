@@ -257,7 +257,7 @@ public class Data_GameDay : DataLoader
 			/*1*/ "(Come here doggie! I'll give you a tasty Donut Bone.)",
             /*2*/ "\"Oh no...my friend's #dog was here at 4 PM#.\"",
             /*3*/ "\"I should have offered him #bacon# instead.\"",
-            /*4*/ "\"Poor man...he was a really #nice cop# who comes by my store often.\"",
+            /*4*/ "\"Poor man...he was a really nice cop who comes by my store often.\"",
             /*5*/ "\"He always tell me that our #Cocodonut# tastes the best.\"",
             /*6*/ "(Whew...what a long day. So many things happened.)",
             /*7*/ "\"It's a shame. Punxsutown used to be so much better before it all happened.\"",
@@ -346,6 +346,10 @@ public class Data_GameDay : DataLoader
         };
         AddNpc(id, "Bob", "Hobo master race", bob);
 
+		AddBooleanToDialogue(id, 1, "BobWantsToLeave");
+		AddBooleanToDialogue(id, 5, "BobWantsToLeave");
+		AddBooleanToDialogue(id, 8, "BobWantsToLeave");
+
         gameManager.allObjects[id].dialogues[8].choices = new Choice[]
 		{
             AddChoice("Why do you need one?", ChoiceAction.CONTINUE, id, 17)
@@ -356,7 +360,7 @@ public class Data_GameDay : DataLoader
         //Same problem as Alfred.  Can give ticket to hobo any time.
         gameManager.allObjects[13].dialogues[4].choices = new Choice[]
         {
-            AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobTrainTicket", checkitemname: "TrainTicket")
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
         };
         AddToDialogue(13, 13, ChoiceContinueDialog(13, 14));
         AddToDialogue(13, 14, ChoiceContinueDialog(13, 15));
@@ -364,13 +368,13 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[13].dialogues[0].choices = new Choice[]
         {
-            AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobTrainTicket", checkitemname: "TrainTicket")
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
         };
 
 
         gameManager.allObjects[13].dialogues[1].choices = new Choice[]
         {
-            AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobTrainTicket", checkitemname: "TrainTicket")
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
         };
  
         LinkContinueDialogues(id, new int[3]{7,8,10});

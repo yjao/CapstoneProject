@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-		Debug.Log ("START");
+		//Debug.Log ("START");
         gameClockDisplay = gameClock.ToString() + " - " +  (gameClock+2).ToString() + "PM";
     }
     void OnDestroy()

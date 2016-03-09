@@ -86,7 +86,7 @@ public class MainMenu : MonoBehaviour
 		SceneManager.instance.fade_black();
 		SceneManager.instance.LoadScene(SceneManager.SCENE_TUTORIAL);
 		
-		Destroy(this);
+		Destroy(this.gameObject);
 		yield break;
 	}
 
@@ -97,7 +97,7 @@ public class MainMenu : MonoBehaviour
 		yield return StartCoroutine(SceneManager.instance.LoadSceneCoroutine(startScene));
 		GameManager.instance.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
 
-		Destroy(this);
+		Destroy(this.gameObject);
 		yield break;
 	}
 

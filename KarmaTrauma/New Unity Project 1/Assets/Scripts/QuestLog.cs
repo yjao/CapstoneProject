@@ -90,8 +90,8 @@ public class QuestLog : MonoBehaviour
                     Transform z = (Instantiate(transform.Find("QuestPanel0"), new Vector3(0, 1, 0), Quaternion.identity)) as Transform;
                     z.transform.Translate(new Vector2(0.1f, 0.2f));
                     z.transform.SetParent(transform, false);
-                    z.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.8f + .14f * x), (.95f - .13f * y));
-                    z.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f + .14f * x), (.84f - .13f * y));
+                    z.transform.GetComponent<RectTransform>().anchorMax = new Vector2((.8f + .14f * x), (.95f - .14f * y));
+                    z.transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f + .14f * x), (.82f - .14f * y));
                     z.name = "QuestPanel" + y;
 
                     //foreach (string key in gameManager.questList.Keys)
@@ -160,8 +160,8 @@ public class QuestLog : MonoBehaviour
        
         transform.Find("QuestSelect").gameObject.SetActive(true);
    
-        transform.Find("QuestSelect").transform.GetComponent<RectTransform>().anchorMax = new Vector2((.8f), (.95f - .13f * pointer));
-        transform.Find("QuestSelect").transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f), (.84f - .13f * pointer));
+        transform.Find("QuestSelect").transform.GetComponent<RectTransform>().anchorMax = new Vector2((.8f), (.95f - .14f * pointer));
+        transform.Find("QuestSelect").transform.GetComponent<RectTransform>().anchorMin = new Vector2((.234f), (.82f - .14f * pointer));
         transform.Find("QuestSelect").SetAsLastSibling();
 
 

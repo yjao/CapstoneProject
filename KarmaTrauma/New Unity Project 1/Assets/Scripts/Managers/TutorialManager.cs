@@ -87,7 +87,6 @@ public class TutorialManager : MonoBehaviour
 		yield return StartCoroutine(Slide_Coroutine(slides[0]));
         yield return StartCoroutine(Slide_Coroutine(slides[1]));
         yield return StartCoroutine(Slide_Coroutine(slides[2]));
-
         yield return StartCoroutine(Slide4_Coroutine());
 
         //// PICTURE SLIDE: Fallen Alfred and Book
@@ -107,7 +106,7 @@ public class TutorialManager : MonoBehaviour
       
         yield return StartCoroutine(Slide14_Coroutine());
         
-        yield return StartCoroutine(Slide15_Coroutine());      
+        yield return StartCoroutine(Slide15_Coroutine());
         
         yield return StartCoroutine(Slide18_Coroutine());
         yield return StartCoroutine(Slide19_Coroutine());
@@ -117,9 +116,9 @@ public class TutorialManager : MonoBehaviour
         GameManager.instance.SetTime(GameManager.TimeType.SET, 20);
         yield return null;
 
-        SceneManager.instance.LoadScene();
+        SceneManager.instance.LoadScene(SCENE_G_MAIN_STREET);
         yield return null;
-        yield return StartCoroutine(SceneManager.instance.fade_out());
+        //yield return StartCoroutine(SceneManager.instance.fade_out());
 
         gameManager.Play();
         //Destroy(this);
@@ -347,9 +346,10 @@ public class TutorialManager : MonoBehaviour
             "What was it...do you remember, Chels?"
         });
         yield return null; while (Pause()) { yield return null; }
-		gameManager.Wait();
+        gameManager.gameMode = GameManager.GameMode.NONE;
 		GameObject d1 = CreateTutorialBox("I know you have great memory! If you remember the %coupon word%, I'll buy you a donut.", Textbox.TutorialBoxPosition.TOP, -1, false, true);
         yield return new WaitForSeconds(2);
+        gameManager.Wait();
 		GameObject d2 = CreateTutorialBox("Come on, Chels, think harder! %Press 'M'%, maybe you'll think of something.", Textbox.TutorialBoxPosition.BOTTOM, -1, false, true);        
         gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(true);
         gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(true);

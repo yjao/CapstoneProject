@@ -17,12 +17,14 @@ public class TutorialSlideTriggers : MonoBehaviour {
     private bool playThump = false;
     private bool once = true;
     public static bool defaultTrigger = false;
-
-
+    public GameObject SoundManager;
+    SoundManager sm;
 	// Use this for initialization
 	void Start () 
     {
         source = GetComponent<AudioSource>();	
+        SoundManager = GameObject.Find("SoundManager");
+        sm = SoundManager.GetComponent<SoundManager>();
 	}
 	
 	// Update is called once per frame
@@ -72,6 +74,8 @@ public class TutorialSlideTriggers : MonoBehaviour {
     {
         if (this.tag == "InvisCol" && col.gameObject.tag == "Player")
         {
+            sm.PauseSceneMusic();
+            Debug.Log(sm + " Sound Manager");
             StartCoroutine(TutorialManager.instance.StartCutscene(false));
             source.PlayOneShot(carCrash, 1);
             moveTrigger = true;

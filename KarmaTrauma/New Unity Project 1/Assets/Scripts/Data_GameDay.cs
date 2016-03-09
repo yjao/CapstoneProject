@@ -791,6 +791,7 @@ public class Data_GameDay : DataLoader
             /*0*/ "\"...\"",       
             /*1*/ "\"....?\"",
             /*2*/ "\"Thanks, I'll take a look at it.\"",
+            /*3*/ "\"...Ok\"", 
           
         };
         AddNpc(id, "Perry", "Perry", perry);
@@ -799,7 +800,7 @@ public class Data_GameDay : DataLoader
         gameManager.allObjects[99].dialogues[0].choices = new Choice[]
 		{
             AddChoice("Give box.", ChoiceAction.CONTINUE, id, 1, checkitemname: "Box"),
-            AddChoice("Do nothing.", ChoiceAction.CONTINUE, id, 0, checkitemname: "Box") 
+            AddChoice("Do nothing.", ChoiceAction.CONTINUE, id, 3, checkitemname: "Box") 
         };
         AddToDialogue(99, 1, ChoiceContinueDialog(99, 2));
 

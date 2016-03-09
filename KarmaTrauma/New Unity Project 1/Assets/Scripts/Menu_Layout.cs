@@ -10,6 +10,7 @@ public class Menu_Layout : MonoBehaviour
     QuestLog quest_log;
     Menu gameMenu;
     Player player;
+    private const string SCENE_WORLD_MAP = "G_WorldMap";
 
 	public GameObject mapPanel;
 	public GameObject mapText;
@@ -154,7 +155,7 @@ public class Menu_Layout : MonoBehaviour
                 M_Diary();
 
             }
-            else if (Input.GetKeyDown(KeyCode.F))
+            else if (Input.GetKeyDown(KeyCode.F) && (Application.loadedLevelName == SCENE_WORLD_MAP))
             {
                 M_Fastforward();
             }

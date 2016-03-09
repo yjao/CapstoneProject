@@ -253,7 +253,7 @@ public class Data_GameDay : DataLoader
         id = 7;
         string[] jeney = new string[]
 		{
-			/*0*/ "\"Welcome to the Donut Hole! Today's special is the Donot Sprinklez~\"",
+			/*0*/ "\"Welcome to the Donut Hole! Today's special is the Donut Sprinklez~\"",
 			/*1*/ "(Come here doggie! I'll give you a tasty Donut Bone.)",
             /*2*/ "\"Oh no...my friend's #dog was here at 4 PM#.\"",
             /*3*/ "\"I should have offered him #bacon# instead.\"",
@@ -993,6 +993,8 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "Rae looking for dog",
@@ -1006,6 +1008,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 6,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "favorite spot",
@@ -1039,6 +1044,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 4,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 11
@@ -1051,6 +1059,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 5,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1065,6 +1076,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 1,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 11
@@ -1078,6 +1092,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 7,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 11
@@ -1090,6 +1107,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 7,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1250,6 +1270,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 17,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 36
@@ -1264,6 +1287,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 3,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_STRETCH,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1280,6 +1306,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 3,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 51
@@ -1295,12 +1324,15 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 1,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 52
         });
 
-        // ======================== KYLE ======================== //
+        // ======================== APRIL ======================== //
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
@@ -1309,6 +1341,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_STRETCH,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1344,6 +1379,8 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
+
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1575,6 +1612,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 99
@@ -1618,6 +1658,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 2,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 50
@@ -1630,6 +1673,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 4,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1660,6 +1706,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 3,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1707,6 +1756,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 4,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1779,6 +1831,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 2
@@ -1793,6 +1848,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 9,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1865,6 +1923,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 36
@@ -1879,6 +1940,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 3,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1895,6 +1959,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 12,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 4
@@ -1910,6 +1977,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 1,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 51
@@ -1924,6 +1994,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 4,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1943,6 +2016,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 8,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2056,6 +2132,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 2,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 53
@@ -2125,6 +2204,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.SLEEPING,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 37
@@ -2137,6 +2219,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 1,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.SLEEPING,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2151,6 +2236,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 6,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.SLEEPING,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 37
@@ -2164,6 +2252,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 7,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.SLEEPING,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 37
@@ -2175,6 +2266,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 8,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.SLEEPING,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2189,6 +2283,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 4,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.SLEEPING,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 37
@@ -2202,6 +2299,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 9,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.SLEEPING,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 37
@@ -2213,6 +2313,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 10,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.SLEEPING,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2229,6 +2332,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 7,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 4
@@ -2241,6 +2347,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 8,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2256,6 +2365,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 14,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 4
@@ -2270,6 +2382,9 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 18,
 
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 4
@@ -2282,6 +2397,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 19,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2304,6 +2422,7 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 14,
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2319,6 +2438,7 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2336,6 +2456,7 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2352,6 +2473,7 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2368,6 +2490,7 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 0,
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

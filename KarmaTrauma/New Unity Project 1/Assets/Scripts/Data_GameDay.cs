@@ -826,12 +826,12 @@ public class Data_GameDay : DataLoader
         AddNpc(id, "Dirt", "Dirt", box);
         gameManager.allObjects[id].dialogues[0].choices = new Choice[]
         {
-            AddChoice("Direct the dog to the dirt", ChoiceAction.CONTINUE, id, subID:1)
+            AddChoice("Direct the dog to the dirt.", ChoiceAction.CONTINUE, id, subID:1)
         };
         AddToDialogue(id, 1, ChoiceInteractItem(id));
         gameManager.allObjects[id].dialogues[2].choices = new Choice[]
         {
-            AddChoice("Direct the dog to the dirt", ChoiceAction.CONTINUE, id, subID:3, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
+            AddChoice("Direct the dog to the dirt.", ChoiceAction.CONTINUE, id, subID:3, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
         };
     }
 

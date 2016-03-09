@@ -374,7 +374,7 @@ public class TutorialManager : MonoBehaviour
             new Choice("Cocodonut", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
             new Choice("Donut Hole Originals", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
             new Choice("Donut Sprinklez", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Minty Muncies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
+            new Choice("Minty Munchies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
             new Choice("Potadonut Tots", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
             new Choice("Strawberry Squishies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
         

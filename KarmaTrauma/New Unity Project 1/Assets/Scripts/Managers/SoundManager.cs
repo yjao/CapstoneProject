@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour {
 
     public AudioClip[] BGMs;
     public bool playMusic;
-    public int musicVolume;
+    public float musicVolume;
     private bool fadeOut;
     public AudioClip MidnightSound;
 

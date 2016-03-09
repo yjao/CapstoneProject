@@ -304,7 +304,7 @@ public class Data_GameDay : DataLoader
         id = 7;
         string[] jeney = new string[]
 		{
-			/*0*/ "\"Welcome to the Donut Hole! Today's special is the Donut Sprinklez~\"",
+			/*0*/ "\"Welcome to the Donut Hole! What can I get you today? Today's special is the Donut Sprinklez~\"",
 			/*1*/ "(Come here doggie! I'll give you a tasty Donut Bone.)",
             /*2*/ "\"Oh no...my friend's #dog was here at 4 PM#.\"",
             /*3*/ "\"I should have offered him #bacon# instead.\"",
@@ -318,6 +318,14 @@ public class Data_GameDay : DataLoader
             /*11*/"\"Well, I hope the Donut Hole will be fine. We have so many loyal customers.\"",
             /*12*/"\"I tried catching him by feeding him a donut, but he ran off.\"",
             /*13*/"\"I hope that he returned home safely.\"",
+            /*14*/"\"Here you go, I've put it inside your bag. Have a nice day!\"",
+            /*15*/"\"Here you go, I've put it inside your bag. Have a nice day!\"",
+            /*16*/"\"Here you go, I've put it inside your bag. Have a nice day!\"",
+            /*17*/"\"Here you go, I've put it inside your bag. Have a nice day!\"",
+            /*18*/"\"Here you go, I've put it inside your bag. Have a nice day!\"",
+            /*19*/"\"Here you go, I've put it inside your bag. Have a nice day!\"",
+            /*20*/"\"Here you go, I've put it inside your bag. Have a nice day!\""
+
 
 
         };
@@ -329,6 +337,24 @@ public class Data_GameDay : DataLoader
         };
        AddToDialogue(id, 12, ChoiceContinueDialog(id, 3));
        AddToDialogue(id, 3, ChoiceContinueDialog(id, 13));
+
+       gameManager.allObjects[id].dialogues[0].choices = new Choice[]
+        {
+            AddChoice("Cocodonut", ChoiceAction.CONTINUE, id, 14),
+            AddChoice("Donut Sprinklez", ChoiceAction.CONTINUE, id, 15),
+            AddChoice("Chocolate Crispies", ChoiceAction.CONTINUE, id, 16),
+            AddChoice("Minty Munchies", ChoiceAction.CONTINUE, id, 17),
+            AddChoice("Strawberry Squishies", ChoiceAction.CONTINUE, id, 18),
+            AddChoice("Potadonut Tots", ChoiceAction.CONTINUE, id, 19),
+            AddChoice("Donut Holes Original", ChoiceAction.CONTINUE, id, 20)
+        };
+       AddToDialogue(id, 14, ChoiceInteractItem(170, false));
+       AddToDialogue(id, 15, ChoiceInteractItem(171, false));
+       AddToDialogue(id, 16, ChoiceInteractItem(172, false));
+       AddToDialogue(id, 17, ChoiceInteractItem(173, false));
+       AddToDialogue(id, 18, ChoiceInteractItem(174, false));
+       AddToDialogue(id, 19, ChoiceInteractItem(175, false));
+       AddToDialogue(id, 20, ChoiceInteractItem(176, false));
 
 
         gameManager.allObjects[7].dialogues[7].choices = new Choice[]
@@ -889,7 +915,7 @@ public class Data_GameDay : DataLoader
         AddNpc(id, "Dirt", "Dirt", box);
         gameManager.allObjects[id].dialogues[0].choices = new Choice[]
         {
-            AddChoice("Direct the dog to the dirt.", ChoiceAction.CONTINUE, id, subID:1)
+            AddChoice("Direct the dog to the dirt.", ChoiceAction.CONTINUE, id, subID:1, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
         };
         AddToDialogue(id, 1, ChoiceInteractItem(id));
         gameManager.allObjects[id].dialogues[2].choices = new Choice[]

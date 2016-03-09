@@ -10,6 +10,7 @@ public class TutorialSlideTriggers : MonoBehaviour {
     public AudioClip thump;
     private AudioSource source;
 
+    private bool tutorialBadMusicTrigger;
     private bool moveTrigger = false;
     private bool KellyTrigger = false;
     private bool trafficTrigger = false;
@@ -25,6 +26,7 @@ public class TutorialSlideTriggers : MonoBehaviour {
         source = GetComponent<AudioSource>();	
         SoundManager = GameObject.Find("SoundManager");
         sm = SoundManager.GetComponent<SoundManager>();
+        tutorialBadMusicTrigger = true;
 	}
 	
 	// Update is called once per frame
@@ -55,6 +57,11 @@ public class TutorialSlideTriggers : MonoBehaviour {
         }
         else if (fallTrigger)
         {
+            if (tutorialBadMusicTrigger)
+            {
+                tutorialBadMusicTrigger = false;
+                sm.PlayOtherSong("BadThingMusic");
+            }
             StartCoroutine(GameObject.Find("TutorialManager").GetComponent<TutorialManager>().Slide_Triggers_Coroutine("Fall"));
             fallTrigger = false;
             playThump = true;
@@ -74,8 +81,8 @@ public class TutorialSlideTriggers : MonoBehaviour {
     {
         if (this.tag == "InvisCol" && col.gameObject.tag == "Player")
         {
-            sm.PauseSceneMusic();
-            Debug.Log(sm + " Sound Manager");
+            //sm.PauseSceneMusic();
+            sm.PlayOtherSong("BadThingMusic");
             StartCoroutine(TutorialManager.instance.StartCutscene(false));
             source.PlayOneShot(carCrash, 1);
             moveTrigger = true;

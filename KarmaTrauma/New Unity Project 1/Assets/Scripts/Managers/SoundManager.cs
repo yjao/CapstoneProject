@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour {
     public bool playMusic;
     public float musicVolume;
     private bool fadeOut;
+    public AudioClip[] OtherSongs;
     public AudioClip MidnightSound;
 
     public AudioSource currentSong;
@@ -30,6 +31,7 @@ public class SoundManager : MonoBehaviour {
         playMusic = false;
         mapSong = new Dictionary<string, AudioClip>()
 	    {
+            { "BadThingMusic", OtherSongs[0]},
             { "WorldMapMidnight", MidnightSound}
         };
 
@@ -59,6 +61,7 @@ public class SoundManager : MonoBehaviour {
                     x = Random.Range(0, BGMs.Length);
                 }
                 currentSong.clip = BGMs[x];
+                currentSong.volume = 0;
                 StartCoroutine(FadeInAudioSource(currentSong));
                 currentSong.Play();
             }
@@ -68,6 +71,18 @@ public class SoundManager : MonoBehaviour {
             }
             yield return null;
         }
+    }
+
+    public void PlayOtherSong(string name)
+    {
+        if (currentSong.isPlaying)
+        {
+            playMusic = false;
+        }
+        currentSong.clip = mapSong[name];
+        currentSong.volume = 0;
+        StartCoroutine(FadeInAudioSource(currentSong));
+        currentSong.Play();
     }
 
     public void LoadSceneSound(string mapName, float volume, bool loop = false)
@@ -115,12 +130,13 @@ public class SoundManager : MonoBehaviour {
         }
     }
 
-    public void ResumeSceneMusic()
+    public IEnumerator ResumeSceneMusic()
     {
-        if (!currentSong.isPlaying)
+        if (currentSong.isPlaying)
         {
-            currentSong.Play();
+            yield return StartCoroutine(FadeOutAudioSource(currentSong));
         }
+        StartCoroutine(LoadSceneMusic());
     }
 
     public IEnumerator FadeInAudioSource(AudioSource source)

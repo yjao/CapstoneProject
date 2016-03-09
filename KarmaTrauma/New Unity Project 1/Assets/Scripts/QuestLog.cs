@@ -23,6 +23,7 @@ public class QuestLog : MonoBehaviour
 
     AudioSource source;
     public AudioClip choose;
+    public AudioClip page;
 
     // Use this for initialization
     void Start()
@@ -259,6 +260,8 @@ public class QuestLog : MonoBehaviour
         }
         else if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && page_index < max_page - 1)
         {
+            source.PlayOneShot(page, 1);
+
             pointer = 0;
             page_index++;
             q_i = page_index * quest_per_page;
@@ -269,6 +272,8 @@ public class QuestLog : MonoBehaviour
         }
         else if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && page_index > 0)
         {
+            source.PlayOneShot(page, 1);
+
             pointer = 0;
             page_index--;
             q_i = page_index * quest_per_page;

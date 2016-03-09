@@ -115,7 +115,7 @@ public class Menu : MonoBehaviour
         //}
     }
 
-    void DrawSelect()
+    public void DrawSelect()
     {
         transform.Find("ItemSelect").gameObject.SetActive(true);
         transform.Find("ItemSelect").transform.GetComponent<RectTransform>().anchorMax = new Vector2((.3775f + .14f * pointer), (.95f - .25f * pointer2));

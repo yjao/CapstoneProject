@@ -86,6 +86,7 @@ public class Menu_Layout : MonoBehaviour
         open_menu = true;
         gameManager.Wait();
         gameMenu.display();
+        gameMenu.DrawSelect();
     }
 
 

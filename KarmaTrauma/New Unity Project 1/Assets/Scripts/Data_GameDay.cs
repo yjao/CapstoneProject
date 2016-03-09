@@ -778,13 +778,13 @@ public class Data_GameDay : DataLoader
         string[] dog = new string[]
 		{
             /*0*/ "\"Woof\"",
-            /*1*/ "(You give the dog some bacon)",
-            /*2*/ "(The dog appears to be following you)"
+            /*1*/ "(You give the dog some bacon.)",
+            /*2*/ "(The dog appears to be following you.)"
         };
         AddNpc(id, "Dog", "Dog", dog);
         gameManager.allObjects[id].dialogues[0].choices = new Choice[]
 		{
-			AddChoice("Feed the dog bacon", ChoiceAction.CONTINUE, id, 1, checkboolname: "Bacon", removeitemname: "Bacon")
+			AddChoice("Feed the dog bacon.", ChoiceAction.CONTINUE, id, 1, checkboolname: "Bacon", removeitemname: "Bacon")
         };
         AddToDialogue(id, 1, ChoiceContinueDialog(id, 2));
         AddToDialogue(id, 2, ChoiceInteractItem(id));
@@ -799,8 +799,8 @@ public class Data_GameDay : DataLoader
         AddNpc(id, "Bacon", "Bacon", bacon);
         gameManager.allObjects[id].dialogues[0].choices = new Choice[]
         {
-            AddChoice("Leave it alone"),
-            AddChoice("Take the bacon", ChoiceAction.ITEM, id)
+            AddChoice("Leave it alone."),
+            AddChoice("Take the bacon.", ChoiceAction.ITEM, id)
         };
 
         id = 100;

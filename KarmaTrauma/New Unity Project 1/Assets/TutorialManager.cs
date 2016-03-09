@@ -412,7 +412,7 @@ public class TutorialManager : MonoBehaviour
         });
         yield return null; while (Pause()) { yield return null; }
 
-        CreateDialogue("Kelly", "Oh wow, I didn’t realize it was already #9 PM#! Daddy’s gonna be mad at me if I don’t go soon. Thanks for the hang! Gotta run, see ya tomorrow!");
+        CreateDialogue("Kelly", "Oh wow, I didn’t realize it was already #9 PM#! Thanks for the hang! Gotta run, see ya tomorrow!");
         yield return null; while (Pause()) { yield return null; }
         yield return StartCoroutine(GameObject.Find("Kelly").GetComponent<CharacterAnimations>().Move(3, 19.00f, CharacterAnimations.States.RIGHT_WALK, 0.04f));
         Destroy(GameObject.Find("Kelly"));

@@ -4,6 +4,8 @@ using System.Collections;
 public class Door : MonoBehaviour
 {
 	private GameManager gameManager;
+    private AudioSource source;
+    public AudioClip leaveArea;
 
 	public string AltDestination;
 	public bool increaseTime = true;
@@ -14,6 +16,8 @@ public class Door : MonoBehaviour
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
+
         gameManager = GameManager.instance;
         //playerData = PlayerData.Instance;
     }
@@ -43,6 +47,7 @@ public class Door : MonoBehaviour
             }
             if (!midnight)
             {
+                source.PlayOneShot(leaveArea, 1);
                 SceneManager.instance.LoadScene(destination);
             }
         }

@@ -379,27 +379,17 @@ public class TutorialManager : MonoBehaviour
         yield return null; while (Pause()) { yield return null; }
 		CreateChoice("Jeney", "You can %use WS or Up and Down arrow keys to navigate choices, and Spacebar to select.%", new Choice[]
         {
-            /*
-            new Choice("Chocolate Crispies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Cocodonut", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Donut Hole Originals", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Donut Sprinklez", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Minty Munchies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Potadonut Tots", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Strawberry Squishies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-        */
-            new Choice("Cocodonut", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Donut Sprinklez", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Chocolate Crispies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Minty Munchies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Strawberry Squishies", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Potadonut Tots", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 }),
-            new Choice("Donut Hole Originals", new ChoiceEventArgs() { ChoiceAction = Textbox.ContinueTutorialDialogue, TutorialDialogues = action, TutorialDialogueCounter = 2 })
+            new Choice("Chocolate Crispies", TutorialItem(172, false)),
+            new Choice("Cocodonut", TutorialItem(170, false)),
+            new Choice("Donut Sprinklez", TutorialItem(171, false)),
+            new Choice("Minty Munchies", TutorialItem(173, false)),
+            new Choice("Strawberry Squishies", TutorialItem(174, false)),
+            new Choice("Potadonut Tots", TutorialItem(175, false)),
+            new Choice("Donut Hole Originals", TutorialItem(176, false)),
         });
-
+        yield return null; while (Pause()) { yield return null; }
+        CreateDialogue("Jeney", action[0]);
         //CreateDialogue("Jeney", "Here you go, I've put it inside your bag. Have a nice day!");
-
-        
         yield return null; while (Pause()) { yield return null; }
         gameManager.transform.Find("Menu_layout/Bag_background").gameObject.SetActive(true);
         gameManager.transform.Find("Menu_layout/Bag_label").gameObject.SetActive(true);
@@ -477,6 +467,8 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         yield return StartCoroutine(sm.fade_black());
         yield return StartCoroutine(sm.display_text("The next day...\n\n...?"));
+        gameManager.dayData.Wipe();
+        gameManager.transform.Find("Menu_layout/Inventory").GetComponent<Menu>().close();
         gameManager.SetTime(GameManager.TimeType.SET, 6);
         yield return StartCoroutine(gameManager.GradualClock(12, .1f));
         
@@ -648,7 +640,13 @@ public class TutorialManager : MonoBehaviour
         Dialogue d = new Dialogue(-1, Textbox.ColorTutorialKeyword(message));
         d.choices = choices;
         gameManager.CreateChoice(name, d, -1);
-    }    
+    }
+
+    private ChoiceEventArgs TutorialItem(int id, bool removeInteractable = true)
+    {
+        ChoiceEventArgs CEA = new ChoiceEventArgs() { ChoiceAction = InteractableObject.InteractItem, IDNum = id, DestroyItem = removeInteractable };
+        return CEA;
+    }
 
     private void HideGameManager()
     {

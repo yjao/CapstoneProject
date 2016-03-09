@@ -23,11 +23,11 @@ public class TutorialManager : MonoBehaviour
 
     private const string SCENE_MINI_MAIN_STREET = "T_MiniMainStreet";
 	private const string SCENE_DONUT_SHOP = "T_Mall";
-    private const string SCENE_WORLD_MAP = "T_WorldMap";
+    private const string SCENE_WORLD_MAP = "G_WorldMap";
 
     private const string SCENE_G_MAIN_STREET = "G_MainStreet";
     
-    bool endCondition = false;
+    public bool endCondition = false;
 
 
     private GameObject activeTutorialBox;
@@ -299,8 +299,10 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator Slide10_Coroutine()
     {
+		endCondition = false;
         gameManager.Wait();
         yield return StartCoroutine(LoadSceneCoroutine(SCENE_WORLD_MAP));
+		GameObject.Find("WorldMap").GetComponent<WorldMapManager>().LoadTutorialWorldMap();
         gameManager.Wait();
         
         yield return StartCoroutine(SceneManager.instance.fade_out());
@@ -311,24 +313,23 @@ public class TutorialManager : MonoBehaviour
         CreateTutorialBox("%Press Spacebar to enter a location.%", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
         gameManager.Play();
 
-        while (true)
-        {
-            if (Player.Instance.t_mall)
-            {
-                if (activeTutorialBox != null)
-                {
-                    Destroy(activeTutorialBox);
-                }
-                yield return StartCoroutine(SceneManager.instance.fade_black());
-                yield return StartCoroutine(gameManager.GradualClock(16, .25f));
-                yield break;
-            }
-            yield return null;
+        while (!endCondition)
+		{
+			yield return null;
         }
 
+		if (activeTutorialBox != null)
+		{
+			Destroy(activeTutorialBox);
+		}
+		yield return StartCoroutine(SceneManager.instance.fade_black());
+		yield return StartCoroutine(gameManager.GradualClock(16, .25f));
     }
 
-   
+    public void Slide10ReminderMessage()
+	{
+		CreateTutorialBox("Donut Hole is over here Chels!", Textbox.TutorialBoxPosition.BOTTOM, 1f, standalone: true);
+	}
 
 	IEnumerator Slide11_Coroutine()
 	{
@@ -343,9 +344,9 @@ public class TutorialManager : MonoBehaviour
             "What was it...do you remember, Chels?"
         });
         yield return null; while (Pause()) { yield return null; }
-        CreateTutorialBox("I know you have great memory! If you remember the %coupon word%, I'll buy you a donut.", Textbox.TutorialBoxPosition.BOTTOM, 2f, true);
-        //yield return new WaitForSeconds(1);
-        CreateTutorialBox("Come on, Chels, think harder! %Press 'M'%, maybe you'll think of something.", Textbox.TutorialBoxPosition.BOTTOM, -1, true);
+        GameObject d1 = CreateTutorialBox("I know you have great memory! If you remember the %coupon word%, I'll buy you a donut.", Textbox.TutorialBoxPosition.TOP, -1, false, true);
+        yield return new WaitForSeconds(2);
+		GameObject d2 = CreateTutorialBox("Come on, Chels, think harder! %Press 'M'%, maybe you'll think of something.", Textbox.TutorialBoxPosition.BOTTOM, -1, false, true);
         gameManager.Wait();
         gameManager.transform.Find("Menu_layout/Quest_background").gameObject.SetActive(true);
         gameManager.transform.Find("Menu_layout/Quest_label").gameObject.SetActive(true);
@@ -354,7 +355,9 @@ public class TutorialManager : MonoBehaviour
         //Menu_Layout menu_layout = gameManager.transform.Find("Menu_layout").GetComponent<Menu_Layout>();
         while (!menu_layout.GetMemoryLogOpen()) { yield return null; }
 
-        CreateTutorialBox("I knew you would remember!", Textbox.TutorialBoxPosition.MIDDLE, 2f, true);
+		Destroy(d1);
+		Destroy(d2);
+        CreateTutorialBox("I knew you would remember!", Textbox.TutorialBoxPosition.MIDDLE, 2f, true, true);
         while (menu_layout.GetMemoryLogOpen()) { yield return null; }
         gameManager.Wait();
         CreateDialogue("Kelly", "Which one do you want? I'll buy as promised~");
@@ -584,15 +587,19 @@ public class TutorialManager : MonoBehaviour
 		return gameManager.gameMode == GameManager.GameMode.DIALOGUE;
 	}
 
-    public void CreateTutorialBox(string message, Textbox.TutorialBoxPosition position = Textbox.TutorialBoxPosition.MIDDLE, float destroyTimer = -1, bool transparent=false)
+	public GameObject CreateTutorialBox(string message, Textbox.TutorialBoxPosition position = Textbox.TutorialBoxPosition.MIDDLE, float destroyTimer = -1, bool transparent=false, bool standalone=false)
     {
-        if (activeTutorialBox != null)
+		if (activeTutorialBox != null && !standalone)
         {
             Destroy(activeTutorialBox);
         }
         GameObject dialog = (GameObject)Instantiate(dialogueContainer, dialogueContainer.transform.position, Quaternion.identity);
 		StartCoroutine(dialog.GetComponent<Textbox>().DrawTutorialBox(Textbox.ColorTutorialKeyword(message), destroyTimer, position, transparent));
-        activeTutorialBox = dialog;
+		if (!standalone)
+		{
+			activeTutorialBox = dialog;
+		}
+		return dialog;
     }
 
     private void CreateDialogue(string name, string message)
@@ -653,7 +660,7 @@ public class TutorialManager : MonoBehaviour
         {
             for (int i = 0; i < 15; i++)
             {
-                Debug.Log(bottom_bar.rectTransform.anchorMin.y);
+                //Debug.Log(bottom_bar.rectTransform.anchorMin.y);
                 top_bar.rectTransform.anchorMax = new Vector2(top_bar.rectTransform.anchorMax.x, top_bar.rectTransform.anchorMax.y - .01f);
                 top_bar.rectTransform.anchorMin = new Vector2(top_bar.rectTransform.anchorMin.x, top_bar.rectTransform.anchorMin.y - .01f);
                 bottom_bar.rectTransform.anchorMax = new Vector2(bottom_bar.rectTransform.anchorMax.x, bottom_bar.rectTransform.anchorMax.y + .01f);
@@ -679,7 +686,7 @@ public class TutorialManager : MonoBehaviour
         {
             for (int i = 0; i < 15; i++)
             {
-                Debug.Log(bottom_bar.rectTransform.anchorMin.y);
+                //Debug.Log(bottom_bar.rectTransform.anchorMin.y);
                 top_bar.rectTransform.anchorMax = new Vector2(top_bar.rectTransform.anchorMax.x, top_bar.rectTransform.anchorMax.y + .01f);
                 top_bar.rectTransform.anchorMin = new Vector2(top_bar.rectTransform.anchorMin.x, top_bar.rectTransform.anchorMin.y + .01f);
                 bottom_bar.rectTransform.anchorMax = new Vector2(bottom_bar.rectTransform.anchorMax.x, bottom_bar.rectTransform.anchorMax.y - .01f);

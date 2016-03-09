@@ -69,9 +69,9 @@ public class TutorialSlideTriggers : MonoBehaviour {
         
         if (playThump && GameObject.Find("Alfred").transform.position.y < -11.00f)
         {
-            Debug.Log("thump");
+            //Debug.Log("thump");
             source.PlayOneShot(thump, 1);
-            Debug.Log("yay");
+            //Debug.Log("yay");
             StartCoroutine(TutorialManager.instance.EndCutscene(false));
             playThump = false;
         }

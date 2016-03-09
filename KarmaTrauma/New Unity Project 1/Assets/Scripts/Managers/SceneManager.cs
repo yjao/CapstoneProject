@@ -148,26 +148,9 @@ public class SceneManager : MonoBehaviour
                 InteractableObject IO = child.GetComponent<InteractableObject>();
 				if (IO == null)
 				{
-					continue; //<-- should this be "continue" (i.e. next item in for loop) instead of break?
-				}/*
-				if ((IO.iD >= 100) && (IO.iD < 200))
-                //if (IO.interactionType == InteractableObject.InteractionType.ITEM)
-                {
-                    if (gameManager.dayData.DataDictionary.ContainsKey(gameManager.allItems[IO.iD].Name))
-                    {
-                        if (!gameManager.dayData.DataDictionary[gameManager.allItems[IO.iD].Name])
-                        {
-                            isActive = true;
-                            continue;
-                        }
-                    }
-                    else
-                    {
-                        isActive = true;
-                        continue;
-                    }
-                }
-                else */if (gameManager.GetData(IO.disableBool))
+					continue;
+				}
+				if (gameManager.GetData(IO.disableBool))
                 {
                     isActive = false;
                 }
@@ -208,38 +191,7 @@ public class SceneManager : MonoBehaviour
         // This if block was below "if (current_map != null)" block but moved here for player's world map position.
         if (current_map == SCENE_WORLDMAP)
         {
-            Vector3 temp = new Vector3(-1.35f, -1.56f, 4);
-            GameObject playerChar = GameObject.Find("Player");
-            gameManager.transform.GetComponentInChildren<Menu_Layout>().Fast_Forward_Label(true);
-            if (prev_map == "G_House")
-            {
-                temp = new Vector3(-4, -2, 4);
-            }
-            if (prev_map == "G_Class")
-            {
-                temp = new Vector3(-.5f, 2.7f, 4);
-            } 
-            if (prev_map == "G_Park")
-            {
-                temp = new Vector3(4.56f, 2.56f, 4);
-            }
-            if (prev_map == "G_Hospital")
-            {
-                temp = new Vector3(4.75f, -2.29f, 4);
-            }
-            if (prev_map == "G_Mall")
-            {
-                temp = new Vector3(2.05f, -0.33f, 4);
-            }
-            if (prev_map == "G_MainStreet")
-            {
-                temp = new Vector3(-1.35f, -1.56f, 4);
-            }
-            if (prev_map == "G_PoliceStation")
-            {
-                temp = new Vector3(1.74f, -3.15f, 4);
-            }
-            playerChar.transform.position = temp;
+			GameObject.Find("WorldMap").GetComponent<WorldMapManager>().LoadMapInfo(prev_map);
         }
 
         tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+	public GameObject worldMapManager;
     public bool t_mall = false;
     public static InvisibleWallTop walltop;
     private GameManager gameManager;
@@ -185,54 +186,28 @@ public class Player : MonoBehaviour
 	#endregion
     void OnTriggerEnter2D(Collider2D coll)
     {
-        //Debug.Log(coll);
-        if (coll.gameObject.tag == "Mall")
-        {
-            locationString = "Mall";
-        }
-        else if (coll.gameObject.tag == "Hospital")
-        {
-            locationString = "Hospital";
-        }
-        else if (coll.gameObject.tag == "MainStreet")
-        {
-            locationString = "MainStreet";
-        }
-        else if (coll.gameObject.tag == "House")
-        {
-            locationString = "House";
-        }
-        else if (coll.gameObject.tag == "Park")
-        {
-            locationString = "Park";
-        }
-        else if (coll.gameObject.tag == "PoliceStation")
-        {
-            locationString = "PoliceStation";
-        }
-        else if (coll.gameObject.tag == "Apartment")
-        {
-            locationString = "Apartment";
-        }
-        else if (coll.gameObject.tag == "Class")
-        {
-            locationString = "Class";
-        }
-        else if (coll.gameObject.tag == "TutorialMall")
-        {
-            //go to tutorial mall
-            locationString = "TutorialMall";
-        }
-        else if (coll.gameObject.tag == "Tutorial")
-        {
-            //pop up dialogue box;
-            locationString = "Tutorial";
-          
-        }
+		if (gameManager.gameMode != GameManager.GameMode.PLAYING)
+		{
+			return;
+		}
+
+		MapLocation location = coll.GetComponent<MapLocation>();
+		if (worldMapManager != null && location != null)
+		{
+			worldMapManager.GetComponent<WorldMapManager>().ReadyLocation(location.locationString);
+		}
     }
     void OnTriggerExit2D(Collider2D coll)
     {
-        locationString = "";
+		if (gameManager.gameMode != GameManager.GameMode.PLAYING)
+		{
+			return;
+		}
+
+		if (worldMapManager != null)
+		{
+			worldMapManager.GetComponent<WorldMapManager>().ReadyLocation(WorldMapManager.LocationString.NONE);
+		}
     }
 
     // Update is called once per frame
@@ -299,74 +274,17 @@ public class Player : MonoBehaviour
         }
            
         // Entering World Map Location 
-        else if (locationString != "" && Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
 			// Cooldown procedure
 			//if (!gameManager.CheckKeyCooldown()) { return; } else { gameManager.SetKeyCooldown(); }
             transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            if(locationString =="Mall")
-            {
-				SceneManager.instance.LoadScene(SceneManager.SCENE_MALL);
-            }
-            else if (locationString == "MainStreet")
-            {
-				SceneManager.instance.LoadScene(SceneManager.SCENE_MAINSTREET);
-            }
-            else if (locationString == "House")
-            {
-				SceneManager.instance.LoadScene(SceneManager.SCENE_HOUSE);
-            }
-            else if (locationString == "Park")
-            {
-				SceneManager.instance.LoadScene(SceneManager.SCENE_PARK);
-            }
-            else if (locationString == "PoliceStation")
-            {
-				SceneManager.instance.LoadScene(SceneManager.SCENE_POLICE);
-            }
-            else if (locationString == "Apartment")
-            {
-				SceneManager.instance.LoadScene(SceneManager.SCENE_APARTMENT);
-            }
-            else if (locationString == "Hospital")
-            {
-                SceneManager.instance.LoadScene(SceneManager.SCENE_HOSPITAL);
-            }
-                // Class can only be entered at 8. otherwise, it will give the player message
-            else if (locationString == "Class"&& (gameManager.GetTimeAsInt()==8))
-            {
-                StartCoroutine(gameManager.ClassFade());
-                //SceneManager.instance.LoadScene(SceneManager.SCENE_CLASS);
-            }
-            else if (locationString == "Class")
-            {
-                gameManager.CreateMessage("It's too late to go to school.",false);
-            }
-            else if (locationString == "Tutorial")
-            {
-                tutorialManager.CreateTutorialBox("Donut Hole is over here Chels!", Textbox.TutorialBoxPosition.BOTTOM, 1f);
-            }
-            else if (locationString == "TutorialMall")
-            {
-                t_mall = true;
-            }
+            if (worldMapManager != null)
+			{
+				worldMapManager.GetComponent<WorldMapManager>().EnterLocation();
+			}
         }
 
-
-
-        ///Hot Keys
-        //else if (Input.GetKeyDown(KeyCode.Q)){
-        //    Instantiate(QuestLog, new Vector3(0, 0, 0), Quaternion.identity);
-        //    gameManager.gameMode = GameManager.GameMode.LOG;
-        //    gameManager.prevMode = GameManager.GameMode.PLAYING;
-
-        //}
-        //else if (Input.GetKeyDown(KeyCode.B))
-        //{
-        //    Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
-        //    gameManager.gameMode = GameManager.GameMode.MENU;
-        //    gameManager.prevMode = GameManager.GameMode.PLAYING;
-        //}
 
         else
         {
@@ -382,7 +300,7 @@ public class Player : MonoBehaviour
 
 	private void SpeedUp()
 	{
-		if (Input.GetKey(KeyCode.LeftShift))
+		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
 		{
 			if (!speeding)
 			{
@@ -404,21 +322,4 @@ public class Player : MonoBehaviour
 		}
 	}
 
-    
-
-
-    //public void InvenButton()
-    //{
-    //    Instantiate(Menu, new Vector3(0, 0, 0), Quaternion.identity);
-    //    gameManager.gameMode = GameManager.GameMode.MENU;
-    //    gameManager.prevMode = GameManager.GameMode.PLAYING;
-    //}
-
-    //public void QuestButton()
-    //{
-    //    Instantiate(QuestLog, new Vector3(0, 0, 0), Quaternion.identity);
-    //    gameManager.gameMode = GameManager.GameMode.LOG;
-    //    gameManager.prevMode = GameManager.GameMode.PLAYING;
-    //}
-    
 }

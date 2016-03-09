@@ -3,15 +3,16 @@ using System.Collections;
 
 public class MapLocation : MonoBehaviour
 {
-	public string AlternativeDestination;
-	public GameManager.Area Destination;
+	public WorldMapManager.LocationString locationString;
+	/*public string AlternativeDestination;
+	public GameManager.Area Destination;*/
     private GameManager gameManager;
 
     void Start()
     {
          gameManager = GameManager.instance;
     }
-	void OnMouseDown()
+	/*void OnMouseDown()
 	{
 		string sceneName = AlternativeDestination;
 		if (Destination != GameManager.Area.NONE)
@@ -19,5 +20,5 @@ public class MapLocation : MonoBehaviour
         SceneManager.instance.LoadScene(sceneName);
 		//Application.LoadLevel(sceneName);
        
-	}
+	}*/
 }

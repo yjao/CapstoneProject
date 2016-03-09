@@ -52,7 +52,7 @@ public class Data_GameDay : DataLoader
 		id = 1004;
 		string[] rae = new string[]
 		{
-			/*0*/ "\"Hi, I'm Rae.  I do the programming for all the UI in the game.\""
+			/*0*/ "\"Hi, I'm Rae. I do the programming for all the UI in the game.\""
 		};
 		AddNpc(id, "Rae Tran", "", rae);
 
@@ -147,7 +147,7 @@ public class Data_GameDay : DataLoader
             /*10*/ "\"I was hospitalized 2 years ago due to a car accident.\"",  
             /*11*/ "\"Since then, our family has been in a lot of debt because of me...\"",  
             /*12*/ "\"My poor Alfred. I'm so sorry to put him through this.\"",  
-            /*13*/ "\"But one thing I've always wondered is how he managed to collect so much money that time.\"",  
+            /*13*/ "\"But I've always wondered how he managed to collect so much money that time.\"",  
             /*14*/ "\"A time that I want to go back to?\"", 
             /*15*/ "\"I guess I would want to turn back time so that incident would never happen...\"", 
             /*16*/ "\"Heehee~ It's been such a long time since the two of us are going to go out for dinner together. I can't wait!\"", 
@@ -166,8 +166,8 @@ public class Data_GameDay : DataLoader
         id = 4;
         string[] alex = new string[]
 		{
-			/*0*/ "\"I told dad I'll be in class soon. But he doesn't know I'm skipping class again. Shh, you won't tell anyone, right? I'm doing this for Yoona.\"",
-			/*1*/ "\"...You're kidding me, right??\"",
+			/*0*/ "\"I told dad I'll be in class soon, but he doesn't know that I'm skipping class again. Shh, you won't tell anyone, right? I'm doing this for Yoona.\"",
+			/*1*/ "\"...You're kidding me, right???\"",
 			/*2*/ "\"You don't know Yoona? She's in our class!...Well, SUPPOSED to be in our class...\"", 
 			/*3*/ "\"She has been hospitalized since the beginning of the year, so she was never in class.\"",
 			/*4*/ "\"Yoona got a heart disease some time last year...\"",
@@ -239,7 +239,7 @@ public class Data_GameDay : DataLoader
             /*5*/"\"Did you do your homework yet?\"",
             /*6*/"\"You should do your homework and go to bed.\"",
             /*7*/"\"It's late! Where have you been?\"",
-            /*8*/"\" Go to bed now!\"",
+            /*8*/"\"Go to bed now!\"",
             
         };
         AddNpc(id, "Mom", "Mom", mom);
@@ -296,7 +296,7 @@ public class Data_GameDay : DataLoader
 			/*1*/ "\"That ugly dog belongs to this girl name Rae. She was at the #park until 11:30 PM# looking for the dog while crying.\"",
 			/*2*/ "(So annoying ugh...)", 
 			/*3*/ "\"Because I took a #nap, that stupid dog started digging# all over the park at 1 PM.\"",
-			/*4*/ "\"Ugh! Now I have to go and fill all the holes that he dug up. Go away and stop bothering me.\"",
+			/*4*/ "\"Ugh! Now I have to go and fill all the holes that he dug up. Now go away and stop bothering me.\"",
 			/*5*/ "(Ugh...I'm hungry. I don't get paid enough for this.)",
 		    /*6*/ "\"Now go away and stop bothering me. I got to fill up these stupid holes.\"",
             /*7*/ "\"Ugh...Go away, kid. Don't you see that I'm about to go to bed?\"",
@@ -340,7 +340,7 @@ public class Data_GameDay : DataLoader
             /*17*/ "\"You see, I'm a man without food or shelter.\"",
             /*18*/ "\"Somebody offered me money if I help him with something dirty... I don't know what to think of it.\"",
             /*19*/ "\"If I can get out of here, I can start a new life!\"",
-            /*20*/ "\"Thanks, but I can't leave now. It's too late for me to start a new life when I've ruined another one's life.\"",
+            /*20*/ "\"Thanks, but I can't leave now. It's too late for me to start a new life when I've ruined another's life.\"",
         
         
         };
@@ -398,7 +398,7 @@ public class Data_GameDay : DataLoader
 			/*11*/ "(Poor guy...I hope he rests in peace.)"  ,
 			/*12*/ "\"I came to ask her to keep an eye out for #my lost dog#. Have you seen him?\"",
 			/*13*/ "\"Tomo! Thank you for finding my dog.\"",
-			/*14*/"\"I guess this train ticket is useless now since I still haven't packed up because I was out looking for him.  Here, you can have it.\"",
+			/*14*/"\"I guess this train ticket is useless now since I still haven't packed up because I was out looking for him. Here, you can have it.\"",
 		};
         AddNpc(id, "Rae", "Rae", rae);
         AddBooleanToDialogue(id, 0, "LostDog");
@@ -432,10 +432,10 @@ public class Data_GameDay : DataLoader
             /*10*/ "\"I run night shifts at Jeney's Donut Hole, starting around 9 PM or whenever Jeney leaves I guess.\"",
             /*11*/ "\"Jeney's cool. But you know what's cooler? Their Potadonut Tots!\"",
             /*12*/ "\"It's the only reason I work there. Just kidding. I'm a broke college student so I'm just doing what I can.\"",
-            /*13*/ "\"Hey, it's Monday, are you ditching class?\"",
-            /*14*/ "\"I'm not the one to talk as overslept my morning class...\"",
+            /*13*/ "\"Hey, it's Wednesday, are you ditching class?\"",
+            /*14*/ "\"I'm not the one to talk as I overslept my morning class...\"",
             /*15*/ "\"But wait, you're not in college...?\"",
-            /*16*/ "(Is it just me or I kept seeing that dog everywhere?)",
+            /*16*/ "(Is it just me or I keep seeing that dog everywhere?)",
             /*17*/ "(I saw a #dog on Main Street around 11 PM#.)",
             /*18*/ "(Then, I saw another #dog at the Park around 3 PM#.)",
             /*19*/ "(Maybe I'm just seeing things...)",
@@ -468,8 +468,8 @@ public class Data_GameDay : DataLoader
             /*1*/ "\"Alfred's been mumbling all day about #a box and the mayor#.\"",
             /*2*/ "\"I thought the #charges against Faraday# were dropped?\"",
             /*3*/ "(Oh well, young people won't understand anyways.)",
-            /*4*/ "\"Poor guy... It must be hard for Alfred and his wife Megan.\"",
-            /*5*/ "\"Alfred wouldn't ever have jumped. Someone must have murdered him.\"",
+            /*4*/ "\"Poor Alfred... It must be hard for Alex and Megan.\"",
+            /*5*/ "\"Alfred would never leave behind his family like this. Someone must have murdered him.\"",
             /*6*/ "\"Did you see anyone supicious around here?\"",
             /*7*/"\"Stay back. The #murderer might still be around# here.\"",
             /*8*/"\"I was going to go home, but after seeing what happened to Alfred, I must stay.\"",
@@ -513,12 +513,12 @@ public class Data_GameDay : DataLoader
             /*0*/ "(Daddy... I miss you.)",       
             /*1*/ "\"Good morning. Are you here to visit me too? How sweet!\"",
             /*2*/ "\"Oh... I got a heart disease about a year ago.\"",
-            /*3*/ "\"Alex's also here to visit.  He's my childhood friend.  *Heehee*\"",
+            /*3*/ "\"Alex's also here to visit. He's my childhood friend. *Heehee*\"",
             /*4*/ "\"My dad used to visit me often, but he stopped coming lately. I guess he'd been busy with work.\"",
             /*5*/ "\"Oh! My dad is a cop.  He's like a superhero for the town!\"",
-            /*6*/ "\"Aren't you supposed to be in class?....I miss going to school and hanging out with my friends.\"",
+            /*6*/ "\"Aren't you supposed to be in class?...I miss going to school and hanging out with my friends.\"",
             /*7*/"\"When is Alex getting back? I'm bored...\"",
-            /*8*/"\"There's nothing to do at the hospital.  I'm so bored, but at least Alex comes here often to hang out with me.\"",
+            /*8*/"\"There's nothing to do at the hospital. I'm so bored, but at least Alex comes here often to hang out with me.\"",
             /*9*/"*zzz*",
             /*10*/"\"Isn't that Alex's dad? I hope he's okay...\"",
             
@@ -558,9 +558,9 @@ public class Data_GameDay : DataLoader
         id = 51;
         string[] anna = new string[]
         {
-            /*0*/ "\"Did you hear about Yoona?  She has a heart disease so that's why she hasn't been coming to school lately.  Maybe I should go visit her.\"",       
-            /*1*/ "\"Shh Kelly's mom is here.  Don't tell Kelly this, but I don't like her mom.\"",
-            /*2*/ "\"Her mom works for Faraday. My dad's business is going down because of him. They're shady I'm telling you.\"",
+            /*0*/ "\"Did you hear about Yoona? She has a heart disease so that's why she hasn't been coming to school lately. Maybe I should go visit her.\"",       
+            /*1*/ "\"Shh Kelly's mom is here. Don't tell Kelly this, but I don't like her mom.\"",
+            /*2*/ "\"Her mom works for Faraday. My dad's business is going downhill because of him. They're shady I'm telling you.\"",
             /*3*/ "\"Oh no, I missed the basketball game...\"",
           
         };
@@ -576,8 +576,8 @@ public class Data_GameDay : DataLoader
         string[] susan = new string[]
         {
             /*0*/ "\"On Wednesday, we wear blue\"",       
-            /*1*/ "\"Ew look at them running and and sweating. Boys.\"",
-            /*2*/ "\"I don't know where she is.  Her mom is rarely home so she gets to go out and do whatever she wants.\"",
+            /*1*/ "\"Ew look at them running and sweating. Boys.\"",
+            /*2*/ "\"I don't know where she is. Her mom is rarely home so she gets to go out and do whatever she wants.\"",
             /*3*/ "\"Oh no, I'm late for my massage appointment. Oh well, I'll visit #Yoona# another time.\"",
           
         };
@@ -593,9 +593,9 @@ public class Data_GameDay : DataLoader
         string[] april = new string[]
         {
             /*0*/ "\"Good morning! Are you here to exercise too? It's good for your health.\"",       
-            /*1*/ "\"She used to be Megan's roommate in college.  I don't really know what happened, but I heard they fought.\"",
-            /*2*/ "\"There's this #hobo in the park# and he smells.  I finally reported him.  Ugh I hope he goes away and stop ruining my mood the morning.\"",
-            /*3*/ "\"Oh it's Dae. It must be hard for him to raise a daughter all by himself.  He's such a good father. It seems like he will do anything for her.\"",
+            /*1*/ "\"She used to be Megan's roommate in college. I don't really know what happened, but I heard they fought.\"",
+            /*2*/ "\"There's this #hobo in the park# and he smells. I finally reported him. Ugh I hope he goes away and stop ruining my mood in the morning.\"",
+            /*3*/ "\"Oh it's Dae. It must be hard for him to raise a daughter all by himself. He's such a good father. It seems like he will do anything for her.\"",
             /*4*/ "\"The Donut Hole Original is the best. Don't you agree?\"",       
 
         };
@@ -612,7 +612,7 @@ public class Data_GameDay : DataLoader
         string[] patricia = new string[]
         {
             /*0*/ "\"Did you see the look on her face? Priceless!\"",       
-            /*1*/ "(So this #hobo# didn't do so terribly, after all.)",
+            /*1*/ "(So this #hobo# didn't do so terribly after all.)",
             /*2*/ "(Well, time to report back to Jerry. Heh heh...)",
             /*3*/ "\"What's up with kids and ditching school nowadays?\"",
             /*4*/ "\"Wait, that was me. You remind me of my younger self. Ha!\"",
@@ -655,13 +655,13 @@ public class Data_GameDay : DataLoader
         string[] kelly = new string[]
         {
             /*0*/ "\"Phew, classes are finally over.\"",       
-            /*1*/ "\"Hey, why don’t we go hang out? I’m craving Jeney’s donuts…\"",
+            /*1*/ "\"Hey, why don’t we go hang out? I’m craving Jeney’s donuts.\"",
             /*2*/ "\"What is it? Okay, I'll wait a bit, but not for long! Or I can meet you there, too.\"",
-            /*3*/ "\"Yesterday I overheard my mom and Faraday talking about #a box#.  It looks serious because a cop was there.\"",
+            /*3*/ "\"Yesterday I overheard my mom and Faraday talking about #a box#. It looks serious because a cop was there.\"",
             /*4*/ "\"Hey, you don't think that #cop guy works with Faraday#, do you?\"",
             /*5*/ "\"Shh, my mom's sitting over there...\"",
-            /*6*/"\"Ugh that slimeball Faraday's pictures are everywhere.  I don't get what my mom sees in him.\"",
-            /*7*/"\"I want my mom to realize what she's doing is wrong, but I don't want her to be taken away from me.  After all, she's still my mom and she's the only one I have.\"",
+            /*6*/"\"Ugh that slimeball Faraday's pictures are everywhere. I don't get what my mom sees in him.\"",
+            /*7*/"\"I want my mom to realizes that what she's doing is wrong, but I don't want her to be taken away from me. After all, she's still my mom and she's the only one I have.\"",
           
             
         };

@@ -295,7 +295,6 @@ public class Textbox : MonoBehaviour
         {
             newKeyword = "<b><color=" + GameManager.QUEST_KEYWORD_COLOR + ">" + newKeyword + "</color></b>";
             return newKeyword;
-
         }
         else
         {
@@ -401,7 +400,10 @@ public class Textbox : MonoBehaviour
         if (destroytimer != -1)
         {
             yield return new WaitForSeconds(destroytimer);
-            GameObject.Destroy(gameObject);
+            if (gameObject != null)
+            {
+                GameObject.Destroy(gameObject);
+            }
         }
         //GameObject.Destroy(gameObject);
     }

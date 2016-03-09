@@ -315,7 +315,10 @@ public class TutorialManager : MonoBehaviour
         {
             if (Player.Instance.t_mall)
             {
-                Destroy(activeTutorialBox);
+                if (activeTutorialBox != null)
+                {
+                    Destroy(activeTutorialBox);
+                }
                 yield return StartCoroutine(SceneManager.instance.fade_black());
                 yield return StartCoroutine(gameManager.GradualClock(16, .25f));
                 yield break;
@@ -553,7 +556,10 @@ public class TutorialManager : MonoBehaviour
         }
         else if (tag == "Pause")
         {
-            Destroy(activeTutorialBox);
+            if (activeTutorialBox != null)
+            {
+                Destroy(activeTutorialBox);
+            }
             gameManager.Wait();
             yield return new WaitForSeconds(3f);
             gameManager.Play();

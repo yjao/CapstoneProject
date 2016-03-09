@@ -112,7 +112,7 @@ public class Data_GameDay : DataLoader
         //Check if Cocodonut is in the bag.  Can give Cocodonut to Alfred any time.
         gameManager.allObjects[2].dialogues[5].choices = new Choice[]
         {
-			AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkboolname: "AlfredBox", checkitemname: "Box"),
+			AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box"),
             AddChoice("Offer Cocodonut", ChoiceAction.CONTINUE, 2, 5, checkboolname: "AlfredCocodonut", checkitemname: "Cocodonut")
         };
         AddToDialogue(2, 5, ChoiceContinueDialog(2, 12));
@@ -121,7 +121,7 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[2].dialogues[4].choices = new Choice[]
         {
-            AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkboolname: "AlfredBox", checkitemname: "Box")
+            AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box")
         };
 
         LinkContinueDialogues(id, new int[2] { 4, 10 });
@@ -547,19 +547,20 @@ public class Data_GameDay : DataLoader
             /*19*/"\"My daughter also loves the donuts from this store. You should try some.\"",
             /*20*/"\"Shh...go away kid, I'm busy.\"",
             /*21*/"\"(I should follow him and see what that's all about...\"",
-            /*20*/"\"(Hm...Perry is gone again. Whew, it's tiring with him around.\"",
+            /*22*/"\"(Hm...Perry is gone again. Whew, it's tiring with him around.\"",
         };
         AddNpc(id, "Dae", "Dae", dae);
 
 
         //Give box to Dae any time.
-        //gameManager.allObjects[36].dialogues[0].choices = new Choice[]
-        //{
+        gameManager.allObjects[36].dialogues[0].choices = new Choice[]
+        {
+              AddChoice("Give box", ChoiceAction.CONTINUE, id, 9, checkitemname: "Box"),
         //    AddChoice("Give box", ChoiceAction.CONTINUE, 27, 9)
-        //};
-        //AddToDialogue(27, 9, ChoiceContinueDialog(27, 21));
-        //AddToDialogue(27, 21, ChoiceContinueDialog(27, 20));
-        //AddToDialogue(27, 20, ChoiceContinueDialog(27, 22));
+        };
+        AddToDialogue(id, 9, ChoiceContinueDialog(id, 21));
+        AddToDialogue(id, 21, ChoiceContinueDialog(id, 20));
+        AddToDialogue(id, 20, ChoiceContinueDialog(id, 22));
    
         LinkContinueDialogues(id, new int[2] { 17, 18 });
         LinkContinueDialogues(id, new int[2] { 0, 19 });
@@ -769,7 +770,7 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[99].dialogues[0].choices = new Choice[]
 		{
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 1, checkboolname: "PerryBox", checkitemname: "Box")
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 1, checkitemname: "Box")
         };
         AddToDialogue(99, 1, ChoiceContinueDialog(99, 2));
 
@@ -1355,6 +1356,7 @@ public class Data_GameDay : DataLoader
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.RIGHT_STRETCH,
+            animationSpeed = 0.2f,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1409,6 +1411,7 @@ public class Data_GameDay : DataLoader
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.RIGHT_STRETCH,
+            animationSpeed = 0.2f,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1790,7 +1793,7 @@ public class Data_GameDay : DataLoader
             dialogueIDSingle = 3,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            startingAnimationState = CharacterAnimations.States.UP_IDLE,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

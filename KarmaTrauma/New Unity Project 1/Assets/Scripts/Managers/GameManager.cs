@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
     public Item[] items;
     public int itemAmount;
     public Dictionary<int, Item> allItems;
+    public Dictionary<string, int> itemIDs;
 
     void Awake()
     {
@@ -103,13 +104,17 @@ public class GameManager : MonoBehaviour
             { 23, new Item("Train Ticket", "A train ticket out of town. You don't need to go anywhere but maybe the ticket will have a use.", "Ticket")},
             { 152, new Item("Alfred's Jewel", "This was a gift from his son.", "alfredsjewel")}
         };
+        itemIDs = new Dictionary<string, int>()
+        {
+            {"Lost Dog", 123},
+            {"Jewel", 150},
+            {"Bacon", 110},
+            {"Box", 111},
+            {"Train Ticket", 23},
+            {"Alfred's Jewel", 152}
+        };
 
-        //items = new Item[9];
-        //items[0] = new Item("Momo", "The original soul of Chelsey", "sprite1");
-        //items[1] = new Item("Jewel", "Contains the soul of a demon. Or just a jewel for debugging", "jewel");
-        //items[2] = new Item("Bacon and Eggs", "Yum", "baconAndEggs");
-        //items[3] = new Item("Stairs", "How did you steal the stairs?!", "stairs");
-        //itemAmount = 4;
+        dayData.Inventory = new List<Item>(new Item[9]);
 
         // Parse Game playerData
         if (PARSING_MODE)
@@ -442,6 +447,7 @@ public class GameManager : MonoBehaviour
 
     void ItemPickup(object sender, GameEventArgs args)
     {
+        //dayData.Inventory[dayData.ItemAmount] = allItems[args.IDNum];
         dayData.Inventory[dayData.ItemAmount] = allItems[args.IDNum];
         dayData.DataDictionary[allItems[args.IDNum].Name] = true;
         dayData.ItemAmount += 1;
@@ -503,7 +509,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public Item[] GetItemData()
+    public List<Item> GetItemData()
     {
         return dayData.Inventory;
     }
@@ -515,6 +521,7 @@ public class GameManager : MonoBehaviour
 
     public bool HasItem(string name)
     {
+        /*
         for (int item = 0; item < dayData.Inventory.Length; item++)
         {
             if (dayData.Inventory[item] != null)
@@ -524,8 +531,9 @@ public class GameManager : MonoBehaviour
                     return true;
                 }
             }
-        }
-        return false;
+        }*/
+        return dayData.Inventory.Contains(allItems[itemIDs[name]]);
+        //return false;
     }
 
     public bool AllQuestsDone()

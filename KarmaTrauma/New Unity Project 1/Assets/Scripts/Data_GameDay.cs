@@ -104,7 +104,8 @@ public class Data_GameDay : DataLoader
             /*16*/ "\"With this, I can finally make Faraday pay for all his wrongdoings.\"",  
             /*17*/ "...",
             /*18*/ "\"Sorry I'm not up for a chat. I'm in a hurry to meet up with my wife. Today is our anniversary~\"",
-
+            /*19*/ "\"A few weeks ago, we got a new chief. He doesn't really talk much so we don't really know about him too well.\"",
+            /*20*/ "\"Speaking of which, he left the office just now. He should be #back around 7 PM#.\"",
         };
         AddNpc(id, "Alfred", "Alfred", alfred);
 
@@ -123,11 +124,15 @@ public class Data_GameDay : DataLoader
             AddChoice("Give box", ChoiceAction.CONTINUE, 2, 15, checkboolname: "AlfredBox", checkitemname: "Box")
         };
 
-
-
+        LinkContinueDialogues(id, new int[2] { 4, 10 });
+        gameManager.allObjects[id].dialogues[10].choices = new Choice[]
+        {
+            AddChoice("Ask about the station.", ChoiceAction.CONTINUE, id, 19),
+        };
+        AddToDialogue(id, 19, ChoiceContinueDialog(id, 20));
         LinkContinueDialogues(id, new int[3] { 0, 5, 2});
-        LinkContinueDialogues(id, new int[2] { 4, 3 });
-        LinkContinueDialogues(id, new int[2] { 1, 10 });
+       
+        LinkContinueDialogues(id, new int[2] { 1, 3 });
         LinkContinueDialogues(id, new int[2] { 7, 9 });
 
         // ================ MEGAN ================ //
@@ -152,9 +157,45 @@ public class Data_GameDay : DataLoader
             /*15*/ "\"I guess I would want to turn back time so that incident would never happen...\"", 
             /*16*/ "\"Heehee~ It's been such a long time since the two of us are going to go out for dinner together. I can't wait!\"", 
             /*17*/ "\"Oh, I should go do my #checkups# first.\"", 
+            /*18*/ "\"Hi there, I hope you enjoyed the discussion about time loops.\"", 
+            /*19*/ "\"I'm glad to hear that. I was working as the mayor's secretary for many years, and this was a good change of atmosphere!\"", 
+            /*20*/ "\"Two years ago, after Jerry Faraday won the elction, I was asked to pack up and leave.\"",
+            /*21*/ "\"I'm not sure what I did wrong back then. I was accused of spreading rumors about the new mayor when I didn't.\"", 
+            /*22*/ "\"I hope the new assistant at the town hall knows what she's doing.\"", 
+            /*23*/ "\"Yes, her name is Patricia. She used to be my roommate back in college.\"", 
+            /*24*/ "\"I think she hates me now after what I've said to her back then.\"", 
+            /*25*/ "\"Well...*sigh* Patricia never studied and went out partying all the time.\"", 
+            /*26*/ "\"I once yelled at her to get it all together and she got really upset.\"",
+            /*27*/ "\"Eventually, she dropped out. I met her again after she started working as the town hall's janitor.\"", 
+            /*28*/ "\"She's...I don't think she's qualified for the job.\"", 
+            /*29*/ "\"Honestly, I think it has something to do with why I was fired.\"", 
         };
         AddNpc(id, "Megan", "Megan", megan);
         AddToDialogue(id, 6, ChoiceContinueDialog(id, 7));
+        gameManager.allObjects[id].dialogues[18].choices = new Choice[]
+        {
+            AddChoice("Yes I do!", ChoiceAction.CONTINUE, id, 19),
+        };
+        gameManager.allObjects[id].dialogues[19].choices = new Choice[]
+        {
+            AddChoice("Used to?", ChoiceAction.CONTINUE, id, 20),
+        };
+        AddToDialogue(id, 20, ChoiceContinueDialog(id, 21));
+
+        gameManager.allObjects[id].dialogues[22].choices = new Choice[]
+        {
+            AddChoice("Do you know her?", ChoiceAction.CONTINUE, id, 23),
+            AddChoice("What do you think of her?", ChoiceAction.CONTINUE, id, 28),
+
+        };
+        LinkContinueDialogues(id, new int[2] { 23, 24 });
+        LinkContinueDialogues(id, new int[2] { 28, 29 });
+
+        gameManager.allObjects[id].dialogues[24].choices = new Choice[]
+        {
+            AddChoice("What did you say?", ChoiceAction.CONTINUE, id, 25),
+        };
+        AddToDialogue(id, 25, ChoiceContinueDialog(id, 26));
 
         LinkContinueDialogues(id, new int[4] { 10, 11, 12, 13 });
         LinkContinueDialogues(id, new int[3] { 3, 4, 5 });
@@ -498,11 +539,12 @@ public class Data_GameDay : DataLoader
             /*14*/"(I'll give her a surprise visit tomorrow!)",
             /*15*/"\"That guy Perry is suspicious. He's been going around town asking people about Faraday.\"",
             /*16*/"\"Even though he's my superior, I still don't trust that guy.\"",
-            /*17*/"\"!!!!!\"",
+            /*17*/"!!!!!",
             /*18*/"\"Kid, what are you doing at this hour? You shouldn't be here. Go home now!\"",
             /*19*/"\"My daughter also loves the donuts from this store. You should try some.\"",
             /*20*/"\"Shh...go away kid, I'm busy.\"",
-            
+            /*21*/"\"(I should follow him and see what that's all about...\"",
+            /*20*/"\"(Hm...Perry is gone again. Whew, it's tiring with him around.\"",
         };
         AddNpc(id, "Dae", "Dae", dae);
 
@@ -515,11 +557,11 @@ public class Data_GameDay : DataLoader
         //AddToDialogue(27, 9, ChoiceContinueDialog(27, 21));
         //AddToDialogue(27, 21, ChoiceContinueDialog(27, 20));
         //AddToDialogue(27, 20, ChoiceContinueDialog(27, 22));
-
+   
         LinkContinueDialogues(id, new int[2] { 17, 18 });
         LinkContinueDialogues(id, new int[2] { 0, 19 });
         LinkContinueDialogues(id, new int[2] { 13, 14 });
-        LinkContinueDialogues(id, new int[2] { 2, 3 });
+        LinkContinueDialogues(id, new int[4] { 1, 2, 3, 21 });
         LinkContinueDialogues(id, new int[2] { 15, 16 });
         LinkContinueDialogues(id, new int[4] { 4, 5, 6, 7 });
 
@@ -645,6 +687,10 @@ public class Data_GameDay : DataLoader
             /*14*/"\"Me? I'm #Faraday's secretary#. He lets me take breaks whenever I want.\"",
             /*15*/"\"Oops, am I supposed to not tell you this?\"",
             /*16*/ "(The show is about to start...)",
+            /*17*/ "(Is that Kelly?)",
+            /*18*/ "Oh hey, you look like my daughter's age.",
+            /*19*/ "I love my girl, but I never have time to take care of her",
+            /*20*/ "I try everything I could to give her a good life, but I don't think she understands. As long as she's happy, I'm happy.",
         };
         AddNpc(id, "Patricia", "Patricia", patricia);
 
@@ -665,7 +711,7 @@ public class Data_GameDay : DataLoader
         LinkContinueDialogues(id, new int[3] { 7, 8, 10 });
         LinkContinueDialogues(id, new int[2] { 16, 9 });
         LinkContinueDialogues(id, new int[3] { 0, 1, 2 });
-
+        LinkContinueDialogues(id, new int[4] { 17, 18, 19, 20 });
 
         // ================ KELLY ================ //
         id = 67;
@@ -679,7 +725,12 @@ public class Data_GameDay : DataLoader
             /*5*/ "\"Shh, my mom's sitting over there...\"",
             /*6*/"\"Ugh that slimeball Faraday's pictures are everywhere. I don't get what my mom sees in him.\"",
             /*7*/"\"I want my mom to realizes that what she's doing is wrong, but I don't want her to be taken away from me. After all, she's still my mom and she's the only one I have.\"",
-          
+            /*8*/ "\"Excuse me, I'd like some Strawberry Squishies.\"",
+            /*9*/ "\"Wait, wasn't there a coupon code Freewoman gave us in class?\"",
+            /*10*/ "\"What was it...do you remember Chels?\"",
+            /*11*/ "\"I knew you would remember!\"",
+            /*12*/ "\"Which one do you want? I'll buy as promised~\"",
+            /*13*/ "\"Hm...I can't seem to remember either.\"",
             
         };
         AddNpc(id, "Kelly", "Kelly", kelly);
@@ -690,6 +741,16 @@ public class Data_GameDay : DataLoader
         };
 
         LinkContinueDialogues(id, new int[3] { 3, 4, 5 });
+
+        LinkContinueDialogues(id, new int[3] { 8, 9, 10 });
+        gameManager.allObjects[id].dialogues[10].choices = new Choice[]
+		{
+            AddChoice("Moonlight.", ChoiceAction.CONTINUE, id, 11),
+            AddChoice("I don't remember.", ChoiceAction.CONTINUE, id, 13),
+        };
+        LinkContinueDialogues(id, new int[2] { 11, 12 });
+
+
 
         // ================ PERRY ================ //
         id = 99;
@@ -1469,6 +1530,23 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 14 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 22,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 3
+        });
+        
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 16 },
 
             // InteractableObject dialogue information
@@ -1883,11 +1961,26 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 14 },
+            timeBlocks = new List<int>() { 12 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 3,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 66
+        });
+        
+        
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 14 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 17,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -1929,6 +2022,20 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 14 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 8,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 67
+        });
+
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 16 },
 
             // InteractableObject dialogue information
@@ -1947,7 +2054,7 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 14 },
+            timeBlocks = new List<int>() { 12 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
@@ -2081,7 +2188,7 @@ public class Data_GameDay : DataLoader
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 2,
+            dialogueIDSingle = 22,
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 36
@@ -2317,26 +2424,11 @@ public class Data_GameDay : DataLoader
         });
 
         // ======================== ALEX ======================== //
+     
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 10 },
-
-            // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 7,
-
-            // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
-
-            // Getter/Setter variables, NpcID is required
-            Summary = "",
-            NpcID = 4
-        });
-        AddParameters(sceneName, new InteractableObject.Parameters()
-        {
-            // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 12 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
@@ -2353,11 +2445,28 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 16 },
+            timeBlocks = new List<int>() { 14 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 14,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 4
+        });
+
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 16 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 7,
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
@@ -2411,12 +2520,14 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 12, 14 },
+            timeBlocks = new List<int>() { 12 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 14,
+            dialogueIDSingle = 18,
+
             startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
+
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2427,7 +2538,7 @@ public class Data_GameDay : DataLoader
         AddParameters(sceneName, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 12, 14 },
+            timeBlocks = new List<int>() { 12},
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,

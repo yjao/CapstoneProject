@@ -315,7 +315,6 @@ public class GameManager : MonoBehaviour
         }
         else if (gameClock >= 22)
         {
-            SoundManager.instance.StartCoroutine(SoundManager.instance.FadeOutAudioSource(SoundManager.instance.currentSong, true));
             SoundManager.instance.LoadSceneSound("WorldMapMidnight", .5f, true);
             return "10 - <b><color=red>12AM</color></b>";
         }
@@ -349,6 +348,7 @@ public class GameManager : MonoBehaviour
     {
         yield return StartCoroutine(SceneManager.instance.fade_black());
         StartCoroutine(SceneManager.instance.map_name("Day " + (playerData.daysPassed + 1) + ".", 2.25f));
+        StartCoroutine(SoundManager.instance.FadeOutAudioSource(SoundManager.instance.currentSong, true));
         dayData.Wipe();
         playerData.WipeQuest();
         playerData.daysPassed++;

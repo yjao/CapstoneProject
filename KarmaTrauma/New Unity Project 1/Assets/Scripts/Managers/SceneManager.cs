@@ -244,7 +244,18 @@ public class SceneManager : MonoBehaviour
 
         tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());
         yield return StartCoroutine(fade_out());
-        StartCoroutine(SoundManager.instance.LoadSceneMusic());
+        if (gameManager.GetTimeAsInt() >= 20)
+        {
+            if (SoundManager.instance.currentSong.clip != SoundManager.instance.OtherSongs[0])
+            {
+                yield return StartCoroutine(SoundManager.instance.FadeOutAudioSource(SoundManager.instance.currentSong, true, .03f));
+            }
+            SoundManager.instance.PlayOtherSong("BadThingMusic");
+        }
+        else
+        {
+            StartCoroutine(SoundManager.instance.LoadSceneMusic());
+        }
         yield return null;
         yield break;
     }

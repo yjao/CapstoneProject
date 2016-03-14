@@ -306,7 +306,7 @@ public class Data_GameDay : DataLoader
 		{
 			/*0*/ "\"Welcome to the Donut Hole! What can I get you today? Today's special is the Donut Sprinklez~\"",
 			/*1*/ "(Come here doggie! I'll give you a tasty Donut Bone.)",
-            /*2*/ "\"Oh no...my friend's #dog was here at 4 PM#.\"",
+            /*2*/ "\"Oh no...my friend's #dog was here at 5 PM#.\"",
             /*3*/ "\"I should have offered him #bacon# instead.\"",
             /*4*/ "\"Poor man...he was a really nice cop who comes by my store often.\"",
             /*5*/ "\"He always tell me that our #Cocodonut# tastes the best.\"",
@@ -372,7 +372,7 @@ public class Data_GameDay : DataLoader
         string[] hank = new string[]
 		{
 			/*0*/ "(Ugh I'm so sleepy. I hate this job.)",
-			/*1*/ "\"That ugly dog belongs to this girl name Rae. She was at the #park until 11:30 PM# looking for the dog while crying.\"",
+			/*1*/ "\"That ugly dog belongs to this girl name Rae. She was at the #park until 11 AM# looking for the dog while crying.\"",
 			/*2*/ "(So annoying ugh...)", 
 			/*3*/ "\"Yesterday, that stupid #dog started digging# all over the park.\"",
 			/*4*/ "\"I'm glad my nap today went ok. Unlike yesterday...\"",
@@ -549,7 +549,7 @@ public class Data_GameDay : DataLoader
             /*14*/ "\"I'm not the one to talk as I overslept my morning class...\"",
             /*15*/ "\"But wait, you're not in college...?\"",
             /*16*/ "(Is it just me or I keep seeing that dog everywhere?)",
-            /*17*/ "(I saw a #dog on Main Street around 11 PM#.)",
+            /*17*/ "(I saw a #dog on Main Street around 11 AM#.)",
             /*18*/ "(Then, I saw another #dog at the Park around 3 PM#.)",
             /*19*/ "(Maybe I'm just seeing things...)",
             /*20*/ "\"Also, I stayed up all night last night programming KT, a game project.\"",

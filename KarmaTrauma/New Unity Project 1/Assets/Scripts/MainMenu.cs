@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
 	public int startTime;
 	public enum ScreenState
 	{
-		MAIN, CREDITS
+		MAIN, CREDITS, GAME
 	};
 	ScreenState screenState = ScreenState.MAIN;
 
@@ -91,6 +91,7 @@ public class MainMenu : MonoBehaviour
 
 	IEnumerator EnterTutorialCoroutine()
 	{
+		screenState = ScreenState.GAME;
 		SceneManager.instance.fade_black();
         yield return new WaitForSeconds(0.25f);
         SceneManager.instance.LoadScene(SceneManager.SCENE_TUTORIAL);
@@ -101,6 +102,7 @@ public class MainMenu : MonoBehaviour
 
 	IEnumerator EnterGameCoroutine()
 	{
+		screenState = ScreenState.GAME;
 		GameManager.instance.SetTime(GameManager.TimeType.SET, startTime);
 		StartCoroutine(SoundManager.instance.FadeOutAudioSource(soundtrack(), rate: 0.1f));
 		yield return StartCoroutine(SceneManager.instance.LoadSceneCoroutine(startScene));

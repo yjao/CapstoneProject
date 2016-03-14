@@ -20,7 +20,7 @@ public class Menu_Layout : MonoBehaviour
 	public GameObject memoryPanel;
 	public GameObject memoryText;
 	public GameObject fastForwardPanel;
-    public GameObject fastForwardPicture;
+    public GameObject fastForwardText;
 	public GameObject clockPanel;
 	public GameObject clockText;
 	public GameObject timeTint;

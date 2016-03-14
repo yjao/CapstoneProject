@@ -6,6 +6,10 @@ public class EndingManager : MonoBehaviour {
     public static EndingManager instance;
     private GameObject activeTutorialBox;
 
+	private GameObject gmObj;
+	private GameManager gm;
+	private SceneManager sm;
+
 	// Use this for initialization
 	void Start () {
         if (instance != null)
@@ -14,6 +18,9 @@ public class EndingManager : MonoBehaviour {
             return;
         }
         instance = this;
+		gmObj = GameObject.Find("GameManager");
+		gm = gmObj.GetComponent<GameManager>();
+		sm = gmObj.GetComponent<SceneManager>();
 	}
 	
 	// Update is called once per frame
@@ -29,19 +36,26 @@ public class EndingManager : MonoBehaviour {
 
     public IEnumerator DaeEnding()
     {
-        Application.LoadLevel("Ending");
-        yield return SceneManager.instance.fade_black();
+		yield return StartCoroutine(LoadSceneCoroutine("Ending"));
+		yield return sm.fade_black();
         yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide33(2)", 20, "Jerry Faraday: Thank you, thank you everybody! I'll make our county a much, much better place, turning this land into a wealthy land of gold!")));
-        yield return null;
+		yield return null;
     }
 
     public IEnumerator AlfredEnding()
     {
-        Application.LoadLevel("Ending");
-        yield return SceneManager.instance.fade_black();
-        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide31", 5, "Alfred: Hey, Dae! What's up, buddy?")));
-        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide32", 20, "Dae: Sorry buddy... I didn't have a choice...")));
-        yield return null;
+		yield return StartCoroutine(sm.fade_black());
+		gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(false);
+		gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(false);
+		yield return StartCoroutine(LoadSceneCoroutine("Ending"));
+		StartCoroutine(sm.fade_out());
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide31", 5, "Alfred: Hey, Dae! What's up, buddy?"), false));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide32", 5, "Dae: Sorry buddy... I didn't have a choice..."), false));
+		yield return StartCoroutine(sm.fade_black());
+		gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(true);
+		gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
+		GameManager.instance.Midnight(true, 3f);
+		yield return null;
     }
 
     public IEnumerator PerryEnding()
@@ -52,9 +66,12 @@ public class EndingManager : MonoBehaviour {
         yield return null;
     }
 
-    IEnumerator Slide_Coroutine(TutorialManager.Slide slide)
+    IEnumerator Slide_Coroutine(TutorialManager.Slide slide, bool hideMenu=true)
     {
-        GameManager.instance.transform.Find("Menu_layout").gameObject.SetActive(false);
+		if (hideMenu)
+		{
+			GameManager.instance.transform.Find("Menu_layout").gameObject.SetActive(false);
+		}
         GameObject.Find("Canvas/Slide").gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(slide.imageName);
         if (slide.text != null && slide.text != "")
         {
@@ -79,4 +96,11 @@ public class EndingManager : MonoBehaviour {
         }
         return dialog;
     }
+
+	IEnumerator LoadSceneCoroutine(string mapname)
+	{
+		Application.LoadLevel(mapname);
+		//SceneManager.instance.tint_screen(mapname, gameManager.GetTimeAsInt());
+		yield return null;
+	}
 }

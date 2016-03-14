@@ -12,6 +12,7 @@ public class Data_GameDay : DataLoader
         LoadQuestTerms();
         LoadQuestData();
         LoadSceneData();
+		LoadBoolSceneData();
         LoadOutcomeData();
     }
 
@@ -324,8 +325,9 @@ public class Data_GameDay : DataLoader
             /*17*/"\"Here you go, I've put it inside your bag. Have a nice day!\"",
             /*18*/"\"Here you go, I've put it inside your bag. Have a nice day!\"",
             /*19*/"\"Here you go, I've put it inside your bag. Have a nice day!\"",
-            /*20*/"\"Here you go, I've put it inside your bag. Have a nice day!\""
-
+            /*20*/"\"Here you go, I've put it inside your bag. Have a nice day!\"",
+			/*21*/"\"I'm so glad Rae found her dog! If he came over, I wouldn't have known how to catch him.\"",
+			/*22*/"\"Maybe I'll offer him a Donut Bone the next time I see him.\"",
 
 
         };
@@ -381,6 +383,7 @@ public class Data_GameDay : DataLoader
             /*7*/ "\"Ugh...Go away, kid. Don't you see that I'm about to go to bed?\"",
             /*8*/ "(Maybe some stupid visitor fed him bacon or something. Dogs always get excited over #stupid bacon#.)",
             /*9*/ "\"#Rae was here at 5 PM# and went to the police station just now. About time she moves on and stop pestering me.\"",
+			/*10*/ "\"I'm so glad she found her dog. That Rae was starting to get real annoying with her wailings.\"",
             
         
         };
@@ -471,6 +474,7 @@ public class Data_GameDay : DataLoader
         AddToDialogue(13, 13, ChoiceContinueDialog(13, 14));
         AddToDialogue(13, 14, ChoiceContinueDialog(13, 15));
         AddToDialogue(13, 15, ChoiceContinueDialog(13, 16));
+		AddDayDataToDialogue(id, 15, "AlfredSaved");
         AddToDialogue(13, 16, new ChoiceEventArgs(){ChoiceAction = InteractableObject.RemoveNpcThatDay, IDNum = 13});
 
         LinkContinueDialogues(id, new int[3]{7,8,10});
@@ -521,6 +525,7 @@ public class Data_GameDay : DataLoader
             AddChoice("Is this your dog?", ChoiceAction.CONTINUE, id, 13, checkitemname:"Lost Dog", removeitemname:"Lost Dog")
         };
         LinkContinueDialogues(id, new int[2] { 13, 14 });
+		AddDayDataToDialogue(id, 13, "DogReturned");
         AddToDialogue(id, 14, ChoiceInteractItem(id));
         gameManager.allObjects[id].dialogues[3].choices = turn_in_dog;
         gameManager.allObjects[id].dialogues[12].choices = turn_in_dog;
@@ -987,6 +992,7 @@ public class Data_GameDay : DataLoader
 				dialogueIDMulti = new List<int>() {  },
 
 				// NPC CharacterAnimations
+				turnOnInteract = true,
 				startingAnimationState = CharacterAnimations.States.DOWN_IDLE,
 				animationSpeed = 0f,
 				wanderDistanceX = 0f,  wanderDirectionX = 0,
@@ -997,7 +1003,6 @@ public class Data_GameDay : DataLoader
 				NpcID = -1
 			});
 		*/
-
         #endregion
 
 #region SCENE_HOUSE
@@ -2736,9 +2741,96 @@ public class Data_GameDay : DataLoader
             Summary = "",
             NpcID = 52
         });
-    }
-
 #endregion
+	}
+
+	private void LoadBoolSceneData()
+	{
+		// They will be loaded in order of priority. Scene data with AlfredSaved will always be used first.
+		LoadAlfredSavedSceneData();
+		LoadDogReturnedSceneData();
+	}
+
+	private void LoadAlfredSavedSceneData()
+	{
+		string sceneName = "";
+		
+		#region EMPTY TEMPLATE
+		// EMPTY TEMPLATE
+		/*
+		AddParameters(sceneName, new InteractableObject.Parameters()
+			{
+				// Specify the time frames that this set takes effect
+				timeBlocks = new List<int>() {  },
+
+				// InteractableObject dialogue information
+				dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+				dialogueIDSingle = 0,
+				dialogueIDMin = 0,  dialogueIDMax = 0,
+				dialogueIDMulti = new List<int>() {  },
+
+				// NPC CharacterAnimations
+				turnOnInteract = true,
+				startingAnimationState = CharacterAnimations.States.DOWN_IDLE,
+				animationSpeed = 0f,
+				wanderDistanceX = 0f,  wanderDirectionX = 0,
+				wanderDistanceY = 0f,  wanderDirectionY = 0,
+
+				// Getter/Setter variables, NpcID is required
+				Summary = "",
+				NpcID = -1
+			});
+		*/
+		#endregion
+
+
+	}
+
+	private void LoadDogReturnedSceneData()
+	{
+		const string boolParamSet = "DogReturned";
+		const int hank = 11;
+		const int jeney = 7;
+		const string park = SceneManager.SCENE_PARK;
+		const string donutshop = SceneManager.SCENE_MALL;
+		const string mainstreet = SceneManager.SCENE_MAINSTREET;
+
+
+		// ======================== HANK ======================== //
+		AddParameters(boolParamSet, park, new InteractableObject.Parameters()
+		{
+			// Specify the time frames that this set takes effect
+			timeBlocks = new List<int>() { 18 },
+			
+			// InteractableObject dialogue information
+			dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+			dialogueIDSingle = 10,
+			
+			// NPC CharacterAnimations
+			startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+			
+			// Getter/Setter variables, NpcID is required
+			Summary = "she was gettin' annoying",
+			NpcID = hank
+		});
+
+		// ======================== JENEY ======================== //
+		AddParameters(boolParamSet, donutshop, new InteractableObject.Parameters()
+		{
+			// Specify the time frames that this set takes effect
+			timeBlocks = new List<int>() { 16, 18 },
+			
+			// InteractableObject dialogue information
+			dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+			dialogueIDSingle = 21,
+			
+			// Getter/Setter variables, NpcID is required
+			Summary = "glad she found it lulz donut bone",
+			NpcID = jeney
+		});
+		AddToDialogue(jeney, 21, ChoiceContinueDialog(jeney, 22));
+	}
+
     private void LoadOutcomeData()
     {
         #region EMPTY_TEMPLATE

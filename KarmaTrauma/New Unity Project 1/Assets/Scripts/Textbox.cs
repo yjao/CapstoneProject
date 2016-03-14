@@ -147,6 +147,10 @@ public class Textbox : MonoBehaviour
                     {
                         gameManager.SetData(choices[cursor].setbool, true);
                     }
+					if (choices[cursor].setDayBool != null)
+					{
+						gameManager.SetData(choices[cursor].setDayBool, true);
+					}
                     if (choices[cursor].CEA.ChoiceAction != ContinueTutorialDialogue)
                     {
                         if (!gameManager.playerData.DialogueHistory.ContainsKey(choices[cursor].CEA.IDNum + "," + choices[cursor].CEA.DialogueID + "," + cursor))
@@ -549,6 +553,10 @@ public class Textbox : MonoBehaviour
             {
                 args.DialogueBox.gameManager.playerData.SetBool(args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].setbool);
             }
+			if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].setDayBool != null)
+			{
+				args.DialogueBox.gameManager.dayData.SetBool(args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].setDayBool);
+			}
             args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = message;
         }
         if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice() || GameManager.instance.allObjects[args.IDNum].dialogues[args.DialogueID].Action != null)

@@ -99,7 +99,7 @@ public class PlayerData
 
 	public bool GetBool(string boolName)
 	{
-        Debug.Log("Returning Bool value : " + boolName + DataDictionary[boolName]);
+        //Debug.Log("Returning Bool value : " + boolName + DataDictionary[boolName]);
 		return DataDictionary[boolName];
         
 	}

@@ -50,21 +50,20 @@ public class DayData
 	
 	public void SetBool(string boolName, bool value=true)
 	{
+		if (!DataDictionary.ContainsKey(boolName))
+		{
+			DataDictionary.Add(boolName, value);
+			return;
+		}
 		DataDictionary[boolName] = value;
-
-		// hardcoded
-		/*if (GetBool("GimmeJewel"))
-		{
-			QuestManager.Instance.AddQuestToLog(0);
-		}
-		else*/ if (GetBool("JeneyHungry"))
-		{
-//			QuestManager.Instance.AddQuestToLog(1);
-		}
 	}
 	
 	public bool GetBool(string boolName)
 	{
+		if (!DataDictionary.ContainsKey(boolName))
+		{
+			DataDictionary.Add(boolName, false);
+		}
 		return DataDictionary[boolName];
 	}
 

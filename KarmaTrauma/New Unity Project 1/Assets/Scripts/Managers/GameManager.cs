@@ -5,6 +5,44 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System;
 using System.IO;
 
+public class BoolSceneParameter
+{
+	public string boolName;
+	public Dictionary<string, List<InteractableObject.Parameters>> paramSet;
+
+	public BoolSceneParameter(string name)
+	{
+		boolName = name;
+		paramSet = new Dictionary<string, List<InteractableObject.Parameters>>();
+	}
+
+	public void AddToMap(string mapName, InteractableObject.Parameters item)
+	{
+		if (!paramSet.ContainsKey(mapName))
+		{
+			paramSet.Add(mapName, new List<InteractableObject.Parameters>());
+		}
+		paramSet[mapName].Add(item);
+	}
+
+	public InteractableObject.Parameters GetParamData(string mapName, int npcID, int time)
+	{
+		if (!paramSet.ContainsKey(mapName))
+		{
+			return null;
+		}
+		List<InteractableObject.Parameters> allNpcParams = paramSet[mapName];
+		foreach (InteractableObject.Parameters npcParam in allNpcParams)
+		{
+			if (npcID == npcParam.NpcID && npcParam.timeBlocks.Contains(time))
+			{
+				return npcParam;
+			}
+		}
+		return null;
+	}
+}
+
 public class GameManager : MonoBehaviour
 {
 	public GameObject MenuLayout;
@@ -33,6 +71,7 @@ public class GameManager : MonoBehaviour
     public Dictionary<int, Interactable> allObjects;
 	public Dictionary<string, string> questTerms;
 	public Dictionary<string, List<InteractableObject.Parameters>> sceneParameters;
+	public List<BoolSceneParameter> boolSceneParameters;
     //Questlist in the form of List<[keyword , NPCName, dialogue, time, location]>
     
     //public List<string[]> questList;
@@ -88,6 +127,7 @@ public class GameManager : MonoBehaviour
 		allObjects = new Dictionary<int, Interactable>();
 		questTerms = new Dictionary<string, string>();
 		sceneParameters = new Dictionary<string, List<InteractableObject.Parameters>>();
+		boolSceneParameters = new List<BoolSceneParameter>();
         questList = new Dictionary<string, List<string>>();
         outcomeList = new List<OutcomeManager.outcome>();
 

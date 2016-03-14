@@ -117,6 +117,11 @@ public class DataLoader
         gameManager.allObjects[id].dialogues[dialogueID].setbool = boolName;
     }
 
+	protected void AddDayDataToDialogue(int id, int dialogueID, string boolName)
+	{
+		gameManager.allObjects[id].dialogues[dialogueID].setDayBool = boolName;
+	}
+
 	protected void AddParameters(string sceneName, InteractableObject.Parameters parameters)
 	{
 		List<InteractableObject.Parameters> paramList = null;
@@ -131,6 +136,26 @@ public class DataLoader
 		}
 
 		gameManager.sceneParameters[sceneName].Add(parameters);
+	}
+
+	protected void AddParameters(string boolParamSet, string sceneName, InteractableObject.Parameters parameters)
+	{
+		int index = -1;
+		for (int i = 0; i < gameManager.boolSceneParameters.Count; i++)
+		{
+			if (gameManager.boolSceneParameters[i].boolName == boolParamSet)
+			{
+				index = i;
+				break;
+			}
+		}
+		if (index == -1)
+		{
+			index = gameManager.boolSceneParameters.Count;
+			gameManager.boolSceneParameters.Add(new BoolSceneParameter(boolParamSet));
+		}
+
+		gameManager.boolSceneParameters[index].AddToMap(sceneName, parameters);		
 	}
 
     protected void AddOutcome(string booleanName, string trueText, string falseText)

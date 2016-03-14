@@ -49,8 +49,9 @@ public class EndingManager : MonoBehaviour {
 		gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(false);
 		yield return StartCoroutine(LoadSceneCoroutine("Ending"));
 		StartCoroutine(sm.fade_out());
-		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide31", 5, "Alfred: Hey, Dae! What's up, buddy?"), false));
-		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide32", 5, "Dae: Sorry buddy... I didn't have a choice..."), false));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide31", 4, "Alfred: Hey, Dae! What's up, buddy?"), false));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide32", 4, "Dae: Sorry buddy... I didn't have a choice..."), false));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide14", 5, "Chelsey: ...Maybe Alfred just needs to live, but how?"), false));
 		yield return StartCoroutine(sm.fade_black());
 		gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(true);
 		gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);

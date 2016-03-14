@@ -54,7 +54,7 @@ public class InteractableObject : MonoBehaviour
         Init();
         if (interactionType == InteractionType.ITEM || isItem)
         {
-            disableBool = gameManager.allItems[iD].Name;
+            disableBool = gameManager.allObjects[iD].name;
         }
     }
 
@@ -173,6 +173,12 @@ public class InteractableObject : MonoBehaviour
 			//else if (InteractionType == TYPE.MOVE)
                 //InteractMove(1, 0);
         }
+    }
+
+    public static void RemoveNpcThatDay(object sender, GameEventArgs args)
+    {
+        GameManager.instance.dayData.DataDictionary[GameManager.instance.allObjects[args.IDNum].name] = true;
+        GameObject.Destroy(args.ThisGameObject);
     }
 
     public void HandleOnDialogChoiceMade(object sender, GameEventArgs args)

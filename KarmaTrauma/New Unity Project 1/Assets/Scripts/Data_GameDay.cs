@@ -363,6 +363,8 @@ public class Data_GameDay : DataLoader
         };
        LinkContinueDialogues(id, new int[4]{8,9,10,11});
        LinkContinueDialogues(id, new int[2] { 4, 5 });
+
+        AddBooleanToDialogue(id, 3, "LikesBacon");
        
 
         // ================ HANK ================ //
@@ -385,6 +387,7 @@ public class Data_GameDay : DataLoader
         AddNpc(id, "Hank", "Hank", hank);
         AddBooleanToDialogue(id, 1, "LostDog");
         AddBooleanToDialogue(id, 3, "DogCanDig");
+        AddBooleanToDialogue(id, 8, "LikesBacon");
 
         gameManager.allObjects[id].dialogues[4].choices = new Choice[]
 		{
@@ -873,7 +876,7 @@ public class Data_GameDay : DataLoader
         AddNpc(id, "Dog", "Dog", dog);
         gameManager.allObjects[id].dialogues[0].choices = new Choice[]
 		{
-			AddChoice("Feed the dog bacon.", ChoiceAction.CONTINUE, id, 1, checkboolname: "Bacon", removeitemname: "Bacon")
+            AddChoice("Feed the dog bacon.", ChoiceAction.CONTINUE, id, 1, checkboolname: "LikesBacon", checkitemname: "Bacon", removeitemname: "Bacon")
         };
         AddToDialogue(id, 1, ChoiceContinueDialog(id, 2));
         AddToDialogue(id, 2, ChoiceInteractItem(id));

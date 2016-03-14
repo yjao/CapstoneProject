@@ -2288,6 +2288,8 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 13,
 
+			turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 36
@@ -2301,6 +2303,8 @@ public class Data_GameDay : DataLoader
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 1,
 
+			turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 36
@@ -2313,6 +2317,9 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 22,
+
+			turnOnInteract = false,
+
             // Getter/Setter variables, NpcID is required
             Summary = "",
             NpcID = 36
@@ -2325,6 +2332,8 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 15,
+
+			turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2340,6 +2349,8 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 4,
+
+			turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

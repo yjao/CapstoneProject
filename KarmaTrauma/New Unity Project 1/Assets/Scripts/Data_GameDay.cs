@@ -471,6 +471,7 @@ public class Data_GameDay : DataLoader
         AddToDialogue(13, 13, ChoiceContinueDialog(13, 14));
         AddToDialogue(13, 14, ChoiceContinueDialog(13, 15));
         AddToDialogue(13, 15, ChoiceContinueDialog(13, 16));
+        AddToDialogue(13, 16, new ChoiceEventArgs(){ChoiceAction = InteractableObject.RemoveNpcThatDay, IDNum = 13});
 
         LinkContinueDialogues(id, new int[3]{7,8,10});
         AddToDialogue(id, 11, ChoiceContinueDialog(id, 12));

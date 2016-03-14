@@ -284,7 +284,6 @@ public class GameManager : MonoBehaviour
 
     public void EnterDialogue()
     {
-        has_text_box = true;
 		if (gameMode != GameMode.DIALOGUE)
 		{
         	prevMode = gameMode;
@@ -298,11 +297,6 @@ public class GameManager : MonoBehaviour
         GameMode oldGameMode = gameMode;
         gameMode = prevMode;
         prevMode = oldGameMode;
-        has_text_box = false;
-        if (gameMode == GameMode.DIALOGUE)
-        {
-            has_text_box = true;
-        }
     }
 
     #endregion
@@ -576,7 +570,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // For debug purposes (obviously)
-        //Debug.Log (GameMode);
+		//Debug.Log (gameMode);
 
 		if (keyCooldown > 0)
 		{

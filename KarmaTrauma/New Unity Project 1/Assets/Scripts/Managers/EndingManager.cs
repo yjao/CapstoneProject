@@ -9,6 +9,7 @@ public class EndingManager : MonoBehaviour {
 	private GameObject gmObj;
 	private GameManager gm;
 	private SceneManager sm;
+	private SoundManager sdm;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class EndingManager : MonoBehaviour {
 		gmObj = GameObject.Find("GameManager");
 		gm = gmObj.GetComponent<GameManager>();
 		sm = gmObj.GetComponent<SceneManager>();
+		sdm = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 	}
 	
 	// Update is called once per frame
@@ -51,6 +53,8 @@ public class EndingManager : MonoBehaviour {
 		yield return null; while (Pause()) { yield return null; }
 		CreateDialogue("Patricia", "\"Very well. First thing after the polls come out.\"");
 		yield return null; while (Pause()) { yield return null; }
+		yield return StartCoroutine(sdm.FadeOutAudioSource(sdm.currentSong, rate: 0.1f));
+		sdm.PlayOtherSong("EndingMusic");
 		CreateDialogue("Patricia", "\"Don't worry, it's a good deed you've done for your daughter.\"");
 		yield return null; while (Pause()) { yield return null; }
 		CreateDialogue("Patricia", "\"I would have done the exact same thing for mine.\"");
@@ -59,7 +63,7 @@ public class EndingManager : MonoBehaviour {
 		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide33(2)", 8, "Jerry Faraday: Thank you, thank you everybody! I'll make our county a much, much better place, turning this land into a wealthy land of gold!"), false));
 		yield return StartCoroutine(sm.fade_black());
         yield return new WaitForSeconds(1f);
-		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 5, "Chelsey: And so, it turns out that Jerry Faraday had won the election."), false));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 5, "Chelsey: And so, it turns out that Jerry Faraday had won the election."), false, Textbox.TutorialBoxPosition.MIDDLE));
 		StartCoroutine(LoadSceneCoroutine("E_Mall"));
 		yield return StartCoroutine(sm.fade_out());
 		CreateDialogue("Jeney", "\"So, it still happened.\"");
@@ -93,9 +97,9 @@ public class EndingManager : MonoBehaviour {
 		yield return StartCoroutine(sm.fade_black());
 		yield return StartCoroutine(LoadSceneCoroutine("Ending"));
 		StartCoroutine(sm.fade_out());
-		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 4, "Chelsey: All this time loop, was to save Alfred."), false));
-		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 4.5f, "Chelsey: Even though Faraday was elected as senator, nobody was hurt."), false));
-		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 5, "Chelsey: Of course, some people still had to sacrifice, just for a bit of peace."), false));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 4, "Chelsey: All this time loop, was to save Alfred."), false, Textbox.TutorialBoxPosition.MIDDLE));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 4.5f, "Chelsey: Even though Faraday was elected as senator, nobody was hurt."), false, Textbox.TutorialBoxPosition.MIDDLE));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 5, "Chelsey: Of course, some people still had to sacrifice, just for a bit of peace."), false, Textbox.TutorialBoxPosition.MIDDLE));
 		yield return StartCoroutine(sm.fade_black());
 		yield return new WaitForSeconds(1f);
 		CreateTutorialBox(" ~ The End ~ ", standalone: true);
@@ -112,6 +116,8 @@ public class EndingManager : MonoBehaviour {
     public IEnumerator AlfredEnding()
     {
 		yield return StartCoroutine(sm.fade_black());
+		yield return StartCoroutine(sdm.FadeOutAudioSource(sdm.currentSong, rate: 0.1f));
+		sdm.PlayOtherSong("BadThingMusic");
 		gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(false);
 		gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(false);
 		yield return StartCoroutine(LoadSceneCoroutine("Ending"));
@@ -119,8 +125,8 @@ public class EndingManager : MonoBehaviour {
 		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide31", 4, "Alfred: Hey, Dae! What's up, buddy?"), false));
 		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide32", 4, "Dae: Sorry buddy... I didn't have a choice..."), false));
 		yield return StartCoroutine(sm.fade_black());
-		yield return StartCoroutine(sm.fade_out());
-		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide14", 5, "Chelsey: ...Maybe Alfred just needs to live, but how?"), false));
+		StartCoroutine(sm.fade_out());
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide14", 5, "Chelsey: ...Maybe Alfred just needs to live, but how?"), false, Textbox.TutorialBoxPosition.MIDDLE));
 		yield return StartCoroutine(sm.fade_black());
 		gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(true);
 		gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
@@ -137,6 +143,8 @@ public class EndingManager : MonoBehaviour {
 		yield return new WaitForSeconds(1f);
 		CreateDialogue("Perry", "\"Faraday... I knew you were up to no good.\"");
 		yield return null; while (Pause()) { yield return null; }
+		yield return StartCoroutine(sdm.FadeOutAudioSource(sdm.currentSong, rate: 0.1f));
+		sdm.PlayOtherSong("EndingMusic");
 		StartCoroutine(sm.fade_out());
 		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide37", 4, "Perry: Chief of Police. Patricia Ferguson, you are under arrest."), false));
 		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide37", 4, "Patricia: No! Get your hands off me! Jerry won't forgive you for this!"), false));
@@ -144,7 +152,7 @@ public class EndingManager : MonoBehaviour {
 		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 4, "Perry: Chief of Police. Jerry Faraday, you are under arrest."), false));
 		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 4, "Jerry Faraday: What is this? Ouch! That hurts!"), false));
 		yield return new WaitForSeconds(1f);
-		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 5, "Chelsey: And so, it turns out that everybody was arrested."), false));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 5, "Chelsey: And so, it turns out that everybody was arrested."), false, Textbox.TutorialBoxPosition.MIDDLE));
 		StartCoroutine(LoadSceneCoroutine("E_Police"));
 		yield return StartCoroutine(sm.fade_out());
 		CreateDialogue("Alfred", "\"Dae... I can't believe you did this to me.\"");
@@ -161,9 +169,9 @@ public class EndingManager : MonoBehaviour {
 		yield return StartCoroutine(sm.fade_black());
 		yield return StartCoroutine(LoadSceneCoroutine("Ending"));
 		StartCoroutine(sm.fade_out());
-		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 4, "Chelsey: All this time loop, was to save Alfred."), false));
-		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 4, "Chelsey: But I guess everybody got the justice they deserved."), false));
-		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 5, "Chelsey: Not without the sacrifices of their loved ones, of course."), false));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 4, "Chelsey: All this time loop, was to save Alfred."), false, Textbox.TutorialBoxPosition.MIDDLE));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 4, "Chelsey: But I guess everybody got the justice they deserved."), false, Textbox.TutorialBoxPosition.MIDDLE));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide7", 5, "Chelsey: Not without the sacrifices of their loved ones, of course."), false, Textbox.TutorialBoxPosition.MIDDLE));
 		yield return StartCoroutine(sm.fade_black());
 		yield return new WaitForSeconds(1f);
 		CreateTutorialBox(" ~ The End ~ ", standalone: true);
@@ -180,19 +188,21 @@ public class EndingManager : MonoBehaviour {
     public IEnumerator AlfredSavedEnding()
     {
         yield return StartCoroutine(sm.fade_black());
+		yield return StartCoroutine(sdm.FadeOutAudioSource(sdm.currentSong, rate: 0.1f));
+		sdm.PlayOtherSong("BadThingMusic");
         gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(false);
         gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(false);
         yield return StartCoroutine(LoadSceneCoroutine("Ending"));
         StartCoroutine(sm.fade_out());
         yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide34", 5, "???: ..."), false));
-        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide14", 5, "Chelsey: ...Was that a police officer? Which one...?"), false));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide14", 5, "Chelsey: ...Was that a police officer? Which one...?"), false, Textbox.TutorialBoxPosition.MIDDLE));
         yield return StartCoroutine(sm.fade_black());
         gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(true);
         gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
         yield return null;
     }
 
-    IEnumerator Slide_Coroutine(TutorialManager.Slide slide, bool hideMenu=true)
+	IEnumerator Slide_Coroutine(TutorialManager.Slide slide, bool hideMenu=true, Textbox.TutorialBoxPosition boxPos=Textbox.TutorialBoxPosition.BOTTOM)
     {
 		if (hideMenu)
 		{
@@ -202,7 +212,7 @@ public class EndingManager : MonoBehaviour {
         if (slide.text != null && slide.text != "")
         {
             yield return new WaitForSeconds(1f);
-            CreateTutorialBox(slide.text, Textbox.TutorialBoxPosition.BOTTOM, slide.timer - 1f);
+			CreateTutorialBox(slide.text, boxPos, slide.timer - 1f);
             yield return null;
         }
         yield return new WaitForSeconds(slide.timer);

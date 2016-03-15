@@ -32,7 +32,8 @@ public class SoundManager : MonoBehaviour {
         mapSong = new Dictionary<string, AudioClip>()
 	    {
             { "BadThingMusic", OtherSongs[0]},
-            { "WorldMapMidnight", MidnightSound}
+            { "WorldMapMidnight", MidnightSound},
+			{ "EndingMusic", OtherSongs[1]}
         };
 
         backgroundSounds = new List<AudioSource>();

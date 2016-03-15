@@ -210,6 +210,7 @@ public class InteractableObject : MonoBehaviour
     {
 		[Header("Specify the time frames that this set takes effect")]
         public List<int> timeBlocks;
+		public bool showNpc = true;
 
 		[Header("InteractableObject dialogue information")]
         public InteractableObject.Dialogue_ID_Type dialogueIDType;

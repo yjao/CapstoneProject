@@ -116,8 +116,7 @@ public class Data_GameDay : DataLoader
         {
             AddChoice("Offer Cocodonut.", ChoiceAction.CONTINUE, 2, 5, checkboolname: "AlfredCocodonut", checkitemname: "Cocodonut")
         };
-        AddToDialogue(2, 5, ChoiceContinueDialog(2, 12));
-        AddToDialogue(2, 12, ChoiceContinueDialog(2, 13));
+
 		
         AddToDialogue(2, 16, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "AlfredEnding" });
 
@@ -129,10 +128,21 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[2].dialogues[18].choices = new Choice[]
         {
+            AddChoice("Give donut.", ChoiceAction.CONTINUE, 2, 5, checkitemname: "Cocodonut"),
             AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
         };
 
+
+        gameManager.allObjects[id].dialogues[4].choices = new Choice[]
+        {
+            AddChoice("Give donut.", ChoiceAction.CONTINUE, id, 5, checkitemname: "Cocodonut"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 10, checkitemname: "Cocodonut"),
+
+        };
+
+        AddToDialogue(2, 5, ChoiceContinueDialog(2, 12));
+        AddToDialogue(2, 12, ChoiceContinueDialog(2, 13));
         LinkContinueDialogues(id, new int[2] { 4, 10 });
         gameManager.allObjects[id].dialogues[10].choices = new Choice[]
         {
@@ -140,6 +150,8 @@ public class Data_GameDay : DataLoader
         };
         AddToDialogue(id, 19, ChoiceContinueDialog(id, 20));
         AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
+
+
 
         LinkContinueDialogues(id, new int[3] { 0, 5, 2});
        
@@ -260,8 +272,8 @@ public class Data_GameDay : DataLoader
         LinkContinueDialogues(id, new int[2] { 8, 9 });
         gameManager.allObjects[id].dialogues[9].choices = new Choice[]
 		{
-            AddChoice("Say nothing", ChoiceAction.CONTINUE, id, 10),
-            AddChoice("Sure", ChoiceAction.CONTINUE, id, 11)
+            AddChoice("Sure.", ChoiceAction.CONTINUE, id, 11),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 10)
         };
 
         gameManager.allObjects[id].dialogues[12].choices = new Choice[]
@@ -342,13 +354,13 @@ public class Data_GameDay : DataLoader
 
        gameManager.allObjects[id].dialogues[0].choices = new Choice[]
         {
-            AddChoice("Cocodonut", ChoiceAction.CONTINUE, id, 14),
-            AddChoice("Donut Sprinklez", ChoiceAction.CONTINUE, id, 15),
-            AddChoice("Chocolate Crispies", ChoiceAction.CONTINUE, id, 16),
-            AddChoice("Minty Munchies", ChoiceAction.CONTINUE, id, 17),
-            AddChoice("Strawberry Squishies", ChoiceAction.CONTINUE, id, 18),
-            AddChoice("Potadonut Tots", ChoiceAction.CONTINUE, id, 19),
-            AddChoice("Donut Holes Original", ChoiceAction.CONTINUE, id, 20)
+            AddChoice("Cocodonut", ChoiceAction.CONTINUE, id, 14, checkboolname: "Moonlight"),
+            AddChoice("Donut Sprinklez", ChoiceAction.CONTINUE, id, 15, checkboolname: "Moonlight"),
+            AddChoice("Chocolate Crispies", ChoiceAction.CONTINUE, id, 16, checkboolname: "Moonlight"),
+            AddChoice("Minty Munchies", ChoiceAction.CONTINUE, id, 17, checkboolname: "Moonlight"),
+            AddChoice("Strawberry Squishies", ChoiceAction.CONTINUE, id, 18, checkboolname: "Moonlight"),
+            AddChoice("Potadonut Tots", ChoiceAction.CONTINUE, id, 19, checkboolname: "Moonlight"),
+            AddChoice("Donut Holes Original", ChoiceAction.CONTINUE, id, 20, checkboolname: "Moonlight")
         };
        AddToDialogue(id, 14, ChoiceInteractItem(170, false));
        AddToDialogue(id, 15, ChoiceInteractItem(171, false));
@@ -367,6 +379,7 @@ public class Data_GameDay : DataLoader
        LinkContinueDialogues(id, new int[2] { 4, 5 });
 
         AddBooleanToDialogue(id, 3, "LikesBacon");
+        AddBooleanToDialogue(id, 14, "Cocodonut");
        
 
         // ================ HANK ================ //
@@ -378,7 +391,7 @@ public class Data_GameDay : DataLoader
 			/*2*/ "(So annoying ugh...)", 
 			/*3*/ "\"Yesterday, that stupid #dog started digging# all over the park.\"",
 			/*4*/ "\"I'm glad my nap today went ok. Unlike yesterday...\"",
-			/*5*/ "(Ugh...I'm hungry. I don't get paid enough for this.)",
+			/*5*/ "(Ugh...these birds are so noisy. I don't get paid enough for this.)",
 		    /*6*/ "\"Now go away and stop bothering me. Time to go fill up the rest of those stupid holes.\"",
             /*7*/ "\"Ugh...Go away, kid. Don't you see that I'm about to go to bed?\"",
             /*8*/ "(Maybe some stupid visitor fed him bacon or something. Dogs always get excited over #stupid bacon#.)",
@@ -424,7 +437,8 @@ public class Data_GameDay : DataLoader
             /*18*/ "\"Somebody offered me money if I help him with something dirty... I don't know what to think of it.\"",
             /*19*/ "\"If I can get out of here, I can start a new life!\"",
             /*20*/ "\"Thanks, but I can't leave now. It's too late for me to start a new life when I've ruined another's life.\"",
-        
+            /*21*/ "\"Ok, tell me if you have a change of heart.\"",
+            /*22*/ "\"I don't want to talk right now. Please leave me alone.\"",
         
         };
         AddNpc(id, "Bob", "Hobo master race", bob);
@@ -446,29 +460,34 @@ public class Data_GameDay : DataLoader
         //Same problem as Alfred.  Can give ticket to hobo any time.
         gameManager.allObjects[13].dialogues[4].choices = new Choice[]
         {
-			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 21, checkitemname: "Train Ticket")
         };
        
 
         gameManager.allObjects[13].dialogues[0].choices = new Choice[]
         {
-			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 22, checkitemname: "Train Ticket")
         };
 
 
         gameManager.allObjects[13].dialogues[1].choices = new Choice[]
         {
-			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 22, checkitemname: "Train Ticket")
         };
 
         gameManager.allObjects[13].dialogues[19].choices = new Choice[]
         {
-			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 22, checkitemname: "Train Ticket")
         };
 
         gameManager.allObjects[13].dialogues[12].choices = new Choice[]
         {
-			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket")
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 21, checkitemname: "Train Ticket")
         };
 
         AddToDialogue(13, 13, ChoiceContinueDialog(13, 14));
@@ -503,6 +522,7 @@ public class Data_GameDay : DataLoader
 			/*12*/ "\"I came to ask her to keep an eye out for #my lost dog#. Have you seen him?\"",
 			/*13*/ "\"Tomo! Thank you for finding my dog.\"",
 			/*14*/"\"I guess this train ticket is useless now since I still haven't packed up because I was out looking for him. Here, you can have it.\"",
+            /*15*/ "\"Please let me know if you find him.\""  ,
 		};
         AddNpc(id, "Rae", "Rae", rae);
         AddBooleanToDialogue(id, 0, "LostDog");
@@ -522,7 +542,8 @@ public class Data_GameDay : DataLoader
 
         Choice[] turn_in_dog = new Choice[]
 		{
-            AddChoice("Is this your dog?", ChoiceAction.CONTINUE, id, 13, checkitemname:"Lost Dog", removeitemname:"Lost Dog")
+            AddChoice("Is this your dog?", ChoiceAction.CONTINUE, id, 13, checkitemname:"Lost Dog", removeitemname:"Lost Dog"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 15, checkitemname: "Lost Dog"), 
         };
         LinkContinueDialogues(id, new int[2] { 13, 14 });
 		AddDayDataToDialogue(id, 13, "DogReturned");
@@ -631,25 +652,25 @@ public class Data_GameDay : DataLoader
         gameManager.allObjects[id].dialogues[16].choices = new Choice[]
         {
               AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
-              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23, checkitemname: "Box")
         };
         gameManager.allObjects[id].dialogues[20].choices = new Choice[]
         {
               AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
-              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23, checkitemname: "Box")
         };
 
         LinkContinueDialogues(id, new int[4] { 4, 5, 6, 7 });
         gameManager.allObjects[id].dialogues[7].choices = new Choice[]  //Day just restart
         {
               AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
-              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23, checkitemname: "Box")
         };
 
-        gameManager.allObjects[id].dialogues[18].choices = new Choice[]  //Day just restart
+        gameManager.allObjects[id].dialogues[17].choices = new Choice[]  //Day just restart
         {
               AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
-              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23, checkitemname: "Box")
         };
 
 
@@ -838,7 +859,7 @@ public class Data_GameDay : DataLoader
             AddChoice("I don't remember.", ChoiceAction.CONTINUE, id, 13),
         };
         LinkContinueDialogues(id, new int[2] { 11, 12 });
-
+        AddBooleanToDialogue(id, 11, "Moonlight");
 
 
         // ================ PERRY ================ //
@@ -1309,7 +1330,8 @@ public class Data_GameDay : DataLoader
             dialogueIDSingle = 9,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            startingAnimationState = CharacterAnimations.States.SLEEPING,
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

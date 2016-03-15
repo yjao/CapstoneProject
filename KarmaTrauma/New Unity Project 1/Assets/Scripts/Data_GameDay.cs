@@ -115,6 +115,10 @@ public class Data_GameDay : DataLoader
             /*19*/ "\"A few weeks ago, we got a new chief. He doesn't really talk much so we don't really know about him too well.\"",
             /*20*/ "\"Speaking of which, he left the office just now. He should be #back around 7 PM#.\"",
             /*21*/ "\"Ok, let me know if you need help with anything.\"",  
+            /*22*/ "(Before this wonderful day ends, there's one more thing I must do...)",
+            /*23*/ "\"...Oh! I didn't see you there. What are you doing here? It's late, go home!\"",  
+            /*24*/ "(Before this wonderful day ends, there's one more thing I must do...)",
+            /*25*/"\"...Oh! I didn't see you there. What are you doing here at this hour? You should head home, kid.\"",
         };
         AddNpc(id, "Alfred", "Alfred", alfred);
 
@@ -199,6 +203,9 @@ public class Data_GameDay : DataLoader
             /*27*/ "\"Eventually, she dropped out. I met her again after she started working as the town hall's janitor.\"", 
             /*28*/ "\"She's...I don't think she's qualified for the job.\"", 
             /*29*/ "\"Honestly, I think it has something to do with why I was fired.\"", 
+            /*30*/ "(That was such a wonderful night.)", 
+            /*31*/ "\"Sweetie, why are you still out here at a late hour? Would you like my husband to escort you home? He's a police officer.\"", 
+
         };
         AddNpc(id, "Megan", "Megan", megan);
         AddToDialogue(id, 6, ChoiceContinueDialog(id, 7));
@@ -348,7 +355,7 @@ public class Data_GameDay : DataLoader
 			/*21*/"\"I'm so glad Rae found her dog! If he came over, I wouldn't have known how to catch him.\"",
 			/*22*/"\"Maybe I'll offer him a Donut Bone the next time I see him.\"",
             /*23*/ "\"Welcome to the Donut Hole! What can I get you today? Today's special is the Donut Sprinklez~\"",
-
+            /*24*/ "\"Our store had a lot of customers today. I'm exhausted.\"",
         };
         AddNpc(7, "Jeney", "Jeney", jeney);
 
@@ -411,7 +418,7 @@ public class Data_GameDay : DataLoader
             /*7*/ "\"Ugh...Go away, kid. Don't you see that I'm about to go to bed?\"",
             /*8*/ "(Maybe some stupid visitor fed him bacon or something. Dogs always get excited over #stupid bacon#.)",
             /*9*/ "\"#Rae was here at 5 PM# and went to the police station just now. About time she moves on and stop pestering me.\"",
-			/*10*/ "\"I'm so glad she found her dog. That Rae was starting to get real annoying with her wailings.\"",
+			/*10*/ "\"I'm so glad she found her dog. That Rae was starting to get really annoying with her wailings.\"",
             
         
         };
@@ -452,8 +459,11 @@ public class Data_GameDay : DataLoader
             /*18*/ "\"Somebody offered me money if I help him with something dirty... I don't know what to think of it.\"",
             /*19*/ "\"If I can get out of here, I can start a new life!\"",
             /*20*/ "\"Thanks, but I can't leave now. It's too late for me to start a new life when I've ruined another's life.\"",
-            /*21*/ "\"Ok, tell me if you have a change of heart.\"",
+            /*21*/ "(Should I do this?)",
             /*22*/ "\"I don't want to talk right now. Please leave me alone.\"",
+            /*23*/ "\"Man, I wish I had some bacon today. Yesterday, I #tossed the dog some bacon# bits.\""  ,
+			/*24*/ "\"At first, he followed me, but I told him to go #dig some holes# to mess with cranky ol' Hank. Ha!\"",
+            /*25*/ "\"But it seems like he isn't here right now. I'm glad she found him!\"",
         
         };
         AddNpc(id, "Bob", "Hobo master race", bob);
@@ -596,7 +606,22 @@ public class Data_GameDay : DataLoader
             /*20*/ "\"Also, I stayed up all night last night programming KT, a game project.\"",
             /*21*/ "\"I'm just not a morning person.\"",
             /*22*/ "\"Maybe I should take a stroll in the park.\"",
-            
+            /*23*/"\"I'm not an outdoor person. I go to the park so I can see dogs! Unfortunately, there isn't one right now.\"",
+            /*24*/"\"Just getting ready for work. Man, it's going to be another long night. But it's okay, I have my Potadonut Tots...\"",
+            /*25*/"\"Jeney will never know if a few are missing, right?\"",
+            /*26*/"\"Do you believe in Karma?\"",
+            /*27*/"\"Heck yeah, I do too. Well, here’s a story...\"",
+            /*28*/"\"Once upon a time, young Faye ate too many donut samples without supervision; I think it’s why she’s now running endless night shifts at the Donut Hole.\"",
+            /*29*/"\"You should be careful with your actions, it might impact you in unexpected ways.\"",
+            /*30*/"\"But the donut samples were so good...heh heh...\"",
+            /*31*/"\"Well, I do. It’s not just religion. It’s a belief.\"",
+            /*32*/"\"Be careful though. You’ll never know if it strikes back one day. Experience speaking here.\"",
+            /*33*/"\"Hey there! Are you here to visit me, or are you just a night owl like I am?\"",
+            /*34*/"\"But sorry, I'm not feeling very talkative right now. Maybe if you came by 2 hours ago...I was just thinking about karma!\"",
+            /*35*/"\"The most important question will always be, is Potadonut Tots a bunch of donut holes, or tater tots?\"",
+            /*36*/"\"That's the kind of question that keeps me up at night...or at work, since I work at night. Ha ha...\"",
+            /*37*/"\"Did you hear that ticking? Maybe it's time for you to go home.\"",
+
         };
         AddNpc(id, "Faye", "Faye", faye);
 
@@ -642,6 +667,8 @@ public class Data_GameDay : DataLoader
             /*21*/"\"(I should follow him and see what that's all about...\"",
             /*22*/"\"(Hm...Perry is gone again. Whew, it's tiring with him around.)\"",
             /*23*/"\"Ok, come to me if you need help.\"",
+            /*24*/"\"Are you here to see Yoona? She's asleep right now, isn't she the sweetest thing?\"",
+            /*25*/"\"I'll do anything...ANYTHING for my girl to get better...even if it means losing my job, or my life.\"",
         };
         AddNpc(id, "Dae", "Dae", dae);
 
@@ -676,11 +703,7 @@ public class Data_GameDay : DataLoader
         };
 
         LinkContinueDialogues(id, new int[4] { 4, 5, 6, 7 });
-        gameManager.allObjects[id].dialogues[7].choices = new Choice[]  //Day just restart
-        {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
-              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23, checkitemname: "Box")
-        };
+    
 
         gameManager.allObjects[id].dialogues[17].choices = new Choice[]  //Day just restart
         {
@@ -816,6 +839,11 @@ public class Data_GameDay : DataLoader
             /*18*/ "Oh hey, you look like my daughter's age.",
             /*19*/ "I love my girl, but I never have time to take care of her",
             /*20*/ "I try everything I could to give her a good life, but I don't think she understands. As long as she's happy, I'm happy.",
+            /*21*/ "(The show should start soon...)",
+            /*22*/ "(I should head over to #Main Street at 7 PM# and wait there.)",
+            /*23*/ "(Where is this Bob? Shouldn't he be here right now?)",
+            /*24*/ "(Wait, what? Where is Bob? Why isn't Alfred dead yet? Ugh, I knew I couldn't trust some random hobo!)",
+            /*25*/ "(Well, there's still time before he gets the box...I've got to tell Jerry this!)",
         };
         AddNpc(id, "Patricia", "Patricia", patricia);
 
@@ -837,6 +865,7 @@ public class Data_GameDay : DataLoader
         LinkContinueDialogues(id, new int[2] { 16, 9 });
         LinkContinueDialogues(id, new int[3] { 0, 1, 2 });
         LinkContinueDialogues(id, new int[4] { 17, 18, 19, 20 });
+        
 
         // ================ KELLY ================ //
         id = 67;
@@ -891,7 +920,9 @@ public class Data_GameDay : DataLoader
             /*3*/ "\"...Ok\"", 
             /*4*/ "\"...\"", /*ENDINGVERSION*/
             /*5*/ "\"....?\"", /*ENDINGVERSION*/
-            /*6*/ "\"Thanks, I'll take a look at it.\"" /*ENDINGVERSION*/
+            /*6*/ "\"Thanks, I'll take a look at it.\"", /*ENDINGVERSION*/
+            /*7*/ "(What is Faraday's secretary doing here...?)",
+            /*8*/ "\"Go home, kid.\"",
           
         };
         AddNpc(id, "Perry", "Perry", perry);
@@ -2792,47 +2823,215 @@ public class Data_GameDay : DataLoader
 		LoadDogReturnedSceneData();
         LoadDonutPickingSceneData();
 	}
-
-	private void LoadAlfredSavedSceneData()
+    #region AlfredSavedScene
+    private void LoadAlfredSavedSceneData()
 	{
-		string sceneName = "";
-		
-		#region EMPTY TEMPLATE
-		// EMPTY TEMPLATE
-		/*
-		AddParameters(sceneName, new InteractableObject.Parameters()
-			{
-				// Specify the time frames that this set takes effect
-				timeBlocks = new List<int>() {  },
+        const string boolParamSet = "AlfredSaved";
+        // ======================== ALFRED ======================== //
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 22 },
 
-				// InteractableObject dialogue information
-				dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-				dialogueIDSingle = 0,
-				dialogueIDMin = 0,  dialogueIDMax = 0,
-				dialogueIDMulti = new List<int>() {  },
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 24,
 
-				// NPC CharacterAnimations
-				turnOnInteract = true,
-				startingAnimationState = CharacterAnimations.States.DOWN_IDLE,
-				animationSpeed = 0f,
-				wanderDistanceX = 0f,  wanderDirectionX = 0,
-				wanderDistanceY = 0f,  wanderDirectionY = 0,
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 2
+        });
+        LinkContinueDialogues(2, new int[2] { 24, 25 });
 
-				// Getter/Setter variables, NpcID is required
-				Summary = "",
-				NpcID = -1
-			});
-		*/
-		#endregion
+        gameManager.allObjects[25].dialogues[10].choices = new Choice[]
+        {
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
+        };
+        AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
 
+        // ======================== MEGAN ======================== //
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 22 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 30,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 3
+        });
+        LinkContinueDialogues(3, new int[2] { 30, 31 });
+
+
+          // ======================== JENEY ======================== //
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 24,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 7
+        });
+
+
+        // ======================== FAYE ======================== //
+        AddParameters(boolParamSet, SceneManager.SCENE_MALL, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 26,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 27
+        });
+        gameManager.allObjects[27].dialogues[26].choices = new Choice[]
+		{
+            AddChoice("Yes.", ChoiceAction.CONTINUE, 27, 28),
+            AddChoice("No.", ChoiceAction.CONTINUE, 27, 31)
+        };
+        LinkContinueDialogues(27, new int[3] { 28, 29, 30});
+        LinkContinueDialogues(27, new int[2] { 31, 32});
+
+        // ======================== DAE ======================== //
+        AddParameters(boolParamSet, SceneManager.SCENE_HOSPITAL, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 24,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
+        LinkContinueDialogues(36, new int[2] { 24, 25 });
+
+        gameManager.allObjects[36].dialogues[25].choices = new Choice[]  //Day just restart
+        {
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 11, checkitemname: "Box"),
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23, checkitemname: "Box")
+        };
+
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 22 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 17,
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
+
+        gameManager.allObjects[36].dialogues[17].choices = new Choice[]  //Day just restart
+        {
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 11, checkitemname: "Box"),
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23, checkitemname: "Box")
+        };
+
+        LinkContinueDialogues(36, new int[2] { 11, 12 });
+
+        // ======================== PATRICIA ======================== //
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 18 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 23,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 66
+        });
+
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 24,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 66
+        });
+        LinkContinueDialogues(66, new int[2] { 24, 25 });
+
+        // ======================== PERRY ======================== //
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 7,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 99
+        });
+
+        gameManager.allObjects[99].dialogues[7].choices = new Choice[]
+		{
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 5, checkitemname: "Box"),
+            AddChoice("Do nothing.", ChoiceAction.CONTINUE, 99, 3, checkitemname: "Box") 
+        };
+  
+
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 22 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 8,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 99
+        });
+        gameManager.allObjects[99].dialogues[8].choices = new Choice[]
+		{
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 5, checkitemname: "Box"),
+            AddChoice("Do nothing.", ChoiceAction.CONTINUE, 99, 3, checkitemname: "Box") 
+        };
+        AddToDialogue(99, 5, ChoiceContinueDialog(99, 6));
+        AddToDialogue(99, 1, ChoiceContinueDialog(99, 2));
 
 	}
 
-	private void LoadDogReturnedSceneData()
+    #endregion
+    #region DogReturnedScene
+    private void LoadDogReturnedSceneData()
 	{
 		const string boolParamSet = "DogReturned";
 		const int hank = 11;
 		const int jeney = 7;
+        const int bob = 13;
+        const int faye = 27;
 		const string park = SceneManager.SCENE_PARK;
 		const string donutshop = SceneManager.SCENE_MALL;
 		const string mainstreet = SceneManager.SCENE_MAINSTREET;
@@ -2856,6 +3055,55 @@ public class Data_GameDay : DataLoader
 			NpcID = hank
 		});
 
+
+        // ======================== FAYE ======================== //
+        AddParameters(boolParamSet, park, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 14 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 24,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = faye
+        });
+
+        AddParameters(boolParamSet, mainstreet, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 18 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 25,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = faye
+        });
+
+        // ======================== BOB ======================== //
+        AddParameters(boolParamSet, park, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 12 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 23,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "dog gone",
+            NpcID = bob
+        });
+        LinkContinueDialogues(bob, new int[3] { 23, 24, 25 });
+
 		// ======================== JENEY ======================== //
 		AddParameters(boolParamSet, donutshop, new InteractableObject.Parameters()
 		{
@@ -2871,28 +3119,33 @@ public class Data_GameDay : DataLoader
 			NpcID = jeney
 		});
 		AddToDialogue(jeney, 21, ChoiceContinueDialog(jeney, 22));
+
+        // ======================== PATRICIA ======================== //
+        AddParameters(boolParamSet, donutshop, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 16},
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 21,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 66
+        });
+        AddToDialogue(66, 21, ChoiceContinueDialog(66, 22));
 	}
+    #endregion
 
-
+    #region DonutPickingScene
     private void LoadDonutPickingSceneData()
     {
+        // ======================== KELLY ======================== //
         const string boolParamSet = "DonutPicked";
         const int kelly = 67;
-        const int jeney = 7;
         const string donutshop = SceneManager.SCENE_MALL;
-        AddParameters(boolParamSet, donutshop, new InteractableObject.Parameters()
-            {
-                // Specify the time frames that this set takes effect
-                timeBlocks = new List<int>() { 14 },
-
-                // InteractableObject dialogue information
-                dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-                dialogueIDSingle = 23,
-            
-                Summary = "",
-                NpcID = jeney
-            });
-
+ 
         AddParameters(boolParamSet, donutshop, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
@@ -2907,6 +3160,7 @@ public class Data_GameDay : DataLoader
         });
 
     }
+    #endregion
     private void LoadOutcomeData()
     {
         #region EMPTY_TEMPLATE

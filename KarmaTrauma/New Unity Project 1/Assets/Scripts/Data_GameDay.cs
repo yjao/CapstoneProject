@@ -129,7 +129,6 @@ public class Data_GameDay : DataLoader
         };
 
 		
-        AddToDialogue(2, 16, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "AlfredEnding" });
 
         gameManager.allObjects[2].dialogues[10].choices = new Choice[]
         {
@@ -143,7 +142,6 @@ public class Data_GameDay : DataLoader
             AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
         };
-
 
         gameManager.allObjects[id].dialogues[4].choices = new Choice[]
         {
@@ -162,6 +160,7 @@ public class Data_GameDay : DataLoader
         AddToDialogue(id, 19, ChoiceContinueDialog(id, 20));
         AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
 
+        AddToDialogue(2, 16, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "AlfredEnding" });
 
 
         LinkContinueDialogues(id, new int[3] { 0, 5, 2});
@@ -443,7 +442,7 @@ public class Data_GameDay : DataLoader
 			/*2*/ "(What am I supposed to do after #what I've done#?)",
 			/*3*/ "(*Sigh* It's sure going to be a sleepless night...)",
 			/*4*/ "(It's almost time. I feel anxious...)",
-			/*5*/ "(I #want to leave# this place...)"  ,
+			/*5*/ "(I #wanted to leave this place#, but I've made up my mind...there's no going back!)"  ,
 			/*6*/ "(When a man's got no food or shelter, he might make #extreme decisions#...)"  ,
 			/*7*/ "\"Hi there, got some money to spare?\"" , 
 			/*8*/ "\"I need money to buy #a train ticket#. I could really use one...\"",
@@ -464,7 +463,8 @@ public class Data_GameDay : DataLoader
             /*23*/ "\"Man, I wish I had some bacon today. Yesterday, I #tossed the dog some bacon# bits.\""  ,
 			/*24*/ "\"At first, he followed me, but I told him to go #dig some holes# to mess with cranky ol' Hank. Ha!\"",
             /*25*/ "\"But it seems like he isn't here right now. I'm glad she found him!\"",
-        
+            /*26*/ "\"Thanks, but I don't need it anymore.\"",
+            
         };
         AddNpc(id, "Bob", "Hobo master race", bob);
 
@@ -485,7 +485,7 @@ public class Data_GameDay : DataLoader
         //Same problem as Alfred.  Can give ticket to hobo any time.
         gameManager.allObjects[13].dialogues[4].choices = new Choice[]
         {
-			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket"),
+			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 26, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 21, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket")
         };
        
@@ -680,7 +680,6 @@ public class Data_GameDay : DataLoader
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
         };
 
-        AddToDialogue(id, 12, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "DaeEnding" });
 
         AddToDialogue(id, 9, ChoiceContinueDialog(id, 21));
         AddToDialogue(id, 21, ChoiceContinueDialog(id, 20));
@@ -703,16 +702,11 @@ public class Data_GameDay : DataLoader
         };
 
         LinkContinueDialogues(id, new int[4] { 4, 5, 6, 7 });
-    
-
-        gameManager.allObjects[id].dialogues[17].choices = new Choice[]  //Day just restart
-        {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
-              AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23, checkitemname: "Box")
-        };
 
 
         LinkContinueDialogues(id, new int[2] { 11, 12 });
+        AddToDialogue(id, 12, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "AlfredFellEnding" });
+
         // ================ YOONA ================ //
         id = 37;
         string[] yoona = new string[]
@@ -2827,6 +2821,7 @@ public class Data_GameDay : DataLoader
     private void LoadAlfredSavedSceneData()
 	{
         const string boolParamSet = "AlfredSaved";
+        
         // ======================== ALFRED ======================== //
         AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
         {
@@ -2843,7 +2838,7 @@ public class Data_GameDay : DataLoader
         });
         LinkContinueDialogues(2, new int[2] { 24, 25 });
 
-        gameManager.allObjects[25].dialogues[10].choices = new Choice[]
+        gameManager.allObjects[2].dialogues[25].choices = new Choice[]
         {
             AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
@@ -2897,6 +2892,21 @@ public class Data_GameDay : DataLoader
             Summary = "",
             NpcID = 27
         });
+
+        AddParameters(boolParamSet, SceneManager.SCENE_MALL, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 22 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 33,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 27
+        });
+
         gameManager.allObjects[27].dialogues[26].choices = new Choice[]
 		{
             AddChoice("Yes.", ChoiceAction.CONTINUE, 27, 28),
@@ -2904,8 +2914,72 @@ public class Data_GameDay : DataLoader
         };
         LinkContinueDialogues(27, new int[3] { 28, 29, 30});
         LinkContinueDialogues(27, new int[2] { 31, 32});
+        LinkContinueDialogues(27, new int[5] { 33, 34, 35, 36, 37 });
+
+
 
         // ======================== DAE ======================== //
+        AddParameters(boolParamSet, SceneManager.SCENE_POLICE, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 14 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 22,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
+        AddParameters(boolParamSet, SceneManager.SCENE_POLICE, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 16 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 16,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 18 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 20,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
+        gameManager.allObjects[36].dialogues[22].choices = new Choice[]
+        {
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 11, checkitemname: "Box"),
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23)
+        };
+
+        gameManager.allObjects[36].dialogues[16].choices = new Choice[]
+        {
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 11, checkitemname: "Box"),
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23, checkitemname: "Box")
+        };
+        gameManager.allObjects[36].dialogues[20].choices = new Choice[]
+        {
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 11, checkitemname: "Box"),
+              AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23, checkitemname: "Box")
+        };
+
+
+        LinkContinueDialogues(36, new int[2] { 11, 12 });
+        AddToDialogue(36, 12, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "DaeEnding" });
+
+
         AddParameters(boolParamSet, SceneManager.SCENE_HOSPITAL, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect

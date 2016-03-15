@@ -175,9 +175,17 @@ public class SceneManager : MonoBehaviour
 							InteractableObject.Parameters p = gameManager.boolSceneParameters[i].GetParamData(Application.loadedLevelName, IO.iD, GameManager.instance.GetTimeAsInt());
 							if (p != null)
 							{
-								paramsAlreadySet = true;
-								isActive = true;
-								LoadParameters(IO, p);
+								if (p.showNpc)
+								{
+									isActive = true;
+									LoadParameters(IO, p);
+									paramsAlreadySet = true;
+								}
+								else
+								{
+									isActive = false;
+									paramsAlreadySet = true;
+								}
 								break;
 							}
 						}

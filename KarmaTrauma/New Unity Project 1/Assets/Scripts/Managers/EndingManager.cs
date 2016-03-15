@@ -106,6 +106,9 @@ public class EndingManager : MonoBehaviour {
 		yield return StartCoroutine(sm.fade_black());
 		yield return new WaitForSeconds(1f);
 		CreateTutorialBox(" ~ The End ~ ", standalone: true);
+		yield return new WaitForSeconds(5f);
+		CreateDialogue("Mr. Ly", "\"NO! MAH BOI, FARADAY! Why aren't you elected...!??!??\"");
+		yield return null; while (Pause()) { yield return null; }
 		while (true)
 		{
 			yield return null;

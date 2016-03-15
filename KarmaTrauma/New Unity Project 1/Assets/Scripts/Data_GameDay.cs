@@ -14,6 +14,13 @@ public class Data_GameDay : DataLoader
         LoadSceneData();
 		LoadBoolSceneData();
         LoadOutcomeData();
+        LoadEndDayCoroutineData();
+    }
+
+    // At the end of each day, if this bool is true, play this coroutine.
+    private void LoadEndDayCoroutineData()
+    {
+        AddBoolCoroutinePair("AlfredSaved", "AlfredSavedEnding");
     }
 
 	private void LoadCreditsData()

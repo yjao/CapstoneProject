@@ -67,6 +67,22 @@ public class EndingManager : MonoBehaviour {
         yield return null;
     }
 
+    public IEnumerator AlfredSavedEnding()
+    {
+        yield return StartCoroutine(sm.fade_black());
+        gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(false);
+        gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(false);
+        yield return StartCoroutine(LoadSceneCoroutine("Ending"));
+        StartCoroutine(sm.fade_out());
+        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide34", 5, "..."), false));
+        yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide14", 5, "Chelsey: ...Was that a police officer? Which one...?"), false));
+        yield return StartCoroutine(sm.fade_black());
+        gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(true);
+        gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
+        GameManager.instance.Midnight(true, 3f);
+        yield return null;
+    }
+
     IEnumerator Slide_Coroutine(TutorialManager.Slide slide, bool hideMenu=true)
     {
 		if (hideMenu)

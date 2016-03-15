@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
 	public Dictionary<string, string> questTerms;
 	public Dictionary<string, List<InteractableObject.Parameters>> sceneParameters;
 	public List<BoolSceneParameter> boolSceneParameters;
+    public Dictionary<string, string> endDayCoroutine;
     //Questlist in the form of List<[keyword , NPCName, dialogue, time, location]>
     
     //public List<string[]> questList;
@@ -130,6 +131,7 @@ public class GameManager : MonoBehaviour
 		boolSceneParameters = new List<BoolSceneParameter>();
         questList = new Dictionary<string, List<string>>();
         outcomeList = new List<OutcomeManager.outcome>();
+        endDayCoroutine = new Dictionary<string, string>();
 
         // Bind events
         EventManager.OnItemPickup += ItemPickup;
@@ -395,6 +397,7 @@ public class GameManager : MonoBehaviour
         //Debug.Log("gameClock : " + gameClock);
 		if (GetTimeAsInt() == END_DAY_HOUR || forceSetMidnight)
         {
+            //RunEndDayCoroutine();
             StartCoroutine(MidnightFade(delay));
             return true;
         }
@@ -496,6 +499,19 @@ public class GameManager : MonoBehaviour
 
 	#endregion
 
+
+    private void RunEndDayCoroutine()
+    {
+        foreach (string key in endDayCoroutine.Keys)
+        {
+            if (dayData.GetBool(key))
+            {
+                GameEventArgs gea = new GameEventArgs();
+                gea.CoroutineName = endDayCoroutine[key];
+                EndingManager.CallCoroutineEvent(this, gea);
+            }
+        }
+    }
 
     void ItemPickup(object sender, GameEventArgs args)
     {

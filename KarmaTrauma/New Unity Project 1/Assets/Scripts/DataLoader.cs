@@ -162,4 +162,16 @@ public class DataLoader
     {
         gameManager.outcomeList.Add(new OutcomeManager.outcome(booleanName, trueText, falseText));
     }
+
+    protected void AddBoolCoroutinePair(string b, string c)
+    {
+        if (!gameManager.endDayCoroutine.ContainsKey(b))
+        {
+            gameManager.endDayCoroutine.Add(b, c);
+        }
+        else
+        {
+            gameManager.endDayCoroutine[b] = c;
+        }
+    }
 }

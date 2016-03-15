@@ -203,7 +203,7 @@ public class Data_GameDay : DataLoader
         {
             AddChoice("Used to?", ChoiceAction.CONTINUE, id, 20),
         };
-        AddToDialogue(id, 20, ChoiceContinueDialog(id, 21));
+        LinkContinueDialogues(id, new int[2] { 20, 21 });
 
         gameManager.allObjects[id].dialogues[22].choices = new Choice[]
         {
@@ -340,7 +340,7 @@ public class Data_GameDay : DataLoader
             /*20*/"\"Here you go, I've put it inside your bag. Have a nice day!\"",
 			/*21*/"\"I'm so glad Rae found her dog! If he came over, I wouldn't have known how to catch him.\"",
 			/*22*/"\"Maybe I'll offer him a Donut Bone the next time I see him.\"",
-
+            /*23*/ "\"Welcome to the Donut Hole! What can I get you today? Today's special is the Donut Sprinklez~\"",
 
         };
         AddNpc(7, "Jeney", "Jeney", jeney);
@@ -362,6 +362,14 @@ public class Data_GameDay : DataLoader
             AddChoice("Potadonut Tots", ChoiceAction.CONTINUE, id, 19, checkboolname: "Moonlight"),
             AddChoice("Donut Holes Original", ChoiceAction.CONTINUE, id, 20, checkboolname: "Moonlight")
         };
+       AddDayDataToDialogue(id, 14, "DonutPicked");
+       AddDayDataToDialogue(id, 15, "DonutPicked");
+       AddDayDataToDialogue(id, 16, "DonutPicked");
+       AddDayDataToDialogue(id, 17, "DonutPicked");
+       AddDayDataToDialogue(id, 18, "DonutPicked");
+       AddDayDataToDialogue(id, 19, "DonutPicked");
+       AddDayDataToDialogue(id, 20, "DonutPicked");
+
        AddToDialogue(id, 14, ChoiceInteractItem(170, false));
        AddToDialogue(id, 15, ChoiceInteractItem(171, false));
        AddToDialogue(id, 16, ChoiceInteractItem(172, false));
@@ -380,7 +388,7 @@ public class Data_GameDay : DataLoader
 
         AddBooleanToDialogue(id, 3, "LikesBacon");
         AddBooleanToDialogue(id, 14, "Cocodonut");
-       
+        
 
         // ================ HANK ================ //
         id = 11;
@@ -468,26 +476,26 @@ public class Data_GameDay : DataLoader
         gameManager.allObjects[13].dialogues[0].choices = new Choice[]
         {
 			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket"),
-            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 22, checkitemname: "Train Ticket")
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 22, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket")
         };
 
 
         gameManager.allObjects[13].dialogues[1].choices = new Choice[]
         {
 			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket"),
-            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 22, checkitemname: "Train Ticket")
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 22, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket")
         };
 
         gameManager.allObjects[13].dialogues[19].choices = new Choice[]
         {
 			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket"),
-            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 22, checkitemname: "Train Ticket")
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 22, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket")
         };
 
         gameManager.allObjects[13].dialogues[12].choices = new Choice[]
         {
 			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket"),
-            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 21, checkitemname: "Train Ticket")
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 21, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket")
         };
 
         AddToDialogue(13, 13, ChoiceContinueDialog(13, 14));
@@ -841,6 +849,7 @@ public class Data_GameDay : DataLoader
             /*11*/ "\"I knew you would remember!\"",
             /*12*/ "\"Which one do you want? I'll buy as promised~\"",
             /*13*/ "\"Hm...I can't seem to remember either.\"",
+            /*14*/ "\"These Strawberry Squishies are sooooo good.\"",
             
         };
         AddNpc(id, "Kelly", "Kelly", kelly);
@@ -858,9 +867,12 @@ public class Data_GameDay : DataLoader
             AddChoice("Moonlight.", ChoiceAction.CONTINUE, id, 11),
             AddChoice("I don't remember.", ChoiceAction.CONTINUE, id, 13),
         };
+
+
         LinkContinueDialogues(id, new int[2] { 11, 12 });
         AddBooleanToDialogue(id, 11, "Moonlight");
-
+        AddToDialogue(id, 11, ChoiceContinueDialog(7, 0));
+        AddDayDataToDialogue(id, 11, "DonutPicked");
 
         // ================ PERRY ================ //
         id = 99;
@@ -2771,6 +2783,7 @@ public class Data_GameDay : DataLoader
 		// They will be loaded in order of priority. Scene data with AlfredSaved will always be used first.
 		LoadAlfredSavedSceneData();
 		LoadDogReturnedSceneData();
+        LoadDonutPickingSceneData();
 	}
 
 	private void LoadAlfredSavedSceneData()
@@ -2853,6 +2866,40 @@ public class Data_GameDay : DataLoader
 		AddToDialogue(jeney, 21, ChoiceContinueDialog(jeney, 22));
 	}
 
+
+    private void LoadDonutPickingSceneData()
+    {
+        const string boolParamSet = "DonutPicked";
+        const int kelly = 67;
+        const int jeney = 7;
+        const string donutshop = SceneManager.SCENE_MALL;
+        AddParameters(boolParamSet, donutshop, new InteractableObject.Parameters()
+            {
+                // Specify the time frames that this set takes effect
+                timeBlocks = new List<int>() { 14 },
+
+                // InteractableObject dialogue information
+                dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+                dialogueIDSingle = 23,
+            
+                Summary = "",
+                NpcID = jeney
+            });
+
+        AddParameters(boolParamSet, donutshop, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 14 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 14,
+
+            Summary = "",
+            NpcID = kelly
+        });
+
+    }
     private void LoadOutcomeData()
     {
         #region EMPTY_TEMPLATE

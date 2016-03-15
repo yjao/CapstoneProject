@@ -3103,6 +3103,19 @@ public class Data_GameDay : DataLoader
             Summary = "",
             NpcID = 36
         });
+
+        AddParameters(boolParamSet, SceneManager.SCENE_PARK, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 22 },
+            showNpc = false,
+            // InteractableObject dialogue information
+          
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
+
         LinkContinueDialogues(36, new int[2] { 17, 18 });
         gameManager.allObjects[36].dialogues[17].choices = new Choice[]  //Day just restart
         {

@@ -99,7 +99,7 @@ public class PrologueManager : MonoBehaviour
         Destroy(gameManager.GetComponent<Menu_Layout>());
 
         // Get Space
-        while (true) { if (Input.GetKey(KeyCode.Space)) break; yield return null; }
+        while (true) { if (Input.GetKeyDown(KeyCode.Space)) break; yield return null; }
 		TutorialBox("YOU HAVE TWISTED FATE! Whenever you see a message or dialog box, press the spacebar to close it.", true);
         yield return null; while (Pause()) { yield return null; }
 

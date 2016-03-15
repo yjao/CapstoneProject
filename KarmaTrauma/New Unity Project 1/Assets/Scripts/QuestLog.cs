@@ -258,7 +258,7 @@ public class QuestLog : MonoBehaviour
             }
             Debug.Log(max_page);
         }
-        else if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && page_index < max_page - 1)
+        else if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && page_index < max_page - 1)
         {
             source.PlayOneShot(page, 1);
 
@@ -270,7 +270,7 @@ public class QuestLog : MonoBehaviour
             display();
             DrawSelect();
         }
-        else if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && page_index > 0)
+        else if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && page_index > 0)
         {
             source.PlayOneShot(page, 1);
 

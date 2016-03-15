@@ -1330,7 +1330,8 @@ public class Data_GameDay : DataLoader
             dialogueIDSingle = 9,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
+            startingAnimationState = CharacterAnimations.States.SLEEPING,
+            turnOnInteract = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

@@ -92,9 +92,8 @@ public class MainMenu : MonoBehaviour
 	IEnumerator EnterTutorialCoroutine()
 	{
 		screenState = ScreenState.GAME;
-		SceneManager.instance.fade_black();
-        yield return new WaitForSeconds(0.25f);
-        SceneManager.instance.LoadScene(SceneManager.SCENE_TUTORIAL);
+		StartCoroutine(SoundManager.instance.FadeOutAudioSource(soundtrack(), rate: 0.1f));
+		yield return StartCoroutine(SceneManager.instance.LoadSceneCoroutine(SceneManager.SCENE_TUTORIAL));
 		
 		Destroy(this.gameObject);
 		yield break;

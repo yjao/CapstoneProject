@@ -469,7 +469,7 @@ public class Data_GameDay : DataLoader
         gameManager.allObjects[13].dialogues[4].choices = new Choice[]
         {
 			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket"),
-            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 21, checkitemname: "Train Ticket")
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 21, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket")
         };
        
 

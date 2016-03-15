@@ -391,21 +391,25 @@ public class GameManager : MonoBehaviour
         return gameClock;
     }
 
-    public bool Midnight(bool forceSetMidnight=false, float delay = -1)
+	public bool Midnight(bool forceSetMidnight=false, float delay = -1, bool runEndDayCoroutine=true)
     {
         //Debug.Log("data is null: " + (playerData == null));
         //Debug.Log("gameClock : " + gameClock);
 		if (GetTimeAsInt() == END_DAY_HOUR || forceSetMidnight)
         {
-            //RunEndDayCoroutine();
-            StartCoroutine(MidnightFade(delay));
+			StartCoroutine(MidnightFade(delay, runEndDayCoroutine));
             return true;
         }
         return false;
     }
 
-    private IEnumerator MidnightFade(float delay = -1)
+    private IEnumerator MidnightFade(float delay = -1, bool runEndDayCoroutine=true)
     {
+		if (runEndDayCoroutine)
+		{
+			yield return StartCoroutine(RunEndDayCoroutine());
+		}
+
         yield return StartCoroutine(SceneManager.instance.fade_black());
         StartCoroutine(SceneManager.instance.map_name("Day " + (playerData.daysPassed + 1) + ".", 2.25f));
         StartCoroutine(SoundManager.instance.FadeOutAudioSource(SoundManager.instance.currentSong, true));
@@ -500,17 +504,16 @@ public class GameManager : MonoBehaviour
 	#endregion
 
 
-    private void RunEndDayCoroutine()
+    IEnumerator RunEndDayCoroutine()
     {
-        foreach (string key in endDayCoroutine.Keys)
+		foreach (string key in endDayCoroutine.Keys)
         {
             if (dayData.GetBool(key))
             {
-                GameEventArgs gea = new GameEventArgs();
-                gea.CoroutineName = endDayCoroutine[key];
-                EndingManager.CallCoroutineEvent(this, gea);
+				yield return StartCoroutine(EndingManager.CallCoroutineEvent(endDayCoroutine[key]));
             }
         }
+		yield break;
     }
 
     void ItemPickup(object sender, GameEventArgs args)

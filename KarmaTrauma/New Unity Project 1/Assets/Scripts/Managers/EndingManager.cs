@@ -28,6 +28,12 @@ public class EndingManager : MonoBehaviour {
 	
 	}
 
+	public static IEnumerator CallCoroutineEvent(string coroutineName)
+	{
+		yield return EndingManager.instance.StartCoroutine(coroutineName);
+		yield break;
+	}
+
     public static void CallCoroutineEvent(object sender, GameEventArgs args)
     {
         //EndingManager.instance.gameObject.SetActive(true);
@@ -55,7 +61,7 @@ public class EndingManager : MonoBehaviour {
 		yield return StartCoroutine(sm.fade_black());
 		gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(true);
 		gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
-		GameManager.instance.Midnight(true, 3f);
+		GameManager.instance.Midnight(true, 3f, false);
 		yield return null;
     }
 
@@ -79,7 +85,6 @@ public class EndingManager : MonoBehaviour {
         yield return StartCoroutine(sm.fade_black());
         gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(true);
         gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
-        GameManager.instance.Midnight(true, 3f);
         yield return null;
     }
 

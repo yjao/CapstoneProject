@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         if (charposy >= wall_y)
         {
 
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
 
                 //transform.position = new Vector3(Mathf.Clamp;
@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
 
             }
 
-            else if (Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 transform.Translate(0, -speed, 0);
                 //animator.SetInteger(animationState, down);
@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
         if (charposy <= wall_y)
         {
 
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
 
                 //transform.position = new Vector3(Mathf.Clamp;
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
                 this.characterAnimations.AnimationState = (CharacterAnimations.States.DOWN_WALK);
             }
 
-            else if (Input.GetKey(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 transform.Translate(0, speed, 0);
                 //animator.SetInteger(animationState, up);
@@ -137,7 +137,7 @@ public class Player : MonoBehaviour
         if (charposx >= wall_x)
         {
 
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 //Debug.Log("charx " + charposx + " chary " + charposy + "wallx: " + wall_x);
                 //transform.position = new Vector3(Mathf.Clamp;
@@ -147,7 +147,7 @@ public class Player : MonoBehaviour
                 this.characterAnimations.AnimationState = (CharacterAnimations.States.RIGHT_WALK);
             }
 
-            else if (Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 Debug.Log("here");
                 transform.Translate(-speed, 0, 0);
@@ -166,7 +166,7 @@ public class Player : MonoBehaviour
         if (charposx <= wall_x)
         {
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 //Debug.Log("charx " + charposx + " chary " + charposy + "wallx: " + wall_x);
                 //transform.position = new Vector3(Mathf.Clamp;
@@ -176,7 +176,7 @@ public class Player : MonoBehaviour
                 this.characterAnimations.AnimationState = (CharacterAnimations.States.LEFT_WALK);
             }
 
-            else if (Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 Debug.Log("here");
                 transform.Translate(speed, 0, 0);
@@ -231,7 +231,7 @@ public class Player : MonoBehaviour
 			SpeedUp();
 		}
 
-		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+		if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             //transform.Translate(0, speed, 0);
             transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
@@ -242,7 +242,7 @@ public class Player : MonoBehaviour
                 source.Play();
             }
         }
-		else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+		else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             //transform.Translate(0, -speed, 0);
             transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed);
@@ -253,7 +253,7 @@ public class Player : MonoBehaviour
                 source.Play();
             }
         }
-		else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+		else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             //transform.Translate(speed, 0, 0);
             transform.GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
@@ -264,7 +264,7 @@ public class Player : MonoBehaviour
                 source.Play();
             }
         }
-		else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+		else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             //transform.Translate(-speed, 0, 0);
             transform.GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, 0);
@@ -303,7 +303,7 @@ public class Player : MonoBehaviour
 
 	private void SpeedUp()
 	{
-		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+		if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
 		{
 			if (!speeding)
 			{

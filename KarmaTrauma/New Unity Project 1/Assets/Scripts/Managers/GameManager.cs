@@ -517,7 +517,10 @@ public class GameManager : MonoBehaviour
     {
         //dayData.Inventory[dayData.ItemAmount] = allItems[args.IDNum];
         dayData.Inventory[dayData.ItemAmount] = allItems[args.IDNum];
-        dayData.DataDictionary[allObjects[args.IDNum].name] = true;
+		if (allObjects.ContainsKey(args.IDNum))
+		{
+			dayData.DataDictionary[allObjects[args.IDNum].name] = true;
+		}
         dayData.ItemAmount += 1;
     }
 

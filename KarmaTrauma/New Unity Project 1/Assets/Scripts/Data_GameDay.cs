@@ -491,27 +491,27 @@ public class Data_GameDay : DataLoader
         //Same problem as Alfred.  Can give ticket to hobo any time.
         gameManager.allObjects[13].dialogues[6].choices = new Choice[]
         {
-			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket"),
+			AddChoice("Offer train ticket.", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 21, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket")
         };
        
 
         gameManager.allObjects[13].dialogues[3].choices = new Choice[]
         {
-			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket"),
+			AddChoice("Offer train ticket.", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 22, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket")
         };
 
 
         gameManager.allObjects[13].dialogues[19].choices = new Choice[]
         {
-			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 20, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket"),
-            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 22, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket")
+			AddChoice("Offer train ticket.", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 21, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket")
         };
 
         gameManager.allObjects[13].dialogues[12].choices = new Choice[]
         {
-			AddChoice("Offer train ticket", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket"),
+			AddChoice("Offer train ticket.", ChoiceAction.CONTINUE, 13, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 21, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket")
         };
 
@@ -2833,6 +2833,18 @@ public class Data_GameDay : DataLoader
         const string boolParamSet = "AlfredSaved";
         
         // ======================== ALFRED ======================== //
+
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+            showNpc = false,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 2
+        });
+
         AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
@@ -2855,7 +2867,30 @@ public class Data_GameDay : DataLoader
         };
         AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
 
+        AddParameters(boolParamSet, SceneManager.SCENE_HOSPITAL, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 22 },
+            showNpc = false,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 2
+        });
+
+
         // ======================== MEGAN ======================== //
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+            showNpc = false,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 3
+        });
+
         AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
@@ -2871,9 +2906,20 @@ public class Data_GameDay : DataLoader
         });
         LinkContinueDialogues(3, new int[2] { 30, 31 });
 
+        AddParameters(boolParamSet, SceneManager.SCENE_HOSPITAL, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 22 },
+            showNpc = false,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 3
+        });
+
 
         // ======================== ALEX ======================== //
-        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        AddParameters(boolParamSet, SceneManager.SCENE_HOSPITAL, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 22 },
@@ -2894,6 +2940,17 @@ public class Data_GameDay : DataLoader
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
             dialogueIDSingle = 24,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 7
+        });
+
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 22 },
+            showNpc = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -3002,6 +3059,16 @@ public class Data_GameDay : DataLoader
         LinkContinueDialogues(36, new int[2] { 26, 27 });
         AddToDialogue(36, 27, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "DaeEnding" });
 
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+            showNpc = false,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 36
+        });
 
         AddParameters(boolParamSet, SceneManager.SCENE_HOSPITAL, new InteractableObject.Parameters()
         {
@@ -3036,7 +3103,7 @@ public class Data_GameDay : DataLoader
             Summary = "",
             NpcID = 36
         });
-
+        LinkContinueDialogues(36, new int[2] { 17, 18 });
         gameManager.allObjects[36].dialogues[17].choices = new Choice[]  //Day just restart
         {
               AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 11, checkitemname: "Box"),
@@ -3046,7 +3113,7 @@ public class Data_GameDay : DataLoader
         LinkContinueDialogues(36, new int[2] { 11, 12 });
 
         // ======================== YOONA ======================== //
-        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        AddParameters(boolParamSet, SceneManager.SCENE_HOSPITAL, new InteractableObject.Parameters()
         {
             // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 22 },
@@ -3240,7 +3307,11 @@ public class Data_GameDay : DataLoader
             NpcID = bob
         });
         LinkContinueDialogues(bob, new int[3] { 23, 24, 25 });
-
+        gameManager.allObjects[13].dialogues[25].choices = new Choice[]
+        {
+			AddChoice("Offer train ticket.", ChoiceAction.CONTINUE, bob, 13, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket", removeitemname: "Train Ticket"),
+            AddChoice("Say nothing.", ChoiceAction.CONTINUE, bob, 21, checkboolname: "BobWantsToLeave", checkitemname: "Train Ticket")
+        };
 		// ======================== JENEY ======================== //
 		AddParameters(boolParamSet, donutshop, new InteractableObject.Parameters()
 		{

@@ -2877,7 +2877,7 @@ public class Data_GameDay : DataLoader
         {
             // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 22 },
-            
+            showNpc = false,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

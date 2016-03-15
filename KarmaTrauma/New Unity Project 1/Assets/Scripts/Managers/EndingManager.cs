@@ -195,12 +195,33 @@ public class EndingManager : MonoBehaviour {
         yield return StartCoroutine(LoadSceneCoroutine("Ending"));
         StartCoroutine(sm.fade_out());
         yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide34", 5, "???: ..."), false));
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide14", 5, "Chelsey: Alfred still died... he was murdered..."), false, Textbox.TutorialBoxPosition.MIDDLE));
 		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide14", 5, "Chelsey: ...Was that a police officer? Which one...?"), false, Textbox.TutorialBoxPosition.MIDDLE));
         yield return StartCoroutine(sm.fade_black());
         gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(true);
         gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
         yield return null;
     }
+
+	public IEnumerator AlfredFellEnding()
+	{
+		yield return StartCoroutine(sm.fade_black());
+		yield return StartCoroutine(sdm.FadeOutAudioSource(sdm.currentSong, rate: 0.1f));
+		sdm.PlayOtherSong("BadThingMusic");
+		gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(false);
+		gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(false);
+		yield return StartCoroutine(LoadSceneCoroutine("Ending"));
+		StartCoroutine(sm.fade_out());
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide13", 4, "Megan: \"Alfred...!\nIf I could… if only I could go back in time…\""), false));
+		yield return StartCoroutine(sm.fade_black());
+		StartCoroutine(sm.fade_out());
+		yield return StartCoroutine(Slide_Coroutine(new TutorialManager.Slide("Slide14", 5, "Chelsey: ...Maybe Alfred just needs to live, but how?"), false, Textbox.TutorialBoxPosition.MIDDLE));
+		yield return StartCoroutine(sm.fade_black());
+		gm.MenuLayout.GetComponent<Menu_Layout>().timeTint.SetActive(true);
+		gm.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
+		GameManager.instance.Midnight(true, 3f, false);
+		yield return null;
+	}
 
 	IEnumerator Slide_Coroutine(TutorialManager.Slide slide, bool hideMenu=true, Textbox.TutorialBoxPosition boxPos=Textbox.TutorialBoxPosition.BOTTOM)
     {

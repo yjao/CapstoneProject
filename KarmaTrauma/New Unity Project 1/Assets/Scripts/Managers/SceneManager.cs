@@ -216,7 +216,8 @@ public class SceneManager : MonoBehaviour
 
         tint_screen(Application.loadedLevelName, gameManager.GetTimeAsInt());
         yield return StartCoroutine(fade_out());
-        if (gameManager.GetTimeAsInt() >= 20)
+		if (gameManager.GetTimeAsInt() >= 20 && 
+		    !(GameManager.instance.dayData.DataDictionary.ContainsKey("AlfredSaved") && GameManager.instance.dayData.GetBool("AlfredSaved")))
         {
             if (SoundManager.instance.currentSong.clip != SoundManager.instance.OtherSongs[0])
             {

@@ -77,7 +77,8 @@ public class Menu_Layout : MonoBehaviour
         if (gameManager.GetTimeAsInt() < 22)
         {
             gameManager.SetTime(GameManager.TimeType.INCREASE);
-            if (gameManager.GetTimeAsInt() >= 20)
+			if (gameManager.GetTimeAsInt() >= 20 && 
+			    !(GameManager.instance.dayData.DataDictionary.ContainsKey("AlfredSaved") && GameManager.instance.dayData.GetBool("AlfredSaved")))
             {
                 SoundManager.instance.PlayOtherSong("BadThingMusic");
             }

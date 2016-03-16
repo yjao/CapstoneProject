@@ -2927,7 +2927,7 @@ public class Data_GameDay : DataLoader
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
-            NpcID = 37
+            NpcID = 4
         });
 
 

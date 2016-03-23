@@ -41,12 +41,13 @@ public class Data_GameDay : DataLoader
 		string[] faye = new string[]
 		{
 			/*0*/ "\"Hey guys, I'm Faye. I'm the producer and project manager of this game.\"",
-			/*2*/ "\"I've also done a bit of everything else, including story, programming, and art.\"",
+			/*1*/ "\"I've also done a bit of everything else, including story, programming, and art.\"",
 			/*2*/ "\"In the game, my role is a side character, a broke college student. Come visit me in-game!\"",
 			/*3*/ "\"I'm not entirely sure if Potadonut is even a thing...\""
 		};
 		AddNpc(id, "Faye Jao", "", faye);
 		AddToDialogue(id, 0, ChoiceContinueDialog(id, 1));
+		AddToDialogue(id, 2, ChoiceContinueDialog(id, 3));
 
 		// ================ PERRY ================ //
 		id = 1003;
@@ -73,6 +74,7 @@ public class Data_GameDay : DataLoader
             /*2*/ "\"In the game, my character is a donut shop owner. :)\""
 		};
 		AddNpc(id, "Jeney Lao", "", jeney);
+		AddToDialogue(id, 0, ChoiceContinueDialog(id, 1));
 
 		// ================ DOGE ================ //
 		id = 1006;

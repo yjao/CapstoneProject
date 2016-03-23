@@ -70,7 +70,7 @@ public class TutorialManager : MonoBehaviour
 			/*5*/ new Slide("Slide7", 3, ""),
 			/*6*/ new Slide("Slide13", 3, "\"Alfred...!\nIf I could… if only I could go back in time…\""),
 			/*7*/ new Slide("Slide14", 3, "\"What... is going on...\nThis all seems too familiar...\""),
-            /*8*/ new Slide("Slide15", 5, "\"Happy Monday, class, my name is Megan Freewoman.  \nUnfortunately, Mr. Ly is out today, so I’ll be your literature sub for today.\""),
+            /*8*/ new Slide("Slide15", 5, "\"Happy Wednesday, class, my name is Megan Freewoman.  \nUnfortunately, Mr. Ly is out today, so I’ll be your literature sub for today.\""),
             /*9*/ new Slide("Slide16", 3, "\"I was at Jeney's this morning...\nif you buy one, you'll get another one free!\""),
             /*10*/new Slide("Slide17", 3, "\"Oooooh...Yes...\""),
             /*11*/new Slide("Slide18", 5, "\"...So let me ask this, how many of you are into time travels?\n...if I could, I'd go back to 2 years from today, right before I was hospitalized.\""),
@@ -199,7 +199,7 @@ public class TutorialManager : MonoBehaviour
 
         MultiDialogue("Megan", new string[2]
         {
-            "Happy Monday, class, my name is Megan. As a reminder, %use the Spacebar to progress speech%.",
+            "Happy Wednesday, class, my name is Megan Freewoman. As a reminder, %use the Spacebar to progress speech%.",
             "Unfortunately, Mr. Ly is out today, so I’ll be your literature sub for today."
         });
         NPC kelly = GameObject.Find("Kelly").GetComponent<NPC>();

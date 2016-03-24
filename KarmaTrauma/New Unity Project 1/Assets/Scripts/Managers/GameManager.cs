@@ -5,6 +5,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System;
 using System.IO;
 
+
+[Serializable]
 public class BoolSceneParameter
 {
 	public string boolName;
@@ -43,6 +45,7 @@ public class BoolSceneParameter
 	}
 }
 
+[Serializable]
 public class GameManager : MonoBehaviour
 {
 	public GameObject MenuLayout;
@@ -68,7 +71,7 @@ public class GameManager : MonoBehaviour
 		INCREASE, END_DAY, SET
 	};
 
-    public Dictionary<int, Interactable> allObjects;
+	public Dictionary<int, Interactable> allObjects;
 	public Dictionary<string, string> questTerms;
 	public Dictionary<string, List<InteractableObject.Parameters>> sceneParameters;
 	public List<BoolSceneParameter> boolSceneParameters;
@@ -181,6 +184,7 @@ public class GameManager : MonoBehaviour
         {
             LoadGameData();
         }
+		LoadPlayerData();
     }
 
     void Start()
@@ -201,40 +205,6 @@ public class GameManager : MonoBehaviour
     public void Wait()
     {
         gameMode = GameMode.WAITING;
-    }
-
-
-
-    public void Save()
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/SaveData.DK");   // Saves in SaveData.DK file
-        Debug.Log("File Saved");
-        Debug.Log(Application.persistentDataPath);
-        //PlayerData data = new PlayerData();
-        //playerData.AlfredJumpsCW = true;
-
-        bf.Serialize(file, playerData);
-        file.Close();
-
-    }
-
-    public void Load()
-    {
-        if (File.Exists(Application.persistentDataPath + "/SaveData.DK"))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/SaveData.DK", FileMode.Open);
-            PlayerData Data = (PlayerData)bf.Deserialize(file);
-            Debug.Log("File Load");
-            //Debug.Log(playerData.AlfredJumpsCW);
-            file.Close();
-
-            //days = data.days;
-            //progress = data.progress;
-        }
-
-
     }
 
     #region DIALOG BOX
@@ -405,6 +375,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator MidnightFade(float delay = -1, bool runEndDayCoroutine=true)
     {
+		SavePlayerData();
 		if (runEndDayCoroutine)
 		{
 			yield return StartCoroutine(RunEndDayCoroutine());
@@ -664,6 +635,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game data saved to file in " + Application.persistentDataPath);
 
         bf.Serialize(file, allObjects);
+		bf.Serialize(file, sceneParameters);
+		bf.Serialize(file, boolSceneParameters);
+		bf.Serialize(file, questTerms);
+		bf.Serialize(file, endDayCoroutine);
+		bf.Serialize(file, outcomeList);
         file.Close();
     }
 
@@ -674,13 +650,42 @@ public class GameManager : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/GameData.DK", FileMode.Open);
             allObjects = (Dictionary<int, Interactable>)bf.Deserialize(file);
+			sceneParameters = (Dictionary<string, List<InteractableObject.Parameters>>)bf.Deserialize(file);
+			boolSceneParameters = (List<BoolSceneParameter>)bf.Deserialize(file);
+			questTerms = (Dictionary<string, string>)bf.Deserialize(file);
+			endDayCoroutine = (Dictionary<string, string>)bf.Deserialize(file);
+			outcomeList = (List<OutcomeManager.outcome>)bf.Deserialize(file);
             Debug.Log("Game data loaded from file");
             file.Close();
         }
     }
 
-    #endregion
+	public void SavePlayerData()
+	{
+		BinaryFormatter bf = new BinaryFormatter();
+		FileStream file = File.Create(Application.persistentDataPath + "/SaveData.DK");
+		Debug.Log("Gameplay data saved to file in " + Application.persistentDataPath);
 
+		bf.Serialize(file, playerData);
+		bf.Serialize(file, questList);
+		file.Close();
+	}
+	
+	public void LoadPlayerData()
+	{
+		if (File.Exists(Application.persistentDataPath + "/SaveData.DK"))
+		{
+			BinaryFormatter bf = new BinaryFormatter();
+			FileStream file = File.Open(Application.persistentDataPath + "/SaveData.DK", FileMode.Open);
+			playerData = (PlayerData)bf.Deserialize(file);
+			questList = (Dictionary<string, List<string>>)bf.Deserialize(file);
+			Debug.Log("Gameplay data loaded from file");
+			file.Close();
+		}
+	}
+	
+	#endregion
+	
 	public static void UseBed(object sender, GameEventArgs args)
 	{
 		instance.Midnight(true, 3f);

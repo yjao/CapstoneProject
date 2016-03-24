@@ -142,16 +142,16 @@ public class QuestLog : MonoBehaviour
                 q_log.Add(key);
             }
         }
-        Debug.Log("q_log has: " + q_log.Count);
+        //Debug.Log("q_log has: " + q_log.Count);
         if (gameManager.questList.Count != 0 && q_l < gameManager.questList.Count)
         {
             //transform.Find("QuestPanel" + q_l).transform.Find("QuestText").GetComponent<Text>().text = q_log[q_l];
             //++q_l;
-            Debug.Log("page index " + page_index);
+            //Debug.Log("page index " + page_index);
             for (int quest = page_index*quest_per_page; quest < gameManager.questList.Count && (quest - page_index*quest_per_page) < quest_per_page; ++quest)
             {
-                Debug.Log("Quest name is: " + q_log[q_l]);
-                Debug.Log("Math: " + q_l % quest_per_page);
+                //Debug.Log("Quest name is: " + q_log[q_l]);
+                //Debug.Log("Math: " + q_l % quest_per_page);
                 transform.Find("QuestPanel" + q_l%quest_per_page).transform.Find("QuestText").GetComponent<Text>().text = q_log[q_l];
                 ++q_l;
             }
@@ -256,7 +256,7 @@ public class QuestLog : MonoBehaviour
                 pointer -= 1;
                 DrawSelect();
             }
-            Debug.Log(max_page);
+            //Debug.Log(max_page);
         }
         else if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && page_index < max_page - 1)
         {

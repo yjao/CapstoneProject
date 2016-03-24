@@ -1,7 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
+[Serializable]
 public class PlayerData 
 {
 	public int daysPassed = 0;
@@ -14,20 +16,10 @@ public class PlayerData
 
 	public Dictionary<string, bool> DataDictionary = new Dictionary<string, bool>()
     {
-		{"AlfredJumps_CutsceneWatched", false},
-		{"GimmeJewel_QuestUnlocked", false},
-        {"Have_$2", false },
-        {"Have_Pizza" ,false},
-        {"none", true },
-		{"AlfredName_Learned", false},
-		{"AlfredIsPolice_Learned", false},
-        {"Meet_Alfred_Son", false},
-        {"AlfredSon_Trust", false}
     };
 
     public Dictionary<string, bool> QuestDictionary = new Dictionary<string, bool>()
     {
-        {"Alex_1",false}
     };
 
     public Dictionary<string, bool> DialogueHistory = new Dictionary<string, bool>()
@@ -37,21 +29,6 @@ public class PlayerData
     public void SetBool(string boolName, bool value = true)
     {
         DataDictionary[boolName] = value;
-
-        // hardcoded
-        if (GetBool("AlfredName_Learned"))
-        {
-  //          QuestManager.Instance.RemoveQuestFromLog(1);
-
-            // Hard-coded to remove bae from inventory because I don't know how :(
-            for (int i = 0; i < GameManager.instance.dayData.ItemAmount; i++)
-            {
-                if (GameManager.instance.dayData.Inventory[i].Name == "Bacon and Eggs")
-                {
-                    GameManager.instance.dayData.Inventory[i] = null;
-                }
-            }
-        }
     }
     public void FinishQuest(string boolName)
     {

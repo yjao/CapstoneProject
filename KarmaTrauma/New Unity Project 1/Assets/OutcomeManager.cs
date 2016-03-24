@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class OutcomeManager : MonoBehaviour
 {
-
+	[Serializable]
     public class outcome
     {
         public string BooleanName;

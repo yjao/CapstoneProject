@@ -305,10 +305,10 @@ public class GameManager : MonoBehaviour
 
     public void ExitDialogue()
     {
-        
         GameMode oldGameMode = gameMode;
         gameMode = prevMode;
         prevMode = oldGameMode;
+        SavePlayerData();
     }
 
     #endregion

@@ -6,54 +6,60 @@ public class CharacterAnimations : MonoBehaviour
 {
 	#region ANIMATION STATE CONSTANTS
 
+	[Header("Idle Animations")]
+	public const int downIdle = 78;
+	public const int upIdle = 60;
+	public const int leftIdle = 69;
+	public const int rightIdle = 87;
+
     [Header("Walking Animations")]
-    public const int downWalkStart = 78;
+    public const int downWalkStart = 79;
     public const int downWalkEnd = 86;
-    public const int upWalkStart = 60;
+    public const int upWalkStart = 61;
     public const int upWalkEnd = 68;
-    public const int leftWalkStart = 69;
+    public const int leftWalkStart = 70;
     public const int leftWalkEnd = 77;
-    public const int rightWalkStart = 87;
+    public const int rightWalkStart = 88;
     public const int rightWalkEnd = 95;
 
     [Header("Dancing Animations")]
-    public const int downDanceStart = 44;
+    public const int downDanceStart = 45;
     public const int downDanceEnd = 51;
-    public const int upDanceStart = 28;
+    public const int upDanceStart = 29;
     public const int upDanceEnd = 35;
-    public const int leftDanceStart = 36;
+    public const int leftDanceStart = 37;
     public const int leftDanceEnd = 43;
-    public const int rightDanceStart = 52;
+    public const int rightDanceStart = 53;
     public const int rightDanceEnd = 59;
 
     [Header("Stretching Animations")]
-    public const int downStretchStart = 14;
+    public const int downStretchStart = 15;
     public const int downStretchEnd = 20;
-    public const int upStretchStart = 0;
+    public const int upStretchStart = 1;
     public const int upStretchEnd = 6;
-    public const int leftStretchStart = 7;
+    public const int leftStretchStart = 8;
     public const int leftStretchEnd = 13;
-    public const int rightStretchStart = 21;
+    public const int rightStretchStart = 22;
     public const int rightStretchEnd = 27;
 
     [Header("Swinging Animations")]
-    public const int downSwingStart = 108;
+    public const int downSwingStart = 109;
     public const int downSwingEnd = 112;
-    public const int upSwingStart = 96;
+    public const int upSwingStart = 97;
     public const int upSwingEnd = 101;
-    public const int leftSwingStart = 102;
+    public const int leftSwingStart = 103;
     public const int leftSwingEnd = 107;
-    public const int rightSwingStart = 114;
+    public const int rightSwingStart = 115;
     public const int rightSwingEnd = 119;
 
     [Header("Bowing Animations")]
-    public const int downBowStart = 146;
+    public const int downBowStart = 147;
     public const int downBowEnd = 158;
-    public const int upBowStart = 120;
+    public const int upBowStart = 121;
     public const int upBowEnd = 132;
-    public const int leftBowStart = 133;
+    public const int leftBowStart = 134;
     public const int leftBowEnd = 145;
-    public const int rightBowStart = 159;
+    public const int rightBowStart = 160;
     public const int rightBowEnd = 171;
 
     [Header("Falling Animations")]
@@ -135,129 +141,129 @@ public class CharacterAnimations : MonoBehaviour
 
         switch (state)
         {
-            case States.DOWN_IDLE:
-                rangeStart = downWalkStart;
-                rangeEnd = downWalkStart;
-                break;
-            case States.UP_IDLE:
-                rangeStart = upWalkStart;
-                rangeEnd = upWalkStart;
-                break;
-            case States.LEFT_IDLE:
-                rangeStart = leftWalkStart;
-                rangeEnd = leftWalkStart;
-                break;
-            case States.RIGHT_IDLE:
-                rangeStart = rightWalkStart;
-                rangeEnd = rightWalkStart;
-                break;
+        case States.DOWN_IDLE:
+            rangeStart = downIdle;
+			rangeEnd = downIdle;
+            break;
+        case States.UP_IDLE:
+			rangeStart = upIdle;
+			rangeEnd = upIdle;
+            break;
+        case States.LEFT_IDLE:
+			rangeStart = leftIdle;
+			rangeEnd = leftIdle;
+            break;
+        case States.RIGHT_IDLE:
+			rangeStart = rightIdle;
+			rangeEnd = rightIdle;
+            break;
 
-            case States.DOWN_WALK:
-                rangeStart = downWalkStart;
-                rangeEnd = downWalkEnd;
-                break;
-            case States.UP_WALK:
-                rangeStart = upWalkStart;
-                rangeEnd = upWalkEnd;
-                break;
-            case States.LEFT_WALK:
-                rangeStart = leftWalkStart;
-                rangeEnd = leftWalkEnd;
-                break;
-            case States.RIGHT_WALK:
-                rangeStart = rightWalkStart;
-                rangeEnd = rightWalkEnd;
-                break;
+        case States.DOWN_WALK:
+            rangeStart = downWalkStart;
+            rangeEnd = downWalkEnd;
+            break;
+        case States.UP_WALK:
+            rangeStart = upWalkStart;
+            rangeEnd = upWalkEnd;
+            break;
+        case States.LEFT_WALK:
+            rangeStart = leftWalkStart;
+            rangeEnd = leftWalkEnd;
+            break;
+        case States.RIGHT_WALK:
+            rangeStart = rightWalkStart;
+            rangeEnd = rightWalkEnd;
+            break;
 
-            case States.DOWN_DANCE:
-                rangeStart = downDanceStart;
-                rangeEnd = downDanceEnd;
-                break;
-            case States.UP_DANCE:
-                rangeStart = upDanceStart;
-                rangeEnd = upDanceEnd;
-                break;
-            case States.LEFT_DANCE:
-                rangeStart = leftDanceStart;
-                rangeEnd = leftDanceEnd;
-                break;
-            case States.RIGHT_DANCE:
-                rangeStart = rightDanceStart;
-                rangeEnd = rightDanceEnd;
-                break;
+        case States.DOWN_DANCE:
+            rangeStart = downDanceStart;
+            rangeEnd = downDanceEnd;
+            break;
+        case States.UP_DANCE:
+            rangeStart = upDanceStart;
+            rangeEnd = upDanceEnd;
+            break;
+        case States.LEFT_DANCE:
+            rangeStart = leftDanceStart;
+            rangeEnd = leftDanceEnd;
+            break;
+        case States.RIGHT_DANCE:
+            rangeStart = rightDanceStart;
+            rangeEnd = rightDanceEnd;
+            break;
 
-            case States.DOWN_STRETCH:
-                rangeStart = downStretchStart;
-                rangeEnd = downStretchEnd;
-                break;
-            case States.UP_STRETCH:
-                rangeStart = upStretchStart;
-                rangeEnd = upStretchEnd;
-                break;
-            case States.LEFT_STRETCH:
-                rangeStart = leftStretchStart;
-                rangeEnd = leftStretchEnd;
-                break;
-            case States.RIGHT_STRETCH:
-                rangeStart = rightStretchStart;
-                rangeEnd = rightStretchEnd;
-                break;
+        case States.DOWN_STRETCH:
+            rangeStart = downStretchStart;
+            rangeEnd = downStretchEnd;
+            break;
+        case States.UP_STRETCH:
+            rangeStart = upStretchStart;
+            rangeEnd = upStretchEnd;
+            break;
+        case States.LEFT_STRETCH:
+            rangeStart = leftStretchStart;
+            rangeEnd = leftStretchEnd;
+            break;
+        case States.RIGHT_STRETCH:
+            rangeStart = rightStretchStart;
+            rangeEnd = rightStretchEnd;
+            break;
 
-            case States.DOWN_SWING:
-                rangeStart = downSwingStart;
-                rangeEnd = downSwingEnd;
-                break;
-            case States.UP_SWING:
-                rangeStart = upSwingStart;
-                rangeEnd = upSwingEnd;
-                break;
-            case States.LEFT_SWING:
-                rangeStart = leftSwingStart;
-                rangeEnd = leftSwingEnd;
-                break;
-            case States.RIGHT_SWING:
-                rangeStart = rightSwingStart;
-                rangeEnd = rightSwingEnd;
-                break;
+        case States.DOWN_SWING:
+            rangeStart = downSwingStart;
+            rangeEnd = downSwingEnd;
+            break;
+        case States.UP_SWING:
+            rangeStart = upSwingStart;
+            rangeEnd = upSwingEnd;
+            break;
+        case States.LEFT_SWING:
+            rangeStart = leftSwingStart;
+            rangeEnd = leftSwingEnd;
+            break;
+        case States.RIGHT_SWING:
+            rangeStart = rightSwingStart;
+            rangeEnd = rightSwingEnd;
+            break;
 
-            case States.DOWN_BOW:
-                rangeStart = downBowStart;
-                rangeEnd = downBowEnd;
-                break;
-            case States.UP_BOW:
-                rangeStart = upBowStart;
-                rangeEnd = upBowEnd;
-                break;
-            case States.LEFT_BOW:
-                rangeStart = leftBowStart;
-                rangeEnd = leftBowEnd;
-                break;
-            case States.RIGHT_BOW:
-                rangeStart = rightBowStart;
-                rangeEnd = rightBowEnd;
-                break;
+        case States.DOWN_BOW:
+            rangeStart = downBowStart;
+            rangeEnd = downBowEnd;
+            break;
+        case States.UP_BOW:
+            rangeStart = upBowStart;
+            rangeEnd = upBowEnd;
+            break;
+        case States.LEFT_BOW:
+            rangeStart = leftBowStart;
+            rangeEnd = leftBowEnd;
+            break;
+        case States.RIGHT_BOW:
+            rangeStart = rightBowStart;
+            rangeEnd = rightBowEnd;
+            break;
 
-			case States.RIGHT_PRAY:
-				rangeStart = rightStretchStart + 1;
-				rangeEnd = rightStretchStart + 3;
-				break;
+		case States.RIGHT_PRAY:
+			rangeStart = rightStretchStart + 1;
+			rangeEnd = rightStretchStart + 3;
+			break;
 
-            case States.FALL:
-                rangeStart = fallStart;
-                rangeEnd = fallEnd;
-                break;
-            case States.FALLEN:
-                rangeStart = fallEnd;
-                rangeEnd = fallEnd;
-                break;
-            case States.SLEEPING:
-                rangeStart = downStretchStart + 3;
-                rangeEnd = downStretchStart + 3;
-                break;
+        case States.FALL:
+            rangeStart = fallStart;
+            rangeEnd = fallEnd;
+            break;
+        case States.FALLEN:
+            rangeStart = fallEnd;
+            rangeEnd = fallEnd;
+            break;
+        case States.SLEEPING:
+            rangeStart = downStretchStart + 3;
+            rangeEnd = downStretchStart + 3;
+            break;
 
-            default:
-                Debug.Log("YA DONE GOOFED");
-                break;
+        default:
+            Debug.Log("YA DONE GOOFED");
+            break;
         }
 
         range[0] = rangeStart;
@@ -274,7 +280,7 @@ public class CharacterAnimations : MonoBehaviour
             int rangeEnd = AnimationStateRange(m_animation_state)[1];
             //Debug.Log (m_animation_state);
 
-            for (int i = rangeStart; i < rangeEnd; i++)
+            for (int i = rangeStart; i <= rangeEnd; i++)
             {
                 Sprite_Renderer.sprite = sprites[i];
                 yield return new WaitForSeconds(animationSpeed);

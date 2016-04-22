@@ -30,7 +30,6 @@ public class Dog : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-
         if (animationState == right_idle)
         {
             transform.Translate(-0.01f, 0.0f, 0.0f);
@@ -82,15 +81,32 @@ public class Dog : MonoBehaviour {
         if (coll.gameObject.tag == "Player")
         {
             animationState = interacted;
-            if (coll.transform.position.x > transform.position.x)
+            Vector3 difference = this.transform.position - Player.Instance.transform.position;
+            if (Mathf.Abs(difference.x) > Mathf.Abs(difference.y))
             {
-                animator.SetInteger("AnimationState", right_idle);
-                check = 11;
+                if (coll.transform.position.x > transform.position.x)
+                {
+                    animator.SetInteger("AnimationState", right_idle);
+                    check = 11;
+                }
+                else
+                {
+                    animator.SetInteger("AnimationState", left_idle);
+                    check = 12;
+                }
             }
-            else
+            else if (Mathf.Abs(difference.x) < Mathf.Abs(difference.y))
             {
-                animator.SetInteger("AnimationState", left_idle);
-                check = 12;
+                if (coll.transform.position.y > transform.position.y)
+                {
+                    animator.SetInteger("AnimationState", up_idle);
+                    check = 11;
+                }
+                else
+                {
+                    animator.SetInteger("AnimationState", down_idle);
+                    check = 12;
+                }
             }
         }
     }

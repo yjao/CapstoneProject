@@ -194,7 +194,12 @@ public class GameManager : MonoBehaviour
     }
     void OnDestroy()
     {
-        EventManager.OnItemPickup -= ItemPickup;
+		if (this == instance)
+		{
+	        EventManager.OnItemPickup -= ItemPickup;
+			playerData.daysPassed++;
+			SavePlayerData();
+		}
     }
 
     public void Play()
@@ -305,10 +310,10 @@ public class GameManager : MonoBehaviour
 
     public void ExitDialogue()
     {
-        
         GameMode oldGameMode = gameMode;
         gameMode = prevMode;
         prevMode = oldGameMode;
+        //SavePlayerData();
     }
 
     #endregion
@@ -375,7 +380,6 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator MidnightFade(float delay = -1, bool runEndDayCoroutine=true)
     {
-		SavePlayerData();
 		if (runEndDayCoroutine)
 		{
 			yield return StartCoroutine(RunEndDayCoroutine());
@@ -387,6 +391,7 @@ public class GameManager : MonoBehaviour
         dayData.Wipe();
         playerData.WipeQuest();
         playerData.daysPassed++;
+		//SavePlayerData();
         transform.Find("Menu_layout/Inventory").GetComponent<Menu>().close();
         transform.Find("Menu_layout").transform.Find("Time_Tint").gameObject.SetActive(false);
         yield return StartCoroutine(GradualClock(START_DAY_HOUR, .25f, true));

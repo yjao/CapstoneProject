@@ -529,16 +529,6 @@ public class Textbox : MonoBehaviour
     {
         args.DialogueBox.GetComponent<AudioSource>().enabled = false;
         args.DialogueBox.Dialog = args.DialogueBox.gameManager.GetNextDialogue(args.IDNum, args.DialogueID);
-        if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
-        {
-            args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID);
-            if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice() || GameManager.instance.allObjects[args.IDNum].dialogues[args.DialogueID].Action != null)
-            {
-                //EventManager.OnDialogChoiceMade += args.ThisGameObject.GetComponent<InteractableObject>().HandleOnDialogChoiceMade;
-            }
-            args.DialogueBox.gameManager.ExitDialogue();
-			args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs());;
-        }
         string name = args.DialogueBox.transform.Find("Name").GetComponent<Text>().text;
         string message = BuildIntoQuestList(name, args.DialogueBox.Dialog.text);
         if (args.DialogueBox.Dialog.choices != null)
@@ -557,7 +547,20 @@ public class Textbox : MonoBehaviour
 			{
 				args.DialogueBox.gameManager.dayData.SetBool(args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].setDayBool);
 			}
-            args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = message;
+            if (args.DialogueBox.transform.Find("Pointer").gameObject.active == true)
+            {
+                args.DialogueBox.gameManager.DBox(args.IDNum, args.DialogueID);
+                if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice() || GameManager.instance.allObjects[args.IDNum].dialogues[args.DialogueID].Action != null)
+                {
+                    //EventManager.OnDialogChoiceMade += args.ThisGameObject.GetComponent<InteractableObject>().HandleOnDialogChoiceMade;
+                }
+                args.DialogueBox.gameManager.ExitDialogue();
+                args.DialogueBox.SelfDestruct(args.DialogueBox, new GameEventArgs()); ;
+            }
+            else
+            {
+                args.DialogueBox.transform.Find("Text").GetComponent<Text>().text = message;
+            }
         }
         if (args.DialogueBox.gameManager.allObjects[args.IDNum].dialogues[args.DialogueID].TypeIsChoice() || GameManager.instance.allObjects[args.IDNum].dialogues[args.DialogueID].Action != null)
         {

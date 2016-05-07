@@ -134,20 +134,20 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[2].dialogues[10].choices = new Choice[]
         {
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box", removeitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 0, checkitemname: "Box"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
         };
 
         gameManager.allObjects[2].dialogues[20].choices = new Choice[]
         {
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box", removeitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 0, checkitemname: "Box"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
         };
 
         gameManager.allObjects[2].dialogues[18].choices = new Choice[]
         {
             AddChoice("Give donut.", ChoiceAction.CONTINUE, 2, 5, checkitemname: "Cocodonut"),
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box", removeitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 0, checkitemname: "Box"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
         };
 
@@ -685,7 +685,7 @@ public class Data_GameDay : DataLoader
         //Give box to Dae any time.
         gameManager.allObjects[id].dialogues[22].choices = new Choice[]
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 1, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
         };
 
@@ -701,12 +701,12 @@ public class Data_GameDay : DataLoader
         LinkContinueDialogues(id, new int[2] { 15, 16 });
         gameManager.allObjects[id].dialogues[16].choices = new Choice[]
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 1, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23, checkitemname: "Box")
         };
         gameManager.allObjects[id].dialogues[20].choices = new Choice[]
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 1, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23, checkitemname: "Box")
         };
 
@@ -937,12 +937,12 @@ public class Data_GameDay : DataLoader
         //Can't give box to Perry after 8 (when Alfred falls)//Day will restart.
         gameManager.allObjects[99].dialogues[0].choices = new Choice[]
 		{
-            AddChoice("Give box.", ChoiceAction.CONTINUE, id, 1, checkitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 2, checkitemname: "Box"),
             AddChoice("Do nothing.", ChoiceAction.CONTINUE, id, 3, checkitemname: "Box") 
         };
         gameManager.allObjects[99].dialogues[4].choices = new Choice[]
 		{
-            AddChoice("Give box.", ChoiceAction.CONTINUE, id, 5, checkitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 3, checkitemname: "Box"),
             AddChoice("Do nothing.", ChoiceAction.CONTINUE, id, 3, checkitemname: "Box") 
         };
         AddToDialogue(99, 5, ChoiceContinueDialog(99, 6));
@@ -1010,6 +1010,48 @@ public class Data_GameDay : DataLoader
         {
             AddChoice("Direct the dog to the dirt.", ChoiceAction.CONTINUE, id, subID:3, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
         };
+
+		id = 1;
+		string[] Chelsey = new string[]
+		{
+			/*0*/ "This box seems really important. Can I really trust him with it?",
+			/*1*/ "This box seems really important. Can I really trust him with it?",
+			/*2*/ "This box seems really important. Can I really trust him with it?",
+			/*3*/ "This box seems really important. Can I really trust him with it?",
+			/*4*/ "This box seems really important. Can I really trust him with it?",
+			/*5*/ "This box seems really important. Can I really trust him with it?"
+		};
+		AddNpc(id, "Chelsey", "Chelsey", Chelsey);
+		gameManager.allObjects[id].dialogues[0].choices = new Choice[]
+		{
+			AddChoice("Keep box", ChoiceAction.CONTINUE, 2, 21),
+			AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box", removeitemname: "Box"),
+		};
+		gameManager.allObjects[id].dialogues[1].choices = new Choice[]
+		{
+			AddChoice("Keep box"),
+			AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 11, checkitemname: "Box", removeitemname: "Box"),
+		};
+		gameManager.allObjects[id].dialogues[2].choices = new Choice[]
+		{
+			AddChoice("Keep box"),
+			AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 1, checkitemname: "Box", removeitemname: "Box"),
+		};
+		gameManager.allObjects[id].dialogues[3].choices = new Choice[]
+		{
+			AddChoice("Keep box"),
+			AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 5, checkitemname: "Box", removeitemname: "Box"),
+		};
+		gameManager.allObjects[id].dialogues[4].choices = new Choice[]
+		{
+			AddChoice("Keep box"),
+			AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 10, checkitemname: "Box", removeitemname: "Box"),
+		};
+		gameManager.allObjects[id].dialogues[5].choices = new Choice[]
+		{
+			AddChoice("Keep box"),
+			AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 26, checkitemname: "Box", removeitemname: "Box"),
+		};
     }
 
     private void LoadQuestTerms()
@@ -2871,7 +2913,7 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[2].dialogues[25].choices = new Choice[]
         {
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 0, checkitemname: "Box"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
         };
         AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
@@ -3049,18 +3091,18 @@ public class Data_GameDay : DataLoader
         });
         gameManager.allObjects[36].dialogues[28].choices = new Choice[]
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 26, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 5, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23)
         };
 
         gameManager.allObjects[36].dialogues[29].choices = new Choice[]
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 26, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 5, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23, checkitemname: "Box")
         };
         gameManager.allObjects[36].dialogues[30].choices = new Choice[]
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 26, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 5, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23, checkitemname: "Box")
         };
 
@@ -3096,7 +3138,7 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[36].dialogues[25].choices = new Choice[]  //Day just restart
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 11, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 1, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23, checkitemname: "Box")
         };
 
@@ -3128,7 +3170,7 @@ public class Data_GameDay : DataLoader
         LinkContinueDialogues(36, new int[2] { 17, 18 });
         gameManager.allObjects[36].dialogues[17].choices = new Choice[]  //Day just restart
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 11, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 1, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23, checkitemname: "Box")
         };
 
@@ -3197,7 +3239,7 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[99].dialogues[9].choices = new Choice[]
 		{
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 10, checkitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 4, checkitemname: "Box"),
             AddChoice("Do nothing.", ChoiceAction.CONTINUE, 99, 3, checkitemname: "Box") 
         };
 
@@ -3217,7 +3259,7 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[99].dialogues[7].choices = new Choice[]
 		{
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 10, checkitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 4, checkitemname: "Box"),
             AddChoice("Do nothing.", ChoiceAction.CONTINUE, 99, 3, checkitemname: "Box") 
         };
   
@@ -3237,7 +3279,7 @@ public class Data_GameDay : DataLoader
         });
         gameManager.allObjects[99].dialogues[8].choices = new Choice[]
 		{
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 10, checkitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 4, checkitemname: "Box"),
             AddChoice("Do nothing.", ChoiceAction.CONTINUE, 99, 3, checkitemname: "Box") 
         };
         AddToDialogue(99, 10, ChoiceContinueDialog(99, 11));

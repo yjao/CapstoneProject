@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour {
     private bool fadeOut;
     public AudioClip[] OtherSongs;
     public AudioClip MidnightSound;
+    public AudioClip Tock;
 
     public AudioSource currentSong;
 
@@ -33,7 +34,8 @@ public class SoundManager : MonoBehaviour {
 	    {
             { "BadThingMusic", OtherSongs[0]},
             { "WorldMapMidnight", MidnightSound},
-			{ "EndingMusic", OtherSongs[1]}
+			{ "EndingMusic", OtherSongs[1]},
+            { "Tock", Tock}
         };
 
         backgroundSounds = new List<AudioSource>();

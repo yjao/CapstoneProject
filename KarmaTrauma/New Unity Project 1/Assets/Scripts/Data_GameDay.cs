@@ -122,7 +122,7 @@ public class Data_GameDay : DataLoader
             /*24*/ "(Before this wonderful day ends, there's one more thing I must do...)",
             /*25*/"\"...Oh! I didn't see you there. What are you doing here at this hour? You should head home, kid.\"",
         };
-        AddNpc(id, "Alfred", "Alfred", alfred);
+        AddNpc(id, "Officer Alfred", "Officer Alfred", alfred);
 
         //Check if Cocodonut is in the bag.  Can give Cocodonut to Alfred any time.
         gameManager.allObjects[2].dialogues[5].choices = new Choice[]
@@ -679,7 +679,7 @@ public class Data_GameDay : DataLoader
 
             
         };
-        AddNpc(id, "Dae", "Dae", dae);
+        AddNpc(id, "Officer Dae", "Officer Dae", dae);
 
 
         //Give box to Dae any time.
@@ -758,6 +758,7 @@ public class Data_GameDay : DataLoader
             /*2*/ "\"Hey, what's up?\"",
             /*3*/ "\"Ugh...we lost the game.\"",
             /*4*/ "\"Oh it's Alex's dad! Maybe I should go talk to him about Alex.\"",
+            /*5*/ "\"Oh my god! Someone get help!\""
            
             
         };
@@ -931,7 +932,7 @@ public class Data_GameDay : DataLoader
             /*11*/ "\"Thanks, I'll take a look at it.\"", /*ENDINGVERSION*/
 
         };
-        AddNpc(id, "Perry", "Perry", perry);
+        AddNpc(id, "Chief Perry", "Chief Perry", perry);
         //Give box to Perry add choice here.
         //Can't give box to Perry after 8 (when Alfred falls)//Day will restart.
         gameManager.allObjects[99].dialogues[0].choices = new Choice[]
@@ -1949,6 +1950,27 @@ public class Data_GameDay : DataLoader
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.UP_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 50
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 5,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
+            turnOnInteract = true,
+            wanderDirectionX = 1,
+            wanderDistanceX = 10,
+            speed = 0.09f,
+            animationSpeed = 0.07f,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

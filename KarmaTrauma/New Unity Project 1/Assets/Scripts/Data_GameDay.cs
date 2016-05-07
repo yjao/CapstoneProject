@@ -31,7 +31,7 @@ public class Data_GameDay : DataLoader
 		id = 1001;
 		string[] dae = new string[]
 		{
-			/*0*/ "\"Hi I'm Dae. I've done mostly game design for the team.\"",
+			/*0*/ "\"Hi I'm Dae. I've done mostly game design for the team. I'm not here today.\"",
 			/*1*/ "\"I love my daughter.\""
 		};
 		AddNpc(id, "Dae Kim", "", dae);

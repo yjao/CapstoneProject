@@ -6,7 +6,7 @@ using System;
 [Serializable]
 public class PlayerData 
 {
-	public int daysPassed = 0;
+	public int daysPassed = 1;
     public static PlayerData Instance;
 
     void Awake()

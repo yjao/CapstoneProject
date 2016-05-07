@@ -145,7 +145,7 @@ public class Menu_Layout : MonoBehaviour
         M_Clock();
 		if (!open_menu && gameManager.gameMode != GameManager.GameMode.DIALOGUE && gameManager.gameMode != GameManager.GameMode.NONE)
         {
-            if (Input.GetKeyDown(KeyCode.B) && Application.loadedLevelName != SCENE_MAIN_MENU)
+			if (Input.GetKeyDown(KeyCode.B) && Application.loadedLevelName != SCENE_MAIN_MENU && gameManager.transform.Find("Menu_layout/Bag_background").gameObject.activeSelf)
             {
                 source.clip = bagSound;
                 source.Play();
@@ -153,9 +153,9 @@ public class Menu_Layout : MonoBehaviour
 
             }
 
-            else if (Input.GetKeyDown(KeyCode.M) && Application.loadedLevelName != SCENE_MAIN_MENU)
-            {
-                source.clip = logSound;
+			else if (Input.GetKeyDown(KeyCode.M) && Application.loadedLevelName != SCENE_MAIN_MENU && gameManager.transform.Find("Menu_layout/Quest_background").gameObject.activeSelf)
+			{
+				source.clip = logSound;
                 source.Play();
                 M_Diary();
 

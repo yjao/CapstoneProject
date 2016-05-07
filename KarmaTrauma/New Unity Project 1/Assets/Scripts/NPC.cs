@@ -14,6 +14,7 @@ public class NPC : MonoBehaviour
 	public int wanderDirectionX;
 	public float wanderDistanceY;
 	public int wanderDirectionY;
+    public float speed;
 	#endregion
 
 	#region Constants
@@ -55,13 +56,13 @@ public class NPC : MonoBehaviour
 		{
 			return;
 		}
-		WanderX();
+		WanderX(speed);
 		WanderY();
     }
 
 	#region Wandering
 
-	private void WanderX()
+	private void WanderX(float speed=0.01f)
 	{
 		if (wanderDirectionX == 0)
 		{
@@ -71,13 +72,13 @@ public class NPC : MonoBehaviour
 		if (wanderDirectionX > 0) // going right
 		{
 			SetAnimation(CharacterAnimations.States.RIGHT_WALK);
-			transform.Translate(0.01f, 0, 0);
+			transform.Translate(speed, 0, 0);
 			currentX += 1;
 		}
 		else if (wanderDirectionX < 0) // going left
 		{
 			SetAnimation(CharacterAnimations.States.LEFT_WALK);
-			transform.Translate(-0.01f, 0, 0);
+			transform.Translate(-speed, 0, 0);
 			currentX -= 1;
 		}
 

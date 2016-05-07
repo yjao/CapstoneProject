@@ -53,17 +53,22 @@ public class MainMenu : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
                 source.PlayOneShot(select, 1);
-				StartTutorial();
+				StartGame();
 			}
 			else if (Input.GetKeyDown(KeyCode.C))
 			{
                 source.PlayOneShot(select, 1);
 				StartCredits();
 			}
-			else if (Input.GetKeyDown(KeyCode.D))
+			else if (Input.GetKeyDown(KeyCode.N))
 			{
                 source.PlayOneShot(select, 1);
-				StartGame();
+				StartTutorial();
+			}
+			else if (Input.GetKeyDown(KeyCode.A))
+			{
+				source.PlayOneShot(select, 1);
+				StartAlfred();
 			}
 			break;
 		case ScreenState.CREDITS:
@@ -89,6 +94,11 @@ public class MainMenu : MonoBehaviour
 		StartCoroutine(EnterCreditsCoroutine());
 	}
 
+	public void StartAlfred()
+	{
+		StartCoroutine(EnterAlfredCoroutine());
+	}
+
 	IEnumerator EnterTutorialCoroutine()
 	{
 		screenState = ScreenState.GAME;
@@ -108,6 +118,18 @@ public class MainMenu : MonoBehaviour
 		yield return StartCoroutine(SceneManager.instance.LoadSceneCoroutine(startScene));
 		GameManager.instance.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
 
+		Destroy(this.gameObject);
+		yield break;
+	}
+
+	IEnumerator EnterAlfredCoroutine()
+	{
+		screenState = ScreenState.GAME;
+		GameManager.instance.SetTime(GameManager.TimeType.SET, 20);
+		StartCoroutine(SoundManager.instance.FadeOutAudioSource(soundtrack(), rate: 0.1f));
+		yield return StartCoroutine(SceneManager.instance.LoadSceneCoroutine("G_MainStreet"));
+		GameManager.instance.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
+		
 		Destroy(this.gameObject);
 		yield break;
 	}

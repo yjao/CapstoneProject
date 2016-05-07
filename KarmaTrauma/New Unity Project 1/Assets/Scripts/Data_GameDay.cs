@@ -101,9 +101,9 @@ public class Data_GameDay : DataLoader
             /*3*/ "\"Is there something wrong? No class today?\"",
             /*4*/ "(If only I didn't accept his dirty money...)",
             /*5*/ "\"Oh, I forgot my wallet today! I should go back to get it after I get out of work at 7 PM.\"",
-            /*6*/ "(I guess it's time that I own up to my actions and put Faraday to jail)",
+            /*6*/ "(I guess it's time that I own up to my actions and put Faraday to jail.)",
             /*7*/ "\"Oh Megan...I'm so sorry...\"",
-            /*8*/ "(Had I reach the park in time...\"",
+            /*8*/ "(If only I had reached the park in time...\"",
             /*9*/ "(#Jerry Faraday#...you will regret this.)",
             /*10*/"\"Oh, hello there. Got out early from classes today, huh?\"",
             /*11*/"\"Better get to class soon!\"",
@@ -122,7 +122,7 @@ public class Data_GameDay : DataLoader
             /*24*/ "(Before this wonderful day ends, there's one more thing I must do...)",
             /*25*/"\"...Oh! I didn't see you there. What are you doing here at this hour? You should head home, kid.\"",
         };
-        AddNpc(id, "Alfred", "Alfred", alfred);
+        AddNpc(id, "Officer Alfred", "Officer Alfred", alfred);
 
         //Check if Cocodonut is in the bag.  Can give Cocodonut to Alfred any time.
         gameManager.allObjects[2].dialogues[5].choices = new Choice[]
@@ -134,20 +134,20 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[2].dialogues[10].choices = new Choice[]
         {
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box", removeitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 0, checkitemname: "Box"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
         };
 
         gameManager.allObjects[2].dialogues[20].choices = new Choice[]
         {
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box", removeitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 0, checkitemname: "Box"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
         };
 
         gameManager.allObjects[2].dialogues[18].choices = new Choice[]
         {
             AddChoice("Give donut.", ChoiceAction.CONTINUE, 2, 5, checkitemname: "Cocodonut"),
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box", removeitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 0, checkitemname: "Box"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
         };
 
@@ -184,11 +184,11 @@ public class Data_GameDay : DataLoader
             /*1*/ "(If I could...if only I could go back in time...)",
             /*2*/ "(If only I knew that #someone was out to get him#.)",
             /*3*/ "*Sob* The doctors said that he won't be able to hold on past midnight...\"",
-            /*4*/ "\"If I haven't been hospitalize at all, this wouldn't have happened.\"",
-            /*5*/ "\"Oh Alfred, please hang in there!\"*Sob*",
+            /*4*/ "\"If I wasn't hospitalized, this wouldn't have happened.\"",
+            /*5*/ "\"Oh Alfred, please hang in there!\" *Sob*",
             /*6*/"\"Good morning. Just taking my morning stroll in the park.\"",
             /*7*/"\"Sweetie, there's school today. Do you go to Punxsu High? My son also goes there.\"",
-            /*8*/"\"Jeney, I'd like a Minty Munchies please!\"",
+            /*8*/"\"Jeney, I'd like some Minty Munchies please!\"",
             /*9*/"\"Oh! And for the coupon, I'd like a #Cocodonut for Alfred#. He goes loco for them Cocodonuts *Teehee*.\"",
             /*10*/ "\"I was hospitalized 2 years ago due to a car accident.\"",  
             /*11*/ "\"Since then, our family has been in a lot of debt because of me...\"",  
@@ -196,7 +196,7 @@ public class Data_GameDay : DataLoader
             /*13*/ "\"But I've always wondered how he managed to collect so much money that time.\"",  
             /*14*/ "\"A time that I want to go back to?\"", 
             /*15*/ "\"I guess I would want to turn back time so that incident would never happen...\"", 
-            /*16*/ "\"Heehee~ It's been such a long time since the two of us are going to go out for dinner together. I can't wait!\"", 
+            /*16*/ "\"Heehee~ It's been such a long time since the two of us have gone out for dinner together. I can't wait!\"", 
             /*17*/ "\"Oh, I should go do my #checkups# first.\"", 
             /*18*/ "\"Hi there, I hope you enjoyed the discussion about time loops.\"", 
             /*19*/ "\"I'm glad to hear that. I was working as the mayor's secretary for many years, and this was a good change of atmosphere!\"", 
@@ -319,7 +319,7 @@ public class Data_GameDay : DataLoader
             /*0*/ "\"Don't be late for class! I made breakfast for you. Today's menu is #bacon and eggs#.\"",       
             /*1*/"\"How was school today?\"",
             /*2*/ "(What should I make for dinner?)",
-            /*3*/"\"Anything interesting happened today?\"",
+            /*3*/"\"Anything interesting happen today?\"",
             /*4*/"\"I made dinner for you.\"",
             /*5*/"\"Did you do your homework yet?\"",
             /*6*/"\"You should do your homework and go to bed.\"",
@@ -342,13 +342,13 @@ public class Data_GameDay : DataLoader
 			/*1*/ "(Come here doggie! I'll give you a tasty Donut Bone.)",
             /*2*/ "\"Oh no...my friend's #dog was here at 5 PM#.\"",
             /*3*/ "\"I should have offered him #bacon# instead.\"",
-            /*4*/ "\"Poor man...he was a really nice cop who comes by my store often.\"",
-            /*5*/ "\"He always tell me that our #Cocodonut# tastes the best.\"",
-            /*6*/ "(Whew...what a long day. So many things happened.)",
+            /*4*/ "\"Poor man...he was a really nice cop who came by my store often.\"",
+            /*5*/ "\"He always told me that our #Cocodonut# tastes the best.\"",
+            /*6*/ "(Whew...what a long day. So many things happened.) I should go home right now. The #murderer# is probably #still in town#.",
             /*7*/ "\"It's a shame. Punxsutown used to be so much better before it all happened.\"",
             /*8*/ "\"2 years ago, Jerry Faraday was elected mayor of town. He seemed great at first...\"",
             /*9*/ "\"But over the years, he had kicked out all these vendors. It's why you barely see anyone anymore.\"",
-            /*10*/"\"Some were really nice family businesses that’s been there for a long time...How could he do such a thing?\"",
+            /*10*/"\"Some were really nice family businesses that were there for a long time...How could he do such a thing?\"",
             /*11*/"\"Well, I hope the Donut Hole will be fine. We have so many loyal customers.\"",
             /*12*/"\"I tried catching him by feeding him a donut, but he ran off.\"",
             /*13*/"\"I hope that he returned home safely.\"",
@@ -415,8 +415,8 @@ public class Data_GameDay : DataLoader
         id = 11;
         string[] hank = new string[]
 		{
-			/*0*/ "(Ugh I'm so sleepy. I hate this job.)",
-			/*1*/ "\"That ugly dog belongs to this girl name Rae. She was at the #park until 11 AM# looking for the dog while crying.\"",
+			/*0*/ "(Ugh, I'm so sleepy. I hate this job. If only I can take a vacation... Why does Faraday get a vacation? He's our mayor! He should be working.)",
+			/*1*/ "\"That ugly dog belongs to this girl Rae. She was crying at the #park until 11:30 PM# while looking for the dog.\"",
 			/*2*/ "(So annoying ugh...)", 
 			/*3*/ "\"Yesterday, that stupid #dog started digging# all over the park.\"",
 			/*4*/ "\"I'm glad my nap today went ok. Unlike yesterday...\"",
@@ -424,7 +424,7 @@ public class Data_GameDay : DataLoader
 		    /*6*/ "\"Now go away and stop bothering me. Time to go fill up the rest of those stupid holes.\"",
             /*7*/ "\"Ugh...Go away, kid. Don't you see that I'm about to go to bed?\"",
             /*8*/ "(Maybe some stupid visitor fed him bacon or something. Dogs always get excited over #stupid bacon#.)",
-            /*9*/ "\"#Rae was here at 5 PM# and went to the police station just now. About time she moves on and stop pestering me.\"",
+            /*9*/ "\"#Rae was here at 5 PM# and went to the police station just now. About time she moved on and stopped pestering me.\"",
 			/*10*/ "\"I'm so glad she found her dog. That Rae was starting to get really annoying with her wailings.\"",
             
         
@@ -535,13 +535,13 @@ public class Data_GameDay : DataLoader
         string[] rae = new string[]
 		{
 			/*0*/ "*Sob*\"I #lost my dog# today...\"",
-			/*1*/ "\"He went outside to take a leak and hadn't come back since.\"",
+			/*1*/ "\"He went outside to take a leak and hasn't come back since.\"",
 			/*2*/ "\"I tried looking for him everywhere, but he's nowhere to be found.\"",
 			/*3*/ "\"What should I do...\"*Sob*",
 			/*4*/ "\"Jeney is my friend from middle school. She now owns this successful donut shop chain.\"",
-			/*5*/ "\"All the cops in this town loves this store and comes by often. You should try some.\"",
+			/*5*/ "\"All the cops in this town love this store and come by often. You should try some.\"",
 			/*6*/ "\"#Have you seen my dog?# I've been looking everywhere for him.\""  ,
-			/*7*/ "\"I was hoping that he will at the park since it's his #favorite spot#.\""  ,
+			/*7*/ "\"I was hoping that he would be at the park since it's his #favorite spot#.\""  ,
 			/*8*/ "\"It's been 12 hours since I lost my dog. I don't know what to do.\"" , 
 			/*9*/ "\"I hope someone #finds him and returns him to me#.\""  ,
 			/*10*/ "(I guess this #train ticket# is useless now since I can't leave town without him.)"  ,
@@ -601,7 +601,7 @@ public class Data_GameDay : DataLoader
             /*13*/ "\"Hey, it's Wednesday, are you ditching class?\"",
             /*14*/ "\"I'm not the one to talk as I overslept my morning class...\"",
             /*15*/ "\"But wait, you're not in college...?\"",
-            /*16*/ "(Is it just me or I keep seeing that dog everywhere?)",
+            /*16*/ "(Is it just me or do I keep seeing that dog everywhere?)",
             /*17*/ "(I saw a #dog on Main Street around 11 AM#.)",
             /*18*/ "(Then, I saw another #dog at the Park around 3 PM#.)",
             /*19*/ "(Maybe I'm just seeing things...)",
@@ -651,7 +651,7 @@ public class Data_GameDay : DataLoader
             /*3*/ "(Oh well, young people won't understand anyways.)",
             /*4*/ "\"Poor Alfred... It must be hard for Alex and Megan.\"",
             /*5*/ "\"Alfred would never leave behind his family like this. Someone must have murdered him.\"",
-            /*6*/ "\"Did you see anyone supicious around here?\"",
+            /*6*/ "\"Did you see anyone suspicious around here?\"",
             /*7*/"\"Stay back. The #murderer might still be around# here.\"",
             /*8*/"\"I was going to go home, but after seeing what happened to Alfred, I must stay.\"",
             /*9*/"\"Punxsu needs me!\"",
@@ -679,13 +679,13 @@ public class Data_GameDay : DataLoader
 
             
         };
-        AddNpc(id, "Dae", "Dae", dae);
+        AddNpc(id, "Officer Dae", "Officer Dae", dae);
 
 
         //Give box to Dae any time.
         gameManager.allObjects[id].dialogues[22].choices = new Choice[]
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 1, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23)
         };
 
@@ -701,12 +701,12 @@ public class Data_GameDay : DataLoader
         LinkContinueDialogues(id, new int[2] { 15, 16 });
         gameManager.allObjects[id].dialogues[16].choices = new Choice[]
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 1, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23, checkitemname: "Box")
         };
         gameManager.allObjects[id].dialogues[20].choices = new Choice[]
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, id, 11, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 1, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, id, 23, checkitemname: "Box")
         };
 
@@ -754,11 +754,12 @@ public class Data_GameDay : DataLoader
         string[] kyle = new string[]
         {
             /*0*/ "\"Have you seen #Alex#? I haven't seen him these past few days.\"",       
-            /*1*/ "\"Maybe I should go to the police station and tell his dad that he'd been ditching class.\"",
+            /*1*/ "\"Maybe I should go to the police station and tell his dad that he's been ditching class.\"",
             /*2*/ "\"Hey, what's up?\"",
             /*3*/ "\"Ugh...we lost the game.\"",
             /*4*/ "\"Oh it's Alex's dad! Maybe I should go talk to him about Alex.\"",
-           
+            /*5*/ "\"Oh my god! Someone get help!\"",
+            /*6*/ "\"Ah, what a great day!\""
             
         };
         AddNpc(id, "Kyle", "Kyle", kyle);
@@ -770,7 +771,7 @@ public class Data_GameDay : DataLoader
         {
             /*0*/ "\"Did you hear about Yoona? She has a heart disease so that's why she hasn't been coming to school lately. Maybe I should go visit her.\"",       
             /*1*/ "\"Shh Kelly's mom is here. Don't tell Kelly this, but I don't like her mom.\"",
-            /*2*/ "\"Her mom works for Faraday. My dad's business is going downhill because of him. They're shady I'm telling you.\"",
+            /*2*/ "\"Her mom works for Faraday. My dad's business is going downhill because of him. They're shady I'm telling you. I hope he doesn't get elected as Senator. \"",
             /*3*/ "\"Oh no, I missed the basketball game...\"",
           
         };
@@ -786,7 +787,7 @@ public class Data_GameDay : DataLoader
         string[] susan = new string[]
         {
             /*0*/ "\"On Wednesday, we wear blue.\"",       
-            /*1*/ "\"Ew look at them running and sweating. Boys.\"",
+            /*1*/ "\"My parents love Faraday and they hope he gets elected as Senator. I can't wait for new malls!\"",
             /*2*/ "\"I don't know where she is. Her mom is rarely home so she gets to go out and do whatever she wants.\"",
             /*3*/ "\"Oh no, I'm late for my massage appointment. Oh well, I'll visit #Yoona# another time.\"",
           
@@ -804,9 +805,9 @@ public class Data_GameDay : DataLoader
         {
             /*0*/ "\"Good morning! Are you here to exercise too? It's good for your health.\"",       
             /*1*/ "\"She used to be Megan's roommate in college. I don't really know what happened, but I heard they fought.\"",
-            /*2*/ "\"There's this #hobo in the park# and he smells. I finally reported him. Ugh I hope he goes away and stop ruining my mood in the morning.\"",
+            /*2*/ "\"There's this #hobo in the park# and he smells. I finally reported him. Ugh, I hope he goes away and stops ruining my mood in the morning.\"",
             /*3*/ "\"Oh it's Dae. It must be hard for him to raise a daughter all by himself. He's such a good father. It seems like he will do anything for her.\"",
-            /*4*/ "\"The Donut Hole Original is the best. Don't you agree?\"",       
+            /*4*/ "\"I'm voting for Faraday in the upcoming election. He told us that he'll ban all hobos from the park.\"",       
 
         };
         AddNpc(id, "April", "April", april);
@@ -835,13 +836,13 @@ public class Data_GameDay : DataLoader
             /*11*/"\"The donut here is good, no doubt, but their coffee sucks. I'm picky with my coffee.\"",
             /*12*/"(I'll just tell Jerry to get rid of this place, like the rest of them...)",
             /*13*/"\"Oh, you're still here? Go away.\"",
-            /*14*/"\"Me? I'm #Faraday's secretary#. He lets me take breaks whenever I want.\"",
-            /*15*/"\"Oops, am I supposed to not tell you this?\"",
+            /*14*/"\"Me? I'm #Faraday's secretary#. He's on a vacation right now so he lets me take breaks whenever I want.\"",
+            /*15*/"\"Actually, I still get to take breaks whenever I want, but it'd be great if he took me with him.\"",
             /*16*/ "(The show is about to start...)",
             /*17*/ "(Is that Kelly?)",
             /*18*/ "Oh hey, you look like my daughter's age.",
             /*19*/ "I love my girl, but I never have time to take care of her.",
-            /*20*/ "I try everything I could to give her a good life, but I don't think she understands. As long as she's happy, I'm happy.",
+            /*20*/ "I try everything I can to give her a good life, but I don't think she understands. But as long as she's happy, I'm happy.",
             /*21*/ "(The show should start soon...)",
             /*22*/ "(I should head over to #Main Street at 7 PM# and wait there.)",
             /*23*/ "(Where is this Bob? Shouldn't he be here right now?)",
@@ -877,11 +878,11 @@ public class Data_GameDay : DataLoader
             /*0*/ "\"Phew, classes are finally over.\"",       
             /*1*/ "\"Hey, why don’t we go hang out? I’m craving Jeney’s donuts.\"",
             /*2*/ "\"What is it? Okay, I'll wait a bit, but not for long! Or I can meet you there, too.\"",
-            /*3*/ "\"Yesterday I overheard my mom and Faraday talking about #a box#. It looks serious because a cop was there.\"",
+            /*3*/ "\"Yesterday I overheard my mom and Faraday talking about #a box#. It looked serious because a cop was there.\"",
             /*4*/ "\"Hey, you don't think that #cop guy works with Faraday#, do you?\"",
             /*5*/ "\"Shh, my mom's sitting over there...\"",
-            /*6*/"\"Ugh that slimeball Faraday's pictures are everywhere. I don't get what my mom sees in him.\"",
-            /*7*/"\"I want my mom to realizes that what she's doing is wrong, but I don't want her to be taken away from me. After all, she's still my mom and she's the only one I have.\"",
+            /*6*/ "\"Ugh, that slimeball Faraday's pictures are everywhere. I don't get what my mom sees in him. I hope he doesn't get elected.\"",
+            /*7*/ "\"I want my mom to realize that what she's doing is wrong, but I don't want her to be taken away from me. After all, she's still my mom and she's the only one I have.\"",
             /*8*/ "\"Excuse me, I'd like some Strawberry Squishies.\"",
             /*9*/ "\"Wait, wasn't there a coupon code Freewoman gave us in class?\"",
             /*10*/ "\"What was it...do you remember Chels?\"",
@@ -931,17 +932,17 @@ public class Data_GameDay : DataLoader
             /*11*/ "\"Thanks, I'll take a look at it.\"", /*ENDINGVERSION*/
 
         };
-        AddNpc(id, "Perry", "Perry", perry);
+        AddNpc(id, "Chief Perry", "Chief Perry", perry);
         //Give box to Perry add choice here.
         //Can't give box to Perry after 8 (when Alfred falls)//Day will restart.
         gameManager.allObjects[99].dialogues[0].choices = new Choice[]
 		{
-            AddChoice("Give box.", ChoiceAction.CONTINUE, id, 1, checkitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 2, checkitemname: "Box"),
             AddChoice("Do nothing.", ChoiceAction.CONTINUE, id, 3, checkitemname: "Box") 
         };
         gameManager.allObjects[99].dialogues[4].choices = new Choice[]
 		{
-            AddChoice("Give box.", ChoiceAction.CONTINUE, id, 5, checkitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 3, checkitemname: "Box"),
             AddChoice("Do nothing.", ChoiceAction.CONTINUE, id, 3, checkitemname: "Box") 
         };
         AddToDialogue(99, 5, ChoiceContinueDialog(99, 6));
@@ -1009,6 +1010,48 @@ public class Data_GameDay : DataLoader
         {
             AddChoice("Direct the dog to the dirt.", ChoiceAction.CONTINUE, id, subID:3, checkboolname:"DogCanDig", checkitemname:"Lost Dog")
         };
+
+		id = 1;
+		string[] Chelsey = new string[]
+		{
+			/*0*/ "This box seems really important. Can I really trust him with it?",
+			/*1*/ "This box seems really important. Can I really trust him with it?",
+			/*2*/ "This box seems really important. Can I really trust him with it?",
+			/*3*/ "This box seems really important. Can I really trust him with it?",
+			/*4*/ "This box seems really important. Can I really trust him with it?",
+			/*5*/ "This box seems really important. Can I really trust him with it?"
+		};
+		AddNpc(id, "Chelsey", "Chelsey", Chelsey);
+		gameManager.allObjects[id].dialogues[0].choices = new Choice[]
+		{
+			AddChoice("Keep box", ChoiceAction.CONTINUE, 2, 21),
+			AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box", removeitemname: "Box"),
+		};
+		gameManager.allObjects[id].dialogues[1].choices = new Choice[]
+		{
+			AddChoice("Keep box"),
+			AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 11, checkitemname: "Box", removeitemname: "Box"),
+		};
+		gameManager.allObjects[id].dialogues[2].choices = new Choice[]
+		{
+			AddChoice("Keep box"),
+			AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 1, checkitemname: "Box", removeitemname: "Box"),
+		};
+		gameManager.allObjects[id].dialogues[3].choices = new Choice[]
+		{
+			AddChoice("Keep box"),
+			AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 5, checkitemname: "Box", removeitemname: "Box"),
+		};
+		gameManager.allObjects[id].dialogues[4].choices = new Choice[]
+		{
+			AddChoice("Keep box"),
+			AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 10, checkitemname: "Box", removeitemname: "Box"),
+		};
+		gameManager.allObjects[id].dialogues[5].choices = new Choice[]
+		{
+			AddChoice("Keep box"),
+			AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 26, checkitemname: "Box", removeitemname: "Box"),
+		};
     }
 
     private void LoadQuestTerms()
@@ -1330,22 +1373,6 @@ public class Data_GameDay : DataLoader
         {
             // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 20 },
-
-            // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 7,
-
-            // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
-
-            // Getter/Setter variables, NpcID is required
-            Summary = "",
-            NpcID = 11
-        });
-        AddParameters(sceneName, new InteractableObject.Parameters()
-        {
-            // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 22 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
@@ -1949,6 +1976,27 @@ public class Data_GameDay : DataLoader
 
             // NPC CharacterAnimations
             startingAnimationState = CharacterAnimations.States.UP_IDLE,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 50
+        });
+        AddParameters(sceneName, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
+
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 5,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
+            turnOnInteract = true,
+            wanderDirectionX = 1,
+            wanderDistanceX = 10,
+            speed = 0.09f,
+            animationSpeed = 0.07f,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2865,7 +2913,7 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[2].dialogues[25].choices = new Choice[]
         {
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 2, 15, checkitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 0, checkitemname: "Box"),
             AddChoice("Say nothing.", ChoiceAction.CONTINUE, 2, 21, checkitemname: "Box"),
         };
         AddToDialogue(2, 15, ChoiceContinueDialog(2, 16));
@@ -3043,18 +3091,18 @@ public class Data_GameDay : DataLoader
         });
         gameManager.allObjects[36].dialogues[28].choices = new Choice[]
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 26, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 5, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23)
         };
 
         gameManager.allObjects[36].dialogues[29].choices = new Choice[]
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 26, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 5, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23, checkitemname: "Box")
         };
         gameManager.allObjects[36].dialogues[30].choices = new Choice[]
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 26, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 5, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23, checkitemname: "Box")
         };
 
@@ -3090,7 +3138,7 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[36].dialogues[25].choices = new Choice[]  //Day just restart
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 11, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 1, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23, checkitemname: "Box")
         };
 
@@ -3122,7 +3170,7 @@ public class Data_GameDay : DataLoader
         LinkContinueDialogues(36, new int[2] { 17, 18 });
         gameManager.allObjects[36].dialogues[17].choices = new Choice[]  //Day just restart
         {
-              AddChoice("Give box.", ChoiceAction.CONTINUE, 36, 11, checkitemname: "Box"),
+              AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 1, checkitemname: "Box"),
               AddChoice("Say nothing.", ChoiceAction.CONTINUE, 36, 23, checkitemname: "Box")
         };
 
@@ -3191,7 +3239,7 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[99].dialogues[9].choices = new Choice[]
 		{
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 10, checkitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 4, checkitemname: "Box"),
             AddChoice("Do nothing.", ChoiceAction.CONTINUE, 99, 3, checkitemname: "Box") 
         };
 
@@ -3211,7 +3259,7 @@ public class Data_GameDay : DataLoader
 
         gameManager.allObjects[99].dialogues[7].choices = new Choice[]
 		{
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 10, checkitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 4, checkitemname: "Box"),
             AddChoice("Do nothing.", ChoiceAction.CONTINUE, 99, 3, checkitemname: "Box") 
         };
   
@@ -3231,7 +3279,7 @@ public class Data_GameDay : DataLoader
         });
         gameManager.allObjects[99].dialogues[8].choices = new Choice[]
 		{
-            AddChoice("Give box.", ChoiceAction.CONTINUE, 99, 10, checkitemname: "Box"),
+            AddChoice("Give box.", ChoiceAction.CONTINUE, 1, 4, checkitemname: "Box"),
             AddChoice("Do nothing.", ChoiceAction.CONTINUE, 99, 3, checkitemname: "Box") 
         };
         AddToDialogue(99, 10, ChoiceContinueDialog(99, 11));
@@ -3239,7 +3287,24 @@ public class Data_GameDay : DataLoader
 
         AddToDialogue(99, 11, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "PerryEnding" });
 
+        // ======================== KYLE ======================== //
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
 
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 6,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
+            turnOnInteract = true,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 50
+        });
 
 	}
 

@@ -227,6 +227,7 @@ public class InteractableObject : MonoBehaviour
         public int wanderDirectionX;
         public float wanderDistanceY;
         public int wanderDirectionY;
+        public float speed;
 
 		private int m_npcID = -1;
 		public int NpcID

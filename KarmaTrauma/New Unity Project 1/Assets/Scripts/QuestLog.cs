@@ -183,6 +183,22 @@ public class QuestLog : MonoBehaviour
           
             
         }
+        if (page_index < max_page - 1)
+        {
+            transform.Find("RightPageArrow").gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.Find("RightPageArrow").gameObject.SetActive(false);
+        }
+        if (page_index > 0)
+        {
+            transform.Find("LeftPageArrow").gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.Find("LeftPageArrow").gameObject.SetActive(false);
+        }
     }
 
     void ClearLocationTimePanels()
@@ -224,6 +240,8 @@ public class QuestLog : MonoBehaviour
 
     void HideDescription()
     {
+        transform.Find("LeftPageArrow").gameObject.SetActive(false);
+        transform.Find("RightPageArrow").gameObject.SetActive(false);
         transform.Find("DialogText").gameObject.SetActive(false);
         transform.Find("NameText").gameObject.SetActive(false);
         transform.Find("DialogTextPanel").gameObject.SetActive(false);

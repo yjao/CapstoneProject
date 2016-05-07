@@ -104,6 +104,7 @@ public class MainMenu : MonoBehaviour
 		screenState = ScreenState.GAME;
 		GameManager.instance.SetTime(GameManager.TimeType.SET, startTime);
 		StartCoroutine(SoundManager.instance.FadeOutAudioSource(soundtrack(), rate: 0.1f));
+        GameManager.instance.LoadPlayerData();
 		yield return StartCoroutine(SceneManager.instance.LoadSceneCoroutine(startScene));
 		GameManager.instance.MenuLayout.GetComponent<Menu_Layout>().GameMenus(true);
 

@@ -292,7 +292,7 @@ public class TutorialManager : MonoBehaviour
         gameManager.Wait();
         yield return new WaitForSeconds(1f);
         yield return StartCoroutine(SceneManager.instance.fade_black());
-        yield return StartCoroutine(SceneManager.instance.map_name("World Map"));
+        yield return StartCoroutine(SceneManager.instance.map_name("Town Map"));
         yield return new WaitForSeconds(1f);
     }
 

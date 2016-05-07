@@ -2540,7 +2540,7 @@ public class Data_GameDay : DataLoader
             dialogueIDSingle = 1,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.SLEEPING,
+            startingAnimationState = CharacterAnimations.States.SLEEPY,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2556,7 +2556,7 @@ public class Data_GameDay : DataLoader
             dialogueIDSingle = 6,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.SLEEPING,
+            startingAnimationState = CharacterAnimations.States.SLEEPY,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2572,7 +2572,7 @@ public class Data_GameDay : DataLoader
             dialogueIDSingle = 7,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.SLEEPING,
+            startingAnimationState = CharacterAnimations.States.SLEEPY,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2587,7 +2587,7 @@ public class Data_GameDay : DataLoader
             dialogueIDSingle = 8,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.SLEEPING,
+            startingAnimationState = CharacterAnimations.States.SLEEPY,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2603,7 +2603,7 @@ public class Data_GameDay : DataLoader
             dialogueIDSingle = 4,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.SLEEPING,
+            startingAnimationState = CharacterAnimations.States.SLEEPY,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",
@@ -2634,7 +2634,7 @@ public class Data_GameDay : DataLoader
             dialogueIDSingle = 10,
 
             // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.SLEEPING,
+            startingAnimationState = CharacterAnimations.States.SLEEPY,
 
             // Getter/Setter variables, NpcID is required
             Summary = "",

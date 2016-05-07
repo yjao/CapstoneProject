@@ -66,6 +66,10 @@ public class CharacterAnimations : MonoBehaviour
     public const int fallStart = 172;
     public const int fallEnd = 177;
 
+    [Header("Sleeping Animatons")]
+    public const int sleeping = 17;
+    public const int sleepy = 15;
+
 	public readonly string[] DIRECTIONS = { "DOWN", "UP", "LEFT", "RIGHT" };
 
 	#endregion
@@ -77,7 +81,7 @@ public class CharacterAnimations : MonoBehaviour
         UP_IDLE, UP_WALK, UP_DANCE, UP_STRETCH, UP_SWING, UP_BOW,
         LEFT_IDLE, LEFT_WALK, LEFT_DANCE, LEFT_STRETCH, LEFT_SWING, LEFT_BOW,
 		RIGHT_IDLE, RIGHT_WALK, RIGHT_DANCE, RIGHT_STRETCH, RIGHT_SWING, RIGHT_BOW,
-		FALL, FALLEN, SLEEPING, RIGHT_PRAY
+		FALL, FALLEN, SLEEPING, SLEEPY, RIGHT_PRAY
     }
 
 	public bool active = true;
@@ -257,10 +261,13 @@ public class CharacterAnimations : MonoBehaviour
             rangeEnd = fallEnd;
             break;
         case States.SLEEPING:
-            rangeStart = downStretchStart + 3;
-            rangeEnd = downStretchStart + 3;
+            rangeStart = sleeping;
+            rangeEnd = sleeping;
             break;
-
+        case States.SLEEPY:
+            rangeStart = sleepy;
+            rangeEnd = sleepy;
+            break;
         default:
             Debug.Log("YA DONE GOOFED");
             break;

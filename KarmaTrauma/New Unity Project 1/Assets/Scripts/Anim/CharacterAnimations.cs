@@ -249,7 +249,7 @@ public class CharacterAnimations : MonoBehaviour
 
 		case States.RIGHT_PRAY:
 			rangeStart = rightStretchStart + 1;
-			rangeEnd = rightStretchStart + 3;
+			rangeEnd = rightStretchStart + 2;
 			break;
 
         case States.FALL:

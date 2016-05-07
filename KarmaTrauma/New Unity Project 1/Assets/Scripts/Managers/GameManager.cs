@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
         {
             LoadGameData();
         }
-		LoadPlayerData();
+		//LoadPlayerData();
     }
 
     void Start()

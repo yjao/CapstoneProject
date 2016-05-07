@@ -71,7 +71,7 @@ public class SceneManager : MonoBehaviour
 	        {SCENE_HOSPITAL, "Punxsu Hospital"},
             {SCENE_PARK, "Punxsu Park"},
             {SCENE_POLICE, "Police Station"},
-            {SCENE_WORLDMAP, "World Map"},
+            {SCENE_WORLDMAP, "Town Map"},
             {"T_Class", "Classroom"},
             {"T_MainStreet", "Main Street"},
 			{SCENE_CREDITS, "Meet the Team!"},

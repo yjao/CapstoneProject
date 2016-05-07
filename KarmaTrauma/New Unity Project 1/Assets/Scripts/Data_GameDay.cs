@@ -521,6 +521,7 @@ public class Data_GameDay : DataLoader
         AddToDialogue(13, 14, ChoiceContinueDialog(13, 15));
         AddToDialogue(13, 15, ChoiceContinueDialog(13, 16));
 		AddDayDataToDialogue(id, 15, "AlfredSaved");
+        
         AddToDialogue(13, 16, new ChoiceEventArgs(){ChoiceAction = InteractableObject.RemoveNpcThatDay, IDNum = 13});
 
         LinkContinueDialogues(id, new int[3]{7,8,10});
@@ -726,7 +727,7 @@ public class Data_GameDay : DataLoader
             /*4*/ "\"My dad used to visit me often, but he stopped coming lately. I guess he'd been busy with work.\"",
             /*5*/ "\"Oh! My dad is a cop.  He's like a superhero for the town!\"",
             /*6*/ "\"Aren't you supposed to be in class?...I miss going to school and hanging out with my friends.\"",
-            /*7*/"\"When is Alex getting back? I'm bored...\"",
+            /*7*/"\"Alex told me that his dad has been working late and mumbling about a #box# lately. I hope he's doing ok at work.\"",
             /*8*/"\"There's nothing to do at the hospital. I'm so bored, but at least Alex comes here often to hang out with me.\"",
             /*9*/"*zzz*",
             /*10*/"\"Isn't that Alex's dad? I hope he's okay...\"",

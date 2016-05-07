@@ -46,8 +46,8 @@ public class Data_GameDay : DataLoader
 			/*3*/ "\"I'm not entirely sure if Potadonut is even a thing...\""
 		};
 		AddNpc(id, "Faye Jao", "", faye);
-		AddToDialogue(id, 0, ChoiceContinueDialog(id, 1));
-		AddToDialogue(id, 2, ChoiceContinueDialog(id, 3));
+		//AddToDialogue(id, 0, ChoiceContinueDialog(id, 1));
+		//AddToDialogue(id, 2, ChoiceContinueDialog(id, 3));
 
 		// ================ PERRY ================ //
 		id = 1003;
@@ -69,12 +69,12 @@ public class Data_GameDay : DataLoader
 		id = 1005;
 		string[] jeney = new string[]
 		{
-			/*0*/ "\"Hi, I'm Jeney. I'm a sprite animator and general programmer. I program most of the animations as well as dealing with sprites in general.\"",
+			/*0*/ "\"Hi, I'm Jeney. I'm a general programmer and one of the story designers.\"", //I also program most of the animations and deal with the sprites.\"",
             /*1*/ "\"In each scene, I make sure that the sprites are where they should be as well as appearing at the correct time.\"",
             /*2*/ "\"In the game, my character is a donut shop owner. :)\""
 		};
 		AddNpc(id, "Jeney Lao", "", jeney);
-		AddToDialogue(id, 0, ChoiceContinueDialog(id, 1));
+		//AddToDialogue(id, 0, ChoiceContinueDialog(id, 1));
 
 		// ================ DOGE ================ //
 		id = 1006;

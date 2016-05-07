@@ -344,7 +344,7 @@ public class Data_GameDay : DataLoader
             /*3*/ "\"I should have offered him #bacon# instead.\"",
             /*4*/ "\"Poor man...he was a really nice cop who came by my store often.\"",
             /*5*/ "\"He always told me that our #Cocodonut# tastes the best.\"",
-            /*6*/ "(Whew...what a long day. So many things happened.)",
+            /*6*/ "(Whew...what a long day. So many things happened.) I should go home right now. The #murderer# is probably #still in town#.",
             /*7*/ "\"It's a shame. Punxsutown used to be so much better before it all happened.\"",
             /*8*/ "\"2 years ago, Jerry Faraday was elected mayor of town. He seemed great at first...\"",
             /*9*/ "\"But over the years, he had kicked out all these vendors. It's why you barely see anyone anymore.\"",

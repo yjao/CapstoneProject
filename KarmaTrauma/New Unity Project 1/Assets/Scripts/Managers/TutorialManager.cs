@@ -405,7 +405,7 @@ public class TutorialManager : MonoBehaviour
         StartCoroutine(StartCutscene(true));
         yield return StartCoroutine(SceneManager.instance.fade_out());
 
-        gameManager.Wait();
+        gameManager.gameMode = GameManager.GameMode.NONE;
 
         yield return new WaitForSeconds(0.5f);
         MultiDialogue("Kelly", new string[2]
@@ -553,7 +553,8 @@ public class TutorialManager : MonoBehaviour
         else if (tag == "Fall")
         {
 
-            gameManager.Wait();
+            //gameManager.Wait();
+			gameManager.gameMode = GameManager.GameMode.NONE;
             GameObject.Find("Main Camera").transform.parent = GameObject.Find("Alfred").transform;
             GameObject.Find("Main Camera").transform.position = new Vector3(GameObject.Find("Alfred").transform.position.x, GameObject.Find("Alfred").transform.position.y, GameObject.Find("Main Camera").transform.position.z);
             yield return StartCoroutine(GameObject.Find("Alfred").GetComponent<CharacterAnimations>().Move(2, -11.00f, CharacterAnimations.States.FALLEN, 0.15f));

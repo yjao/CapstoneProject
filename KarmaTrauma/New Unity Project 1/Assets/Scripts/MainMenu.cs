@@ -53,17 +53,17 @@ public class MainMenu : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
                 source.PlayOneShot(select, 1);
-				StartTutorial();
+				StartGame();
 			}
 			else if (Input.GetKeyDown(KeyCode.C))
 			{
                 source.PlayOneShot(select, 1);
 				StartCredits();
 			}
-			else if (Input.GetKeyDown(KeyCode.D))
+			else if (Input.GetKeyDown(KeyCode.N))
 			{
                 source.PlayOneShot(select, 1);
-				StartGame();
+				StartTutorial();
 			}
 			else if (Input.GetKeyDown(KeyCode.A))
 			{

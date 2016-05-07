@@ -758,8 +758,8 @@ public class Data_GameDay : DataLoader
             /*2*/ "\"Hey, what's up?\"",
             /*3*/ "\"Ugh...we lost the game.\"",
             /*4*/ "\"Oh it's Alex's dad! Maybe I should go talk to him about Alex.\"",
-            /*5*/ "\"Oh my god! Someone get help!\""
-           
+            /*5*/ "\"Oh my god! Someone get help!\"",
+            /*6*/ "\"Ah, what a great day!\""
             
         };
         AddNpc(id, "Kyle", "Kyle", kyle);
@@ -1331,22 +1331,6 @@ public class Data_GameDay : DataLoader
         {
             // Specify the time frames that this set takes effect
             timeBlocks = new List<int>() { 20 },
-
-            // InteractableObject dialogue information
-            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
-            dialogueIDSingle = 7,
-
-            // NPC CharacterAnimations
-            startingAnimationState = CharacterAnimations.States.LEFT_IDLE,
-
-            // Getter/Setter variables, NpcID is required
-            Summary = "",
-            NpcID = 11
-        });
-        AddParameters(sceneName, new InteractableObject.Parameters()
-        {
-            // Specify the time frames that this set takes effect
-            timeBlocks = new List<int>() { 22 },
 
             // InteractableObject dialogue information
             dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
@@ -3261,7 +3245,24 @@ public class Data_GameDay : DataLoader
 
         AddToDialogue(99, 11, new ChoiceEventArgs() { ChoiceAction = EndingManager.CallCoroutineEvent, CoroutineName = "PerryEnding" });
 
+        // ======================== KYLE ======================== //
+        AddParameters(boolParamSet, SceneManager.SCENE_MAINSTREET, new InteractableObject.Parameters()
+        {
+            // Specify the time frames that this set takes effect
+            timeBlocks = new List<int>() { 20 },
 
+            // InteractableObject dialogue information
+            dialogueIDType = InteractableObject.Dialogue_ID_Type.SINGLE_DIALOGUE_ID,
+            dialogueIDSingle = 6,
+
+            // NPC CharacterAnimations
+            startingAnimationState = CharacterAnimations.States.RIGHT_IDLE,
+            turnOnInteract = true,
+
+            // Getter/Setter variables, NpcID is required
+            Summary = "",
+            NpcID = 50
+        });
 
 	}
 

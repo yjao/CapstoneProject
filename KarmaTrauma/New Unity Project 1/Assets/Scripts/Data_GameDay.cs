@@ -415,7 +415,7 @@ public class Data_GameDay : DataLoader
         id = 11;
         string[] hank = new string[]
 		{
-			/*0*/ "(Ugh I'm so sleepy. I hate this job.)",
+			/*0*/ "(Ugh, I'm so sleepy. I hate this job. If only I can take a vacation... Why does Faraday get a vacation? He's our mayor! He should be working.)",
 			/*1*/ "\"That ugly dog belongs to this girl Rae. She was crying at the #park until 11:30 PM# while looking for the dog.\"",
 			/*2*/ "(So annoying ugh...)", 
 			/*3*/ "\"Yesterday, that stupid #dog started digging# all over the park.\"",
@@ -771,7 +771,7 @@ public class Data_GameDay : DataLoader
         {
             /*0*/ "\"Did you hear about Yoona? She has a heart disease so that's why she hasn't been coming to school lately. Maybe I should go visit her.\"",       
             /*1*/ "\"Shh Kelly's mom is here. Don't tell Kelly this, but I don't like her mom.\"",
-            /*2*/ "\"Her mom works for Faraday. My dad's business is going downhill because of him. They're shady I'm telling you.\"",
+            /*2*/ "\"Her mom works for Faraday. My dad's business is going downhill because of him. They're shady I'm telling you. I hope he doesn't get elected as Senator. \"",
             /*3*/ "\"Oh no, I missed the basketball game...\"",
           
         };
@@ -787,7 +787,7 @@ public class Data_GameDay : DataLoader
         string[] susan = new string[]
         {
             /*0*/ "\"On Wednesday, we wear blue.\"",       
-            /*1*/ "\"Ew look at them running and sweating. Boys.\"",
+            /*1*/ "\"My parents love Faraday and they hope he gets elected as Senator. I can't wait for new malls!\"",
             /*2*/ "\"I don't know where she is. Her mom is rarely home so she gets to go out and do whatever she wants.\"",
             /*3*/ "\"Oh no, I'm late for my massage appointment. Oh well, I'll visit #Yoona# another time.\"",
           
@@ -805,9 +805,9 @@ public class Data_GameDay : DataLoader
         {
             /*0*/ "\"Good morning! Are you here to exercise too? It's good for your health.\"",       
             /*1*/ "\"She used to be Megan's roommate in college. I don't really know what happened, but I heard they fought.\"",
-            /*2*/ "\"There's this #hobo in the park# and he smells. I finally reported him. Ugh I hope he goes away and stops ruining my mood in the morning.\"",
+            /*2*/ "\"There's this #hobo in the park# and he smells. I finally reported him. Ugh, I hope he goes away and stops ruining my mood in the morning.\"",
             /*3*/ "\"Oh it's Dae. It must be hard for him to raise a daughter all by himself. He's such a good father. It seems like he will do anything for her.\"",
-            /*4*/ "\"The Donut Hole Original is the best. Don't you agree?\"",       
+            /*4*/ "\"I'm voting for Faraday in the upcoming election. He told us that he'll ban all hobos from the park.\"",       
 
         };
         AddNpc(id, "April", "April", april);
@@ -836,8 +836,8 @@ public class Data_GameDay : DataLoader
             /*11*/"\"The donut here is good, no doubt, but their coffee sucks. I'm picky with my coffee.\"",
             /*12*/"(I'll just tell Jerry to get rid of this place, like the rest of them...)",
             /*13*/"\"Oh, you're still here? Go away.\"",
-            /*14*/"\"Me? I'm #Faraday's secretary#. He lets me take breaks whenever I want.\"",
-            /*15*/"\"Oops, am I supposed to not tell you this?\"",
+            /*14*/"\"Me? I'm #Faraday's secretary#. He's on a vacation right now so he lets me take breaks whenever I want.\"",
+            /*15*/"\"Actually, I still get to take breaks whenever I want, but it'd be great if he took me with him.\"",
             /*16*/ "(The show is about to start...)",
             /*17*/ "(Is that Kelly?)",
             /*18*/ "Oh hey, you look like my daughter's age.",
@@ -881,7 +881,7 @@ public class Data_GameDay : DataLoader
             /*3*/ "\"Yesterday I overheard my mom and Faraday talking about #a box#. It looked serious because a cop was there.\"",
             /*4*/ "\"Hey, you don't think that #cop guy works with Faraday#, do you?\"",
             /*5*/ "\"Shh, my mom's sitting over there...\"",
-            /*6*/ "\"Ugh that slimeball Faraday's pictures are everywhere. I don't get what my mom sees in him.\"",
+            /*6*/ "\"Ugh, that slimeball Faraday's pictures are everywhere. I don't get what my mom sees in him. I hope he doesn't get elected.\"",
             /*7*/ "\"I want my mom to realize that what she's doing is wrong, but I don't want her to be taken away from me. After all, she's still my mom and she's the only one I have.\"",
             /*8*/ "\"Excuse me, I'd like some Strawberry Squishies.\"",
             /*9*/ "\"Wait, wasn't there a coupon code Freewoman gave us in class?\"",

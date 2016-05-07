@@ -200,7 +200,7 @@ public class Data_GameDay : DataLoader
             /*17*/ "\"Oh, I should go do my #checkups# first.\"", 
             /*18*/ "\"Hi there, I hope you enjoyed the discussion about time loops.\"", 
             /*19*/ "\"I'm glad to hear that. I was working as the mayor's secretary for many years, and this was a good change of atmosphere!\"", 
-            /*20*/ "\"Two years ago, after Jerry Faraday won the elction, I was asked to pack up and leave.\"",
+            /*20*/ "\"Two years ago, after Jerry Faraday won the election, I was asked to pack up and leave.\"",
             /*21*/ "\"I'm not sure what I did wrong back then. I was accused of spreading rumors about the new mayor when I didn't.\"", 
             /*22*/ "\"I hope the new assistant at the town hall knows what she's doing.\"", 
             /*23*/ "\"Yes, her name is Patricia. She used to be my roommate back in college.\"", 
@@ -784,7 +784,7 @@ public class Data_GameDay : DataLoader
         id = 52;
         string[] susan = new string[]
         {
-            /*0*/ "\"On Wednesday, we wear blue\"",       
+            /*0*/ "\"On Wednesday, we wear blue.\"",       
             /*1*/ "\"Ew look at them running and sweating. Boys.\"",
             /*2*/ "\"I don't know where she is. Her mom is rarely home so she gets to go out and do whatever she wants.\"",
             /*3*/ "\"Oh no, I'm late for my massage appointment. Oh well, I'll visit #Yoona# another time.\"",
@@ -839,7 +839,7 @@ public class Data_GameDay : DataLoader
             /*16*/ "(The show is about to start...)",
             /*17*/ "(Is that Kelly?)",
             /*18*/ "Oh hey, you look like my daughter's age.",
-            /*19*/ "I love my girl, but I never have time to take care of her",
+            /*19*/ "I love my girl, but I never have time to take care of her.",
             /*20*/ "I try everything I could to give her a good life, but I don't think she understands. As long as she's happy, I'm happy.",
             /*21*/ "(The show should start soon...)",
             /*22*/ "(I should head over to #Main Street at 7 PM# and wait there.)",
